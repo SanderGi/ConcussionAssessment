@@ -1,0 +1,284 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"); /* Font-Awesome Icons */
+
+:root {
+  --font-family: Seravek, "Gill Sans Nova", Ubuntu, Calibri, "DejaVu Sans",
+    source-sans-pro, sans-serif;
+  --mono-space: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo,
+    Consolas, "DejaVu Sans Mono", monospace;
+
+  --background: midnightblue;
+  --primary: rgb(17, 17, 67);
+  --shadow: navy;
+  --secondary: #5468ff;
+  --tertiary: #5adaff;
+  --accent: blueviolet;
+
+  --max-width: min(100ch, 100%);
+}
+
+* {
+  box-sizing: border-box;
+  font-family: var(--font-family);
+}
+
+/* ===================== PAGE LAYOUT ===================== */
+body,
+html {
+  padding: 0%;
+  margin: 0%;
+}
+
+body {
+  background-color: var(--background);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+
+header {
+  color: white;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--primary);
+  position: relative;
+  box-shadow: 0px 2px 25px 0px var(--shadow);
+  padding: 6px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+header * {
+  display: inline;
+  vertical-align: middle;
+}
+
+header img {
+  height: 40px;
+  width: 40px;
+  border-radius: 8px;
+  margin-right: 10px;
+}
+
+header > div:last-child {
+  flex-grow: 2;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+main, .center {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+footer {
+  background-color: var(--primary);
+  color: white;
+  width: 100%;
+  text-align: center;
+  padding: 1px;
+  box-shadow: 0px -2px 25px 0px var(--shadow);
+}
+footer p {
+  text-align: center;
+  padding: 0;
+}
+
+section {
+  color: white;
+  background-color: var(--primary);
+  padding: 1em;
+  border-radius: 10px;
+  width: 80%;
+  max-width: var(--max-width);
+  margin-bottom: 20px;
+  text-align: center;
+  box-shadow: 0px 2px 25px 0px var(--shadow);
+}
+
+@media only screen and (max-width: 800px) {
+  section {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    border-radius: 0;
+  }
+}
+
+/* ===================== UI COMPONENTS ===================== */
+a {
+  color: white;
+}
+p, .left-align {
+  text-align: left;
+  padding-left: 8px;
+  width: 100%;
+  display: inline-block;
+}
+
+.spread-inline {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.fill-spread {
+  flex-grow: 1;
+}
+
+input[type="search"], 
+input[type="text"], 
+input[type="number"], 
+input[type="date"],
+input[type="datetime-local"] {
+  background-color: var(--primary);
+  color: white;
+  border: 1px solid var(--secondary);
+  border-radius: 6px;
+  padding: 7px;
+  margin: 5px;
+  min-width: 30ch;
+  color-scheme: dark;
+}
+input[type="search"]:focus-visible, 
+input[type="text"]:focus-visible, 
+input[type="number"]:focus-visible, 
+input[type="date"]:focus-visible,
+input[type="datetime-local"]:focus-visible {
+  outline: 1px solid var(--tertiary);
+}
+
+input[type="checkbox"] {
+  accent-color: var(--secondary);
+  border: 1px solid var(--secondary);
+}
+label:hover > input[type="checkbox"],
+input[type="checkbox"]:focus-visible {
+  accent-color: var(--accent);
+}
+label:has(> input[type="checkbox"]):hover,
+label:has(> input[type="checkbox"]:focus-visible) {
+  cursor: pointer;
+  background-color: var(--secondary);
+}
+
+select {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+  rgba(45, 35, 66, 0.3) 0 7px 13px -3px, rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
+  color: white;
+  border: 0;
+  border-radius: 6px;
+  padding: 8px;
+  padding-left: 12px;
+  padding-right: 24px;
+  margin: 5px;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: var(--primary);
+  background-image: url("/assets/down-arrow.svg"), radial-gradient(
+    100% 100% at 100% 0,
+    var(--tertiary) 0,
+    var(--secondary) 100%
+  );
+  background-size: 24px, cover;
+  background-repeat: no-repeat, no-repeat;
+  background-position: calc(100% - 4px) center, center, center;
+}
+
+dialog {
+  background-color: var(--background);
+  color: white;
+  width: max-content;
+  max-width: var(--max-width);
+  text-align: center;
+}
+dialog::backdrop {
+  backdrop-filter: blur(1px);
+}
+
+/* Fancy button with background gradient and animation */
+.button {
+  align-items: center;
+  appearance: none;
+  background-image: radial-gradient(
+    100% 100% at 100% 0,
+    var(--tertiary) 0,
+    var(--secondary) 100%
+  );
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
+  color: #fff;
+  padding: 10px;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: transform 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  margin: 5px;
+  min-width: 12ch;
+  font-size: 0.8rem;
+}
+.button:hover:not(:active) {
+  transform: translateY(-2px);
+}
+.button:active {
+  transform: translateY(2px);
+}
+.button:any-link {
+  color: white;
+  -webkit-tap-highlight-color: transparent;
+}
+.button--red {
+  background-image: radial-gradient(
+    100% 100% at 100% 0,
+    #fa7c7c 0,
+    #ff5468 100%
+  );
+}
+.button--green {
+  background-image: radial-gradient(
+    100% 100% at 100% 0,
+    #85ec77 0,
+    #3faf3f 100%
+  );
+}
+
+/* Round add button */
+.add {
+  background-color: var(--tertiary);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--secondary);
+  font-size: 1.5rem;
+  border: none;
+  padding: 0px;
+  transition: transform 0.15s;
+  margin-bottom: 20px;
+}
+.add:hover:not(:active) {
+  transform: translateY(-2px);
+}
+.add:active {
+  transform: translateY(2px);
+}
