@@ -69,11 +69,14 @@ header > div:last-child {
   flex-wrap: wrap;
 }
 
+main {
+  margin-top: 3em;
+}
 main, .center {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 

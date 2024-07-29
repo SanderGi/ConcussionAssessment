@@ -81,7 +81,7 @@ export async function syncSettings(name, email, status) {
   });
 }
 
-/** @typedef {import('./scripts.js').Test} Test */
+/** @typedef {import('../scripts.js').Test} Test */
 /**
  * Prompts the user to start a new test. Returns the test metadata (athlete name, timestamps, etc.) if the user confirms, null otherwise.
  * @param {Test[]} pastTests the list of tests that have been recorded so far for this athlete, sorted by timestamp ascending
@@ -91,7 +91,8 @@ export async function confirmAthleteInfo(
   defaultExaminerName = "Alex M"
 ) {
   const test_id = window.crypto.randomUUID();
-  const test_timestamp = Date.now();
+  const test_created_at = Date.now();
+  const test_updated_at = Date.now();
   const athlete_id = pastTests.at(-1)?.athlete_id ?? window.crypto.randomUUID();
   const athlete_name =
     pastTests.at(-1)?.athlete_name ??
@@ -225,7 +226,8 @@ export async function confirmAthleteInfo(
       if (action === "CANCEL") return resolve(null);
       resolve({
         test_id,
-        test_timestamp,
+        test_created_at,
+        test_updated_at,
         test_type: action,
         athlete_id: dialog.querySelector("#athlete_id").value,
         athlete_name: dialog.querySelector("#athlete_name").value,
