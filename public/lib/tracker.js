@@ -625,6 +625,7 @@ const tracker = {
         Run predictions
      */
   run: function (source) {
+    tracker.stopped = false;
     switch (source) {
       case "video":
         tracker.initVideo();
@@ -636,6 +637,30 @@ const tracker = {
         tracker.initStream();
         break;
     }
+  },
+
+  /*
+        Resets to the state before 'run'
+      */
+  stop: function () {
+    tracker.video.srcObject.getTracks().forEach(function (track) {
+      track.stop();
+    });
+    tracker.stopped = true;
+  },
+
+  /*
+        Returns a URL with a captured photo of the current frame
+      */
+  capturePhoto: async function (temporary = true) {
+    if (temporary === false) {
+      return tracker.canvas.toDataURL("image/jpeg", 0.5);
+    }
+    return await new Promise((resolve) => {
+      tracker.canvas.toBlob(function (blob) {
+        resolve(URL.createObjectURL(blob));
+      });
+    });
   },
 
   /*
@@ -805,7 +830,9 @@ const tracker = {
     }
 
     // init frame update
-    tracker.reqID = window.requestAnimationFrame(tracker.videoFrame);
+    if (!tracker.stopped) {
+      tracker.reqID = window.requestAnimationFrame(tracker.videoFrame);
+    }
   },
 
   /*
@@ -897,7 +924,9 @@ const tracker = {
     tracker.container.ready = true;
 
     // init frame update
-    tracker.reqID = window.requestAnimationFrame(tracker.videoFrame);
+    if (!tracker.stopped) {
+      tracker.reqID = window.requestAnimationFrame(tracker.videoFrame);
+    }
   },
 
   /*
@@ -982,7 +1011,9 @@ const tracker = {
     }
 
     // next frame
-    tracker.reqID = window.requestAnimationFrame(tracker.videoFrame);
+    if (!tracker.stopped) {
+      tracker.reqID = window.requestAnimationFrame(tracker.videoFrame);
+    }
   },
 
   /*
@@ -1095,7 +1126,9 @@ const tracker = {
     }
 
     // next frame
-    tracker.reqID = window.requestAnimationFrame(tracker.cameraFrame);
+    if (!tracker.stopped) {
+      tracker.reqID = window.requestAnimationFrame(tracker.cameraFrame);
+    }
   },
 
   /*

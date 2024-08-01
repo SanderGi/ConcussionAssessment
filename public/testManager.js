@@ -7,7 +7,7 @@ const TEST = "test";
 
 // ============================ Getters ============================
 export function getTest() {
-  const test = JSON.parse(sessionStorage.getItem(TEST));
+  const test = JSON.parse(sessionStorage.getItem(TEST)) ?? {};
   return test;
 }
 window.getTest = getTest;
@@ -24,6 +24,13 @@ export function getChecked(classname) {
     .map((el) => el.parentElement.textContent);
 }
 window.getChecked = getChecked;
+
+export function getRadioInt(name) {
+  return parseInt(
+    document.querySelector('input[name="' + name + '"]:checked')?.value
+  );
+}
+window.getRadioInt = getRadioInt;
 
 // ============================ Manage Test ============================
 export function renderCurrentTestSection() {
@@ -45,21 +52,32 @@ window.renderTestSection = renderTestSection;
 
 export async function saveTestResult(key, value) {
   const test = getTest();
-  test[key] = value;
-  tests[test.test_id] = test;
-  sessionStorage.setItem(TEST, JSON.stringify(test));
-  await syncData();
+  if (value !== test[key]) {
+    test[key] = value;
+    test.test_updated_at = Date.now();
+    tests[test.test_id] = test;
+    sessionStorage.setItem(TEST, JSON.stringify(test));
+    await syncData();
+  }
 }
 window.saveTestResult = saveTestResult;
 
-export function endTest() {
+export async function endTest() {
   const test = getTest();
-  tests[test.test_id] = test;
+  if (test.test_id) {
+    tests[test.test_id] = test;
+    await syncData();
+  }
+  renderTestSection("test-management");
   sessionStorage.removeItem(TEST);
   sessionStorage.removeItem(TEST_PHASE);
-  renderTestSection("test-management");
 }
 window.endTest = endTest;
+
+export function viewResults(test) {
+  sessionStorage.setItem(TEST, JSON.stringify(test));
+  renderTestSection("results");
+}
 
 export async function startTest(pastTests) {
   let defaultExaminerName = "William Brown";

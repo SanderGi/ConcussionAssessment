@@ -223,19 +223,26 @@ export async function deleteRemoteData() {
  * @property {number} [symptom_severity] out of 132
  * @property {number} [orientation] out of 5
  * @property {number} [immediate_memory] out of 30
+ * @property {string[]} [immediate_memory_words] list of 10 words used for immediate memory test
+ * @property {number} [immediate_memory_timestamp] Date.now() when immediate memory was completed
  * @property {number} [concentration] out of 5
- * @property {number} [delayed_Recall] out of 10
  * @property {number} [cognitive_total] out of 50 (sum of orientation, immediate_memory, concentration, delayed_recall)
  * @property {number} [mBESS_double_errors] out of 10
  * @property {number} [mBESS_single_errors] out of 10
  * @property {number} [mBESS_tandem_errors] out of 10
+ * @property {number} [mBESS_total_errors] out of 30
  * @property {number} [mBESS_foam_double_errors] out of 10
  * @property {number} [mBESS_foam_single_errors] out of 10
  * @property {number} [mBESS_foam_tandem_errors] out of 10
- * @property {number} [mBESS_total_errors] out of 30
  * @property {number} [mBESS_foam_total_errors] out of 30
  * @property {number} [tandem_gait_fastest_time] in seconds
  * @property {number} [dual_task_fastest_time] in seconds
+ * @property {number} [dual_task_accuracy] in percent of correct responses
+ * @property {number} [delayed_recall] out of 10
+ * @property {number} [delayed_recall_timestamp] Date.now() when delayed recall was started
+ * @property {"YES" | "NO" | "N/A"} [different_from_usual] if examiner knows the athlete, are they acting different from their usual self
+ * @property {"CONCUSSED" | "HEALTHY" | "DEFERRED"} [decision] the decision made by the examiner
+ * @property {string} [test_notes] clinical notes regarding the test
  */
 /** @type {Record<string, Test>} */
 export const tests = JSON.parse(localStorage.getItem(TESTS) ?? "{}");

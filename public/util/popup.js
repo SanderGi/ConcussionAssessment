@@ -1,3 +1,5 @@
+import { saveTestResult } from "../testManager.js";
+
 export async function alert(message) {
   return new Promise((resolve) => {
     const dialog = document.createElement("dialog");
@@ -74,6 +76,138 @@ export async function syncSettings(name, email, status) {
       if (e.target.tagName === "BUTTON") {
         dialog.remove();
         resolve(e.target.dataset.action);
+      }
+    };
+    document.body.appendChild(dialog);
+    dialog.showModal();
+  });
+}
+
+function errorPhotosToHTML(error_photos_arr) {
+  return (
+    error_photos_arr
+      .map(
+        (e) =>
+          `<div style="background-color: red" class="center">${e.error}</div><img src="${e.photo}" style="max-width: 100%; max-height: 10em; margin: 0.5em;">`
+      )
+      .join("") || "No errors detected."
+  );
+}
+export async function bessEndMenu(test, error_photos) {
+  return new Promise((resolve) => {
+    let foam_html = /* html */ `<button class="button" data-action="FOAM">Take Test</button>`;
+    if (!isNaN(test.mBESS_foam_total_errors)) {
+      foam_html = /* html */ `
+        <label style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">Double Leg Stance: <span><input style="min-width: 10ch; width: 10ch;" value="${
+          test.mBESS_foam_double_errors
+        }" type="number" data-field="mBESS_foam_double_errors"> of 10 <input type="checkbox" class="expander" data-expand="double-foam-details"></span></label>
+        <div id="double-foam-details" style="display: none;">
+          Normally 0.33 ± 0.90. Here are the ${
+            error_photos.mBESS_foam_double_errors.length
+          } auto identified errors:<br><br>
+          ${errorPhotosToHTML(error_photos.mBESS_foam_double_errors)}
+        </div>
+        <label style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">Tandem Stance: <span><input style="min-width: 10ch; width: 10ch;" value="${
+          test.mBESS_foam_tandem_errors
+        }" type="number" data-field="mBESS_foam_tandem_errors"> of 10 <input type="checkbox" class="expander" data-expand="tandem-foam-details"></span></label>
+        <div id="tandem-foam-details" style="display: none;">
+          Normally 5.06 ± 2.80. Here are the ${
+            error_photos.mBESS_foam_tandem_errors.length
+          } auto identified errors:<br><br>
+          ${errorPhotosToHTML(error_photos.mBESS_foam_tandem_errors)}
+        </div>
+        <label style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">Single Leg Stance: <span><input style="min-width: 10ch; width: 10ch;" value="${
+          test.mBESS_foam_single_errors
+        }" type="number" data-field="mBESS_foam_single_errors"> of 10 <input type="checkbox" class="expander" data-expand="single-foam-details"></span></label>
+        <div id="single-foam-details" style="display: none;">
+          Normally 3.65 ± 2.62. Here are the ${
+            error_photos.mBESS_foam_single_errors.length
+          } auto identified errors:<br><br>
+          ${errorPhotosToHTML(error_photos.mBESS_foam_single_errors)}
+        </div>
+        <label style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">Total Errors: <span><input style="min-width: 10ch; width: 10ch;" value="${
+          test.mBESS_foam_total_errors
+        }" type="number" disabled data-field="mBESS_foam_total_errors"> of 30 <input type="checkbox" class="expander" data-expand="total-foam-details"></span></label>
+        <div id="total-foam-details" style="display: none;">
+          Normally 8.65 ± 5.13. Combined foam and hard floor errors is normally 12.03 ± 7.34.
+        </div>
+        <button class="button button--red" data-action="FOAM">Retry</button>
+      `;
+    }
+
+    const dialog = document.createElement("dialog");
+    dialog.innerHTML = /* html */ `
+      <h3 style="margin-bottom: 0">BESS</h3>
+      <label style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">Double Leg Stance: <span><input style="min-width: 10ch; width: 10ch;" value="${
+        test.mBESS_double_errors
+      }" type="number" data-field="mBESS_double_errors"> of 10 <input type="checkbox" class="expander" data-expand="double-details"></span></label>
+      <div id="double-details" style="display: none;">
+        Normally 0.009 ± 0.12. Here are the ${
+          error_photos.mBESS_double_errors.length
+        } auto identified errors:<br><br>
+        ${errorPhotosToHTML(error_photos.mBESS_double_errors)}
+      </div>
+      <label style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">Tandem Stance: <span><input style="min-width: 10ch; width: 10ch;" value="${
+        test.mBESS_tandem_errors
+      }" type="number" data-field="mBESS_tandem_errors"> of 10 <input type="checkbox" class="expander" data-expand="tandem-details"></span></label>
+      <div id="tandem-details" style="display: none;">
+        Normally 2.45 ± 2.33. Here are the ${
+          error_photos.mBESS_tandem_errors.length
+        } auto identified errors:<br><br>
+        ${errorPhotosToHTML(error_photos.mBESS_tandem_errors)}
+      </div>
+      <label style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">Single Leg Stance: <span><input style="min-width: 10ch; width: 10ch;" value="${
+        test.mBESS_single_errors
+      }" type="number" data-field="mBESS_single_errors"> of 10 <input type="checkbox" class="expander" data-expand="single-details"></span></label>
+      <div id="single-details" style="display: none;">
+        Normally 0.91 ± 1.36. Here are the ${
+          error_photos.mBESS_single_errors.length
+        } auto identified errors:<br><br>
+        ${errorPhotosToHTML(error_photos.mBESS_single_errors)}
+      </div>
+      <label style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">Total Errors: <span><input style="min-width: 10ch; width: 10ch;" value="${
+        test.mBESS_total_errors
+      }" type="number" disabled data-field="mBESS_total_errors"> of 30 <input type="checkbox" class="expander" data-expand="total-details"></span></label>
+      <div id="total-details" style="display: none;">
+        Normally 3.37 ± 3.10.
+      </div>
+      <button class="button button--red" data-action="RETRY">Retry</button>
+      <h3 style="margin-bottom: 0">On Foam (optional)</h3>
+      ${foam_html}
+      <hr>
+      <button class="button" data-action="REDO_MANUALLY">Redo Manually</button>
+      <button class="button button--green" data-action="NEXT">Move on to Tandem Gait &nbsp; <i class="fa-solid fa-forward"></i></button>
+    `;
+    dialog.onclick = (e) => {
+      if (e.target.tagName === "BUTTON") {
+        dialog.remove();
+        resolve(e.target.dataset.action);
+      }
+    };
+    dialog.oninput = (e) => {
+      const field = e.target.dataset.field;
+      const value = parseInt(e.target.value);
+      if (!field) {
+        return;
+      }
+      test[field] = value;
+      saveTestResult(field, value);
+      if (field.includes("mBESS_foam")) {
+        test.mBESS_foam_total_errors =
+          test.mBESS_foam_double_errors +
+          test.mBESS_foam_single_errors +
+          test.mBESS_foam_tandem_errors;
+        dialog.querySelector(`[data-field="mBESS_foam_total_errors"]`).value =
+          test.mBESS_foam_total_errors;
+        saveTestResult("mBESS_foam_total_errors", test.mBESS_foam_total_errors);
+      } else {
+        test.mBESS_total_errors =
+          test.mBESS_double_errors +
+          test.mBESS_single_errors +
+          test.mBESS_tandem_errors;
+        dialog.querySelector(`[data-field="mBESS_total_errors"]`).value =
+          test.mBESS_total_errors;
+        saveTestResult("mBESS_total_errors", test.mBESS_total_errors);
       }
     };
     document.body.appendChild(dialog);
@@ -213,6 +347,7 @@ export async function confirmAthleteInfo(
       <h4>Start Assessment</h4>
       <p  style="margin-top: 0">The immediate assessment should be completed "on-field" after the first aid/emergency care priorities are completed.</p>
       <p>The "cognitive screening" portion of the baseline and post injury assessments should be completed in a distraction-free environment with the athlete in a resting state.</p>
+      <label class="left-align spread-inline">By starting a test, you confirm that you are a qualified health care professional: <input type="checkbox"></label><br><br>
       <button class="button button--green" data-action="IMMEDIATE">Immediate</button>
       <button class="button" data-action="BASELINE">Baseline</button>
       <button class="button" data-action="SUSPECTED/POST">Suspected/Post-Injury</button>
@@ -258,3 +393,10 @@ export async function confirmAthleteInfo(
     dialog.showModal();
   });
 }
+
+window.addEventListener("click", (e) => {
+  if (e.target.classList.contains("expander")) {
+    const details = document.getElementById(e.target.dataset.expand);
+    details.style.display = e.target.checked ? "block" : "none";
+  }
+});

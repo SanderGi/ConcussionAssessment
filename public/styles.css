@@ -13,7 +13,7 @@
   --tertiary: #5adaff;
   --accent: blueviolet;
 
-  --max-width: min(100ch, 100%);
+  --max-width: min(100ch, 100vw);
 }
 
 * {
@@ -70,7 +70,7 @@ header > div:last-child {
 }
 
 main {
-  margin-top: 3em;
+  margin-top: 1.5em;
 }
 main, .center {
   display: flex;
@@ -139,7 +139,8 @@ input[type="search"],
 input[type="text"], 
 input[type="number"], 
 input[type="date"],
-input[type="datetime-local"] {
+input[type="datetime-local"],
+textarea {
   background-color: var(--primary);
   color: white;
   border: 1px solid var(--secondary);
@@ -153,7 +154,8 @@ input[type="search"]:focus-visible,
 input[type="text"]:focus-visible, 
 input[type="number"]:focus-visible, 
 input[type="date"]:focus-visible,
-input[type="datetime-local"]:focus-visible {
+input[type="datetime-local"]:focus-visible,
+textarea:focus-visible {
   outline: 1px solid var(--tertiary);
 }
 
@@ -169,6 +171,34 @@ label:has(> input[type="checkbox"]):hover,
 label:has(> input[type="checkbox"]:focus-visible) {
   cursor: pointer;
   background-color: var(--secondary);
+}
+input:disabled {
+  opacity: 0.6;
+}
+
+input[type="checkbox"].expander {
+  appearance: none;
+  border: none;
+  margin: 0;
+  translate: 0 25%;
+}
+input[type="checkbox"].expander:before {
+  content: '';
+  background-image: url('./assets/right-arrow.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: block;
+  width: 1.8em;
+  height: 1.8em;
+}
+input[type="checkbox"].expander:checked:before {
+  background-image: url('./assets/down-arrow.svg');
+}
+
+textarea {
+  min-height: 10ch;
+  width: calc(100% - 10px);
+  resize: vertical;
 }
 
 select {
@@ -197,7 +227,7 @@ select {
 dialog {
   background-color: var(--background);
   color: white;
-  width: max-content;
+  width: var(--max-width);
   max-width: var(--max-width);
   text-align: center;
 }
@@ -284,4 +314,67 @@ dialog::backdrop {
 }
 .add:active {
   transform: translateY(2px);
+}
+
+table {
+  border-spacing: 16px 0;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+}
+tbody tr {
+  border-top: 1px dashed whitesmoke;
+}
+@media only screen and (max-width: 500px) {
+  /* Force table to not be like tables anymore */
+  table, 
+  thead, 
+  tbody, 
+  th, 
+  td, 
+  tr { 
+    display: block; 
+  }
+
+  /* Hide table headers (but not display: none;, for accessibility) */
+  thead tr { 
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  tbody tr {
+    /* Behave like a "column" */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: none;
+  }
+  tbody tr:not(:nth-child(1)) {
+    border-top: 1px solid whitesmoke;
+  }
+
+  td { 
+    /* Behave  like a "row" */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    border-top: 1px dashed whitesmoke;
+  }
+  td:last-of-type {
+    border-bottom: 1px dashed whitesmoke;
+  }
+
+  td:before { 
+    /* Label the data */
+    content: attr(data-title); 
+    /* Look like a table header */
+    white-space: nowrap;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }

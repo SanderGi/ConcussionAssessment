@@ -1,4 +1,4 @@
-import { renderCurrentTestSection } from "./testManager.js";
+import { renderCurrentTestSection, viewResults } from "./testManager.js";
 import {
   tests,
   athletes,
@@ -205,20 +205,47 @@ window.showAthleteResults = async (athlete_id) => {
   for (const canvas of container.getElementsByTagName("canvas")) {
     canvas.remove();
     container.lastChild.remove();
+    container.lastChild.remove();
+    container.lastChild.remove();
     return;
   }
 
   const summary = document.createElement("div");
-  summary.innerHTML = `
-    Last Baseline (${new Date(lastBaseline?.test_created_at)}): ${
-    lastBaseline?.mBESS_total_errors + lastBaseline?.cognitive_total
-  } / 80
-    <br>
-    Last Post Injury (${new Date(lastPostInjury?.test_created_at)}): ${
-    lastPostInjury?.mBESS_total_errors + lastPostInjury?.cognitive_total
-  } / 80
-  `;
+  if (!lastBaseline?.mBESS_total_errors || !lastBaseline?.cognitive_total) {
+    summary.innerHTML = "No baselines found for this athlete.<br>";
+  } else {
+    summary.innerHTML = `
+      Last Baseline (${new Date(lastBaseline?.test_created_at)}): ${
+      lastBaseline?.mBESS_total_errors + lastBaseline?.cognitive_total
+    } / 80 <br>`;
+  }
+  if (!lastPostInjury?.mBESS_total_errors || !lastPostInjury?.cognitive_total) {
+    summary.innerHTML += "No post-injuries found for this athlete.";
+  } else {
+    summary.innerHTML += `
+      Last Post Injury (${new Date(lastPostInjury?.test_created_at)}): ${
+      lastPostInjury?.mBESS_total_errors + lastPostInjury?.cognitive_total
+    } / 80`;
+  }
   container.appendChild(summary);
+
+  const selectTest = document.createElement("select");
+  for (const t of athleteTests.toReversed()) {
+    const option = document.createElement("option");
+    option.textContent = `${t.test_type} - ${new Date(
+      t.test_created_at
+    ).toDateString()}`;
+    option.value = t.test_id;
+    selectTest.appendChild(option);
+  }
+  container.appendChild(selectTest);
+  const openTestButton = document.createElement("button");
+  openTestButton.textContent = "Open Test Details";
+  openTestButton.className = "button";
+  openTestButton.onclick = () => {
+    viewResults(tests[selectTest.value]);
+  };
+  container.appendChild(openTestButton);
 
   const canvas = document.createElement("canvas");
   container.appendChild(canvas);

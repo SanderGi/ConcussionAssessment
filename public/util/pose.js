@@ -89,6 +89,210 @@ async function isEyesClosed(boundingBox, eyeAspectRatioThreshold = 0.013) {
   return isEyeClosed;
 }
 
+function getShoulderWidth(pose) {
+  const left_shoulder = pose.keypoints3D.find(
+    (kp) => kp.name === "left_shoulder"
+  );
+  const right_shoulder = pose.keypoints3D.find(
+    (kp) => kp.name === "right_shoulder"
+  );
+  return getEucledianDistance(
+    left_shoulder.x,
+    left_shoulder.y,
+    right_shoulder.x,
+    right_shoulder.y,
+    left_shoulder.z,
+    right_shoulder.z
+  );
+}
+
+function checkHandsOnHips(pose, threshold = 0.8) {
+  const left_wrist = pose.keypoints3D.find((kp) => kp.name === "left_wrist");
+  const right_wrist = pose.keypoints3D.find((kp) => kp.name === "right_wrist");
+  const left_hip = pose.keypoints3D.find((kp) => kp.name === "left_hip");
+  const right_hip = pose.keypoints3D.find((kp) => kp.name === "right_hip");
+  const shoulderWidth = getShoulderWidth(pose);
+
+  const left_hand_hip_distance = getScaledDistance(
+    left_wrist,
+    left_hip,
+    shoulderWidth
+  );
+  if (left_hand_hip_distance > threshold) {
+    return "Left hand is too far from the hip. Please move it closer.";
+  }
+
+  const right_hand_hip_distance = getScaledDistance(
+    right_wrist,
+    right_hip,
+    shoulderWidth
+  );
+  if (right_hand_hip_distance > threshold) {
+    return "Right hand is too far from the hip. Please move it closer.";
+  }
+
+  return null;
+}
+
+function checkStandingStraight(
+  pose,
+  forward_threshold = 1.6,
+  side_threshold = 0.24
+) {
+  const shoulderWidth = getShoulderWidth(pose);
+  const left_shoulder = pose.keypoints3D.find(
+    (kp) => kp.name === "left_shoulder"
+  );
+  const right_shoulder = pose.keypoints3D.find(
+    (kp) => kp.name === "right_shoulder"
+  );
+  const left_hip = pose.keypoints3D.find((kp) => kp.name === "left_hip");
+  const right_hip = pose.keypoints3D.find((kp) => kp.name === "right_hip");
+  const body_parts = [
+    pose.keypoints3D.find((kp) => kp.name === "nose"),
+    left_shoulder,
+    right_shoulder,
+    pose.keypoints3D.find((kp) => kp.name === "left_elbow"),
+    pose.keypoints3D.find((kp) => kp.name === "right_elbow"),
+    pose.keypoints3D.find((kp) => kp.name === "left_wrist"),
+    pose.keypoints3D.find((kp) => kp.name === "right_wrist"),
+    left_hip,
+    right_hip,
+    pose.keypoints3D.find((kp) => kp.name === "left_ankle"),
+    pose.keypoints3D.find((kp) => kp.name === "right_ankle"),
+  ];
+
+  const minZ = Math.min(...body_parts.map((kp) => kp.z));
+  const maxZ = Math.max(...body_parts.map((kp) => kp.z));
+  const foward_backward_bending_factor = (maxZ - minZ) / shoulderWidth;
+  if (foward_backward_bending_factor > forward_threshold) {
+    return "Please stand straight without bending/twisting knees or upper body.";
+  }
+
+  const left_hip_shoulder_distance = getEucledianDistance(
+    left_hip.x,
+    0,
+    left_shoulder.x,
+    0,
+    0,
+    0
+  );
+  const right_hip_shoulder_distance = getEucledianDistance(
+    right_hip.x,
+    0,
+    right_shoulder.x,
+    0,
+    0,
+    0
+  );
+  const max_hip_shoulder_distance = Math.max(
+    left_hip_shoulder_distance,
+    right_hip_shoulder_distance
+  );
+  const left_right_bending_factor = max_hip_shoulder_distance / shoulderWidth;
+  if (left_right_bending_factor > side_threshold) {
+    return "Please stand straight without moving hips side to side.";
+  }
+
+  return null;
+}
+
+function checkFeetTogether(pose, threshold = 0.4) {
+  const left_ankle = pose.keypoints3D.find((kp) => kp.name === "left_ankle");
+  const right_ankle = pose.keypoints3D.find((kp) => kp.name === "right_ankle");
+  const shoulderWidth = getShoulderWidth(pose);
+
+  const ankle_distance = getScaledDistance(
+    left_ankle,
+    right_ankle,
+    shoulderWidth
+  );
+  if (ankle_distance > threshold) {
+    return "Please keep feet together.";
+  }
+  return null;
+}
+
+function checkOneFootLifted(pose, threshold = 0.1) {
+  const left_ankle = pose.keypoints3D.find((kp) => kp.name === "left_ankle");
+  const right_ankle = pose.keypoints3D.find((kp) => kp.name === "right_ankle");
+  const shoulderWidth = getShoulderWidth(pose);
+
+  const height_diff = Math.abs(left_ankle.y - right_ankle.y) / shoulderWidth;
+  if (height_diff < threshold) {
+    return "Please lift dominant foot off the ground.";
+  }
+  return null;
+}
+
+function checkKneesTogether(pose, threshold = 0.4) {
+  const left_knee = pose.keypoints3D.find((kp) => kp.name === "left_knee");
+  const right_knee = pose.keypoints3D.find((kp) => kp.name === "right_knee");
+  const shoulderWidth = getShoulderWidth(pose);
+
+  const knee_distance = getScaledDistance(left_knee, right_knee, shoulderWidth);
+  if (knee_distance > threshold) {
+    return "Please keep knees together.";
+  }
+  return null;
+}
+
+function checkHeelToToe(
+  pose,
+  depth_threshold = 0.1,
+  alignment_threshold = 0.2
+) {
+  const left_ankle = pose.keypoints3D.find((kp) => kp.name === "left_ankle");
+  const right_ankle = pose.keypoints3D.find((kp) => kp.name === "right_ankle");
+  const shoulderWidth = getShoulderWidth(pose);
+
+  if (
+    left_ankle.score < tracker.minScore &&
+    right_ankle.score < tracker.minScore
+  ) {
+    return "The dominant foot must be visible in front of the non-dominant foot.";
+  }
+
+  const depth = Math.abs(left_ankle.z - right_ankle.z) / shoulderWidth;
+  const xdiff = Math.abs(left_ankle.x - right_ankle.x) / shoulderWidth;
+
+  if (depth < depth_threshold) {
+    return "Please move the dominant foot further forward.";
+  }
+
+  if (xdiff > alignment_threshold) {
+    return "Please align the heel of the dominant foot with the toe of the non-dominant foot.";
+  }
+
+  return null;
+}
+
+function checkElbowsBend(pose, threshold = 1.7) {
+  const left_elbow = pose.keypoints3D.find((kp) => kp.name === "left_elbow");
+  const right_elbow = pose.keypoints3D.find((kp) => kp.name === "right_elbow");
+  const shoulderWidth = getShoulderWidth(pose);
+
+  const elbow_distance = getScaledDistance(
+    left_elbow,
+    right_elbow,
+    shoulderWidth
+  );
+  if (elbow_distance < threshold) {
+    return "Please bend both elbows without twisting the shoulders.";
+  }
+  return null;
+}
+
+function checkVisible(pose, ids, display_names) {
+  for (let i = 0; i < ids.length; i++) {
+    const body_part = pose.keypoints3D.find((kp) => kp.name === ids[i]);
+    if (body_part.score < tracker.minScore) {
+      return `${display_names[i]} not detected. Please make sure it is fully in frame and you are facing the camera straight on.`;
+    }
+  }
+  return null;
+}
+
 // ============== Preprogrammed Poses ==============
 export async function assess_double_pose(poses) {
   if (poses.length === 0) {
@@ -97,38 +301,20 @@ export async function assess_double_pose(poses) {
     return `Multiple people detected. Please make sure only ${getAthleteName()} is in frame.`;
   } else {
     const pose = poses[0];
-    const left_shoulder = pose.keypoints3D.find(
-      (kp) => kp.name === "left_shoulder"
-    );
-    const right_shoulder = pose.keypoints3D.find(
-      (kp) => kp.name === "right_shoulder"
-    );
-    const left_elbow = pose.keypoints3D.find((kp) => kp.name === "left_elbow");
-    const right_elbow = pose.keypoints3D.find(
-      (kp) => kp.name === "right_elbow"
-    );
-    const left_wrist = pose.keypoints3D.find((kp) => kp.name === "left_wrist");
-    const right_wrist = pose.keypoints3D.find(
-      (kp) => kp.name === "right_wrist"
-    );
-    const left_hip = pose.keypoints3D.find((kp) => kp.name === "left_hip");
-    const right_hip = pose.keypoints3D.find((kp) => kp.name === "right_hip");
-    const left_ankle = pose.keypoints3D.find((kp) => kp.name === "left_ankle");
-    const right_ankle = pose.keypoints3D.find(
-      (kp) => kp.name === "right_ankle"
-    );
 
     const body_parts = [
-      left_shoulder,
-      right_shoulder,
-      left_elbow,
-      right_elbow,
-      left_wrist,
-      right_wrist,
-      left_hip,
-      right_hip,
-      left_ankle,
-      right_ankle,
+      "left_shoulder",
+      "right_shoulder",
+      "left_elbow",
+      "right_elbow",
+      "left_wrist",
+      "right_wrist",
+      "left_hip",
+      "right_hip",
+      "left_knee",
+      "right_knee",
+      "left_ankle",
+      "right_ankle",
     ];
     const display_names = [
       "Left shoulder",
@@ -139,90 +325,39 @@ export async function assess_double_pose(poses) {
       "Right wrist",
       "Left hip",
       "Right hip",
+      "Left knee",
+      "Right knee",
       "Left ankle",
       "Right ankle",
     ];
-    for (let i = 0; i < body_parts.length; i++) {
-      if (body_parts[i].score < tracker.minScore) {
-        return `${display_names[i]} not detected. Please make sure it is fully in frame and you are facing the camera straight on.`;
-      }
+    const visibilityError = checkVisible(pose, body_parts, display_names);
+    if (visibilityError) {
+      return visibilityError;
     }
 
-    // calibration length
-    const shoulderWidth = getEucledianDistance(
-      left_shoulder.x,
-      left_shoulder.y,
-      right_shoulder.x,
-      right_shoulder.y,
-      left_shoulder.z,
-      right_shoulder.z
-    );
-
-    const left_hand_hip_distance = getScaledDistance(
-      left_wrist,
-      left_hip,
-      shoulderWidth
-    );
-    if (left_hand_hip_distance > 0.8) {
-      return "Left hand is too far from the hip. Please move it closer.";
-    }
-    const right_hand_hip_distance = getScaledDistance(
-      right_wrist,
-      right_hip,
-      shoulderWidth
-    );
-    if (right_hand_hip_distance > 0.8) {
-      return "Right hand is too far from the hip. Please move it closer.";
+    const handsOnHipsError = checkHandsOnHips(pose);
+    if (handsOnHipsError) {
+      return handsOnHipsError;
     }
 
-    const minZ = Math.min(...body_parts.map((kp) => kp.z));
-    const maxZ = Math.max(...body_parts.map((kp) => kp.z));
-    const foward_backward_bending_factor = (maxZ - minZ) / shoulderWidth;
-    if (foward_backward_bending_factor > 1.4) {
-      return "Please stand straight without bending/twisting knees or upper body.";
+    const standingStraightError = checkStandingStraight(pose);
+    if (standingStraightError) {
+      return standingStraightError;
     }
 
-    const left_hip_shoulder_distance = getEucledianDistance(
-      left_hip.x,
-      0,
-      left_shoulder.x,
-      0,
-      0,
-      0
-    );
-    const right_hip_shoulder_distance = getEucledianDistance(
-      right_hip.x,
-      0,
-      right_shoulder.x,
-      0,
-      0,
-      0
-    );
-    const max_hip_shoulder_distance = Math.max(
-      left_hip_shoulder_distance,
-      right_hip_shoulder_distance
-    );
-    const left_right_bending_factor = max_hip_shoulder_distance / shoulderWidth;
-    if (left_right_bending_factor > 0.24) {
-      return "Please stand straight without moving hips side to side.";
+    const feetTogetherError = checkFeetTogether(pose);
+    if (feetTogetherError) {
+      return feetTogetherError;
     }
 
-    const ankle_distance = getScaledDistance(
-      left_ankle,
-      right_ankle,
-      shoulderWidth
-    );
-    if (ankle_distance > 0.4) {
-      return "Please keep feet together.";
+    const kneesTogetherError = checkKneesTogether(pose);
+    if (kneesTogetherError) {
+      return kneesTogetherError;
     }
 
-    const elbow_distance = getScaledDistance(
-      left_elbow,
-      right_elbow,
-      shoulderWidth
-    );
-    if (elbow_distance < 1.7) {
-      return "Please bend both elbows without twisting the shoulders.";
+    const elbowBendError = checkElbowsBend(pose);
+    if (elbowBendError) {
+      return elbowBendError;
     }
 
     if (await isEyesClosed(getFaceBoundingBox(pose))) {
@@ -240,54 +375,85 @@ export async function assess_tandem_pose(poses) {
     return `Multiple people detected. Please make sure only ${getAthleteName()} is in frame.`;
   } else {
     const pose = poses[0];
-    const left_shoulder = pose.keypoints3D.find(
-      (kp) => kp.name === "left_shoulder"
-    );
-    const right_shoulder = pose.keypoints3D.find(
-      (kp) => kp.name === "right_shoulder"
-    );
-    const left_elbow = pose.keypoints3D.find((kp) => kp.name === "left_elbow");
-    const right_elbow = pose.keypoints3D.find(
-      (kp) => kp.name === "right_elbow"
-    );
-    const left_wrist = pose.keypoints3D.find((kp) => kp.name === "left_wrist");
-    const right_wrist = pose.keypoints3D.find(
-      (kp) => kp.name === "right_wrist"
-    );
-    const left_hip = pose.keypoints3D.find((kp) => kp.name === "left_hip");
-    const right_hip = pose.keypoints3D.find((kp) => kp.name === "right_hip");
-    const left_knee = pose.keypoints3D.find((kp) => kp.name === "left_knee");
-    const right_knee = pose.keypoints3D.find((kp) => kp.name === "right_knee");
-    const left_ankle = pose.keypoints3D.find((kp) => kp.name === "left_ankle");
-    const right_ankle = pose.keypoints3D.find(
-      (kp) => kp.name === "right_ankle"
-    );
-    const left_heel = pose.keypoints3D.find((kp) => kp.name === "left_heel");
-    const right_heel = pose.keypoints3D.find((kp) => kp.name === "right_heel");
-    const left_foot_index = pose.keypoints3D.find(
-      (kp) => kp.name === "left_foot_index"
-    );
-    const right_foot_index = pose.keypoints3D.find(
-      (kp) => kp.name === "right_foot_index"
-    );
 
     const body_parts = [
-      left_shoulder,
-      right_shoulder,
-      left_elbow,
-      right_elbow,
-      left_wrist,
-      right_wrist,
-      left_hip,
-      right_hip,
-      left_knee,
-      right_knee,
-      left_ankle,
-      right_ankle,
-      left_heel,
-      right_heel,
-      left_foot_index,
-      right_foot_index,
+      "left_shoulder",
+      "right_shoulder",
+      "left_elbow",
+      "right_elbow",
+      "left_wrist",
+      "right_wrist",
+      "left_hip",
+      "right_hip",
+      "left_knee",
+      "right_knee",
+    ];
+    const display_names = [
+      "Left shoulder",
+      "Right shoulder",
+      "Left elbow",
+      "Right elbow",
+      "Left wrist",
+      "Right wrist",
+      "Left hip",
+      "Right hip",
+      "Left knee",
+      "Right knee",
+    ];
+    const visibilityError = checkVisible(pose, body_parts, display_names);
+    if (visibilityError) {
+      return visibilityError;
+    }
+
+    const handsOnHipsError = checkHandsOnHips(pose);
+    if (handsOnHipsError) {
+      return handsOnHipsError;
+    }
+
+    const standingStraightError = checkStandingStraight(pose, 2.0);
+    if (standingStraightError) {
+      return standingStraightError;
+    }
+
+    const heelToToeError = checkHeelToToe(pose);
+    if (heelToToeError) {
+      return heelToToeError;
+    }
+
+    const elbowBendError = checkElbowsBend(pose);
+    if (elbowBendError) {
+      return elbowBendError;
+    }
+
+    if (await isEyesClosed(getFaceBoundingBox(pose))) {
+      return null;
+    } else {
+      return "Please close your eyes.";
+    }
+  }
+}
+
+export async function assess_single_pose(poses) {
+  if (poses.length === 0) {
+    return "Can't find athlete. Please make sure they are fully in frame.";
+  } else if (poses.length > 1) {
+    return `Multiple people detected. Please make sure only ${getAthleteName()} is in frame.`;
+  } else {
+    const pose = poses[0];
+
+    const body_parts = [
+      "left_shoulder",
+      "right_shoulder",
+      "left_elbow",
+      "right_elbow",
+      "left_wrist",
+      "right_wrist",
+      "left_hip",
+      "right_hip",
+      "left_knee",
+      "right_knee",
+      "left_ankle",
+      "right_ankle",
     ];
     const display_names = [
       "Left shoulder",
@@ -302,17 +468,36 @@ export async function assess_tandem_pose(poses) {
       "Right knee",
       "Left ankle",
       "Right ankle",
-      "Left heel",
-      "Right heel",
-      "Left forefoot",
-      "Right forefoot",
     ];
-    for (let i = 0; i < body_parts.length; i++) {
-      if (body_parts[i].score < tracker.minScore) {
-        return `${display_names[i]} not detected. Please make sure it is fully in frame and you are facing the camera straight on.`;
-      }
+    const visibilityError = checkVisible(pose, body_parts, display_names);
+    if (visibilityError) {
+      return visibilityError;
+    }
+
+    const handsOnHipsError = checkHandsOnHips(pose);
+    if (handsOnHipsError) {
+      return handsOnHipsError;
+    }
+
+    const standingStraightError = checkStandingStraight(pose, 2.0, 0.4);
+    if (standingStraightError) {
+      return standingStraightError;
+    }
+
+    const elbowBendError = checkElbowsBend(pose);
+    if (elbowBendError) {
+      return elbowBendError;
+    }
+
+    const oneFootLiftedError = checkOneFootLifted(pose);
+    if (oneFootLiftedError) {
+      return oneFootLiftedError;
+    }
+
+    if (await isEyesClosed(getFaceBoundingBox(pose))) {
+      return null;
+    } else {
+      return "Please close your eyes.";
     }
   }
 }
-
-export async function assess_single_pose(poses) {}

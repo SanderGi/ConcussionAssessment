@@ -29,21 +29,24 @@ export function startListening(onResult) {
     }
   });
   recognition.addEventListener("end", () => {
-    console.log("Restarting speech recognition");
-    recognition.start();
+    if (listening) {
+      console.log("Restarting speech recognition");
+      recognition.start();
+    }
   });
 }
 export function abortListening() {
   if (listening) {
-    listening.abort();
+    const recognition = listening;
     listening = false;
+    recognition.abort();
   }
 }
 export function stopListening() {
   if (listening) {
-    const results = listening.stop();
+    const recognition = listening;
     listening = false;
-    return results;
+    return recognition.stop();
   }
 }
 export async function listenOnce() {
@@ -70,6 +73,10 @@ export function speak(text) {
   const utterance = new SpeechSynthesisUtterance(text);
   synth.speak(utterance);
 }
+window.speak = speak;
 export function isSpeaking() {
   return synth.speaking;
+}
+export function abortSpeaking() {
+  synth.cancel();
 }
