@@ -30,6 +30,8 @@ function getFaceBoundingBox(pose) {
 
 // ============== Pose Utils ==============
 async function isEyesClosed(boundingBox, eyeAspectRatioThreshold = 0.013) {
+  if (!tracker.faceModel) return true;
+
   let isEyeClosed = true;
   let image = tracker.video;
   // clip video to bounding box to improve accuracy when the subject is far away
@@ -106,7 +108,7 @@ function getShoulderWidth(pose) {
   );
 }
 
-function checkHandsOnHips(pose, threshold = 0.8) {
+function checkHandsOnHips(pose, threshold = 0.9) {
   const left_wrist = pose.keypoints3D.find((kp) => kp.name === "left_wrist");
   const right_wrist = pose.keypoints3D.find((kp) => kp.name === "right_wrist");
   const left_hip = pose.keypoints3D.find((kp) => kp.name === "left_hip");
@@ -136,8 +138,8 @@ function checkHandsOnHips(pose, threshold = 0.8) {
 
 function checkStandingStraight(
   pose,
-  forward_threshold = 1.6,
-  side_threshold = 0.24
+  forward_threshold = 1.9,
+  side_threshold = 0.3
 ) {
   const shoulderWidth = getShoulderWidth(pose);
   const left_shoulder = pose.keypoints3D.find(
@@ -197,7 +199,7 @@ function checkStandingStraight(
   return null;
 }
 
-function checkFeetTogether(pose, threshold = 0.4) {
+function checkFeetTogether(pose, threshold = 0.5) {
   const left_ankle = pose.keypoints3D.find((kp) => kp.name === "left_ankle");
   const right_ankle = pose.keypoints3D.find((kp) => kp.name === "right_ankle");
   const shoulderWidth = getShoulderWidth(pose);
@@ -225,7 +227,7 @@ function checkOneFootLifted(pose, threshold = 0.1) {
   return null;
 }
 
-function checkKneesTogether(pose, threshold = 0.4) {
+function checkKneesTogether(pose, threshold = 0.5) {
   const left_knee = pose.keypoints3D.find((kp) => kp.name === "left_knee");
   const right_knee = pose.keypoints3D.find((kp) => kp.name === "right_knee");
   const shoulderWidth = getShoulderWidth(pose);
@@ -267,7 +269,7 @@ function checkHeelToToe(
   return null;
 }
 
-function checkElbowsBend(pose, threshold = 1.7) {
+function checkElbowsBend(pose, threshold = 1.6) {
   const left_elbow = pose.keypoints3D.find((kp) => kp.name === "left_elbow");
   const right_elbow = pose.keypoints3D.find((kp) => kp.name === "right_elbow");
   const shoulderWidth = getShoulderWidth(pose);

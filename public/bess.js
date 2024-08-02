@@ -157,10 +157,15 @@ tracker.elCanvas = "#canvas";
 tracker.elVideo = "#video";
 tracker.idealFacingMode = "environment";
 
+let firstSection = null;
 document.addEventListener("renderTestSection", async (event) => {
+  firstSection = firstSection ?? event.detail;
   if (event.detail === "bess") {
-    tracker.idealWidth = window.innerWidth;
+    tracker.idealWidth = window.innerWidth * 0.9;
     tracker.idealHeight = window.innerHeight;
+    if (firstSection === "bess") {
+      await alert("The automated balance system will use the camera."); // must be a user gesture on a dom element (e.g. popup.js alert, not built-in alert)
+    }
     tracker.run("camera");
 
     tracker.faceModel = await faceLandmarksDetection.createDetector(

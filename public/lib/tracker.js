@@ -36,6 +36,7 @@ const tracker = {
   idealWidth: 1280, // ideal canvas width
   idealHeight: 720, // ideal canvas height
   idealFacingMode: "user", // ideal camera facing mode
+  fps: 20, // ideal camera FPS
 
   // HTML elements
   el3D: "#view_3d", // HTML element for 3D keypoint
@@ -43,6 +44,7 @@ const tracker = {
   elVideo: "#video", // HTML element for video
 
   // internals
+  lastFrameTime: 0, // last frame time for FPS calculation
   detector: null, // tensor flow detector instance
   reqID: null, // requested frame ID
   isPlaying: false, // bool, current playback state
@@ -646,7 +648,29 @@ const tracker = {
     tracker.video.srcObject.getTracks().forEach(function (track) {
       track.stop();
     });
-    tracker.stopped = true;
+    tracker.isPlaying = false; // allow new initialization
+    tracker.stopped = true; // prevent new frame requests
+
+    // cancel current frame update if present
+    if (tracker.reqID != null) {
+      window.cancelAnimationFrame(tracker.reqID);
+    }
+
+    // dispose current detector
+    if (tracker.detector != null) {
+      tracker.detector.dispose();
+    }
+    tracker.detector = null;
+  },
+
+  /*
+        Change camera facing mode ("user" or "environment")
+      */
+  changeCameraFacingMode: async function (mode) {
+    tracker.idealFacingMode = mode;
+    tracker.video = await tracker.setupCamera();
+    tracker.video.play();
+    tracker.cameraFrame();
   },
 
   /*
@@ -924,9 +948,7 @@ const tracker = {
     tracker.container.ready = true;
 
     // init frame update
-    if (!tracker.stopped) {
-      tracker.reqID = window.requestAnimationFrame(tracker.videoFrame);
-    }
+    tracker.reqID = window.requestAnimationFrame(tracker.videoFrame);
   },
 
   /*
@@ -963,6 +985,17 @@ const tracker = {
         Render video frame
      */
   videoFrame: async function () {
+    if (tracker.stopped) return;
+
+    const targetSPF = 1.0 / tracker.fps;
+    const secondsSinceLastFrame =
+      (performance.now() - tracker.lastFrameTime) / 1000.0;
+    if (secondsSinceLastFrame < targetSPF) {
+      tracker.reqID = window.requestAnimationFrame(tracker.videoFrame);
+      return;
+    }
+    tracker.lastFrameTime = performance.now();
+
     tracker.setStatus("");
 
     // check if video is ready
@@ -1011,9 +1044,7 @@ const tracker = {
     }
 
     // next frame
-    if (!tracker.stopped) {
-      tracker.reqID = window.requestAnimationFrame(tracker.videoFrame);
-    }
+    tracker.reqID = window.requestAnimationFrame(tracker.videoFrame);
   },
 
   /*
@@ -1030,8 +1061,10 @@ const tracker = {
 
     // init camera
     try {
+      tracker.setStatus("Please wait...initializing camera...");
       tracker.video = await tracker.setupCamera();
       tracker.video.play();
+      tracker.setStatus("");
       tracker.cameraFrame();
     } catch (e) {
       tracker.dispatch("videoerror", e);
@@ -1043,23 +1076,20 @@ const tracker = {
         Set-up camera
      */
   setupCamera: async function () {
-    tracker.setStatus("Please wait...initializing camera...");
     // init device
     if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
       throw new Error(
         "Browser API navigator.mediaDevices.getUserMedia not available"
       );
     }
+    const isPortrait = window.innerHeight > window.innerWidth;
     const stream = await navigator.mediaDevices.getUserMedia({
       audio: false,
       video: {
-        width: {
-          ideal: tracker.idealWidth,
-        },
-        height: {
-          ideal: tracker.idealHeight,
-        },
         facingMode: tracker.idealFacingMode,
+        aspectRatio: isPortrait
+          ? tracker.idealHeight / tracker.idealWidth
+          : tracker.idealWidth / tracker.idealHeight,
       },
     });
     tracker.video.srcObject = stream; // attach camera stream to video
@@ -1070,10 +1100,10 @@ const tracker = {
     let stream_height = stream_settings.height;
 
     // re-init width and height with info from stream
-    tracker.video.width = stream_width;
-    tracker.video.height = stream_height;
-    tracker.canvas.width = stream_width;
-    tracker.canvas.height = stream_height;
+    tracker.video.width = isPortrait ? stream_height : stream_width;
+    tracker.video.height = isPortrait ? stream_width : stream_height;
+    tracker.canvas.width = isPortrait ? stream_height : stream_width;
+    tracker.canvas.height = isPortrait ? stream_width : stream_height;
 
     return new Promise((resolve) => {
       tracker.video.onloadedmetadata = () => resolve(video);
@@ -1084,7 +1114,16 @@ const tracker = {
         Render camera frame
      */
   cameraFrame: async function () {
-    tracker.setStatus("");
+    if (tracker.stopped) return;
+
+    const targetSPF = 1.0 / tracker.fps;
+    const secondsSinceLastFrame =
+      (performance.now() - tracker.lastFrameTime) / 1000.0;
+    if (secondsSinceLastFrame < targetSPF) {
+      tracker.reqID = window.requestAnimationFrame(tracker.cameraFrame);
+      return;
+    }
+    tracker.lastFrameTime = performance.now();
 
     // predict poses
     tracker.poses = await tracker.detector.estimatePoses(tracker.video);
@@ -1126,9 +1165,7 @@ const tracker = {
     }
 
     // next frame
-    if (!tracker.stopped) {
-      tracker.reqID = window.requestAnimationFrame(tracker.cameraFrame);
-    }
+    tracker.reqID = window.requestAnimationFrame(tracker.cameraFrame);
   },
 
   /*

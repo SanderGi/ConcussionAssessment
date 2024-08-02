@@ -69,8 +69,9 @@ export async function listenOnce() {
 
 // speech synthesis
 const synth = window.speechSynthesis;
-export function speak(text) {
+export function speak(text, lang = "en-US") {
   const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = lang;
   synth.speak(utterance);
 }
 window.speak = speak;

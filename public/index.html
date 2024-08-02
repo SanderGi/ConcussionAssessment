@@ -105,7 +105,7 @@
             <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Intentionally moves away from pain: <input type="radio" name="motor-response" value="5"/></label>
             <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Obeys commands: <input type="radio" name="motor-response" value="6"/></label>
 
-            <button class="button button--green" id="complete-gcs-btn">Next &nbsp; <i class="fa-solid fa-forward"></i></button>
+            <button class="button button--green" id="complete-gcs-btn">Start Cervical Spine &nbsp; <i class="fa-solid fa-forward"></i></button>
             <script>
                 document.getElementById('complete-gcs-btn').onclick = () => {
                     const score = getRadioInt('eye-response') + getRadioInt('verbal-response') + getRadioInt('motor-response');
@@ -134,7 +134,7 @@
             <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Limb strength and sensation is normal: <input type="checkbox" class="cervical-spine" data-should="true"/></label>
 
             <button class="button button--red" onclick="alert('Spinal Immobilization and cervical color. Then remove athlete from Play for Immediate Medical Assessment or Transport to Hospital/Medical Center'); endTest()">Not Fully Conscious</button>
-            <button class="button button--green" id="complete-cervical-spine-btn">Next &nbsp; <i class="fa-solid fa-forward"></i></button>
+            <button class="button button--green" id="complete-cervical-spine-btn">Start Coordination &nbsp; <i class="fa-solid fa-forward"></i></button>
             <script>
                 document.getElementById('complete-cervical-spine-btn').addEventListener('click', () => {
                     const checkboxes = document.querySelectorAll('.cervical-spine');
@@ -156,7 +156,7 @@
             <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Coordination. Finger-to-nose is normal for both hands with eyes open and closed: <input type="checkbox" class="coordination"/></label>
             <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Ocular/Motor. Athlete can look side-to-side and up-and-down without moving their head/neck or getting double vision: <input type="checkbox" class="coordination"/></label>
             <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Observed extraocular eye movements are normal: <input type="checkbox" class="coordination"/></label>
-            <button class="button button--green" onclick="getChecked('coordination').length === 3 ? renderTestSection('maddocks-score') : (alert('Remove athlete from Play for Immediate Medical Assessment or Transport to Hospital/Medical Center') && endTest())">Next &nbsp; <i class="fa-solid fa-forward"></i></button>
+            <button class="button button--green" onclick="getChecked('coordination').length === 3 ? renderTestSection('maddocks-score') : (alert('Remove athlete from Play for Immediate Medical Assessment or Transport to Hospital/Medical Center') && endTest())">Start Maddocks &nbsp; <i class="fa-solid fa-forward"></i></button>
         </section>
     </main>
     <main style="display: none;" id="maddocks-score">
@@ -169,7 +169,7 @@
             <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Who scored last in this match? <input type="checkbox" class="maddocks"/></label>
             <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">What team did you play last week / game? <input type="checkbox" class="maddocks"/></label>
             <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Did your team win the last game? <input type="checkbox" class="maddocks"/></label>
-            <button class="button button--green" id="maddocks-end-btn">Next &nbsp; <i class="fa-solid fa-forward"></i></button>
+            <button class="button button--green" id="maddocks-end-btn">Start Symptom Evaluation &nbsp; <i class="fa-solid fa-forward"></i></button>
             <script>
                 document.getElementById('maddocks-end-btn').addEventListener('click', () => {
                     const score = getChecked('maddocks').length;
@@ -216,7 +216,7 @@
             <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Sadness: <input type="number" class="symptom-baseline" value="0"/></label>
             <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Nervous or anxious: <input type="number" class="symptom-baseline" value="0"/></label>
             <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Trouble falling asleep: <input type="number" class="symptom-baseline" value="0"/></label>
-            <button class="button button--green" id="symptom-baseline-end-btn">Next &nbsp; <i class="fa-solid fa-forward"></i></button>
+            <button class="button button--green" id="symptom-baseline-end-btn">Start Orientation &nbsp; <i class="fa-solid fa-forward"></i></button>
             <script>
                 document.getElementById('symptom-baseline-end-btn').onclick = () => {
                     const symptoms = document.querySelectorAll('.symptom-baseline');
@@ -256,7 +256,7 @@
             <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Sadness: <input type="number" class="symptom" value="0"/></label>
             <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Nervous or anxious: <input type="number" class="symptom" value="0"/></label>
             <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Trouble falling asleep: <input type="number" class="symptom" value="0"/></label>
-            <button class="button button--green" id="symptom-end-btn">Next &nbsp; <i class="fa-solid fa-forward"></i></button>
+            <button class="button button--green" id="symptom-end-btn">Start Orientation &nbsp; <i class="fa-solid fa-forward"></i></button>
             <script>
                 document.getElementById('symptom-end-btn').onclick = () => {
                     const symptoms = document.querySelectorAll('.symptom');
@@ -278,7 +278,7 @@
             <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">What is the day of the week? <input type="checkbox" class="orientation"/></label>
             <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">What year is it? <input type="checkbox" class="orientation"/></label>
             <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">What time is it right now (within 1 hour)? <input type="checkbox" class="orientation"/></label>
-            <button class="button button--green" id="orientation-end-btn">Next &nbsp; <i class="fa-solid fa-forward"></i></button>
+            <button class="button button--green" id="orientation-end-btn">Start Immediate Memory &nbsp; <i class="fa-solid fa-forward"></i></button>
             <script>
                 document.getElementById('orientation-end-btn').addEventListener('click', () => {
                     const score = getChecked('orientation').length;
@@ -306,7 +306,7 @@
                     </tr>
                 </tbody>
             </table>
-            <button class="button button--green" id="immediate-memory-end-btn">Next &nbsp; <i class="fa-solid fa-forward"></i></button>
+            <button class="button button--green" id="immediate-memory-end-btn">Start Concentration &nbsp; <i class="fa-solid fa-forward"></i></button>
             <script>
                 document.addEventListener("renderTestSection", async (event) => {
                     if (event.detail === "immediate-memory") {
@@ -370,7 +370,7 @@
                 <li>January</li>
             </ul>
             <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Completed correctly: <input type="checkbox" id="concentration-months"/></label>
-            <button class="button button--green" id="concentration-end-btn">Next &nbsp; <i class="fa-solid fa-forward"></i></button>
+            <button class="button button--green" id="concentration-end-btn">Start BESS &nbsp; <i class="fa-solid fa-forward"></i></button>
             <script>
                 document.getElementById('concentration-end-btn').addEventListener('click', () => {
                     const digits = parseInt(document.getElementById('concentration-digits').value);
@@ -405,7 +405,8 @@
                 <div id="status" style="opacity: 0.8; position: absolute; bottom: 0; left: 0; width: 100%; padding: 10px; background-color: gray;" class="center">Getting camera permissions...</div>
             </div>
             <button class="button" id="voice-ctrl-button">Voice Ctrl &nbsp; <i class="fa-solid fa-microphone"></i></button>
-            <button class="button" id="mirror-button">Mirror &nbsp; <i class="fa-solid fa-arrow-right-arrow-left"></i></button>
+            <button class="button" id="mirror-button">Mirror &nbsp; <img src="./assets/mirror.svg" style="height: 1em"></button>
+            <button class="button" id="switch-camera-direction" onclick="tracker.changeCameraFacingMode(tracker.idealFacingMode == 'user' ? 'environment' : 'user')">Switch Camera &nbsp; <img src="./assets/flip-camera.svg" style="height: 1em"></button>
             <button class="button button--red" onclick="renderTestSection('manual-bess')">Assess Manually &nbsp; <i class="fa-solid fa-forward"></i></button>
 
             <script defer src="./lib/tensorflow/tfjs-core.js"></script>
@@ -467,7 +468,7 @@
             <img src="assets/single_leg.png" style="height: 100%; max-height: 40vh; margin: 0 auto; margin-bottom: 6px">
             <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Number of errors: <input type="number" id="single-leg-foam-errors" value="0"/></label>
         
-            <button class="button button--green" id="bess-end-btn">Next &nbsp; <i class="fa-solid fa-forward"></i></button>
+            <button class="button button--green" id="bess-end-btn">Start Tandem Gait &nbsp; <i class="fa-solid fa-forward"></i></button>
             <script>
                 document.getElementById('bess-end-btn').addEventListener('click', () => {
                     const doubleLegErrors = parseInt(document.getElementById('double-leg-errors').value);
@@ -558,7 +559,7 @@
                 </tbody>
             </table>
             <p>Healthy athletes typically complete the task in 18.7-22.5 seconds with 85.8-92.4% accuracy (0.9-1.7 errors). Concussed athletes typically take 30.6-36.1 seconds with 76.4-83.6% accuracy (2.0-2.8 errors).</p>
-            <button class="button" onclick="renderTestSection('delayed-recall')">Move on to Delayed Recall &nbsp; <i class="fa-solid fa-forward"></i></button>
+            <button class="button" onclick="renderTestSection('delayed-recall')">Start Delayed Recall &nbsp; <i class="fa-solid fa-forward"></i></button>
             <script src="./dual-task.js" type="module"></script>
         </section>
     </main>
