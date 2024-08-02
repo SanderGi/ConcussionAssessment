@@ -593,6 +593,7 @@
         // ============================ Debug ============================
         if (/dev=true/.test(window.location)) {
             import('./lib/eruda.js').then(() => eruda.init());
+            import('./util/popup.js').then(m => window.BessConfig = m.BessConfig);
         }
     </script>
   </body>

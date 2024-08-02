@@ -83,6 +83,87 @@ export async function syncSettings(name, email, status) {
   });
 }
 
+export async function BessConfig() {
+  window.eyeAspectRatioThreshold ||= 0.013;
+  window.handsOnHipThreshold ||= 0.9;
+  window.standingStraightForwardThreshold ||= 1.9;
+  window.standingStraightForwardLenientThreshold ||= 2.0;
+  window.standingStraightSideThreshold ||= 0.3;
+  window.standingStraightSideLenientThreshold ||= 0.4;
+  window.feetTogetherThreshold ||= 0.5;
+  window.footLiftedThreshold ||= 0.1;
+  window.kneesTogetherThreshold ||= 0.5;
+  window.heelToToeDepthThreshold ||= 0.1;
+  window.heelToToeAlignmentThreshold ||= 0.2;
+  window.elbowApartThreshold ||= 1.6;
+
+  return new Promise((resolve) => {
+    const dialog = document.createElement("dialog");
+    dialog.innerHTML = /* html */ `
+      <h3>BESS Configuration</h3>
+      <p style="margin-top: 0">Except for the "Foot Lifted" and "Elbows Apart" thresholds, smaller is stricter and greater values are more lenient.</p>
+      <label class="left-align
+        spread-inline">Eye Aspect Ratio Threshold: <input type="number" value="${window.eyeAspectRatioThreshold}" id="eyeAspectRatioThreshold" /></label>
+      <label class="left-align spread-inline">Hands on Hip Threshold: <input type="number" value="${window.handsOnHipThreshold}" id="handsOnHipThreshold" /></label>
+      <label class="left-align spread-inline">Standing Straight Forward Threshold: <input type="number" value="${window.standingStraightForwardThreshold}" id="standingStraightForwardThreshold" /></label>
+      <label class="left-align spread-inline">Standing Straight Forward Lenient Threshold: <input type="number" value="${window.standingStraightForwardLenientThreshold}" id="standingStraightForwardLenientThreshold" /></label>
+      <label class="left-align spread-inline">Standing Straight Side Threshold: <input type="number" value="${window.standingStraightSideThreshold}" id="standingStraightSideThreshold" /></label>
+      <label class="left-align spread-inline">Standing Straight Side Lenient Threshold: <input type="number" value="${window.standingStraightSideLenientThreshold}" id="standingStraightSideLenientThreshold" /></label>
+      <label class="left-align spread-inline">Feet Together Threshold: <input type="number" value="${window.feetTogetherThreshold}" id="feetTogetherThreshold" /></label>
+      <label class="left-align spread-inline">Foot Lifted Threshold: <input type="number" value="${window.footLiftedThreshold}" id="footLiftedThreshold" /></label>
+      <label class="left-align spread-inline">Knees Together Threshold: <input type="number" value="${window.kneesTogetherThreshold}" id="kneesTogetherThreshold" /></label>
+      <label class="left-align spread-inline">Heel To Toe Depth Threshold: <input type="number" value="${window.heelToToeDepthThreshold}" id="heelToToeDepthThreshold" /></label>
+      <label class="left-align spread-inline">Heel To Toe Alignment Threshold: <input type="number" value="${window.heelToToeAlignmentThreshold}" id="heelToToeAlignmentThreshold" /></label>
+      <label class="left-align spread-inline">Elbow Apart Threshold: <input type="number" value="${window.elbowApartThreshold}" id="elbowApartThreshold" /></label>
+      <button class="button button--green">Save</button>
+    `;
+    dialog.onclick = (e) => {
+      if (e.target.tagName === "BUTTON") {
+        window.eyeAspectRatioThreshold = parseFloat(
+          dialog.querySelector("#eyeAspectRatioThreshold").value
+        );
+        window.handsOnHipThreshold = parseFloat(
+          dialog.querySelector("#handsOnHipThreshold").value
+        );
+        window.standingStraightForwardThreshold = parseFloat(
+          dialog.querySelector("#standingStraightForwardThreshold").value
+        );
+        window.standingStraightForwardLenientThreshold = parseFloat(
+          dialog.querySelector("#standingStraightForwardLenientThreshold").value
+        );
+        window.standingStraightSideThreshold = parseFloat(
+          dialog.querySelector("#standingStraightSideThreshold").value
+        );
+        window.standingStraightSideLenientThreshold = parseFloat(
+          dialog.querySelector("#standingStraightSideLenientThreshold").value
+        );
+        window.feetTogetherThreshold = parseFloat(
+          dialog.querySelector("#feetTogetherThreshold").value
+        );
+        window.footLiftedThreshold = parseFloat(
+          dialog.querySelector("#footLiftedThreshold").value
+        );
+        window.kneesTogetherThreshold = parseFloat(
+          dialog.querySelector("#kneesTogetherThreshold").value
+        );
+        window.heelToToeDepthThreshold = parseFloat(
+          dialog.querySelector("#heelToToeDepthThreshold").value
+        );
+        window.heelToToeAlignmentThreshold = parseFloat(
+          dialog.querySelector("#heelToToeAlignmentThreshold").value
+        );
+        window.elbowApartThreshold = parseFloat(
+          dialog.querySelector("#elbowApartThreshold").value
+        );
+        dialog.remove();
+        resolve();
+      }
+    };
+    document.body.appendChild(dialog);
+    dialog.showModal();
+  });
+}
+
 function errorPhotosToHTML(error_photos_arr) {
   return (
     error_photos_arr

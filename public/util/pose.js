@@ -29,7 +29,10 @@ function getFaceBoundingBox(pose) {
 }
 
 // ============== Pose Utils ==============
-async function isEyesClosed(boundingBox, eyeAspectRatioThreshold = 0.013) {
+async function isEyesClosed(boundingBox, eyeAspectRatioThreshold = null) {
+  eyeAspectRatioThreshold =
+    eyeAspectRatioThreshold ?? window.eyeAspectRatioThreshold ?? 0.013;
+
   if (!tracker.faceModel) return true;
 
   let isEyeClosed = true;
@@ -108,7 +111,9 @@ function getShoulderWidth(pose) {
   );
 }
 
-function checkHandsOnHips(pose, threshold = 0.9) {
+function checkHandsOnHips(pose, threshold = null) {
+  threshold = threshold ?? window.handsOnHipThreshold ?? 0.9;
+
   const left_wrist = pose.keypoints3D.find((kp) => kp.name === "left_wrist");
   const right_wrist = pose.keypoints3D.find((kp) => kp.name === "right_wrist");
   const left_hip = pose.keypoints3D.find((kp) => kp.name === "left_hip");
@@ -138,9 +143,14 @@ function checkHandsOnHips(pose, threshold = 0.9) {
 
 function checkStandingStraight(
   pose,
-  forward_threshold = 1.9,
-  side_threshold = 0.3
+  forward_threshold = null,
+  side_threshold = null
 ) {
+  forward_threshold =
+    forward_threshold ?? window.standingStraightForwardThreshold ?? 1.9;
+  side_threshold =
+    side_threshold ?? window.standingStraightSideThreshold ?? 0.3;
+
   const shoulderWidth = getShoulderWidth(pose);
   const left_shoulder = pose.keypoints3D.find(
     (kp) => kp.name === "left_shoulder"
@@ -199,7 +209,9 @@ function checkStandingStraight(
   return null;
 }
 
-function checkFeetTogether(pose, threshold = 0.5) {
+function checkFeetTogether(pose, threshold = null) {
+  threshold = threshold ?? window.feetTogetherThreshold ?? 0.5;
+
   const left_ankle = pose.keypoints3D.find((kp) => kp.name === "left_ankle");
   const right_ankle = pose.keypoints3D.find((kp) => kp.name === "right_ankle");
   const shoulderWidth = getShoulderWidth(pose);
@@ -215,7 +227,9 @@ function checkFeetTogether(pose, threshold = 0.5) {
   return null;
 }
 
-function checkOneFootLifted(pose, threshold = 0.1) {
+function checkOneFootLifted(pose, threshold = null) {
+  threshold = threshold ?? window.footLiftedThreshold ?? 0.1;
+
   const left_ankle = pose.keypoints3D.find((kp) => kp.name === "left_ankle");
   const right_ankle = pose.keypoints3D.find((kp) => kp.name === "right_ankle");
   const shoulderWidth = getShoulderWidth(pose);
@@ -227,7 +241,9 @@ function checkOneFootLifted(pose, threshold = 0.1) {
   return null;
 }
 
-function checkKneesTogether(pose, threshold = 0.5) {
+function checkKneesTogether(pose, threshold = null) {
+  threshold = threshold ?? window.kneesTogetherThreshold ?? 0.5;
+
   const left_knee = pose.keypoints3D.find((kp) => kp.name === "left_knee");
   const right_knee = pose.keypoints3D.find((kp) => kp.name === "right_knee");
   const shoulderWidth = getShoulderWidth(pose);
@@ -244,6 +260,10 @@ function checkHeelToToe(
   depth_threshold = 0.1,
   alignment_threshold = 0.2
 ) {
+  depth_threshold = depth_threshold ?? window.heelToToeDepthThreshold ?? 0.1;
+  alignment_threshold =
+    alignment_threshold ?? window.heelToToeAlignmentThreshold ?? 0.2;
+
   const left_ankle = pose.keypoints3D.find((kp) => kp.name === "left_ankle");
   const right_ankle = pose.keypoints3D.find((kp) => kp.name === "right_ankle");
   const shoulderWidth = getShoulderWidth(pose);
@@ -270,6 +290,8 @@ function checkHeelToToe(
 }
 
 function checkElbowsBend(pose, threshold = 1.6) {
+  threshold = threshold ?? window.elbowApartThreshold ?? 1.6;
+
   const left_elbow = pose.keypoints3D.find((kp) => kp.name === "left_elbow");
   const right_elbow = pose.keypoints3D.find((kp) => kp.name === "right_elbow");
   const shoulderWidth = getShoulderWidth(pose);
@@ -412,7 +434,10 @@ export async function assess_tandem_pose(poses) {
       return handsOnHipsError;
     }
 
-    const standingStraightError = checkStandingStraight(pose, 2.0);
+    const standingStraightError = checkStandingStraight(
+      pose,
+      window.standingStraightForwardLenientThreshold ?? 2.0
+    );
     if (standingStraightError) {
       return standingStraightError;
     }
@@ -481,7 +506,11 @@ export async function assess_single_pose(poses) {
       return handsOnHipsError;
     }
 
-    const standingStraightError = checkStandingStraight(pose, 2.0, 0.4);
+    const standingStraightError = checkStandingStraight(
+      pose,
+      window.standingStraightForwardLenientThreshold ?? 2.0,
+      window.standingStraightSideLenientThreshold ?? 0.4
+    );
     if (standingStraightError) {
       return standingStraightError;
     }
