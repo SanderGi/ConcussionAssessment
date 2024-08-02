@@ -32,6 +32,40 @@ export function getRadioInt(name) {
 }
 window.getRadioInt = getRadioInt;
 
+export function startCountdown(button, seconds) {
+  const originalText = button.textContent;
+  const originalOnClick = button.onclick;
+  button.disabled = true;
+  button.textContent = `${seconds} seconds left`;
+  button.classList.add("button--red");
+  button.classList.remove("button--green");
+  speak(seconds);
+  const interval = setInterval(() => {
+    seconds--;
+    button.textContent = `${seconds} seconds left`;
+    if (seconds <= 0) {
+      clearInterval(interval);
+      button.classList.remove("button--red");
+      button.classList.add("button--green");
+      button.textContent = originalText;
+      button.onclick = originalOnClick;
+      speak("Time is up");
+    } else {
+      speak(seconds);
+    }
+  }, 1000);
+  button.disabled = false;
+  button.onclick = () => {
+    clearInterval(interval);
+    button.classList.remove("button--red");
+    button.classList.add("button--green");
+    button.textContent = originalText;
+    button.onclick = originalOnClick;
+    speak("Countdown canceled");
+  };
+}
+window.startCountdown = startCountdown;
+
 // ============================ Manage Test ============================
 export function renderCurrentTestSection() {
   renderTestSection(sessionStorage.getItem(TEST_PHASE) ?? "test-management");

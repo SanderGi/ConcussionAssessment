@@ -18,3 +18,5 @@ Run `firebase deploy` to deploy the project to Firebase.
 - [Immediate and Delayed Recall Study](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6109942/)
 - [Symptom Severity Study](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8583872/)
 - [SCAT6 Results Study](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6326330/)
+- [Google Fonts](https://fonts.google.com/icons)
+- [Font Awesome](https://fontawesome.com/search)
