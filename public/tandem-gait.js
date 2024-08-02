@@ -21,23 +21,36 @@ tandemData.addEventListener("click", (e) => {
     e.target.classList.remove("button--green");
     e.target.classList.add("button--red");
     e.target.dataset.action = "stop-" + trial;
+    const timeSpan = document.createElement("span");
+    timeSpan.style.fontFamily = "var(--mono-space)";
+    timeSpan.textContent = "0.00";
+    e.target.parentElement.prepend(timeSpan);
     startTime = Date.now();
     timer = setInterval(() => {
-      e.target.innerHTML = `Stop Timer (<span style="font-family:var(--mono-space)">${(
-        (Date.now() - startTime) /
-        1000
-      ).toFixed(2)}</span>)`;
+      timeSpan.textContent = ((Date.now() - startTime) / 1000).toFixed(2);
     }, 100);
   } else if (action.startsWith("stop-")) {
     clearInterval(timer);
     const trial = action.slice("stop-".length);
     const seconds = (Date.now() - startTime) / 1000;
-    e.target.parentElement.contentEditable = "true";
-    e.target.parentElement.dataset.value = seconds;
-    e.target.parentElement.oninput = updateTime;
-    e.target.replaceWith(document.createTextNode(seconds.toFixed(2)));
+    const trialCell = tandemData.querySelector(
+      `[data-title="Trial ${trial} (seconds)"]`
+    );
+
+    const redoBtn = document.createElement("i");
+    redoBtn.className = "fa-solid fa-rotate-right";
+    redoBtn.style.fontSize = "0.8em";
+    redoBtn.style.cursor = "pointer";
+    redoBtn.onclick = () => {
+      trialCell.innerHTML = `<button data-action="start-${trial}" class="button button--green">Start Timer</button>`;
+      trialCell.dataset.redo = "true";
+    };
+
+    e.target.parentElement.replaceChildren(seconds.toFixed(2), " ", redoBtn);
+
     updateTime();
     if (+trial < 3) {
+      if (trialCell.dataset.redo === "true") return;
       tandemData.querySelector(
         `[data-title="Trial ${+trial + 1} (seconds)"]`
       ).innerHTML = `<button data-action="start-${

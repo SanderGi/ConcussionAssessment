@@ -17,12 +17,13 @@ section.addEventListener("click", (e) => {
     e.target.classList.remove("button--green");
     e.target.classList.add("button--red");
     e.target.dataset.action = "stop-trial-" + trial;
+    const timeSpan = document.createElement("span");
+    timeSpan.style.fontFamily = "var(--mono-space)";
+    timeSpan.textContent = "0.00";
+    e.target.parentElement.prepend(timeSpan);
     startTime = Date.now();
     timer = setInterval(() => {
-      e.target.innerHTML = `Stop Timer (<span style="font-family:var(--mono-space)">${(
-        (Date.now() - startTime) /
-        1000
-      ).toFixed(2)}</span>)`;
+      timeSpan.textContent = ((Date.now() - startTime) / 1000).toFixed(2);
     }, 100);
   } else if (action.startsWith("stop-trial-")) {
     clearInterval(timer);
@@ -46,7 +47,7 @@ section.addEventListener("click", (e) => {
     };
 
     const seconds = (Date.now() - startTime) / 1000;
-    e.target.replaceWith(
+    datasection.lastElementChild.replaceChildren(
       document.createTextNode(seconds.toFixed(2) + " "),
       redoBtn
     );
