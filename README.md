@@ -1,6 +1,25 @@
 # Online Sport Concussion Assessment
 
+[![LOC](./.badges/lines-of-code.svg)](https://github.com/SanderGi/ConcussionAssessment)
+[![FileCount](./.badges/file-count.svg)](https://github.com/SanderGi/ConcussionAssessment)
+[![WebsiteStatus](https://img.shields.io/website?url=https://scat6-web.web.app)](https://scat6-web.web.app)
+
 An online sport concussion assessment for student athletes in Washington State. Made in collaboration with Aureole (she was responsible for user testing and getting it approved by the BMJ). The goal is to make these tests easier to access and remove some of the subjective nature of the tests. The tool also allows coaches to easily compare results over time to make more informed decisions about player health. URL: [https://scat6-web.web.app/](https://scat6-web.web.app/)
+
+### Features
+- CISG approved SCAT6 assessment with 16 assessed domains (memory, balance, coordination, orientation, delayed recall, etc.)
+- Automatically sync data via your own Google Account (login via OAuth2)
+- Works completely locally in the browser for maximum privacy and offline use
+- Simple and easy to use UI to administer concussion tests, compare results over time/against baselines, and follow up with post injury assessments
+- Automated Balance Error Scoring System (BESS) with 6 poses, implemented using Machine Learning with TensorFlow.js (pose detection, face landmark detection) and traditional computer vision techniques
+- Lovely graphs and charts and extensive use of Web APIs (LocalStorage/SessionStorage, MediaDevices, Speech Recognition, Speech Synthesis, etc.)
+- Standardized subjective tests with objective machine calculated results
+- Cross platform compatibility and responsive design (works on desktop, tablet, and mobile)
+- Built in less than 14 days as the only developer
+
+### Screenshots
+![main menu](./main-menu.png)
+![pose assessment](./pose-assess.png)
 
 ## Development
 
