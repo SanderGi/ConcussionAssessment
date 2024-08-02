@@ -9,7 +9,12 @@ import {
   disconnectUser,
 } from "./userData.js";
 import { startTest } from "./testManager.js";
-import { alert, confirm, syncSettings } from "./util/popup.js";
+import {
+  alert,
+  confirm,
+  syncSettings,
+  errorPhotosToHTML,
+} from "./util/popup.js";
 import { calcSimilarity } from "./util/fuzzysearch.js";
 const Chart = window.Chart;
 /** @typedef {import('./userData.js').Test} Test */
@@ -207,6 +212,7 @@ window.showAthleteResults = async (athlete_id) => {
     container.lastChild.remove();
     container.lastChild.remove();
     container.lastChild.remove();
+    container.lastChild.remove();
     return;
   }
 
@@ -215,7 +221,9 @@ window.showAthleteResults = async (athlete_id) => {
     summary.innerHTML = "No baselines found for this athlete.<br>";
   } else {
     summary.innerHTML = `
-      Last Baseline (${new Date(lastBaseline?.test_created_at)}): ${
+      Last Baseline (${new Date(
+        lastBaseline?.test_created_at
+      ).toDateString()}): ${
       lastBaseline?.mBESS_total_errors + lastBaseline?.cognitive_total
     } / 80 <br>`;
   }
@@ -223,7 +231,9 @@ window.showAthleteResults = async (athlete_id) => {
     summary.innerHTML += "No post-injuries found for this athlete.";
   } else {
     summary.innerHTML += `
-      Last Post Injury (${new Date(lastPostInjury?.test_created_at)}): ${
+      Last Post Injury (${new Date(
+        lastPostInjury?.test_created_at
+      ).toDateString()}): ${
       lastPostInjury?.mBESS_total_errors + lastPostInjury?.cognitive_total
     } / 80`;
   }
@@ -249,7 +259,7 @@ window.showAthleteResults = async (athlete_id) => {
 
   const canvas = document.createElement("canvas");
   container.appendChild(canvas);
-  new Chart(canvas, {
+  const chart = new Chart(canvas, {
     type: "line",
     data: {
       labels: athleteTests.map((test) =>
@@ -336,4 +346,58 @@ window.showAthleteResults = async (athlete_id) => {
       },
     },
   });
+  const datapointDetails = document.createElement("div");
+  datapointDetails.textContent =
+    "Click on an mBESS Total Errors data point to see pose error photos.";
+  container.appendChild(datapointDetails);
+
+  canvas.onclick = (event) => {
+    datapointDetails.textContent = "";
+    const datapoints = chart.getElementsAtEventForMode(event, "nearest", {
+      intersect: true,
+    });
+    if (datapoints.length === 0) return;
+    const datapoint = datapoints[0];
+    const datasetIndex = datapoint.datasetIndex;
+    const mBessDatasetIndex = chart.data.datasets.findIndex(
+      (dataset) => dataset.label === "mBESS Total Errors (X/30)"
+    );
+    if (datasetIndex !== mBessDatasetIndex) return;
+    const test = athleteTests[datapoint.index];
+    const errorPhotos = test.mBESS_pose_error_photos;
+    if (!errorPhotos) {
+      datapointDetails.innerHTML = "No pose error photos found for this test.";
+      return;
+    }
+    const doubleErrors = errorPhotos.mBESS_double_errors ?? [];
+    const tandemErrors = errorPhotos.mBESS_tandem_errors ?? [];
+    const singleErrors = errorPhotos.mBESS_single_errors ?? [];
+    const doubleFoamErrors = errorPhotos.mBESS_foam_double_errors ?? [];
+    const tandemFoamErrors = errorPhotos.mBESS_foam_tandem_errors ?? [];
+    const singleFoamErrors = errorPhotos.mBESS_foam_single_errors ?? [];
+    if (doubleErrors.length > 0) {
+      datapointDetails.innerHTML += "<h3>Double Leg Errors</h3>";
+      datapointDetails.innerHTML += errorPhotosToHTML(doubleErrors);
+    }
+    if (tandemErrors.length > 0) {
+      datapointDetails.innerHTML += "<h3>Tandem Errors</h3>";
+      datapointDetails.innerHTML += errorPhotosToHTML(tandemErrors);
+    }
+    if (singleErrors.length > 0) {
+      datapointDetails.innerHTML += "<h3>Single Leg Errors</h3>";
+      datapointDetails.innerHTML += errorPhotosToHTML(singleErrors);
+    }
+    if (doubleFoamErrors.length > 0) {
+      datapointDetails.innerHTML += "<h3>Double Leg Foam Errors</h3>";
+      datapointDetails.innerHTML += errorPhotosToHTML(doubleFoamErrors);
+    }
+    if (tandemFoamErrors.length > 0) {
+      datapointDetails.innerHTML += "<h3>Tandem Foam Errors</h3>";
+      datapointDetails.innerHTML += errorPhotosToHTML(tandemFoamErrors);
+    }
+    if (singleFoamErrors.length > 0) {
+      datapointDetails.innerHTML += "<h3>Single Leg Foam Errors</h3>";
+      datapointDetails.innerHTML += errorPhotosToHTML(singleFoamErrors);
+    }
+  };
 };

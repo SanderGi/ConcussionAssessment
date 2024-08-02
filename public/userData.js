@@ -227,6 +227,7 @@ export async function deleteRemoteData() {
  * @property {number} [immediate_memory_timestamp] Date.now() when immediate memory was completed
  * @property {number} [concentration] out of 5
  * @property {number} [cognitive_total] out of 50 (sum of orientation, immediate_memory, concentration, delayed_recall)
+ * @property {object} [mBESS_pose_error_photos] maps test field like `mBESS_double_errors` to error photo list [{ error: "error description", photo: "photo url"}]
  * @property {number} [mBESS_double_errors] out of 10
  * @property {number} [mBESS_single_errors] out of 10
  * @property {number} [mBESS_tandem_errors] out of 10

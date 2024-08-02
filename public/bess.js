@@ -95,25 +95,22 @@ function activateNextPose() {
 window.activateNextPose = activateNextPose; // for DEBUGGING
 
 // map pose.test_field to [{ error: "error description", photo: "photo url"}]
-const POSE_ERROR_PHOTOS = new Proxy(
-  JSON.parse(sessionStorage.getItem("POSE_ERROR_PHOTOS") ?? "{}"),
-  {
-    set: function (target, key, value) {
-      target[key] = value;
-      sessionStorage.setItem("POSE_ERROR_PHOTOS", JSON.stringify(target));
-      return true;
-    },
-    get: function (target, key) {
-      return new Proxy(target[key] ?? [], {
-        set: function (subtarget, subkey, subvalue) {
-          subtarget[subkey] = subvalue;
-          POSE_ERROR_PHOTOS[key] = subtarget;
-          return true;
-        },
-      });
-    },
-  }
-);
+const POSE_ERROR_PHOTOS = new Proxy(getTest().mBESS_pose_error_photos ?? {}, {
+  set: function (target, key, value) {
+    target[key] = value;
+    saveTestResult("mBESS_pose_error_photos", target);
+    return true;
+  },
+  get: function (target, key) {
+    return new Proxy(target[key] ?? [], {
+      set: function (subtarget, subkey, subvalue) {
+        subtarget[subkey] = subvalue;
+        POSE_ERROR_PHOTOS[key] = subtarget;
+        return true;
+      },
+    });
+  },
+});
 
 // ============================ UI Elements ============================
 const statusElement = document.getElementById("status");
@@ -260,6 +257,8 @@ statusElement.addEventListener("click", async (event) => {
 
 // ============================ End Menu ============================
 async function endBess() {
+  tracker.stopped = true;
+
   abortSpeaking();
   const test = getTest();
   test.mBESS_total_errors =
@@ -281,6 +280,7 @@ async function endBess() {
     abortListening();
     renderTestSection("tandem-gait");
   } else if (action == "FOAM") {
+    tracker.stopped = false;
     const pose = POSES[FIRST_FOAM_POSE];
     setIntstructions(
       `${getAthleteName()}, ${pose.description}:`,
@@ -289,6 +289,7 @@ async function endBess() {
     );
     setStatus(`BEGIN_${FIRST_FOAM_POSE}`);
   } else if (action == "RETRY") {
+    tracker.stopped = false;
     setStatus("");
   } else if (action == "REDO_MANUALLY") {
     tracker.stop();

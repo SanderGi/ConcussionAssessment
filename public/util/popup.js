@@ -164,7 +164,7 @@ export async function BessConfig() {
   });
 }
 
-function errorPhotosToHTML(error_photos_arr) {
+export function errorPhotosToHTML(error_photos_arr) {
   return (
     error_photos_arr
       .map(
