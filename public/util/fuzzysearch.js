@@ -5,6 +5,7 @@
  * @returns the negated Levenshtein Distance between the two strings but normalized for the string lengths.
  */
 export function calcSimilarity(str1, str2) {
+  if (!str1 || !str2) return 0;
   return -LevenshteinDistance(str1, str2) / Math.max(str1.length, str2.length);
 }
 

@@ -255,6 +255,13 @@ document.addEventListener("renderTestSection", async (event) => {
       "decision",
       "DEFERRED"
     )}">Deferred</button>
+    <p>I am an HCP and I have personally administered or supervised the administration of this SCAT6.</p>
+    <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.8em;">Name: <input data-action="NAME" type="text" value="${
+      test.examiner_name
+    }"></label>
+    <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Checking this box is equivalent to signing a paper SCAT6: <input data-action="SIGNATURE" type="checkbox" ${
+      test.signed ? "checked" : ""
+    }></label>
     <p>Notes</p>
     <textarea data-action="NOTES" class="textarea">${
       test.test_notes ?? ""
@@ -283,6 +290,10 @@ document.addEventListener("renderTestSection", async (event) => {
         btn.style.outline = "";
       }
       e.target.style.outline = "2px solid var(--secondary)";
+    } else if (action === "NAME") {
+      saveTestResult("examiner_name", e.target.value);
+    } else if (action === "SIGNATURE") {
+      saveTestResult("signed", e.target.checked);
     }
   };
 
