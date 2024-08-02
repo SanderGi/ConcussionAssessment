@@ -1,5 +1,6 @@
 import { tests, syncData, connectUser } from "./userData.js";
 import { confirmAthleteInfo } from "./util/popup.js";
+import { isSpeaking, speak } from "./util/sound.js";
 
 // ============================ Session/Local Storage Keys ============================
 const TEST_PHASE = "test-phase";
@@ -65,6 +66,19 @@ export function startCountdown(button, seconds) {
   };
 }
 window.startCountdown = startCountdown;
+
+export async function wait(seconds) {
+  return new Promise((resolve) => setTimeout(resolve, seconds * 1000));
+}
+
+export async function readListOneWPS(list) {
+  while (isSpeaking()) await wait(1);
+  for (const word of list) {
+    await wait(1);
+    speak(word);
+  }
+}
+window.readListOneWPS = readListOneWPS;
 
 // ============================ Manage Test ============================
 export function renderCurrentTestSection() {
