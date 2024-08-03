@@ -255,17 +255,24 @@ document.addEventListener("renderTestSection", async (event) => {
       "decision",
       "DEFERRED"
     )}">Deferred</button>
-    <p>I am an HCP and I have personally administered or supervised the administration of this SCAT6.</p>
-    <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.8em;">Name: <input data-action="NAME" type="text" value="${
-      test.examiner_name
-    }"></label>
-    <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Checking this box is equivalent to signing a paper SCAT6: <input data-action="SIGNATURE" type="checkbox" ${
-      test.signed ? "checked" : ""
-    }></label>
     <p>Notes</p>
     <textarea data-action="NOTES" class="textarea">${
       test.test_notes ?? ""
     }</textarea>
+    <h3>Health Care Professional Attestation</h3>
+    <p>I am an HCP and I have personally administered or supervised the administration of this SCAT6.</p>
+    <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.8em;">Name: <input data-action="NAME" type="text" value="${
+      test.examiner_name
+    }"></label>
+    <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.8em;">Title/Specialty: <input data-action="TITLE_OR_SPECIALTY" type="text" value="${
+      test.title_or_specialty ?? ""
+    }"></label>
+    <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.8em;">Registration/License number (if applicable): <input data-action="REGISTRATION_OR_LICENSE" type="text" value="${
+      test.registration_or_license_number ?? ""
+    }"></label>
+    <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Checking this box is equivalent to signing a paper SCAT6: <input data-action="SIGNATURE" type="checkbox" ${
+      test.signed ? "checked" : ""
+    }></label>
   `;
 
   content.onclick = (e) => {
@@ -290,8 +297,6 @@ document.addEventListener("renderTestSection", async (event) => {
         btn.style.outline = "";
       }
       e.target.style.outline = "2px solid var(--secondary)";
-    } else if (action === "NAME") {
-      saveTestResult("examiner_name", e.target.value);
     } else if (action === "SIGNATURE") {
       saveTestResult("signed", e.target.checked);
     }
@@ -303,6 +308,12 @@ document.addEventListener("renderTestSection", async (event) => {
 
     if (action === "NOTES") {
       saveTestResult("test_notes", e.target.value);
+    } else if (action === "TITLE_OR_SPECIALTY") {
+      saveTestResult("title_or_specialty", e.target.value);
+    } else if (action === "REGISTRATION_OR_LICENSE") {
+      saveTestResult("registration_or_license_number", e.target.value);
+    } else if (action === "NAME") {
+      saveTestResult("examiner_name", e.target.value);
     }
   };
 });

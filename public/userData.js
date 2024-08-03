@@ -243,8 +243,10 @@ export async function deleteRemoteData() {
  * @property {number} [delayed_recall_timestamp] Date.now() when delayed recall was started
  * @property {"YES" | "NO" | "N/A"} [different_from_usual] if examiner knows the athlete, are they acting different from their usual self
  * @property {"CONCUSSED" | "HEALTHY" | "DEFERRED"} [decision] the decision made by the examiner
- * @property {boolean} [signed] whether the test was signed by the examiner
  * @property {string} [test_notes] clinical notes regarding the test
+ * @property {boolean} [signed] whether the test was signed by the examiner
+ * @property {string} [title_or_specialty] the title or specialty of the examiner
+ * @property {string} [registration_or_license_number] the examiner's registration or license number (if applicable)
  */
 /** @type {Record<string, Test>} */
 export const tests = JSON.parse(localStorage.getItem(TESTS) ?? "{}");
