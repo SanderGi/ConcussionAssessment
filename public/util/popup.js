@@ -428,7 +428,7 @@ export async function confirmAthleteInfo(
       <h4>Start Assessment</h4>
       <p  style="margin-top: 0">The immediate assessment should be completed "on-field" after the first aid/emergency care priorities are completed.</p>
       <p>The "cognitive screening" portion of the baseline and post injury assessments should be completed in a distraction-free environment with the athlete in a resting state.</p>
-      <p>For Use by Health Care Professionals Only. See the original <a href="./assets/SCAT6-Detailed-Instructions">Detailed Instructions</a></p>
+      <p>For Use by Health Care Professionals Only. See the original <a href="./assets/SCAT6-Detailed-Instructions.pdf">Detailed Instructions</a></p>
       <label class="left-align spread-inline">I hereby attest that I am a medical or Health Care Professional authorized to use this tool: <input type="checkbox"></label><br><br>
       <button class="button button--green" data-action="IMMEDIATE">Immediate</button>
       <button class="button" data-action="BASELINE">Baseline</button>
