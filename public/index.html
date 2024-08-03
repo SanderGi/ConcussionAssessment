@@ -295,6 +295,7 @@
             <p>Athlete, I am going to test your memory. I will read you a list of words and when I am done, repeat back as many words as you can remember, in any order &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent); readMemoryWords();"></i></p>
             <p>Examiner, for the second and third trials say the following:</p>
             <p>Athlete, I am going to repeat the same list. Repeat back as many words as you can remember in any order, even if you said the word before in a previous trial &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent); readMemoryWords();"></i></p>
+            <p>Examiner, click the words below as the athlete remembers them to cross them off. This will help keep track of how many they remember each trial.</p>
             <ul id="wordlist"></ul>
             <table style="margin: auto;">
                 <thead><tr><th>Trial 1</th><th>Trial 2</th><th>Trial 3</th></tr></thead>
@@ -352,11 +353,12 @@
                 <li>6-2-9-7-1 <i class="fa-solid fa-volume-high" onclick="readListOneWPS([6, 2, 9, 7, 1]);"></i> or 1-5-2-8-6 <i class="fa-solid fa-volume-high" onclick="readListOneWPS([1, 5, 2, 8, 6]);"></i></li>
                 <li>7-1-8-4-6-2 <i class="fa-solid fa-volume-high" onclick="readListOneWPS([7, 1, 8, 4, 6, 2]);"></i> or 5-3-9-1-4-8 <i class="fa-solid fa-volume-high" onclick="readListOneWPS([5, 3, 9, 1, 4, 8]);"></i></li>
             </ul>
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Number of correct sets: <input type="number" id="concentration-digits" value="0"/></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Number of correct sets (of 4): <input type="number" id="concentration-digits" value="0"/></label>
         
             <h3>Months in Reverse Order</h3>
-            <p style="margin-top: 0;">Athlete, tell me the months of the year in reverse order as QUICKLY and as accurately as possible. Start with the last month and go backward. So, you'll say December, November... go ahead &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
-            <ul>
+            <p style="margin-top: 0;">Examiner, read the instructions below to the athlete and click to cross out the months below as they say them.</p>
+            <p>Athlete, tell me the months of the year in reverse order as QUICKLY and as accurately as possible. Start with the last month and go backward. So, you'll say December, November... go ahead &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
+            <ul id="months-reverse-order">
                 <li>December</li>
                 <li>November</li>
                 <li>October</li>
@@ -378,6 +380,11 @@
                     const months = document.getElementById('concentration-months').checked ? 1 : 0;
                     saveTestResult('concentration', digits + months);
                     renderTestSection('bess');
+                });
+                document.getElementById("months-reverse-order").addEventListener("click", (event) => {
+                    if (event.target.tagName === 'LI') {
+                        event.target.style.textDecoration = event.target.style.textDecoration === 'line-through' ? 'none' : 'line-through';
+                    }
                 });
             </script>
         </section>
