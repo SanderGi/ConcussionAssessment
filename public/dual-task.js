@@ -3,10 +3,30 @@ import { getTest, saveTestResult } from "./testManager.js";
 let startTime = 0;
 let timer = null;
 const section = document.getElementById("dual-task-gait");
-section.addEventListener("click", (e) => {
+section.addEventListener("click", async (e) => {
   if (e.target.tagName === "SPAN") {
     e.target.style.textDecoration =
       e.target.style.textDecoration === "line-through" ? "" : "line-through";
+  }
+  if (e.target.tagName === "I" && e.target.dataset.action === "edit-numbers") {
+    let randomStart = Math.floor(Math.random() * 16 + 84) + 7;
+    const sequence = Array.from({ length: 13 }, () => (randomStart -= 7));
+    const answer = await prompt(
+      "Enter a new comma separated list of numbers:",
+      sequence.join(", ")
+    );
+    if (answer !== null) {
+      const numbers = answer.split(",").map((n) => parseInt(n.trim()));
+      numbers.reverse();
+      for (const oldnum of e.target.parentElement.querySelectorAll("span")) {
+        oldnum.remove();
+      }
+      for (const num of numbers) {
+        const span = document.createElement("span");
+        span.textContent = num;
+        e.target.parentElement.prepend(span);
+      }
+    }
   }
 
   const action = e.target.dataset.action;

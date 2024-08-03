@@ -39,12 +39,12 @@ export async function confirm(message) {
 }
 window.confirm = confirm;
 
-export async function prompt(message) {
+export async function prompt(message, defaultValue = "") {
   return new Promise((resolve) => {
     const dialog = document.createElement("dialog");
     dialog.innerHTML = /* html */ `
       <p>${message}</p>
-      <input type="text" />
+      <input type="text" value="${defaultValue}"/>
       <button class="button">OK</button>
       <button class="button button--red">CANCEL</button>
     `;
