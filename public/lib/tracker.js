@@ -1082,16 +1082,26 @@ const tracker = {
         "Browser API navigator.mediaDevices.getUserMedia not available"
       );
     }
-    const isPortrait = window.innerHeight > window.innerWidth;
-    const stream = await navigator.mediaDevices.getUserMedia({
+    const isPortrait =
+      window.screen?.orientation?.type?.includes("portrait") ||
+      window.screen?.orientation?.angle % 180 === 90;
+    const constraints = {
       audio: false,
       video: {
         facingMode: tracker.idealFacingMode,
-        aspectRatio: isPortrait
-          ? tracker.idealHeight / tracker.idealWidth
-          : tracker.idealWidth / tracker.idealHeight,
       },
-    });
+    };
+    if (isPortrait) {
+      constraints.video.aspectRatio = tracker.idealHeight / tracker.idealWidth;
+    } else {
+      constraints.video.height = {
+        ideal: tracker.idealHeight,
+      };
+      constraints.video.width = {
+        ideal: tracker.idealWidth,
+      };
+    }
+    const stream = await navigator.mediaDevices.getUserMedia(constraints);
     tracker.video.srcObject = stream; // attach camera stream to video
 
     // get width and height of the camera video stream

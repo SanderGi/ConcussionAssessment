@@ -278,9 +278,9 @@ function computeAthletes() {
 }
 
 export async function clearLocalData() {
-  await auth.signOut();
   localStorage.clear();
   sessionStorage.clear();
+  await auth.signOut();
   location.reload();
 }
 
