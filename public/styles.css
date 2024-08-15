@@ -13,6 +13,13 @@
   --tertiary: #5adaff;
   --accent: blueviolet;
 
+  --green: #3faf3f;
+  --light-green: #85ec77;
+  --red: #ff5468;
+  --light-red: #fa7c7c;
+  --orange: #ff9f54;
+  --light-orange: #ffbf7c;
+
   --max-width: min(100ch, 100vw);
 }
 
@@ -175,6 +182,30 @@ label:has(> input[type="checkbox"]:focus-visible) {
 input:disabled {
   opacity: 0.6;
 }
+label.green > input[type="checkbox"] {
+  accent-color: var(--light-green);
+}
+label.green:hover > input[type="checkbox"],
+label.green > input[type="checkbox"]:focus-visible {
+  accent-color: var(--light-green);
+}
+label.green:has(> input[type="checkbox"]):hover,
+label.green:has(> input[type="checkbox"]:focus-visible) {
+  cursor: pointer;
+  background-color: var(--green);
+}
+label.red > input[type="checkbox"] {
+  accent-color: var(--light-red);
+}
+label.red:hover > input[type="checkbox"],
+label.red > input[type="checkbox"]:focus-visible {
+  accent-color: var(--light-red);
+}
+label.red:has(> input[type="checkbox"]):hover,
+label.red:has(> input[type="checkbox"]:focus-visible) {
+  cursor: pointer;
+  background-color: var(--red);
+}
 
 input[type="checkbox"].expander {
   appearance: none;
@@ -281,15 +312,22 @@ dialog::backdrop {
 .button--red {
   background-image: radial-gradient(
     100% 100% at 100% 0,
-    #fa7c7c 0,
-    #ff5468 100%
+    var(--light-red) 0,
+    var(--red) 100%
   );
 }
 .button--green {
   background-image: radial-gradient(
     100% 100% at 100% 0,
-    #85ec77 0,
-    #3faf3f 100%
+    var(--light-green) 0,
+    var(--green) 100%
+  );
+}
+.button--orange {
+  background-image: radial-gradient(
+    100% 100% at 100% 0,
+    var(--light-orange) 0,
+    var(--orange) 100%
   );
 }
 

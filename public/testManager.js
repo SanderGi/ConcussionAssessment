@@ -72,9 +72,11 @@ export async function wait(seconds) {
 }
 
 export async function readListOneWPS(list) {
+  const lastAbort = window.lastAbort;
   while (isSpeaking()) await wait(1);
   for (const word of list) {
     await wait(1);
+    if (window.lastAbort > lastAbort) return;
     speak(word);
   }
 }

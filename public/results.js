@@ -32,7 +32,7 @@ document.addEventListener("renderTestSection", async (event) => {
     return test[field] === value ? "outline: 2px solid var(--secondary)" : "";
   }
   function recallDelaySeconds(test) {
-    if (!test.delayed_recall) return "--";
+    if (!test.delayed_recall_timestamp) return "--";
     const diff =
       test.delayed_recall_timestamp - test.immediate_memory_timestamp;
     if (isNaN(diff)) return "--";
@@ -270,6 +270,14 @@ document.addEventListener("renderTestSection", async (event) => {
     <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.8em;">Registration/License number (if applicable): <input data-action="REGISTRATION_OR_LICENSE" type="text" value="${
       test.registration_or_license_number ?? ""
     }"></label>
+    <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.8em;">Signature Date: <input type="datetime-local" value="${
+      new Date(
+        (test.signed_timestamp ?? Date.now()) -
+          new Date().getTimezoneOffset() * 60 * 1000
+      )
+        .toISOString()
+        .split(".")[0]
+    }" data-action="SIGNATURE-TIMESTAMP" /></label>
     <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Checking this box is equivalent to signing a paper SCAT6: <input data-action="SIGNATURE" type="checkbox" ${
       test.signed ? "checked" : ""
     }></label>
@@ -299,6 +307,16 @@ document.addEventListener("renderTestSection", async (event) => {
       e.target.style.outline = "2px solid var(--secondary)";
     } else if (action === "SIGNATURE") {
       saveTestResult("signed", e.target.checked);
+      if (e.target.checked) {
+        saveTestResult(
+          "signed_timestamp",
+          new Date(
+            document.querySelector('[data-action="SIGNATURE-TIMESTAMP"]').value
+          ).getTime()
+        );
+      } else {
+        saveTestResult("signed_timestamp", null);
+      }
     }
   };
 

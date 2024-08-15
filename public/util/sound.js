@@ -68,8 +68,12 @@ export async function listenOnce() {
 }
 
 // speech synthesis
+window.lastAbort = 0;
 const synth = window.speechSynthesis;
-export function speak(text, lang = "en-US") {
+export function speak(text, lang = "en-US", cancelPrevious = true) {
+  if (cancelPrevious && isSpeaking()) {
+    abortSpeaking();
+  }
   const utterance = new SpeechSynthesisUtterance(text);
   utterance.lang = lang;
   synth.speak(utterance);
@@ -79,5 +83,7 @@ export function isSpeaking() {
   return synth.speaking;
 }
 export function abortSpeaking() {
+  window.lastAbort = Date.now();
   synth.cancel();
 }
+window.abortSpeaking = abortSpeaking;

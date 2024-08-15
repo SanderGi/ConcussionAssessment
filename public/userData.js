@@ -198,6 +198,10 @@ export async function deleteRemoteData() {
  * @property {number} athlete_birth_timestamp
  * @property {string} athlete_sex
  * @property {string} athlete_dominant_hand
+ * @property {string} athlete_year_in_school
+ * @property {string} athlete_years_of_education
+ * @property {string} athlete_first_language
+ * @property {string} athlete_preferred_language
  * @property {string} examiner_name
  * @property {string} team_or_school
  * @property {number} injury_timestamp
@@ -218,9 +222,14 @@ export async function deleteRemoteData() {
  * @property {"WITNESSED" | "VIDEO" | "NO"} [observable_signs_source] how/if the injury was observed
  * @property {string[]} [observable_signs] the list of observabed signs
  * @property {number} [glasgow_coma_scale] out of 15
+ * @property {string} [coordination_abnomalities] description of any coordination and ocular/motor abnormalities
  * @property {number} [maddocks_score] out of 5
  * @property {number} [symptom_number] out of 22
  * @property {number} [symptom_severity] out of 132
+ * @property {boolean} [symptoms_worse_with_physical] true if symptoms get worse with physical activity
+ * @property {boolean} [symptoms_worse_with_mental] true if symptoms get worse with mental activity
+ * @property {number} [symptoms_percentage_normal] how normal the athlete feels out of 100 (where 100 is perfectly normal)
+ * @property {string} [symptoms_description] if not 100% normal, description of how the athlete feels
  * @property {number} [orientation] out of 5
  * @property {number} [immediate_memory] out of 30
  * @property {string[]} [immediate_memory_words] list of 10 words used for immediate memory test
@@ -245,6 +254,7 @@ export async function deleteRemoteData() {
  * @property {"CONCUSSED" | "HEALTHY" | "DEFERRED"} [decision] the decision made by the examiner
  * @property {string} [test_notes] clinical notes regarding the test
  * @property {boolean} [signed] whether the test was signed by the examiner
+ * @property {number} [signed_timestamp] Date.now() when the test was signed
  * @property {string} [title_or_specialty] the title or specialty of the examiner
  * @property {string} [registration_or_license_number] the examiner's registration or license number (if applicable)
  */

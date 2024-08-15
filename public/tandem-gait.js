@@ -58,6 +58,8 @@ tandemData.addEventListener("click", (e) => {
       }" class="button button--green">Start Timer</button>`;
     } else {
       startDualTaskGait.style.display = "inline";
+      document.getElementById("skip-to-delayed-recall").style.display =
+        "inline";
     }
   }
 });

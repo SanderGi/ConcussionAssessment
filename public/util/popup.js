@@ -17,6 +17,23 @@ export async function alert(message) {
 }
 window.alert = alert;
 
+export async function show(imgUrl, altText) {
+  return new Promise((resolve) => {
+    const dialog = document.createElement("dialog");
+    dialog.innerHTML = /* html */ `
+    <img src="${imgUrl}" alt="${altText}" style="max-width: 100%"><br>
+    <button class="button">OK</button>
+  `;
+    dialog.lastElementChild.onclick = () => {
+      dialog.remove();
+      resolve();
+    };
+    document.body.appendChild(dialog);
+    dialog.showModal();
+  });
+}
+window.show = show;
+
 export async function confirm(message) {
   return new Promise((resolve) => {
     const dialog = document.createElement("dialog");
@@ -254,6 +271,7 @@ export async function bessEndMenu(test, error_photos) {
       </div>
       <button class="button button--red" data-action="RETRY">Retry</button>
       <h3 style="margin-bottom: 0">On Foam (optional)</h3>
+      <p>The foam test requires a 50cm x 40cm x 6cm foam pad. Recommended model is the <a href="http://www.power-systems.com/" target="_blank">Power Systems Airex Balance Pad 81000</a>.</p>
       ${foam_html}
       <hr>
       <button class="button" data-action="REDO_MANUALLY">Redo Manually</button>
@@ -321,6 +339,13 @@ export async function confirmAthleteInfo(
       : "Female";
   const athlete_dominant_hand =
     pastTests.at(-1)?.athlete_dominant_hand ?? "Right";
+  const athlete_year_in_school = pastTests.at(-1)?.athlete_year_in_school ?? 10;
+  const athlete_years_of_education =
+    pastTests.at(-1)?.athlete_years_of_education ?? 10;
+  const athlete_first_language =
+    pastTests.at(-1)?.athlete_first_language ?? "English";
+  const athlete_preferred_language =
+    pastTests.at(-1)?.athlete_preferred_language ?? "English";
   const examiner_name = pastTests.at(-1)?.examiner_name ?? defaultExaminerName;
   const team_or_school =
     pastTests.at(-1)?.team_or_school ??
@@ -361,6 +386,11 @@ export async function confirmAthleteInfo(
       }</h3>
       <label class="left-align spread-inline">Athlete Name: <input type="text" placeholder="Athlete name" value="${athlete_name}" id="athlete_name" /></label>
       <label class="left-align spread-inline">ID Number: <input type="text" placeholder="Unique ID" value="${athlete_id}" id="athlete_id" /></label>
+      <label class="left-align spread-inline">Time of Examination: <input type="datetime-local" value="${
+        new Date(test_created_at - new Date().getTimezoneOffset() * 60 * 1000)
+          .toISOString()
+          .split(".")[0]
+      }" id="test_created_at" /></label>
       <label class="left-align spread-inline">Time of Injury (if applicable): <input type="datetime-local" value="${
         new Date(injury_timestamp - new Date().getTimezoneOffset() * 60 * 1000)
           .toISOString()
@@ -394,8 +424,12 @@ export async function confirmAthleteInfo(
           athlete_dominant_hand === "Ambidextrous" ? "selected" : ""
         }>Ambidextrous</option>
       </select></label>
+      <label class="left-align spread-inline">Current Year in School (if applicable): <input type="number" value="${athlete_year_in_school}" id="athlete_year_in_school" /></label>
+      <label class="left-align spread-inline">Total Years of Education Completed: <input type="number" value="${athlete_years_of_education}" id="athlete_years_of_education" /></label>
+      <label class="left-align spread-inline">First Language: <input type="text" placeholder="English" value="${athlete_first_language}" id="athlete_first_language" /></label>
+      <label class="left-align spread-inline">Preferred Language: <input type="text" placeholder="English" value="${athlete_preferred_language}" id="athlete_preferred_language" /></label>
       <label class="left-align spread-inline">Examiner Name: <input type="text" placeholder="Examiner name" value="${examiner_name}" id="examiner_name" /></label>
-      <label class="left-align spread-inline">Team or School: <input type="text" placeholder="Team or school" value="${team_or_school}" id="team_or_school" /></label>
+      <label class="left-align spread-inline">Sport/Team/School: <input type="text" placeholder="Team or school" value="${team_or_school}" id="team_or_school" /></label>
       
       <h4>Concussion History</h4>
       <label class="left-align spread-inline">Number of Past Concussions: <input type="number" value="${num_past_concussions}" id="num_past_concussions" /></label>
@@ -443,7 +477,9 @@ export async function confirmAthleteInfo(
       if (action === "CANCEL") return resolve(null);
       resolve({
         test_id,
-        test_created_at,
+        test_created_at: Date.parse(
+          dialog.querySelector("#test_created_at").value
+        ),
         test_updated_at,
         test_type: action,
         athlete_id: dialog.querySelector("#athlete_id").value,
@@ -454,6 +490,17 @@ export async function confirmAthleteInfo(
         athlete_sex: dialog.querySelector("#athlete_sex").value,
         athlete_dominant_hand: dialog.querySelector("#athlete_dominant_hand")
           .value,
+        athlete_year_in_school: parseInt(
+          dialog.querySelector("#athlete_year_in_school").value
+        ),
+        athlete_years_of_education: parseInt(
+          dialog.querySelector("#athlete_years_of_education").value
+        ),
+        athlete_first_language: dialog.querySelector("#athlete_year_in_school")
+          .value,
+        athlete_preferred_language: dialog.querySelector(
+          "#athlete_year_in_school"
+        ).value,
         examiner_name: dialog.querySelector("#examiner_name").value,
         team_or_school: dialog.querySelector("#team_or_school").value,
         injury_timestamp: Date.parse(
