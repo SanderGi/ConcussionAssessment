@@ -66,14 +66,14 @@
         <section style="position: relative">
             <button style="background: none; border: none; position: absolute; top: 1em; right: 1em;" onclick="show('./assets/neuroscreen-flowchart.png', 'flow chart')"><img src="./assets/flowchart.png" alt="flow chart icon" style="width: 2em; height: 2em"></button>
             <h2>Observable Signs</h2>
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Lying motionless on playing surface: <input type="checkbox" class="observable-signs"/></label>
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Falling unprotected to the surface: <input type="checkbox" class="observable-signs"/></label>
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Balance/gait difficulties, motor incoordination, ataxia: stumbling, slow/laboured movements: <input type="checkbox" class="observable-signs"/></label>
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Disorientation or confusion, staring or limited responsiveness, or an inability to respond appropriately to questions: <input type="checkbox" class="observable-signs"/></label>
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Blank or vacant look: <input type="checkbox" class="observable-signs"/></label>
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Facial injury after head trauma: <input type="checkbox" class="observable-signs"/></label>
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Impact seizure: <input type="checkbox" class="observable-signs"/></label>
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">High-risk mechanism of injury (sportdependent): <input type="checkbox" class="observable-signs"/></label>
+            <label class="left-align spread-inline red" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Lying motionless on playing surface: <input type="checkbox" class="observable-signs"/></label>
+            <label class="left-align spread-inline red" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Falling unprotected to the surface: <input type="checkbox" class="observable-signs"/></label>
+            <label class="left-align spread-inline red" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Balance/gait difficulties, motor incoordination, ataxia: stumbling, slow/laboured movements: <input type="checkbox" class="observable-signs"/></label>
+            <label class="left-align spread-inline red" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Disorientation or confusion, staring or limited responsiveness, or an inability to respond appropriately to questions: <input type="checkbox" class="observable-signs"/></label>
+            <label class="left-align spread-inline red" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Blank or vacant look: <input type="checkbox" class="observable-signs"/></label>
+            <label class="left-align spread-inline red" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Facial injury after head trauma: <input type="checkbox" class="observable-signs"/></label>
+            <label class="left-align spread-inline red" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Impact seizure: <input type="checkbox" class="observable-signs"/></label>
+            <label class="left-align spread-inline red" style="flex-wrap: nowrap; margin-bottom: 0.4em;">High-risk mechanism of injury (sportdependent): <input type="checkbox" class="observable-signs"/></label>
             <br><br>
             <button class="button button--red" onclick="saveTestResult('observable_signs', getChecked('observable-signs')); saveTestResult('observable_signs_source', 'WITNESSED'); alert('Remove athlete from Play for Immediate Medical Assessment or Transport to Hospital/Medical Center'); endTest()">Witnessed</button>
             <button class="button button--red" onclick="saveTestResult('observable_signs', getChecked('observable-signs')); saveTestResult('observable_signs_source', 'VIDEO'); alert('Remove athlete from Play for Immediate Medical Assessment or Transport to Hospital/Medical Center'); endTest()">Observed on Video</button>
@@ -85,27 +85,27 @@
             <button style="background: none; border: none; position: absolute; top: 1em; right: 1em;" onclick="show('./assets/neuroscreen-flowchart.png', 'flow chart')"><img src="./assets/flowchart.png" alt="flow chart icon" style="width: 2em; height: 2em"></button>
             <h2>Glasgow Coma Scale</h2>
             <h3>Best Eye Response</h3>
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">No eye opening for any reason: <input type="radio" name="eye-response" value="1"/></label>
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Open to pain (pinch or poke): <input type="radio" name="eye-response" value="2"/></label>
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Open to speech (when asked to open): <input type="radio" name="eye-response" value="3"/></label>
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Open naturally: <input type="radio" name="eye-response" value="4"/></label>
+            <label class="left-align spread-inline red" style="flex-wrap: nowrap; margin-bottom: 0.4em;">No eye opening for any reason: <input type="radio" name="eye-response" value="1"/></label>
+            <label class="left-align spread-inline red" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Open to pain (pinch or poke): <input type="radio" name="eye-response" value="2"/></label>
+            <label class="left-align spread-inline red" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Open to speech (when asked to open): <input type="radio" name="eye-response" value="3"/></label>
+            <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Open naturally: <input type="radio" name="eye-response" value="4"/></label>
             
             <h3>Best Verbal Response</h3>
             <p style="margin-top: 0">Does the athlete know their name, where they are at, the day/year, etc?</p>
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">No verbal response: <input type="radio" name="verbal" value="1"/></label>
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Incomprehensible sounds or noises: <input type="radio" name="verbal-response" value="2"/></label>
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Inappropriate words. Random but comprehensible words: <input type="radio" name="verbal-response" value="3"/></label>
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Confused. Answers but not fully aware what's happening: <input type="radio" name="verbal-response" value="4"/></label>
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Oriented. Answers correctly: <input type="radio" name="verbal-response" value="5"/></label>
+            <label class="left-align spread-inline red" style="flex-wrap: nowrap; margin-bottom: 0.4em;">No verbal response: <input type="radio" name="verbal" value="1"/></label>
+            <label class="left-align spread-inline red" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Incomprehensible sounds or noises: <input type="radio" name="verbal-response" value="2"/></label>
+            <label class="left-align spread-inline red" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Inappropriate words. Random but comprehensible words: <input type="radio" name="verbal-response" value="3"/></label>
+            <label class="left-align spread-inline red" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Confused. Answers but not fully aware what's happening: <input type="radio" name="verbal-response" value="4"/></label>
+            <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Oriented. Answers correctly: <input type="radio" name="verbal-response" value="5"/></label>
 
             <h3>Best Motor Response</h3>
             <p style="margin-top: 0">Can the athlete follow instructions for how to move (e.g. "lift your arm") or respond to pain (pinch or poke)?</p>
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">No motor response: <input type="radio" name="motor-response" value="1"/></label>
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Extend (stretch outward) muscles to pain: <input type="radio" name="motor-response" value="2"/></label>
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Abnormal flexion (pull muscles inward) to pain: <input type="radio" name="motor-response" value="3"/></label>
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Flexion/withdrawal (as a reflex) to pain: <input type="radio" name="motor-response" value="4"/></label>
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Localized to (Intentionally moves away from) pain: <input type="radio" name="motor-response" value="5"/></label>
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Obeys commands: <input type="radio" name="motor-response" value="6"/></label>
+            <label class="left-align spread-inline red" style="flex-wrap: nowrap; margin-bottom: 0.4em;">No motor response: <input type="radio" name="motor-response" value="1"/></label>
+            <label class="left-align spread-inline red" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Extend (stretch outward) muscles to pain: <input type="radio" name="motor-response" value="2"/></label>
+            <label class="left-align spread-inline red" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Abnormal flexion (pull muscles inward) to pain: <input type="radio" name="motor-response" value="3"/></label>
+            <label class="left-align spread-inline red" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Flexion/withdrawal (as a reflex) to pain: <input type="radio" name="motor-response" value="4"/></label>
+            <label class="left-align spread-inline red" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Localized to (Intentionally moves away from) pain: <input type="radio" name="motor-response" value="5"/></label>
+            <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Obeys commands: <input type="radio" name="motor-response" value="6"/></label>
 
             <button class="button button--green" id="complete-gcs-btn">Start Cervical Spine &nbsp; <i class="fa-solid fa-forward"></i></button>
             <script>
@@ -157,9 +157,9 @@
         <section style="position: relative;">
             <button style="background: none; border: none; position: absolute; top: 1em; right: 1em;" onclick="show('./assets/neuroscreen-flowchart.png', 'flow chart')"><img src="./assets/flowchart.png" alt="flow chart icon" style="width: 2em; height: 2em"></button>
             <h2>Coordination and Ocular/Motor Screen</h2>
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Coordination. Finger-to-nose is normal for both hands with eyes open and closed: <input type="checkbox" class="coordination"/></label>
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Ocular/Motor. Athlete can look side-to-side and up-and-down without moving their head/neck or getting double vision: <input type="checkbox" class="coordination"/></label>
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Observed extraocular eye movements are normal: <input type="checkbox" class="coordination"/></label>
+            <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Coordination. Finger-to-nose is normal for both hands with eyes open and closed: <input type="checkbox" class="coordination"/></label>
+            <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Ocular/Motor. Athlete can look side-to-side and up-and-down without moving their head/neck or getting double vision: <input type="checkbox" class="coordination"/></label>
+            <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Observed extraocular eye movements are normal: <input type="checkbox" class="coordination"/></label>
             <p>Please describe anything abnormal:</p>
             <textarea class="textarea" id="coordination-abnomalities"></textarea>
             <button class="button button--green" onclick="saveTestResult('coordination_abnomalities', document.getElementById('coordination-abnomalities').value); getChecked('coordination').length === 3 ? renderTestSection('maddocks-score') : (alert('Remove athlete from Play for Immediate Medical Assessment or Transport to Hospital/Medical Center') && endTest())">Start Maddocks &nbsp; <i class="fa-solid fa-forward"></i></button>
@@ -171,11 +171,11 @@
             <h2>Maddocks Score</h2>
             <p style="margin-top: 0;">Examiner, read the following line and ask the following questions (modified to be appropriate to the relevant sport). Check the correctly answered questions.</p>
             <p>Athlete, you will be asked a few questions. Please listen carefully and give your best effort. First explain what happened? &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">What venue are we at today? <input type="checkbox" class="maddocks"/></label>
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Which half is it now? <input type="checkbox" class="maddocks"/></label>
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Who scored last in this match? <input type="checkbox" class="maddocks"/></label>
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">What team did you play last week / game? <input type="checkbox" class="maddocks"/></label>
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Did your team win the last game? <input type="checkbox" class="maddocks"/></label>
+            <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;">What venue are we at today? <input type="checkbox" class="maddocks"/></label>
+            <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Which half is it now? <input type="checkbox" class="maddocks"/></label>
+            <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Who scored last in this match? <input type="checkbox" class="maddocks"/></label>
+            <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;">What team did you play last week / game? <input type="checkbox" class="maddocks"/></label>
+            <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Did your team win the last game? <input type="checkbox" class="maddocks"/></label>
             <button class="button button--green" id="maddocks-end-btn">Start Symptom Evaluation &nbsp; <i class="fa-solid fa-forward"></i></button>
             <script>
                 document.getElementById('maddocks-end-btn').addEventListener('click', () => {
@@ -224,8 +224,8 @@
             <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Nervous or anxious: <input type="number" class="symptom-baseline" value="0"/></label>
             <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Trouble falling asleep: <input type="number" class="symptom-baseline" value="0"/></label>
             
-            <label class="left-align spread-inline">Check if symptoms get worse with physical activity: <input type="checkbox" id="symptoms_worse_with_physical_baseline"></label>
-            <label class="left-align spread-inline">Check if symptoms get worse with mental activity: <input type="checkbox" id="symptoms_worse_with_mental_baseline"></label>
+            <label class="left-align spread-inline red">Check if symptoms get worse with physical activity: <input type="checkbox" id="symptoms_worse_with_physical_baseline"></label>
+            <label class="left-align spread-inline red">Check if symptoms get worse with mental activity: <input type="checkbox" id="symptoms_worse_with_mental_baseline"></label>
             <label class="left-align spread-inline">If 100% is feeling perfectly normal, what percent of normal do you feel? <input type="number" value="100" id="symptoms_percentage_normal_baseline"/></label>
             <label for="symptoms_description_baseline">If not 100%, why?</label>
             <textarea class="textarea" id="symptoms_description_baseline"></textarea>
@@ -286,8 +286,8 @@
             <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Nervous or anxious: <input type="number" class="symptom" value="0"/></label>
             <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Trouble falling asleep: <input type="number" class="symptom" value="0"/></label>
             
-            <label class="left-align spread-inline">Check if symptoms get worse with physical activity: <input type="checkbox" id="symptoms_worse_with_physical"></label>
-            <label class="left-align spread-inline">Check if symptoms get worse with mental activity: <input type="checkbox" id="symptoms_worse_with_mental"></label>
+            <label class="left-align spread-inline red" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Check if symptoms get worse with physical activity: <input type="checkbox" id="symptoms_worse_with_physical"></label>
+            <label class="left-align spread-inline red" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Check if symptoms get worse with mental activity: <input type="checkbox" id="symptoms_worse_with_mental"></label>
             <label class="left-align spread-inline">If 100% is feeling perfectly normal, what percent of normal do you feel? <input type="number" value="100" id="symptoms_percentage_normal"/></label>
             <label for="symptoms_description">If not 100%, why?</label>
             <textarea class="textarea" id="symptoms_description"></textarea>
@@ -324,11 +324,11 @@
         <section>
             <h2>Orientation</h2>
             <p style="margin-top: 0;">Examiner, ask the athlete the following questions and select the ones they answer correctly.</p>
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">What month is it? <input type="checkbox" class="orientation"/></label>
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">What is the date today? <input type="checkbox" class="orientation"/></label>
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">What is the day of the week? <input type="checkbox" class="orientation"/></label>
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">What year is it? <input type="checkbox" class="orientation"/></label>
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">What time is it right now (within 1 hour)? <input type="checkbox" class="orientation"/></label>
+            <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;">What month is it? <input type="checkbox" class="orientation"/></label>
+            <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;">What is the date today? <input type="checkbox" class="orientation"/></label>
+            <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;">What is the day of the week? <input type="checkbox" class="orientation"/></label>
+            <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;">What year is it? <input type="checkbox" class="orientation"/></label>
+            <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;">What time is it right now (within 1 hour)? <input type="checkbox" class="orientation"/></label>
             <button class="button button--green" id="orientation-end-btn">Start Immediate Memory &nbsp; <i class="fa-solid fa-forward"></i></button>
             <script>
                 document.getElementById('orientation-end-btn').addEventListener('click', () => {
@@ -352,7 +352,7 @@
                 <thead><tr><th>Trial 1</th><th>Trial 2</th><th>Trial 3</th></tr></thead>
                 <tbody>
                     <tr id="immediate-memory-data">
-                        <td data-title="Trial 1"><input type="number" value="0" style="min-width: 6ch;"></td>
+                        <td data-title="Trial 1"><input type="number" value="0" style="min-width: 6ch; outline: 1px solid var(--secondary)"></td>
                         <td data-title="Trial 2"><input type="number" value="0" style="min-width: 6ch;"></td>
                         <td data-title="Trial 3"><input type="number" value="0" style="min-width: 6ch;"></td>
                     </tr>
@@ -360,8 +360,16 @@
             </table>
             <button class="button button--green" id="immediate-memory-end-btn">Start Concentration &nbsp; <i class="fa-solid fa-forward"></i></button>
             <script>
+                let currentTrial = -1;
+                const inputs = document.getElementById('immediate-memory-data');
+                inputs.addEventListener('focusin', (e) => {
+                    inputs.children[currentTrial == -1 ? 0 : currentTrial].children[0].style.outline = 'none';
+                    currentTrial = Array.from(inputs.children).indexOf(e.target.parentElement);
+                    inputs.children[currentTrial == -1 ? 0 : currentTrial].children[0].style.outline = '1px solid var(--secondary)';
+                });
                 document.addEventListener("renderTestSection", async (event) => {
                     if (event.detail === "immediate-memory") {
+                        currentTrial = -1;
                         const wordlist = document.getElementById('wordlist');
                         wordlist.innerHTML = '';
                         const choices = [
@@ -374,11 +382,24 @@
                             const li = document.createElement('li');
                             li.textContent = word;
                             li.onclick = () => {
-                                li.style.textDecoration = li.style.textDecoration === 'line-through' ? 'none' : 'line-through';
+                                const wasCrossed = li.style.textDecoration === 'line-through';
+                                li.style.textDecoration = wasCrossed ? 'none' : 'line-through';
+                                li.style.color = wasCrossed ? 'white' : 'darkgreen';
+                                const numCrossed = Array.from(wordlist.children).filter(w => w.style.textDecoration === 'line-through').length;
+                                inputs.children[currentTrial == -1 ? 0 : currentTrial].children[0].value = numCrossed;
                             }
                             wordlist.appendChild(li);
                         }
-                        window.readMemoryWords = () => readListOneWPS(words);
+                        window.readMemoryWords = () => {
+                            inputs.children[currentTrial == -1 ? 0 : currentTrial].children[0].style.outline = 'none';
+                            currentTrial++;
+                            inputs.children[currentTrial].children[0].style.outline = '1px solid var(--secondary)';
+                            for (const word of wordlist.children) {
+                                word.style.textDecoration = 'none';
+                                word.style.color = 'white';
+                            }
+                            readListOneWPS(words);
+                        };
                         saveTestResult('immediate_memory_words', words);
                     }
                 });
@@ -398,7 +419,7 @@
             <h3>Digits Backwards</h3>
             <p style="margin-top: 0;">Examiner, read the following numbers (one sequence from each set) and ask the athlete to repeat them back in reverse order. Say them slowly at a rate of one digit per second. Each set has two number sequences. If the athlete fails the first, try the second. If both fail, end this subsection and move on to the months in reverse order.</p>
             <p>Athlete, I'm going to read a string of numbers and when I am done, you repeat them back to me in reverse order of how I read them to you. For example, if I say 7 1 9, you would say 9 1 7. So, if I said 9 6 8 you would say? &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
-            <ul>
+            <ul id="digit-sets">
                 <li>4-9-3 <i class="fa-solid fa-volume-high" onclick="abortSpeaking(); readListOneWPS([4, 9, 3]);"></i> or 6-2-9 <i class="fa-solid fa-volume-high" onclick="abortSpeaking(); readListOneWPS([6, 2, 9]);"></i></li>
                 <li>3-8-1-4 <i class="fa-solid fa-volume-high" onclick="abortSpeaking(); readListOneWPS([3, 8, 1, 4]);"></i> or 3-2-7-9 <i class="fa-solid fa-volume-high" onclick="abortSpeaking(); readListOneWPS([3, 2, 7, 9]);"></i></li>
                 <li>6-2-9-7-1 <i class="fa-solid fa-volume-high" onclick="abortSpeaking(); readListOneWPS([6, 2, 9, 7, 1]);"></i> or 1-5-2-8-6 <i class="fa-solid fa-volume-high" onclick="abortSpeaking(); readListOneWPS([1, 5, 2, 8, 6]);"></i></li>
@@ -423,7 +444,7 @@
                 <li>February</li>
                 <li>January</li>
             </ul>
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Completed correctly: <input type="checkbox" id="concentration-months"/></label>
+            <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Check box if athlete completed all the months correctly: <input type="checkbox" id="concentration-months"/></label>
             <button class="button button--green" id="concentration-end-btn">Start BESS &nbsp; <i class="fa-solid fa-forward"></i></button>
             <script>
                 document.getElementById('concentration-end-btn').addEventListener('click', () => {
@@ -432,9 +453,26 @@
                     saveTestResult('concentration', digits + months);
                     renderTestSection('bess');
                 });
+                document.getElementById('digit-sets').addEventListener('click', (e) => {
+                    if (e.target.tagName === 'LI') {
+                        const wasCrossed = e.target.style.textDecoration === 'line-through';
+                        e.target.style.textDecoration = wasCrossed ? 'none' : 'line-through';
+                        e.target.style.color = wasCrossed ? 'white' : 'darkgreen';
+                        let numCrossed = document.getElementById("digit-sets").querySelectorAll('li[style*="line-through"]').length;
+                        document.getElementById('concentration-digits').value = numCrossed;
+                    }
+                });
                 document.getElementById("months-reverse-order").addEventListener("click", (event) => {
                     if (event.target.tagName === 'LI') {
-                        event.target.style.textDecoration = event.target.style.textDecoration === 'line-through' ? 'none' : 'line-through';
+                        const wasCrossed = event.target.style.textDecoration === 'line-through';
+                        event.target.style.textDecoration = wasCrossed ? 'none' : 'line-through';
+                        event.target.style.color = wasCrossed ? 'white' : 'darkgreen';
+                        let numCrossed = document.getElementById("months-reverse-order").querySelectorAll('li[style*="line-through"]').length;
+                        if (numCrossed === 12) {
+                            document.getElementById('concentration-months').checked = true;
+                        } else {
+                            document.getElementById('concentration-months').checked = false;
+                        }
                     }
                 });
             </script>
@@ -568,7 +606,7 @@
             <p>Athlete, when the timer is started, please walk heel-to-toe quickly to the end of the tape, turn around and come back as fast as you can, without separating your feet or stepping off the line &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
             <img src="assets/tandem-gait-side.png" style="width: 100%; max-width: 400px; margin: 0 auto; margin-bottom: 10px;">
             <table style="margin: auto;">
-                <thead><tr><th>Trial 1 (seconds)</th><th>Trial 2 (seconds)</th><th>Trial 3 (seconds)</th><th>Average (seconds)</th><th>Fastest (seconds)</th></tr></thead>
+                <thead><tr><th style="padding-right: 1em">Trial 1 (seconds)</th><th style="padding-right: 1em">Trial 2 (seconds)</th><th style="padding-right: 1em">Trial 3 (seconds)</th><th style="padding-right: 1em">Average (seconds)</th><th style="padding-right: 1em">Fastest (seconds)</th></tr></thead>
                 <tbody>
                     <tr id="tandem-data">
                         <td data-title="Trial 1 (seconds)"><button data-action="start-1" class="button button--green">Start Timer</button></td>

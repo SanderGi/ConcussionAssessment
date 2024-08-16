@@ -1,27 +1,22 @@
 import { getTest, saveTestResult } from "./testManager.js";
+import { sequencePrompt } from "./util/popup.js";
 
 let startTime = 0;
 let timer = null;
 const section = document.getElementById("dual-task-gait");
 section.addEventListener("click", async (e) => {
   if (e.target.tagName === "SPAN") {
-    e.target.style.textDecoration =
-      e.target.style.textDecoration === "line-through" ? "" : "line-through";
+    const wasCrossed = e.target.style.textDecoration === "line-through";
+    e.target.style.textDecoration = wasCrossed ? "" : "line-through";
+    e.target.style.color = wasCrossed ? "" : "darkgreen";
   }
   if (e.target.tagName === "I" && e.target.dataset.action === "edit-numbers") {
-    let randomStart = Math.floor(Math.random() * 16 + 84) + 7;
-    const sequence = Array.from({ length: 13 }, () => (randomStart -= 7));
-    const answer = await prompt(
-      "Enter a new comma separated list of numbers:",
-      sequence.join(", ")
-    );
-    if (answer !== null) {
-      const numbers = answer.split(",").map((n) => parseInt(n.trim()));
-      numbers.reverse();
+    const newNumbers = await sequencePrompt();
+    if (newNumbers !== null) {
       for (const oldnum of e.target.parentElement.querySelectorAll("span")) {
         oldnum.remove();
       }
-      for (const num of numbers) {
+      for (const num of newNumbers) {
         const span = document.createElement("span");
         span.textContent = num;
         e.target.parentElement.prepend(span);
@@ -59,6 +54,7 @@ section.addEventListener("click", async (e) => {
     redoBtn.onclick = () => {
       datasection.querySelectorAll("span").forEach((el) => {
         el.style.textDecoration = "";
+        el.style.color = "";
       });
       datasection.querySelector(`[data-title="Errors"]`).firstChild.value = 0;
       datasection.querySelector(

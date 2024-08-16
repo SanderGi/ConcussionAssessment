@@ -77,7 +77,7 @@ export async function readListOneWPS(list) {
   for (const word of list) {
     await wait(1);
     if (window.lastAbort > lastAbort) return;
-    speak(word);
+    speak(word, false);
   }
 }
 window.readListOneWPS = readListOneWPS;

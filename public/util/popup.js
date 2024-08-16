@@ -79,6 +79,55 @@ export async function prompt(message, defaultValue = "") {
 }
 window.prompt = prompt;
 
+function getSequence(start, decrement, length) {
+  return Array.from({ length }, (_, i) => start - i * decrement);
+}
+export async function sequencePrompt() {
+  const randomStart = Math.floor(Math.random() * 16 + 84);
+  const randomSequence = getSequence(randomStart, 7, 13);
+
+  return new Promise((resolve) => {
+    const dialog = document.createElement("dialog");
+    dialog.innerHTML = /* html */ `
+      <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Start: <input type="number" value="${randomStart}" /></label>
+      <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Decrement: <input type="number" value="7" /></label>
+      <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Length: <input type="number" value="13" /></label>
+      <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Sequence: <input type="text" value="${randomSequence.join(
+        ","
+      )}" /></label>
+      <button class="button">OK</button>
+      <button class="button button--red">CANCEL</button>
+    `;
+    dialog.addEventListener("input", (e) => {
+      if (e.target.tagName === "INPUT") {
+        const start = parseInt(dialog.children[0].querySelector("input").value);
+        const decrement = parseInt(
+          dialog.children[1].querySelector("input").value
+        );
+        const length = parseInt(
+          dialog.children[2].querySelector("input").value
+        );
+        const sequence = getSequence(start, decrement, length);
+        dialog.children[3].querySelector("input").value = sequence.join(",");
+      }
+    });
+    dialog.children[4].onclick = () => {
+      dialog.remove();
+      const answer = dialog.children[3].querySelector("input").value;
+      const numbers = answer.split(",").map((n) => parseInt(n.trim()));
+      numbers.reverse();
+      console.log(numbers);
+      resolve(numbers);
+    };
+    dialog.lastElementChild.onclick = () => {
+      dialog.remove();
+      resolve(null);
+    };
+    document.body.appendChild(dialog);
+    dialog.showModal();
+  });
+}
+
 export async function syncSettings(name, email, status) {
   return new Promise((resolve) => {
     const dialog = document.createElement("dialog");

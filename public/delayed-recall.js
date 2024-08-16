@@ -52,7 +52,7 @@ function setupDelayedRecall() {
       test.immediate_memory_words
         ?.map(
           (word) => /*html*/ `
-          <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">${word}: <input type="checkbox" class="recall-list"/></label>
+          <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;">${word}: <input type="checkbox" class="recall-list"/></label>
         `
         )
         ?.join("") ?? "Somehow the list of words was not saved."

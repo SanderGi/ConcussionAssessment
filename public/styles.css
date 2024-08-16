@@ -166,43 +166,57 @@ textarea:focus-visible {
   outline: 1px solid var(--tertiary);
 }
 
-input[type="checkbox"] {
+input[type="checkbox"], input[type="radio"] {
   accent-color: var(--secondary);
   border: 1px solid var(--secondary);
 }
 label:hover > input[type="checkbox"],
-input[type="checkbox"]:focus-visible {
+input[type="checkbox"]:focus-visible,
+label:hover > input[type="radio"],
+input[type="radio"]:focus-visible {
   accent-color: var(--accent);
 }
 label:has(> input[type="checkbox"]):hover,
-label:has(> input[type="checkbox"]:focus-visible) {
+label:has(> input[type="checkbox"]:focus-visible),
+label:has(> input[type="radio"]):hover,
+label:has(> input[type="radio"]:focus-visible) {
   cursor: pointer;
   background-color: var(--secondary);
 }
 input:disabled {
   opacity: 0.6;
 }
-label.green > input[type="checkbox"] {
+label.green > input[type="checkbox"],
+label.green > input[type="radio"] {
   accent-color: var(--light-green);
 }
 label.green:hover > input[type="checkbox"],
-label.green > input[type="checkbox"]:focus-visible {
+label.green > input[type="checkbox"]:focus-visible,
+label.green:hover > input[type="radio"],
+label.green > input[type="radio"]:focus-visible {
   accent-color: var(--light-green);
 }
 label.green:has(> input[type="checkbox"]):hover,
-label.green:has(> input[type="checkbox"]:focus-visible) {
+label.green:has(> input[type="checkbox"]:focus-visible),
+label.green:has(> input[type="radio"]):hover,
+label.green:has(> input[type="radio"]:focus-visible) {
   cursor: pointer;
   background-color: var(--green);
 }
-label.red > input[type="checkbox"] {
+label.red > input[type="checkbox"],
+label.red > input[type="radio"] {
   accent-color: var(--light-red);
 }
 label.red:hover > input[type="checkbox"],
-label.red > input[type="checkbox"]:focus-visible {
+label.red > input[type="checkbox"]:focus-visible,
+label.red:hover > input[type="radio"],
+label.red > input[type="radio"]:focus-visible {
   accent-color: var(--light-red);
 }
 label.red:has(> input[type="checkbox"]):hover,
-label.red:has(> input[type="checkbox"]:focus-visible) {
+label.red:has(> input[type="checkbox"]:focus-visible),
+label.red:has(> input[type="radio"]):hover,
+label.red:has(> input[type="radio"]:focus-visible) {
   cursor: pointer;
   background-color: var(--red);
 }
