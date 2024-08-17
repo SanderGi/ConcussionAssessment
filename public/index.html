@@ -393,6 +393,7 @@
                         window.readMemoryWords = () => {
                             inputs.children[currentTrial == -1 ? 0 : currentTrial].children[0].style.outline = 'none';
                             currentTrial++;
+                            currentTrial = Math.min(currentTrial, 2);
                             inputs.children[currentTrial].children[0].style.outline = '1px solid var(--secondary)';
                             for (const word of wordlist.children) {
                                 word.style.textDecoration = 'none';

@@ -1,6 +1,6 @@
 import { tests, syncData, connectUser } from "./userData.js";
 import { confirmAthleteInfo } from "./util/popup.js";
-import { isSpeaking, speak } from "./util/sound.js";
+import { abortSpeaking, isSpeaking, speak } from "./util/sound.js";
 
 // ============================ Session/Local Storage Keys ============================
 const TEST_PHASE = "test-phase";
@@ -73,11 +73,10 @@ export async function wait(seconds) {
 
 export async function readListOneWPS(list) {
   const lastAbort = window.lastAbort;
-  while (isSpeaking()) await wait(1);
   for (const word of list) {
-    await wait(1);
+    while (isSpeaking()) await wait(1);
     if (window.lastAbort > lastAbort) return;
-    speak(word, false);
+    speak(word, "en-US", false);
   }
 }
 window.readListOneWPS = readListOneWPS;
