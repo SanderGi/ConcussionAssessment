@@ -412,6 +412,7 @@ export async function confirmAthleteInfo(
   const primary_symptoms =
     pastTests.at(-1)?.primary_symptoms ??
     "Confusion, Headache, Double/Blurry Vision, Dizziness/Imbalance, Nausea/Vomiting, Memory Loss, Ringing Ears, Difficulty Concentrating, Sensitivity to Light, Loss of Smell/Taste, Trouble Sleeping";
+  const primary_symptoms_other = pastTests.at(-1)?.primary_symptoms_other ?? "";
   const hospitalized_for_head_injury =
     pastTests.at(-1)?.hospitalized_for_head_injury ?? false;
   const diagnosed_headache_disorder_or_migraine =
@@ -486,7 +487,41 @@ export async function confirmAthleteInfo(
         new Date(most_recent_concussion_timestamp).toISOString().split("T")[0]
       }" id="most_recent_concussion_timestamp" /></label>
       <label class="left-align spread-inline">Most Recent Recovery Time (days): <input type="number" value="${most_recent_recovery_time_days}" id="most_recent_recovery_time_days" /></label>
-      <label class="left-align spread-inline">Primary Symptoms: <input type="text" placeholder="Symptoms" class="fill-spread" value="${primary_symptoms}" id="primary_symptoms" /></label>
+      <p>Primary Symptoms:</p>
+      <label class="left-align spread-inline" style="flex-wrap: nowrap">Confusion: <input type="checkbox" ${
+        primary_symptoms.includes("Confusion") ? "checked" : ""
+      } name="primary_symptoms" value="Confusion" /></label>
+      <label class="left-align spread-inline" style="flex-wrap: nowrap">Headache: <input type="checkbox" ${
+        primary_symptoms.includes("Headache") ? "checked" : ""
+      } name="primary_symptoms" value="Headache" /></label>
+      <label class="left-align spread-inline" style="flex-wrap: nowrap">Double/Blurry Vision: <input type="checkbox" ${
+        primary_symptoms.includes("Double/Blurry Vision") ? "checked" : ""
+      } name="primary_symptoms" value="Double/Blurry Vision" /></label>
+      <label class="left-align spread-inline" style="flex-wrap: nowrap">Dizziness/Imbalance: <input type="checkbox" ${
+        primary_symptoms.includes("Dizziness/Imbalance") ? "checked" : ""
+      } name="primary_symptoms" value="Dizziness/Imbalance" /></label>
+      <label class="left-align spread-inline" style="flex-wrap: nowrap">Nausea/Vomiting: <input type="checkbox" ${
+        primary_symptoms.includes("Nausea/Vomiting") ? "checked" : ""
+      } name="primary_symptoms" value="Nausea/Vomiting" /></label>
+      <label class="left-align spread-inline" style="flex-wrap: nowrap">Memory Loss: <input type="checkbox" ${
+        primary_symptoms.includes("Memory Loss") ? "checked" : ""
+      } name="primary_symptoms" value="Memory Loss" /></label>
+      <label class="left-align spread-inline" style="flex-wrap: nowrap">Ringing Ears: <input type="checkbox" ${
+        primary_symptoms.includes("Ringing Ears") ? "checked" : ""
+      } name="primary_symptoms" value="Ringing Ears" /></label>
+      <label class="left-align spread-inline" style="flex-wrap: nowrap">Difficulty Concentrating: <input type="checkbox" ${
+        primary_symptoms.includes("Difficulty Concentrating") ? "checked" : ""
+      } name="primary_symptoms" value="Difficulty Concentrating" /></label>
+      <label class="left-align spread-inline" style="flex-wrap: nowrap">Sensitivity to Light: <input type="checkbox" ${
+        primary_symptoms.includes("Sensitivity to Light") ? "checked" : ""
+      } name="primary_symptoms" value="Sensitivity to Light" /></label>
+      <label class="left-align spread-inline" style="flex-wrap: nowrap">Loss of Smell/Taste: <input type="checkbox" ${
+        primary_symptoms.includes("Loss of Smell/Taste") ? "checked" : ""
+      } name="primary_symptoms" value="Loss of Smell/Taste" /></label>
+      <label class="left-align spread-inline" style="flex-wrap: nowrap">Trouble Sleeping: <input type="checkbox" ${
+        primary_symptoms.includes("Trouble Sleeping") ? "checked" : ""
+      } name="primary_symptoms" value="Trouble Sleeping" /></label>
+      <label class="left-align spread-inline">Other: <input type="text" placeholder="List other symptoms" value="${primary_symptoms_other}" class="fill-spread" id="primary_symptoms_other" /></label>
       
       <h4>Medical Background</h4>
       <p style="margin-top: 0">Has the athlete ever been (if yes, describe below):</p>
@@ -564,7 +599,13 @@ export async function confirmAthleteInfo(
         most_recent_recovery_time_days: parseInt(
           dialog.querySelector("#most_recent_recovery_time_days").value
         ),
-        primary_symptoms: dialog.querySelector("#primary_symptoms").value,
+        primary_symptoms: Array.from(
+          dialog.querySelectorAll('input[name="primary_symptoms"]:checked')
+        )
+          .map((el) => el.value)
+          .join(", "),
+        primary_symptoms_other: dialog.querySelector("#primary_symptoms_other")
+          .value,
       });
     };
     document.body.appendChild(dialog);

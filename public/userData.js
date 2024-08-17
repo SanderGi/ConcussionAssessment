@@ -209,6 +209,7 @@ export async function deleteRemoteData() {
  * @property {number} most_recent_concussion_timestamp
  * @property {number} most_recent_recovery_time_days
  * @property {string} primary_symptoms
+ * @property {string} primary_symptoms_other
  *
  * @property {boolean} hospitalized_for_head_injury
  * @property {boolean} diagnosed_headache_disorder_or_migraine

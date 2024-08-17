@@ -241,6 +241,7 @@ window.showAthleteResults = async (athlete_id) => {
 
   const selectTest = document.createElement("select");
   for (const t of athleteTests.toReversed()) {
+    if (t.test_type === "NO-TEST") continue;
     const option = document.createElement("option");
     option.textContent = `${t.test_type} - ${new Date(
       t.test_created_at
@@ -248,14 +249,23 @@ window.showAthleteResults = async (athlete_id) => {
     option.value = t.test_id;
     selectTest.appendChild(option);
   }
-  container.appendChild(selectTest);
-  const openTestButton = document.createElement("button");
-  openTestButton.textContent = "Open Test Details";
-  openTestButton.className = "button";
-  openTestButton.onclick = () => {
-    viewResults(tests[selectTest.value]);
-  };
-  container.appendChild(openTestButton);
+  if (selectTest.children.length === 0) {
+    container.appendChild(
+      document.createTextNode("No tests found for this athlete. ")
+    );
+    container.appendChild(
+      document.createTextNode("Click the Test button to start a new test.")
+    );
+  } else {
+    container.appendChild(selectTest);
+    const openTestButton = document.createElement("button");
+    openTestButton.textContent = "Open Test Details";
+    openTestButton.className = "button";
+    openTestButton.onclick = () => {
+      viewResults(tests[selectTest.value]);
+    };
+    container.appendChild(openTestButton);
+  }
 
   const canvas = document.createElement("canvas");
   container.appendChild(canvas);
