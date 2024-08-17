@@ -422,9 +422,7 @@ export async function confirmAthleteInfo(
   const athlete_preferred_language =
     pastTests.at(-1)?.athlete_preferred_language ?? "English";
   const examiner_name = pastTests.at(-1)?.examiner_name ?? defaultExaminerName;
-  const team_or_school =
-    pastTests.at(-1)?.team_or_school ??
-    "Varsity Cello Music at Aureole High School";
+  const team_or_school = pastTests.at(-1)?.team_or_school ?? "";
   const injury_timestamp = Date.now();
   const num_past_concussions =
     pastTests.length > 0
@@ -504,8 +502,8 @@ export async function confirmAthleteInfo(
       <label class="left-align spread-inline">Total Years of Education Completed: <input type="number" value="${athlete_years_of_education}" id="athlete_years_of_education" /></label>
       <label class="left-align spread-inline">First Language: <input type="text" placeholder="English" value="${athlete_first_language}" id="athlete_first_language" /></label>
       <label class="left-align spread-inline">Preferred Language: <input type="text" placeholder="English" value="${athlete_preferred_language}" id="athlete_preferred_language" /></label>
-      <label class="left-align spread-inline">Examiner Name: <input type="text" placeholder="Examiner name" value="${examiner_name}" id="examiner_name" /></label>
-      <label class="left-align spread-inline">Sport/Team/School: <input type="text" placeholder="Team or school" value="${team_or_school}" id="team_or_school" /></label>
+      <label class="left-align spread-inline">Examiner Name: <input type="text" placeholder="Your first and last name" value="${examiner_name}" id="examiner_name" /></label>
+      <label class="left-align spread-inline">Sport/Team/School: <input type="text" placeholder="Varsity X at Y High School" value="${team_or_school}" id="team_or_school" /></label>
       
       <h4>Concussion History</h4>
       <label class="left-align spread-inline">Number of Past Concussions: <input type="number" value="${num_past_concussions}" id="num_past_concussions" /></label>

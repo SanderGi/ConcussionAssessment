@@ -129,7 +129,7 @@ export function viewResults(test) {
 }
 
 export async function startTest(pastTests) {
-  let defaultExaminerName = "William Brown";
+  let defaultExaminerName = "";
   const user = await connectUser();
   if (user) {
     defaultExaminerName = user.name;
