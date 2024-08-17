@@ -79,6 +79,32 @@ export async function prompt(message, defaultValue = "") {
 }
 window.prompt = prompt;
 
+export async function showSources() {
+  return new Promise((resolve) => {
+    const dialog = document.createElement("dialog");
+    dialog.innerHTML = /* html */ `
+      <h3>Sources</h3>
+      <ul style="text-align: left; margin: auto; width: fit-content">
+        <li>SCAT6 Supplementary Material: <a href="./assets/SCAT6-Detailed-Instructions.pdf" target="_blank">SCAT6</a></li>
+        <li>Concussion training and information: <a href="https://www.cdc.gov/headsup/index.html" target="_blank">CDC's Heads Up</a></li>
+        <li>BESS Manual: <a href="https://atriumhealth.org/documents/carolinasrehab/bess_manual_.pdf" target="_blank">University of North Carolina</a></li>
+        <li>Healthy/Risk ranges for BESS, Tandem and Dual Gait: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7987555/" target="_blank">Van Deventer et al.</a></li>
+        <li>Healthy/Risk ranges for Immediate/Delayed Recall: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6109942/" target="_blank">Norheim et al.</a></li>
+        <li>Symptom Severity Study: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8583872/" target="_blank">Langer et al.</a></li>
+        <li>SCAT6 Results Study: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6326330/" target="_blank">Mistry and Rainer</a></li>
+      </ul>
+      <br>
+      <button class="button" autofocus>OK</button>
+    `;
+    dialog.lastElementChild.onclick = () => {
+      dialog.remove();
+      resolve();
+    };
+    document.body.appendChild(dialog);
+    dialog.showModal();
+  });
+}
+
 function getSequence(start, decrement, length) {
   return Array.from({ length }, (_, i) => start - i * decrement);
 }

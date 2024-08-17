@@ -1,5 +1,6 @@
 import { getTest, saveTestResult } from "./testManager.js";
 import { tests } from "./userData.js";
+import { showSources } from "./util/popup.js";
 
 const content = document.getElementById("results-content");
 
@@ -40,7 +41,7 @@ document.addEventListener("renderTestSection", async (event) => {
   }
   content.innerHTML = /*html*/ `
     <table style="margin-left: auto; margin-right: auto">
-      <thead><tr><th>Domain</th><th>Current Score</th><th>Last Baseline</th><th>Last Post Injury</th><th>Healthy Range</th><th>Increased Risk Range</th></tr></thead>
+      <thead><tr><th>Domain</th><th>Current Score</th><th>Last Baseline</th><th>Last Post Injury</th><th>Healthy Range <i class="fa-solid fa-circle-info" data-action="SOURCES"></i></th><th>Increased Risk Range <i class="fa-solid fa-circle-info" data-action="SOURCES"></i></th></tr></thead>
       <tbody>
         <tr><!-- DATE -->
           <td data-title="Domain">Date</td>
@@ -84,7 +85,7 @@ document.addEventListener("renderTestSection", async (event) => {
             lastPostInjury.symptom_severity ?? "--"
           }</td>
           <td data-title="Healthy Range">0-25 (low)</td>
-          <td data-title="Increased Risk Range">26-75 (moderate), >76 (high)</td>
+          <td data-title="Increased Risk Range">26-75 (moderate)<br> >76 (high)</td>
         </tr>
         <tr><!-- Orientation -->
           <td data-title="Domain" style="white-space: nowrap">Orientation (of 5)</td>
@@ -317,6 +318,8 @@ document.addEventListener("renderTestSection", async (event) => {
       } else {
         saveTestResult("signed_timestamp", null);
       }
+    } else if (action === "SOURCES") {
+      showSources();
     }
   };
 
