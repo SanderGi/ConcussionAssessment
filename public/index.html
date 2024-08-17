@@ -243,6 +243,15 @@
                         }
                     });
                 }
+                document.getElementById('symptoms_percentage_normal_baseline').addEventListener('input', (e) => {
+                    const value = parseInt(e.target.value);
+                    if (value > 100) {
+                        e.target.value = 100;
+                    }
+                    if (value < 0) {
+                        e.target.value = 0;
+                    }
+                });
                 document.getElementById('symptom-baseline-end-btn').onclick = () => {
                     const symptoms = document.querySelectorAll('.symptom-baseline');
                     const numSymptoms = Array.from(symptoms).filter(s => parseInt(s.value) > 0).length;
@@ -305,6 +314,15 @@
                         }
                     });
                 }
+                document.getElementById('symptoms_percentage_normal').addEventListener('input', (e) => {
+                    const value = parseInt(e.target.value);
+                    if (value > 100) {
+                        e.target.value = 100;
+                    }
+                    if (value < 0) {
+                        e.target.value = 0;
+                    }
+                });
                 document.getElementById('symptom-end-btn').onclick = () => {
                     const symptoms = document.querySelectorAll('.symptom');
                     const numSymptoms = Array.from(symptoms).filter(s => parseInt(s.value) > 0).length;
