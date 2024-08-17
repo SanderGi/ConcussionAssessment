@@ -438,11 +438,15 @@
             <h3>Digits Backwards</h3>
             <p style="margin-top: 0;">Examiner, read the following numbers (one sequence from each set) and ask the athlete to repeat them back in reverse order. Say them slowly at a rate of one digit per second. Each set has two number sequences. If the athlete fails the first, try the second. If both fail, end this subsection and move on to the months in reverse order.</p>
             <p>Athlete, I'm going to read a string of numbers and when I am done, you repeat them back to me in reverse order of how I read them to you. For example, if I say 7 1 9, you would say 9 1 7. So, if I said 9 6 8 you would say? &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
-            <ul id="digit-sets">
-                <li>4-9-3 <i class="fa-solid fa-volume-high" onclick="abortSpeaking(); readListOneWPS([4, 9, 3]);"></i> or 6-2-9 <i class="fa-solid fa-volume-high" onclick="abortSpeaking(); readListOneWPS([6, 2, 9]);"></i></li>
-                <li>3-8-1-4 <i class="fa-solid fa-volume-high" onclick="abortSpeaking(); readListOneWPS([3, 8, 1, 4]);"></i> or 3-2-7-9 <i class="fa-solid fa-volume-high" onclick="abortSpeaking(); readListOneWPS([3, 2, 7, 9]);"></i></li>
-                <li>6-2-9-7-1 <i class="fa-solid fa-volume-high" onclick="abortSpeaking(); readListOneWPS([6, 2, 9, 7, 1]);"></i> or 1-5-2-8-6 <i class="fa-solid fa-volume-high" onclick="abortSpeaking(); readListOneWPS([1, 5, 2, 8, 6]);"></i></li>
-                <li>7-1-8-4-6-2 <i class="fa-solid fa-volume-high" onclick="abortSpeaking(); readListOneWPS([7, 1, 8, 4, 6, 2]);"></i> or 5-3-9-1-4-8 <i class="fa-solid fa-volume-high" onclick="abortSpeaking(); readListOneWPS([5, 3, 9, 1, 4, 8]);"></i></li>
+            <ul id="digit-sets" style="font-size: 1.3em;">
+                <li><span>4-9-3 <i class="fa-solid fa-volume-high" onclick="abortSpeaking(); readListOneWPS([4, 9, 3]);"></i> &emsp; <i class="fa-solid fa-circle-check" style="color: var(--green)"></i> <i class="fa-solid fa-circle-xmark" style="color: var(--red)"></i></span><div style="height: 4px"></div>
+                    <span>6-2-9 <i class="fa-solid fa-volume-high" onclick="abortSpeaking(); readListOneWPS([6, 2, 9]);"></i> &emsp; <i class="fa-solid fa-circle-check" style="color: var(--green)"></i> <i class="fa-solid fa-circle-xmark" style="color: var(--red)"></i></span></li><br>
+                <li><span>3-8-1-4 <i class="fa-solid fa-volume-high" onclick="abortSpeaking(); readListOneWPS([3, 8, 1, 4]);"></i> &emsp; <i class="fa-solid fa-circle-check" style="color: var(--green)"></i> <i class="fa-solid fa-circle-xmark" style="color: var(--red)"></i></span><div style="height: 4px"></div>
+                    <span>3-2-7-9 <i class="fa-solid fa-volume-high" onclick="abortSpeaking(); readListOneWPS([3, 2, 7, 9]);"></i> &emsp; <i class="fa-solid fa-circle-check" style="color: var(--green)"></i> <i class="fa-solid fa-circle-xmark" style="color: var(--red)"></i></span></li><br>
+                <li><span>6-2-9-7-1 <i class="fa-solid fa-volume-high" onclick="abortSpeaking(); readListOneWPS([6, 2, 9, 7, 1]);"></i> &emsp; <i class="fa-solid fa-circle-check" style="color: var(--green)"></i> <i class="fa-solid fa-circle-xmark" style="color: var(--red)"></i></span><div style="height: 4px"></div>
+                    <span>1-5-2-8-6 <i class="fa-solid fa-volume-high" onclick="abortSpeaking(); readListOneWPS([1, 5, 2, 8, 6]);"></i> &emsp; <i class="fa-solid fa-circle-check" style="color: var(--green)"></i> <i class="fa-solid fa-circle-xmark" style="color: var(--red)"></i></span></li><br>
+                <li><span>7-1-8-4-6-2 <i class="fa-solid fa-volume-high" onclick="abortSpeaking(); readListOneWPS([7, 1, 8, 4, 6, 2]);"></i> &emsp; <i class="fa-solid fa-circle-check" style="color: var(--green)"></i> <i class="fa-solid fa-circle-xmark" style="color: var(--red)"></i></span><div style="height: 4px"></div>
+                    <span>5-3-9-1-4-8 <i class="fa-solid fa-volume-high" onclick="abortSpeaking(); readListOneWPS([5, 3, 9, 1, 4, 8]);"></i> &emsp; <i class="fa-solid fa-circle-check" style="color: var(--green)"></i> <i class="fa-solid fa-circle-xmark" style="color: var(--red)"></i></span></li>
             </ul>
             <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Number of correct sets (of 4): <input type="number" id="concentration-digits" value="0"/></label>
         
@@ -472,13 +476,74 @@
                     saveTestResult('concentration', digits + months);
                     renderTestSection('bess');
                 });
-                document.getElementById('digit-sets').addEventListener('click', (e) => {
-                    if (e.target.tagName === 'LI') {
-                        const wasCrossed = e.target.style.textDecoration === 'line-through';
-                        e.target.style.textDecoration = wasCrossed ? 'none' : 'line-through';
-                        e.target.style.color = wasCrossed ? 'white' : 'darkgreen';
-                        let numCrossed = document.getElementById("digit-sets").querySelectorAll('li[style*="line-through"]').length;
-                        document.getElementById('concentration-digits').value = numCrossed;
+                document.addEventListener('renderTestSection', (e) => {
+                    if (e.detail === 'concentration') {
+                        document.getElementById('concentration-digits').value = 0;
+                        document.getElementById('concentration-months').checked = false;
+                        for (let i = 0; i < digitSets.children.length; i += 2) {
+                            for (const a of [0, 2]) {
+                                resetDigitSet(i, a);
+                            }
+                        }
+                        digitSets.children[0].children[0].inert = false;
+                        digitSets.children[0].children[0].style.opacity = '1.0';
+                    }
+                });
+                const digitSets = document.getElementById('digit-sets');
+                function resetDigitSet(setnumber, alternative) {
+                    digitSets.children[setnumber].children[alternative].inert = true;
+                    digitSets.children[setnumber].children[alternative].style.opacity = '0.5';
+                    digitSets.children[setnumber].children[alternative].style.textDecoration = '';
+                    digitSets.children[setnumber].children[alternative].style.color = '';
+                    for (const c of digitSets.children[setnumber].children[alternative].children) {
+                        c.inert = false;
+                        c.style.opacity = '1.0';
+                    }
+                }
+                digitSets.addEventListener('click', (e) => {
+                    if (e.target.tagName === 'I' && !e.target.classList.contains('fa-volume-high')) {
+                        const pass = e.target.classList.contains('fa-circle-check');
+                        const alternative = Array.from(e.target.parentElement.parentElement.children).indexOf(e.target.parentElement);
+                        const digitSet = Array.from(digitSets.children).indexOf(e.target.parentElement.parentElement);
+
+                        // reset all next sets
+                        for (let i = digitSet + 2; i < digitSets.children.length; i += 2) {
+                            for (const a of [0, 2]) {
+                                resetDigitSet(i, a);
+                            }
+                        }
+                        if (alternative === 0) {
+                            resetDigitSet(digitSet, 2);
+                        }
+
+                        // update current and unlock next
+                        for (const c of e.target.parentElement.children) {
+                            c.inert = false;
+                            c.style.opacity = '1.0';
+                        }
+                        e.target.inert = true;
+                        e.target.style.opacity = '0.5';
+                        if (pass) {
+                            digitSets.children[digitSet].children[alternative].style.textDecoration = 'line-through';
+                            digitSets.children[digitSet].children[alternative].style.color = 'darkgreen';
+                            if (digitSet / 2 < 3) {
+                                digitSets.children[digitSet + 2].children[0].inert = false;
+                                digitSets.children[digitSet + 2].children[0].style.opacity = '1.0';
+                            } else {
+                                speak('Nice! Please move on to the months in reverse order.');
+                            }
+                            document.getElementById('concentration-digits').value = digitSet / 2 + 1;
+                        } else {
+                            digitSets.children[digitSet].children[alternative].style.textDecoration = 'line-through';
+                            digitSets.children[digitSet].children[alternative].style.color = 'darkred';
+                            if (alternative === 0) {
+                                digitSets.children[digitSet].children[2].inert = false;
+                                digitSets.children[digitSet].children[2].style.opacity = '1.0';
+                            } else {
+                                speak('Failed both sequences in this set. Please move on to the months in reverse order.');
+                            }
+                            document.getElementById('concentration-digits').value = digitSet / 2;
+                        }
                     }
                 });
                 document.getElementById("months-reverse-order").addEventListener("click", (event) => {
