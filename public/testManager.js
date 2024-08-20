@@ -74,7 +74,8 @@ export async function wait(seconds) {
 export async function readListOneWPS(list) {
   const lastAbort = window.lastAbort;
   for (const word of list) {
-    while (isSpeaking()) await wait(1);
+    await wait(1);
+    while (isSpeaking()) await wait(0.1);
     if (window.lastAbort > lastAbort) return;
     speak(word, "en-US", false);
   }
