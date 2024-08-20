@@ -430,3 +430,16 @@ tbody tr {
     justify-content: center;
   }
 }
+
+[data-title="Correct Responses"] span {
+  border: 1px dotted white;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  margin: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+[data-title="Correct Responses"] i {
+  margin: auto;
+}

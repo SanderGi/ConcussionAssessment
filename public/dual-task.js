@@ -9,6 +9,7 @@ section.addEventListener("click", async (e) => {
     const wasCrossed = e.target.style.textDecoration === "line-through";
     e.target.style.textDecoration = wasCrossed ? "" : "line-through";
     e.target.style.color = wasCrossed ? "" : "darkgreen";
+    e.target.style.borderColor = wasCrossed ? "" : "darkgreen";
   }
   if (e.target.tagName === "I" && e.target.dataset.action === "edit-numbers") {
     const newNumbers = await sequencePrompt();
@@ -55,6 +56,7 @@ section.addEventListener("click", async (e) => {
       datasection.querySelectorAll("span").forEach((el) => {
         el.style.textDecoration = "";
         el.style.color = "";
+        el.style.borderColor = "";
       });
       datasection.querySelector(`[data-title="Errors"]`).firstChild.value = 0;
       datasection.querySelector(
