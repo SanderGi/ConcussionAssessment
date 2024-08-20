@@ -1091,6 +1091,13 @@ const tracker = {
         facingMode: tracker.idealFacingMode,
       },
     };
+    if (tracker.useExactMedia) {
+      // useful for testing with OBS virtual camera
+      // list possible ids with navigator.mediaDevices.enumerateDevices().then((devices) => {devices.forEach((device) => {console.log(`${device.kind}: ${device.label} id = ${device.deviceId}`);});})
+      constraints.video.deviceId = {
+        exact: tracker.useExactMedia,
+      };
+    }
     if (isPortrait) {
       constraints.video.aspectRatio = tracker.idealHeight / tracker.idealWidth;
     } else {

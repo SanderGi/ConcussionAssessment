@@ -15,6 +15,7 @@ import {
   saveTestResult,
   getTest,
   renderTestSection,
+  wait,
 } from "./testManager.js";
 import { alert, bessEndMenu } from "./util/popup.js";
 
@@ -81,6 +82,7 @@ function activateNextPose() {
     ];
   const next_pose = pose.next != "END" ? POSES[pose.next] : null;
   if (next_pose) {
+    bessCalibrateBtn.disabled = false;
     abortSpeaking();
     setIntstructions(
       `${getAthleteName()}, ${next_pose.description}:`,
@@ -127,6 +129,8 @@ function setStatus(id, status, color) {
   status_id = id;
 
   if (status_id === "") {
+    document.getElementById("camera-control").style.display = "block";
+    bessCalibrateBtn.disabled = false;
     setStatus(`BEGIN_${FIRST_POSE}`);
     setIntstructions(
       `${getAthleteName()}, ${POSES[FIRST_POSE].description}:`,
@@ -148,6 +152,23 @@ function setIntstructions(text, image, voice_message) {
   }
 }
 
+const bessCalibrateBtn = document.getElementById("bess-calibrate");
+bessCalibrateBtn.onclick = async () => {
+  bessCalibrateBtn.disabled = true;
+  speak(
+    "Attempting to calibrate the pose detection model to the current pose. Please hold the pose for 10 seconds."
+  );
+  while (isSpeaking()) await wait(0.1);
+  window.bessCalibrate = true;
+  for (let i = 0; i < 10; i++) {
+    await wait(1);
+    speak(`${10 - i}`);
+  }
+  window.bessCalibrate = false;
+  speak("Calibration complete", "en-US", false);
+  bessCalibrateBtn.disabled = false;
+};
+
 // ============================ Setup ============================
 tracker.setModel("BlazePoseFull");
 tracker.elCanvas = "#canvas";
@@ -163,6 +184,7 @@ document.addEventListener("renderTestSection", async (event) => {
     if (firstSection === "bess") {
       await alert("The automated balance system will use the camera."); // must be a user gesture on a dom element (e.g. popup.js alert, not built-in alert)
     }
+    document.getElementById("camera-control").style.display = "none";
     tracker.run("camera");
 
     tracker.faceModel = await faceLandmarksDetection.createDetector(
@@ -194,6 +216,7 @@ let seconds_left = 20;
 let good_frames = 0;
 let total_frames = 0;
 async function count_pose_errors(poses, assess_fx) {
+  bessCalibrateBtn.disabled = true;
   total_frames += 1;
   const error = await assess_fx(poses);
   if (error) {

@@ -584,10 +584,13 @@
                 <canvas id="canvas" width="0" height="0" style="max-width: 100%; max-height: 90vh;"></canvas>
                 <video id="video" style="display:none"></video>
                 <div id="status" style="opacity: 0.8; position: absolute; bottom: 0; left: 0; width: 100%; padding: 10px; background-color: gray;" class="center">Getting camera permissions...</div>
+                <div id="camera-control" style="position: absolute; top: 0; right: 0; display: none;">
+                    <button class="button" id="mirror-button">Mirror &nbsp; <img src="./assets/mirror.svg" style="height: 1em"></button>
+                    <button class="button" id="switch-camera-direction" onclick="tracker.changeCameraFacingMode(tracker.idealFacingMode == 'user' ? 'environment' : 'user')">Switch Camera &nbsp; <img src="./assets/flip-camera.svg" style="height: 1em"></button>
+                </div>
             </div>
             <button class="button" id="voice-ctrl-button">Voice Ctrl &nbsp; <i class="fa-solid fa-microphone"></i></button>
-            <button class="button" id="mirror-button">Mirror &nbsp; <img src="./assets/mirror.svg" style="height: 1em"></button>
-            <button class="button" id="switch-camera-direction" onclick="tracker.changeCameraFacingMode(tracker.idealFacingMode == 'user' ? 'environment' : 'user')">Switch Camera &nbsp; <img src="./assets/flip-camera.svg" style="height: 1em"></button>
+            <button class="button" id="bess-calibrate" disabled>Overwrite Current Pose as Correct &nbsp; <i class="fa-solid fa-crosshairs"></i></button>
             <button class="button button--red" onclick="renderTestSection('manual-bess')">Assess Manually &nbsp; <i class="fa-solid fa-forward"></i></button>
 
             <script defer src="./lib/tensorflow/tfjs-core.js"></script>

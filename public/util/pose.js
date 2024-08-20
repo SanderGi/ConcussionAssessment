@@ -88,6 +88,13 @@ async function isEyesClosed(boundingBox, eyeAspectRatioThreshold = null) {
 
     isEyeClosed =
       leftEAR <= eyeAspectRatioThreshold || rightEAR <= eyeAspectRatioThreshold;
+
+    if (window.bessCalibrate) {
+      window.eyeAspectRatioThreshold = Math.max(
+        eyeAspectRatioThreshold,
+        Math.min(leftEAR, rightEAR)
+      );
+    }
   } else {
     console.log("No face detected");
   }
@@ -125,19 +132,26 @@ function checkHandsOnHips(pose, threshold = null) {
     left_hip,
     shoulderWidth
   );
-  if (left_hand_hip_distance > threshold) {
-    return "Left hand is too far from the hip. Please move it closer.";
-  }
-
   const right_hand_hip_distance = getScaledDistance(
     right_wrist,
     right_hip,
     shoulderWidth
   );
+
+  if (window.bessCalibrate) {
+    window.handsOnHipThreshold = Math.max(
+      threshold,
+      left_hand_hip_distance,
+      right_hand_hip_distance
+    );
+  }
+
+  if (left_hand_hip_distance > threshold) {
+    return "Left hand is too far from the hip. Please move it closer.";
+  }
   if (right_hand_hip_distance > threshold) {
     return "Right hand is too far from the hip. Please move it closer.";
   }
-
   return null;
 }
 
@@ -177,6 +191,18 @@ function checkStandingStraight(
   const minZ = Math.min(...body_parts.map((kp) => kp.z));
   const maxZ = Math.max(...body_parts.map((kp) => kp.z));
   const foward_backward_bending_factor = (maxZ - minZ) / shoulderWidth;
+
+  if (window.bessCalibrate) {
+    window.standingStraightForwardThreshold = Math.max(
+      forward_threshold,
+      foward_backward_bending_factor
+    );
+    window.standingStraightForwardLenientThreshold = Math.max(
+      window.standingStraightForwardLenientThreshold ?? 2.0,
+      foward_backward_bending_factor
+    );
+  }
+
   if (foward_backward_bending_factor > forward_threshold) {
     return "Please stand straight without bending/twisting knees or upper body.";
   }
@@ -202,6 +228,18 @@ function checkStandingStraight(
     right_hip_shoulder_distance
   );
   const left_right_bending_factor = max_hip_shoulder_distance / shoulderWidth;
+
+  if (window.bessCalibrate) {
+    window.standingStraightSideThreshold = Math.max(
+      side_threshold,
+      left_right_bending_factor
+    );
+    window.standingStraightSideLenientThreshold = Math.max(
+      window.standingStraightSideLenientThreshold ?? 0.4,
+      left_right_bending_factor
+    );
+  }
+
   if (left_right_bending_factor > side_threshold) {
     return "Please stand straight without moving hips side to side.";
   }
@@ -221,6 +259,11 @@ function checkFeetTogether(pose, threshold = null) {
     right_ankle,
     shoulderWidth
   );
+
+  if (window.bessCalibrate) {
+    window.feetTogetherThreshold = Math.max(threshold, ankle_distance);
+  }
+
   if (ankle_distance > threshold) {
     return "Please keep feet together.";
   }
@@ -235,6 +278,11 @@ function checkOneFootLifted(pose, threshold = null) {
   const shoulderWidth = getShoulderWidth(pose);
 
   const height_diff = Math.abs(left_ankle.y - right_ankle.y) / shoulderWidth;
+
+  if (window.bessCalibrate) {
+    window.footLiftedThreshold = Math.min(threshold, height_diff);
+  }
+
   if (height_diff < threshold) {
     return "Please lift dominant foot off the ground.";
   }
@@ -249,6 +297,11 @@ function checkKneesTogether(pose, threshold = null) {
   const shoulderWidth = getShoulderWidth(pose);
 
   const knee_distance = getScaledDistance(left_knee, right_knee, shoulderWidth);
+
+  if (window.bessCalibrate) {
+    window.kneesTogetherThreshold = Math.max(threshold, knee_distance);
+  }
+
   if (knee_distance > threshold) {
     return "Please keep knees together.";
   }
@@ -257,8 +310,8 @@ function checkKneesTogether(pose, threshold = null) {
 
 function checkHeelToToe(
   pose,
-  depth_threshold = 0.1,
-  alignment_threshold = 0.2
+  depth_threshold = null,
+  alignment_threshold = null
 ) {
   depth_threshold = depth_threshold ?? window.heelToToeDepthThreshold ?? 0.1;
   alignment_threshold =
@@ -278,18 +331,21 @@ function checkHeelToToe(
   const depth = Math.abs(left_ankle.z - right_ankle.z) / shoulderWidth;
   const xdiff = Math.abs(left_ankle.x - right_ankle.x) / shoulderWidth;
 
+  if (window.bessCalibrate) {
+    window.heelToToeDepthThreshold = Math.min(depth_threshold, depth);
+    window.heelToToeAlignmentThreshold = Math.max(alignment_threshold, xdiff);
+  }
+
   if (depth < depth_threshold) {
     return "Please move the dominant foot further forward.";
   }
-
   if (xdiff > alignment_threshold) {
     return "Please align the heel of the dominant foot with the toe of the non-dominant foot.";
   }
-
   return null;
 }
 
-function checkElbowsBend(pose, threshold = 1.6) {
+function checkElbowsBend(pose, threshold = null) {
   threshold = threshold ?? window.elbowApartThreshold ?? 1.6;
 
   const left_elbow = pose.keypoints3D.find((kp) => kp.name === "left_elbow");
@@ -301,6 +357,11 @@ function checkElbowsBend(pose, threshold = 1.6) {
     right_elbow,
     shoulderWidth
   );
+
+  if (window.bessCalibrate) {
+    window.elbowApartThreshold = Math.min(threshold, elbow_distance);
+  }
+
   if (elbow_distance < threshold) {
     return "Please bend both elbows without twisting the shoulders.";
   }
