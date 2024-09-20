@@ -170,7 +170,7 @@
             <button style="background: none; border: none; position: absolute; top: 1em; right: 1em;" onclick="show('./assets/neuroscreen-flowchart.png', 'flow chart')"><img src="./assets/flowchart.png" alt="flow chart icon" style="width: 2em; height: 2em"></button>
             <h2>Maddocks Score</h2>
             <p style="margin-top: 0;">Examiner, read the following line and ask the following questions (modified to be appropriate to the relevant sport). Check the correctly answered questions.</p>
-            <p>Athlete, you will be asked a few questions. Please listen carefully and give your best effort. First explain what happened? &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
+            <p style="font-style: italic;">You will be asked a few questions. Please listen carefully and give your best effort. First explain what happened? &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
             <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;">What venue are we at today? <input type="checkbox" class="maddocks"/></label>
             <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Which half is it now? <input type="checkbox" class="maddocks"/></label>
             <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Who scored last in this match? <input type="checkbox" class="maddocks"/></label>
@@ -200,7 +200,7 @@
         <section>
             <h2>Symptom Evaluation Baseline</h2>
             <p style="margin-top: 0">Examiner, please hand the device to the athlete to fill in the symptom scale (below) after you provide instructions.</p>
-            <p>Athlete, please rate your symptoms below based on how you typically feel with 1 representing a very mild symptom and 6 representing a severe symptom. 0 means the symptom is not present &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
+            <p style="font-style: italic;">Please rate your symptoms below based on how you typically feel with 1 representing a very mild symptom and 6 representing a severe symptom. 0 means the symptom is not present &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
             <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Headaches: <input type="number" class="symptom-baseline" value="0"/></label>
             <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Pressure in head: <input type="number" class="symptom-baseline" value="0"/></label>
             <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Neck pain: <input type="number" class="symptom-baseline" value="0"/></label>
@@ -271,7 +271,7 @@
         <section>
             <h2>Symptom Evaluation</h2>
             <p style="margin-top: 0">Examiner, please hand the device to the athlete to fill in the symptom scale (below) after you provide instructions.</p>
-            <p>Athlete, please rate your symptoms below based on how you feel now with 1 representing a very mild symptom and 6 representing a severe symptom. 0 means the symptom is not present &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
+            <p style="font-style: italic;">Please rate your symptoms below based on how you feel now with 1 representing a very mild symptom and 6 representing a severe symptom. 0 means the symptom is not present &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
             <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Headaches: <input type="number" class="symptom" value="0"/></label>
             <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Pressure in head: <input type="number" class="symptom" value="0"/></label>
             <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Neck pain: <input type="number" class="symptom" value="0"/></label>
@@ -361,9 +361,9 @@
         <section>
             <h2>Immediate Memory</h2>
             <p style="margin-top: 0;">Examiner, you will read the list of words 3 times, keeping track of how many words the athlete remembers after each reading. All 3 trials must be administered irrespective of the number correct on each. Start the first trial by saying the following:</p>
-            <p>Athlete, I am going to test your memory. I will read you a list of words and when I am done, repeat back as many words as you can remember, in any order &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent); readMemoryWords();"></i></p>
+            <p style="font-style: italic;">I am going to test your memory. I will read you a list of words and when I am done, repeat back as many words as you can remember, in any order &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent); readMemoryWords();"></i></p>
             <p>Examiner, for the second and third trials say the following:</p>
-            <p>Athlete, I am going to repeat the same list. Repeat back as many words as you can remember in any order, even if you said the word before in a previous trial &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent); readMemoryWords();"></i></p>
+            <p style="font-style: italic;">I am going to repeat the same list. Repeat back as many words as you can remember in any order, even if you said the word before in a previous trial &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent); readMemoryWords();"></i></p>
             <p>Examiner, click the words below as the athlete remembers them to cross them off. This will help keep track of how many they remember each trial.</p>
             <ul id="wordlist"></ul>
             <table style="margin: auto;">
@@ -437,7 +437,7 @@
             <h2>Concentration</h2>
             <h3>Digits Backwards</h3>
             <p style="margin-top: 0;">Examiner, read the following numbers (one sequence from each set) and ask the athlete to repeat them back in reverse order. Say them slowly at a rate of one digit per second. Each set has two number sequences. If the athlete fails the first, try the second. If both fail, end this subsection and move on to the months in reverse order.</p>
-            <p>Athlete, I'm going to read a string of numbers and when I am done, you repeat them back to me in reverse order of how I read them to you. For example, if I say 7 1 9, you would say 9 1 7. So, if I said 9 6 8 you would say? &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
+            <p style="font-style: italic;">I'm going to read a string of numbers and when I am done, you repeat them back to me in reverse order of how I read them to you. For example, if I say 7 1 9, you would say 9 1 7. So, if I said 9 6 8 you would say? &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
             <ul id="digit-sets" style="font-size: 1.3em;">
                 <li><span>4-9-3 <i class="fa-solid fa-volume-high" onclick="abortSpeaking(); readListOneWPS([4, 9, 3]);"></i> &emsp; <i class="fa-solid fa-circle-check" style="color: var(--green)"></i> <i class="fa-solid fa-circle-xmark" style="color: var(--red)"></i></span><div style="height: 4px"></div>
                     <span>6-2-9 <i class="fa-solid fa-volume-high" onclick="abortSpeaking(); readListOneWPS([6, 2, 9]);"></i> &emsp; <i class="fa-solid fa-circle-check" style="color: var(--green)"></i> <i class="fa-solid fa-circle-xmark" style="color: var(--red)"></i></span></li><br>
@@ -452,7 +452,7 @@
         
             <h3>Months in Reverse Order</h3>
             <p style="margin-top: 0;">Examiner, read the instructions below to the athlete and click to cross out the months as they say them in the correct order.</p>
-            <p>Athlete, tell me the months of the year in reverse order as QUICKLY and as accurately as possible. Start with the last month and go backward. So, you'll say December, November... go ahead &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
+            <p style="font-style: italic;">Tell me the months of the year in reverse order as QUICKLY and as accurately as possible. Start with the last month and go backward. So, you'll say December, November... go ahead &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
             <ul id="months-reverse-order">
                 <li>December</li>
                 <li>November</li>
@@ -625,40 +625,46 @@
             <p>Multiple simultaneous errors count as one. Failure to hold the pose for at least 5 seconds counts as the maximum number of errors for that pose (10).</p>
         
             <h3>Double Leg Stance</h3>
-            <p style="margin-top: 0;">Athlete, stand with your feet together, hands on your hips, and eyes closed. Hold this position for 20 seconds. Examiner, keep a count of the errors listed above.</p>
+            <p style="margin-top: 0;">Examiner, keep a count of the errors listed above and read the instructions below:</p>
+            <p style="font-style: italic;">Stand with your feet together, hands on your hips, and eyes closed. Hold this position for 20 seconds &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
             <img src="assets/double_leg.png" style="height: 100%; max-height: 40vh; margin: 0 auto; margin-bottom: 6px">
             <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Number of errors: <input type="number" id="double-leg-errors" value="0"/></label>
             <button class="button button--green" onclick="startCountdown(this, 20)">Start 20s Countdown</button>
 
             <h3>Tandem Stance</h3>
-            <p style="margin-top: 0;">Athlete, stand with your feet in a heel-to-toe position, hands on your hips, and eyes closed. Hold this position for 20 seconds. Examiner, keep a count of the errors listed above.</p>
+            <p style="margin-top: 0;">Examiner, keep a count of the errors listed above and read the instructions below:</p>
+            <p style="font-style: italic;">Stand with your feet in a heel-to-toe position, hands on your hips, and eyes closed. Hold this position for 20 seconds &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
             <img src="assets/tandem_stance.png" style="height: 100%; max-height: 40vh; margin: 0 auto; margin-bottom: 6px">
             <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Number of errors: <input type="number" id="tandem-stance-errors" value="0"/></label>
             <button class="button button--green" onclick="startCountdown(this, 20)">Start 20s Countdown</button>
 
             <h3>Single Leg Stance</h3>
-            <p style="margin-top: 0;">Athlete, stand on one leg, hands on your hips, and eyes closed. Hold this position for 20 seconds. Examiner, keep a count of the errors listed above.</p>
+            <p style="margin-top: 0;">Examiner, keep a count of the errors listed above and read the instructions below:</p>
+            <p style="font-style: italic;">Stand on one leg, hands on your hips, and eyes closed. Hold this position for 20 seconds &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
             <img src="assets/single_leg.png" style="height: 100%; max-height: 40vh; margin: 0 auto; margin-bottom: 6px">
             <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Number of errors: <input type="number" id="single-leg-errors" value="0"/></label>
             <button class="button button--green" onclick="startCountdown(this, 20)">Start 20s Countdown</button>
 
-            <h3>Double Leg Stance on Foam (optional)</h3>
+            <h3>Double Leg Stance on Foam (<span style="color: var(--orange)">Optional</span>)</h3>
             <p style="margin-top: 0;">The foam test requires a 50cm x 40cm x 6cm foam pad. Recommended model is the <a href="http://www.power-systems.com/" target="_blank">Power Systems Airex Balance Pad 81000</a>.</p>
-            <p>Athlete, stand with your feet together, hands on your hips, and eyes closed. Hold this position for 20 seconds. Examiner, keep a count of the errors listed above.</p>
+            <p>Examiner, keep a count of the errors listed above and read the instructions below:</p>
+            <p style="font-style: italic;">Stand with your feet together, hands on your hips, and eyes closed. Hold this position for 20 seconds &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
             <img src="assets/double_leg.png" style="height: 100%; max-height: 40vh; margin: 0 auto; margin-bottom: 6px">
             <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Number of errors: <input type="number" id="double-leg-foam-errors" value="0"/></label>
             <button class="button button--green" onclick="startCountdown(this, 20)">Start 20s Countdown</button>
 
-            <h3>Tandem Stance on Foam (optional)</h3>
+            <h3>Tandem Stance on Foam (<span style="color: var(--orange)">Optional</span>)</h3>
             <p style="margin-top: 0;">The foam test requires a 50cm x 40cm x 6cm foam pad. Recommended model is the <a href="http://www.power-systems.com/" target="_blank">Power Systems Airex Balance Pad 81000</a>.</p>
-            <p>Athlete, stand with your feet in a heel-to-toe position, hands on your hips, and eyes closed. Hold this position for 20 seconds. Examiner, keep a count of the errors listed above.</p>
+            <p>Examiner, keep a count of the errors listed above and read the instructions below:</p>
+            <p style="font-style: italic;">Stand with your feet in a heel-to-toe position, hands on your hips, and eyes closed. Hold this position for 20 seconds &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
             <img src="assets/tandem_stance.png" style="height: 100%; max-height: 40vh; margin: 0 auto; margin-bottom: 6px">
             <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Number of errors: <input type="number" id="tandem-stance-foam-errors" value="0"/></label>
             <button class="button button--green" onclick="startCountdown(this, 20)">Start 20s Countdown</button>
 
-            <h3>Single Leg Stance on Foam (optional)</h3>
+            <h3>Single Leg Stance on Foam (<span style="color: var(--orange)">Optional</span>)</h3>
             <p style="margin-top: 0;">The foam test requires a 50cm x 40cm x 6cm foam pad. Recommended model is the <a href="http://www.power-systems.com/" target="_blank">Power Systems Airex Balance Pad 81000</a>.</p>
-            <p>Athlete, stand on one leg, hands on your hips, and eyes closed. Hold this position for 20 seconds. Examiner, keep a count of the errors listed above.</p>
+            <p>Examiner, keep a count of the errors listed above and read the instructions below:</p>
+            <p style="font-style: italic;">Stand on one leg, hands on your hips, and eyes closed. Hold this position for 20 seconds &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
             <img src="assets/single_leg.png" style="height: 100%; max-height: 40vh; margin: 0 auto; margin-bottom: 6px">
             <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Number of errors: <input type="number" id="single-leg-foam-errors" value="0"/></label>
             <button class="button button--green" onclick="startCountdown(this, 20)">Start 20s Countdown</button>
@@ -692,7 +698,7 @@
             <h2>Timed Tandem Gait</h2>
             <p style="margin-top: 0;">Examiner, please place a 3-meter-long line on the floor/firm surface with athletic tape. You will instruct the athlete and start/stop the timer for 3 trials.</p>
             <img src="assets/tandem-gait.png" style="width: 100%; max-width: 400px; margin: 0 auto;">
-            <p>Athlete, when the timer is started, please walk heel-to-toe quickly to the end of the tape, turn around and come back as fast as you can, without separating your feet or stepping off the line &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
+            <p style="font-style: italic;">When the timer is started, please walk heel-to-toe quickly to the end of the tape, turn around and come back as fast as you can, without separating your feet or stepping off the line &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
             <img src="assets/tandem-gait-side.png" style="width: 100%; max-width: 400px; margin: 0 auto; margin-bottom: 10px;">
             <table style="margin: auto;">
                 <thead><tr><th style="padding-right: 1em">Trial 1 (seconds)</th><th style="padding-right: 1em">Trial 2 (seconds)</th><th style="padding-right: 1em">Trial 3 (seconds)</th><th style="padding-right: 1em">Average (seconds)</th><th style="padding-right: 1em">Fastest (seconds)</th></tr></thead>
@@ -718,7 +724,7 @@
             <h2>Dual Task Gait (<span style="color: var(--orange)">Optional</span>)</h2>
             <p style="margin-top: 0;">Examiner, please keep the 3-meter-long athletic tape line from the Timed Gait on the floor/firm surface. You will follow the script below, click start/end timer, and click on the responses that the athlete correctly says in order. Redo trials where the athlete strays off the line.</p>
             <img src="assets/tandem-gait.png" style="width: 100%; max-width: 400px; margin: 0 auto;">
-            <p>Athlete, while you are walking heel-to-toe, you will count backwards out loud by sevens. For example, if we started at 100, you would say 100, 93, 86, 79. Let's practice counting. Starting with 93, count backward by sevens until the examiner says stop &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
+            <p style="font-style: italic;">While you are walking heel-to-toe, you will count backwards out loud by sevens. For example, if we started at 100, you would say 100, 93, 86, 79. Let's practice counting. Starting with 93, count backward by sevens until the examiner says stop &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
             <table style="margin: auto;">
                 <thead><tr><th>Task</th><th>Correct Responses</th><th>Errors</th><th>Time (seconds)</th></tr></thead>
                 <tbody>
@@ -730,7 +736,7 @@
                     </tr>
                 </tbody>
             </table>
-            <p>Good, now you will walk heel-to-toe and count backwards out loud at the same time. Keep counting until you finish walking the 3 meters, turning 180 degrees, walking the 3 meters again and the examiner says stop indicating you got to the last number. Are you ready? The number to start with is 88. Go! &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
+            <p style="font-style: italic;">Good, now you will walk heel-to-toe and count backwards out loud at the same time. Keep counting until you finish walking the 3 meters, turning 180 degrees, walking the 3 meters again and the examiner says stop indicating you got to the last number. Are you ready? The number to start with is 88. Go! &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
             <table style="margin: auto;">
                 <thead><tr><th>Task</th><th>Correct Responses</th><th>Errors</th><th>Time (seconds)</th></tr></thead>
                 <tbody>

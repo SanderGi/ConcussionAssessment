@@ -45,8 +45,8 @@ function setupDelayedRecall() {
     saveTestResult("delayed_recall_timestamp", Date.now());
   }
   content.innerHTML = /*html*/ `
-    <p style="margin-top: 0">Examiner, select the words that the athlete can remember from the Immediate Memory section.</p>
-    <p>Athlete, do you remember the list of words read a few times earlier during the immediate memory section? Tell me as many words from the list as you can
+    <p style="margin-top: 0">Examiner, read the below instructions and select the words that the athlete can remember from the Immediate Memory section.</p>
+    <p style="font-style: italic;">Do you remember the list of words read a few times earlier during the immediate memory section? Tell me as many words from the list as you can
     remember in any order &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
     ${
       test.immediate_memory_words
