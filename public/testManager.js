@@ -33,6 +33,7 @@ export function getRadioInt(name) {
 }
 window.getRadioInt = getRadioInt;
 
+// ============================ Components ============================
 export function startCountdown(button, seconds) {
   const originalText = button.textContent;
   const originalOnClick = button.onclick;
@@ -40,7 +41,7 @@ export function startCountdown(button, seconds) {
   button.textContent = `${seconds} seconds left`;
   button.classList.add("button--red");
   button.classList.remove("button--green");
-  speak(seconds);
+  if (window.countdownAudioEnabled) speak(seconds);
   const interval = setInterval(() => {
     seconds--;
     button.textContent = `${seconds} seconds left`;
@@ -50,9 +51,9 @@ export function startCountdown(button, seconds) {
       button.classList.add("button--green");
       button.textContent = originalText;
       button.onclick = originalOnClick;
-      speak("Time is up");
+      if (window.countdownAudioEnabled) speak("Time is up");
     } else {
-      speak(seconds);
+      if (window.countdownAudioEnabled) speak(seconds);
     }
   }, 1000);
   button.disabled = false;
@@ -62,7 +63,7 @@ export function startCountdown(button, seconds) {
     button.classList.add("button--green");
     button.textContent = originalText;
     button.onclick = originalOnClick;
-    speak("Countdown canceled");
+    if (window.countdownAudioEnabled) speak("Countdown canceled");
   };
 }
 window.startCountdown = startCountdown;
@@ -85,6 +86,40 @@ export async function readListOneWPS(list, startDelay = 0) {
   }
 }
 window.readListOneWPS = readListOneWPS;
+
+window.countdownAudioEnabled =
+  localStorage.getItem("countdownAudioEnabled") === "true";
+for (const btn of document.getElementsByClassName("countdown-audio")) {
+  const icon = btn.querySelector('i[class*="fa-volume"]');
+  btn.onclick = () => {
+    if (icon.classList.contains("fa-volume-high")) {
+      disableCountdownAudio(btn, icon);
+    } else {
+      enableCountdownAudio(btn, icon);
+    }
+  };
+  if (window.countdownAudioEnabled) {
+    enableCountdownAudio(btn, icon);
+  } else {
+    disableCountdownAudio(btn, icon);
+  }
+}
+function enableCountdownAudio(btn, icon) {
+  icon.classList.remove("fa-volume-xmark");
+  icon.classList.add("fa-volume-high");
+  btn.classList.remove("button--red");
+  btn.classList.add("button--green");
+  window.countdownAudioEnabled = true;
+  localStorage.setItem("countdownAudioEnabled", "true");
+}
+function disableCountdownAudio(btn, icon) {
+  icon.classList.remove("fa-volume-high");
+  icon.classList.add("fa-volume-xmark");
+  btn.classList.add("button--red");
+  btn.classList.remove("button--green");
+  window.countdownAudioEnabled = false;
+  localStorage.setItem("countdownAudioEnabled", "false");
+}
 
 // ============================ Manage Test ============================
 export function renderCurrentTestSection() {

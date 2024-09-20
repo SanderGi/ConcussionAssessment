@@ -272,7 +272,7 @@ statusElement.addEventListener("click", async (event) => {
           pose.description
         }:`,
         pose.image,
-        isSpeaking() ? null : `${seconds_left}`
+        isSpeaking() || !window.countdownAudioEnabled ? null : `${seconds_left}`
       );
     }
   }, 1000);
