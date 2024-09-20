@@ -71,8 +71,12 @@ export async function wait(seconds) {
   return new Promise((resolve) => setTimeout(resolve, seconds * 1000));
 }
 
-export async function readListOneWPS(list) {
+export async function readListOneWPS(list, startDelay = 0) {
   const lastAbort = window.lastAbort;
+  if (startDelay > 0) {
+    while (isSpeaking()) await wait(0.1);
+    await wait(startDelay);
+  }
   for (const word of list) {
     await wait(1);
     while (isSpeaking()) await wait(0.1);
