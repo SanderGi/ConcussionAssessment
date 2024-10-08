@@ -207,8 +207,15 @@ window.showAthleteResults = async (athlete_id) => {
 
   const container = document.getElementById("athlete-" + athlete_id);
 
-  for (const canvas of container.getElementsByTagName("canvas")) {
-    canvas.remove();
+  const alreadyCanvases = container.getElementsByTagName("canvas");
+  if (alreadyCanvases.length > 0) {
+    for (const canvas of alreadyCanvases) {
+      canvas.remove();
+    }
+    container.lastChild.remove();
+    container.lastChild.remove();
+    container.lastChild.remove();
+    container.lastChild.remove();
     container.lastChild.remove();
     container.lastChild.remove();
     container.lastChild.remove();
@@ -267,6 +274,9 @@ window.showAthleteResults = async (athlete_id) => {
     container.appendChild(openTestButton);
   }
 
+  const title = document.createElement("h2");
+  title.textContent = "Errors, Fastest Times, and Symptoms (lower is better)";
+  container.appendChild(title);
   const canvas = document.createElement("canvas");
   container.appendChild(canvas);
   const chart = new Chart(canvas, {
@@ -277,44 +287,12 @@ window.showAthleteResults = async (athlete_id) => {
       ),
       datasets: [
         {
-          label: "Glasgow Coma Scale (X/15)",
-          data: athleteTests.map((test) => test.glasgow_coma_scale),
-        },
-        {
-          label: "Maddocks Score (X/5)",
-          data: athleteTests.map((test) => test.maddocks_score),
-        },
-        {
           label: "Symptom Number (X/22)",
           data: athleteTests.map((test) => test.symptom_number),
         },
         {
           label: "Symptom Severity (X/132)",
           data: athleteTests.map((test) => test.symptom_severity),
-        },
-        {
-          label: "Orientation (X/5)",
-          data: athleteTests.map((test) => test.orientation),
-          hidden: true,
-        },
-        {
-          label: "Immediate Memory (X/30)",
-          data: athleteTests.map((test) => test.immediate_memory),
-          hidden: true,
-        },
-        {
-          label: "Concentration (X/5)",
-          data: athleteTests.map((test) => test.concentration),
-          hidden: true,
-        },
-        {
-          label: "Delayed Recall (X/10)",
-          data: athleteTests.map((test) => test.delayed_recall),
-          hidden: true,
-        },
-        {
-          label: "Cognitive Total (X/50)",
-          data: athleteTests.map((test) => test.cognitive_total),
         },
         {
           label: "mBESS Total Errors (X/30)",
@@ -410,4 +388,97 @@ window.showAthleteResults = async (athlete_id) => {
       datapointDetails.innerHTML += errorPhotosToHTML(singleFoamErrors);
     }
   };
+
+  const title2 = document.createElement("h2");
+  title2.textContent = "Scores (higher is better)";
+  container.appendChild(title2);
+  const canvas2 = document.createElement("canvas");
+  container.appendChild(canvas2);
+  new Chart(canvas2, {
+    type: "line",
+    data: {
+      labels: athleteTests.map((test) =>
+        new Date(test.test_created_at).toDateString()
+      ),
+      datasets: [
+        {
+          label: "Glasgow Coma Scale (X/15)",
+          data: athleteTests.map((test) => test.glasgow_coma_scale),
+        },
+        {
+          label: "Maddocks Score (X/5)",
+          data: athleteTests.map((test) => test.maddocks_score),
+        },
+        {
+          label: "Orientation (X/5)",
+          data: athleteTests.map((test) => test.orientation),
+          hidden: true,
+        },
+        {
+          label: "Immediate Memory (X/30)",
+          data: athleteTests.map((test) => test.immediate_memory),
+          hidden: true,
+        },
+        {
+          label: "Concentration (X/5)",
+          data: athleteTests.map((test) => test.concentration),
+          hidden: true,
+        },
+        {
+          label: "Delayed Recall (X/10)",
+          data: athleteTests.map((test) => test.delayed_recall),
+          hidden: true,
+        },
+        {
+          label: "Orientation (X/5)",
+          data: athleteTests.map((test) => test.orientation),
+          hidden: true,
+        },
+        {
+          label: "Immediate Memory (X/30)",
+          data: athleteTests.map((test) => test.immediate_memory),
+          hidden: true,
+        },
+        {
+          label: "Concentration (X/5)",
+          data: athleteTests.map((test) => test.concentration),
+          hidden: true,
+        },
+        {
+          label: "Delayed Recall (X/10)",
+          data: athleteTests.map((test) => test.delayed_recall),
+          hidden: true,
+        },
+        {
+          label: "Cognitive Total (X/50)",
+          data: athleteTests.map((test) => test.cognitive_total),
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+          grid: {
+            color: "rgba(255, 255, 255, 0.3)",
+          },
+        },
+        x: {
+          grid: {
+            color: "rgba(255, 255, 255, 0.3)",
+          },
+        },
+      },
+      xAxis: {
+        type: "time",
+      },
+      plugins: {
+        tooltip: {
+          callbacks: {
+            afterTitle: (items) => athleteTests[items[0].dataIndex].test_type,
+          },
+        },
+      },
+    },
+  });
 };
