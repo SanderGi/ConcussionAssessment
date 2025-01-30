@@ -43,7 +43,7 @@ Run `firebase deploy` to deploy the project to Firebase.
 
 ## Contributors
 
-As Software Engineer, I was responsible for translating the paper SCAT6 into web format, designing the UI/UX, and coding the web application.
+As Software Engineer, I was responsible for translating the paper SCAT6 into web format, designing the UI/UX, and coding the web application. As a researcher, I took a lead on designing the associated study and writing the paper.
 
 My collaborator, Aureole had the original idea to create a digital version of the international SCAT6. She took the lead on user testing and coordinating approval of the application with CISG. She is also working to expand the current assessment by researching additional objective neurocognitive test modules. As a student athlete herself, Aureole has been researching and advocating for better concussion testing standards and updated RTL/RTS guidelines on a state and national level for many years.
 
