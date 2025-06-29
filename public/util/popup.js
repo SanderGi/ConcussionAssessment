@@ -604,10 +604,10 @@ export async function confirmAthleteInfo(
         athlete_years_of_education: parseInt(
           dialog.querySelector("#athlete_years_of_education").value
         ),
-        athlete_first_language: dialog.querySelector("#athlete_year_in_school")
+        athlete_first_language: dialog.querySelector("#athlete_first_language")
           .value,
         athlete_preferred_language: dialog.querySelector(
-          "#athlete_year_in_school"
+          "#athlete_preferred_language"
         ).value,
         examiner_name: dialog.querySelector("#examiner_name").value,
         team_or_school: dialog.querySelector("#team_or_school").value,

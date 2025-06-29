@@ -715,7 +715,7 @@
             <p>Healthy athletes typically have a fastest time between 13.9 and 15.8. Newly concussed athletes are typically between 21.9 and 26.1. Athletes concussed within the last 6-73 days will be somewhere in between. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7987555/" target="_blank">Source</a>.</p>
             <button class="button button--red" onclick="renderTestSection('delayed-recall')">Unable to Tandem Walk</button>
             <button class="button button--orange" style="display: none" id="start-dual-task-gait">Start Optional Dual Task Gait &nbsp; <i class="fa-solid fa-forward"></i></button>
-            <button class="button button--green" style="display: none" id="skip-to-delayed-recall" onclick="renderTestSection('delayed-recall')">Skip to Delayed Recall &nbsp; <i class="fa-solid fa-forward"></i></button>
+            <button class="button button--green" style="display: none" id="skip-to-delayed-recall">Skip to Delayed Recall &nbsp; <i class="fa-solid fa-forward"></i></button>
             <script src="./tandem-gait.js" type="module"></script>
         </section>
     </main>
@@ -773,8 +773,10 @@
         </section>
     </main>
     <main style="display: none;" id="results">
-        <section>
+        <section style="position: relative;">
             <h2>Results</h2>
+            <button class="button" id="export-results" style="position: absolute; right: 1em; top: 1em;">Export &nbsp; <i class="fa-solid fa-file-export"></i></button>
+            <iframe id="print-frame" style="display: none;"></iframe>
             <div id="results-content"><p style="margin-top: 0;">Loading...</p></div><br>
             <button class="button" onclick="endTest()">Return to Main Menu</button>
             <script src="./results.js" type="module"></script>

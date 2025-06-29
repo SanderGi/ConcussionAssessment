@@ -8,6 +8,16 @@ startDualTaskGait.addEventListener("click", () => {
   );
   renderTestSection("dual-task-gait");
 });
+const skipToDelayedRecall = document.getElementById("skip-to-delayed-recall");
+skipToDelayedRecall.addEventListener("click", () => {
+  saveTestResult(
+    "tandem_gait_fastest_time",
+    parseFloat(
+      tandemData.querySelector(`[data-title="Fastest (seconds)"]`).textContent
+    )
+  );
+  renderTestSection("delayed-recall");
+});
 
 let startTime = 0;
 let timer = null;
@@ -58,8 +68,7 @@ tandemData.addEventListener("click", (e) => {
       }" class="button button--green">Start Timer</button>`;
     } else {
       startDualTaskGait.style.display = "inline";
-      document.getElementById("skip-to-delayed-recall").style.display =
-        "inline";
+      skipToDelayedRecall.style.display = "inline";
     }
   }
 });
