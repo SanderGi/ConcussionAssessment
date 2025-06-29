@@ -6,6 +6,12 @@
 
 An online sport concussion assessment for English speaking athletes across the world compliant with the international SCAT6 standard. Focused on helping student athletes in Washington, USA, the goal is to make concussion tests more accessible and remove some of the subjective nature of the tests. The tool also allows coaches to easily compare test results over time to make more informed decisions about player health. URL: [https://scat6-web.web.app/](https://scat6-web.web.app/)
 
+**Contact**: scat6@sandergi.com
+
+### Walkthrough Video
+
+[![YouTube video walkthrough](https://github.com/user-attachments/assets/8e04dd6c-d3f5-4125-af1e-cd494f763aa5)](https://www.youtube.com/watch?v=ugI7OpvPAlY)
+
 ### Features
 - CISG approved SCAT6 assessment with 16 assessed domains (memory, balance, coordination, orientation, delayed recall, etc.)
 - Automatically sync data via your own Google Account (login via OAuth2)
@@ -15,7 +21,6 @@ An online sport concussion assessment for English speaking athletes across the w
 - Lovely graphs and charts and extensive use of Web APIs (LocalStorage/SessionStorage, MediaDevices, Speech Recognition, Speech Synthesis, etc.)
 - Standardized subjective tests with objective machine calculated results
 - Cross platform compatibility and responsive design (works on desktop, tablet, and mobile)
-- Built in less than 14 days as single developer
 - Free to use (for any amount of athletes) and open source
 
 ### Screenshots
