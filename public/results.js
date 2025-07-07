@@ -670,17 +670,19 @@ async function exportSCAT6pdf(test) {
   } else {
     fields["athlete_sex_other"] = test.athlete_sex;
   }
-  const signs = ["Lyi", "Fal", "Bal", "Dis", "Bla", "Fac", "Imp", "Hig"];
-  for (let ix = 1; ix <= signs.length; ix++) {
-    fields[`observable_signs_${ix}`] = "NO";
-  }
-  for (const sign of test.observable_signs) {
-    const ix = signs.indexOf(sign.substring(0, 3)) + 1;
-    fields[`observable_signs_${ix}`] = "YES";
-  }
   if (test.observable_signs) {
-    fields["observable_signs_failed"] =
-      test.observable_signs.length !== 0 ? "YES" : "NO";
+    const signs = ["Lyi", "Fal", "Bal", "Dis", "Bla", "Fac", "Imp", "Hig"];
+    for (let ix = 1; ix <= signs.length; ix++) {
+      fields[`observable_signs_${ix}`] = "NO";
+    }
+    for (const sign of test.observable_signs) {
+      const ix = signs.indexOf(sign.substring(0, 3)) + 1;
+      fields[`observable_signs_${ix}`] = "YES";
+    }
+    if (test.observable_signs) {
+      fields["observable_signs_failed"] =
+        test.observable_signs.length !== 0 ? "YES" : "NO";
+    }
   }
   if (test.glasgow_coma_scale !== undefined) {
     fields["glasgow_failed"] = test.glasgow_coma_scale < 15 ? "YES" : "NO";
