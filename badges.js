@@ -35,7 +35,7 @@ function createBadge(label, value, leftWidth, rightWidth, color, filename) {
   fs.writeFileSync(filename, svg, "utf8");
 }
 
-exec("tokei . --output json", (error, stdout, stderr) => {
+exec("tokei . --output json --exclude public/lib", (error, stdout, stderr) => {
   if (error) {
     console.log(
       "Tokei not installed. Skipping lines of code and file count badge."
