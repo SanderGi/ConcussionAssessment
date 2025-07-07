@@ -1,21 +1,32 @@
+function saveResults() {
+  const time1 = parseFloat(
+    tandemData.querySelector(`[data-title="Trial 1 (seconds)"]`).textContent
+  );
+  const time2 = parseFloat(
+    tandemData.querySelector(`[data-title="Trial 2 (seconds)"]`).textContent
+  );
+  const time3 = parseFloat(
+    tandemData.querySelector(`[data-title="Trial 3 (seconds)"]`).textContent
+  );
+  const fastest_time = parseFloat(
+    tandemData.querySelector(`[data-title="Fastest (seconds)"]`).textContent
+  );
+  const average_time = parseFloat(
+    tandemData.querySelector(`[data-title="Average (seconds)"]`).textContent
+  );
+  saveTestResult("tandem_gait_fastest_time", fastest_time);
+  saveTestResult("tandem_gait_average_time", average_time);
+  saveTestResult("tandem_gait_times_by_trial", [time1, time2, time3]);
+}
+
 const startDualTaskGait = document.getElementById("start-dual-task-gait");
 startDualTaskGait.addEventListener("click", () => {
-  saveTestResult(
-    "tandem_gait_fastest_time",
-    parseFloat(
-      tandemData.querySelector(`[data-title="Fastest (seconds)"]`).textContent
-    )
-  );
+  saveResults();
   renderTestSection("dual-task-gait");
 });
 const skipToDelayedRecall = document.getElementById("skip-to-delayed-recall");
 skipToDelayedRecall.addEventListener("click", () => {
-  saveTestResult(
-    "tandem_gait_fastest_time",
-    parseFloat(
-      tandemData.querySelector(`[data-title="Fastest (seconds)"]`).textContent
-    )
-  );
+  saveResults();
   renderTestSection("delayed-recall");
 });
 

@@ -142,7 +142,6 @@ export async function sequencePrompt() {
       const answer = dialog.children[3].querySelector("input").value;
       const numbers = answer.split(",").map((n) => parseInt(n.trim()));
       numbers.reverse();
-      console.log(numbers);
       resolve(numbers);
     };
     dialog.lastElementChild.onclick = () => {
@@ -630,6 +629,8 @@ export async function confirmAthleteInfo(
           .join(", "),
         primary_symptoms_other: dialog.querySelector("#primary_symptoms_other")
           .value,
+        current_medications: dialog.querySelector("#current_medications").value,
+        notes: dialog.querySelector("#notes").value,
       });
     };
     document.body.appendChild(dialog);

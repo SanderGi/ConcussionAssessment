@@ -197,9 +197,9 @@ export async function deleteRemoteData() {
  * @property {string} athlete_name
  * @property {number} athlete_birth_timestamp
  * @property {string} athlete_sex
- * @property {string} athlete_dominant_hand
- * @property {string} athlete_year_in_school
- * @property {string} athlete_years_of_education
+ * @property {'Left' | 'Right' | 'Ambidextrous'} athlete_dominant_hand
+ * @property {number} athlete_year_in_school
+ * @property {number} athlete_years_of_education
  * @property {string} athlete_first_language
  * @property {string} athlete_preferred_language
  * @property {string} examiner_name
@@ -221,21 +221,35 @@ export async function deleteRemoteData() {
  *
  * @property {"YES" | "NO"} [red_flags] whether red flags are present
  * @property {"WITNESSED" | "VIDEO" | "NO"} [observable_signs_source] how/if the injury was observed
- * @property {string[]} [observable_signs] the list of observabed signs
+ * @property {string[]} [observable_signs] the list of observed signs
  * @property {number} [glasgow_coma_scale] out of 15
+ * @property {'1' | '2' | '3' | '4'} [glasgow_e] best eye response
+ * @property {'1' | '2' | '3' | '4' | '5'} [glasgow_v] best verbal response
+ * @property {'1' | '2' | '3' | '4' | '5' | '6'} [glasgow_m] best motor response
+ * @property {number} [glasgow_timestamp] Date.now() when glasgow was completed
+ * @property {string[]} [cervical_spine] the list of checked cervical spine prompts
+ * @property {string[]} [coordination] the list of checked coordination prompts
  * @property {string} [coordination_abnomalities] description of any coordination and ocular/motor abnormalities
+ * @property {string[]} [maddocks] list of correctly answered maddocks questions
  * @property {number} [maddocks_score] out of 5
  * @property {number} [symptom_number] out of 22
  * @property {number} [symptom_severity] out of 132
+ * @property {number[]} [symptom_scores] 22 scores each from 0-6 inclusive representing each symptom
  * @property {boolean} [symptoms_worse_with_physical] true if symptoms get worse with physical activity
  * @property {boolean} [symptoms_worse_with_mental] true if symptoms get worse with mental activity
  * @property {number} [symptoms_percentage_normal] how normal the athlete feels out of 100 (where 100 is perfectly normal)
  * @property {string} [symptoms_description] if not 100% normal, description of how the athlete feels
+ * @property {string[]} [orientation_correct] list of correctly answered orientation questions
  * @property {number} [orientation] out of 5
  * @property {number} [immediate_memory] out of 30
  * @property {string[]} [immediate_memory_words] list of 10 words used for immediate memory test
  * @property {number} [immediate_memory_timestamp] Date.now() when immediate memory was completed
+ * @property {boolean[][]} [immediate_memory_score_by_trial_by_word] arr[trial_n][word_ix] is true iff word_ix was correct in trial trial_n
  * @property {number} [concentration] out of 5
+ * @property {'A' | 'B' | 'C'} [concentration_digit_list] which of the three official SCAT6 digit lists is used
+ * @property {boolean[][]} [concentration_digits] arr[row][attempt] true iff correct, false iff incorrect, and undefined iff not attempted
+ * @property {boolean[]} [concentration_months] arr[month] correct
+ * @property {number} [concentration_months_time_sec] number of seconds used on concentration reverse months task
  * @property {number} [cognitive_total] out of 50 (sum of orientation, immediate_memory, concentration, delayed_recall)
  * @property {object} [mBESS_pose_error_photos] maps test field like `mBESS_double_errors` to error photo list [{ error: "error description", photo: "photo url"}]
  * @property {number} [mBESS_double_errors] out of 10
@@ -247,12 +261,16 @@ export async function deleteRemoteData() {
  * @property {number} [mBESS_foam_tandem_errors] out of 10
  * @property {number} [mBESS_foam_total_errors] out of 30
  * @property {number} [tandem_gait_fastest_time] in seconds
+ * @property {number} [tandem_gait_average_time] in seconds
+ * @property {number[]} [tandem_gait_times_by_trial] in seconds
  * @property {number} [dual_task_fastest_time] in seconds
  * @property {number} [dual_task_accuracy] in percent of correct responses
+ * @property {number} [dual_task_starting_integer] starting number for the fastest time
+ * @property {boolean[]} [delayed_recall_by_word] arr[i] is true iff word i was recalled correctly
  * @property {number} [delayed_recall] out of 10
  * @property {number} [delayed_recall_timestamp] Date.now() when delayed recall was started
  * @property {"YES" | "NO" | "N/A"} [different_from_usual] if examiner knows the athlete, are they acting different from their usual self
- * @property {"CONCUSSED" | "HEALTHY" | "DEFERRED"} [decision] the decision made by the examiner
+ * @property {"YES" | "NO" | "DEFERRED"} [decision] the decision made by the examiner, yes for concussion, no for healthy
  * @property {string} [test_notes] clinical notes regarding the test
  * @property {boolean} [signed] whether the test was signed by the examiner
  * @property {number} [signed_timestamp] Date.now() when the test was signed

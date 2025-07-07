@@ -1,6 +1,7 @@
 import { getTest, saveTestResult } from "./testManager.js";
 import { tests } from "./userData.js";
 import { showSources, errorPhotosToHTML } from "./util/popup.js";
+import { text2image } from "./util/text2image.js";
 
 const content = document.getElementById("results-content");
 
@@ -339,7 +340,44 @@ document.addEventListener("renderTestSection", async (event) => {
   };
 });
 
-// PDF Export
+// Export
+const exportSelect = document.getElementById("export-results-select");
+document.getElementById("export-results").addEventListener("click", () => {
+  exportSelect.showPicker();
+});
+exportSelect.addEventListener("change", () => {
+  const selected = exportSelect.value;
+  exportSelect.value = "none";
+  const test = getTest();
+  if (selected === "SCAT6") {
+    exportSCAT6pdf(test);
+  } else if (selected === "Report") {
+    const iframe = document.getElementById("print-frame");
+    const doc = iframe.contentWindow.document;
+    doc.open();
+    doc.write(generateReportHTML(test));
+    doc.close();
+    iframe.onload = function () {
+      iframe.contentWindow.focus();
+      iframe.contentWindow.print();
+    };
+  } else if (selected === "CSV") {
+    let csv = "key,value";
+    for (const [key, value] of Object.entries(test)) {
+      csv += "\n" + key + ',"' + value + '"';
+    }
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `SCAT6_${test.athlete_name}.csv`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+});
+
 function formatDate(timestamp) {
   if (!timestamp) return "";
   const d = new Date(timestamp);
@@ -478,16 +516,411 @@ function generateReportHTML(data) {
   return html;
 }
 
-document.getElementById("export-results").addEventListener("click", () => {
-  const test = getTest();
-  const iframe = document.getElementById("print-frame");
-  const doc = iframe.contentWindow.document;
-  doc.open();
-  doc.write(generateReportHTML(test));
-  doc.close();
+function timestampToYYYYMMDD(timestamp) {
+  if (!timestamp) {
+    return "";
+  }
+  const date = new Date(timestamp);
+  const offset = date.getTimezoneOffset();
+  const offset_date = new Date(date.getTime() - offset * 60 * 1000);
+  return offset_date.toISOString().split("T")[0].replaceAll("-", "/");
+}
 
-  iframe.onload = function () {
-    iframe.contentWindow.focus();
-    iframe.contentWindow.print();
+function timestampToHHmm(timestamp) {
+  if (!timestamp) {
+    return "";
+  }
+  const date = new Date(timestamp);
+  const hour24 = date.getHours();
+  const minutes = date.getMinutes();
+  return (
+    String(hour24).padStart(2, "0") + ":" + String(minutes).padStart(2, "0")
+  );
+}
+
+function timestampToMMDDYYYYhhmmssA(timestamp) {
+  if (!timestamp) {
+    return "";
+  }
+  const date = new Date(timestamp);
+  const month = String(date.getMonth() + 1).padStart(2, "0"); // Months are 0-indexed
+  const day = String(date.getDate()).padStart(2, "0");
+  const year = date.getFullYear();
+  let hours = date.getHours();
+  const minutes = String(date.getMinutes()).padStart(2, "0");
+  const seconds = String(date.getSeconds()).padStart(2, "0");
+  const ampm = hours >= 12 ? "PM" : "AM";
+  hours = hours % 12;
+  hours = hours ? hours : 12; // The hour '0' should be '12'
+  hours = String(hours).padStart(2, "0"); // Pad for single-digit hours
+  return `${month}/${day}/${year} ${hours}:${minutes}:${seconds} ${ampm}`;
+}
+
+/** @param {import("./userData.js").Test} test */
+async function exportSCAT6pdf(test) {
+  const fields = {
+    // directly copied fields
+    athlete_name: test.athlete_name,
+    athlete_year_in_school: test.athlete_year_in_school,
+    athlete_years_of_education: test.athlete_years_of_education,
+    athlete_first_language: test.athlete_first_language,
+    athlete_preferred_language: test.athlete_preferred_language,
+    examiner_name: test.examiner_name,
+    team_or_school: test.team_or_school,
+    num_past_concussions: test.num_past_concussions,
+    most_recent_recovery_time_days: test.most_recent_recovery_time_days,
+    current_medications: test.current_medications,
+    notes: test.notes,
+    glasgow_coma_scale: test.glasgow_coma_scale,
+    coordination_abnomalities: test.coordination_abnomalities,
+    maddocks_score: test.maddocks_score,
+    symptom_number: test.symptom_number,
+    symptom_severity: test.symptom_severity,
+    symptoms_percentage_normal: test.symptoms_percentage_normal,
+    symptoms_description: test.symptoms_description,
+    orientation: test.orientation,
+    immediate_memory: test.immediate_memory,
+    concentration: test.concentration,
+    mBESS_double_errors: test.mBESS_double_errors,
+    mBESS_single_errors: test.mBESS_single_errors,
+    mBESS_tandem_errors: test.mBESS_tandem_errors,
+    mBESS_foam_double_errors: test.mBESS_foam_double_errors,
+    mBESS_foam_single_errors: test.mBESS_foam_single_errors,
+    mBESS_foam_tandem_errors: test.mBESS_foam_tandem_errors,
+    tandem_gait_fastest_time: test.tandem_gait_fastest_time,
+    dual_task_fastest_time: test.dual_task_fastest_time,
+    delayed_recall: test.delayed_recall,
+    test_notes: test.test_notes,
+    title_or_specialty: test.title_or_specialty,
+    registration_or_license_number: test.registration_or_license_number,
+    athlete_dominant_hand: test.athlete_dominant_hand,
+    red_flags: test.red_flags,
+    observable_signs_source: test.observable_signs_source,
+    different_from_usual: test.different_from_usual,
+    cognitive_total: test.cognitive_total,
+    cognitive_total_copy: test.cognitive_total,
+    mBESS_total_errors: test.mBESS_total_errors,
+    mBESS_total_errors_copy: test.mBESS_total_errors,
+    mBESS_foam_total_errors: test.mBESS_foam_total_errors,
+    glasgow_e: test.glasgow_e,
+    glasgow_v: test.glasgow_v,
+    glasgow_m: test.glasgow_m,
+    concentration_digit_list: test.concentration_digit_list,
+    concentration_months_time_sec: test.concentration_months_time_sec,
+    tandem_gait_average_time: test.tandem_gait_average_time,
+    dual_task_starting_integer: test.dual_task_starting_integer,
+
+    // special fields
+    athlete_id: test.athlete_id.split("-")[0],
+    primary_symptoms:
+      test.primary_symptoms +
+      (test.primary_symptoms_other.length > 0 ? ", " : "") +
+      test.primary_symptoms_other,
+    test_date: timestampToYYYYMMDD(test.test_created_at),
+    athlete_birth_date: timestampToYYYYMMDD(test.athlete_birth_timestamp),
+    injury_date: timestampToYYYYMMDD(test.injury_timestamp),
+    injury_time: timestampToHHmm(test.injury_timestamp),
+    most_recent_concussion_datetime: timestampToMMDDYYYYhhmmssA(
+      test.most_recent_concussion_timestamp
+    ),
+    immediate_memory_datetime: timestampToMMDDYYYYhhmmssA(
+      test.immediate_memory_timestamp
+    ),
+    delayed_recall_datetime: timestampToMMDDYYYYhhmmssA(
+      test.delayed_recall_timestamp
+    ),
+    decision:
+      test.decision === "YES"
+        ? "CONCUSSED"
+        : test.decision === "NO"
+        ? "HEALTHY"
+        : "DEFERRED",
+    dual_task_num_errors: Math.round(
+      (13 * (100 - test.dual_task_accuracy)) / 100
+    ),
+    hospitalized_for_head_injury: test.hospitalized_for_head_injury
+      ? "YES"
+      : "NO",
+    diagnosed_headache_disorder_or_migraine:
+      test.diagnosed_headache_disorder_or_migraine ? "YES" : "NO",
+    diagnosed_learning_disability_or_dyslexia:
+      test.diagnosed_learning_disability_or_dyslexia ? "YES" : "NO",
+    diagnosed_attention_deficit_disorder:
+      test.diagnosed_attention_deficit_disorder ? "YES" : "NO",
+    diagnosed_psychological_disorder: test.diagnosed_psychological_disorder
+      ? "YES"
+      : "NO",
+    glassgow_date: timestampToYYYYMMDD(test.glasgow_timestamp),
+    glasgow_time: timestampToHHmm(test.glasgow_timestamp),
+    symptoms_worse_with_physical: test.symptoms_worse_with_physical
+      ? "YES"
+      : "NO",
+    symptoms_worse_with_mental: test.symptoms_worse_with_mental ? "YES" : "NO",
   };
-});
+  // conditional fields
+  if (test.signed) {
+    fields["signature"] = test.examiner_name;
+    fields["signed_date"] = timestampToYYYYMMDD(test.signed_timestamp);
+  }
+  if (test.test_type !== "IMMEDIATE") {
+    fields["test_type"] = test.test_type;
+  }
+  if (["Male", "Female", "Prefer Not To Say"].includes(test.athlete_sex)) {
+    fields["athlete_sex"] = test.athlete_sex;
+  } else {
+    fields["athlete_sex_other"] = test.athlete_sex;
+  }
+  const signs = ["Lyi", "Fal", "Bal", "Dis", "Bla", "Fac", "Imp", "Hig"];
+  for (let ix = 1; ix <= signs.length; ix++) {
+    fields[`observable_signs_${ix}`] = "NO";
+  }
+  for (const sign of test.observable_signs) {
+    const ix = signs.indexOf(sign.substring(0, 3)) + 1;
+    fields[`observable_signs_${ix}`] = "YES";
+  }
+  if (test.observable_signs) {
+    fields["observable_signs_failed"] =
+      test.observable_signs.length !== 0 ? "YES" : "NO";
+  }
+  if (test.glasgow_coma_scale !== undefined) {
+    fields["glasgow_failed"] = test.glasgow_coma_scale < 15 ? "YES" : "NO";
+  }
+  if (test.cervical_spine) {
+    const cervical_spine = ["Ath", "The", "If ", "Lim"];
+    for (let ix = 1; ix <= cervical_spine.length; ix++) {
+      fields[`cervical_spine_${ix}`] = "NO";
+    }
+    for (const selected of test.cervical_spine) {
+      const ix = cervical_spine.indexOf(selected.substring(0, 3)) + 1;
+      fields[`cervical_spine_${ix}`] = "YES";
+    }
+    if (test.cervical_spine) {
+      fields["cervical_spine_failed"] =
+        test.cervical_spine.length === 2 &&
+        test.cervical_spine[0].substring(0, 3) === "If " &&
+        test.cervical_spine[1].substring(0, 3) === "Lim"
+          ? "NO"
+          : "YES";
+    }
+  }
+  if (
+    ["Anchor", "Wagon", "Bubble"].includes(test.immediate_memory_words.at(-1))
+  ) {
+    fields["immediate_memory_words"] = test.immediate_memory_words.at(-1);
+  }
+  if (test.coordination) {
+    const coordination = ["Coo", "Ocu", "Obs"];
+    for (let ix = 1; ix <= coordination.length; ix++) {
+      fields[`coordination_${ix}`] = "NO";
+    }
+    for (const selected of test.coordination) {
+      const ix = coordination.indexOf(selected.substring(0, 3)) + 1;
+      fields[`coordination_${ix}`] = "YES";
+    }
+    fields["coordination_failed"] =
+      test.coordination.length === 3 ? "NO" : "YES";
+  }
+  if (test.maddocks) {
+    const maddocks = ["What v", "Which ", "Who sc", "What t", "Did yo "];
+    for (let ix = 1; ix <= maddocks.length; ix++) {
+      fields[`maddocks_${ix}`] = "NO";
+    }
+    for (const selected of test.maddocks) {
+      const ix = maddocks.indexOf(selected.substring(0, 7)) + 1;
+      fields[`maddocks_${ix}`] = "YES";
+    }
+    fields["maddocks_failed"] = test.maddocks_score === 5 ? "NO" : "YES";
+  }
+  for (
+    let ix = 1;
+    test.symptom_scores && ix <= test.symptom_scores.length;
+    ix++
+  ) {
+    fields[`symptoms_${ix}`] = "" + test.symptom_scores[ix - 1];
+  }
+  if (test.orientation_correct) {
+    const orientation = [
+      "What month is i",
+      "What is the dat",
+      "What is the day",
+      "What year is it",
+      "What time is it",
+    ];
+    for (let ix = 1; ix <= orientation.length; ix++) {
+      fields[`orientation_${ix}`] = "NO";
+    }
+    for (const selected of test.orientation_correct) {
+      const ix = orientation.indexOf(selected.substring(0, 15)) + 1;
+      fields[`orientation_${ix}`] = "YES";
+    }
+  }
+  if (test.immediate_memory_score_by_trial_by_word) {
+    for (
+      let trial = 0;
+      trial < test.immediate_memory_score_by_trial_by_word.length;
+      trial++
+    ) {
+      let trial_score = 0;
+      for (
+        let word = 0;
+        word < test.immediate_memory_score_by_trial_by_word[trial].length;
+        word++
+      ) {
+        if (test.immediate_memory_score_by_trial_by_word[trial][word]) {
+          fields[`immediate_memory_${trial + 1}_${word + 1}`] = "YES";
+          trial_score += 1;
+        } else {
+          fields[`immediate_memory_${trial + 1}_${word + 1}`] = "NO";
+        }
+      }
+      fields[`immediate_memory_${trial + 1}`] = trial_score;
+    }
+  }
+  if (test.concentration_digits) {
+    fields["concentration_digits"] = 0;
+    for (let row = 0; row < test.concentration_digits.length; row++) {
+      let row_value = 0;
+      for (
+        let attempt = 0;
+        attempt < test.concentration_digits[row].length;
+        attempt++
+      ) {
+        if (test.concentration_digits[row][attempt] === undefined) {
+          // don't select any option since this was not attempted
+        } else if (test.concentration_digits[row][attempt]) {
+          fields[`concentration_digits_${row + 1}_${attempt + 1}`] = "YES";
+          row_value = 1;
+        } else {
+          fields[`concentration_digits_${row + 1}_${attempt + 1}`] = "NO";
+        }
+      }
+      fields[`concentration_digits_${row + 1}`] =
+        row_value === 1 ? "YES" : "NO";
+      fields["concentration_digits"] += row_value;
+    }
+  }
+  if (test.concentration_months) {
+    let errors = 0;
+    for (let month = 0; month < test.concentration_months.length; month++) {
+      fields[`concentration_months_${month + 1}`] =
+        test.concentration_months[month];
+      if (!test.concentration_months[month]) {
+        errors += 1;
+      }
+    }
+    fields["concentration_months_errors"] = errors;
+    fields["concentration_months"] =
+      test.concentration - fields["concentration_digits"];
+  }
+  if (test.tandem_gait_times_by_trial) {
+    for (
+      let trial = 0;
+      trial < test.tandem_gait_times_by_trial.length;
+      trial++
+    ) {
+      fields[`tandem_gait_times_${trial + 1}`] =
+        test.tandem_gait_times_by_trial[trial];
+    }
+  }
+  if (test.delayed_recall_by_word) {
+    for (let word = 0; word < test.delayed_recall_by_word.length; word++) {
+      fields[`delayed_recall_by_word_${word + 1}`] = test
+        .delayed_recall_by_word[word]
+        ? "YES"
+        : "NO";
+    }
+  }
+
+  // fill form using pdf-lib: https://pdf-lib.js.org/docs/api/classes/pdffield
+  const {
+    PDFDocument,
+    PDFTextField,
+    PDFCheckBox,
+    PDFRadioGroup,
+    PDFSignature,
+    drawImage,
+    degrees,
+  } = window.PDFLib;
+  const res = await fetch("./assets/SCAT6.pdf");
+  if (!res.ok) {
+    alert("Failed to load SCAT6 template");
+    return;
+  }
+  const scat6_buf = await res.arrayBuffer();
+  const scat6 = await PDFDocument.load(scat6_buf);
+  const form = scat6.getForm();
+  for (const field of form.getFields()) {
+    const key = field.getName();
+    const value = fields[key];
+    if (value === undefined) continue;
+    if (field instanceof PDFTextField) {
+      field.setText(value.toString());
+    } else if (field instanceof PDFCheckBox) {
+      if (value) {
+        field.check();
+      } else {
+        field.uncheck();
+      }
+    } else if (field instanceof PDFRadioGroup) {
+      if (field.getOptions().includes(value)) {
+        field.select(value);
+      } else {
+        throw new Error(
+          "Invalid radio option " +
+            value +
+            "(valid: " +
+            field.getOptions() +
+            ")"
+        );
+      }
+    } else if (field instanceof PDFSignature) {
+      const { base64url, imgWidth, imgHeight } = await text2image(
+        test.examiner_name
+      );
+      const base64sig = base64url.replace("data:image/png;base64,", "");
+      const pdfLibSigImg = await scat6.embedPng(base64sig);
+      const pdfLibSigImgName = key + "_img";
+      field.acroField.getWidgets().forEach((widget) => {
+        const { context } = widget.dict;
+        const { width, height } = widget.getRectangle();
+
+        const appearance = [
+          ...drawImage(pdfLibSigImgName, {
+            x: 0,
+            y: 0,
+            width: (imgWidth * height) / imgHeight,
+            height: height,
+            rotate: degrees(0),
+            xSkew: degrees(0),
+            ySkew: degrees(0),
+          }),
+        ];
+
+        const stream = context.formXObject(appearance, {
+          Resources: { XObject: { [pdfLibSigImgName]: pdfLibSigImg.ref } },
+          BBox: context.obj([0, 0, width, height]),
+          Matrix: context.obj([1, 0, 0, 1, 0, 0]),
+        });
+        const streamRef = context.register(stream);
+
+        widget.setNormalAppearance(streamRef);
+      });
+    } else {
+      throw new Error("Field type not implemented: " + field);
+    }
+  }
+
+  // form.flatten(); // prevent editing fields further
+  const filled_buf = await scat6.save();
+
+  // download filled PDF
+  const blob = new Blob([filled_buf], { type: "application/pdf" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `SCAT6_${test.athlete_name}.pdf`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}

@@ -7,8 +7,10 @@
 
     <link rel="icon" type="image/webp" href="/assets/icon.webp">
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.cdnfonts.com/css/pink-script" rel="stylesheet">
 
     <script src="./lib/chart.js"></script>
+    <script src="./lib/pdf-lib.js"></script>
   </head>
   <body>
     <header>
@@ -110,12 +112,16 @@
             <button class="button button--green" id="complete-gcs-btn">Start Cervical Spine &nbsp; <i class="fa-solid fa-forward"></i></button>
             <script>
                 document.getElementById('complete-gcs-btn').onclick = () => {
+                    saveTestResult('glasgow_e', "" + getRadioInt('eye-response'));
+                    saveTestResult('glasgow_v', "" + getRadioInt('verbal-response'));
+                    saveTestResult('glasgow_m', "" + getRadioInt('motor-response'));
                     const score = getRadioInt('eye-response') + getRadioInt('verbal-response') + getRadioInt('motor-response');
                     if (isNaN(score)) {
                         alert('Please fill out all fields');
                         return;
                     }
                     saveTestResult('glasgow_coma_scale', score);
+                    saveTestResult('glasgow_timestamp', Date.now());
                     if (score < 15) {
                         alert('Remove athlete from Play for Immediate Medical Assessment or Transport to Hospital/Medical Center');
                         endTest();
@@ -140,6 +146,7 @@
             <button class="button button--green" id="complete-cervical-spine-btn">Start Coordination &nbsp; <i class="fa-solid fa-forward"></i></button>
             <script>
                 document.getElementById('complete-cervical-spine-btn').addEventListener('click', () => {
+                    saveTestResult('cervical_spine', getChecked('cervical-spine')); 
                     const checkboxes = document.querySelectorAll('.cervical-spine');
                     for (const checkbox of checkboxes) {
                         if (checkbox.checked.toString() !== checkbox.dataset.should) {
@@ -162,7 +169,7 @@
             <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Observed extraocular eye movements are normal: <input type="checkbox" class="coordination"/></label>
             <p>Please describe anything abnormal:</p>
             <textarea class="textarea" id="coordination-abnomalities"></textarea>
-            <button class="button button--green" onclick="saveTestResult('coordination_abnomalities', document.getElementById('coordination-abnomalities').value); getChecked('coordination').length === 3 ? renderTestSection('maddocks-score') : (alert('Remove athlete from Play for Immediate Medical Assessment or Transport to Hospital/Medical Center') && endTest())">Start Maddocks &nbsp; <i class="fa-solid fa-forward"></i></button>
+            <button class="button button--green" onclick="saveTestResult('coordination_abnomalities', document.getElementById('coordination-abnomalities').value); saveTestResult('coordination', getChecked('coordination')); getChecked('coordination').length === 3 ? renderTestSection('maddocks-score') : (alert('Remove athlete from Play for Immediate Medical Assessment or Transport to Hospital/Medical Center') && endTest())">Start Maddocks &nbsp; <i class="fa-solid fa-forward"></i></button>
         </section>
     </main>
     <main style="display: none;" id="maddocks-score">
@@ -179,9 +186,10 @@
             <button class="button button--green" id="maddocks-end-btn">Start Symptom Evaluation &nbsp; <i class="fa-solid fa-forward"></i></button>
             <script>
                 document.getElementById('maddocks-end-btn').addEventListener('click', () => {
+                    saveTestResult('maddocks', getChecked('maddocks'));
                     const score = getChecked('maddocks').length;
                     saveTestResult('maddocks_score', score);
-                    if (score < 4) {
+                    if (score < 5) {
                         alert('Remove athlete from Play for Immediate Medical Assessment or Transport to Hospital/Medical Center');
                         endTest();
                     } else {
@@ -255,8 +263,10 @@
                 document.getElementById('symptom-baseline-end-btn').onclick = () => {
                     const symptoms = document.querySelectorAll('.symptom-baseline');
                     const numSymptoms = Array.from(symptoms).filter(s => parseInt(s.value) > 0).length;
-                    const severity = Array.from(symptoms).map(s => parseInt(s.value)).reduce((a, b) => a + b, 0);
+                    const symtomSeverities = Array.from(symptoms).map(s => parseInt(s.value));
+                    const severity = symtomSeverities.reduce((a, b) => a + b, 0);
                     saveTestResult('symptom_number', numSymptoms);
+                    saveTestResult('symptom_scores', symtomSeverities);
                     saveTestResult('symptom_severity', severity);
                     saveTestResult('symptoms_worse_with_physical', document.getElementById('symptoms_worse_with_physical_baseline').checked);
                     saveTestResult('symptoms_worse_with_mental', document.getElementById('symptoms_worse_with_mental_baseline').checked);
@@ -326,8 +336,10 @@
                 document.getElementById('symptom-end-btn').onclick = () => {
                     const symptoms = document.querySelectorAll('.symptom');
                     const numSymptoms = Array.from(symptoms).filter(s => parseInt(s.value) > 0).length;
-                    const severity = Array.from(symptoms).map(s => parseInt(s.value)).reduce((a, b) => a + b, 0);
+                    const symtomSeverities = Array.from(symptoms).map(s => parseInt(s.value));
+                    const severity = symtomSeverities.reduce((a, b) => a + b, 0);
                     saveTestResult('symptom_number', numSymptoms);
+                    saveTestResult('symptom_scores', symtomSeverities)
                     saveTestResult('symptom_severity', severity);
                     saveTestResult('symptoms_worse_with_physical', document.getElementById('symptoms_worse_with_physical').checked);
                     saveTestResult('symptoms_worse_with_mental', document.getElementById('symptoms_worse_with_mental').checked);
@@ -350,6 +362,7 @@
             <button class="button button--green" id="orientation-end-btn">Start Immediate Memory &nbsp; <i class="fa-solid fa-forward"></i></button>
             <script>
                 document.getElementById('orientation-end-btn').addEventListener('click', () => {
+                    saveTestResult('orientation_correct', getChecked('orientation'));
                     const score = getChecked('orientation').length;
                     saveTestResult('orientation', score);
                     renderTestSection('immediate-memory');
@@ -378,6 +391,7 @@
             </table>
             <button class="button button--green" id="immediate-memory-end-btn">Start Concentration &nbsp; <i class="fa-solid fa-forward"></i></button>
             <script>
+                const immediate_memory_score_by_trial_by_word = [[], [], []];
                 let currentTrial = -1;
                 const inputs = document.getElementById('immediate-memory-data');
                 inputs.addEventListener('focusin', (e) => {
@@ -405,6 +419,8 @@
                                 li.style.color = wasCrossed ? 'white' : 'darkgreen';
                                 const numCrossed = Array.from(wordlist.children).filter(w => w.style.textDecoration === 'line-through').length;
                                 inputs.children[currentTrial == -1 ? 0 : currentTrial].children[0].value = numCrossed;
+                                const crossed = Array.from(wordlist.children).map(w => w.style.textDecoration === 'line-through');
+                                immediate_memory_score_by_trial_by_word[currentTrial == -1 ? 0 : currentTrial] = crossed;
                             }
                             wordlist.appendChild(li);
                         }
@@ -427,6 +443,7 @@
                     const scores = Array.from(trials).map(t => parseInt(t.value));
                     saveTestResult('immediate_memory', scores.reduce((a, b) => a + b, 0));
                     saveTestResult('immediate_memory_timestamp', Date.now());
+                    saveTestResult('immediate_memory_score_by_trial_by_word', immediate_memory_score_by_trial_by_word);
                     renderTestSection('concentration');
                 });
             </script>
@@ -470,10 +487,22 @@
             <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Check box if athlete completed all the months correctly: <input type="checkbox" id="concentration-months"/></label>
             <button class="button button--green" id="concentration-end-btn">Start BESS &nbsp; <i class="fa-solid fa-forward"></i></button>
             <script>
+                const concentration_digits = [
+                    [undefined, undefined],
+                    [undefined, undefined],
+                    [undefined, undefined],
+                    [undefined, undefined],
+                ];
+                const concentration_months = [false, false, false, false, false, false, false, false, false, false, false, false];
+                let concentration_months_start_time = null;
                 document.getElementById('concentration-end-btn').addEventListener('click', () => {
                     const digits = parseInt(document.getElementById('concentration-digits').value);
                     const months = document.getElementById('concentration-months').checked ? 1 : 0;
                     saveTestResult('concentration', digits + months);
+                    saveTestResult('concentration_digit_list', 'A');
+                    saveTestResult('concentration_digits', concentration_digits);
+                    saveTestResult('concentration_months', concentration_months)
+                    saveTestResult('concentration_months_time_sec', Math.round((Date.now() - concentration_months_start_time) / 1000))
                     renderTestSection('bess');
                 });
                 document.addEventListener('renderTestSection', (e) => {
@@ -487,6 +516,10 @@
                         }
                         digitSets.children[0].children[0].inert = false;
                         digitSets.children[0].children[0].style.opacity = '1.0';
+                        concentration_months_start_time = null;
+                        for (let i = 0; i < concentration_months.length; i++) {
+                            concentration_months[i] = false;
+                        }
                     }
                 });
                 const digitSets = document.getElementById('digit-sets');
@@ -499,6 +532,7 @@
                         c.inert = false;
                         c.style.opacity = '1.0';
                     }
+                    concentration_digits[setnumber/2][alternative/2] = undefined;
                 }
                 digitSets.addEventListener('click', (e) => {
                     if (e.target.tagName === 'I' && !e.target.classList.contains('fa-volume-high')) {
@@ -526,6 +560,7 @@
                         if (pass) {
                             digitSets.children[digitSet].children[alternative].style.textDecoration = 'line-through';
                             digitSets.children[digitSet].children[alternative].style.color = 'darkgreen';
+                            concentration_digits[digitSet/2][alternative/2] = true;
                             if (digitSet / 2 < 3) {
                                 digitSets.children[digitSet + 2].children[0].inert = false;
                                 digitSets.children[digitSet + 2].children[0].style.opacity = '1.0';
@@ -536,6 +571,7 @@
                         } else {
                             digitSets.children[digitSet].children[alternative].style.textDecoration = 'line-through';
                             digitSets.children[digitSet].children[alternative].style.color = 'darkred';
+                            concentration_digits[digitSet/2][alternative/2] = false;
                             if (alternative === 0) {
                                 digitSets.children[digitSet].children[2].inert = false;
                                 digitSets.children[digitSet].children[2].style.opacity = '1.0';
@@ -548,10 +584,15 @@
                 });
                 document.getElementById("months-reverse-order").addEventListener("click", (event) => {
                     if (event.target.tagName === 'LI') {
+                        if (concentration_months_start_time === null) {
+                            concentration_months_start_time = Date.now();
+                        }
                         const wasCrossed = event.target.style.textDecoration === 'line-through';
                         event.target.style.textDecoration = wasCrossed ? 'none' : 'line-through';
                         event.target.style.color = wasCrossed ? 'white' : 'darkgreen';
-                        let numCrossed = document.getElementById("months-reverse-order").querySelectorAll('li[style*="line-through"]').length;
+                        const ix = [...document.getElementById("months-reverse-order").children].indexOf(event.target);
+                        concentration_months[ix] = !wasCrossed;
+                        const numCrossed = document.getElementById("months-reverse-order").querySelectorAll('li[style*="line-through"]').length;
                         if (numCrossed === 12) {
                             document.getElementById('concentration-months').checked = true;
                         } else {
@@ -775,6 +816,12 @@
     <main style="display: none;" id="results">
         <section style="position: relative;">
             <h2>Results</h2>
+            <select id="export-results-select" style="position: absolute; right: 1em; top: 1em; opacity: 0; pointer-events: none;">
+                <option disabled selected>Choose an export option:</option>
+                <option value="Report">Overall Report</option>
+                <option value="SCAT6">Full SCAT6</option>
+                <option value="CSV">Raw CSV</option>
+            </select>
             <button class="button" id="export-results" style="position: absolute; right: 1em; top: 1em;">Export &nbsp; <i class="fa-solid fa-file-export"></i></button>
             <iframe id="print-frame" style="display: none;"></iframe>
             <div id="results-content"><p style="margin-top: 0;">Loading...</p></div><br>
@@ -783,7 +830,7 @@
         </section>
     </main>
     <footer>
-        <p><a href="https://www.concussioninsportgroup.com/">CISG</a> approved <a href="https://bjsm.bmj.com/content/bjsports/57/11/622.full.pdf">SCAT6™</a> adaptation | By Aureole Chang and Alexander Metzger | <a href="https://github.com/SanderGi/ConcussionAssessment">Code</a> opensource <a href="https://github.com/SanderGi/ConcussionAssessment/blob/master/LICENSE">MIT</a></p>
+        <p><a href="https://www.concussioninsportgroup.com/">CISG</a> approved <a href="./assets/SCAT6.pdf">SCAT6™</a> adaptation | By Aureole Chang and Alexander Metzger | <a href="https://github.com/SanderGi/ConcussionAssessment">Code</a> opensource <a href="https://github.com/SanderGi/ConcussionAssessment/blob/master/LICENSE">MIT</a></p>
         <div style="display: flex; justify-content: space-evenly; align-items: center; flex-wrap: wrap; margin-bottom: 1em">
             <img src="./assets/CISG_LOGO.png" alt="CISG Logo" style="height: 2em; margin-top: 0.5em;">
             <img src="./assets/IOC_LOGO.png" alt="International Olympic Committee Logo" style="height: 2em; margin-top: 0.5em;">

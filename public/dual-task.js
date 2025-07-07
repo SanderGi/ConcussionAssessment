@@ -84,6 +84,10 @@ section.addEventListener("click", async (e) => {
       section.dataset.best_trial = trial;
       saveTestResult("dual_task_fastest_time", seconds);
       saveTestResult("dual_task_accuracy", accuracy);
+      saveTestResult(
+        "dual_task_starting_integer",
+        parseInt(datasection.querySelector("span").textContent)
+      );
     }
   }
 });

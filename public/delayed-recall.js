@@ -33,9 +33,9 @@ document.addEventListener("renderTestSection", async (event) => {
         })(),
         1000
       );
+    } else {
+      setupDelayedRecall();
     }
-
-    setupDelayedRecall();
   }
 });
 
@@ -58,6 +58,6 @@ function setupDelayedRecall() {
         ?.join("") ?? "Somehow the list of words was not saved."
     }
     <br><br>
-    <button class="button button--green" onclick="saveTestResult('delayed_recall', getChecked('recall-list').length); renderTestSection('results')">View Test Results</button>
+    <button class="button button--green" onclick="saveTestResult('delayed_recall', getChecked('recall-list').length); saveTestResult('delayed_recall_by_word', [...document.querySelectorAll('.recall-list')].map(el => el.checked)); renderTestSection('results')">View Test Results</button>
   `;
 }
