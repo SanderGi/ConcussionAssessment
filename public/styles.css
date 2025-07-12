@@ -447,3 +447,6 @@ tbody tr {
 [data-title="Correct Responses"] i {
   margin: auto;
 }
+#results table th {
+  padding: 0 8px;
+}

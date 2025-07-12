@@ -1,4 +1,4 @@
-import { getTest, saveTestResult } from "./testManager.js";
+import { getTest, saveTestResult, shareTestData } from "./testManager.js";
 import { tests } from "./userData.js";
 import { showSources, errorPhotosToHTML } from "./util/popup.js";
 import { text2image } from "./util/text2image.js";
@@ -11,6 +11,8 @@ document.addEventListener("renderTestSection", async (event) => {
   }
 
   const test = getTest();
+  document.getElementById("checkbox-share-test-results").checked =
+    test.permission_to_upload;
   const athleteTests = Object.values(tests).filter(
     (t) => t.athlete_id === test.athlete_id
   );
@@ -344,6 +346,7 @@ document.addEventListener("renderTestSection", async (event) => {
 const exportSelect = document.getElementById("export-results-select");
 document.getElementById("export-results").addEventListener("click", () => {
   exportSelect.showPicker();
+  shareTestData();
 });
 exportSelect.addEventListener("change", () => {
   const selected = exportSelect.value;
