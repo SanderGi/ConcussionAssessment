@@ -21,6 +21,7 @@ An online sport concussion assessment for English speaking athletes across the w
 - Lovely graphs and charts and extensive use of Web APIs (LocalStorage/SessionStorage, MediaDevices, Speech Recognition, Speech Synthesis, etc.)
 - Standardized subjective tests with objective machine calculated results
 - Cross platform compatibility and responsive design (works on desktop, tablet, and mobile)
+- Export the full assessment results as CSV, PDF report, and traditional paper SCAT6 (without having to manually do the paper assessment)
 - Free to use (for any amount of athletes) and open source
 
 ### Screenshots
