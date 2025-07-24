@@ -632,7 +632,6 @@ export async function confirmAthleteInfo(
         current_medications: dialog.querySelector("#current_medications").value,
         notes: dialog.querySelector("#notes").value,
         permission_to_upload: pastTests.at(-1)?.permission_to_upload ?? false,
-        uploaded: false,
       });
     };
     document.body.appendChild(dialog);

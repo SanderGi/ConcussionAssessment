@@ -278,7 +278,7 @@ export async function deleteRemoteData() {
  * @property {string} [registration_or_license_number] the examiner's registration or license number (if applicable)
  *
  * @property {boolean} [permission_to_upload] true iff the health professional has given permission to upload tests
- * @property {boolean} [uploaded] true iff the test has been uploaded
+ * @property {number} [uploaded_timestamp] timestamp of most recent upload if any
  */
 /** @type {Record<string, Test>} */
 export const tests = JSON.parse(localStorage.getItem(TESTS) ?? "{}");

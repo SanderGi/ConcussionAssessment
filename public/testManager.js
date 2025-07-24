@@ -209,10 +209,12 @@ export async function shareTestData(overwrite_as_permissible = null) {
     if (t.athlete_id === "deleted") {
       continue;
     }
-    const uploaded_already = t.uploaded;
-    if (!t.uploaded || !t.permission_to_upload) {
+    const uploaded_already = t.uploaded_timestamp >= t.test_updated_at;
+    if (!uploaded_already || !t.permission_to_upload) {
       t.test_updated_at = Date.now();
-      t.uploaded = true;
+      if (!uploaded_already) {
+        t.uploaded_timestamp = t.test_updated_at;
+      }
       t.permission_to_upload = true;
       tests[t.test_id] = t;
     }
@@ -315,3 +317,11 @@ export async function shareTestData(overwrite_as_permissible = null) {
   await syncData();
 }
 window.shareTestData = shareTestData;
+document.onvisibilitychange = async () => {
+  if (
+    document.visibilityState === "hidden" &&
+    sessionStorage.getItem(TEST) !== null
+  ) {
+    await shareTestData();
+  }
+};
