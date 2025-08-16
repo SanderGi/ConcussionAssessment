@@ -60,7 +60,7 @@
                 <li>Increasingly restless, agitated or combative</li>
                 <li>Visible deformity of the skull</li>
             </ul>
-            <button class="button button--red" onclick="saveTestResult('red_flags', 'YES'); alert('Remove athlete from Play for Immediate Medical Assessment or Transport to Hospital/Medical Center'); endTest()">Red flags present</button>
+            <button class="button button--red" onclick="saveTestResult('red_flags', 'YES'); removeAthleteFromPlayAlert('obervable-signs')">Red flags present</button>
             <button class="button button--green" onclick="saveTestResult('red_flags', 'NO'); renderTestSection('obervable-signs')">No red flags</button>
         </section>
     </main>
@@ -77,8 +77,8 @@
             <label class="left-align spread-inline red" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Impact seizure: <input type="checkbox" class="observable-signs"/></label>
             <label class="left-align spread-inline red" style="flex-wrap: nowrap; margin-bottom: 0.4em;">High-risk mechanism of injury (sportdependent): <input type="checkbox" class="observable-signs"/></label>
             <br><br>
-            <button class="button button--red" onclick="saveTestResult('observable_signs', getChecked('observable-signs')); saveTestResult('observable_signs_source', 'WITNESSED'); alert('Remove athlete from Play for Immediate Medical Assessment or Transport to Hospital/Medical Center'); endTest()">Witnessed</button>
-            <button class="button button--red" onclick="saveTestResult('observable_signs', getChecked('observable-signs')); saveTestResult('observable_signs_source', 'VIDEO'); alert('Remove athlete from Play for Immediate Medical Assessment or Transport to Hospital/Medical Center'); endTest()">Observed on Video</button>
+            <button class="button button--red" onclick="saveTestResult('observable_signs', getChecked('observable-signs')); saveTestResult('observable_signs_source', 'WITNESSED'); removeAthleteFromPlayAlert('glasgow-scale')">Witnessed</button>
+            <button class="button button--red" onclick="saveTestResult('observable_signs', getChecked('observable-signs')); saveTestResult('observable_signs_source', 'VIDEO'); removeAthleteFromPlayAlert('glasgow-scale')">Observed on Video</button>
             <button class="button button--green" onclick="saveTestResult('observable_signs', []); saveTestResult('observable_signs_source', 'NO'); renderTestSection('glasgow-scale')">None</button>
         </section>
     </main>
@@ -123,8 +123,7 @@
                     saveTestResult('glasgow_coma_scale', score);
                     saveTestResult('glasgow_timestamp', Date.now());
                     if (score < 15) {
-                        alert('Remove athlete from Play for Immediate Medical Assessment or Transport to Hospital/Medical Center');
-                        endTest();
+                        removeAthleteFromPlayAlert('cervical-spine');
                     } else {
                         renderTestSection('cervical-spine');
                     }
@@ -142,7 +141,7 @@
             <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;">If NO neck pain and NO tenderness, athlete has full range of ACTIVE pain free movement: <input type="checkbox" class="cervical-spine" data-should="true"/></label>
             <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Limb strength and sensation is normal: <input type="checkbox" class="cervical-spine" data-should="true"/></label>
 
-            <button class="button button--red" onclick="alert('Spinal Immobilization and cervical color. Then remove athlete from Play for Immediate Medical Assessment or Transport to Hospital/Medical Center'); endTest()">Not Fully Conscious</button>
+            <button class="button button--red" onclick="removeAthleteFromPlayAlert('coordination', 'Spinal Immobilization and cervical collar. Then remove athlete from Play for Immediate Medical Assessment or Transport to Hospital/Medical Center')">Not Fully Conscious</button>
             <button class="button button--green" id="complete-cervical-spine-btn">Start Coordination &nbsp; <i class="fa-solid fa-forward"></i></button>
             <script>
                 document.getElementById('complete-cervical-spine-btn').addEventListener('click', () => {
@@ -150,8 +149,7 @@
                     const checkboxes = document.querySelectorAll('.cervical-spine');
                     for (const checkbox of checkboxes) {
                         if (checkbox.checked.toString() !== checkbox.dataset.should) {
-                            alert('Remove athlete from Play for Immediate Medical Assessment or Transport to Hospital/Medical Center');
-                            endTest();
+                            removeAthleteFromPlayAlert('coordination');
                             return;
                         }
                     }
@@ -169,7 +167,7 @@
             <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Observed extraocular eye movements are normal: <input type="checkbox" class="coordination"/></label>
             <p>Please describe anything abnormal:</p>
             <textarea class="textarea" id="coordination-abnomalities"></textarea>
-            <button class="button button--green" onclick="saveTestResult('coordination_abnomalities', document.getElementById('coordination-abnomalities').value); saveTestResult('coordination', getChecked('coordination')); getChecked('coordination').length === 3 ? renderTestSection('maddocks-score') : (alert('Remove athlete from Play for Immediate Medical Assessment or Transport to Hospital/Medical Center') && endTest())">Start Maddocks &nbsp; <i class="fa-solid fa-forward"></i></button>
+            <button class="button button--green" onclick="saveTestResult('coordination_abnomalities', document.getElementById('coordination-abnomalities').value); saveTestResult('coordination', getChecked('coordination')); getChecked('coordination').length === 3 ? renderTestSection('maddocks-score') : removeAthleteFromPlayAlert('maddocks-score')">Start Maddocks &nbsp; <i class="fa-solid fa-forward"></i></button>
         </section>
     </main>
     <main style="display: none;" id="maddocks-score">
@@ -189,16 +187,12 @@
                     saveTestResult('maddocks', getChecked('maddocks'));
                     const score = getChecked('maddocks').length;
                     saveTestResult('maddocks_score', score);
+                    const test = getTest();
+                    const next = test.test_type === 'BASELINE' ? 'symptom-evaluation-baseline' : 'symptom-evaluation-post';
                     if (score < 5) {
-                        alert('Remove athlete from Play for Immediate Medical Assessment or Transport to Hospital/Medical Center');
-                        endTest();
+                        removeAthleteFromPlayAlert(next);
                     } else {
-                        const test = getTest();
-                        if (test.test_type === 'BASELINE') {
-                            renderTestSection('symptom-evaluation-baseline');
-                        } else {
-                            renderTestSection('symptom-evaluation-post');
-                        }
+                        renderTestSection(next);
                     }
                 });
             </script>

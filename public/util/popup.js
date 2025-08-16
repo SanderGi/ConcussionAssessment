@@ -1,4 +1,4 @@
-import { saveTestResult } from "../testManager.js";
+import { saveTestResult, endTest, renderTestSection } from "../testManager.js";
 
 export async function alert(message) {
   return new Promise((resolve) => {
@@ -78,6 +78,33 @@ export async function prompt(message, defaultValue = "") {
   });
 }
 window.prompt = prompt;
+
+export async function removeAthleteFromPlayAlert(
+  next,
+  message = "Remove athlete from Play for Immediate Medical Assessment or Transport to Hospital/Medical Center"
+) {
+  return new Promise((resolve) => {
+    const dialog = document.createElement("dialog");
+    dialog.innerHTML = /* html */ `
+      <p>${message}</p>
+      <button class="button">END TEST</button>
+      <button class="button button--orange">KEEP TESTING</button>
+    `;
+    dialog.children[1].onclick = async () => {
+      dialog.remove();
+      await endTest();
+      resolve(true);
+    };
+    dialog.lastElementChild.onclick = () => {
+      dialog.remove();
+      renderTestSection(next);
+      resolve(false);
+    };
+    document.body.appendChild(dialog);
+    dialog.showModal();
+  });
+}
+window.removeAthleteFromPlayAlert = removeAthleteFromPlayAlert;
 
 export async function showSources() {
   return new Promise((resolve) => {
