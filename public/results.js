@@ -709,6 +709,7 @@ async function exportSCAT6pdf(test) {
     }
   }
   if (
+    test.immediate_memory_words &&
     ["Anchor", "Wagon", "Bubble"].includes(test.immediate_memory_words.at(-1))
   ) {
     fields["immediate_memory_words"] = test.immediate_memory_words.at(-1);
@@ -857,7 +858,7 @@ async function exportSCAT6pdf(test) {
   for (const field of form.getFields()) {
     const key = field.getName();
     const value = fields[key];
-    if (value === undefined) continue;
+    if (value === undefined || value === null || Number.isNaN(value)) continue;
     if (field instanceof PDFTextField) {
       field.setText(value.toString());
     } else if (field instanceof PDFCheckBox) {
