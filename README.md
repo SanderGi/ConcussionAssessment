@@ -24,6 +24,36 @@ An online sport concussion assessment for English speaking athletes across the w
 - Export the full assessment results as CSV, PDF report, and traditional paper SCAT6 (without having to manually do the paper assessment)
 - Free to use (for any amount of athletes) and open source
 
+## Frequently Asked Questions (FAQ)
+
+> How do I know if Google Drive Sync was successful?
+
+If sync is successful, you should see the "Sync" button turn green, change text to "Synced", and display your linked Google Drive account photo:
+<img width="128" height="57" alt="green button saying Synced" src="./sync-button.png" /><br>
+You can click on the button to see details about when the data was last successfully synced with your Google Drive.
+
+> When sync is enabled, where are documents saved in my Google Drive?
+
+You won't find the data in your regular documents. It is instead stored in the app data which you can find in your Google Drive Settings by selecting "Administer Apps" and scrolling down until you see "Concussion Assessment (Unverified)" like this:
+<img alt="row in the Google Drive app data administration settings for the SCAT6 Web tool, shows 13 kB of data saved" src="./drive-app-data.png" /><br>
+Make sure you are using the same account that you have linked with the SCAT6 Web Tool.
+
+If you want to delete the data, you could do it from here in the Google Drive Settings. However it is recommended to do it from the SCAT6 Web Tool (by clicking on the green "Synced" button and selecting to delete drive data) to make sure nothing gets corrupted and everything is fully deleted. The data synced to Google Drive is encrypted. This means you won't be able to view individual test data from Google Drive.
+
+> Is it correctly understood that data will only be stored on my computer/synced with Google Drive and not be sent to a third party?
+
+Yes, all information stays locally on your computer, no third parties.
+
+If you choose to activate "Sync", data will also be saved on your personal Google Drive. Access to your Google Drive remains local, so there is no risk of it being compromised. Due to the way syncing with Google Drive works, we do have to track a list of Gmails using "Sync" and when they have last saved data. This list is never shared with third parties.
+
+> Is data stored permanently if I don't sync with Google Drive?
+
+In most scenarious, yes. However it is still recommended to activate Google Drive sync to be on the safe side. It happens rarely, but depending on your browser settings, the browser may force the Web App to delete the local copy of data if your device runs out of memory. There is also the chance of loosing your device or it getting damaged. An alternative solution, if you prefer not to use Google Drive, would be to "Export" each test after completing it to save its information somewhere else.
+
+> I have found a bug, have an idea for improvements, or want to get involved in making this tool better. How can I help?
+
+Feel free to reach out to scat6@sandergi.com or [post an issue here on GitHub](https://github.com/SanderGi/ConcussionAssessment/issues). We also have [a feedback form](https://docs.google.com/forms/d/e/1FAIpQLSdBolyOESnMwdJW6ONJ-8MLbwcpHxQsrV5nChIqOiDfMF6YgQ/viewform?usp=dialog) you can fill out.
+
 ### Screenshots
 ![main menu](./main-menu.png)
 ![pose assessment](./pose-assess.png)
