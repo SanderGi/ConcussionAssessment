@@ -24,7 +24,11 @@ An online sport concussion assessment for English speaking athletes across the w
 - Export the full assessment results as CSV, PDF report, and traditional paper SCAT6 (without having to manually do the paper assessment)
 - Free to use (for any amount of athletes) and open source
 
-## Frequently Asked Questions (FAQ)
+### Screenshots
+![main menu](./main-menu.png)
+![pose assessment](./pose-assess.png)
+
+### Frequently Asked Questions (FAQ)
 
 > How do I know if Google Drive Sync was successful?
 
@@ -53,10 +57,6 @@ In most scenarious, yes. However it is still recommended to activate Google Driv
 > I have found a bug, have an idea for improvements, or want to get involved in making this tool better. How can I help?
 
 Feel free to reach out to scat6@sandergi.com or [post an issue here on GitHub](https://github.com/SanderGi/ConcussionAssessment/issues). We also have [a feedback form](https://docs.google.com/forms/d/e/1FAIpQLSdBolyOESnMwdJW6ONJ-8MLbwcpHxQsrV5nChIqOiDfMF6YgQ/viewform?usp=dialog) you can fill out.
-
-### Screenshots
-![main menu](./main-menu.png)
-![pose assessment](./pose-assess.png)
 
 ## Development
 
