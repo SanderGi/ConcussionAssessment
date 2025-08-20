@@ -68,14 +68,14 @@
         <section style="position: relative">
             <button style="background: none; border: none; position: absolute; top: 1em; right: 1em;" onclick="show('./assets/neuroscreen-flowchart.png', 'flow chart')"><img src="./assets/flowchart.png" alt="flow chart icon" style="width: 2em; height: 2em"></button>
             <h2>Observable Signs</h2>
-            <label class="left-align spread-inline red" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Lying motionless on playing surface: <input type="checkbox" class="observable-signs"/></label>
-            <label class="left-align spread-inline red" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Falling unprotected to the surface: <input type="checkbox" class="observable-signs"/></label>
-            <label class="left-align spread-inline red" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Balance/gait difficulties, motor incoordination, ataxia: stumbling, slow/laboured movements: <input type="checkbox" class="observable-signs"/></label>
-            <label class="left-align spread-inline red" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Disorientation or confusion, staring or limited responsiveness, or an inability to respond appropriately to questions: <input type="checkbox" class="observable-signs"/></label>
-            <label class="left-align spread-inline red" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Blank or vacant look: <input type="checkbox" class="observable-signs"/></label>
-            <label class="left-align spread-inline red" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Facial injury after head trauma: <input type="checkbox" class="observable-signs"/></label>
-            <label class="left-align spread-inline red" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Impact seizure: <input type="checkbox" class="observable-signs"/></label>
-            <label class="left-align spread-inline red" style="flex-wrap: nowrap; margin-bottom: 0.4em;">High-risk mechanism of injury (sportdependent): <input type="checkbox" class="observable-signs"/></label>
+            <label class="left-align spread-inline red" style="flex-wrap: nowrap; margin-bottom: 0.4em;" data-value="Lying motionless on playing surface">Lying motionless on playing surface: <input type="checkbox" class="observable-signs"/></label>
+            <label class="left-align spread-inline red" style="flex-wrap: nowrap; margin-bottom: 0.4em;" data-value="Falling unprotected to the surface">Falling unprotected to the surface: <input type="checkbox" class="observable-signs"/></label>
+            <label class="left-align spread-inline red" style="flex-wrap: nowrap; margin-bottom: 0.4em;" data-value="Balance/gait difficulties, motor incoordination, ataxia: stumbling, slow/laboured movements">Balance/gait difficulties, motor incoordination, ataxia: stumbling, slow/laboured movements: <input type="checkbox" class="observable-signs"/></label>
+            <label class="left-align spread-inline red" style="flex-wrap: nowrap; margin-bottom: 0.4em;" data-value="Disorientation or confusion, staring or limited responsiveness, or an inability to respond appropriately to questions">Disorientation or confusion, staring or limited responsiveness, or an inability to respond appropriately to questions: <input type="checkbox" class="observable-signs"/></label>
+            <label class="left-align spread-inline red" style="flex-wrap: nowrap; margin-bottom: 0.4em;" data-value="Blank or vacant look">Blank or vacant look: <input type="checkbox" class="observable-signs"/></label>
+            <label class="left-align spread-inline red" style="flex-wrap: nowrap; margin-bottom: 0.4em;" data-value="Facial injury after head trauma">Facial injury after head trauma: <input type="checkbox" class="observable-signs"/></label>
+            <label class="left-align spread-inline red" style="flex-wrap: nowrap; margin-bottom: 0.4em;" data-value="Impact seizure">Impact seizure: <input type="checkbox" class="observable-signs"/></label>
+            <label class="left-align spread-inline red" style="flex-wrap: nowrap; margin-bottom: 0.4em;" data-value="High-risk mechanism of injury (sportdependent)">High-risk mechanism of injury (sportdependent): <input type="checkbox" class="observable-signs"/></label>
             <br><br>
             <button class="button button--red" onclick="saveTestResult('observable_signs', getChecked('observable-signs')); saveTestResult('observable_signs_source', 'WITNESSED'); removeAthleteFromPlayAlert('glasgow-scale')">Witnessed</button>
             <button class="button button--red" onclick="saveTestResult('observable_signs', getChecked('observable-signs')); saveTestResult('observable_signs_source', 'VIDEO'); removeAthleteFromPlayAlert('glasgow-scale')">Observed on Video</button>
@@ -136,10 +136,10 @@
             <button style="background: none; border: none; position: absolute; top: 1em; right: 1em;" onclick="show('./assets/neuroscreen-flowchart.png', 'flow chart')"><img src="./assets/flowchart.png" alt="flow chart icon" style="width: 2em; height: 2em"></button>
             <h2>Cervical Spine</h2>
             <p style="margin-top: 0;">In a patient who is not lucid or fully conscious, a cervical spine injury should be assumed and spinal precautions taken. Check each box for yes, keep unselected for no.</p>
-            <label class="left-align spread-inline red" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Athlete reports neck pain at rest: <input type="checkbox" class="cervical-spine" data-should="false"/></label>
-            <label class="left-align spread-inline red" style="flex-wrap: nowrap; margin-bottom: 0.4em;">There is tenderness to palpation: <input type="checkbox" class="cervical-spine" data-should="false"/></label>
-            <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;">If NO neck pain and NO tenderness, athlete has full range of ACTIVE pain free movement: <input type="checkbox" class="cervical-spine" data-should="true"/></label>
-            <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Limb strength and sensation is normal: <input type="checkbox" class="cervical-spine" data-should="true"/></label>
+            <label class="left-align spread-inline red" style="flex-wrap: nowrap; margin-bottom: 0.4em;" data-value="Athlete reports neck pain at rest">Athlete reports neck pain at rest: <input type="checkbox" class="cervical-spine" data-should="false"/></label>
+            <label class="left-align spread-inline red" style="flex-wrap: nowrap; margin-bottom: 0.4em;" data-value="There is tenderness to palpation">There is tenderness to palpation: <input type="checkbox" class="cervical-spine" data-should="false"/></label>
+            <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;" data-value="If NO neck pain and NO tenderness, athlete has full range of ACTIVE pain free movement">If NO neck pain and NO tenderness, athlete has full range of ACTIVE pain free movement: <input type="checkbox" class="cervical-spine" data-should="true"/></label>
+            <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;" data-value="Limb strength and sensation is normal">Limb strength and sensation is normal: <input type="checkbox" class="cervical-spine" data-should="true"/></label>
 
             <button class="button button--red" onclick="removeAthleteFromPlayAlert('coordination', 'Spinal Immobilization and cervical collar. Then remove athlete from Play for Immediate Medical Assessment or Transport to Hospital/Medical Center')">Not Fully Conscious</button>
             <button class="button button--green" id="complete-cervical-spine-btn">Start Coordination &nbsp; <i class="fa-solid fa-forward"></i></button>
@@ -162,9 +162,9 @@
         <section style="position: relative;">
             <button style="background: none; border: none; position: absolute; top: 1em; right: 1em;" onclick="show('./assets/neuroscreen-flowchart.png', 'flow chart')"><img src="./assets/flowchart.png" alt="flow chart icon" style="width: 2em; height: 2em"></button>
             <h2>Coordination and Ocular/Motor Screen</h2>
-            <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Coordination. Finger-to-nose is normal for both hands with eyes open and closed: <input type="checkbox" class="coordination"/></label>
-            <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Ocular/Motor. Athlete can look side-to-side and up-and-down without moving their head/neck or getting double vision: <input type="checkbox" class="coordination"/></label>
-            <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Observed extraocular eye movements are normal: <input type="checkbox" class="coordination"/></label>
+            <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;" data-value="Coordination. Finger-to-nose is normal for both hands with eyes open and closed">Coordination. Finger-to-nose is normal for both hands with eyes open and closed: <input type="checkbox" class="coordination"/></label>
+            <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;" data-value="Ocular/Motor. Athlete can look side-to-side and up-and-down without moving their head/neck or getting double vision">Ocular/Motor. Athlete can look side-to-side and up-and-down without moving their head/neck or getting double vision: <input type="checkbox" class="coordination"/></label>
+            <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;" data-value="Observed extraocular eye movements are normal">Observed extraocular eye movements are normal: <input type="checkbox" class="coordination"/></label>
             <p>Please describe anything abnormal:</p>
             <textarea class="textarea" id="coordination-abnomalities"></textarea>
             <button class="button button--green" onclick="saveTestResult('coordination_abnomalities', document.getElementById('coordination-abnomalities').value); saveTestResult('coordination', getChecked('coordination')); getChecked('coordination').length === 3 ? renderTestSection('maddocks-score') : removeAthleteFromPlayAlert('maddocks-score')">Start Maddocks &nbsp; <i class="fa-solid fa-forward"></i></button>
@@ -176,11 +176,11 @@
             <h2>Maddocks Score</h2>
             <p style="margin-top: 0;">Examiner, read the following line and ask the following questions (modified to be appropriate to the relevant sport). Check the correctly answered questions.</p>
             <p style="font-style: italic;">You will be asked a few questions. Please listen carefully and give your best effort. First explain what happened? &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
-            <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;">What venue are we at today? <input type="checkbox" class="maddocks"/></label>
-            <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Which half is it now? <input type="checkbox" class="maddocks"/></label>
-            <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Who scored last in this match? <input type="checkbox" class="maddocks"/></label>
-            <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;">What team did you play last week / game? <input type="checkbox" class="maddocks"/></label>
-            <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Did your team win the last game? <input type="checkbox" class="maddocks"/></label>
+            <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;" data-value="What venue are we at today?">What venue are we at today? <input type="checkbox" class="maddocks"/></label>
+            <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;" data-value="Which half is it now?">Which half is it now? <input type="checkbox" class="maddocks"/></label>
+            <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;" data-value="Who scored last in this match?">Who scored last in this match? <input type="checkbox" class="maddocks"/></label>
+            <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;" data-value="What team did you play last week / game?">What team did you play last week / game? <input type="checkbox" class="maddocks"/></label>
+            <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;" data-value="Did your team win the last game?">Did your team win the last game? <input type="checkbox" class="maddocks"/></label>
             <button class="button button--green" id="maddocks-end-btn">Start Symptom Evaluation &nbsp; <i class="fa-solid fa-forward"></i></button>
             <script>
                 document.getElementById('maddocks-end-btn').addEventListener('click', () => {
@@ -348,11 +348,11 @@
         <section>
             <h2>Orientation</h2>
             <p style="margin-top: 0;">Examiner, ask the athlete the following questions and select the ones they answer correctly.</p>
-            <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;">What month is it? <input type="checkbox" class="orientation"/></label>
-            <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;">What is the date today? <input type="checkbox" class="orientation"/></label>
-            <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;">What is the day of the week? <input type="checkbox" class="orientation"/></label>
-            <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;">What year is it? <input type="checkbox" class="orientation"/></label>
-            <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;">What time is it right now (within 1 hour)? <input type="checkbox" class="orientation"/></label>
+            <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;" data-value="What month is it?">What month is it? <input type="checkbox" class="orientation"/></label>
+            <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;" data-value="What is the date today?">What is the date today? <input type="checkbox" class="orientation"/></label>
+            <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;" data-value="What is the day of the week?">What is the day of the week? <input type="checkbox" class="orientation"/></label>
+            <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;" data-value="What year is it?">What year is it? <input type="checkbox" class="orientation"/></label>
+            <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;" data-value="What time is it right now (within 1 hour)?">What time is it right now (within 1 hour)? <input type="checkbox" class="orientation"/></label>
             <button class="button button--green" id="orientation-end-btn">Start Immediate Memory &nbsp; <i class="fa-solid fa-forward"></i></button>
             <script>
                 document.getElementById('orientation-end-btn').addEventListener('click', () => {

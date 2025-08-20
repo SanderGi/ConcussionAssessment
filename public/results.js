@@ -727,12 +727,12 @@ async function exportSCAT6pdf(test) {
       test.coordination.length === 3 ? "NO" : "YES";
   }
   if (test.maddocks) {
-    const maddocks = ["What v", "Which ", "Who sc", "What t", "Did yo "];
+    const maddocks = ["What v", "Which ", "Who sc", "What t", "Did yo"];
     for (let ix = 1; ix <= maddocks.length; ix++) {
       fields[`maddocks_${ix}`] = "NO";
     }
     for (const selected of test.maddocks) {
-      const ix = maddocks.indexOf(selected.substring(0, 7)) + 1;
+      const ix = maddocks.indexOf(selected.substring(0, 6)) + 1;
       fields[`maddocks_${ix}`] = "YES";
     }
     fields["maddocks_failed"] = test.maddocks_score === 5 ? "NO" : "YES";

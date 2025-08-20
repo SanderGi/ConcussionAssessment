@@ -23,7 +23,9 @@ export function getAthleteName() {
 export function getChecked(classname) {
   return [...document.getElementsByClassName(classname)]
     .filter((el) => el.checked)
-    .map((el) => el.parentElement.textContent);
+    .map(
+      (el) => el.parentElement.dataset.value || el.parentElement.textContent
+    );
 }
 window.getChecked = getChecked;
 
