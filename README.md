@@ -32,7 +32,7 @@ An online sport concussion assessment for English speaking athletes across the w
 
 > How do I know if Google Drive Sync was successful?
 
-If sync is successful, you should see the "Sync" button turn green, change text to "Synced", and display your linked Google Drive account photo:
+If sync is successful, you should see the "Sync" button turn green, change text to "Synced", and display your linked Google Drive account photo:<br>
 <img width="128" height="57" alt="green button saying Synced" src="./sync-button.png" /><br>
 You can click on the button to see details about when the data was last successfully synced with your Google Drive.
 
