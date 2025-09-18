@@ -44,7 +44,7 @@ Under GDPR, you have the right to:
 - Object to certain processing.
 - Withdraw consent at any time (for example, by deleting your account or stopping uploads).
 
-To exercise your rights, contact us at scat6@sandergi.com.
+To exercise your rights, use the in-app controls as available or contact us at scat6@sandergi.com.
 
 ## 7. Contact
 If you have questions or concerns, please contact:
