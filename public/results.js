@@ -344,10 +344,24 @@ document.addEventListener("renderTestSection", async (event) => {
 
 // Export
 const exportSelect = document.getElementById("export-results-select");
-document.getElementById("export-results").addEventListener("click", () => {
-  exportSelect.showPicker();
-  shareTestData();
-});
+document
+  .getElementById("export-results")
+  .addEventListener("click", async () => {
+    try {
+      exportSelect.showPicker();
+    } catch {
+      exportSelect.value = await select("Choose an export option:", [
+        ["Report", "Overall Report"],
+        ["SCAT6", "Full SCAT6"],
+        ["CSV", "Raw CSV"],
+        ["none", "Cancel", "button--red"],
+      ]);
+      exportSelect.dispatchEvent(
+        new Event("change", { bubbles: true, cancelable: false })
+      );
+    }
+    shareTestData();
+  });
 exportSelect.addEventListener("change", () => {
   const selected = exportSelect.value;
   exportSelect.value = "none";

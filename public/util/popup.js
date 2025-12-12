@@ -79,6 +79,31 @@ export async function prompt(message, defaultValue = "") {
 }
 window.prompt = prompt;
 
+export async function select(message, values) {
+  return new Promise((resolve) => {
+    const dialog = document.createElement("dialog");
+    dialog.innerHTML = /* html */ `
+      <p>${message}</p>
+      ${values
+        .map(
+          (v) =>
+            /* html */ `<button class="button ${
+              v.length > 2 ? v[2] : ""
+            }" data-value="${v[0]}">${v[1]}</button>`
+        )
+        .join("")}
+    `;
+    dialog.onclick = (e) => {
+      if (e.target.tagName != "BUTTON") return;
+      dialog.remove();
+      resolve(e.target.dataset.value);
+    };
+    document.body.appendChild(dialog);
+    dialog.showModal();
+  });
+}
+window.select = select;
+
 export async function removeAthleteFromPlayAlert(
   next,
   message = "Remove athlete from Play for Immediate Medical Assessment or Transport to Hospital/Medical Center"
