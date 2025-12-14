@@ -1,6 +1,10 @@
 import { getTest, saveTestResult, shareTestData } from "./testManager.js";
-import { tests } from "./userData.js";
-import { showSources, errorPhotosToHTML } from "./util/popup.js";
+import { tests, athletes } from "./userData.js";
+import {
+  showSources,
+  errorPhotosToHTML,
+  bulkExportOptions,
+} from "./util/popup.js";
 import { text2image } from "./util/text2image.js";
 
 const content = document.getElementById("results-content");
@@ -395,6 +399,39 @@ exportSelect.addEventListener("change", () => {
   }
 });
 
+document
+  .getElementById("export-selected")
+  .addEventListener("click", async () => {
+    const range = await bulkExportOptions();
+    if (range === null) return;
+    const [start_timestamp, end_timestamp] = range;
+    const files = [];
+    for (const [athlete_id, test_ids] of Object.entries(athletes)) {
+      const athlete_name = tests[test_ids.at(-1)].athlete_name.replace(
+        " ",
+        "_"
+      );
+      for (const test_id of test_ids) {
+        /** @type {import("./userData.js").Test} */
+        const test = tests[test_id];
+        if (
+          test.test_created_at > end_timestamp ||
+          test.test_created_at < start_timestamp
+        ) {
+          continue;
+        }
+        const pdf = await exportSCAT6pdf(test, false);
+        files.push([
+          `${athlete_id.slice(0, 4)}-${athlete_name}/${timestampToYYYYMMDD(
+            test.test_created_at
+          )}.pdf`,
+          pdf,
+        ]);
+      }
+    }
+    await downloadZipOfPdfs("exported_selection.zip", files);
+  });
+
 function formatDate(timestamp) {
   if (!timestamp) return "";
   const d = new Date(timestamp);
@@ -574,7 +611,7 @@ function timestampToMMDDYYYYhhmmssA(timestamp) {
 }
 
 /** @param {import("./userData.js").Test} test */
-async function exportSCAT6pdf(test) {
+async function exportSCAT6pdf(test, download = true) {
   const fields = {
     // directly copied fields
     athlete_name: test.athlete_name,
@@ -934,11 +971,45 @@ async function exportSCAT6pdf(test) {
   const filled_buf = await scat6.save();
 
   // download filled PDF
-  const blob = new Blob([filled_buf], { type: "application/pdf" });
-  const url = URL.createObjectURL(blob);
+  if (download) {
+    const blob = new Blob([filled_buf], { type: "application/pdf" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `SCAT6_${test.athlete_name}.pdf`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  } else {
+    return filled_buf;
+  }
+}
+
+async function downloadZipOfPdfs(zipname, pdfUrlsOrBuffers) {
+  const zip = new window.JSZip();
+
+  // Iterate over your PDF sources (URLs or ArrayBuffers/Buffers)
+  for (const [filename, source] of pdfUrlsOrBuffers) {
+    // 1. Load the PDF data (assuming 'source' is a URL or buffer)
+    const pdfBytes =
+      typeof source === "string"
+        ? await fetch(source).then((res) => res.arrayBuffer())
+        : source; // Use source directly if it's already a buffer
+
+    // 2. Add the PDF data to the zip file
+    // The second argument must be raw data (Blob, Buffer, etc.)
+    zip.file(filename, pdfBytes);
+  }
+
+  // 3. Generate the ZIP file content as a Blob (browser) or Buffer (Node.js)
+  const zipContent = await zip.generateAsync({ type: "blob" });
+
+  // 4. Trigger download
+  const url = URL.createObjectURL(zipContent);
   const a = document.createElement("a");
   a.href = url;
-  a.download = `SCAT6_${test.athlete_name}.pdf`;
+  a.download = zipname;
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);

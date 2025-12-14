@@ -104,6 +104,39 @@ export async function select(message, values) {
 }
 window.select = select;
 
+export async function bulkExportOptions() {
+  return new Promise((resolve) => {
+    const dialog = document.createElement("dialog");
+    const twoYearsAgo = new Date();
+    twoYearsAgo.setFullYear(twoYearsAgo.getFullYear() - 2);
+    dialog.innerHTML = /* html */ `
+      <p>Select the date range of tests to bulk export:</p>
+      <input type="date" value="${twoYearsAgo.toISOString().split("T")[0]}"/>
+      to
+      <input type="date" value="${new Date().toISOString().split("T")[0]}"/>
+      <button class="button" data-value="ok">Download ZIP</button>
+      <button class="button button--red" data-value="cancel">CANCEL</button>
+    `;
+    dialog.onclick = (e) => {
+      if (e.target.tagName != "BUTTON") return;
+      if (e.target.dataset.value == "ok") {
+        dialog.remove();
+        resolve(
+          [...dialog.querySelectorAll('input[type="date"]')].map((el) =>
+            new Date(el.value).getTime()
+          )
+        );
+      }
+      if (e.target.dataset.value == "cancel") {
+        dialog.remove();
+        resolve(null);
+      }
+    };
+    document.body.appendChild(dialog);
+    dialog.showModal();
+  });
+}
+
 export async function removeAthleteFromPlayAlert(
   next,
   message = "Remove athlete from Play for Immediate Medical Assessment or Transport to Hospital/Medical Center"

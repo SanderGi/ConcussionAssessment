@@ -11,6 +11,7 @@
 
     <script src="./lib/chart.js"></script>
     <script src="./lib/pdf-lib.js"></script>
+    <script src="./lib/jszip.min.js"></script>
   </head>
   <body>
     <header>
@@ -37,6 +38,7 @@
                 <option value="50">Show 50</option>
                 <option value="9999">Show All</option>
             </select>
+            <button class="button" id="export-selected">Export &nbsp; <i class="fa-solid fa-file-export"></i></button>
         </section>
         <div id="athletes" style="width: 100%;" class="center"></div>
         <button class="add" id="add-athlete-button" aria-label="add athlete">
