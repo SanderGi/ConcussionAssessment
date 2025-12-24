@@ -19,6 +19,31 @@ import { calcSimilarity } from "./util/fuzzysearch.js";
 const Chart = window.Chart;
 /** @typedef {import('./userData.js').Test} Test */
 
+// ============================ Theme ============================
+const toggle = document.getElementById("theme");
+const root = document.documentElement;
+
+toggle.addEventListener("change", () => {
+  const theme = toggle.checked ? "dark" : "light";
+  root.setAttribute("data-theme", theme);
+  localStorage.setItem("theme", theme);
+});
+
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme) {
+  document.documentElement.setAttribute("data-theme", savedTheme);
+  toggle.checked = savedTheme == "dark";
+} else {
+  const prefersLight = window.matchMedia(
+    "(prefers-color-scheme: light)"
+  ).matches;
+  document.documentElement.setAttribute(
+    "data-theme",
+    prefersLight ? "light" : "dark"
+  );
+  toggle.checked = !prefersLight;
+}
+
 // ============================ Feature Detection ============================
 if (!window.crypto?.subtle) {
   alert(
