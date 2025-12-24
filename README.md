@@ -4,7 +4,7 @@
 [![FileCount](./.badges/file-count.svg)](https://github.com/SanderGi/ConcussionAssessment)
 [![WebsiteStatus](https://img.shields.io/website?url=https://scat6-web.web.app)](https://scat6-web.web.app)
 
-An online sport concussion assessment for English speaking athletes across the world compliant with the international SCAT6 standard. Focused on helping student athletes in Washington, USA, the goal is to make concussion tests more accessible and remove some of the subjective nature of the tests. The tool also allows coaches to easily compare test results over time to make more informed decisions about player health. URL: [https://scat6-web.web.app/](https://scat6-web.web.app/)
+An online sport concussion assessment for English speaking athletes across the world compliant with the international SCAT6 standard. Initially motivated by helping student athletes in Washington, USA, the goal is to make concussion tests more accessible and remove some of the subjective nature of the tests. The tool also allows health professionals to easily compare test results over time to make more informed decisions about patient health. URL: [https://scat6-web.web.app/](https://scat6-web.web.app/).
 
 **Contact**: scat6@sandergi.com
 
@@ -76,12 +76,6 @@ Run `firebase deploy` to deploy the project to Firebase.
 - [SCAT6 Results Study](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6326330/)
 - [Google Fonts](https://fonts.google.com/icons)
 - [Font Awesome](https://fontawesome.com/search)
-
-## Contributors
-
-As Software Engineer, I was responsible for translating the paper SCAT6 into web format, designing the UI/UX, and coding the web application. As a researcher, I took a lead on designing the associated study and writing the paper.
-
-My collaborator, Aureole had the original idea to create a digital version of the international SCAT6. She took the lead on user testing and coordinating approval of the application with CISG. She is also working to expand the current assessment by researching additional objective neurocognitive test modules. As a student athlete herself, Aureole has been researching and advocating for better concussion testing standards and updated RTL/RTS guidelines on a state and national level for many years.
 
 ## License
 
