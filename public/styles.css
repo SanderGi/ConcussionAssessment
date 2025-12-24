@@ -505,10 +505,22 @@ tbody tr {
 .theme__icon {
   display: block;
   top: 0.7em;
-  left: 0.7em;
+  left: 0.725em;
   width: 1.5em;
   height: 1.5em;
   transition: var(--transDur);
+}
+
+/* Handle Safari Rendering Bugs */
+@supports (font: -apple-system-body) {
+  .theme__icon {
+    top: 0.5em;
+    left: 0.4em;
+  }
+
+  .theme .theme__toggle:checked ~ .theme__icon {
+    transform: translateX(2.55em);
+  }
 }
 
 .theme__icon-part {
@@ -584,7 +596,7 @@ tbody tr {
   -webkit-appearance: none;
   appearance: none;
   transition: background-color var(--transDur) ease-in-out,
-		box-shadow 0.15s ease-in-out,
+		box-shadow calc(var(--transDur) / 2) ease-in-out,
 		transform var(--transDur) ease-in-out;
 }
 
@@ -598,7 +610,7 @@ input[type="checkbox"].theme__toggle {
   content: "";
   width: 2.5em;
   height: 2.5em;
-  transition: 0.3s;
+  transition: var(--transDur);
 }
 
 .theme__toggle:focus {

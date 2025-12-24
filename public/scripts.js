@@ -32,7 +32,7 @@ toggle.addEventListener("change", () => {
 const savedTheme = localStorage.getItem("theme");
 if (savedTheme) {
   document.documentElement.setAttribute("data-theme", savedTheme);
-  toggle.checked = savedTheme == "dark";
+  toggle.checked = savedTheme != "light";
 } else {
   const prefersLight = window.matchMedia(
     "(prefers-color-scheme: light)"
