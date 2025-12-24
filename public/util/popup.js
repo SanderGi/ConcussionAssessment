@@ -536,6 +536,7 @@ export async function confirmAthleteInfo(
 
   return new Promise((resolve) => {
     const dialog = document.createElement("dialog");
+    dialog.style.maxWidth = "700px";
     dialog.innerHTML = /* html */ `
       <h3>${
         pastTests.length == 0
@@ -595,59 +596,59 @@ export async function confirmAthleteInfo(
         new Date(most_recent_concussion_timestamp).toISOString().split("T")[0]
       }" id="most_recent_concussion_timestamp" /></label>
       <label class="left-align spread-inline">Most Recent Recovery Time (days): <input type="number" value="${most_recent_recovery_time_days}" id="most_recent_recovery_time_days" /></label>
-      <p>Primary Symptoms:</p>
-      <label class="left-align spread-inline" style="flex-wrap: nowrap">Confusion: <input type="checkbox" ${
+      <p style="margin-bottom: 0.2em;">Primary Symptoms:</p>
+      <label class="left-align" style="flex-wrap: nowrap; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="checkbox" ${
         primary_symptoms.includes("Confusion") ? "checked" : ""
-      } name="primary_symptoms" value="Confusion" /></label>
-      <label class="left-align spread-inline" style="flex-wrap: nowrap">Headache: <input type="checkbox" ${
+      } name="primary_symptoms" value="Confusion" /> Confusion.</label>
+      <label class="left-align" style="flex-wrap: nowrap; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="checkbox" ${
         primary_symptoms.includes("Headache") ? "checked" : ""
-      } name="primary_symptoms" value="Headache" /></label>
-      <label class="left-align spread-inline" style="flex-wrap: nowrap">Double/Blurry Vision: <input type="checkbox" ${
+      } name="primary_symptoms" value="Headache" /> Headache.</label>
+      <label class="left-align" style="flex-wrap: nowrap; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="checkbox" ${
         primary_symptoms.includes("Double/Blurry Vision") ? "checked" : ""
-      } name="primary_symptoms" value="Double/Blurry Vision" /></label>
-      <label class="left-align spread-inline" style="flex-wrap: nowrap">Dizziness/Imbalance: <input type="checkbox" ${
+      } name="primary_symptoms" value="Double/Blurry Vision" /> Double/Blurry Vision.</label>
+      <label class="left-align" style="flex-wrap: nowrap; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="checkbox" ${
         primary_symptoms.includes("Dizziness/Imbalance") ? "checked" : ""
-      } name="primary_symptoms" value="Dizziness/Imbalance" /></label>
-      <label class="left-align spread-inline" style="flex-wrap: nowrap">Nausea/Vomiting: <input type="checkbox" ${
+      } name="primary_symptoms" value="Dizziness/Imbalance" /> Dizziness/Imbalance.</label>
+      <label class="left-align" style="flex-wrap: nowrap; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="checkbox" ${
         primary_symptoms.includes("Nausea/Vomiting") ? "checked" : ""
-      } name="primary_symptoms" value="Nausea/Vomiting" /></label>
-      <label class="left-align spread-inline" style="flex-wrap: nowrap">Memory Loss: <input type="checkbox" ${
+      } name="primary_symptoms" value="Nausea/Vomiting" /> Nausea/Vomiting.</label>
+      <label class="left-align" style="flex-wrap: nowrap; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="checkbox" ${
         primary_symptoms.includes("Memory Loss") ? "checked" : ""
-      } name="primary_symptoms" value="Memory Loss" /></label>
-      <label class="left-align spread-inline" style="flex-wrap: nowrap">Ringing Ears: <input type="checkbox" ${
+      } name="primary_symptoms" value="Memory Loss" /> Memory Loss.</label>
+      <label class="left-align" style="flex-wrap: nowrap; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="checkbox" ${
         primary_symptoms.includes("Ringing Ears") ? "checked" : ""
-      } name="primary_symptoms" value="Ringing Ears" /></label>
-      <label class="left-align spread-inline" style="flex-wrap: nowrap">Difficulty Concentrating: <input type="checkbox" ${
+      } name="primary_symptoms" value="Ringing Ears" /> Ringing Ears.</label>
+      <label class="left-align" style="flex-wrap: nowrap; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="checkbox" ${
         primary_symptoms.includes("Difficulty Concentrating") ? "checked" : ""
-      } name="primary_symptoms" value="Difficulty Concentrating" /></label>
-      <label class="left-align spread-inline" style="flex-wrap: nowrap">Sensitivity to Light: <input type="checkbox" ${
+      } name="primary_symptoms" value="Difficulty Concentrating" /> Difficulty Concentrating.</label>
+      <label class="left-align" style="flex-wrap: nowrap; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="checkbox" ${
         primary_symptoms.includes("Sensitivity to Light") ? "checked" : ""
-      } name="primary_symptoms" value="Sensitivity to Light" /></label>
-      <label class="left-align spread-inline" style="flex-wrap: nowrap">Loss of Smell/Taste: <input type="checkbox" ${
+      } name="primary_symptoms" value="Sensitivity to Light" /> Sensitivity to Light.</label>
+      <label class="left-align" style="flex-wrap: nowrap; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="checkbox" ${
         primary_symptoms.includes("Loss of Smell/Taste") ? "checked" : ""
-      } name="primary_symptoms" value="Loss of Smell/Taste" /></label>
-      <label class="left-align spread-inline" style="flex-wrap: nowrap">Trouble Sleeping: <input type="checkbox" ${
+      } name="primary_symptoms" value="Loss of Smell/Taste" /> Loss of Smell/Taste.</label>
+      <label class="left-align" style="flex-wrap: nowrap; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="checkbox" ${
         primary_symptoms.includes("Trouble Sleeping") ? "checked" : ""
-      } name="primary_symptoms" value="Trouble Sleeping" /></label>
+      } name="primary_symptoms" value="Trouble Sleeping" /> Trouble Sleeping.</label>
       <label class="left-align spread-inline">Other: <input type="text" placeholder="List other symptoms" value="${primary_symptoms_other}" class="fill-spread" id="primary_symptoms_other" /></label>
       
       <h4>Medical Background</h4>
       <p style="margin-top: 0">Has the athlete ever been (if yes, describe below):</p>
-      <label class="left-align spread-inline" style="flex-wrap: nowrap">Hospitalized for head injury: <input type="checkbox" ${
+      <label class="left-align" style="flex-wrap: nowrap; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="checkbox" ${
         hospitalized_for_head_injury ? "checked" : ""
-      } id="hospitalized_for_head_injury" /></label>
-      <label class="left-align spread-inline" style="flex-wrap: nowrap">Diagnosed with a headache disorder or migraine: <input type="checkbox" ${
+      } id="hospitalized_for_head_injury" />Hospitalized for head injury.</label>
+      <label class="left-align" style="flex-wrap: nowrap; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="checkbox" ${
         diagnosed_headache_disorder_or_migraine ? "checked" : ""
-      } id="diagnosed_headache_disorder_or_migraine" /></label>
-      <label class="left-align spread-inline" style="flex-wrap: nowrap">Diagnosed with a learning disability or dyslexia: <input type="checkbox" ${
+      } id="diagnosed_headache_disorder_or_migraine" />Diagnosed with a headache disorder or migraine.</label>
+      <label class="left-align" style="flex-wrap: nowrap; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="checkbox" ${
         diagnosed_learning_disability_or_dyslexia ? "checked" : ""
-      } id="diagnosed_learning_disability_or_dyslexia" /></label>
-      <label class="left-align spread-inline" style="flex-wrap: nowrap">Diagnosed with attention deficit hyperactivity disorder (ADHD): <input type="checkbox" ${
+      } id="diagnosed_learning_disability_or_dyslexia" />Diagnosed with a learning disability or dyslexia.</label>
+      <label class="left-align" style="flex-wrap: nowrap; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="checkbox" ${
         diagnosed_attention_deficit_disorder ? "checked" : ""
-      } id="diagnosed_attention_deficit_disorder" /></label>
-      <label class="left-align spread-inline" style="flex-wrap: nowrap">Diagnosed with depression, anxiety or a psychological disorder: <input type="checkbox" ${
+      } id="diagnosed_attention_deficit_disorder" />Diagnosed with attention deficit hyperactivity disorder (ADHD).</label>
+      <label class="left-align" style="flex-wrap: nowrap; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="checkbox" ${
         diagnosed_psychological_disorder ? "checked" : ""
-      } id="diagnosed_psychological_disorder" /></label>
+      } id="diagnosed_psychological_disorder" />Diagnosed with depression, anxiety or a psychological disorder.</label>
       <label class="left-align spread-inline" style="margin-top: 0.8em">Current Medications: <input type="text" placeholder="List medications" class="fill-spread" value="${current_medications}" id="current_medications" /></label>
       <label class="left-align spread-inline">Notes: <input type="text" placeholder="Describe any selections above" class="fill-spread" value="${notes}" id="notes" /></label>
       

@@ -52,12 +52,12 @@ function setupDelayedRecall() {
       test.immediate_memory_words
         ?.map(
           (word) => /*html*/ `
-          <label class="left-align spread-inline green" style="flex-wrap: nowrap; margin-bottom: 0.4em;">${word}: <input type="checkbox" class="recall-list"/></label>
+          <label class="left-align green" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="checkbox" class="recall-list"/> ${word}.</label>
         `
         )
         ?.join("") ?? "Somehow the list of words was not saved."
     }
-    <br><br>
+    <br>
     <button class="button button--green" onclick="saveTestResult('delayed_recall', getChecked('recall-list').length); saveTestResult('delayed_recall_by_word', [...document.querySelectorAll('.recall-list')].map(el => el.checked)); renderTestSection('results')">View Test Results</button>
   `;
 }
