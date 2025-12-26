@@ -185,7 +185,9 @@ window.testAthlete = async (athlete_id) => {
 window.deleteAthlete = async (athlete_id) => {
   if (await confirm("Are you sure you want to delete this athlete's data?")) {
     for (const test of athletes[athlete_id]) {
+      // mark as deleted and bump update time so sync wins on other devices
       tests[test].athlete_id = "deleted";
+      tests[test].test_updated_at = Date.now();
     }
     document.getElementById("athlete-" + athlete_id).remove();
     await syncData();
