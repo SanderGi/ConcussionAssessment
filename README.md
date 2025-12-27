@@ -28,6 +28,8 @@ An online sport concussion assessment for English speaking athletes across the w
 ![main menu](./main-menu.png)
 ![pose assessment](./pose-assess.png)
 
+<!-- updated the code-->
+
 ### Frequently Asked Questions (FAQ)
 
 > How do I know if Google Drive Sync was successful?
