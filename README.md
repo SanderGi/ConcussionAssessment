@@ -28,6 +28,7 @@ An online sport concussion assessment for English speaking athletes across the w
 ![main menu](./main-menu.png)
 ![pose assessment](./pose-assess.png)
 
+<!-- added new screenshots -->
 <!-- updated the code-->
 
 ### Frequently Asked Questions (FAQ)
