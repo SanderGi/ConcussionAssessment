@@ -18,6 +18,17 @@ import {
 import { calcSimilarity } from "./util/fuzzysearch.js";
 const Chart = window.Chart;
 /** @typedef {import('./userData.js').Test} Test */
+const t = (key, fallback) => window.__scat6T?.(key, fallback) ?? fallback;
+const tf = (key, vars, fallback) =>
+  window.__scat6Format?.(key, vars, fallback) ?? fallback;
+const translateTestType = (type) => {
+  if (type === "IMMEDIATE") return t("runtime.test_type.immediate", "Immediate");
+  if (type === "BASELINE") return t("runtime.test_type.baseline", "Baseline");
+  if (type === "POST-INJURY")
+    return t("runtime.test_type.post_injury", "Post-Injury");
+  if (type === "NO-TEST") return t("runtime.test_type.no_test", "No Test");
+  return type;
+};
 
 // ============================ Feature Detection ============================
 if (!window.crypto?.subtle) {
@@ -50,7 +61,14 @@ const athleteNumSelect = document.getElementById("number-of-athletes");
 const addAthleteButton = document.getElementById("add-athlete-button");
 
 deleteAllButton.onclick = async () => {
-  if (await confirm("Are you sure you want to delete all data?")) {
+  if (
+    await confirm(
+      t(
+        "runtime.confirm.delete_all",
+        "Are you sure you want to delete all data?"
+      )
+    )
+  ) {
     await deleteRemoteData();
     await clearLocalData();
   }
@@ -58,11 +76,18 @@ deleteAllButton.onclick = async () => {
 
 function showConnected(user) {
   if (user) {
-    syncButton.innerHTML = `Synced &nbsp; <img style="width: 1em; height: 1em; border-radius: 50%; margin: auto" src="${user.picture}">`;
+    syncButton.innerHTML = `${t(
+      "runtime.sync.synced",
+      "Synced"
+    )} &nbsp; <img style="width: 1em; height: 1em; border-radius: 50%; margin: auto" src="${
+      user.picture
+    }" referrerpolicy="no-referrer">`;
     syncButton.classList.add("button--green");
   } else {
-    syncButton.innerHTML =
-      'Sync &nbsp; <i class="fa-brands fa-google-drive"></i>';
+    syncButton.innerHTML = `${t(
+      "runtime.sync.sync",
+      "Sync"
+    )} &nbsp; <i class="fa-brands fa-google-drive"></i>`;
     syncButton.classList.remove("button--green");
   }
 }
@@ -76,9 +101,16 @@ syncButton.onclick = async () => {
     action = await syncSettings(
       name,
       email,
-      `Last confirmed identity on ${lastSignIn} <br><br> Last synced on ${localStorage.getItem(
-        "lastSync"
-      )}`
+      tf(
+        "runtime.sync.last_identity",
+        {
+          lastSignIn,
+          lastSync: localStorage.getItem("lastSync"),
+        },
+        `Last confirmed identity on ${lastSignIn} <br><br> Last synced on ${localStorage.getItem(
+          "lastSync"
+        )}`
+      )
     );
   } else {
     localStorage.setItem("synced", "true");
@@ -88,7 +120,10 @@ syncButton.onclick = async () => {
   if (action === "UNLINK") {
     if (
       await confirm(
-        "This will delete all data from this device but keep it on your GDrive. Are you sure?"
+        t(
+          "runtime.confirm.unlink",
+          "This will delete all data from this device but keep it on your GDrive. Are you sure?"
+        )
       )
     ) {
       await clearLocalData();
@@ -96,7 +131,10 @@ syncButton.onclick = async () => {
   } else if (action === "DELETE_DRIVE") {
     if (
       await confirm(
-        "This will delete all data from your GDrive but keep it on this device. Are you sure?"
+        t(
+          "runtime.confirm.delete_drive",
+          "This will delete all data from your GDrive but keep it on this device. Are you sure?"
+        )
       )
     ) {
       await deleteRemoteData();
@@ -109,7 +147,10 @@ syncButton.onclick = async () => {
     } catch (err) {
       console.error(err);
       await alert(
-        "Failed to sync data. Make sure you checked the box to give the app permission to add app data to your Google Drive."
+        t(
+          "runtime.alert.sync_failed",
+          "Failed to sync data. Make sure you checked the box to give the app permission to add app data to your Google Drive."
+        )
       );
       await disconnectUser();
     }
@@ -183,7 +224,14 @@ window.testAthlete = async (athlete_id) => {
 };
 
 window.deleteAthlete = async (athlete_id) => {
-  if (await confirm("Are you sure you want to delete this athlete's data?")) {
+  if (
+    await confirm(
+      t(
+        "runtime.confirm.delete_athlete",
+        "Are you sure you want to delete this athlete's data?"
+      )
+    )
+  ) {
     for (const test of athletes[athlete_id]) {
       // mark as deleted and bump update time so sync wins on other devices
       tests[test].athlete_id = "deleted";
@@ -227,24 +275,41 @@ window.showAthleteResults = async (athlete_id) => {
 
   const summary = document.createElement("div");
   if (!lastBaseline?.mBESS_total_errors || !lastBaseline?.cognitive_total) {
-    summary.innerHTML = "No baselines found for this athlete.<br>";
+    summary.innerHTML = `${t(
+      "runtime.test_mgmt.no_baselines",
+      "No baselines found for this athlete."
+    )}<br>`;
   } else {
-    summary.innerHTML = `
-      Last Baseline (${new Date(
-        lastBaseline?.test_created_at
-      ).toDateString()}): ${
-      lastBaseline?.mBESS_total_errors + lastBaseline?.cognitive_total
-    } / 80 <br>`;
+    summary.innerHTML = `${tf(
+      "runtime.test_mgmt.last_baseline",
+      {
+        date: new Date(lastBaseline?.test_created_at).toDateString(),
+        score: lastBaseline?.mBESS_total_errors + lastBaseline?.cognitive_total,
+      },
+      `Last baseline (${new Date(lastBaseline?.test_created_at).toDateString()}): ${
+        lastBaseline?.mBESS_total_errors + lastBaseline?.cognitive_total
+      } / 80`
+    )} <br>`;
   }
   if (!lastPostInjury?.mBESS_total_errors || !lastPostInjury?.cognitive_total) {
-    summary.innerHTML += "No post-injuries found for this athlete.";
+    summary.innerHTML += t(
+      "runtime.test_mgmt.no_post_injuries",
+      "No post-injuries found for this athlete."
+    );
   } else {
-    summary.innerHTML += `
-      Last Post Injury (${new Date(
+    summary.innerHTML += tf(
+      "runtime.test_mgmt.last_post_injury",
+      {
+        date: new Date(lastPostInjury?.test_created_at).toDateString(),
+        score:
+          lastPostInjury?.mBESS_total_errors + lastPostInjury?.cognitive_total,
+      },
+      `Last post-injury (${new Date(
         lastPostInjury?.test_created_at
       ).toDateString()}): ${
-      lastPostInjury?.mBESS_total_errors + lastPostInjury?.cognitive_total
-    } / 80`;
+        lastPostInjury?.mBESS_total_errors + lastPostInjury?.cognitive_total
+      } / 80`
+    );
   }
   container.appendChild(summary);
 
@@ -252,7 +317,7 @@ window.showAthleteResults = async (athlete_id) => {
   for (const t of athleteTests.toReversed()) {
     if (t.test_type === "NO-TEST") continue;
     const option = document.createElement("option");
-    option.textContent = `${t.test_type} - ${new Date(
+    option.textContent = `${translateTestType(t.test_type)} - ${new Date(
       t.test_created_at
     ).toDateString()}`;
     option.value = t.test_id;
@@ -260,15 +325,25 @@ window.showAthleteResults = async (athlete_id) => {
   }
   if (selectTest.children.length === 0) {
     container.appendChild(
-      document.createTextNode("No tests found for this athlete. ")
+      document.createTextNode(
+        t("runtime.test_mgmt.no_tests", "No tests found for this athlete. ")
+      )
     );
     container.appendChild(
-      document.createTextNode("Click the Test button to start a new test.")
+      document.createTextNode(
+        t(
+          "runtime.test_mgmt.click_test_button",
+          "Click the Test button to start a new test."
+        )
+      )
     );
   } else {
     container.appendChild(selectTest);
     const openTestButton = document.createElement("button");
-    openTestButton.textContent = "Open Test Details";
+    openTestButton.textContent = t(
+      "runtime.test_mgmt.open_test_details",
+      "Open Test Details"
+    );
     openTestButton.className = "button";
     openTestButton.onclick = () => {
       viewResults(tests[selectTest.value]);
@@ -277,7 +352,10 @@ window.showAthleteResults = async (athlete_id) => {
   }
 
   const title = document.createElement("h2");
-  title.textContent = "Errors, Fastest Times, and Symptoms (lower is better)";
+  title.textContent = t(
+    "runtime.test_mgmt.chart.errors_title",
+    "Errors, Fastest Times, and Symptoms (lower is better)"
+  );
   container.appendChild(title);
   const canvas = document.createElement("canvas");
   container.appendChild(canvas);
@@ -289,23 +367,39 @@ window.showAthleteResults = async (athlete_id) => {
       ),
       datasets: [
         {
-          label: "Symptom Number (X/22)",
+          label: t(
+            "runtime.test_mgmt.chart.symptom_number",
+            "Symptom Number (X/22)"
+          ),
           data: athleteTests.map((test) => test.symptom_number),
         },
         {
-          label: "Symptom Severity (X/132)",
+          label: t(
+            "runtime.test_mgmt.chart.symptom_severity",
+            "Symptom Severity (X/132)"
+          ),
           data: athleteTests.map((test) => test.symptom_severity),
         },
         {
-          label: "mBESS Total Errors (X/30)",
+          id: "mbess_total_errors",
+          label: t(
+            "runtime.test_mgmt.chart.mbess_total_errors",
+            "mBESS Total Errors (X/30)"
+          ),
           data: athleteTests.map((test) => test.mBESS_total_errors),
         },
         {
-          label: "Tandem Gait Fastest Time",
+          label: t(
+            "runtime.test_mgmt.chart.tandem_fastest_time",
+            "Tandem Gait Fastest Time"
+          ),
           data: athleteTests.map((test) => test.tandem_gait_fastest_time),
         },
         {
-          label: "Dual Task Fastest Time",
+          label: t(
+            "runtime.test_mgmt.chart.dual_task_fastest_time",
+            "Dual Task Fastest Time"
+          ),
           data: athleteTests.map((test) => test.dual_task_fastest_time),
         },
       ],
@@ -330,15 +424,18 @@ window.showAthleteResults = async (athlete_id) => {
       plugins: {
         tooltip: {
           callbacks: {
-            afterTitle: (items) => athleteTests[items[0].dataIndex].test_type,
+            afterTitle: (items) =>
+              translateTestType(athleteTests[items[0].dataIndex].test_type),
           },
         },
       },
     },
   });
   const datapointDetails = document.createElement("div");
-  datapointDetails.textContent =
-    "Click on an mBESS Total Errors data point to see pose error photos.";
+  datapointDetails.textContent = t(
+    "runtime.test_mgmt.click_mbess_data_point",
+    "Click on an mBESS Total Errors data point to see pose error photos."
+  );
   container.appendChild(datapointDetails);
 
   canvas.onclick = (event) => {
@@ -350,13 +447,16 @@ window.showAthleteResults = async (athlete_id) => {
     const datapoint = datapoints[0];
     const datasetIndex = datapoint.datasetIndex;
     const mBessDatasetIndex = chart.data.datasets.findIndex(
-      (dataset) => dataset.label === "mBESS Total Errors (X/30)"
+      (dataset) => dataset.id === "mbess_total_errors"
     );
     if (datasetIndex !== mBessDatasetIndex) return;
     const test = athleteTests[datapoint.index];
     const errorPhotos = test.mBESS_pose_error_photos;
     if (!errorPhotos) {
-      datapointDetails.innerHTML = "No pose error photos found for this test.";
+      datapointDetails.innerHTML = t(
+        "runtime.test_mgmt.no_pose_error_photos",
+        "No pose error photos found for this test."
+      );
       return;
     }
     const doubleErrors = errorPhotos.mBESS_double_errors ?? [];
@@ -366,33 +466,54 @@ window.showAthleteResults = async (athlete_id) => {
     const tandemFoamErrors = errorPhotos.mBESS_foam_tandem_errors ?? [];
     const singleFoamErrors = errorPhotos.mBESS_foam_single_errors ?? [];
     if (doubleErrors.length > 0) {
-      datapointDetails.innerHTML += "<h3>Double Leg Errors</h3>";
+      datapointDetails.innerHTML += `<h3>${t(
+        "runtime.results.report.double_leg_errors",
+        "Double-Leg Errors"
+      )}</h3>`;
       datapointDetails.innerHTML += errorPhotosToHTML(doubleErrors);
     }
     if (tandemErrors.length > 0) {
-      datapointDetails.innerHTML += "<h3>Tandem Errors</h3>";
+      datapointDetails.innerHTML += `<h3>${t(
+        "runtime.results.report.tandem_errors",
+        "Tandem Errors"
+      )}</h3>`;
       datapointDetails.innerHTML += errorPhotosToHTML(tandemErrors);
     }
     if (singleErrors.length > 0) {
-      datapointDetails.innerHTML += "<h3>Single Leg Errors</h3>";
+      datapointDetails.innerHTML += `<h3>${t(
+        "runtime.results.report.single_leg_errors",
+        "Single-Leg Errors"
+      )}</h3>`;
       datapointDetails.innerHTML += errorPhotosToHTML(singleErrors);
     }
     if (doubleFoamErrors.length > 0) {
-      datapointDetails.innerHTML += "<h3>Double Leg Foam Errors</h3>";
+      datapointDetails.innerHTML += `<h3>${t(
+        "runtime.results.report.double_leg_foam_errors",
+        "Double-Leg Foam Errors"
+      )}</h3>`;
       datapointDetails.innerHTML += errorPhotosToHTML(doubleFoamErrors);
     }
     if (tandemFoamErrors.length > 0) {
-      datapointDetails.innerHTML += "<h3>Tandem Foam Errors</h3>";
+      datapointDetails.innerHTML += `<h3>${t(
+        "runtime.results.report.tandem_foam_errors",
+        "Tandem Foam Errors"
+      )}</h3>`;
       datapointDetails.innerHTML += errorPhotosToHTML(tandemFoamErrors);
     }
     if (singleFoamErrors.length > 0) {
-      datapointDetails.innerHTML += "<h3>Single Leg Foam Errors</h3>";
+      datapointDetails.innerHTML += `<h3>${t(
+        "runtime.results.report.single_leg_foam_errors",
+        "Single-Leg Foam Errors"
+      )}</h3>`;
       datapointDetails.innerHTML += errorPhotosToHTML(singleFoamErrors);
     }
   };
 
   const title2 = document.createElement("h2");
-  title2.textContent = "Scores (higher is better)";
+  title2.textContent = t(
+    "runtime.test_mgmt.chart.scores_title",
+    "Scores (higher is better)"
+  );
   container.appendChild(title2);
   const canvas2 = document.createElement("canvas");
   container.appendChild(canvas2);
@@ -404,30 +525,42 @@ window.showAthleteResults = async (athlete_id) => {
       ),
       datasets: [
         {
-          label: "Glasgow Coma Scale (X/15)",
+          label: t(
+            "runtime.test_mgmt.chart.glasgow",
+            "Glasgow Coma Scale (X/15)"
+          ),
           data: athleteTests.map((test) => test.glasgow_coma_scale),
         },
         {
-          label: "Maddocks Score (X/5)",
+          label: t("runtime.test_mgmt.chart.maddocks", "Maddocks Score (X/5)"),
           data: athleteTests.map((test) => test.maddocks_score),
         },
         {
-          label: "Orientation (X/5)",
+          label: t("runtime.test_mgmt.chart.orientation", "Orientation (X/5)"),
           data: athleteTests.map((test) => test.orientation),
           hidden: true,
         },
         {
-          label: "Immediate Memory (X/30)",
+          label: t(
+            "runtime.test_mgmt.chart.immediate_memory",
+            "Immediate Memory (X/30)"
+          ),
           data: athleteTests.map((test) => test.immediate_memory),
           hidden: true,
         },
         {
-          label: "Concentration (X/5)",
+          label: t(
+            "runtime.test_mgmt.chart.concentration",
+            "Concentration (X/5)"
+          ),
           data: athleteTests.map((test) => test.concentration),
           hidden: true,
         },
         {
-          label: "Delayed Recall (X/10)",
+          label: t(
+            "runtime.test_mgmt.chart.delayed_recall",
+            "Delayed Recall (X/10)"
+          ),
           data: athleteTests.map((test) => test.delayed_recall),
           hidden: true,
         },
@@ -452,7 +585,10 @@ window.showAthleteResults = async (athlete_id) => {
           hidden: true,
         },
         {
-          label: "Cognitive Total (X/50)",
+          label: t(
+            "runtime.test_mgmt.chart.cognitive_total",
+            "Cognitive Total (X/50)"
+          ),
           data: athleteTests.map((test) => test.cognitive_total),
         },
       ],
@@ -477,7 +613,8 @@ window.showAthleteResults = async (athlete_id) => {
       plugins: {
         tooltip: {
           callbacks: {
-            afterTitle: (items) => athleteTests[items[0].dataIndex].test_type,
+            afterTitle: (items) =>
+              translateTestType(athleteTests[items[0].dataIndex].test_type),
           },
         },
       },

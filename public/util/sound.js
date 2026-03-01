@@ -1,6 +1,31 @@
 // speech recognition
 const SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition;
+const LANGUAGE_STORAGE_KEY = "scat6.language";
+const DEFAULT_LANGUAGE_CODE = "en";
+const DEFAULT_SPEECH_LOCALE = "en-US";
+const LANGUAGE_TO_LOCALE = {
+  en: "en-US",
+  dk: "da-DK",
+  da: "da-DK",
+};
+
+function getSelectedLanguageCode() {
+  try {
+    const stored = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+    if (stored && typeof stored === "string") return stored.toLowerCase();
+  } catch {}
+  const htmlLang =
+    document?.documentElement?.lang?.trim?.().toLowerCase?.() ?? "";
+  return htmlLang || DEFAULT_LANGUAGE_CODE;
+}
+
+function resolveSpeechLocale(lang) {
+  if (lang && typeof lang === "string") return lang;
+  const selected = getSelectedLanguageCode();
+  if (selected.includes("-")) return selected;
+  return LANGUAGE_TO_LOCALE[selected] ?? DEFAULT_SPEECH_LOCALE;
+}
 
 let listening = false;
 const handlers = [];
@@ -15,7 +40,7 @@ export function startListening(onResult) {
 
   const recognition = new SpeechRecognition();
   recognition.continuous = true;
-  recognition.lang = "en-US";
+  recognition.lang = resolveSpeechLocale();
   recognition.interimResults = false;
   recognition.maxAlternatives = 1;
   recognition.start();
@@ -54,7 +79,7 @@ export async function listenOnce() {
     window.SpeechRecognition || window.webkitSpeechRecognition;
   const recognition = new SpeechRecognition();
   recognition.continuous = false;
-  recognition.lang = "en-US";
+  recognition.lang = resolveSpeechLocale();
   recognition.interimResults = false;
   recognition.maxAlternatives = 1;
   recognition.start();
@@ -70,12 +95,28 @@ export async function listenOnce() {
 // speech synthesis
 window.lastAbort = 0;
 const synth = window.speechSynthesis;
-export function speak(text, lang = "en-US", cancelPrevious = true) {
+function getBestVoiceForLocale(locale) {
+  const voices = synth.getVoices();
+  if (!voices?.length) return null;
+  const target = locale.toLowerCase();
+  const exact = voices.find((voice) => voice.lang?.toLowerCase() === target);
+  if (exact) return exact;
+  const prefix = target.split("-")[0];
+  return (
+    voices.find((voice) => voice.lang?.toLowerCase()?.startsWith(prefix)) ??
+    null
+  );
+}
+
+export function speak(text, lang, cancelPrevious = true) {
   if (cancelPrevious && isSpeaking()) {
     abortSpeaking();
   }
+  const locale = resolveSpeechLocale(lang);
   const utterance = new SpeechSynthesisUtterance(text);
-  utterance.lang = lang;
+  utterance.lang = locale;
+  const voice = getBestVoiceForLocale(locale);
+  if (voice) utterance.voice = voice;
   synth.speak(utterance);
 }
 window.speak = speak;

@@ -1,0 +1,1046 @@
+<!-- GENERATED FILE. DO NOT EDIT DIRECTLY. Edit templates and run scripts/build-i18n.mjs -->
+<!DOCTYPE html>
+<html data-theme="dark" lang="dk">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SCAT6 Webapp</title>
+
+    <link rel="icon" type="image/webp" href="/assets/icon.webp">
+    <link rel="stylesheet" href="/styles.css">
+    <link href="https://fonts.cdnfonts.com/css/pink-script" rel="stylesheet">
+
+    <script src="/lib/chart.js"></script>
+    <script src="/lib/pdf-lib.js"></script>
+    <script src="/lib/jszip.min.js"></script>
+  
+    <script>
+        window.__SCAT6_I18N = {
+            language: "dk",
+            languageLabel: "Danish",
+            defaultLanguage: "en",
+            supportedLanguages: [{"code":"en","label":"English"},{"code":"dk","label":"Danish"}],
+            storageKey: "scat6.language",
+            runtime: {"runtime.404.details":"Denne side blev genereret af Firebase Command-Line Interface. For at ændre den skal du redigere filen <code>404.html</code> i projektets konfigurerede <code>public</code>-mappe.","runtime.404.message":"Den angivne fil blev ikke fundet på dette website. Kontroller URL'en for fejl, og prøv igen.","runtime.404.title":"Siden blev ikke fundet","runtime.404.why":"Hvorfor ser jeg dette?","runtime.alert.sync_failed":"Synkronisering af data mislykkedes. Kontroller, at du har givet appen tilladelse til at gemme appdata i din Google Drive.","runtime.bess.calibrate_complete":"Kalibrering fuldført","runtime.bess.calibrate_prompt":"Forsøger at kalibrere posedetektionsmodellen til den aktuelle stilling. Hold venligst stillingen i 10 sekunder.","runtime.bess.camera_notice":"Det automatiserede balancesystem vil bruge kameraet.","runtime.bess.error.align_heel_toe":"Placér venligst hælen på den dominerende fod ud for tåen på den ikke-dominerende fod.","runtime.bess.error.bend_elbows":"Bøj venligst begge albuer uden at dreje skuldrene.","runtime.bess.error.cant_find_athlete":"Kan ikke finde atleten. Sørg for, at hele personen er i billedet.","runtime.bess.error.close_eyes":"Luk venligst øjnene.","runtime.bess.error.detector":"Uventet fejl ved registrering af stilling. Skifter til manuel vurdering.","runtime.bess.error.dominant_foot_visible":"Den dominerende fod skal være synlig foran den ikke-dominerende fod.","runtime.bess.error.feet_together":"Hold venligst fødderne samlet.","runtime.bess.error.knees_together":"Hold venligst knæene samlet.","runtime.bess.error.left_hand_far":"Venstre hånd er for langt fra hoften. Flyt den venligst tættere på.","runtime.bess.error.lift_dominant_foot":"Løft venligst den dominerende fod fra underlaget.","runtime.bess.error.move_dominant_forward":"Flyt venligst den dominerende fod længere frem.","runtime.bess.error.multiple_people":"Flere personer registreret. Sørg for, at kun {{athleteName}} er i billedet.","runtime.bess.error.part_not_detected":"{{part}} blev ikke registreret. Sørg for, at den er helt i billedet, og at du vender lige mod kameraet.","runtime.bess.error.right_hand_far":"Højre hånd er for langt fra hoften. Flyt den venligst tættere på.","runtime.bess.error.stand_straight_no_bending":"Stå venligst lige uden at bøje/dreje knæ eller overkrop.","runtime.bess.error.stand_straight_no_side":"Stå venligst lige uden at bevæge hofterne sideværts.","runtime.bess.error.video":"Uventet fejl med kameraet. Skifter til manuel vurdering.","runtime.bess.new_pose_prefix":"Ny stilling:","runtime.bess.part.left_ankle":"Venstre ankel","runtime.bess.part.left_elbow":"Venstre albue","runtime.bess.part.left_hip":"Venstre hofte","runtime.bess.part.left_knee":"Venstre knæ","runtime.bess.part.left_shoulder":"Venstre skulder","runtime.bess.part.left_wrist":"Venstre håndled","runtime.bess.part.right_ankle":"Højre ankel","runtime.bess.part.right_elbow":"Højre albue","runtime.bess.part.right_hip":"Højre hofte","runtime.bess.part.right_knee":"Højre knæ","runtime.bess.part.right_shoulder":"Højre skulder","runtime.bess.part.right_wrist":"Højre håndled","runtime.bess.pose.double":"stå venligst lige med hænderne på hofterne og fødderne samlet","runtime.bess.pose.double_foam":"stå venligst lige med hænderne på hofterne og fødderne samlet på skum","runtime.bess.pose.single":"stå venligst på dit ikke-dominerende ben med hænderne på hofterne","runtime.bess.pose.single_foam":"stå venligst på dit ikke-dominerende ben med hænderne på hofterne på skum","runtime.bess.pose.tandem":"stå venligst hæl-mod-tå (ikke-dominerende fod bagest) med hænderne på hofterne","runtime.bess.pose.tandem_foam":"stå venligst hæl-mod-tå (ikke-dominerende fod bagest) med hænderne på hofterne på skum","runtime.bess.start_timer":"Start timer","runtime.bess.status.pose_good_20":"Stillingen ser god ud! 20 sekunder tilbage.","runtime.bess.status.pose_good_seconds_errors":"Stillingen ser god ud! {{seconds}} sekunder tilbage. Fejl: {{errors}}","runtime.bess.status.pose_good_start":"Stillingen ser god ud! Klik for at starte 20-sekunders prøven, hvor stillingen skal holdes","runtime.bess.status.seconds_left_instruction":"{{seconds}} sekunder tilbage. {{athleteName}}, {{description}}:","runtime.bess.voice.help":"Sig 'mirror' for at slå spejleffekt til/fra. Sig 'next' for at gå til næste stilling. Sig 'skip' for at springe testen over.","runtime.common.na":"N/A","runtime.common.no":"Nej","runtime.common.no_upper":"NEJ","runtime.common.yes":"Ja","runtime.common.yes_upper":"JA","runtime.confirm.delete_all":"Er du sikker på, at du vil slette alle data?","runtime.confirm.delete_athlete":"Er du sikker på, at du vil slette denne atlets data?","runtime.confirm.delete_drive":"Dette vil slette alle data fra din Google Drive, men beholde dem på denne enhed. Er du sikker?","runtime.confirm.unlink":"Dette vil slette alle data fra denne enhed, men beholde dem i din Google Drive. Er du sikker?","runtime.delayed_recall.back_to_immediate":"Tilbage til afsnittet Umiddelbar Hukommelse","runtime.delayed_recall.instructions":"Undersøger, læs instruktionerne nedenfor op og vælg de ord, som atleten kan huske fra afsnittet Umiddelbar Hukommelse.","runtime.delayed_recall.need_immediate_missing":"Afsnittet Umiddelbar Hukommelse skal være gennemført mindst 5 minutter før dette afsnit. Det er slet ikke blevet gennemført.","runtime.delayed_recall.need_immediate_wait":"Afsnittet Umiddelbar Hukommelse skal være gennemført mindst 5 minutter før dette afsnit. Forsinket Genkaldelse åbner om {{seconds}} sekunder.","runtime.delayed_recall.prompt":"Kan du huske ordlisten, der blev læst op et par gange tidligere under afsnittet umiddelbar hukommelse? Fortæl mig så mange ord fra listen, som du kan huske, i vilkårlig rækkefølge","runtime.delayed_recall.starting":"Starter...","runtime.delayed_recall.view_results":"Vis testresultater","runtime.delayed_recall.words_missing":"Af en eller anden grund blev ordlisten ikke gemt.","runtime.lang.aria":"Vælg sprog","runtime.popup.athlete_name":"Atletnavn:","runtime.popup.attest_hcp":"Jeg erklærer hermed, at jeg er en sundhedsprofessionel med autorisation til at bruge dette værktøj:","runtime.popup.baseline":"Baseline","runtime.popup.cancel":"ANNULLER","runtime.popup.close_settings":"Luk indstillinger","runtime.popup.cognitive_text":"Den \"kognitive screening\"-del af baseline- og post-skade-vurderinger bør gennemføres i et miljø uden forstyrrelser, mens atleten er i hvile.","runtime.popup.conc_history":"Tidligere hjernerystelser","runtime.popup.confirm_athlete":"Bekræft atletoplysninger","runtime.popup.current_medications":"Aktuel medicin:","runtime.popup.current_school_year":"Aktuelt klassetrin (hvis relevant):","runtime.popup.detailed_instructions":"Detaljerede instruktioner","runtime.popup.diagnosed_adhd":"Diagnosticeret med opmærksomhedsforstyrrelse/hyperaktivitet (ADHD).","runtime.popup.diagnosed_headache_migraine":"Diagnosticeret med hovedpinelidelse eller migræne.","runtime.popup.diagnosed_learning_dyslexia":"Diagnosticeret med indlæringsvanskelighed eller dysleksi.","runtime.popup.diagnosed_psych":"Diagnosticeret med depression, angst eller anden psykisk lidelse.","runtime.popup.dob":"Fødselsdato:","runtime.popup.dom_hand":"Dominerende hånd:","runtime.popup.download_zip":"Hent ZIP","runtime.popup.end_test":"AFSLUT TEST","runtime.popup.enter_athlete":"Indtast atletoplysninger","runtime.popup.examiner":"Undersøgers navn:","runtime.popup.first_lang":"Førstesprog:","runtime.popup.hand_ambidextrous":"Beggehåndet","runtime.popup.hand_left":"Venstre","runtime.popup.hand_right":"Højre","runtime.popup.hcp_only_text":"Kun til brug for sundhedsprofessionelle. Se den originale","runtime.popup.hospitalized_head_injury":"Indlagt på hospital for hovedskade.","runtime.popup.id_number":"ID-nummer:","runtime.popup.immediate":"Akut","runtime.popup.immediate_text":"Den akutte vurdering bør gennemføres \"på banen\", efter at førstehjælp/akutbehandling er afsluttet.","runtime.popup.keep_testing":"FORTSÆT TEST","runtime.popup.med_bg":"Medicinsk baggrund","runtime.popup.med_bg_question":"Har atleten tidligere haft følgende (hvis ja, beskriv nedenfor):","runtime.popup.n_past":"Antal tidligere hjernerystelser:","runtime.popup.notes":"Noter:","runtime.popup.ok":"Bekræft","runtime.popup.other":"Andet:","runtime.popup.placeholder_athlete_name":"Atletnavn","runtime.popup.placeholder_describe_selections":"Beskriv eventuelle valg ovenfor","runtime.popup.placeholder_english":"Engelsk","runtime.popup.placeholder_examiner_name":"Dit for- og efternavn","runtime.popup.placeholder_list_medications":"Angiv medicin","runtime.popup.placeholder_list_other_symptoms":"Angiv andre symptomer","runtime.popup.placeholder_team_school":"Varsity X på Y High School","runtime.popup.placeholder_unique_id":"Unikt ID","runtime.popup.preferred_lang":"Foretrukket sprog:","runtime.popup.primary_symptoms":"Primære symptomer:","runtime.popup.recent_date":"Dato for seneste hjernerystelse:","runtime.popup.recovery_days":"Seneste restitutionstid (dage):","runtime.popup.remove_from_play_default":"Fjern atleten fra spillet med henblik på øjeblikkelig medicinsk vurdering eller transport til hospital/medicinsk center.","runtime.popup.remove_from_play_spinal":"Immobilisér rygsøjlen og anlæg halskrave. Fjern derefter atleten fra spillet med henblik på øjeblikkelig medicinsk vurdering eller transport til hospital/medicinsk center.","runtime.popup.save_info_no_test":"Gem oplysninger uden test","runtime.popup.sex":"Køn:","runtime.popup.sex_female":"Kvinde","runtime.popup.sex_male":"Mand","runtime.popup.sex_other":"Andet","runtime.popup.sex_prefer_not_to_say":"Ønsker ikke at oplyse","runtime.popup.start_assessment":"Start vurdering","runtime.popup.stop_sync":"Stop synkronisering","runtime.popup.suspected_post":"Mistænkt/Post-skade","runtime.popup.symptom_confusion":"Forvirring.","runtime.popup.symptom_difficulty_concentrating":"Koncentrationsbesvær.","runtime.popup.symptom_dizziness_imbalance":"Svimmelhed/ubalanceret.","runtime.popup.symptom_double_blurry_vision":"Dobbelt/sløret syn.","runtime.popup.symptom_headache":"Hovedpine.","runtime.popup.symptom_loss_smell_taste":"Tab af lugte-/smagssans.","runtime.popup.symptom_memory_loss":"Hukommelsestab.","runtime.popup.symptom_nausea_vomiting":"Kvalme/opkastning.","runtime.popup.symptom_ringing_ears":"Ringen for ørerne.","runtime.popup.symptom_sensitivity_light":"Lysfølsomhed.","runtime.popup.symptom_trouble_sleeping":"Søvnproblemer.","runtime.popup.team_school":"Sport/Hold/Skole:","runtime.popup.time_exam":"Tidspunkt for undersøgelse:","runtime.popup.time_injury":"Tidspunkt for skade (hvis relevant):","runtime.popup.years_edu":"Samlet antal gennemførte skoleår:","runtime.results.decision_title":"Beslutning","runtime.results.deferred":"Udskudt","runtime.results.diagnosed_prompt":"Er hjernerystelse diagnosticeret?","runtime.results.different_prompt":"Hvis du kendte atleten før skaden, er vedkommende så anderledes end normalt?","runtime.results.export.cancel":"Annuller","runtime.results.export.choose":"Vælg en eksportmulighed:","runtime.results.export.failed_load_template":"Kunne ikke indlæse SCAT6-skabelonen.","runtime.results.export.full_scat6":"Fuld SCAT6","runtime.results.export.overall_report":"Samlet rapport","runtime.results.export.raw_csv":"Rå CSV","runtime.results.hcp_attestation_body":"Jeg er sundhedsprofessionel og har personligt udført eller superviseret gennemførelsen af denne SCAT6.","runtime.results.hcp_attestation_title":"Erklæring fra sundhedsprofessionel","runtime.results.name":"Navn","runtime.results.notes":"Noter","runtime.results.range.high":"høj","runtime.results.range.low":"lav","runtime.results.range.moderate":"moderat","runtime.results.registration_license":"Registrerings-/licensnummer (hvis relevant)","runtime.results.report.athlete_info":"Atletoplysninger","runtime.results.report.birth":"Født","runtime.results.report.concussion_diagnosis":"Hjernerystelsesdiagnose","runtime.results.report.days":"dage","runtime.results.report.different_from_normal":"Anderledes end normalt","runtime.results.report.dominant_hand":"Dominant hånd","runtime.results.report.double_leg_errors":"Fejl i dobbeltbensstilling","runtime.results.report.double_leg_foam_errors":"Fejl i dobbeltbensstilling på skum","runtime.results.report.examiner":"Undersøger","runtime.results.report.examiner_credentials":"Undersøgerens kvalifikationer","runtime.results.report.feels_normal":"Føles normal","runtime.results.report.first_language":"Førstesprog","runtime.results.report.injury_time":"Skadestidspunkt","runtime.results.report.mbess_error_photos":"mBESS-fejlfotos","runtime.results.report.most_recent_concussion":"Seneste hjernerystelse","runtime.results.report.most_recent_recovery_time":"Seneste restitutionstid","runtime.results.report.no_pose_error_photos":"Der blev ikke taget pose-fejlfotos for denne test.","runtime.results.report.past_concussions":"Antal tidligere hjernerystelser","runtime.results.report.preferred_language":"Foretrukket sprog","runtime.results.report.primary_symptoms":"Primære symptomer","runtime.results.report.sex":"Køn","runtime.results.report.signed":"Underskrevet","runtime.results.report.single_leg_errors":"Fejl i etbensstilling","runtime.results.report.single_leg_foam_errors":"Fejl i etbensstilling på skum","runtime.results.report.symptom_description":"Symptombeskrivelse","runtime.results.report.tandem_errors":"Tandemfejl","runtime.results.report.tandem_foam_errors":"Tandemfejl på skum","runtime.results.report.team_school":"Hold/skole","runtime.results.report.test_active":"Test aktiv","runtime.results.report.test_type":"Testtype","runtime.results.report.title_for":"SCAT6-rapport for {{athleteName}}","runtime.results.report.worse_mental":"Værre ved mental aktivitet","runtime.results.report.worse_physical":"Værre ved fysisk aktivitet","runtime.results.report.year_in_school":"År i skole","runtime.results.report.years_education":"År med uddannelse","runtime.results.row.bess":"BESS (ud af 30)","runtime.results.row.bess_foam":"BESS på skum (ud af 30)","runtime.results.row.cognitive_total":"Kognitiv totalscore (ud af 50)","runtime.results.row.concentration":"Koncentration (ud af 5)","runtime.results.row.date":"Dato","runtime.results.row.delayed_recall":"Forsinket genkaldelse (ud af 10)","runtime.results.row.dual_task_accuracy":"Dual-task præcision (%)","runtime.results.row.dual_task_fastest":"Dual-task hurtigste (sek)","runtime.results.row.immediate_memory":"Umiddelbar hukommelse (ud af 30)","runtime.results.row.orientation":"Orientering (ud af 5)","runtime.results.row.recall_delay":"Genkaldelsesforsinkelse (sekunder)","runtime.results.row.severity":"Sværhedsgrad (ud af 132)","runtime.results.row.symptoms":"Symptomer (ud af 22)","runtime.results.row.tandem_fastest":"Tandemgang hurtigste (sek)","runtime.results.signature_checkbox":"Afkrydsning af denne boks svarer til at underskrive en papirversion af SCAT6","runtime.results.signature_date":"Signaturdato","runtime.results.table.current_score":"Aktuel score","runtime.results.table.domain":"Domæne","runtime.results.table.healthy_range":"Sundt interval","runtime.results.table.increased_risk_range":"Øget risikointerval","runtime.results.table.last_baseline":"Seneste baseline","runtime.results.table.last_post_injury":"Seneste efter skade","runtime.results.title_specialty":"Titel/speciale","runtime.sources.bess_manual":"BESS-manual","runtime.sources.concussion_training":"Hjernerystelsestræning og information","runtime.sources.healthy_risk_bess_tandem_dual":"Sunde/risiko-intervaller for BESS, tandemgang og dual-task gang","runtime.sources.healthy_risk_memory":"Sunde/risiko-intervaller for umiddelbar/forsinket genkaldelse","runtime.sources.scat6_results_study":"SCAT6-resultatstudie","runtime.sources.scat6_supplement":"Supplerende SCAT6-materiale","runtime.sources.symptom_severity_study":"Studie af symptomsværhedsgrad","runtime.sources.title":"Kilder","runtime.sync.last_identity":"Sidst bekræftede identitet: {{lastSignIn}} <br><br> Sidst synkroniseret: {{lastSync}}","runtime.sync.sync":"Synkroniser","runtime.sync.synced":"Synkroniseret","runtime.test_mgmt.chart.cognitive_total":"Kognitiv totalscore (X/50)","runtime.test_mgmt.chart.concentration":"Koncentration (X/5)","runtime.test_mgmt.chart.delayed_recall":"Forsinket genkaldelse (X/10)","runtime.test_mgmt.chart.dual_task_fastest_time":"Dual-task hurtigste tid","runtime.test_mgmt.chart.errors_title":"Fejl, hurtigste tider og symptomer (lavere er bedre)","runtime.test_mgmt.chart.glasgow":"Glasgow Coma Scale (X/15)","runtime.test_mgmt.chart.immediate_memory":"Umiddelbar hukommelse (X/30)","runtime.test_mgmt.chart.maddocks":"Maddocks-score (X/5)","runtime.test_mgmt.chart.mbess_total_errors":"mBESS samlede fejl (X/30)","runtime.test_mgmt.chart.orientation":"Orientering (X/5)","runtime.test_mgmt.chart.scores_title":"Scores (højere er bedre)","runtime.test_mgmt.chart.symptom_number":"Antal symptomer (X/22)","runtime.test_mgmt.chart.symptom_severity":"Symptomsværhedsgrad (X/132)","runtime.test_mgmt.chart.tandem_fastest_time":"Tandemgang hurtigste tid","runtime.test_mgmt.click_mbess_data_point":"Klik på et datapunkt for mBESS samlede fejl for at se pose-fejlfotos.","runtime.test_mgmt.click_test_button":"Klik på knappen Test for at starte en ny test.","runtime.test_mgmt.last_baseline":"Seneste baseline ({{date}}): {{score}} / 80","runtime.test_mgmt.last_post_injury":"Seneste efter skade ({{date}}): {{score}} / 80","runtime.test_mgmt.no_baselines":"Ingen baseline-tests fundet for denne atlet.","runtime.test_mgmt.no_pose_error_photos":"Ingen pose-fejlfotos fundet for denne test.","runtime.test_mgmt.no_post_injuries":"Ingen efter-skade-tests fundet for denne atlet.","runtime.test_mgmt.no_tests":"Ingen tests fundet for denne atlet. ","runtime.test_mgmt.open_test_details":"Åbn testdetaljer","runtime.test_type.baseline":"Baseline","runtime.test_type.immediate":"Akut","runtime.test_type.no_test":"Ingen test","runtime.test_type.post_injury":"Efter skade"},
+            messages: {"a quick feedback form":"en hurtig feedback-formular","Abduction or flexion of the hip beyond 30 degrees (moving hips forwards/backwards/sideways)":"Abduktion eller fleksion af hoften (bevægelse af hofterne fremad/bagud/sidelæns) mere end 30 grader","Abnormal flexion (pull muscles inward) to pain.":"Unormal fleksion (trækker musklerne indad) ved smerte.","About &nbsp;":"Om &nbsp;","adaptation | By Aureole Chang and Alexander Metzger |":"tilpasning | Af Aureole Chang og Alexander Metzger |","and":"og","and/or ask your patients/athletes to fill it out too.":"og/eller bed dine patienter/atleter om også at udfylde den.","and Privacy focused. This means no usage data is collected, but we'd still love to hear from you so we can improve the tool. Here are some optional ways you can contribute:":"og fokuseret på privatliv. Det betyder, at der ikke indsamles nogen brugsdata, men vi vil stadig meget gerne høre fra dig, så vi kan forbedre værktøjet. Her er nogle valgfrie måder, du kan bidrage på:","approved":"godkendt","April":"april","Assess Manually &nbsp;":"Vurder manuelt &nbsp;","Athlete reports neck pain at rest.":"Atlet rapporterer nakkesmerter i hvile.","Audio &nbsp;":"Lyd &nbsp;","August":"august","Average (seconds)":"Gennemsnit (sekunder)","Balance Error Scoring System":"Balancefejl Scoring System","Balance/gait difficulties, motor incoordination, ataxia: stumbling, slow/laboured movements.":"Balance-/gangvanskeligheder, motorisk koordinationsproblemer, ataksi: snublen, langsomme/anstrengte bevægelser.","Balance problems:":"Balanceproblemer:","Best Eye Response":"Bedste øjenrespons","Best Motor Response":"Bedste motoriske respons","Best Verbal Response":"Bedste verbale svar","Blank or vacant look.":"Blankt eller ledigt udseende.","Blurred vision:":"Sløret syn:","Can the athlete follow instructions for how to move (e.g. \"lift your arm\") or respond to pain (pinch or poke)?":"Kan atleten følge instruktioner om, hvordan man bevæger sig (f.eks. \"løft armen\") eller reagere på smerte (knib eller prikke)?","Cervical Spine":"Cervikal rygsøjle","Check box if athlete completed all the months correctly.":"Markér feltet, hvis atleten har udfyldt alle måneder korrekt.","Check if symptoms get worse with mental activity.":"Kontroller om symptomer forværres ved mental aktivitet.","Check if symptoms get worse with physical activity.":"Undersøg om symptomerne forværres ved fysisk aktivitet.","Choose an export option:":"Vælg en eksportmulighed:","CISG":"CISG","Click the round add button below to add an athlete profile. This will let you start a baseline assessment and create an athlete profile that you can use to compare concussion scores over time for the athlete.":"Klik på den runde tilføj-knap nedenfor for at tilføje en atletprofil. Dette giver dig mulighed for at starte en baseline-vurdering og oprette en atletprofil, som du kan bruge til at sammenligne hjernerystelsesscorer over tid for atleten.","Code":"Kode","Concentration":"Koncentration","Concussion Assessment Management":"Hjernerystelse Vurderings Værktøj","Confused. Answers but not fully aware what's happening.":"Forvirret. Svarer, men er ikke helt klar over, hvad der sker.","Confusion:":"Forvirring:","Coordination and Ocular/Motor Screen":"Koordination og okulær/motorisk screening","Coordination. Finger-to-nose is normal for both hands with eyes open and closed.":"Koordination. Finger-til-næse er normalt for begge hænder med åbne og lukkede øjne.","Correct Responses":"Korrekte svar","December":"december","Delayed Recall":"Forsinket tilbagekaldelse","Delete All &nbsp;":"Slet Alt &nbsp;","Deteriorating conscious state":"Forværret bevidsthedstilstand","Did your team win the last game?":"Vandt dit hold den sidste kamp?","Difficulty concentrating:":"Koncentrationsbesvær:","Difficulty remembering:":"Svært ved at huske:","Digits Backwards":"Cifre baglæns","Disorientation or confusion, staring or limited responsiveness, or an inability to respond appropriately to questions.":"Desorientering eller forvirring, stirren eller begrænset reaktionsevne eller manglende evne til at reagere passende på spørgsmål.","Dizziness:":"Svimmelhed:","Do you want to help make this tool better?":"Vil du hjælpe med at gøre dette værktøj bedre?","Does the athlete know their name, where they are at, the day/year, etc?":"Kender atleten sit navn, hvor de er, dagen/året osv.?","\"Don't feel right\":":"\"Føles ikke rigtigt\":","Double Leg Stance":"Dobbeltbens holdning","Double Leg Stance on Foam (":"Dobbeltbensstilling på skum (","Double vision":"Dobbeltsyn","Drowsiness:":"Døsighed:","Dual Task Gait (":"Dobbeltopgavegang (","&emsp;":" ","Errors":"Fejl","Examiner, ask the athlete the following questions and select the ones they answer correctly.":"Eksaminator, stil atleten følgende spørgsmål og vælg dem, de svarer korrekt på","Examiner, click the words below as the athlete remembers them to cross them off. This will help keep track of how many they remember each trial.":"Eksaminator, klik på ordene nedenfor, mens atleten husker dem, for at krydse dem af. Dette vil hjælpe med at holde styr på, hvor mange de husker hvert forsøg.","Examiner, for the second and third trials say the following:":"Eksaminator sig følgende for den anden og tredje retssag:","Examiner, keep a count of the errors listed above and read the instructions below:":"Eksaminator, hold styr på ovenstående fejl og læs instruktionerne nedenfor:","Examiner, please hand the device to the athlete to fill in the symptom scale (below) after you provide instructions.":"Eksaminator, giv venligst apparatet til atleten, så han/hun kan udfylde symptomskalaen (nedenfor), efter du har givet instruktionerne.","Examiner, please keep the 3-meter-long athletic tape line from the Timed Gait on the floor/firm surface. You will follow the script below, click start/end timer, and click on the responses that the athlete correctly says in order. Redo trials where the athlete strays off the line.":"Eksaminator, behold venligst den 3 meter lange sportsbåndslinje fra på gulvet/den faste overflade. Du skal følge vejledningen nedenfor, klikke på start/slut timer og klikke på de svar, som atleten korrekt giver i rækkefølge. Gentag de forsøg, hvor atleten afviger fra linjen.","Examiner, please place a 3-meter-long line on the floor/firm surface with athletic tape. You will instruct the athlete and start/stop the timer for 3 trials.":"Eksaminator, placer venligst en 3 meter lang line på gulvet/fast overflade med sportsbånd. Du vil instruere atleten og starte/stoppe timeren i 3 forsøg.","Examiner, read the following line and ask the following questions (modified to be appropriate to the relevant sport). Check the correctly answered questions.":"Eksaminator, læs følgende linje og stil følgende spørgsmål (ændret for at være passende til den relevante sportsgren). Marker de korrekt besvarede spørgsmål.","Examiner, read the following numbers (one sequence from each set) and ask the athlete to repeat them back in reverse order. Say them slowly at a rate of one digit per second. Each set has two number sequences. If the athlete fails the first, try the second. If both fail, end this subsection and move on to the months in reverse order.":"Eksaminator, læs følgende tal (én sekvens fra hvert sæt) og bed atleten om at gentage dem i omvendt rækkefølge. Sig dem langsomt med et ciffer pr. sekund. Hvert sæt har to talsekvenser. Hvis atleten ikke klarer det første tal, kan man prøve det andet. Hvis begge ikke klarer det, afsluttes dette underafsnit og der gås videre til månederne i omvendt rækkefølge.","Examiner, read the instructions below to the athlete and click to cross out the months as they say them in the correct order.":"Eksaminator, læs instruktionerne nedenfor for atleten og klik for at strege månederne over, efterhånden som de står i den rigtige rækkefølge.","Examiner, you will guide the athlete through 3 poses (double leg, tandem, and single leg stance) to be held for 20 seconds each. The later foam pad test is optional, only a solid floor/ground surface is required. You'll need a spotter to keep an eye on the athlete and be ready to assist them if they become unstable and begin to fall.":"Eksaminator, du vil guide atleten gennem 3 stillinger (tobens-, tandem- og enkeltbens-stilling), der skal holdes i 20 sekunder hver. Den senere skumpudetest er valgfri, kun et fast gulv/jordoverflade er påkrævet. Du skal bruge en observatør til at holde øje med atleten og være klar til at hjælpe dem, hvis de bliver ustabile og begynder at falde.","Examiner, you will read the list of words 3 times, keeping track of how many words the athlete remembers after each reading. All 3 trials must be administered irrespective of the number correct on each. Start the first trial by saying the following:":"Eksaminator, du skal læse ordlisten 3 gange og holde styr på, hvor mange ord atleten husker efter hver læsning. Alle 3 forsøg skal udføres uanset det korrekte antal på hver. Start det første forsøg med at sige følgende:","Export &nbsp;":"Eksporter &nbsp;","Extend (stretch outward) muscles to pain.":"Stræk (stræk udad) musklerne ved smerte.","Facial injury after head trauma.":"Ansigtsskade efter hovedtraume.","Falling unprotected to the surface.":"Falder ubeskyttet til overfladen.","FAQ":"Ofte stillede spørgsmål","Fastest (seconds)":"Hurtigste (sekunder)","Fatique or low energy:":"Træthed eller lav energi:","February":"februar","Feeling like \"in a fog\":":"Føles som \"i en tåge\":","Feeling slowed down:":"Føles langsom:","Flexion/withdrawal (as a reflex) to pain.":"Fleksion/tilbagetrækning (som en refleks) ved smerte.","for details.":"for detaljer.","Free & Open-Source":"Gratis og åben kildekode","from the automated BESS to inform more inclusive ML models.":"fra det automatiserede BESS til at informere mere inkluderende ML-modeller.","Full SCAT6":"Fuld SCAT6","Getting camera permissions...":"Får kameratilladelser...","Glasgow Coma Scale":"Glasgow Coma Scale (GCS)","Good, now you will walk heel-to-toe and count backwards out loud at the same time. Keep counting until you finish walking the 3 meters, turning 180 degrees, walking the 3 meters again and the examiner says stop indicating you got to the last number. Are you ready? The number to start with is 88. Go! &nbsp;":"Godt, nu skal du gå hæl til tå og tælle højt baglæns samtidig. Fortsæt med at tælle, indtil du er færdig med at gå de 3 meter, drejer dig 180 grader, går de 3 meter igen, og eksaminator siger stop, hvilket indikerer, at du er nået til det sidste tal. Er du klar? Tallet at starte med er 88. Start! &nbsp;","Headaches:":"Hovedpine:","Healthy athletes typically complete the task in 18.7-22.5 seconds with 85.8-92.4% accuracy (0.9-1.7 errors). Concussed athletes typically take 30.6-36.1 seconds with 76.4-83.6% accuracy (2.0-2.8 errors).":"Raske atleter gennemfører typisk opgaven på 18,7-22,5 sekunder med en nøjagtighed på 85,8-92,4 % (0,9-1,7 fejl). Atleter med hjernerystelse bruger typisk 30,6-36,1 sekunder med en nøjagtighed på 76,4-83,6 % (2,0-2,8 fejl).","Healthy athletes typically have a fastest time between 13.9 and 15.8. Newly concussed athletes are typically between 21.9 and 26.1. Athletes concussed within the last 6-73 days will be somewhere in between.":"Raske atleter har typisk en hurtigste tid mellem 13,9 og 15,8. Nyligt ramte atleter ligger typisk mellem 21,9 og 26,1. Atleter, der har fået hjernerystelse inden for de sidste 6-73 dage, vil ligge et sted midt imellem.","High-risk mechanism of injury (sportdependent).":"Højrisiko skadesmekanisme (sportsafhængig).","I am going to repeat the same list. Repeat back as many words as you can remember in any order, even if you said the word before in a previous trial &nbsp;":"Jeg gentager den samme liste. Gentag så mange ord, som du kan huske, i vilkårlig rækkefølge, selvom du sagde ordet før i en tidligere prøve. &nbsp;","I am going to test your memory. I will read you a list of words and when I am done, repeat back as many words as you can remember, in any order &nbsp;":"Jeg vil teste din hukommelse. Jeg læser en liste med ord op for dig, og når jeg er færdig, gentager du så mange ord, som du kan huske, i vilkårlig rækkefølge &nbsp;","I'm going to read a string of numbers and when I am done, you repeat them back to me in reverse order of how I read them to you. For example, if I say 7 1 9, you would say 9 1 7. So, if I said 9 6 8 you would say? &nbsp;":"Jeg vil læse en række tal op, og når jeg er færdig, gentager du dem for mig i omvendt rækkefølge af, hvordan jeg læste dem op for dig. For eksempel, hvis jeg siger 7 1 9, ville du sige 9 1 7. Så hvis jeg sagde 9 6 8, ville du sige? &nbsp;","If 100% is feeling perfectly normal, what percent of normal do you feel?":"Hvor mange procent af normal føler du dig?","If NO neck pain and NO tenderness, athlete has full range of ACTIVE pain free movement.":"Hvis der INGEN nakkesmerter og INGEN ømhed er, atleten har fuld AKTIV smertefri bevægelse.","If not 100%, why?":"Hvis ikke 100%, hvorfor?","Immediate Memory":"Umiddelbar Hukommelse","Impact seizure.":"Slagbeslaglæggelse.","In a patient who is not lucid or fully conscious, a cervical spine injury should be assumed and spinal precautions taken. Check each box for yes, keep unselected for no.":"Hos en patient, der ikke er klar eller fuldt bevidst, bør der antages en skade på halshvirvelsøjlen, og der bør tages forholdsregler mod rygsøjlen. Marker hver boks for ja, og undlad at markere den for nej.","Inappropriate words. Random but comprehensible words.":"Upassende ord. Tilfældige, men forståelige ord.","Incomprehensible sounds or noises.":"Uforståelige lyde eller støj.","Increasingly restless, agitated or combative":"Tiltagende rastløs, ophidset eller kamplysten","Irritability:":"Irritabilitet:","January":"januar","July":"juli","June":"juni","Keep a count of the following errors in the athlete's execution of the poses:":"Hold styr på følgende fejl i atletens udførelse af stillingerne:","Lifting forefoot or heel":"Løft af forfod eller hæl","Lifting hands off iliac crests (upper border of the pelvis/hip-bone)":"Løfter hænderne fra hoftekammene (øverste kant af bækkenet/hoftebenet)","Limb strength and sensation is normal.":"Lemmernes styrke og følesans er normal.","Loading...":"Indlæser...","Localized to (Intentionally moves away from) pain.":"Lokaliserer (bevæger sig bevidst væk fra) smerte.","Loss of consciousness":"Bevidsthedstab","Lying motionless on playing surface.":"Ligger ubevægeligt på spillefladen.","Maddocks Score":"Maddocks-score","March":"Marts","May":"Maj","Mirror &nbsp;":"Spejl &nbsp;","MIT":"MIT-licens","Months in Reverse Order":"Måneder i omvendt rækkefølge","More emotional:":"Mere følelsesladet:","Multiple simultaneous errors count as one. Failure to hold the pose for at least 5 seconds counts as the maximum number of errors for that pose (10).":"Flere samtidige fejl tæller som én. Hvis stillingen ikke kan holdes i mindst 5 sekunder, tæller det som maksimalt antal fejl for den stilling (10).","Nausea or vomiting:":"Kvalme eller opkastning:","Neck pain:":"Nakkesmerter:","Neck pain or tenderness":"Nakkesmerter eller ømhed","Nervous or anxious:":"Nervøs eller ængstelig:","No eye opening for any reason.":"Ingen øjenåbning af nogen grund.","No motor response.":"Ingen motorisk respons.","No red flags":"Ingen røde flag","No verbal response.":"Ingen verbal respons.","None":"Ingen","Not Fully Conscious":"Ikke fuldt bevidst","November":"november","Number of correct sets (of 4):":"Antal korrekte sæt (ud af 4):","Number of errors:":"Antal fejl:","Obeys commands.":"Adlyder kommandoer.","Observable Signs":"Observerbare tegn","Observed extraocular eye movements are normal.":"Observerede ekstraokulære øjenbevægelser er normale.","Observed on Video":"Observeret på video","October":"Oktober","Ocular/Motor. Athlete can look side-to-side and up-and-down without moving their head/neck or getting double vision.":"Okulær/motorisk. Atleten kan se fra side til side og op og ned uden at bevæge hoved/nakke eller få dobbeltsyn.","Open naturally.":"Åbner naturligt.","Open to pain (pinch or poke).":"Åbner ved smerte (klem eller prik).","Open to speech (when asked to open).":"Åbner ved tale (når personen bliver bedt om det).","Opening eyes":"Åbner øjne","opensource":"open source","Opt-in to share anonymized test scores for research-use and to improve tool recommendations.":"Tilmeld dig frivilligt for at dele anonymiserede testresultater til forskning og forbedring af værktøjets anbefalinger.","Optional":"Valgfri","Orientation":"Orientering","Oriented. Answers correctly.":"Orienteret. Svarer korrekt.","Overall Report":"Samlet rapport","Overwrite Current Pose as Correct &nbsp;":"Overskriv nuværende stilling som korrekt &nbsp;","Please describe anything abnormal:":"Beskriv venligst alt unormalt:","Please rate your symptoms below based on how you typically feel with 1 representing a very mild symptom and 6 representing a severe symptom. 0 means the symptom is not present &nbsp;":"Vurder venligst dine symptomer nedenfor ud fra hvordan du typisk har det, hvor 1 er et meget mildt symptom og 6 er et alvorligt symptom. 0 betyder, at symptomet ikke er til stede &nbsp;","Please rate your symptoms below based on how you feel now with 1 representing a very mild symptom and 6 representing a severe symptom. 0 means the symptom is not present &nbsp;":"Vurder venligst dine symptomer nedenfor ud fra hvordan du har det nu, hvor 1 er et meget mildt symptom og 6 er et alvorligt symptom. 0 betyder, at symptomet ikke er til stede &nbsp;","Power Systems Airex Balance Pad 81000":"Power Systems Airex Balance Pad 81000 (anbefalet model)","Practice":"Øvelse","Pressure in head:":"Tryk i hovedet:","Privacy Policy":"Privatlivspolitik","Raw CSV":"Rå CSV","Red Flags":"Røde flag","Red flags are signs and symptoms that may indicate a more serious injury. If any of these are present, the athlete should be referred to a healthcare professional immediately.":"Røde flag er tegn og symptomer, som kan indikere en mere alvorlig skade. Hvis nogen af disse er til stede, skal atleten straks henvises til sundhedsfagligt personale.","Red flags present":"Røde flag til stede","Remaining out of the testing position for more than 5 seconds":"Ude af testpositionen i mere end 5 sekunder","Results":"Resultater","Return to Main Menu":"Tilbage til hovedmenu","Sadness:":"Nedtrykthed:","SCAT6™":"SCAT6™-skema","SCAT6 Web":"SCAT6 Webapp","Search by name:":"Søg efter navn:","Seizure or convulsion":"Krampeanfald eller konvulsion","Sensitivity to light:":"Lysfølsomhed:","Sensitivity to noise:":"Lydfølsomhed:","September":"september","Severe or increasing headache":"Svær eller tiltagende hovedpine","Show 10":"Vis 10","Show 5":"Vis 5","Show 50":"Vis 50","Show All":"Vis alle","Single Leg Stance":"Stå på ét ben","Single Leg Stance on Foam (":"Stå på ét ben på skum (","Skip to Delayed Recall &nbsp;":"Spring til forsinket genkaldelse &nbsp;","Source":"Kilde","Stand on one leg, hands on your hips, and eyes closed. Hold this position for 20 seconds &nbsp;":"Stå på ét ben, med hænderne på hofterne og lukkede øjne. Hold denne position i 20 sekunder &nbsp;","Stand with your feet in a heel-to-toe position, hands on your hips, and eyes closed. Hold this position for 20 seconds &nbsp;":"Stå med fødderne i hæl-mod-tå-position, hænderne på hofterne og lukkede øjne. Hold denne position i 20 sekunder &nbsp;","Stand with your feet together, hands on your hips, and eyes closed. Hold this position for 20 seconds &nbsp;":"Stå med samlede fødder, hænderne på hofterne og lukkede øjne. Hold denne position i 20 sekunder &nbsp;","Start 20s Countdown":"Start 20 sek. nedtælling","Start BESS &nbsp;":"Start BESS-test &nbsp;","Start Cervical Spine &nbsp;":"Start cervikal rygsøjle &nbsp;","Start Concentration &nbsp;":"Start koncentration &nbsp;","Start Coordination &nbsp;":"Start koordination &nbsp;","Start Delayed Recall &nbsp;":"Start forsinket genkaldelse &nbsp;","Start Immediate Memory &nbsp;":"Start umiddelbar hukommelse &nbsp;","Start Maddocks &nbsp;":"Start Maddocks-test &nbsp;","Start Optional Dual Task Gait &nbsp;":"Start valgfri dual-task gangtest &nbsp;","Start Orientation &nbsp;":"Start orientering &nbsp;","Start Symptom Evaluation &nbsp;":"Start symptomvurdering &nbsp;","Start Tandem Gait &nbsp;":"Start tandemgang &nbsp;","Start Timer":"Start timer","Stepping, stumbling, or falling":"Trinfejl, snublen eller fald","Switch Camera &nbsp;":"Skift kamera &nbsp;","Symptom Evaluation":"Symptomvurdering","Symptom Evaluation Baseline":"Symptomvurdering baseline","Sync &nbsp;":"Synkroniser &nbsp;","Take 10 minutes to fill out":"Brug 10 minutter på at udfylde","Tandem Stance":"Tandemstilling","Tandem Stance on Foam (":"Tandemstilling på skum (","Task":"Opgave","Tell me the months of the year in reverse order as QUICKLY and as accurately as possible. Start with the last month and go backward. So, you'll say December, November... go ahead &nbsp;":"Sig årets måneder i omvendt rækkefølge så HURTIGT og præcist som muligt. Start med den sidste måned og gå baglæns. Du vil altså sige december, november... værsgo &nbsp;","&nbsp;":" ","The athlete should take their shoes off, roll up pant legs above ankles (if applicable), and remove any ankle taping (if applicable).":"Atleten bør tage skoene af, rulle bukseben op over anklerne (hvis relevant) og fjerne eventuel ankeltape (hvis relevant).","The athlete will be guided through 3 poses (double leg, tandem, and single leg stance) to be held for 20 seconds each. The later foam pad test is optional, only a solid floor/ground surface is required. You'll need a spotter to keep an eye on the athlete and be ready to assist them if they become unstable and begin to fall.":"Atleten guides gennem 3 stillinger (dobbelt ben, tandem og ét ben), som holdes i 20 sekunder hver. Den efterfølgende test på skumpude er valgfri; kun et fast gulv/underlag er nødvendigt. Du skal have en hjælper, der holder øje med atleten og er klar til at hjælpe ved ustabilitet og faldtendens.","The foam test requires a 50cm x 40cm x 6cm foam pad. Recommended model is the":"Skumtesten kræver en skumpude på 50 cm x 40 cm x 6 cm. Anbefalet model er","There is tenderness to palpation.":"Der er ømhed ved palpation.","This tool is 100%":"Dette værktøj er 100%","Time (seconds)":"Tid (sekunder)","Timed Tandem Gait":"Tidstaget tandemgang","Trial 1":"Forsøg 1","Trial 1 (seconds)":"Forsøg 1 (sekunder)","Trial 2":"Forsøg 2","Trial 2 (seconds)":"Forsøg 2 (sekunder)","Trial 3":"Forsøg 3","Trial 3 (seconds)":"Forsøg 3 (sekunder)","Trouble falling asleep:":"Svært ved at falde i søvn:","Twisting of the shoulder beyond 30 degrees":"Rotation af skulderen ud over 30 grader","Unable to Tandem Walk":"Kan ikke gå tandemgang","Upload photos/videos":"Upload fotos/videoer","Use this web app to administer concussion assessments for your athletes. The data is stored locally in your browser unless you \"Delete All\". You can also sync the data with your Google Drive. See the":"Brug denne webapp til at gennemføre hjernerystelsesvurderinger for dine atleter. Data gemmes lokalt i din browser, medmindre du vælger \"Slet alle\". Du kan også synkronisere data med din Google Drive. Se","Visible deformity of the skull":"Synlig deformitet af kraniet","Voice Ctrl &nbsp;":"Stemmekontrol &nbsp;","Vomiting":"Opkastning","Weakness or tingling/burning in more than 1 arm or in the legs":"Svaghed eller prikken/brænden i mere end 1 arm eller i benene","What is the date today?":"Hvad er datoen i dag?","What is the day of the week?":"Hvilken ugedag er det?","What month is it?":"Hvilken måned er det?","What team did you play last week / game?":"Hvilket hold spillede du mod i sidste uge / kamp?","What time is it right now (within 1 hour)?":"Hvad er klokken lige nu (inden for 1 time)?","What venue are we at today?":"Hvilket stadion/anlæg er vi på i dag?","What year is it?":"Hvilket år er det?","When the timer is started, please walk heel-to-toe quickly to the end of the tape, turn around and come back as fast as you can, without separating your feet or stepping off the line &nbsp;":"Når timeren starter, gå venligst hæl-mod-tå hurtigt til enden af tapen, vend rundt og kom tilbage så hurtigt som muligt uden at adskille fødderne eller træde uden for linjen &nbsp;","Which half is it now?":"Hvilken halvleg er det nu?","While you are walking heel-to-toe, you will count backwards out loud by sevens. For example, if we started at 100, you would say 100, 93, 86, 79. Let's practice counting. Starting with 93, count backward by sevens until the examiner says stop &nbsp;":"Mens du går hæl-mod-tå, skal du tælle baglæns højt med syv ad gangen. Hvis vi fx starter ved 100, siger du 100, 93, 86, 79. Lad os øve. Start ved 93 og tæl baglæns med syv, indtil undersøgeren siger stop &nbsp;","Who scored last in this match?":"Hvem scorede sidst i denne kamp?","Witnessed":"Observeret","You will be asked a few questions. Please listen carefully and give your best effort. First explain what happened? &nbsp;":"Du vil blive stillet nogle få spørgsmål. Lyt venligst nøje og gør dit bedste. Forklar først, hvad der skete? &nbsp;","Your job as examiner is to keep the camera as still as possible (minor shakes are fine) with the athlete fully in frame at all times. In case the automated system misses something, keep a count of the following errors in the athlete's execution of the poses:":"Din opgave som undersøger er at holde kameraet så roligt som muligt (mindre rystelser er okay), så atleten hele tiden er fuldt i billedet. Hvis det automatiske system overser noget, skal du tælle følgende fejl i atletens udførelse af stillingerne:","add athlete":"tilføj atlet","Enter part of an athlete name":"Indtast en del af en atlets navn","first page of the paper SCAT6":"første side af SCAT6-papiret","how many athletes to show":"hvor mange atleter der skal vises","Manual BESS instructions":"Manuelle BESS-instruktioner","Toggle countdown audio":"Slå nedtællingslyd til/fra","This page was generated by the Firebase Command-Line Interface. To modify it, edit the <code>404.html</code> file in your project's configured <code>public</code> directory.":"Denne side blev genereret af Firebase Command-Line Interface. For at ændre den skal du redigere filen <code>404.html</code> i projektets konfigurerede <code>public</code>-mappe.","The specified file was not found on this website. Please check the URL for mistakes and try again.":"Den angivne fil blev ikke fundet på dette website. Kontroller URL'en for fejl, og prøv igen.","Page Not Found":"Siden blev ikke fundet","Why am I seeing this?":"Hvorfor ser jeg dette?","Failed to sync data. Make sure you checked the box to give the app permission to add app data to your Google Drive.":"Synkronisering af data mislykkedes. Kontroller, at du har givet appen tilladelse til at gemme appdata i din Google Drive.","Calibration complete":"Kalibrering fuldført","Attempting to calibrate the pose detection model to the current pose. Please hold the pose for 10 seconds.":"Forsøger at kalibrere posedetektionsmodellen til den aktuelle stilling. Hold venligst stillingen i 10 sekunder.","The automated balance system will use the camera.":"Det automatiserede balancesystem vil bruge kameraet.","Please align the heel of the dominant foot with the toe of the non-dominant foot.":"Placér venligst hælen på den dominerende fod ud for tåen på den ikke-dominerende fod.","Please bend both elbows without twisting the shoulders.":"Bøj venligst begge albuer uden at dreje skuldrene.","Can't find athlete. Please make sure they are fully in frame.":"Kan ikke finde atleten. Sørg for, at hele personen er i billedet.","Please close your eyes.":"Luk venligst øjnene.","Unexpected error deciphering the pose. Skipping to manual assessment.":"Uventet fejl ved registrering af stilling. Skifter til manuel vurdering.","The dominant foot must be visible in front of the non-dominant foot.":"Den dominerende fod skal være synlig foran den ikke-dominerende fod.","Please keep feet together.":"Hold venligst fødderne samlet.","Please keep knees together.":"Hold venligst knæene samlet.","Left hand is too far from the hip. Please move it closer.":"Venstre hånd er for langt fra hoften. Flyt den venligst tættere på.","Please lift dominant foot off the ground.":"Løft venligst den dominerende fod fra underlaget.","Please move the dominant foot further forward.":"Flyt venligst den dominerende fod længere frem.","Multiple people detected. Please make sure only {{athleteName}} is in frame.":"Flere personer registreret. Sørg for, at kun {{athleteName}} er i billedet.","{{part}} not detected. Please make sure it is fully in frame and you are facing the camera straight on.":"{{part}} blev ikke registreret. Sørg for, at den er helt i billedet, og at du vender lige mod kameraet.","Right hand is too far from the hip. Please move it closer.":"Højre hånd er for langt fra hoften. Flyt den venligst tættere på.","Please stand straight without bending/twisting knees or upper body.":"Stå venligst lige uden at bøje/dreje knæ eller overkrop.","Please stand straight without moving hips side to side.":"Stå venligst lige uden at bevæge hofterne sideværts.","Unexpected error with the camera. Skipping to manual assessment.":"Uventet fejl med kameraet. Skifter til manuel vurdering.","New pose:":"Ny stilling:","Left ankle":"Venstre ankel","Left elbow":"Venstre albue","Left hip":"Venstre hofte","Left knee":"Venstre knæ","Left shoulder":"Venstre skulder","Left wrist":"Venstre håndled","Right ankle":"Højre ankel","Right elbow":"Højre albue","Right hip":"Højre hofte","Right knee":"Højre knæ","Right shoulder":"Højre skulder","Right wrist":"Højre håndled","please stand straight with hands on your hips and feet touching":"stå venligst lige med hænderne på hofterne og fødderne samlet","please stand straight with hands on your hips and feet touching on foam":"stå venligst lige med hænderne på hofterne og fødderne samlet på skum","please stand on your non-dominant leg with hands on your hips":"stå venligst på dit ikke-dominerende ben med hænderne på hofterne","please stand on your non-dominant leg with hands on your hips on foam":"stå venligst på dit ikke-dominerende ben med hænderne på hofterne på skum","please stand heel-to-toe (non-dominant foot in the back) with hands on your hips":"stå venligst hæl-mod-tå (ikke-dominerende fod bagest) med hænderne på hofterne","please stand heel-to-toe (non-dominant foot in the back) with hands on your hips on foam":"stå venligst hæl-mod-tå (ikke-dominerende fod bagest) med hænderne på hofterne på skum","Pose looks good! 20 seconds left.":"Stillingen ser god ud! 20 sekunder tilbage.","Pose looks good! {{seconds}} seconds left. Errors: {{errors}}":"Stillingen ser god ud! {{seconds}} sekunder tilbage. Fejl: {{errors}}","Pose looks good! Click to start the 20 second trial where the pose must be held":"Stillingen ser god ud! Klik for at starte 20-sekunders prøven, hvor stillingen skal holdes","{{seconds}} seconds left. {{athleteName}}, {{description}}:":"{{seconds}} sekunder tilbage. {{athleteName}}, {{description}}:","Say 'mirror' to toggle the mirror effect. Say 'next' to move to the next pose. Say 'skip' to skip the test.":"Sig 'mirror' for at slå spejleffekt til/fra. Sig 'next' for at gå til næste stilling. Sig 'skip' for at springe testen over.","N/A":"N/A","No":"Nej","NO":"NEJ","Yes":"Ja","YES":"JA","Are you sure you want to delete all data?":"Er du sikker på, at du vil slette alle data?","Are you sure you want to delete this athlete's data?":"Er du sikker på, at du vil slette denne atlets data?","This will delete all data from your GDrive but keep it on this device. Are you sure?":"Dette vil slette alle data fra din Google Drive, men beholde dem på denne enhed. Er du sikker?","This will delete all data from this device but keep it on your GDrive. Are you sure?":"Dette vil slette alle data fra denne enhed, men beholde dem i din Google Drive. Er du sikker?","Back to the Immediate Memory section":"Tilbage til afsnittet Umiddelbar Hukommelse","Examiner, read the below instructions and select the words that the athlete can remember from the Immediate Memory section.":"Undersøger, læs instruktionerne nedenfor op og vælg de ord, som atleten kan huske fra afsnittet Umiddelbar Hukommelse.","The Immediate Memory section must be completed at least 5 minutes before this section. It has not been completed at all.":"Afsnittet Umiddelbar Hukommelse skal være gennemført mindst 5 minutter før dette afsnit. Det er slet ikke blevet gennemført.","The Immediate Memory section must be completed at least 5 minutes before this section. Delayed Recall will open in {{seconds}} seconds.":"Afsnittet Umiddelbar Hukommelse skal være gennemført mindst 5 minutter før dette afsnit. Forsinket Genkaldelse åbner om {{seconds}} sekunder.","Do you remember the list of words read a few times earlier during the immediate memory section? Tell me as many words from the list as you can remember in any order":"Kan du huske ordlisten, der blev læst op et par gange tidligere under afsnittet umiddelbar hukommelse? Fortæl mig så mange ord fra listen, som du kan huske, i vilkårlig rækkefølge","Starting...":"Starter...","View Test Results":"Vis testresultater","Somehow the list of words was not saved.":"Af en eller anden grund blev ordlisten ikke gemt.","Select language":"Vælg sprog","Athlete Name:":"Atletnavn:","I hereby attest that I am a medical or Health Care Professional authorized to use this tool:":"Jeg erklærer hermed, at jeg er en sundhedsprofessionel med autorisation til at bruge dette værktøj:","Baseline":"Baseline","CANCEL":"ANNULLER","Close Settings":"Luk indstillinger","The \"cognitive screening\" portion of the baseline and post injury assessments should be completed in a distraction-free environment with the athlete in a resting state.":"Den \"kognitive screening\"-del af baseline- og post-skade-vurderinger bør gennemføres i et miljø uden forstyrrelser, mens atleten er i hvile.","Concussion History":"Tidligere hjernerystelser","Confirm Athlete Information":"Bekræft atletoplysninger","Current Medications:":"Aktuel medicin:","Current Year in School (if applicable):":"Aktuelt klassetrin (hvis relevant):","Detailed Instructions":"Detaljerede instruktioner","Diagnosed with attention deficit hyperactivity disorder (ADHD).":"Diagnosticeret med opmærksomhedsforstyrrelse/hyperaktivitet (ADHD).","Diagnosed with a headache disorder or migraine.":"Diagnosticeret med hovedpinelidelse eller migræne.","Diagnosed with a learning disability or dyslexia.":"Diagnosticeret med indlæringsvanskelighed eller dysleksi.","Diagnosed with depression, anxiety or a psychological disorder.":"Diagnosticeret med depression, angst eller anden psykisk lidelse.","Date of Birth:":"Fødselsdato:","Dominant Hand:":"Dominerende hånd:","Download ZIP":"Hent ZIP","END TEST":"AFSLUT TEST","Enter Athlete Information":"Indtast atletoplysninger","Examiner Name:":"Undersøgers navn:","First Language:":"Førstesprog:","Ambidextrous":"Beggehåndet","Left":"Venstre","Right":"Højre","For Use by Health Care Professionals Only. See the original":"Kun til brug for sundhedsprofessionelle. Se den originale","Hospitalized for head injury.":"Indlagt på hospital for hovedskade.","ID Number:":"ID-nummer:","Immediate":"Akut","The immediate assessment should be completed \"on-field\" after the first aid/emergency care priorities are completed.":"Den akutte vurdering bør gennemføres \"på banen\", efter at førstehjælp/akutbehandling er afsluttet.","KEEP TESTING":"FORTSÆT TEST","Medical Background":"Medicinsk baggrund","Has the athlete ever been (if yes, describe below):":"Har atleten tidligere haft følgende (hvis ja, beskriv nedenfor):","Number of Past Concussions:":"Antal tidligere hjernerystelser:","Notes:":"Noter:","OK":"Bekræft","Other:":"Andet:","Athlete name":"Atletnavn","Describe any selections above":"Beskriv eventuelle valg ovenfor","English":"Engelsk","Your first and last name":"Dit for- og efternavn","List medications":"Angiv medicin","List other symptoms":"Angiv andre symptomer","Varsity X at Y High School":"Varsity X på Y High School","Unique ID":"Unikt ID","Preferred Language:":"Foretrukket sprog:","Primary Symptoms:":"Primære symptomer:","Most Recent Concussion Date:":"Dato for seneste hjernerystelse:","Most Recent Recovery Time (days):":"Seneste restitutionstid (dage):","Remove athlete from play for immediate medical assessment or transport to hospital/medical center.":"Fjern atleten fra spillet med henblik på øjeblikkelig medicinsk vurdering eller transport til hospital/medicinsk center.","Spinal immobilization and cervical collar. Then remove athlete from play for immediate medical assessment or transport to hospital/medical center.":"Immobilisér rygsøjlen og anlæg halskrave. Fjern derefter atleten fra spillet med henblik på øjeblikkelig medicinsk vurdering eller transport til hospital/medicinsk center.","Save Info w/o Test":"Gem oplysninger uden test","Sex:":"Køn:","Female":"Kvinde","Male":"Mand","Other":"Andet","Prefer Not To Say":"Ønsker ikke at oplyse","Start Assessment":"Start vurdering","Stop Sync":"Stop synkronisering","Suspected/Post-Injury":"Mistænkt/Post-skade","Confusion.":"Forvirring.","Difficulty Concentrating.":"Koncentrationsbesvær.","Dizziness/Imbalance.":"Svimmelhed/ubalanceret.","Double/Blurry Vision.":"Dobbelt/sløret syn.","Headache.":"Hovedpine.","Loss of Smell/Taste.":"Tab af lugte-/smagssans.","Memory Loss.":"Hukommelsestab.","Nausea/Vomiting.":"Kvalme/opkastning.","Ringing Ears.":"Ringen for ørerne.","Sensitivity to Light.":"Lysfølsomhed.","Trouble Sleeping.":"Søvnproblemer.","Sport/Team/School:":"Sport/Hold/Skole:","Time of Examination:":"Tidspunkt for undersøgelse:","Time of Injury (if applicable):":"Tidspunkt for skade (hvis relevant):","Total Years of Education Completed:":"Samlet antal gennemførte skoleår:","Decision":"Beslutning","Deferred":"Udskudt","Concussion diagnosed?":"Er hjernerystelse diagnosticeret?","If the athlete was known to you prior to their injury, are they different from their usual self?":"Hvis du kendte atleten før skaden, er vedkommende så anderledes end normalt?","Cancel":"Annuller","Failed to load the SCAT6 template.":"Kunne ikke indlæse SCAT6-skabelonen.","I am an HCP and I have personally administered or supervised the administration of this SCAT6.":"Jeg er sundhedsprofessionel og har personligt udført eller superviseret gennemførelsen af denne SCAT6.","Health Care Professional Attestation":"Erklæring fra sundhedsprofessionel","Name":"Navn","Notes":"Noter","high":"høj","low":"lav","moderate":"moderat","Registration/License Number (if applicable)":"Registrerings-/licensnummer (hvis relevant)","Athlete Information":"Atletoplysninger","Birth":"Født","Concussion Diagnosis":"Hjernerystelsesdiagnose","days":"dage","Different from Normal":"Anderledes end normalt","Dominant Hand":"Dominant hånd","Double-Leg Errors":"Fejl i dobbeltbensstilling","Double-Leg Foam Errors":"Fejl i dobbeltbensstilling på skum","Examiner":"Undersøger","Examiner Credentials":"Undersøgerens kvalifikationer","Feels Normal":"Føles normal","First Language":"Førstesprog","Injury Time":"Skadestidspunkt","mBESS Error Photos":"mBESS-fejlfotos","Most Recent Concussion":"Seneste hjernerystelse","Most Recent Recovery Time":"Seneste restitutionstid","No pose error photos taken for this test.":"Der blev ikke taget pose-fejlfotos for denne test.","Number of Past Concussions":"Antal tidligere hjernerystelser","Preferred Language":"Foretrukket sprog","Primary Symptoms":"Primære symptomer","Sex":"Køn","Signed":"Underskrevet","Single-Leg Errors":"Fejl i etbensstilling","Single-Leg Foam Errors":"Fejl i etbensstilling på skum","Symptom Description":"Symptombeskrivelse","Tandem Errors":"Tandemfejl","Tandem Foam Errors":"Tandemfejl på skum","Team/School":"Hold/skole","Test Active":"Test aktiv","Test Type":"Testtype","SCAT6 report for {{athleteName}}":"SCAT6-rapport for {{athleteName}}","Worse with Mental Activity":"Værre ved mental aktivitet","Worse with Physical Activity":"Værre ved fysisk aktivitet","Year in School":"År i skole","Years of Education":"År med uddannelse","BESS (of 30)":"BESS (ud af 30)","BESS Foam (of 30)":"BESS på skum (ud af 30)","Cognitive Total (of 50)":"Kognitiv totalscore (ud af 50)","Concentration (of 5)":"Koncentration (ud af 5)","Date":"Dato","Delayed Recall (of 10)":"Forsinket genkaldelse (ud af 10)","Dual Task Accuracy (%)":"Dual-task præcision (%)","Dual Task Fastest (sec)":"Dual-task hurtigste (sek)","Immediate Memory (of 30)":"Umiddelbar hukommelse (ud af 30)","Orientation (of 5)":"Orientering (ud af 5)","Recall Delay (seconds)":"Genkaldelsesforsinkelse (sekunder)","Severity (of 132)":"Sværhedsgrad (ud af 132)","Symptoms (of 22)":"Symptomer (ud af 22)","Tandem Gait Fastest (sec)":"Tandemgang hurtigste (sek)","Checking this box is equivalent to signing a paper SCAT6":"Afkrydsning af denne boks svarer til at underskrive en papirversion af SCAT6","Signature Date":"Signaturdato","Current Score":"Aktuel score","Domain":"Domæne","Healthy Range":"Sundt interval","Increased Risk Range":"Øget risikointerval","Last Baseline":"Seneste baseline","Last Post-Injury":"Seneste efter skade","Title/Specialty":"Titel/speciale","BESS Manual":"BESS-manual","Concussion training and information":"Hjernerystelsestræning og information","Healthy/risk ranges for BESS, tandem and dual gait":"Sunde/risiko-intervaller for BESS, tandemgang og dual-task gang","Healthy/risk ranges for immediate/delayed recall":"Sunde/risiko-intervaller for umiddelbar/forsinket genkaldelse","SCAT6 results study":"SCAT6-resultatstudie","SCAT6 Supplementary Material":"Supplerende SCAT6-materiale","Symptom severity study":"Studie af symptomsværhedsgrad","Sources":"Kilder","Last confirmed identity on {{lastSignIn}} <br><br> Last synced on {{lastSync}}":"Sidst bekræftede identitet: {{lastSignIn}} <br><br> Sidst synkroniseret: {{lastSync}}","Sync":"Synkroniser","Synced":"Synkroniseret","Cognitive Total (X/50)":"Kognitiv totalscore (X/50)","Concentration (X/5)":"Koncentration (X/5)","Delayed Recall (X/10)":"Forsinket genkaldelse (X/10)","Dual Task Fastest Time":"Dual-task hurtigste tid","Errors, Fastest Times, and Symptoms (lower is better)":"Fejl, hurtigste tider og symptomer (lavere er bedre)","Glasgow Coma Scale (X/15)":"Glasgow Coma Scale (X/15)","Immediate Memory (X/30)":"Umiddelbar hukommelse (X/30)","Maddocks Score (X/5)":"Maddocks-score (X/5)","mBESS Total Errors (X/30)":"mBESS samlede fejl (X/30)","Orientation (X/5)":"Orientering (X/5)","Scores (higher is better)":"Scores (højere er bedre)","Symptom Number (X/22)":"Antal symptomer (X/22)","Symptom Severity (X/132)":"Symptomsværhedsgrad (X/132)","Tandem Gait Fastest Time":"Tandemgang hurtigste tid","Click on an mBESS Total Errors data point to see pose error photos.":"Klik på et datapunkt for mBESS samlede fejl for at se pose-fejlfotos.","Click the Test button to start a new test.":"Klik på knappen Test for at starte en ny test.","Last baseline ({{date}}): {{score}} / 80":"Seneste baseline ({{date}}): {{score}} / 80","Last post-injury ({{date}}): {{score}} / 80":"Seneste efter skade ({{date}}): {{score}} / 80","No baselines found for this athlete.":"Ingen baseline-tests fundet for denne atlet.","No pose error photos found for this test.":"Ingen pose-fejlfotos fundet for denne test.","No post-injuries found for this athlete.":"Ingen efter-skade-tests fundet for denne atlet.","No tests found for this athlete. ":"Ingen tests fundet for denne atlet. ","Open Test Details":"Åbn testdetaljer","No Test":"Ingen test","Post-Injury":"Efter skade"}
+        };
+        window.__scat6T = (key, fallback = "") => window.__SCAT6_I18N?.runtime?.[key] ?? fallback;
+        window.__scat6Format = (key, vars = {}, fallback = "") => {
+            const template = window.__scat6T(key, fallback);
+            return template.replace(/\{\{\s*([a-zA-Z0-9_]+)\s*\}\}/g, (_, name) => String(vars[name] ?? ""));
+        };
+        window.__scat6TranslateText = (source) => window.__SCAT6_I18N?.messages?.[source] ?? source;
+        window.__scat6TranslateInElement = (root) => {
+            if (!root) return;
+            const skip = new Set(["SCRIPT", "STYLE"]);
+            const translateChunk = (chunk) => {
+                const normalized = chunk.replace(/\s+/g, " ").trim();
+                if (!normalized) return chunk;
+                const translated = window.__scat6TranslateText(normalized);
+                if (translated === normalized) return chunk;
+                const lead = chunk.match(/^\s*/)?.[0] ?? "";
+                const tail = chunk.match(/\s*$/)?.[0] ?? "";
+                return lead + translated + tail;
+            };
+
+            const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+            let node = walker.nextNode();
+            while (node) {
+                if (!skip.has(node.parentElement?.tagName)) {
+                    node.textContent = translateChunk(node.textContent ?? "");
+                }
+                node = walker.nextNode();
+            }
+
+            const attrs = ["placeholder", "aria-label", "title"];
+            if (root.querySelectorAll) {
+                root.querySelectorAll("*").forEach((el) => {
+                    attrs.forEach((attr) => {
+                        const value = el.getAttribute(attr);
+                        if (!value) return;
+                        const translated = window.__scat6TranslateText(value);
+                        if (translated !== value) el.setAttribute(attr, translated);
+                    });
+                });
+            }
+        };
+    </script>
+    <script>
+        (function initializeLanguageSelector() {
+            const cfg = window.__SCAT6_I18N;
+            const path = window.location.pathname;
+            const suffix = window.location.search + window.location.hash;
+            const saved = localStorage.getItem(cfg.storageKey);
+            const supported = new Set(cfg.supportedLanguages.map((lang) => lang.code));
+            const active = supported.has(saved) ? saved : cfg.defaultLanguage;
+            const toPath = (code) => (code === cfg.defaultLanguage ? '/index.html' : '/' + code + '/index.html');
+
+            if ((path === '/' || path === '/index.html') && active !== cfg.defaultLanguage) {
+                window.location.replace(toPath(active) + suffix);
+                return;
+            }
+
+            localStorage.setItem(cfg.storageKey, cfg.language);
+            window.addEventListener('DOMContentLoaded', () => {
+                window.__scat6TranslateInElement(document.body);
+
+                const observer = new MutationObserver((mutations) => {
+                    mutations.forEach((mutation) => {
+                        mutation.addedNodes.forEach((node) => {
+                            if (node.nodeType === 1) window.__scat6TranslateInElement(node);
+                        });
+                    });
+                });
+                observer.observe(document.body, { childList: true, subtree: true });
+
+                const globeButton = document.getElementById('language-globe-button');
+                const select = document.getElementById('language-select');
+                if (!globeButton || !select) return;
+
+                globeButton.setAttribute(
+                  'aria-label',
+                  window.__scat6T('runtime.lang.aria', 'Select language')
+                );
+
+                // Populate select options
+                console.log("Supported", cfg.supportedLanguages)
+                cfg.supportedLanguages.forEach((lang) => {
+                    const option = document.createElement('option');
+                    option.value = lang.code;
+                    option.textContent = lang.label;
+                    if (lang.code === cfg.language) option.selected = true;
+                    select.appendChild(option);
+                });
+
+                // Clicking globe opens native select
+                globeButton.addEventListener('click', () => {
+                    select.focus();
+                    select.click();
+                });
+
+                select.addEventListener('change', () => {
+                    const next = select.value;
+                    if (!supported.has(next)) return;
+                    localStorage.setItem(cfg.storageKey, next);
+                    window.location.assign(toPath(next) + suffix);
+                });
+            });
+        })();
+    </script>
+  </head>
+  <body style="visibility: hidden;">
+    <header>
+        <div>
+            <img src="/assets/icon.webp">
+            <h1>SCAT6 Webapp</h1>
+        </div>
+        <div>
+            <label for="theme" class="theme">
+                <span class="theme__toggle-wrap">
+                    <input id="theme" class="theme__toggle" type="checkbox" role="switch" name="theme" checked>
+                    <span class="theme__icon">
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                    </span>
+                </span>
+            </label>
+            
+    <label id="language-globe-button" class="language-globe-button">
+        <i class="fa-solid fa-globe"></i>
+        <select id="language-select"
+                class="language-select"
+                aria-label="Select language">
+        </select>
+    </label>
+            <button class="button button--red" id="delete-all-button">Slet Alt &nbsp; <i class="fa-solid fa-trash"></i></button>
+            <button class="button" id="sync-button">Synkroniser &nbsp; <i class="fa-brands fa-google-drive"></i></button>
+            <a class="button" href="https://github.com/SanderGi/ConcussionAssessment">Om &nbsp; <i class="fa-solid fa-book"></i></a>
+        </div>
+    </header>
+    <script>
+        // ============================ Theme ============================
+        const toggle = document.getElementById("theme");
+        const root = document.documentElement;
+
+        toggle.addEventListener("change", () => {
+            const theme = toggle.checked ? "dark" : "light";
+            root.setAttribute("data-theme", theme);
+            localStorage.setItem("theme", theme);
+        });
+
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme) {
+            document.documentElement.setAttribute("data-theme", savedTheme);
+            toggle.checked = savedTheme != "light";
+        } else {
+            const prefersLight = window.matchMedia(
+                "(prefers-color-scheme: light)"
+            ).matches;
+            document.documentElement.setAttribute(
+                "data-theme",
+                prefersLight ? "light" : "dark"
+            );
+            toggle.checked = !prefersLight;
+        }
+    </script>
+    <main id="test-management">
+        <section>
+            <h2>Hjernerystelse Vurderings Værktøj <a style="font-size: 0.6em; vertical-align: middle;" href="/assets/scat6-about.png" target="_blank" aria-label="første side af SCAT6-papiret"><i class="fa-solid fa-circle-info"></i></a></h2>
+            <p>Brug denne webapp til at gennemføre hjernerystelsesvurderinger for dine atleter. Data gemmes lokalt i din browser, medmindre du vælger "Slet alle". Du kan også synkronisere data med din Google Drive. Se <a href="https://github.com/SanderGi/ConcussionAssessment/tree/main?tab=readme-ov-file#frequently-asked-questions-faq" target="_blank">Ofte stillede spørgsmål</a> og <a href="https://github.com/SanderGi/ConcussionAssessment/blob/main/PRIVACY.md" target="_blank">Privatlivspolitik</a> for detaljer.</p>
+            <p>Klik på den runde tilføj-knap nedenfor for at tilføje en atletprofil. Dette giver dig mulighed for at starte en baseline-vurdering og oprette en atletprofil, som du kan bruge til at sammenligne hjernerystelsesscorer over tid for atleten.</p>
+        </section>
+        <section>
+            Søg efter navn: <input type="search" id="search-input" placeholder="Indtast en del af en atlets navn"> <select id="number-of-athletes" aria-label="hvor mange atleter der skal vises">
+                <option value="5">Vis 5</option>
+                <option value="10">Vis 10</option>
+                <option value="50">Vis 50</option>
+                <option value="9999">Vis alle</option>
+            </select>
+            <button class="button" id="export-selected">Eksporter &nbsp; <i class="fa-solid fa-file-export"></i></button>
+        </section>
+        <div id="athletes" style="width: 100%;" class="center"></div>
+        <button class="add" id="add-athlete-button" aria-label="tilføj atlet">
+            <i class="fa-solid fa-plus"></i>
+        </button>
+    </main>
+    <main style="display: none;" id="red-flags">
+        <section style="position: relative;">
+            <button style="background: none; border: none; position: absolute; top: 1em; right: 1em;" onclick="show('/assets/neuroscreen-flowchart.png', 'flow chart')"><img src="/assets/flowchart.png" alt="flow chart icon" style="width: 2em; height: 2em; background: darkgrey; border-radius: 4px;"></button>
+            <h2>Røde flag</h2>
+            <p>Røde flag er tegn og symptomer, som kan indikere en mere alvorlig skade. Hvis nogen af disse er til stede, skal atleten straks henvises til sundhedsfagligt personale.</p>
+            <ul style="text-align: left;">
+                <li>Nakkesmerter eller ømhed</li>
+                <li>Krampeanfald eller konvulsion</li>
+                <li>Dobbeltsyn</li>
+                <li>Bevidsthedstab</li>
+                <li>Svaghed eller prikken/brænden i mere end 1 arm eller i benene</li>
+                <li>Forværret bevidsthedstilstand</li>
+                <li>Opkastning</li>
+                <li>Svær eller tiltagende hovedpine</li>
+                <li>Tiltagende rastløs, ophidset eller kamplysten</li>
+                <li>Synlig deformitet af kraniet</li>
+            </ul>
+            <button class="button button--red" onclick="saveTestResult('red_flags', 'YES'); removeAthleteFromPlayAlert('obervable-signs')">Røde flag til stede</button>
+            <button class="button button--green" onclick="saveTestResult('red_flags', 'NO'); renderTestSection('obervable-signs')">Ingen røde flag</button>
+        </section>
+    </main>
+    <main style="display: none;" id="obervable-signs">
+        <section style="position: relative">
+            <button style="background: none; border: none; position: absolute; top: 1em; right: 1em;" onclick="show('/assets/neuroscreen-flowchart.png', 'flow chart')"><img src="/assets/flowchart.png" alt="flow chart icon" style="width: 2em; height: 2em; background: darkgrey; border-radius: 4px;"></button>
+            <h2>Observerbare tegn</h2>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em;" data-value="Lying motionless on playing surface"><input type="checkbox" class="observable-signs"/> Ligger ubevægeligt på spillefladen.</label>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em;" data-value="Falling unprotected to the surface"><input type="checkbox" class="observable-signs"/> Falder ubeskyttet til overfladen.</label>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em;" data-value="Balance/gait difficulties, motor incoordination, ataxia: stumbling, slow/laboured movements"><input type="checkbox" class="observable-signs"/> Balance-/gangvanskeligheder, motorisk koordinationsproblemer, ataksi: snublen, langsomme/anstrengte bevægelser.</label>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em;" data-value="Disorientation or confusion, staring or limited responsiveness, or an inability to respond appropriately to questions"><input type="checkbox" class="observable-signs"/> Desorientering eller forvirring, stirren eller begrænset reaktionsevne eller manglende evne til at reagere passende på spørgsmål.</label>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em;" data-value="Blank or vacant look"><input type="checkbox" class="observable-signs"/> Blankt eller ledigt udseende.</label>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em;" data-value="Facial injury after head trauma"><input type="checkbox" class="observable-signs"/> Ansigtsskade efter hovedtraume.</label>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em;" data-value="Impact seizure"><input type="checkbox" class="observable-signs"/> Slagbeslaglæggelse.</label>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em;" data-value="High-risk mechanism of injury (sportdependent)"><input type="checkbox" class="observable-signs"/> Højrisiko skadesmekanisme (sportsafhængig).</label>
+            <br><br>
+            <button class="button button--red" onclick="saveTestResult('observable_signs', getChecked('observable-signs')); saveTestResult('observable_signs_source', 'WITNESSED'); removeAthleteFromPlayAlert('glasgow-scale')">Observeret</button>
+            <button class="button button--red" onclick="saveTestResult('observable_signs', getChecked('observable-signs')); saveTestResult('observable_signs_source', 'VIDEO'); removeAthleteFromPlayAlert('glasgow-scale')">Observeret på video</button>
+            <button class="button button--green" onclick="saveTestResult('observable_signs', []); saveTestResult('observable_signs_source', 'NO'); renderTestSection('glasgow-scale')">Ingen</button>
+        </section>
+    </main>
+    <main style="display: none;" id="glasgow-scale">
+        <section style="position: relative">
+            <button style="background: none; border: none; position: absolute; top: 1em; right: 1em;" onclick="show('/assets/neuroscreen-flowchart.png', 'flow chart')"><img src="/assets/flowchart.png" alt="flow chart icon" style="width: 2em; height: 2em; background: darkgrey; border-radius: 4px;"></button>
+            <h2>Glasgow Coma Scale (GCS)</h2>
+            <h3>Bedste øjenrespons</h3>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="radio" name="eye-response" value="1"/> Ingen øjenåbning af nogen grund.</label>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="radio" name="eye-response" value="2"/> Åbner ved smerte (klem eller prik).</label>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="radio" name="eye-response" value="3"/> Åbner ved tale (når personen bliver bedt om det).</label>
+            <label class="left-align green" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="radio" name="eye-response" value="4"/> Åbner naturligt.</label>
+            
+            <h3>Bedste verbale svar</h3>
+            <p style="margin-top: 0">Kender atleten sit navn, hvor de er, dagen/året osv.?</p>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="radio" name="verbal" value="1"/> Ingen verbal respons.</label>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="radio" name="verbal-response" value="2"/> Uforståelige lyde eller støj.</label>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="radio" name="verbal-response" value="3"/> Upassende ord. Tilfældige, men forståelige ord.</label>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="radio" name="verbal-response" value="4"/> Forvirret. Svarer, men er ikke helt klar over, hvad der sker.</label>
+            <label class="left-align green" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="radio" name="verbal-response" value="5"/> Orienteret. Svarer korrekt.</label>
+
+            <h3>Bedste motoriske respons</h3>
+            <p style="margin-top: 0">Kan atleten følge instruktioner om, hvordan man bevæger sig (f.eks. "løft armen") eller reagere på smerte (knib eller prikke)?</p>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="radio" name="motor-response" value="1"/> Ingen motorisk respons.</label>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="radio" name="motor-response" value="2"/> Stræk (stræk udad) musklerne ved smerte.</label>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="radio" name="motor-response" value="3"/> Unormal fleksion (trækker musklerne indad) ved smerte.</label>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="radio" name="motor-response" value="4"/> Fleksion/tilbagetrækning (som en refleks) ved smerte.</label>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="radio" name="motor-response" value="5"/> Lokaliserer (bevæger sig bevidst væk fra) smerte.</label>
+            <label class="left-align green" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="radio" name="motor-response" value="6"/> Adlyder kommandoer.</label>
+
+            <button class="button button--green" id="complete-gcs-btn">Start cervikal rygsøjle &nbsp; <i class="fa-solid fa-forward"></i></button>
+            <script>
+                document.getElementById('complete-gcs-btn').onclick = () => {
+                    saveTestResult('glasgow_e', "" + getRadioInt('eye-response'));
+                    saveTestResult('glasgow_v', "" + getRadioInt('verbal-response'));
+                    saveTestResult('glasgow_m', "" + getRadioInt('motor-response'));
+                    const score = getRadioInt('eye-response') + getRadioInt('verbal-response') + getRadioInt('motor-response');
+                    if (isNaN(score)) {
+                        alert('Please fill out all fields');
+                        return;
+                    }
+                    saveTestResult('glasgow_coma_scale', score);
+                    saveTestResult('glasgow_timestamp', Date.now());
+                    if (score < 15) {
+                        removeAthleteFromPlayAlert('cervical-spine');
+                    } else {
+                        renderTestSection('cervical-spine');
+                    }
+                }
+            </script>
+        </section>
+    </main>
+    <main style="display: none;" id="cervical-spine">
+        <section style="position: relative;">
+            <button style="background: none; border: none; position: absolute; top: 1em; right: 1em;" onclick="show('/assets/neuroscreen-flowchart.png', 'flow chart')"><img src="/assets/flowchart.png" alt="flow chart icon" style="width: 2em; height: 2em; background: darkgrey; border-radius: 4px;"></button>
+            <h2>Cervikal rygsøjle</h2>
+            <p style="margin-top: 0;">Hos en patient, der ikke er klar eller fuldt bevidst, bør der antages en skade på halshvirvelsøjlen, og der bør tages forholdsregler mod rygsøjlen. Marker hver boks for ja, og undlad at markere den for nej.</p>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;" data-value="Athlete reports neck pain at rest"><input type="checkbox" class="cervical-spine" data-should="false"/> Atlet rapporterer nakkesmerter i hvile.</label>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;" data-value="There is tenderness to palpation"><input type="checkbox" class="cervical-spine" data-should="false"/> Der er ømhed ved palpation.</label>
+            <label class="left-align green" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;" data-value="If NO neck pain and NO tenderness, athlete has full range of ACTIVE pain free movement"><input type="checkbox" class="cervical-spine" data-should="true"/> Hvis der INGEN nakkesmerter og INGEN ømhed er, atleten har fuld AKTIV smertefri bevægelse.</label>
+            <label class="left-align green" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;" data-value="Limb strength and sensation is normal"><input type="checkbox" class="cervical-spine" data-should="true"/> Lemmernes styrke og følesans er normal.</label>
+
+            <button class="button button--red" onclick="removeAthleteFromPlayAlert('coordination', window.__scat6T('runtime.popup.remove_from_play_spinal', 'Spinal immobilization and cervical collar. Then remove athlete from play for immediate medical assessment or transport to hospital/medical center.'))">Ikke fuldt bevidst</button>
+            <button class="button button--green" id="complete-cervical-spine-btn">Start koordination &nbsp; <i class="fa-solid fa-forward"></i></button>
+            <script>
+                document.getElementById('complete-cervical-spine-btn').addEventListener('click', () => {
+                    saveTestResult('cervical_spine', getChecked('cervical-spine')); 
+                    const checkboxes = document.querySelectorAll('.cervical-spine');
+                    for (const checkbox of checkboxes) {
+                        if (checkbox.checked.toString() !== checkbox.dataset.should) {
+                            removeAthleteFromPlayAlert('coordination');
+                            return;
+                        }
+                    }
+                    renderTestSection('coordination');
+                });
+            </script>
+        </section>
+    </main>
+    <main style="display: none;" id="coordination">
+        <section style="position: relative;">
+            <button style="background: none; border: none; position: absolute; top: 1em; right: 1em;" onclick="show('/assets/neuroscreen-flowchart.png', 'flow chart')"><img src="/assets/flowchart.png" alt="flow chart icon" style="width: 2em; height: 2em; background: darkgrey; border-radius: 4px;"></button>
+            <h2>Koordination og okulær/motorisk screening</h2>
+            <label class="left-align green" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em;" data-value="Coordination. Finger-to-nose is normal for both hands with eyes open and closed"><input type="checkbox" class="coordination"/> Koordination. Finger-til-næse er normalt for begge hænder med åbne og lukkede øjne.</label>
+            <label class="left-align green" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em;" data-value="Ocular/Motor. Athlete can look side-to-side and up-and-down without moving their head/neck or getting double vision"><input type="checkbox" class="coordination"/> Okulær/motorisk. Atleten kan se fra side til side og op og ned uden at bevæge hoved/nakke eller få dobbeltsyn.</label>
+            <label class="left-align green" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em;" data-value="Observed extraocular eye movements are normal"><input type="checkbox" class="coordination"/> Observerede ekstraokulære øjenbevægelser er normale.</label>
+            <p>Beskriv venligst alt unormalt:</p>
+            <textarea class="textarea" id="coordination-abnomalities"></textarea>
+            <button class="button button--green" onclick="saveTestResult('coordination_abnomalities', document.getElementById('coordination-abnomalities').value); saveTestResult('coordination', getChecked('coordination')); getChecked('coordination').length === 3 ? renderTestSection('maddocks-score') : removeAthleteFromPlayAlert('maddocks-score')">Start Maddocks-test &nbsp; <i class="fa-solid fa-forward"></i></button>
+        </section>
+    </main>
+    <main style="display: none;" id="maddocks-score">
+        <section style="position: relative;">
+            <button style="background: none; border: none; position: absolute; top: 1em; right: 1em;" onclick="show('/assets/neuroscreen-flowchart.png', 'flow chart')"><img src="/assets/flowchart.png" alt="flow chart icon" style="width: 2em; height: 2em; background: darkgrey; border-radius: 4px;"></button>
+            <h2>Maddocks-score</h2>
+            <p style="margin-top: 0;">Eksaminator, læs følgende linje og stil følgende spørgsmål (ændret for at være passende til den relevante sportsgren). Marker de korrekt besvarede spørgsmål.</p>
+            <p style="font-style: italic;">Du vil blive stillet nogle få spørgsmål. Lyt venligst nøje og gør dit bedste. Forklar først, hvad der skete? &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
+            <label class="left-align green" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;" data-value="What venue are we at today?"><input type="checkbox" class="maddocks"/> Hvilket stadion/anlæg er vi på i dag?</label>
+            <label class="left-align green" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;" data-value="Which half is it now?"><input type="checkbox" class="maddocks"/> Hvilken halvleg er det nu?</label>
+            <label class="left-align green" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;" data-value="Who scored last in this match?"><input type="checkbox" class="maddocks"/> Hvem scorede sidst i denne kamp?</label>
+            <label class="left-align green" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;" data-value="What team did you play last week / game?"><input type="checkbox" class="maddocks"/> Hvilket hold spillede du mod i sidste uge / kamp?</label>
+            <label class="left-align green" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;" data-value="Did your team win the last game?"><input type="checkbox" class="maddocks"/> Vandt dit hold den sidste kamp?</label>
+            <button class="button button--green" id="maddocks-end-btn">Start symptomvurdering &nbsp; <i class="fa-solid fa-forward"></i></button>
+            <script>
+                document.getElementById('maddocks-end-btn').addEventListener('click', () => {
+                    saveTestResult('maddocks', getChecked('maddocks'));
+                    const score = getChecked('maddocks').length;
+                    saveTestResult('maddocks_score', score);
+                    const test = getTest();
+                    const next = test.test_type === 'BASELINE' ? 'symptom-evaluation-baseline' : 'symptom-evaluation-post';
+                    if (score < 5) {
+                        removeAthleteFromPlayAlert(next);
+                    } else {
+                        renderTestSection(next);
+                    }
+                });
+            </script>
+        </section>
+    </main>
+    <main style="display: none;" id="symptom-evaluation-baseline">
+        <section>
+            <h2>Symptomvurdering baseline</h2>
+            <p style="margin-top: 0">Eksaminator, giv venligst apparatet til atleten, så han/hun kan udfylde symptomskalaen (nedenfor), efter du har givet instruktionerne.</p>
+            <p style="font-style: italic;">Vurder venligst dine symptomer nedenfor ud fra hvordan du typisk har det, hvor 1 er et meget mildt symptom og 6 er et alvorligt symptom. 0 betyder, at symptomet ikke er til stede &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Hovedpine: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider-baseline" list="symptom-slider-markers"> <input type="number" class="symptom-baseline" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Tryk i hovedet: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider-baseline" list="symptom-slider-markers"> <input type="number" class="symptom-baseline" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Nakkesmerter: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider-baseline" list="symptom-slider-markers"> <input type="number" class="symptom-baseline" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Kvalme eller opkastning: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider-baseline" list="symptom-slider-markers"> <input type="number" class="symptom-baseline" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Svimmelhed: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider-baseline" list="symptom-slider-markers"> <input type="number" class="symptom-baseline" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Sløret syn: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider-baseline" list="symptom-slider-markers"> <input type="number" class="symptom-baseline" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Balanceproblemer: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider-baseline" list="symptom-slider-markers"> <input type="number" class="symptom-baseline" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Lysfølsomhed: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider-baseline" list="symptom-slider-markers"> <input type="number" class="symptom-baseline" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Lydfølsomhed: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider-baseline" list="symptom-slider-markers"> <input type="number" class="symptom-baseline" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Føles langsom: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider-baseline" list="symptom-slider-markers"> <input type="number" class="symptom-baseline" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Føles som "i en tåge": <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider-baseline" list="symptom-slider-markers"> <input type="number" class="symptom-baseline" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">"Føles ikke rigtigt": <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider-baseline" list="symptom-slider-markers"> <input type="number" class="symptom-baseline" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Koncentrationsbesvær: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider-baseline" list="symptom-slider-markers"> <input type="number" class="symptom-baseline" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Svært ved at huske: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider-baseline" list="symptom-slider-markers"> <input type="number" class="symptom-baseline" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Træthed eller lav energi: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider-baseline" list="symptom-slider-markers"> <input type="number" class="symptom-baseline" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Forvirring: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider-baseline" list="symptom-slider-markers"> <input type="number" class="symptom-baseline" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Døsighed: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider-baseline" list="symptom-slider-markers"> <input type="number" class="symptom-baseline" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Mere følelsesladet: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider-baseline" list="symptom-slider-markers"> <input type="number" class="symptom-baseline" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Irritabilitet: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider-baseline" list="symptom-slider-markers"> <input type="number" class="symptom-baseline" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Nedtrykthed: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider-baseline" list="symptom-slider-markers"> <input type="number" class="symptom-baseline" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Nervøs eller ængstelig: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider-baseline" list="symptom-slider-markers"> <input type="number" class="symptom-baseline" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Svært ved at falde i søvn: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider-baseline" list="symptom-slider-markers"> <input type="number" class="symptom-baseline" value="0" style="min-width: 5ch;"/></div></label>
+            <br>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em;"><input type="checkbox" id="symptoms_worse_with_physical_baseline"> Undersøg om symptomerne forværres ved fysisk aktivitet.</label>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em;"><input type="checkbox" id="symptoms_worse_with_mental_baseline"> Kontroller om symptomer forværres ved mental aktivitet.</label>
+            <label class="left-align spread-inline">Hvor mange procent af normal føler du dig? <input type="number" value="100" id="symptoms_percentage_normal_baseline"/></label>
+            <label for="symptoms_description_baseline">Hvis ikke 100%, hvorfor?</label>
+            <textarea class="textarea" id="symptoms_description_baseline"></textarea>
+
+            <button class="button button--green" id="symptom-baseline-end-btn">Start orientering &nbsp; <i class="fa-solid fa-forward"></i></button>
+            <script>
+                for (const symptom of document.querySelectorAll('.symptom-baseline')) {
+                    symptom.addEventListener('input', (e) => {
+                        const value = parseInt(e.target.value);
+                        if (value > 6) {
+                            e.target.value = 6;
+                        }
+                        if (value < 0) {
+                            e.target.value = 0;
+                        }
+                        e.target.previousElementSibling.value = e.target.value;
+                    });
+                }
+                for (const symptom of document.querySelectorAll('.symptom-slider-baseline')) {
+                    symptom.addEventListener('input', (e) => {
+                        e.target.nextElementSibling.value = e.target.value;
+                    });
+                }
+                document.getElementById('symptoms_percentage_normal_baseline').addEventListener('input', (e) => {
+                    const value = parseInt(e.target.value);
+                    if (value > 100) {
+                        e.target.value = 100;
+                    }
+                    if (value < 0) {
+                        e.target.value = 0;
+                    }
+                });
+                document.getElementById('symptom-baseline-end-btn').onclick = () => {
+                    const symptoms = document.querySelectorAll('.symptom-baseline');
+                    const numSymptoms = Array.from(symptoms).filter(s => parseInt(s.value) > 0).length;
+                    const symtomSeverities = Array.from(symptoms).map(s => parseInt(s.value));
+                    const severity = symtomSeverities.reduce((a, b) => a + b, 0);
+                    saveTestResult('symptom_number', numSymptoms);
+                    saveTestResult('symptom_scores', symtomSeverities);
+                    saveTestResult('symptom_severity', severity);
+                    saveTestResult('symptoms_worse_with_physical', document.getElementById('symptoms_worse_with_physical_baseline').checked);
+                    saveTestResult('symptoms_worse_with_mental', document.getElementById('symptoms_worse_with_mental_baseline').checked);
+                    saveTestResult('symptoms_percentage_normal', parseInt(document.getElementById('symptoms_percentage_normal_baseline').value));
+                    saveTestResult('symptoms_description', document.getElementById('symptoms_description_baseline').value);
+                    renderTestSection('orientation');
+                };
+            </script>
+        </section>
+    </main>
+    <main style="display: none;" id="symptom-evaluation-post">
+        <section>
+            <h2>Symptomvurdering</h2>
+            <p style="margin-top: 0">Eksaminator, giv venligst apparatet til atleten, så han/hun kan udfylde symptomskalaen (nedenfor), efter du har givet instruktionerne.</p>
+            <p style="font-style: italic;">Vurder venligst dine symptomer nedenfor ud fra hvordan du har det nu, hvor 1 er et meget mildt symptom og 6 er et alvorligt symptom. 0 betyder, at symptomet ikke er til stede &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Hovedpine: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider" list="symptom-slider-markers"> <input type="number" class="symptom" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Tryk i hovedet: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider" list="symptom-slider-markers"> <input type="number" class="symptom" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Nakkesmerter: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider" list="symptom-slider-markers"> <input type="number" class="symptom" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Kvalme eller opkastning: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider" list="symptom-slider-markers"> <input type="number" class="symptom" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Svimmelhed: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider" list="symptom-slider-markers"> <input type="number" class="symptom" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Sløret syn: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider" list="symptom-slider-markers"> <input type="number" class="symptom" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Balanceproblemer: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider" list="symptom-slider-markers"> <input type="number" class="symptom" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Lysfølsomhed: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider" list="symptom-slider-markers"> <input type="number" class="symptom" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Lydfølsomhed: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider" list="symptom-slider-markers"> <input type="number" class="symptom" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Føles langsom: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider" list="symptom-slider-markers"> <input type="number" class="symptom" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Føles som "i en tåge": <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider" list="symptom-slider-markers"> <input type="number" class="symptom" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">"Føles ikke rigtigt": <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider" list="symptom-slider-markers"> <input type="number" class="symptom" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Koncentrationsbesvær: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider" list="symptom-slider-markers"> <input type="number" class="symptom" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Svært ved at huske: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider" list="symptom-slider-markers"> <input type="number" class="symptom" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Træthed eller lav energi: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider" list="symptom-slider-markers"> <input type="number" class="symptom" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Forvirring: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider" list="symptom-slider-markers"> <input type="number" class="symptom" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Døsighed: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider" list="symptom-slider-markers"> <input type="number" class="symptom" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Mere følelsesladet: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider" list="symptom-slider-markers"> <input type="number" class="symptom" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Irritabilitet: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider" list="symptom-slider-markers"> <input type="number" class="symptom" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Nedtrykthed: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider" list="symptom-slider-markers"> <input type="number" class="symptom" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Nervøs eller ængstelig: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider" list="symptom-slider-markers"> <input type="number" class="symptom" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Svært ved at falde i søvn: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider" list="symptom-slider-markers"> <input type="number" class="symptom" value="0" style="min-width: 5ch;"/></div></label>
+            <datalist id="symptom-slider-markers">
+                <option value="0"></option>
+                <option value="1"></option>
+                <option value="2"></option>
+                <option value="3"></option>
+                <option value="4"></option>
+                <option value="5"></option>
+                <option value="6"></option>
+            </datalist>
+            <br>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em;"><input type="checkbox" id="symptoms_worse_with_physical"> Undersøg om symptomerne forværres ved fysisk aktivitet.</label>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em;"><input type="checkbox" id="symptoms_worse_with_mental"> Kontroller om symptomer forværres ved mental aktivitet.</label>
+            <label class="left-align spread-inline">Hvor mange procent af normal føler du dig? <input type="number" value="100" id="symptoms_percentage_normal"/></label>
+            <label for="symptoms_description">Hvis ikke 100%, hvorfor?</label>
+            <textarea class="textarea" id="symptoms_description"></textarea>
+            
+            <button class="button button--green" id="symptom-end-btn">Start orientering &nbsp; <i class="fa-solid fa-forward"></i></button>
+            <script>
+                for (const symptom of document.querySelectorAll('.symptom')) {
+                    symptom.addEventListener('input', (e) => {
+                        const value = parseInt(e.target.value);
+                        if (value > 6) {
+                            e.target.value = 6;
+                        }
+                        if (value < 0) {
+                            e.target.value = 0;
+                        }
+                        e.target.previousElementSibling.value = e.target.value;
+                    });
+                }
+                for (const symptom of document.querySelectorAll('.symptom-slider')) {
+                    symptom.addEventListener('input', (e) => {
+                        e.target.nextElementSibling.value = e.target.value;
+                    });
+                }
+                document.getElementById('symptoms_percentage_normal').addEventListener('input', (e) => {
+                    const value = parseInt(e.target.value);
+                    if (value > 100) {
+                        e.target.value = 100;
+                    }
+                    if (value < 0) {
+                        e.target.value = 0;
+                    }
+                });
+                document.getElementById('symptom-end-btn').onclick = () => {
+                    const symptoms = document.querySelectorAll('.symptom');
+                    const numSymptoms = Array.from(symptoms).filter(s => parseInt(s.value) > 0).length;
+                    const symtomSeverities = Array.from(symptoms).map(s => parseInt(s.value));
+                    const severity = symtomSeverities.reduce((a, b) => a + b, 0);
+                    saveTestResult('symptom_number', numSymptoms);
+                    saveTestResult('symptom_scores', symtomSeverities)
+                    saveTestResult('symptom_severity', severity);
+                    saveTestResult('symptoms_worse_with_physical', document.getElementById('symptoms_worse_with_physical').checked);
+                    saveTestResult('symptoms_worse_with_mental', document.getElementById('symptoms_worse_with_mental').checked);
+                    saveTestResult('symptoms_percentage_normal', parseInt(document.getElementById('symptoms_percentage_normal').value));
+                    saveTestResult('symptoms_description', document.getElementById('symptoms_description').value);
+                    renderTestSection('orientation');
+                };
+            </script>
+        </section>
+    </main>
+    <main style="display: none;" id="orientation">
+        <section>
+            <h2>Orientering</h2>
+            <p style="margin-top: 0;">Eksaminator, stil atleten følgende spørgsmål og vælg dem, de svarer korrekt på</p>
+            <label class="left-align green" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;" data-value="What month is it?"><input type="checkbox" class="orientation"/> Hvilken måned er det?</label>
+            <label class="left-align green" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;" data-value="What is the date today?"><input type="checkbox" class="orientation"/> Hvad er datoen i dag?</label>
+            <label class="left-align green" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;" data-value="What is the day of the week?"><input type="checkbox" class="orientation"/> Hvilken ugedag er det?</label>
+            <label class="left-align green" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;" data-value="What year is it?"><input type="checkbox" class="orientation"/> Hvilket år er det?</label>
+            <label class="left-align green" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;" data-value="What time is it right now (within 1 hour)?"><input type="checkbox" class="orientation"/> Hvad er klokken lige nu (inden for 1 time)?</label>
+            <button class="button button--green" id="orientation-end-btn">Start umiddelbar hukommelse &nbsp; <i class="fa-solid fa-forward"></i></button>
+            <script>
+                document.getElementById('orientation-end-btn').addEventListener('click', () => {
+                    saveTestResult('orientation_correct', getChecked('orientation'));
+                    const score = getChecked('orientation').length;
+                    saveTestResult('orientation', score);
+                    renderTestSection('immediate-memory');
+                });
+            </script>
+        </section>
+    </main>
+    <main style="display: none;" id="immediate-memory">
+        <section>
+            <h2>Umiddelbar Hukommelse</h2>
+            <p style="margin-top: 0;">Eksaminator, du skal læse ordlisten 3 gange og holde styr på, hvor mange ord atleten husker efter hver læsning. Alle 3 forsøg skal udføres uanset det korrekte antal på hver. Start det første forsøg med at sige følgende:</p>
+            <p style="font-style: italic;">Jeg vil teste din hukommelse. Jeg læser en liste med ord op for dig, og når jeg er færdig, gentager du så mange ord, som du kan huske, i vilkårlig rækkefølge &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent); readMemoryWords();"></i></p>
+            <p>Eksaminator sig følgende for den anden og tredje retssag:</p>
+            <p style="font-style: italic;">Jeg gentager den samme liste. Gentag så mange ord, som du kan huske, i vilkårlig rækkefølge, selvom du sagde ordet før i en tidligere prøve. &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent); readMemoryWords();"></i></p>
+            <p>Eksaminator, klik på ordene nedenfor, mens atleten husker dem, for at krydse dem af. Dette vil hjælpe med at holde styr på, hvor mange de husker hvert forsøg.</p>
+            <ul id="wordlist"></ul>
+            <table style="margin: auto;">
+                <thead><tr><th>Forsøg 1</th><th>Forsøg 2</th><th>Forsøg 3</th></tr></thead>
+                <tbody>
+                    <tr id="immediate-memory-data">
+                        <td data-title="Forsøg 1"><input type="number" value="0" style="min-width: 6ch; outline: 1px solid var(--secondary)"></td>
+                        <td data-title="Forsøg 2"><input type="number" value="0" style="min-width: 6ch;"></td>
+                        <td data-title="Forsøg 3"><input type="number" value="0" style="min-width: 6ch;"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="button button--green" id="immediate-memory-end-btn">Start koncentration &nbsp; <i class="fa-solid fa-forward"></i></button>
+            <script>
+                const immediate_memory_score_by_trial_by_word = [[], [], []];
+                let currentTrial = -1;
+                const inputs = document.getElementById('immediate-memory-data');
+                inputs.addEventListener('focusin', (e) => {
+                    inputs.children[currentTrial == -1 ? 0 : currentTrial].children[0].style.outline = 'none';
+                    currentTrial = Array.from(inputs.children).indexOf(e.target.parentElement);
+                    inputs.children[currentTrial == -1 ? 0 : currentTrial].children[0].style.outline = '1px solid var(--secondary)';
+                });
+                document.addEventListener("renderTestSection", async (event) => {
+                    if (event.detail === "immediate-memory") {
+                        currentTrial = -1;
+                        const wordlist = document.getElementById('wordlist');
+                        wordlist.innerHTML = '';
+                        const choices = [
+                            ['Jacket', 'Arrow', 'Pepper', 'Cotton', 'Movie', 'Dollar', 'Honey', 'Mirror', 'Saddle', 'Anchor'],
+                            ['Finger', 'Penny', 'Blanket', 'Lemon', 'Insect', 'Candle', 'Paper', 'Sugar', 'Sandwich', 'Wagon'],
+                            ['Baby', 'Monkey', 'Perfume', 'Sunset', 'Iron', 'Elbow', 'Apple', 'Carpet', 'Saddle', 'Bubble']
+                        ];
+                        const words = choices[Math.floor(Math.random() * choices.length)];
+                        for (const word of words) {
+                            const li = document.createElement('li');
+                            li.textContent = word;
+                            li.onclick = () => {
+                                const wasCrossed = li.style.textDecoration === 'line-through';
+                                li.style.textDecoration = wasCrossed ? 'none' : 'line-through';
+                                li.style.color = wasCrossed ? '' : 'darkgreen';
+                                const numCrossed = Array.from(wordlist.children).filter(w => w.style.textDecoration === 'line-through').length;
+                                inputs.children[currentTrial == -1 ? 0 : currentTrial].children[0].value = numCrossed;
+                                const crossed = Array.from(wordlist.children).map(w => w.style.textDecoration === 'line-through');
+                                immediate_memory_score_by_trial_by_word[currentTrial == -1 ? 0 : currentTrial] = crossed;
+                            }
+                            wordlist.appendChild(li);
+                        }
+                        window.readMemoryWords = () => {
+                            inputs.children[currentTrial == -1 ? 0 : currentTrial].children[0].style.outline = 'none';
+                            currentTrial++;
+                            currentTrial = Math.min(currentTrial, 2);
+                            inputs.children[currentTrial].children[0].style.outline = '1px solid var(--secondary)';
+                            for (const word of wordlist.children) {
+                                word.style.textDecoration = 'none';
+                                word.style.color = '';
+                            }
+                            readListOneWPS(words, 1);
+                        };
+                        saveTestResult('immediate_memory_words', words);
+                    }
+                });
+                document.getElementById('immediate-memory-end-btn').addEventListener('click', () => {
+                    const trials = document.querySelectorAll('#immediate-memory-data input');
+                    const scores = Array.from(trials).map(t => parseInt(t.value));
+                    saveTestResult('immediate_memory', scores.reduce((a, b) => a + b, 0));
+                    saveTestResult('immediate_memory_timestamp', Date.now());
+                    saveTestResult('immediate_memory_score_by_trial_by_word', immediate_memory_score_by_trial_by_word);
+                    renderTestSection('concentration');
+                });
+            </script>
+        </section>
+    </main>
+    <main style="display: none;" id="concentration">
+        <section>
+            <h2>Koncentration</h2>
+            <h3>Cifre baglæns</h3>
+            <p style="margin-top: 0;">Eksaminator, læs følgende tal (én sekvens fra hvert sæt) og bed atleten om at gentage dem i omvendt rækkefølge. Sig dem langsomt med et ciffer pr. sekund. Hvert sæt har to talsekvenser. Hvis atleten ikke klarer det første tal, kan man prøve det andet. Hvis begge ikke klarer det, afsluttes dette underafsnit og der gås videre til månederne i omvendt rækkefølge.</p>
+            <p style="font-style: italic;">Jeg vil læse en række tal op, og når jeg er færdig, gentager du dem for mig i omvendt rækkefølge af, hvordan jeg læste dem op for dig. For eksempel, hvis jeg siger 7 1 9, ville du sige 9 1 7. Så hvis jeg sagde 9 6 8, ville du sige? &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
+            <ul id="digit-sets" style="font-size: 1.3em;">
+                <li><span>4-9-3 <i class="fa-solid fa-volume-high" onclick="abortSpeaking(); readListOneWPS([4, 9, 3]);"></i>   <i class="fa-solid fa-circle-check" style="color: var(--green)"></i> <i class="fa-solid fa-circle-xmark" style="color: var(--red)"></i></span><div style="height: 4px"></div>
+                    <span>6-2-9 <i class="fa-solid fa-volume-high" onclick="abortSpeaking(); readListOneWPS([6, 2, 9]);"></i>   <i class="fa-solid fa-circle-check" style="color: var(--green)"></i> <i class="fa-solid fa-circle-xmark" style="color: var(--red)"></i></span></li><br>
+                <li><span>3-8-1-4 <i class="fa-solid fa-volume-high" onclick="abortSpeaking(); readListOneWPS([3, 8, 1, 4]);"></i>   <i class="fa-solid fa-circle-check" style="color: var(--green)"></i> <i class="fa-solid fa-circle-xmark" style="color: var(--red)"></i></span><div style="height: 4px"></div>
+                    <span>3-2-7-9 <i class="fa-solid fa-volume-high" onclick="abortSpeaking(); readListOneWPS([3, 2, 7, 9]);"></i>   <i class="fa-solid fa-circle-check" style="color: var(--green)"></i> <i class="fa-solid fa-circle-xmark" style="color: var(--red)"></i></span></li><br>
+                <li><span>6-2-9-7-1 <i class="fa-solid fa-volume-high" onclick="abortSpeaking(); readListOneWPS([6, 2, 9, 7, 1]);"></i>   <i class="fa-solid fa-circle-check" style="color: var(--green)"></i> <i class="fa-solid fa-circle-xmark" style="color: var(--red)"></i></span><div style="height: 4px"></div>
+                    <span>1-5-2-8-6 <i class="fa-solid fa-volume-high" onclick="abortSpeaking(); readListOneWPS([1, 5, 2, 8, 6]);"></i>   <i class="fa-solid fa-circle-check" style="color: var(--green)"></i> <i class="fa-solid fa-circle-xmark" style="color: var(--red)"></i></span></li><br>
+                <li><span>7-1-8-4-6-2 <i class="fa-solid fa-volume-high" onclick="abortSpeaking(); readListOneWPS([7, 1, 8, 4, 6, 2]);"></i>   <i class="fa-solid fa-circle-check" style="color: var(--green)"></i> <i class="fa-solid fa-circle-xmark" style="color: var(--red)"></i></span><div style="height: 4px"></div>
+                    <span>5-3-9-1-4-8 <i class="fa-solid fa-volume-high" onclick="abortSpeaking(); readListOneWPS([5, 3, 9, 1, 4, 8]);"></i>   <i class="fa-solid fa-circle-check" style="color: var(--green)"></i> <i class="fa-solid fa-circle-xmark" style="color: var(--red)"></i></span></li>
+            </ul>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Antal korrekte sæt (ud af 4): <input type="number" id="concentration-digits" value="0"/></label>
+        
+            <h3>Måneder i omvendt rækkefølge</h3>
+            <p style="margin-top: 0;">Eksaminator, læs instruktionerne nedenfor for atleten og klik for at strege månederne over, efterhånden som de står i den rigtige rækkefølge.</p>
+            <p style="font-style: italic;">Sig årets måneder i omvendt rækkefølge så HURTIGT og præcist som muligt. Start med den sidste måned og gå baglæns. Du vil altså sige december, november... værsgo &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
+            <ul id="months-reverse-order">
+                <li>december</li>
+                <li>november</li>
+                <li>Oktober</li>
+                <li>september</li>
+                <li>august</li>
+                <li>juli</li>
+                <li>juni</li>
+                <li>Maj</li>
+                <li>april</li>
+                <li>Marts</li>
+                <li>februar</li>
+                <li>januar</li>
+            </ul>
+            <label class="left-align green" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em;"><input type="checkbox" id="concentration-months"/> Markér feltet, hvis atleten har udfyldt alle måneder korrekt.</label>
+            <button class="button button--green" id="concentration-end-btn">Start BESS-test &nbsp; <i class="fa-solid fa-forward"></i></button>
+            <script>
+                const concentration_digits = [
+                    [undefined, undefined],
+                    [undefined, undefined],
+                    [undefined, undefined],
+                    [undefined, undefined],
+                ];
+                const concentration_months = [false, false, false, false, false, false, false, false, false, false, false, false];
+                let concentration_months_start_time = null;
+                document.getElementById('concentration-end-btn').addEventListener('click', () => {
+                    const digits = parseInt(document.getElementById('concentration-digits').value);
+                    const months = document.getElementById('concentration-months').checked ? 1 : 0;
+                    saveTestResult('concentration', digits + months);
+                    saveTestResult('concentration_digit_list', 'A');
+                    saveTestResult('concentration_digits', concentration_digits);
+                    saveTestResult('concentration_months', concentration_months)
+                    saveTestResult('concentration_months_time_sec', Math.round((Date.now() - concentration_months_start_time) / 1000))
+                    renderTestSection('bess');
+                });
+                document.addEventListener('renderTestSection', (e) => {
+                    if (e.detail === 'concentration') {
+                        document.getElementById('concentration-digits').value = 0;
+                        document.getElementById('concentration-months').checked = false;
+                        for (let i = 0; i < digitSets.children.length; i += 2) {
+                            for (const a of [0, 2]) {
+                                resetDigitSet(i, a);
+                            }
+                        }
+                        digitSets.children[0].children[0].inert = false;
+                        digitSets.children[0].children[0].style.opacity = '1.0';
+                        concentration_months_start_time = null;
+                        for (let i = 0; i < concentration_months.length; i++) {
+                            concentration_months[i] = false;
+                        }
+                    }
+                });
+                const digitSets = document.getElementById('digit-sets');
+                function resetDigitSet(setnumber, alternative) {
+                    digitSets.children[setnumber].children[alternative].inert = true;
+                    digitSets.children[setnumber].children[alternative].style.opacity = '0.5';
+                    digitSets.children[setnumber].children[alternative].style.textDecoration = '';
+                    digitSets.children[setnumber].children[alternative].style.color = '';
+                    for (const c of digitSets.children[setnumber].children[alternative].children) {
+                        c.inert = false;
+                        c.style.opacity = '1.0';
+                    }
+                    concentration_digits[setnumber/2][alternative/2] = undefined;
+                }
+                digitSets.addEventListener('click', (e) => {
+                    if (e.target.tagName === 'I' && !e.target.classList.contains('fa-volume-high')) {
+                        const pass = e.target.classList.contains('fa-circle-check');
+                        const alternative = Array.from(e.target.parentElement.parentElement.children).indexOf(e.target.parentElement);
+                        const digitSet = Array.from(digitSets.children).indexOf(e.target.parentElement.parentElement);
+
+                        // reset all next sets
+                        for (let i = digitSet + 2; i < digitSets.children.length; i += 2) {
+                            for (const a of [0, 2]) {
+                                resetDigitSet(i, a);
+                            }
+                        }
+                        if (alternative === 0) {
+                            resetDigitSet(digitSet, 2);
+                        }
+
+                        // update current and unlock next
+                        for (const c of e.target.parentElement.children) {
+                            c.inert = false;
+                            c.style.opacity = '1.0';
+                        }
+                        e.target.inert = true;
+                        e.target.style.opacity = '0.5';
+                        if (pass) {
+                            digitSets.children[digitSet].children[alternative].style.textDecoration = 'line-through';
+                            digitSets.children[digitSet].children[alternative].style.color = 'darkgreen';
+                            concentration_digits[digitSet/2][alternative/2] = true;
+                            if (digitSet / 2 < 3) {
+                                digitSets.children[digitSet + 2].children[0].inert = false;
+                                digitSets.children[digitSet + 2].children[0].style.opacity = '1.0';
+                            } else {
+                                speak('Nice! Please move on to the months in reverse order.');
+                            }
+                            document.getElementById('concentration-digits').value = digitSet / 2 + 1;
+                        } else {
+                            digitSets.children[digitSet].children[alternative].style.textDecoration = 'line-through';
+                            digitSets.children[digitSet].children[alternative].style.color = 'darkred';
+                            concentration_digits[digitSet/2][alternative/2] = false;
+                            if (alternative === 0) {
+                                digitSets.children[digitSet].children[2].inert = false;
+                                digitSets.children[digitSet].children[2].style.opacity = '1.0';
+                            } else {
+                                speak('Failed both sequences in this set. Please move on to the months in reverse order.');
+                            }
+                            document.getElementById('concentration-digits').value = digitSet / 2;
+                        }
+                    }
+                });
+                document.getElementById("months-reverse-order").addEventListener("click", (event) => {
+                    if (event.target.tagName === 'LI') {
+                        if (concentration_months_start_time === null) {
+                            concentration_months_start_time = Date.now();
+                        }
+                        const wasCrossed = event.target.style.textDecoration === 'line-through';
+                        event.target.style.textDecoration = wasCrossed ? 'none' : 'line-through';
+                        event.target.style.color = wasCrossed ? '' : 'darkgreen';
+                        const ix = [...document.getElementById("months-reverse-order").children].indexOf(event.target);
+                        concentration_months[ix] = !wasCrossed;
+                        const numCrossed = document.getElementById("months-reverse-order").querySelectorAll('li[style*="line-through"]').length;
+                        if (numCrossed === 12) {
+                            document.getElementById('concentration-months').checked = true;
+                        } else {
+                            document.getElementById('concentration-months').checked = false;
+                        }
+                    }
+                });
+            </script>
+        </section>
+    </main>
+    <main style="display: none;" id="bess">
+        <section style="position: relative;">
+            <button class="button button--red countdown-audio" aria-label="Slå nedtællingslyd til/fra" style="position: absolute; right: 1em; top: 1em">Lyd &nbsp; <i class="fa-solid fa-stopwatch-20"></i>   <i class="fa-solid fa-volume-xmark"></i></button>
+            <h2>Balancefejl Scoring System <a style="font-size: 0.6em; vertical-align: middle;" href="/assets/bess_manual.pdf" target="_blank" aria-label="Manuelle BESS-instruktioner"><i class="fa-solid fa-circle-info"></i></a></h2>
+            <p style="margin-top: 0;">Atleten guides gennem 3 stillinger (dobbelt ben, tandem og ét ben), som holdes i 20 sekunder hver. Den efterfølgende test på skumpude er valgfri; kun et fast gulv/underlag er nødvendigt. Du skal have en hjælper, der holder øje med atleten og er klar til at hjælpe ved ustabilitet og faldtendens.</p>
+            <p>Atleten bør tage skoene af, rulle bukseben op over anklerne (hvis relevant) og fjerne eventuel ankeltape (hvis relevant).</p>
+            <p>Din opgave som undersøger er at holde kameraet så roligt som muligt (mindre rystelser er okay), så atleten hele tiden er fuldt i billedet. Hvis det automatiske system overser noget, skal du tælle følgende fejl i atletens udførelse af stillingerne:</p>
+            <ul>
+                <li style="text-align: left;">Åbner øjne</li>
+                <li style="text-align: left;">Løfter hænderne fra hoftekammene (øverste kant af bækkenet/hoftebenet)</li>
+                <li style="text-align: left;">Trinfejl, snublen eller fald</li>
+                <li style="text-align: left;">Abduktion eller fleksion af hoften (bevægelse af hofterne fremad/bagud/sidelæns) mere end 30 grader</li>
+                <li style="text-align: left;">Rotation af skulderen ud over 30 grader</li>
+                <li style="text-align: left;">Ude af testpositionen i mere end 5 sekunder</li>
+                <li style="text-align: left;">Løft af forfod eller hæl</li>
+            </ul>
+            <p>Flere samtidige fejl tæller som én. Hvis stillingen ikke kan holdes i mindst 5 sekunder, tæller det som maksimalt antal fejl for den stilling (10).</p>
+
+            <div id="instructions" style="bottom: 0; left: 0; width: 100%; padding: 10px; background-color: var(--secondary);" class="center"></div>
+            <div style="position: relative;">
+                <canvas id="canvas" width="0" height="0" style="max-width: 100%; max-height: 90vh;"></canvas>
+                <video id="video" style="display:none"></video>
+                <div id="status" style="opacity: 0.8; position: absolute; bottom: 0; left: 0; width: 100%; padding: 10px; background-color: gray;" class="center">Får kameratilladelser...</div>
+                <div id="camera-control" style="position: absolute; top: 0; right: 0; display: none;">
+                    <button class="button" id="mirror-button">Spejl &nbsp; <img src="/assets/mirror.svg" style="height: 1em"></button>
+                    <button class="button" id="switch-camera-direction" onclick="tracker.changeCameraFacingMode(tracker.idealFacingMode == 'user' ? 'environment' : 'user')">Skift kamera &nbsp; <img src="/assets/flip-camera.svg" style="height: 1em"></button>
+                </div>
+            </div>
+            <button class="button" id="voice-ctrl-button">Stemmekontrol &nbsp; <i class="fa-solid fa-microphone"></i></button>
+            <button class="button" id="bess-calibrate" disabled>Overskriv nuværende stilling som korrekt &nbsp; <i class="fa-solid fa-crosshairs"></i></button>
+            <button class="button button--red" onclick="renderTestSection('manual-bess')">Vurder manuelt &nbsp; <i class="fa-solid fa-forward"></i></button>
+
+            <script defer src="/lib/tensorflow/tfjs-core.js"></script>
+            <script defer src="/lib/tensorflow/tfjs-converter.js"></script>
+            <script defer src="/lib/tensorflow/tfjs-backend-webgl.js"></script>
+            <script defer src="/lib/tensorflow/pose-detection.js"></script>
+            <script defer src="/lib/tensorflow/face-detection.js"></script>
+            <script defer src="/lib/tensorflow/face-landmarks-detection.js"></script>
+            <script defer src="/lib/three.min.js"></script>
+            <script defer src="/lib/scatter-gl.min.js"></script>
+            <script defer src="/lib/tracker.js"></script>
+            <script src="/bess.js" type="module"></script>
+        </section>
+    </main>
+    <main style="display: none;" id="manual-bess">
+        <section style="position: relative;">
+            <button class="button button--red countdown-audio" aria-label="Slå nedtællingslyd til/fra" style="position: absolute; right: 1em; top: 1em">Lyd &nbsp; <i class="fa-solid fa-stopwatch-20"></i>   <i class="fa-solid fa-volume-xmark"></i></button>
+            <h2>Balancefejl Scoring System <a style="font-size: 0.6em; vertical-align: middle;" href="/assets/bess_manual.pdf" target="_blank" aria-label="Manuelle BESS-instruktioner"><i class="fa-solid fa-circle-info"></i></a></h2>
+            <p style="margin-top: 0;">Eksaminator, du vil guide atleten gennem 3 stillinger (tobens-, tandem- og enkeltbens-stilling), der skal holdes i 20 sekunder hver. Den senere skumpudetest er valgfri, kun et fast gulv/jordoverflade er påkrævet. Du skal bruge en observatør til at holde øje med atleten og være klar til at hjælpe dem, hvis de bliver ustabile og begynder at falde.</p>
+            <p>Atleten bør tage skoene af, rulle bukseben op over anklerne (hvis relevant) og fjerne eventuel ankeltape (hvis relevant).</p>
+            <p>Hold styr på følgende fejl i atletens udførelse af stillingerne:</p>
+            <ul>
+                <li style="text-align: left;">Åbner øjne</li>
+                <li style="text-align: left;">Løfter hænderne fra hoftekammene (øverste kant af bækkenet/hoftebenet)</li>
+                <li style="text-align: left;">Trinfejl, snublen eller fald</li>
+                <li style="text-align: left;">Abduktion eller fleksion af hoften (bevægelse af hofterne fremad/bagud/sidelæns) mere end 30 grader</li>
+                <li style="text-align: left;">Rotation af skulderen ud over 30 grader</li>
+                <li style="text-align: left;">Ude af testpositionen i mere end 5 sekunder</li>
+                <li style="text-align: left;">Løft af forfod eller hæl</li>
+            </ul>
+            <p>Flere samtidige fejl tæller som én. Hvis stillingen ikke kan holdes i mindst 5 sekunder, tæller det som maksimalt antal fejl for den stilling (10).</p>
+        
+            <h3>Dobbeltbens holdning</h3>
+            <p style="margin-top: 0;">Eksaminator, hold styr på ovenstående fejl og læs instruktionerne nedenfor:</p>
+            <p style="font-style: italic;">Stå med samlede fødder, hænderne på hofterne og lukkede øjne. Hold denne position i 20 sekunder &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
+            <img src="/assets/double_leg.png" style="height: 100%; max-height: 40vh; margin: 0 auto; margin-bottom: 6px">
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Antal fejl: <input type="number" id="double-leg-errors" value="0"/></label>
+            <button class="button button--green" onclick="startCountdown(this, 20)">Start 20 sek. nedtælling</button>
+
+            <h3>Tandemstilling</h3>
+            <p style="margin-top: 0;">Eksaminator, hold styr på ovenstående fejl og læs instruktionerne nedenfor:</p>
+            <p style="font-style: italic;">Stå med fødderne i hæl-mod-tå-position, hænderne på hofterne og lukkede øjne. Hold denne position i 20 sekunder &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
+            <img src="/assets/tandem_stance.png" style="height: 100%; max-height: 40vh; margin: 0 auto; margin-bottom: 6px">
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Antal fejl: <input type="number" id="tandem-stance-errors" value="0"/></label>
+            <button class="button button--green" onclick="startCountdown(this, 20)">Start 20 sek. nedtælling</button>
+
+            <h3>Stå på ét ben</h3>
+            <p style="margin-top: 0;">Eksaminator, hold styr på ovenstående fejl og læs instruktionerne nedenfor:</p>
+            <p style="font-style: italic;">Stå på ét ben, med hænderne på hofterne og lukkede øjne. Hold denne position i 20 sekunder &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
+            <img src="/assets/single_leg.png" style="height: 100%; max-height: 40vh; margin: 0 auto; margin-bottom: 6px">
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Antal fejl: <input type="number" id="single-leg-errors" value="0"/></label>
+            <button class="button button--green" onclick="startCountdown(this, 20)">Start 20 sek. nedtælling</button>
+
+            <h3>Dobbeltbensstilling på skum (<span style="color: var(--orange)">Valgfri</span>)</h3>
+            <p style="margin-top: 0;">Skumtesten kræver en skumpude på 50 cm x 40 cm x 6 cm. Anbefalet model er <a href="http://www.power-systems.com/" target="_blank">Power Systems Airex Balance Pad 81000 (anbefalet model)</a>.</p>
+            <p>Eksaminator, hold styr på ovenstående fejl og læs instruktionerne nedenfor:</p>
+            <p style="font-style: italic;">Stå med samlede fødder, hænderne på hofterne og lukkede øjne. Hold denne position i 20 sekunder &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
+            <img src="/assets/double_leg.png" style="height: 100%; max-height: 40vh; margin: 0 auto; margin-bottom: 6px">
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Antal fejl: <input type="number" id="double-leg-foam-errors" value="0"/></label>
+            <button class="button button--green" onclick="startCountdown(this, 20)">Start 20 sek. nedtælling</button>
+
+            <h3>Tandemstilling på skum (<span style="color: var(--orange)">Valgfri</span>)</h3>
+            <p style="margin-top: 0;">Skumtesten kræver en skumpude på 50 cm x 40 cm x 6 cm. Anbefalet model er <a href="http://www.power-systems.com/" target="_blank">Power Systems Airex Balance Pad 81000 (anbefalet model)</a>.</p>
+            <p>Eksaminator, hold styr på ovenstående fejl og læs instruktionerne nedenfor:</p>
+            <p style="font-style: italic;">Stå med fødderne i hæl-mod-tå-position, hænderne på hofterne og lukkede øjne. Hold denne position i 20 sekunder &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
+            <img src="/assets/tandem_stance.png" style="height: 100%; max-height: 40vh; margin: 0 auto; margin-bottom: 6px">
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Antal fejl: <input type="number" id="tandem-stance-foam-errors" value="0"/></label>
+            <button class="button button--green" onclick="startCountdown(this, 20)">Start 20 sek. nedtælling</button>
+
+            <h3>Stå på ét ben på skum (<span style="color: var(--orange)">Valgfri</span>)</h3>
+            <p style="margin-top: 0;">Skumtesten kræver en skumpude på 50 cm x 40 cm x 6 cm. Anbefalet model er <a href="http://www.power-systems.com/" target="_blank">Power Systems Airex Balance Pad 81000 (anbefalet model)</a>.</p>
+            <p>Eksaminator, hold styr på ovenstående fejl og læs instruktionerne nedenfor:</p>
+            <p style="font-style: italic;">Stå på ét ben, med hænderne på hofterne og lukkede øjne. Hold denne position i 20 sekunder &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
+            <img src="/assets/single_leg.png" style="height: 100%; max-height: 40vh; margin: 0 auto; margin-bottom: 6px">
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Antal fejl: <input type="number" id="single-leg-foam-errors" value="0"/></label>
+            <button class="button button--green" onclick="startCountdown(this, 20)">Start 20 sek. nedtælling</button>
+            <br><br>
+            <button class="button button--green" id="bess-end-btn">Start tandemgang &nbsp; <i class="fa-solid fa-forward"></i></button>
+            <script>
+                document.getElementById('bess-end-btn').addEventListener('click', () => {
+                    const doubleLegErrors = parseInt(document.getElementById('double-leg-errors').value);
+                    const tandemStanceErrors = parseInt(document.getElementById('tandem-stance-errors').value);
+                    const singleLegErrors = parseInt(document.getElementById('single-leg-errors').value);
+                    const totalErrors = doubleLegErrors + tandemStanceErrors + singleLegErrors;
+                    const doubleLegFoamErrors = parseInt(document.getElementById('double-leg-foam-errors').value);
+                    const tandemStanceFoamErrors = parseInt(document.getElementById('tandem-stance-foam-errors').value);
+                    const singleLegFoamErrors = parseInt(document.getElementById('single-leg-foam-errors').value);
+                    const totalFoamErrors = doubleLegFoamErrors + tandemStanceFoamErrors + singleLegFoamErrors;
+                    saveTestResult("mBESS_double_errors", doubleLegErrors);
+                    saveTestResult("mBESS_single_errors", tandemStanceErrors);
+                    saveTestResult("mBESS_tandem_errors", singleLegErrors);
+                    saveTestResult("mBESS_total_errors", totalErrors);
+                    saveTestResult("mBESS_foam_double_errors", doubleLegFoamErrors);
+                    saveTestResult("mBESS_foam_single_errors", tandemStanceFoamErrors);
+                    saveTestResult("mBESS_foam_tandem_errors", singleLegFoamErrors);
+                    saveTestResult("mBESS_foam_total_errors", totalFoamErrors);
+                    renderTestSection('tandem-gait');
+                });
+            </script>
+        </section>
+    </main>
+    <main style="display: none;" id="tandem-gait">
+        <section>
+            <h2>Tidstaget tandemgang</h2>
+            <p style="margin-top: 0;">Eksaminator, placer venligst en 3 meter lang line på gulvet/fast overflade med sportsbånd. Du vil instruere atleten og starte/stoppe timeren i 3 forsøg.</p>
+            <img src="/assets/tandem-gait.png" style="width: 100%; max-width: 400px; margin: 0 auto;">
+            <p style="font-style: italic;">Når timeren starter, gå venligst hæl-mod-tå hurtigt til enden af tapen, vend rundt og kom tilbage så hurtigt som muligt uden at adskille fødderne eller træde uden for linjen &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
+            <img src="/assets/tandem-gait-side.png" style="width: 100%; max-width: 400px; margin: 0 auto; margin-bottom: 10px;">
+            <table style="margin: auto;">
+                <thead><tr><th style="padding-right: 1em">Forsøg 1 (sekunder)</th><th style="padding-right: 1em">Forsøg 2 (sekunder)</th><th style="padding-right: 1em">Forsøg 3 (sekunder)</th><th style="padding-right: 1em">Gennemsnit (sekunder)</th><th style="padding-right: 1em">Hurtigste (sekunder)</th></tr></thead>
+                <tbody>
+                    <tr id="tandem-data">
+                        <td data-title="Forsøg 1 (sekunder)" data-field="trial1"><button data-action="start-1" class="button button--green">Start timer</button></td>
+                        <td data-title="Forsøg 2 (sekunder)" data-field="trial2">---</td>
+                        <td data-title="Forsøg 3 (sekunder)" data-field="trial3">---</td>
+                        <td data-title="Gennemsnit (sekunder)" data-field="average">---</td>
+                        <td data-title="Hurtigste (sekunder)" data-field="fastest">---</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>Raske atleter har typisk en hurtigste tid mellem 13,9 og 15,8. Nyligt ramte atleter ligger typisk mellem 21,9 og 26,1. Atleter, der har fået hjernerystelse inden for de sidste 6-73 dage, vil ligge et sted midt imellem. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7987555/" target="_blank">Kilde</a>.</p>
+            <button class="button button--red" onclick="renderTestSection('delayed-recall')">Kan ikke gå tandemgang</button>
+            <button class="button button--orange" style="display: none" id="start-dual-task-gait">Start valgfri dual-task gangtest &nbsp; <i class="fa-solid fa-forward"></i></button>
+            <button class="button button--green" style="display: none" id="skip-to-delayed-recall">Spring til forsinket genkaldelse &nbsp; <i class="fa-solid fa-forward"></i></button>
+            <script src="/tandem-gait.js" type="module"></script>
+        </section>
+    </main>
+    <main style="display: none;" id="dual-task-gait">
+        <section style="border: 1px dashed var(--orange)">
+            <h2>Dobbeltopgavegang (<span style="color: var(--orange)">Valgfri</span>)</h2>
+            <p style="margin-top: 0;">Eksaminator, behold venligst den 3 meter lange sportsbåndslinje fra på gulvet/den faste overflade. Du skal følge vejledningen nedenfor, klikke på start/slut timer og klikke på de svar, som atleten korrekt giver i rækkefølge. Gentag de forsøg, hvor atleten afviger fra linjen.</p>
+            <img src="/assets/tandem-gait.png" style="width: 100%; max-width: 400px; margin: 0 auto;">
+            <p style="font-style: italic;">Mens du går hæl-mod-tå, skal du tælle baglæns højt med syv ad gangen. Hvis vi fx starter ved 100, siger du 100, 93, 86, 79. Lad os øve. Start ved 93 og tæl baglæns med syv, indtil undersøgeren siger stop &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
+            <table style="margin: auto;">
+                <thead><tr><th>Opgave</th><th>Korrekte svar</th><th>Fejl</th><th>Tid (sekunder)</th></tr></thead>
+                <tbody>
+                    <tr id="dual-task-trial-practice-data">
+                        <td data-title="Opgave" data-field="task">Øvelse</td>
+                        <td data-title="Korrekte svar" data-field="responses"><div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; font-size: 1.3em;"><span>93</span><span>86</span><span>79</span><span>72</span><span>65</span><span>58</span><span>51</span><span>44</span></div></td>
+                        <td data-title="Fejl" data-field="errors"><input type="number" value="0" style="min-width: 6ch;"></td>
+                        <td data-title="Tid (sekunder)" data-field="time"><button data-action="start-trial-practice" class="button button--green">Start timer</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="font-style: italic;">Godt, nu skal du gå hæl til tå og tælle højt baglæns samtidig. Fortsæt med at tælle, indtil du er færdig med at gå de 3 meter, drejer dig 180 grader, går de 3 meter igen, og eksaminator siger stop, hvilket indikerer, at du er nået til det sidste tal. Er du klar? Tallet at starte med er 88. Start! &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
+            <table style="margin: auto;">
+                <thead><tr><th>Opgave</th><th>Korrekte svar</th><th>Fejl</th><th>Tid (sekunder)</th></tr></thead>
+                <tbody>
+                    <tr id="dual-task-trial-1-data">
+                        <td data-title="Opgave" data-field="task">Forsøg 1</td>
+                        <td data-title="Korrekte svar" data-field="responses"><div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; font-size: 1.3em;"><span>88</span><span>81</span><span>74</span><span>67</span><span>60</span><span>53</span><span>46</span><span>39</span><span>32</span><span>25</span><span>18</span><span>11</span><span>4</span><i class="fa-solid fa-pen-to-square" data-action="edit-numbers"></i></div></td>
+                        <td data-title="Fejl" data-field="errors"><input type="number" value="0" style="min-width: 6ch;"></td>
+                        <td data-title="Tid (sekunder)" data-field="time"><button data-action="start-trial-1" class="button button--green">Start timer</button></td>
+                    </tr>
+                    <tr id="dual-task-trial-2-data">
+                        <td data-title="Opgave" data-field="task">Forsøg 2</td>
+                        <td data-title="Korrekte svar" data-field="responses"><div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; font-size: 1.3em;"><span>90</span><span>83</span><span>76</span><span>69</span><span>62</span><span>55</span><span>48</span><span>41</span><span>34</span><span>27</span><span>20</span><span>13</span><span>6</span><i class="fa-solid fa-pen-to-square" data-action="edit-numbers"></i></div></td>
+                        <td data-title="Fejl" data-field="errors"><input type="number" value="0" style="min-width: 6ch;"></td>
+                        <td data-title="Tid (sekunder)" data-field="time"><button data-action="start-trial-2" class="button button--green">Start timer</button></td>
+                    </tr>
+                    <tr id="dual-task-trial-3-data">
+                        <td data-title="Opgave" data-field="task">Forsøg 3</td>
+                        <td data-title="Korrekte svar" data-field="responses"><div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; font-size: 1.3em;"><span>98</span><span>91</span><span>84</span><span>77</span><span>70</span><span>63</span><span>56</span><span>49</span><span>42</span><span>35</span><span>28</span><span>21</span><span>14</span><i class="fa-solid fa-pen-to-square" data-action="edit-numbers"></i></div></td>
+                        <td data-title="Fejl" data-field="errors"><input type="number" value="0" style="min-width: 6ch;"></td>
+                        <td data-title="Tid (sekunder)" data-field="time"><button data-action="start-trial-3" class="button button--green">Start timer</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>Raske atleter gennemfører typisk opgaven på 18,7-22,5 sekunder med en nøjagtighed på 85,8-92,4 % (0,9-1,7 fejl). Atleter med hjernerystelse bruger typisk 30,6-36,1 sekunder med en nøjagtighed på 76,4-83,6 % (2,0-2,8 fejl). <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7987555/" target="_blank">Kilde</a>.</p>
+            <button class="button" onclick="renderTestSection('delayed-recall')">Start forsinket genkaldelse &nbsp; <i class="fa-solid fa-forward"></i></button>
+            <script src="/dual-task.js" type="module"></script>
+        </section>
+    </main>
+    <main style="display: none;" id="delayed-recall">
+        <section>
+            <h2>Forsinket tilbagekaldelse</h2>
+            <div id="delayed-recall-content"></div>
+            <script src="/delayed-recall.js" type="module"></script>
+        </section>
+    </main>
+    <main style="display: none;" id="results">
+        <section style="position: relative;">
+            <h2>Resultater</h2>
+            <select id="export-results-select" style="position: absolute; right: 1em; top: 1em; opacity: 0; pointer-events: none;">
+                <option disabled selected>Vælg en eksportmulighed:</option>
+                <option value="Report">Samlet rapport</option>
+                <option value="SCAT6">Fuld SCAT6</option>
+                <option value="CSV">Rå CSV</option>
+            </select>
+            <button class="button" id="export-results" style="position: absolute; right: 1em; top: 1em;">Eksporter &nbsp; <i class="fa-solid fa-file-export"></i></button>
+            <iframe id="print-frame" style="display: none;"></iframe>
+            <div id="results-content"><p style="margin-top: 0;">Indlæser...</p></div><br>
+            <button class="button" onclick="endTest()">Tilbage til hovedmenu</button>
+            <script src="/results.js" type="module"></script>
+        </section>
+        <section>
+            <h2>Vil du hjælpe med at gøre dette værktøj bedre?</h2>
+            <p style="margin-top: 0;">Dette værktøj er 100% <a href="https://github.com/SanderGi/ConcussionAssessment">Gratis og åben kildekode</a> og fokuseret på privatliv. Det betyder, at der ikke indsamles nogen brugsdata, men vi vil stadig meget gerne høre fra dig, så vi kan forbedre værktøjet. Her er nogle valgfrie måder, du kan bidrage på:</p>
+            <ul style="max-width: 80ch; margin: auto; text-align: left;">
+                <li>Brug 10 minutter på at udfylde <a href="https://docs.google.com/forms/d/e/1FAIpQLSdBolyOESnMwdJW6ONJ-8MLbwcpHxQsrV5nChIqOiDfMF6YgQ/viewform?usp=dialog" target="_blank">en hurtig feedback-formular</a> og/eller bed dine patienter/atleter om også at udfylde den.</li>
+                <li><label class="left-align spread-inline" style="padding-left: 0;">Tilmeld dig frivilligt for at dele anonymiserede testresultater til forskning og forbedring af værktøjets anbefalinger. <input type="checkbox" onclick="shareTestData(this.checked)" id="checkbox-share-test-results"></label></li>
+                <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScBuu2QRPQM6xrDg7_dlF75-0DOjYxSCnvI_JQWWtrBhvpt6A/viewform?usp=dialog" target="_blank">Upload fotos/videoer</a> fra det automatiserede BESS til at informere mere inkluderende ML-modeller.</li>
+            </ul>
+            <br>
+        </section>
+    </main>
+    <footer>
+        <p><a href="https://www.concussioninsportgroup.com/">CISG</a> godkendt <a href="/assets/SCAT6.pdf">SCAT6™-skema</a> tilpasning | Af Aureole Chang og Alexander Metzger | <a href="https://github.com/SanderGi/ConcussionAssessment">Kode</a> open source <a href="https://github.com/SanderGi/ConcussionAssessment/blob/master/LICENSE">MIT-licens</a></p>
+        <div style="display: flex; justify-content: space-evenly; align-items: center; flex-wrap: wrap; margin-bottom: 1em">
+            <img src="/assets/CISG_LOGO.png" alt="CISG Logo" style="height: 2em; margin-top: 0.5em;">
+            <img src="/assets/IOC_LOGO.png" alt="International Olympic Committee Logo" style="height: 2em; margin-top: 0.5em;">
+            <img src="/assets/FEI_LOGO.png" alt="Federation Equestre Internationale Logo" style="height: 2em; margin-top: 0.5em;">
+            <img src="/assets/FIA_LOGO.png" alt="Federation Internationale de l'Automobile Logo" style="height: 2em; margin-top: 0.5em;">
+            <img src="/assets/FIFA_LOGO.png" alt="International Federation of Association Football Logo" style="height: 2em; margin-top: 0.5em;">
+            <img src="/assets/IIHF_LOGO.png" alt="International Ice Hockey Federation Logo" style="height: 2em; margin-top: 0.5em;">
+            <img src="/assets/WRUGBY_LOGO.png" alt="World Rugby Logo" style="height: 2em; margin-top: 0.5em;">
+        </div>
+    </footer>
+
+    <script type="module" src="/scripts.js"></script>
+    <script>
+        // ============================ Debug ============================
+        if (/dev=true/.test(window.location)) {
+            import('/lib/eruda.js').then(() => eruda.init());
+            import('/util/popup.js').then(m => window.BessConfig = m.BessConfig);
+        }
+    </script>
+  </body>
+</html>

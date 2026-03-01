@@ -19,54 +19,77 @@ import {
 } from "./testManager.js";
 import { alert, bessEndMenu } from "./util/popup.js";
 
+const t = (key, fallback) => window.__scat6T?.(key, fallback) ?? fallback;
+const tf = (key, vars, fallback) =>
+  window.__scat6Format?.(key, vars, fallback) ??
+  fallback.replace(/\{\{(\w+)\}\}/g, (_, token) => vars?.[token] ?? "");
+
 // ============================ Stages ============================
 const FIRST_POSE = "DOUBLE";
 const FIRST_FOAM_POSE = "DOUBLE_FOAM";
 const POSES = {
   DOUBLE: {
     description:
-      "please stand straight with hands on your hips and feet touching",
-    image: "./assets/double_leg.png",
+      t(
+        "runtime.bess.pose.double",
+        "please stand straight with hands on your hips and feet touching"
+      ),
+    image: "/assets/double_leg.png",
     assess_fx: assess_double_pose,
     test_field: "mBESS_double_errors",
     next: "TANDEM",
   },
   TANDEM: {
     description:
-      "please stand heel-to-toe (non-dominant foot in the back) with hands on your hips",
-    image: "./assets/tandem_stance.png",
+      t(
+        "runtime.bess.pose.tandem",
+        "please stand heel-to-toe (non-dominant foot in the back) with hands on your hips"
+      ),
+    image: "/assets/tandem_stance.png",
     assess_fx: assess_tandem_pose,
     test_field: "mBESS_tandem_errors",
     next: "SINGLE",
   },
   SINGLE: {
     description:
-      "please stand on your non-dominant leg with hands on your hips",
-    image: "./assets/single_leg.png",
+      t(
+        "runtime.bess.pose.single",
+        "please stand on your non-dominant leg with hands on your hips"
+      ),
+    image: "/assets/single_leg.png",
     assess_fx: assess_single_pose,
     test_field: "mBESS_single_errors",
     next: "END",
   },
   DOUBLE_FOAM: {
     description:
-      "please stand straight with hands on your hips and feet touching on foam",
-    image: "./assets/double_foam.png",
+      t(
+        "runtime.bess.pose.double_foam",
+        "please stand straight with hands on your hips and feet touching on foam"
+      ),
+    image: "/assets/double_foam.png",
     assess_fx: assess_double_pose,
     test_field: "mBESS_foam_double_errors",
     next: "TANDEM_FOAM",
   },
   TANDEM_FOAM: {
     description:
-      "please stand heel-to-toe (non-dominant foot in the back) with hands on your hips on foam",
-    image: "./assets/tandem_foam.png",
+      t(
+        "runtime.bess.pose.tandem_foam",
+        "please stand heel-to-toe (non-dominant foot in the back) with hands on your hips on foam"
+      ),
+    image: "/assets/tandem_foam.png",
     assess_fx: assess_tandem_pose,
     test_field: "mBESS_foam_tandem_errors",
     next: "SINGLE_FOAM",
   },
   SINGLE_FOAM: {
     description:
-      "please stand on your non-dominant leg with hands on your hips on foam",
-    image: "./assets/single_foam.png",
+      t(
+        "runtime.bess.pose.single_foam",
+        "please stand on your non-dominant leg with hands on your hips on foam"
+      ),
+    image: "/assets/single_foam.png",
     assess_fx: assess_single_pose,
     test_field: "mBESS_foam_single_errors",
     next: "END",
@@ -87,7 +110,9 @@ function activateNextPose() {
     setIntstructions(
       `${getAthleteName()}, ${next_pose.description}:`,
       next_pose.image,
-      `New pose: ${getAthleteName()}, ${next_pose.description}`
+      `${t("runtime.bess.new_pose_prefix", "New pose:")} ${getAthleteName()}, ${
+        next_pose.description
+      }`
     );
     setStatus(`BEGIN_${pose.next}`);
   } else {
@@ -156,7 +181,10 @@ const bessCalibrateBtn = document.getElementById("bess-calibrate");
 bessCalibrateBtn.onclick = async () => {
   bessCalibrateBtn.disabled = true;
   speak(
-    "Attempting to calibrate the pose detection model to the current pose. Please hold the pose for 10 seconds."
+    t(
+      "runtime.bess.calibrate_prompt",
+      "Attempting to calibrate the pose detection model to the current pose. Please hold the pose for 10 seconds."
+    )
   );
   while (isSpeaking()) await wait(0.1);
   window.bessCalibrate = true;
@@ -165,7 +193,7 @@ bessCalibrateBtn.onclick = async () => {
     speak(`${10 - i}`);
   }
   window.bessCalibrate = false;
-  speak("Calibration complete", "en-US", false);
+  speak(t("runtime.bess.calibrate_complete", "Calibration complete"), undefined, false);
   bessCalibrateBtn.disabled = false;
 };
 
@@ -182,7 +210,12 @@ document.addEventListener("renderTestSection", async (event) => {
     tracker.idealWidth = window.innerWidth * 0.9;
     tracker.idealHeight = window.innerHeight;
     if (firstSection === "bess") {
-      await alert("The automated balance system will use the camera."); // must be a user gesture on a dom element (e.g. popup.js alert, not built-in alert)
+      await alert(
+        t(
+          "runtime.bess.camera_notice",
+          "The automated balance system will use the camera."
+        )
+      ); // must be a user gesture on a dom element (e.g. popup.js alert, not built-in alert)
     }
     document.getElementById("camera-control").style.display = "none";
     tracker.run("camera");
@@ -203,7 +236,13 @@ async function begin_pose(poses, assess_fx, next_action) {
   } else {
     setStatus(
       status_id,
-      `Pose looks good! Click to start the 20 second trial where the pose must be held <button class="button button--green" data-action="${next_action}">Start Timer</button>`,
+      `${t(
+        "runtime.bess.status.pose_good_start",
+        "Pose looks good! Click to start the 20 second trial where the pose must be held"
+      )} <button class="button button--green" data-action="${next_action}">${t(
+        "runtime.bess.start_timer",
+        "Start Timer"
+      )}</button>`,
       "green"
     );
   }
@@ -235,7 +274,11 @@ async function count_pose_errors(poses, assess_fx) {
     good_frames += 1;
     setStatus(
       status_id,
-      `Pose looks good! ${seconds_left} seconds left. Errors: ${errors}`,
+      tf(
+        "runtime.bess.status.pose_good_seconds_errors",
+        { seconds: seconds_left, errors },
+        "Pose looks good! {{seconds}} seconds left. Errors: {{errors}}"
+      ),
       "green"
     );
   }
@@ -256,7 +299,11 @@ statusElement.addEventListener("click", async (event) => {
   total_frames = 0;
   seconds_left = 20;
   POSE_ERROR_PHOTOS[pose.test_field] = [];
-  setStatus(pose_id, "Pose looks good! 20 seconds left.", "green");
+  setStatus(
+    pose_id,
+    t("runtime.bess.status.pose_good_20", "Pose looks good! 20 seconds left."),
+    "green"
+  );
   const timer = setInterval(() => {
     seconds_left -= 1;
     if (seconds_left == 0) {
@@ -268,9 +315,15 @@ statusElement.addEventListener("click", async (event) => {
       activateNextPose();
     } else {
       setIntstructions(
-        `${seconds_left} seconds left. ${getAthleteName()}, ${
-          pose.description
-        }:`,
+        tf(
+          "runtime.bess.status.seconds_left_instruction",
+          {
+            seconds: seconds_left,
+            athleteName: getAthleteName(),
+            description: pose.description,
+          },
+          "{{seconds}} seconds left. {{athleteName}}, {{description}}:"
+        ),
         pose.image,
         isSpeaking() || !window.countdownAudioEnabled ? null : `${seconds_left}`
       );
@@ -354,7 +407,10 @@ tracker.on("beforeupdate", (poses) => {
 tracker.on("detectorerror", async (error) => {
   console.error(error);
   await alert(
-    "Unexpected error deciphering the pose. Skipping to manual assessment."
+    t(
+      "runtime.bess.error.detector",
+      "Unexpected error deciphering the pose. Skipping to manual assessment."
+    )
   );
   abortListening();
   tracker.stop();
@@ -363,7 +419,10 @@ tracker.on("detectorerror", async (error) => {
 tracker.on("videoerror", async (error) => {
   console.error(error);
   await alert(
-    "Unexpected error with the camera. Skipping to manual assessment."
+    t(
+      "runtime.bess.error.video",
+      "Unexpected error with the camera. Skipping to manual assessment."
+    )
   );
   abortListening();
   tracker.stop();
@@ -396,7 +455,10 @@ function toggleVoiceControl() {
   localStorage.setItem("voice", voiceEnabled);
   if (voiceEnabled) {
     speak(
-      "Say 'mirror' to toggle the mirror effect. Say 'next' to move to the next pose. Say 'skip' to skip the test."
+      t(
+        "runtime.bess.voice.help",
+        "Say 'mirror' to toggle the mirror effect. Say 'next' to move to the next pose. Say 'skip' to skip the test."
+      )
     );
     startListening((message) => {
       message = message.toLowerCase();

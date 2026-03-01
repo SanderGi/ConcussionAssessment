@@ -85,7 +85,7 @@ export async function readListOneWPS(list, startDelay = 0) {
     await wait(1);
     while (isSpeaking()) await wait(0.1);
     if (window.lastAbort > lastAbort) return;
-    speak(word, "en-US", false);
+    speak(word, undefined, false);
   }
 }
 window.readListOneWPS = readListOneWPS;

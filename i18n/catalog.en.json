@@ -1,0 +1,1978 @@
+{
+  "meta": {
+    "language": "en",
+    "generatedAt": "2026-03-01T22:35:02.990Z",
+    "note": "Generated from templates. Keys are deduplicated by normalized source text. Duplicate phrases are kept as one entry unless manually split by meaning."
+  },
+  "entries": {
+    "html.a_quick_feedback_form.fce1454d": {
+      "source": "a quick feedback form",
+      "locations": [
+        "templates/index.template.html:686"
+      ],
+      "value": "a quick feedback form"
+    },
+    "html.abduction_or_flexion_of_the_hip_beyond_30_degree.1777da7f": {
+      "source": "Abduction or flexion of the hip beyond 30 degrees (moving hips forwards/backwards/sideways)",
+      "locations": [
+        "templates/index.template.html:435",
+        "templates/index.template.html:479"
+      ],
+      "value": "Abduction or flexion of the hip beyond 30 degrees (moving hips forwards/backwards/sideways)"
+    },
+    "html.abnormal_flexion_pull_muscles_inward_to_pain.90526945": {
+      "source": "Abnormal flexion (pull muscles inward) to pain.",
+      "locations": [
+        "templates/index.template.html:145"
+      ],
+      "value": "Abnormal flexion (pull muscles inward) to pain."
+    },
+    "html.about.98aa7af7": {
+      "source": "About &nbsp;",
+      "locations": [
+        "templates/index.template.html:41"
+      ],
+      "value": "About &nbsp;"
+    },
+    "html.adaptation_by_aureole_chang_and_alexander_metzge.3cb06bed": {
+      "source": "adaptation | By Aureole Chang and Alexander Metzger |",
+      "locations": [
+        "templates/index.template.html:693"
+      ],
+      "value": "adaptation | By Aureole Chang and Alexander Metzger |"
+    },
+    "html.and.000179d7": {
+      "source": "and",
+      "locations": [
+        "templates/index.template.html:58"
+      ],
+      "value": "and"
+    },
+    "html.and_or_ask_your_patients_athletes_to_fill_it_out.ba099e7d": {
+      "source": "and/or ask your patients/athletes to fill it out too.",
+      "locations": [
+        "templates/index.template.html:686"
+      ],
+      "value": "and/or ask your patients/athletes to fill it out too."
+    },
+    "html.and_privacy_focused_this_means_no_usage_data_is_.8675d812": {
+      "source": "and Privacy focused. This means no usage data is collected, but we'd still love to hear from you so we can improve the tool. Here are some optional ways you can contribute:",
+      "locations": [
+        "templates/index.template.html:681"
+      ],
+      "value": "and Privacy focused. This means no usage data is collected, but we'd still love to hear from you so we can improve the tool. Here are some optional ways you can contribute:"
+    },
+    "html.approved.46a566b7": {
+      "source": "approved",
+      "locations": [
+        "templates/index.template.html:692"
+      ],
+      "value": "approved"
+    },
+    "html.april.03c89a66": {
+      "source": "April",
+      "locations": [
+        "templates/index.template.html:415"
+      ],
+      "value": "April"
+    },
+    "html.assess_manually.5efbbf15": {
+      "source": "Assess Manually &nbsp;",
+      "locations": [
+        "templates/index.template.html:454"
+      ],
+      "value": "Assess Manually &nbsp;"
+    },
+    "html.athlete_reports_neck_pain_at_rest.563c67d8": {
+      "source": "Athlete reports neck pain at rest.",
+      "locations": [
+        "templates/index.template.html:156"
+      ],
+      "value": "Athlete reports neck pain at rest."
+    },
+    "html.audio.2be0ce8e": {
+      "source": "Audio &nbsp;",
+      "locations": [
+        "templates/index.template.html:418",
+        "templates/index.template.html:463"
+      ],
+      "value": "Audio &nbsp;"
+    },
+    "html.august.758c5623": {
+      "source": "August",
+      "locations": [
+        "templates/index.template.html:412"
+      ],
+      "value": "August"
+    },
+    "html.average_seconds.9f275f4f": {
+      "source": "Average (seconds)",
+      "locations": [
+        "templates/index.template.html:559"
+      ],
+      "value": "Average (seconds)"
+    },
+    "html.balance_error_scoring_system.80abecfc": {
+      "source": "Balance Error Scoring System",
+      "locations": [
+        "templates/index.template.html:419",
+        "templates/index.template.html:465"
+      ],
+      "value": "Balance Error Scoring System"
+    },
+    "html.balance_gait_difficulties_motor_incoordination_a.d5557775": {
+      "source": "Balance/gait difficulties, motor incoordination, ataxia: stumbling, slow/laboured movements.",
+      "locations": [
+        "templates/index.template.html:113"
+      ],
+      "value": "Balance/gait difficulties, motor incoordination, ataxia: stumbling, slow/laboured movements."
+    },
+    "html.balance_problems.3c7994a2": {
+      "source": "Balance problems:",
+      "locations": [
+        "templates/index.template.html:249",
+        "templates/index.template.html:285"
+      ],
+      "value": "Balance problems:"
+    },
+    "html.best_eye_response.9cdbb62c": {
+      "source": "Best Eye Response",
+      "locations": [
+        "templates/index.template.html:124"
+      ],
+      "value": "Best Eye Response"
+    },
+    "html.best_motor_response.e8519568": {
+      "source": "Best Motor Response",
+      "locations": [
+        "templates/index.template.html:142"
+      ],
+      "value": "Best Motor Response"
+    },
+    "html.best_verbal_response.4f01fbfb": {
+      "source": "Best Verbal Response",
+      "locations": [
+        "templates/index.template.html:134"
+      ],
+      "value": "Best Verbal Response"
+    },
+    "html.blank_or_vacant_look.152b260f": {
+      "source": "Blank or vacant look.",
+      "locations": [
+        "templates/index.template.html:117"
+      ],
+      "value": "Blank or vacant look."
+    },
+    "html.blurred_vision.94a465dc": {
+      "source": "Blurred vision:",
+      "locations": [
+        "templates/index.template.html:238",
+        "templates/index.template.html:277"
+      ],
+      "value": "Blurred vision:"
+    },
+    "html.can_the_athlete_follow_instructions_for_how_to_m.05a2a599": {
+      "source": "Can the athlete follow instructions for how to move (e.g. \"lift your arm\") or respond to pain (pinch or poke)?",
+      "locations": [
+        "templates/index.template.html:142"
+      ],
+      "value": "Can the athlete follow instructions for how to move (e.g. \"lift your arm\") or respond to pain (pinch or poke)?"
+    },
+    "html.cervical_spine.b6ade5ee": {
+      "source": "Cervical Spine",
+      "locations": [
+        "templates/index.template.html:153"
+      ],
+      "value": "Cervical Spine"
+    },
+    "html.check_box_if_athlete_completed_all_the_months_co.cd149fea": {
+      "source": "Check box if athlete completed all the months correctly.",
+      "locations": [
+        "templates/index.template.html:416"
+      ],
+      "value": "Check box if athlete completed all the months correctly."
+    },
+    "html.check_if_symptoms_get_worse_with_mental_activity.0980aef9": {
+      "source": "Check if symptoms get worse with mental activity.",
+      "locations": [
+        "templates/index.template.html:266",
+        "templates/index.template.html:340"
+      ],
+      "value": "Check if symptoms get worse with mental activity."
+    },
+    "html.check_if_symptoms_get_worse_with_physical_activi.80249407": {
+      "source": "Check if symptoms get worse with physical activity.",
+      "locations": [
+        "templates/index.template.html:265",
+        "templates/index.template.html:340"
+      ],
+      "value": "Check if symptoms get worse with physical activity."
+    },
+    "html.choose_an_export_option.dfad24a3": {
+      "source": "Choose an export option:",
+      "locations": [
+        "templates/index.template.html:671"
+      ],
+      "value": "Choose an export option:"
+    },
+    "html.cisg.001f913a": {
+      "source": "CISG",
+      "locations": [
+        "templates/index.template.html:691"
+      ],
+      "value": "CISG"
+    },
+    "html.click_the_round_add_button_below_to_add_an_athle.30d429b4": {
+      "source": "Click the round add button below to add an athlete profile. This will let you start a baseline assessment and create an athlete profile that you can use to compare concussion scores over time for the athlete.",
+      "locations": [
+        "templates/index.template.html:62"
+      ],
+      "value": "Click the round add button below to add an athlete profile. This will let you start a baseline assessment and create an athlete profile that you can use to compare concussion scores over time for the athlete."
+    },
+    "html.code.0020220d": {
+      "source": "Code",
+      "locations": [
+        "templates/index.template.html:694"
+      ],
+      "value": "Code"
+    },
+    "html.concentration.1726944d": {
+      "source": "Concentration",
+      "locations": [
+        "templates/index.template.html:350"
+      ],
+      "value": "Concentration"
+    },
+    "html.concussion_assessment_management.8e0bf215": {
+      "source": "Concussion Assessment Management",
+      "locations": [
+        "templates/index.template.html:45"
+      ],
+      "value": "Concussion Assessment Management"
+    },
+    "html.confused_answers_but_not_fully_aware_what_s_happ.564a9cbc": {
+      "source": "Confused. Answers but not fully aware what's happening.",
+      "locations": [
+        "templates/index.template.html:140"
+      ],
+      "value": "Confused. Answers but not fully aware what's happening."
+    },
+    "html.confusion.bd8e9914": {
+      "source": "Confusion:",
+      "locations": [
+        "templates/index.template.html:258",
+        "templates/index.template.html:332"
+      ],
+      "value": "Confusion:"
+    },
+    "html.coordination_and_ocular_motor_screen.078dd47c": {
+      "source": "Coordination and Ocular/Motor Screen",
+      "locations": [
+        "templates/index.template.html:184"
+      ],
+      "value": "Coordination and Ocular/Motor Screen"
+    },
+    "html.coordination_finger_to_nose_is_normal_for_both_h.e5ab3416": {
+      "source": "Coordination. Finger-to-nose is normal for both hands with eyes open and closed.",
+      "locations": [
+        "templates/index.template.html:185"
+      ],
+      "value": "Coordination. Finger-to-nose is normal for both hands with eyes open and closed."
+    },
+    "html.correct_responses.99fea3dc": {
+      "source": "Correct Responses",
+      "locations": [
+        "templates/index.template.html:599",
+        "templates/index.template.html:624"
+      ],
+      "value": "Correct Responses"
+    },
+    "html.december.25576045": {
+      "source": "December",
+      "locations": [
+        "templates/index.template.html:406"
+      ],
+      "value": "December"
+    },
+    "html.delayed_recall.7a52f3cf": {
+      "source": "Delayed Recall",
+      "locations": [
+        "templates/index.template.html:669"
+      ],
+      "value": "Delayed Recall"
+    },
+    "html.delete_all.7427d7d8": {
+      "source": "Delete All &nbsp;",
+      "locations": [
+        "templates/index.template.html:39"
+      ],
+      "value": "Delete All &nbsp;"
+    },
+    "html.deteriorating_conscious_state.5aa5208a": {
+      "source": "Deteriorating conscious state",
+      "locations": [
+        "templates/index.template.html:87"
+      ],
+      "value": "Deteriorating conscious state"
+    },
+    "html.did_your_team_win_the_last_game.79ef9e2d": {
+      "source": "Did your team win the last game?",
+      "locations": [
+        "templates/index.template.html:214"
+      ],
+      "value": "Did your team win the last game?"
+    },
+    "html.difficulty_concentrating.bcfd07b8": {
+      "source": "Difficulty concentrating:",
+      "locations": [
+        "templates/index.template.html:255",
+        "templates/index.template.html:329"
+      ],
+      "value": "Difficulty concentrating:"
+    },
+    "html.difficulty_remembering.bcfc94ca": {
+      "source": "Difficulty remembering:",
+      "locations": [
+        "templates/index.template.html:256",
+        "templates/index.template.html:330"
+      ],
+      "value": "Difficulty remembering:"
+    },
+    "html.digits_backwards.2a717e36": {
+      "source": "Digits Backwards",
+      "locations": [
+        "templates/index.template.html:350"
+      ],
+      "value": "Digits Backwards"
+    },
+    "html.disorientation_or_confusion_staring_or_limited_r.5e396694": {
+      "source": "Disorientation or confusion, staring or limited responsiveness, or an inability to respond appropriately to questions.",
+      "locations": [
+        "templates/index.template.html:115"
+      ],
+      "value": "Disorientation or confusion, staring or limited responsiveness, or an inability to respond appropriately to questions."
+    },
+    "html.dizziness.2405ccdf": {
+      "source": "Dizziness:",
+      "locations": [
+        "templates/index.template.html:230",
+        "templates/index.template.html:274"
+      ],
+      "value": "Dizziness:"
+    },
+    "html.do_you_want_to_help_make_this_tool_better.e42dac0b": {
+      "source": "Do you want to help make this tool better?",
+      "locations": [
+        "templates/index.template.html:678"
+      ],
+      "value": "Do you want to help make this tool better?"
+    },
+    "html.does_the_athlete_know_their_name_where_they_are_.cac06f2d": {
+      "source": "Does the athlete know their name, where they are at, the day/year, etc?",
+      "locations": [
+        "templates/index.template.html:134"
+      ],
+      "value": "Does the athlete know their name, where they are at, the day/year, etc?"
+    },
+    "html.don_t_feel_right.47932b2c": {
+      "source": "\"Don't feel right\":",
+      "locations": [
+        "templates/index.template.html:254",
+        "templates/index.template.html:327"
+      ],
+      "value": "\"Don't feel right\":"
+    },
+    "html.double_leg_stance.09e0b951": {
+      "source": "Double Leg Stance",
+      "locations": [
+        "templates/index.template.html:487"
+      ],
+      "value": "Double Leg Stance"
+    },
+    "html.double_leg_stance_on_foam.238a1eef": {
+      "source": "Double Leg Stance on Foam (",
+      "locations": [
+        "templates/index.template.html:518"
+      ],
+      "value": "Double Leg Stance on Foam ("
+    },
+    "html.double_vision.364dbaf7": {
+      "source": "Double vision",
+      "locations": [
+        "templates/index.template.html:84"
+      ],
+      "value": "Double vision"
+    },
+    "html.drowsiness.65a31057": {
+      "source": "Drowsiness:",
+      "locations": [
+        "templates/index.template.html:259",
+        "templates/index.template.html:333"
+      ],
+      "value": "Drowsiness:"
+    },
+    "html.dual_task_gait.b2bd47c4": {
+      "source": "Dual Task Gait (",
+      "locations": [
+        "templates/index.template.html:586"
+      ],
+      "value": "Dual Task Gait ("
+    },
+    "html.emsp.469ab770": {
+      "source": "&emsp;",
+      "locations": [
+        "templates/index.template.html:362",
+        "templates/index.template.html:363",
+        "templates/index.template.html:367",
+        "templates/index.template.html:371",
+        "templates/index.template.html:378",
+        "templates/index.template.html:383",
+        "templates/index.template.html:389",
+        "templates/index.template.html:397"
+      ],
+      "value": "&emsp;"
+    },
+    "html.errors.7c3a5b8b": {
+      "source": "Errors",
+      "locations": [
+        "templates/index.template.html:599",
+        "templates/index.template.html:625"
+      ],
+      "value": "Errors"
+    },
+    "html.examiner_ask_the_athlete_the_following_questions.33a50957": {
+      "source": "Examiner, ask the athlete the following questions and select the ones they answer correctly.",
+      "locations": [
+        "templates/index.template.html:342"
+      ],
+      "value": "Examiner, ask the athlete the following questions and select the ones they answer correctly."
+    },
+    "html.examiner_click_the_words_below_as_the_athlete_re.79684a93": {
+      "source": "Examiner, click the words below as the athlete remembers them to cross them off. This will help keep track of how many they remember each trial.",
+      "locations": [
+        "templates/index.template.html:348"
+      ],
+      "value": "Examiner, click the words below as the athlete remembers them to cross them off. This will help keep track of how many they remember each trial."
+    },
+    "html.examiner_for_the_second_and_third_trials_say_the.eaed95ad": {
+      "source": "Examiner, for the second and third trials say the following:",
+      "locations": [
+        "templates/index.template.html:347"
+      ],
+      "value": "Examiner, for the second and third trials say the following:"
+    },
+    "html.examiner_keep_a_count_of_the_errors_listed_above.08e52937": {
+      "source": "Examiner, keep a count of the errors listed above and read the instructions below:",
+      "locations": [
+        "templates/index.template.html:487",
+        "templates/index.template.html:501",
+        "templates/index.template.html:515",
+        "templates/index.template.html:519",
+        "templates/index.template.html:523",
+        "templates/index.template.html:527"
+      ],
+      "value": "Examiner, keep a count of the errors listed above and read the instructions below:"
+    },
+    "html.examiner_please_hand_the_device_to_the_athlete_t.64a653a0": {
+      "source": "Examiner, please hand the device to the athlete to fill in the symptom scale (below) after you provide instructions.",
+      "locations": [
+        "templates/index.template.html:218",
+        "templates/index.template.html:267"
+      ],
+      "value": "Examiner, please hand the device to the athlete to fill in the symptom scale (below) after you provide instructions."
+    },
+    "html.examiner_please_keep_the_3_meter_long_athletic_t.0a0fa7aa": {
+      "source": "Examiner, please keep the 3-meter-long athletic tape line from the Timed Gait on the floor/firm surface. You will follow the script below, click start/end timer, and click on the responses that the athlete correctly says in order. Redo trials where the athlete strays off the line.",
+      "locations": [
+        "templates/index.template.html:587"
+      ],
+      "value": "Examiner, please keep the 3-meter-long athletic tape line from the Timed Gait on the floor/firm surface. You will follow the script below, click start/end timer, and click on the responses that the athlete correctly says in order. Redo trials where the athlete strays off the line."
+    },
+    "html.examiner_please_place_a_3_meter_long_line_on_the.ffb580cf": {
+      "source": "Examiner, please place a 3-meter-long line on the floor/firm surface with athletic tape. You will instruct the athlete and start/stop the timer for 3 trials.",
+      "locations": [
+        "templates/index.template.html:546"
+      ],
+      "value": "Examiner, please place a 3-meter-long line on the floor/firm surface with athletic tape. You will instruct the athlete and start/stop the timer for 3 trials."
+    },
+    "html.examiner_read_the_following_line_and_ask_the_fol.d20d4a96": {
+      "source": "Examiner, read the following line and ask the following questions (modified to be appropriate to the relevant sport). Check the correctly answered questions.",
+      "locations": [
+        "templates/index.template.html:203"
+      ],
+      "value": "Examiner, read the following line and ask the following questions (modified to be appropriate to the relevant sport). Check the correctly answered questions."
+    },
+    "html.examiner_read_the_following_numbers_one_sequence.0c58b596": {
+      "source": "Examiner, read the following numbers (one sequence from each set) and ask the athlete to repeat them back in reverse order. Say them slowly at a rate of one digit per second. Each set has two number sequences. If the athlete fails the first, try the second. If both fail, end this subsection and move on to the months in reverse order.",
+      "locations": [
+        "templates/index.template.html:350"
+      ],
+      "value": "Examiner, read the following numbers (one sequence from each set) and ask the athlete to repeat them back in reverse order. Say them slowly at a rate of one digit per second. Each set has two number sequences. If the athlete fails the first, try the second. If both fail, end this subsection and move on to the months in reverse order."
+    },
+    "html.examiner_read_the_instructions_below_to_the_athl.a89dccc2": {
+      "source": "Examiner, read the instructions below to the athlete and click to cross out the months as they say them in the correct order.",
+      "locations": [
+        "templates/index.template.html:402"
+      ],
+      "value": "Examiner, read the instructions below to the athlete and click to cross out the months as they say them in the correct order."
+    },
+    "html.examiner_you_will_guide_the_athlete_through_3_po.6a7d9adf": {
+      "source": "Examiner, you will guide the athlete through 3 poses (double leg, tandem, and single leg stance) to be held for 20 seconds each. The later foam pad test is optional, only a solid floor/ground surface is required. You'll need a spotter to keep an eye on the athlete and be ready to assist them if they become unstable and begin to fall.",
+      "locations": [
+        "templates/index.template.html:468"
+      ],
+      "value": "Examiner, you will guide the athlete through 3 poses (double leg, tandem, and single leg stance) to be held for 20 seconds each. The later foam pad test is optional, only a solid floor/ground surface is required. You'll need a spotter to keep an eye on the athlete and be ready to assist them if they become unstable and begin to fall."
+    },
+    "html.examiner_you_will_read_the_list_of_words_3_times.deb7a257": {
+      "source": "Examiner, you will read the list of words 3 times, keeping track of how many words the athlete remembers after each reading. All 3 trials must be administered irrespective of the number correct on each. Start the first trial by saying the following:",
+      "locations": [
+        "templates/index.template.html:346"
+      ],
+      "value": "Examiner, you will read the list of words 3 times, keeping track of how many words the athlete remembers after each reading. All 3 trials must be administered irrespective of the number correct on each. Start the first trial by saying the following:"
+    },
+    "html.export.f0da3cb0": {
+      "source": "Export &nbsp;",
+      "locations": [
+        "templates/index.template.html:73",
+        "templates/index.template.html:675"
+      ],
+      "value": "Export &nbsp;"
+    },
+    "html.extend_stretch_outward_muscles_to_pain.717b64f5": {
+      "source": "Extend (stretch outward) muscles to pain.",
+      "locations": [
+        "templates/index.template.html:144"
+      ],
+      "value": "Extend (stretch outward) muscles to pain."
+    },
+    "html.facial_injury_after_head_trauma.4ad30cc1": {
+      "source": "Facial injury after head trauma.",
+      "locations": [
+        "templates/index.template.html:117"
+      ],
+      "value": "Facial injury after head trauma."
+    },
+    "html.falling_unprotected_to_the_surface.8edb4251": {
+      "source": "Falling unprotected to the surface.",
+      "locations": [
+        "templates/index.template.html:108"
+      ],
+      "value": "Falling unprotected to the surface."
+    },
+    "html.faq.00010ef6": {
+      "source": "FAQ",
+      "locations": [
+        "templates/index.template.html:58"
+      ],
+      "value": "FAQ"
+    },
+    "html.fastest_seconds.2f03389c": {
+      "source": "Fastest (seconds)",
+      "locations": [
+        "templates/index.template.html:559"
+      ],
+      "value": "Fastest (seconds)"
+    },
+    "html.fatique_or_low_energy.1b0e26f8": {
+      "source": "Fatique or low energy:",
+      "locations": [
+        "templates/index.template.html:257",
+        "templates/index.template.html:331"
+      ],
+      "value": "Fatique or low energy:"
+    },
+    "html.february.f41fb3c2": {
+      "source": "February",
+      "locations": [
+        "templates/index.template.html:415"
+      ],
+      "value": "February"
+    },
+    "html.feeling_like_in_a_fog.8ba466f9": {
+      "source": "Feeling like \"in a fog\":",
+      "locations": [
+        "templates/index.template.html:253",
+        "templates/index.template.html:317"
+      ],
+      "value": "Feeling like \"in a fog\":"
+    },
+    "html.feeling_slowed_down.e0705b5c": {
+      "source": "Feeling slowed down:",
+      "locations": [
+        "templates/index.template.html:252",
+        "templates/index.template.html:312"
+      ],
+      "value": "Feeling slowed down:"
+    },
+    "html.flexion_withdrawal_as_a_reflex_to_pain.1b932666": {
+      "source": "Flexion/withdrawal (as a reflex) to pain.",
+      "locations": [
+        "templates/index.template.html:148"
+      ],
+      "value": "Flexion/withdrawal (as a reflex) to pain."
+    },
+    "html.for_details.2f78fba3": {
+      "source": "for details.",
+      "locations": [
+        "templates/index.template.html:61"
+      ],
+      "value": "for details."
+    },
+    "html.free_open_source.8bea7570": {
+      "source": "Free & Open-Source",
+      "locations": [
+        "templates/index.template.html:681"
+      ],
+      "value": "Free & Open-Source"
+    },
+    "html.from_the_automated_bess_to_inform_more_inclusive.5829f528": {
+      "source": "from the automated BESS to inform more inclusive ML models.",
+      "locations": [
+        "templates/index.template.html:690"
+      ],
+      "value": "from the automated BESS to inform more inclusive ML models."
+    },
+    "html.full_scat6.eec7bd62": {
+      "source": "Full SCAT6",
+      "locations": [
+        "templates/index.template.html:672"
+      ],
+      "value": "Full SCAT6"
+    },
+    "html.getting_camera_permissions.7e3bf5c9": {
+      "source": "Getting camera permissions...",
+      "locations": [
+        "templates/index.template.html:440"
+      ],
+      "value": "Getting camera permissions..."
+    },
+    "html.glasgow_coma_scale.9787cc12": {
+      "source": "Glasgow Coma Scale",
+      "locations": [
+        "templates/index.template.html:124"
+      ],
+      "value": "Glasgow Coma Scale"
+    },
+    "html.good_now_you_will_walk_heel_to_toe_and_count_bac.e0586300": {
+      "source": "Good, now you will walk heel-to-toe and count backwards out loud at the same time. Keep counting until you finish walking the 3 meters, turning 180 degrees, walking the 3 meters again and the examiner says stop indicating you got to the last number. Are you ready? The number to start with is 88. Go! &nbsp;",
+      "locations": [
+        "templates/index.template.html:618"
+      ],
+      "value": "Good, now you will walk heel-to-toe and count backwards out loud at the same time. Keep counting until you finish walking the 3 meters, turning 180 degrees, walking the 3 meters again and the examiner says stop indicating you got to the last number. Are you ready? The number to start with is 88. Go! &nbsp;"
+    },
+    "html.headaches.e512bd06": {
+      "source": "Headaches:",
+      "locations": [
+        "templates/index.template.html:221",
+        "templates/index.template.html:268"
+      ],
+      "value": "Headaches:"
+    },
+    "html.healthy_athletes_typically_complete_the_task_in_.c8a356ce": {
+      "source": "Healthy athletes typically complete the task in 18.7-22.5 seconds with 85.8-92.4% accuracy (0.9-1.7 errors). Concussed athletes typically take 30.6-36.1 seconds with 76.4-83.6% accuracy (2.0-2.8 errors).",
+      "locations": [
+        "templates/index.template.html:667"
+      ],
+      "value": "Healthy athletes typically complete the task in 18.7-22.5 seconds with 85.8-92.4% accuracy (0.9-1.7 errors). Concussed athletes typically take 30.6-36.1 seconds with 76.4-83.6% accuracy (2.0-2.8 errors)."
+    },
+    "html.healthy_athletes_typically_have_a_fastest_time_b.b2978261": {
+      "source": "Healthy athletes typically have a fastest time between 13.9 and 15.8. Newly concussed athletes are typically between 21.9 and 26.1. Athletes concussed within the last 6-73 days will be somewhere in between.",
+      "locations": [
+        "templates/index.template.html:569"
+      ],
+      "value": "Healthy athletes typically have a fastest time between 13.9 and 15.8. Newly concussed athletes are typically between 21.9 and 26.1. Athletes concussed within the last 6-73 days will be somewhere in between."
+    },
+    "html.high_risk_mechanism_of_injury_sportdependent.22aece6b": {
+      "source": "High-risk mechanism of injury (sportdependent).",
+      "locations": [
+        "templates/index.template.html:119"
+      ],
+      "value": "High-risk mechanism of injury (sportdependent)."
+    },
+    "html.i_am_going_to_repeat_the_same_list_repeat_back_a.7b6000f3": {
+      "source": "I am going to repeat the same list. Repeat back as many words as you can remember in any order, even if you said the word before in a previous trial &nbsp;",
+      "locations": [
+        "templates/index.template.html:347"
+      ],
+      "value": "I am going to repeat the same list. Repeat back as many words as you can remember in any order, even if you said the word before in a previous trial &nbsp;"
+    },
+    "html.i_am_going_to_test_your_memory_i_will_read_you_a.3480155e": {
+      "source": "I am going to test your memory. I will read you a list of words and when I am done, repeat back as many words as you can remember, in any order &nbsp;",
+      "locations": [
+        "templates/index.template.html:346"
+      ],
+      "value": "I am going to test your memory. I will read you a list of words and when I am done, repeat back as many words as you can remember, in any order &nbsp;"
+    },
+    "html.i_m_going_to_read_a_string_of_numbers_and_when_i.2ba1f5d3": {
+      "source": "I'm going to read a string of numbers and when I am done, you repeat them back to me in reverse order of how I read them to you. For example, if I say 7 1 9, you would say 9 1 7. So, if I said 9 6 8 you would say? &nbsp;",
+      "locations": [
+        "templates/index.template.html:355"
+      ],
+      "value": "I'm going to read a string of numbers and when I am done, you repeat them back to me in reverse order of how I read them to you. For example, if I say 7 1 9, you would say 9 1 7. So, if I said 9 6 8 you would say? &nbsp;"
+    },
+    "html.if_100_is_feeling_perfectly_normal_what_percent_.106ed9f8": {
+      "source": "If 100% is feeling perfectly normal, what percent of normal do you feel?",
+      "locations": [
+        "templates/index.template.html:266",
+        "templates/index.template.html:340"
+      ],
+      "value": "If 100% is feeling perfectly normal, what percent of normal do you feel?"
+    },
+    "html.if_no_neck_pain_and_no_tenderness_athlete_has_fu.567c8027": {
+      "source": "If NO neck pain and NO tenderness, athlete has full range of ACTIVE pain free movement.",
+      "locations": [
+        "templates/index.template.html:167"
+      ],
+      "value": "If NO neck pain and NO tenderness, athlete has full range of ACTIVE pain free movement."
+    },
+    "html.if_not_100_why.a8a002ef": {
+      "source": "If not 100%, why?",
+      "locations": [
+        "templates/index.template.html:266",
+        "templates/index.template.html:341"
+      ],
+      "value": "If not 100%, why?"
+    },
+    "html.immediate_memory.cdf2c490": {
+      "source": "Immediate Memory",
+      "locations": [
+        "templates/index.template.html:345"
+      ],
+      "value": "Immediate Memory"
+    },
+    "html.impact_seizure.200066c3": {
+      "source": "Impact seizure.",
+      "locations": [
+        "templates/index.template.html:118"
+      ],
+      "value": "Impact seizure."
+    },
+    "html.in_a_patient_who_is_not_lucid_or_fully_conscious.3e7592c7": {
+      "source": "In a patient who is not lucid or fully conscious, a cervical spine injury should be assumed and spinal precautions taken. Check each box for yes, keep unselected for no.",
+      "locations": [
+        "templates/index.template.html:153"
+      ],
+      "value": "In a patient who is not lucid or fully conscious, a cervical spine injury should be assumed and spinal precautions taken. Check each box for yes, keep unselected for no."
+    },
+    "html.inappropriate_words_random_but_comprehensible_wo.2482ce12": {
+      "source": "Inappropriate words. Random but comprehensible words.",
+      "locations": [
+        "templates/index.template.html:137"
+      ],
+      "value": "Inappropriate words. Random but comprehensible words."
+    },
+    "html.incomprehensible_sounds_or_noises.37d193cf": {
+      "source": "Incomprehensible sounds or noises.",
+      "locations": [
+        "templates/index.template.html:136"
+      ],
+      "value": "Incomprehensible sounds or noises."
+    },
+    "html.increasingly_restless_agitated_or_combative.3eea7a4f": {
+      "source": "Increasingly restless, agitated or combative",
+      "locations": [
+        "templates/index.template.html:91"
+      ],
+      "value": "Increasingly restless, agitated or combative"
+    },
+    "html.irritability.7536bb84": {
+      "source": "Irritability:",
+      "locations": [
+        "templates/index.template.html:261",
+        "templates/index.template.html:335"
+      ],
+      "value": "Irritability:"
+    },
+    "html.january.f657f84a": {
+      "source": "January",
+      "locations": [
+        "templates/index.template.html:415"
+      ],
+      "value": "January"
+    },
+    "html.july.00236838": {
+      "source": "July",
+      "locations": [
+        "templates/index.template.html:412"
+      ],
+      "value": "July"
+    },
+    "html.june.00236862": {
+      "source": "June",
+      "locations": [
+        "templates/index.template.html:413"
+      ],
+      "value": "June"
+    },
+    "html.keep_a_count_of_the_following_errors_in_the_athl.3cd31d02": {
+      "source": "Keep a count of the following errors in the athlete's execution of the poses:",
+      "locations": [
+        "templates/index.template.html:475"
+      ],
+      "value": "Keep a count of the following errors in the athlete's execution of the poses:"
+    },
+    "html.lifting_forefoot_or_heel.09e29bb4": {
+      "source": "Lifting forefoot or heel",
+      "locations": [
+        "templates/index.template.html:436",
+        "templates/index.template.html:482"
+      ],
+      "value": "Lifting forefoot or heel"
+    },
+    "html.lifting_hands_off_iliac_crests_upper_border_of_t.0d9bda35": {
+      "source": "Lifting hands off iliac crests (upper border of the pelvis/hip-bone)",
+      "locations": [
+        "templates/index.template.html:429",
+        "templates/index.template.html:478"
+      ],
+      "value": "Lifting hands off iliac crests (upper border of the pelvis/hip-bone)"
+    },
+    "html.limb_strength_and_sensation_is_normal.fea9cbcd": {
+      "source": "Limb strength and sensation is normal.",
+      "locations": [
+        "templates/index.template.html:177"
+      ],
+      "value": "Limb strength and sensation is normal."
+    },
+    "html.loading.8f2553d2": {
+      "source": "Loading...",
+      "locations": [
+        "templates/index.template.html:676"
+      ],
+      "value": "Loading..."
+    },
+    "html.localized_to_intentionally_moves_away_from_pain.a0f83a27": {
+      "source": "Localized to (Intentionally moves away from) pain.",
+      "locations": [
+        "templates/index.template.html:150"
+      ],
+      "value": "Localized to (Intentionally moves away from) pain."
+    },
+    "html.loss_of_consciousness.c411c8a1": {
+      "source": "Loss of consciousness",
+      "locations": [
+        "templates/index.template.html:85"
+      ],
+      "value": "Loss of consciousness"
+    },
+    "html.lying_motionless_on_playing_surface.f1e2d00e": {
+      "source": "Lying motionless on playing surface.",
+      "locations": [
+        "templates/index.template.html:107"
+      ],
+      "value": "Lying motionless on playing surface."
+    },
+    "html.maddocks_score.264a43c2": {
+      "source": "Maddocks Score",
+      "locations": [
+        "templates/index.template.html:200"
+      ],
+      "value": "Maddocks Score"
+    },
+    "html.march.046ae223": {
+      "source": "March",
+      "locations": [
+        "templates/index.template.html:415"
+      ],
+      "value": "March"
+    },
+    "html.may.00012d45": {
+      "source": "May",
+      "locations": [
+        "templates/index.template.html:414"
+      ],
+      "value": "May"
+    },
+    "html.mirror.6b9fd245": {
+      "source": "Mirror &nbsp;",
+      "locations": [
+        "templates/index.template.html:444"
+      ],
+      "value": "Mirror &nbsp;"
+    },
+    "html.mit.00012a38": {
+      "source": "MIT",
+      "locations": [
+        "templates/index.template.html:694"
+      ],
+      "value": "MIT"
+    },
+    "html.months_in_reverse_order.8cd88702": {
+      "source": "Months in Reverse Order",
+      "locations": [
+        "templates/index.template.html:401"
+      ],
+      "value": "Months in Reverse Order"
+    },
+    "html.more_emotional.10bd94bf": {
+      "source": "More emotional:",
+      "locations": [
+        "templates/index.template.html:260",
+        "templates/index.template.html:334"
+      ],
+      "value": "More emotional:"
+    },
+    "html.multiple_simultaneous_errors_count_as_one_failur.8b3af283": {
+      "source": "Multiple simultaneous errors count as one. Failure to hold the pose for at least 5 seconds counts as the maximum number of errors for that pose (10).",
+      "locations": [
+        "templates/index.template.html:436",
+        "templates/index.template.html:483"
+      ],
+      "value": "Multiple simultaneous errors count as one. Failure to hold the pose for at least 5 seconds counts as the maximum number of errors for that pose (10)."
+    },
+    "html.nausea_or_vomiting.ff56e94d": {
+      "source": "Nausea or vomiting:",
+      "locations": [
+        "templates/index.template.html:227",
+        "templates/index.template.html:271"
+      ],
+      "value": "Nausea or vomiting:"
+    },
+    "html.neck_pain.72a26d43": {
+      "source": "Neck pain:",
+      "locations": [
+        "templates/index.template.html:225",
+        "templates/index.template.html:270"
+      ],
+      "value": "Neck pain:"
+    },
+    "html.neck_pain_or_tenderness.a448beff": {
+      "source": "Neck pain or tenderness",
+      "locations": [
+        "templates/index.template.html:83"
+      ],
+      "value": "Neck pain or tenderness"
+    },
+    "html.nervous_or_anxious.325690fa": {
+      "source": "Nervous or anxious:",
+      "locations": [
+        "templates/index.template.html:263",
+        "templates/index.template.html:337"
+      ],
+      "value": "Nervous or anxious:"
+    },
+    "html.no_eye_opening_for_any_reason.f6a641e9": {
+      "source": "No eye opening for any reason.",
+      "locations": [
+        "templates/index.template.html:125"
+      ],
+      "value": "No eye opening for any reason."
+    },
+    "html.no_motor_response.0d8365e3": {
+      "source": "No motor response.",
+      "locations": [
+        "templates/index.template.html:143"
+      ],
+      "value": "No motor response."
+    },
+    "html.no_red_flags.592252b9": {
+      "source": "No red flags",
+      "locations": [
+        "templates/index.template.html:94"
+      ],
+      "value": "No red flags"
+    },
+    "html.no_verbal_response.1944b556": {
+      "source": "No verbal response.",
+      "locations": [
+        "templates/index.template.html:135"
+      ],
+      "value": "No verbal response."
+    },
+    "html.none.00252358": {
+      "source": "None",
+      "locations": [
+        "templates/index.template.html:121"
+      ],
+      "value": "None"
+    },
+    "html.not_fully_conscious.95954813": {
+      "source": "Not Fully Conscious",
+      "locations": [
+        "templates/index.template.html:180"
+      ],
+      "value": "Not Fully Conscious"
+    },
+    "html.november.658d8552": {
+      "source": "November",
+      "locations": [
+        "templates/index.template.html:407"
+      ],
+      "value": "November"
+    },
+    "html.number_of_correct_sets_of_4.9f1dc6dd": {
+      "source": "Number of correct sets (of 4):",
+      "locations": [
+        "templates/index.template.html:400"
+      ],
+      "value": "Number of correct sets (of 4):"
+    },
+    "html.number_of_errors.2b3d65fd": {
+      "source": "Number of errors:",
+      "locations": [
+        "templates/index.template.html:496",
+        "templates/index.template.html:511",
+        "templates/index.template.html:516",
+        "templates/index.template.html:521",
+        "templates/index.template.html:524",
+        "templates/index.template.html:531"
+      ],
+      "value": "Number of errors:"
+    },
+    "html.obeys_commands.00db6af2": {
+      "source": "Obeys commands.",
+      "locations": [
+        "templates/index.template.html:151"
+      ],
+      "value": "Obeys commands."
+    },
+    "html.observable_signs.e013f939": {
+      "source": "Observable Signs",
+      "locations": [
+        "templates/index.template.html:101"
+      ],
+      "value": "Observable Signs"
+    },
+    "html.observed_extraocular_eye_movements_are_normal.4f594fc4": {
+      "source": "Observed extraocular eye movements are normal.",
+      "locations": [
+        "templates/index.template.html:188"
+      ],
+      "value": "Observed extraocular eye movements are normal."
+    },
+    "html.observed_on_video.2f1f9112": {
+      "source": "Observed on Video",
+      "locations": [
+        "templates/index.template.html:121"
+      ],
+      "value": "Observed on Video"
+    },
+    "html.october.0292a6c0": {
+      "source": "October",
+      "locations": [
+        "templates/index.template.html:408"
+      ],
+      "value": "October"
+    },
+    "html.ocular_motor_athlete_can_look_side_to_side_and_u.2fa722ae": {
+      "source": "Ocular/Motor. Athlete can look side-to-side and up-and-down without moving their head/neck or getting double vision.",
+      "locations": [
+        "templates/index.template.html:186"
+      ],
+      "value": "Ocular/Motor. Athlete can look side-to-side and up-and-down without moving their head/neck or getting double vision."
+    },
+    "html.open_naturally.bd2b26ee": {
+      "source": "Open naturally.",
+      "locations": [
+        "templates/index.template.html:133"
+      ],
+      "value": "Open naturally."
+    },
+    "html.open_to_pain_pinch_or_poke.0177d368": {
+      "source": "Open to pain (pinch or poke).",
+      "locations": [
+        "templates/index.template.html:126"
+      ],
+      "value": "Open to pain (pinch or poke)."
+    },
+    "html.open_to_speech_when_asked_to_open.b303893f": {
+      "source": "Open to speech (when asked to open).",
+      "locations": [
+        "templates/index.template.html:131"
+      ],
+      "value": "Open to speech (when asked to open)."
+    },
+    "html.opening_eyes.a240424a": {
+      "source": "Opening eyes",
+      "locations": [
+        "templates/index.template.html:427",
+        "templates/index.template.html:477"
+      ],
+      "value": "Opening eyes"
+    },
+    "html.opensource.4b1d2ee5": {
+      "source": "opensource",
+      "locations": [
+        "templates/index.template.html:694"
+      ],
+      "value": "opensource"
+    },
+    "html.opt_in_to_share_anonymized_test_scores_for_resea.bbd34410": {
+      "source": "Opt-in to share anonymized test scores for research-use and to improve tool recommendations.",
+      "locations": [
+        "templates/index.template.html:687"
+      ],
+      "value": "Opt-in to share anonymized test scores for research-use and to improve tool recommendations."
+    },
+    "html.optional.ff24af80": {
+      "source": "Optional",
+      "locations": [
+        "templates/index.template.html:518",
+        "templates/index.template.html:522",
+        "templates/index.template.html:525",
+        "templates/index.template.html:587"
+      ],
+      "value": "Optional"
+    },
+    "html.orientation.0d9c9db0": {
+      "source": "Orientation",
+      "locations": [
+        "templates/index.template.html:342"
+      ],
+      "value": "Orientation"
+    },
+    "html.oriented_answers_correctly.4e806b38": {
+      "source": "Oriented. Answers correctly.",
+      "locations": [
+        "templates/index.template.html:142"
+      ],
+      "value": "Oriented. Answers correctly."
+    },
+    "html.overall_report.18ee58a7": {
+      "source": "Overall Report",
+      "locations": [
+        "templates/index.template.html:671"
+      ],
+      "value": "Overall Report"
+    },
+    "html.overwrite_current_pose_as_correct.19da3d75": {
+      "source": "Overwrite Current Pose as Correct &nbsp;",
+      "locations": [
+        "templates/index.template.html:451"
+      ],
+      "value": "Overwrite Current Pose as Correct &nbsp;"
+    },
+    "html.please_describe_anything_abnormal.e2b07d33": {
+      "source": "Please describe anything abnormal:",
+      "locations": [
+        "templates/index.template.html:188"
+      ],
+      "value": "Please describe anything abnormal:"
+    },
+    "html.please_rate_your_symptoms_below_based_on_how_you.d1f27a6c": {
+      "source": "Please rate your symptoms below based on how you typically feel with 1 representing a very mild symptom and 6 representing a severe symptom. 0 means the symptom is not present &nbsp;",
+      "locations": [
+        "templates/index.template.html:219"
+      ],
+      "value": "Please rate your symptoms below based on how you typically feel with 1 representing a very mild symptom and 6 representing a severe symptom. 0 means the symptom is not present &nbsp;"
+    },
+    "html.please_rate_your_symptoms_below_based_on_how_you.f9c6d7f9": {
+      "source": "Please rate your symptoms below based on how you feel now with 1 representing a very mild symptom and 6 representing a severe symptom. 0 means the symptom is not present &nbsp;",
+      "locations": [
+        "templates/index.template.html:268"
+      ],
+      "value": "Please rate your symptoms below based on how you feel now with 1 representing a very mild symptom and 6 representing a severe symptom. 0 means the symptom is not present &nbsp;"
+    },
+    "html.power_systems_airex_balance_pad_81000.a858acec": {
+      "source": "Power Systems Airex Balance Pad 81000",
+      "locations": [
+        "templates/index.template.html:519",
+        "templates/index.template.html:522",
+        "templates/index.template.html:527"
+      ],
+      "value": "Power Systems Airex Balance Pad 81000"
+    },
+    "html.practice.b013e55b": {
+      "source": "Practice",
+      "locations": [
+        "templates/index.template.html:603"
+      ],
+      "value": "Practice"
+    },
+    "html.pressure_in_head.057526fa": {
+      "source": "Pressure in head:",
+      "locations": [
+        "templates/index.template.html:223",
+        "templates/index.template.html:269"
+      ],
+      "value": "Pressure in head:"
+    },
+    "html.privacy_policy.c042190a": {
+      "source": "Privacy Policy",
+      "locations": [
+        "templates/index.template.html:61"
+      ],
+      "value": "Privacy Policy"
+    },
+    "html.raw_csv.9de18dce": {
+      "source": "Raw CSV",
+      "locations": [
+        "templates/index.template.html:673"
+      ],
+      "value": "Raw CSV"
+    },
+    "html.red_flags.5e5979f8": {
+      "source": "Red Flags",
+      "locations": [
+        "templates/index.template.html:77"
+      ],
+      "value": "Red Flags"
+    },
+    "html.red_flags_are_signs_and_symptoms_that_may_indica.b41fa1b0": {
+      "source": "Red flags are signs and symptoms that may indicate a more serious injury. If any of these are present, the athlete should be referred to a healthcare professional immediately.",
+      "locations": [
+        "templates/index.template.html:78"
+      ],
+      "value": "Red flags are signs and symptoms that may indicate a more serious injury. If any of these are present, the athlete should be referred to a healthcare professional immediately."
+    },
+    "html.red_flags_present.a9a9e6b3": {
+      "source": "Red flags present",
+      "locations": [
+        "templates/index.template.html:92"
+      ],
+      "value": "Red flags present"
+    },
+    "html.remaining_out_of_the_testing_position_for_more_t.91a1c29e": {
+      "source": "Remaining out of the testing position for more than 5 seconds",
+      "locations": [
+        "templates/index.template.html:436",
+        "templates/index.template.html:481"
+      ],
+      "value": "Remaining out of the testing position for more than 5 seconds"
+    },
+    "html.results.a4a3d3d6": {
+      "source": "Results",
+      "locations": [
+        "templates/index.template.html:670"
+      ],
+      "value": "Results"
+    },
+    "html.return_to_main_menu.edf01cd1": {
+      "source": "Return to Main Menu",
+      "locations": [
+        "templates/index.template.html:677"
+      ],
+      "value": "Return to Main Menu"
+    },
+    "html.sadness.6a205ecd": {
+      "source": "Sadness:",
+      "locations": [
+        "templates/index.template.html:262",
+        "templates/index.template.html:336"
+      ],
+      "value": "Sadness:"
+    },
+    "html.scat6.9171516f": {
+      "source": "SCAT6™",
+      "locations": [
+        "templates/index.template.html:693"
+      ],
+      "value": "SCAT6™"
+    },
+    "html.scat6_web.42f3afa7": {
+      "source": "SCAT6 Web",
+      "locations": [
+        "templates/index.template.html:6",
+        "templates/index.template.html:19"
+      ],
+      "value": "SCAT6 Web"
+    },
+    "html.search_by_name.6816295e": {
+      "source": "Search by name:",
+      "locations": [
+        "templates/index.template.html:71"
+      ],
+      "value": "Search by name:"
+    },
+    "html.seizure_or_convulsion.89fe7ae2": {
+      "source": "Seizure or convulsion",
+      "locations": [
+        "templates/index.template.html:83"
+      ],
+      "value": "Seizure or convulsion"
+    },
+    "html.sensitivity_to_light.3660aec8": {
+      "source": "Sensitivity to light:",
+      "locations": [
+        "templates/index.template.html:250",
+        "templates/index.template.html:295"
+      ],
+      "value": "Sensitivity to light:"
+    },
+    "html.sensitivity_to_noise.3a1ffd44": {
+      "source": "Sensitivity to noise:",
+      "locations": [
+        "templates/index.template.html:251",
+        "templates/index.template.html:307"
+      ],
+      "value": "Sensitivity to noise:"
+    },
+    "html.september.fe7514b1": {
+      "source": "September",
+      "locations": [
+        "templates/index.template.html:410"
+      ],
+      "value": "September"
+    },
+    "html.severe_or_increasing_headache.578f004f": {
+      "source": "Severe or increasing headache",
+      "locations": [
+        "templates/index.template.html:90"
+      ],
+      "value": "Severe or increasing headache"
+    },
+    "html.show_10.de6ffe02": {
+      "source": "Show 10",
+      "locations": [
+        "templates/index.template.html:73"
+      ],
+      "value": "Show 10"
+    },
+    "html.show_5.938ffff2": {
+      "source": "Show 5",
+      "locations": [
+        "templates/index.template.html:72"
+      ],
+      "value": "Show 5"
+    },
+    "html.show_50.de6ffe7e": {
+      "source": "Show 50",
+      "locations": [
+        "templates/index.template.html:73"
+      ],
+      "value": "Show 50"
+    },
+    "html.show_all.ef9005fe": {
+      "source": "Show All",
+      "locations": [
+        "templates/index.template.html:73"
+      ],
+      "value": "Show All"
+    },
+    "html.single_leg_stance.6ebe907a": {
+      "source": "Single Leg Stance",
+      "locations": [
+        "templates/index.template.html:515"
+      ],
+      "value": "Single Leg Stance"
+    },
+    "html.single_leg_stance_on_foam.c2e7d6d8": {
+      "source": "Single Leg Stance on Foam (",
+      "locations": [
+        "templates/index.template.html:525"
+      ],
+      "value": "Single Leg Stance on Foam ("
+    },
+    "html.skip_to_delayed_recall.568573d1": {
+      "source": "Skip to Delayed Recall &nbsp;",
+      "locations": [
+        "templates/index.template.html:580"
+      ],
+      "value": "Skip to Delayed Recall &nbsp;"
+    },
+    "html.source.93f5543b": {
+      "source": "Source",
+      "locations": [
+        "templates/index.template.html:573",
+        "templates/index.template.html:668"
+      ],
+      "value": "Source"
+    },
+    "html.stand_on_one_leg_hands_on_your_hips_and_eyes_clo.370aa7fc": {
+      "source": "Stand on one leg, hands on your hips, and eyes closed. Hold this position for 20 seconds &nbsp;",
+      "locations": [
+        "templates/index.template.html:515",
+        "templates/index.template.html:530"
+      ],
+      "value": "Stand on one leg, hands on your hips, and eyes closed. Hold this position for 20 seconds &nbsp;"
+    },
+    "html.stand_with_your_feet_in_a_heel_to_toe_position_h.1b9ad8ac": {
+      "source": "Stand with your feet in a heel-to-toe position, hands on your hips, and eyes closed. Hold this position for 20 seconds &nbsp;",
+      "locations": [
+        "templates/index.template.html:503",
+        "templates/index.template.html:523"
+      ],
+      "value": "Stand with your feet in a heel-to-toe position, hands on your hips, and eyes closed. Hold this position for 20 seconds &nbsp;"
+    },
+    "html.stand_with_your_feet_together_hands_on_your_hips.3dc1560a": {
+      "source": "Stand with your feet together, hands on your hips, and eyes closed. Hold this position for 20 seconds &nbsp;",
+      "locations": [
+        "templates/index.template.html:489",
+        "templates/index.template.html:519"
+      ],
+      "value": "Stand with your feet together, hands on your hips, and eyes closed. Hold this position for 20 seconds &nbsp;"
+    },
+    "html.start_20s_countdown.f1ab9a48": {
+      "source": "Start 20s Countdown",
+      "locations": [
+        "templates/index.template.html:500",
+        "templates/index.template.html:515",
+        "templates/index.template.html:518",
+        "templates/index.template.html:521",
+        "templates/index.template.html:525",
+        "templates/index.template.html:536"
+      ],
+      "value": "Start 20s Countdown"
+    },
+    "html.start_bess.e6753ce3": {
+      "source": "Start BESS &nbsp;",
+      "locations": [
+        "templates/index.template.html:417"
+      ],
+      "value": "Start BESS &nbsp;"
+    },
+    "html.start_cervical_spine.eafbcff8": {
+      "source": "Start Cervical Spine &nbsp;",
+      "locations": [
+        "templates/index.template.html:151"
+      ],
+      "value": "Start Cervical Spine &nbsp;"
+    },
+    "html.start_concentration.905ed735": {
+      "source": "Start Concentration &nbsp;",
+      "locations": [
+        "templates/index.template.html:349"
+      ],
+      "value": "Start Concentration &nbsp;"
+    },
+    "html.start_coordination.d408054b": {
+      "source": "Start Coordination &nbsp;",
+      "locations": [
+        "templates/index.template.html:182"
+      ],
+      "value": "Start Coordination &nbsp;"
+    },
+    "html.start_delayed_recall.6fe692f7": {
+      "source": "Start Delayed Recall &nbsp;",
+      "locations": [
+        "templates/index.template.html:669"
+      ],
+      "value": "Start Delayed Recall &nbsp;"
+    },
+    "html.start_immediate_memory.2adf7696": {
+      "source": "Start Immediate Memory &nbsp;",
+      "locations": [
+        "templates/index.template.html:345"
+      ],
+      "value": "Start Immediate Memory &nbsp;"
+    },
+    "html.start_maddocks.97700bb6": {
+      "source": "Start Maddocks &nbsp;",
+      "locations": [
+        "templates/index.template.html:192"
+      ],
+      "value": "Start Maddocks &nbsp;"
+    },
+    "html.start_optional_dual_task_gait.e2f233c6": {
+      "source": "Start Optional Dual Task Gait &nbsp;",
+      "locations": [
+        "templates/index.template.html:578"
+      ],
+      "value": "Start Optional Dual Task Gait &nbsp;"
+    },
+    "html.start_orientation.a478b7f2": {
+      "source": "Start Orientation &nbsp;",
+      "locations": [
+        "templates/index.template.html:267",
+        "templates/index.template.html:341"
+      ],
+      "value": "Start Orientation &nbsp;"
+    },
+    "html.start_symptom_evaluation.5334d373": {
+      "source": "Start Symptom Evaluation &nbsp;",
+      "locations": [
+        "templates/index.template.html:214"
+      ],
+      "value": "Start Symptom Evaluation &nbsp;"
+    },
+    "html.start_tandem_gait.eab98ca8": {
+      "source": "Start Tandem Gait &nbsp;",
+      "locations": [
+        "templates/index.template.html:540"
+      ],
+      "value": "Start Tandem Gait &nbsp;"
+    },
+    "html.start_timer.9b6045c7": {
+      "source": "Start Timer",
+      "locations": [
+        "templates/index.template.html:563",
+        "templates/index.template.html:615",
+        "templates/index.template.html:636",
+        "templates/index.template.html:651",
+        "templates/index.template.html:667"
+      ],
+      "value": "Start Timer"
+    },
+    "html.stepping_stumbling_or_falling.2b7fac6b": {
+      "source": "Stepping, stumbling, or falling",
+      "locations": [
+        "templates/index.template.html:434",
+        "templates/index.template.html:479"
+      ],
+      "value": "Stepping, stumbling, or falling"
+    },
+    "html.switch_camera.3c5af053": {
+      "source": "Switch Camera &nbsp;",
+      "locations": [
+        "templates/index.template.html:446"
+      ],
+      "value": "Switch Camera &nbsp;"
+    },
+    "html.symptom_evaluation.873705d3": {
+      "source": "Symptom Evaluation",
+      "locations": [
+        "templates/index.template.html:267"
+      ],
+      "value": "Symptom Evaluation"
+    },
+    "html.symptom_evaluation_baseline.943e0212": {
+      "source": "Symptom Evaluation Baseline",
+      "locations": [
+        "templates/index.template.html:216"
+      ],
+      "value": "Symptom Evaluation Baseline"
+    },
+    "html.sync.82346be9": {
+      "source": "Sync &nbsp;",
+      "locations": [
+        "templates/index.template.html:39"
+      ],
+      "value": "Sync &nbsp;"
+    },
+    "html.take_10_minutes_to_fill_out.26f5558d": {
+      "source": "Take 10 minutes to fill out",
+      "locations": [
+        "templates/index.template.html:684"
+      ],
+      "value": "Take 10 minutes to fill out"
+    },
+    "html.tandem_stance.7f1cbc25": {
+      "source": "Tandem Stance",
+      "locations": [
+        "templates/index.template.html:500"
+      ],
+      "value": "Tandem Stance"
+    },
+    "html.tandem_stance_on_foam.548fa8c3": {
+      "source": "Tandem Stance on Foam (",
+      "locations": [
+        "templates/index.template.html:522"
+      ],
+      "value": "Tandem Stance on Foam ("
+    },
+    "html.task.0027a9a5": {
+      "source": "Task",
+      "locations": [
+        "templates/index.template.html:599",
+        "templates/index.template.html:624"
+      ],
+      "value": "Task"
+    },
+    "html.tell_me_the_months_of_the_year_in_reverse_order_.870eea28": {
+      "source": "Tell me the months of the year in reverse order as QUICKLY and as accurately as possible. Start with the last month and go backward. So, you'll say December, November... go ahead &nbsp;",
+      "locations": [
+        "templates/index.template.html:404"
+      ],
+      "value": "Tell me the months of the year in reverse order as QUICKLY and as accurately as possible. Start with the last month and go backward. So, you'll say December, November... go ahead &nbsp;"
+    },
+    "html.text.47148ae4": {
+      "source": "&nbsp;",
+      "locations": [
+        "templates/index.template.html:418",
+        "templates/index.template.html:464"
+      ],
+      "value": "&nbsp;"
+    },
+    "html.the_athlete_should_take_their_shoes_off_roll_up_.3fc9f30f": {
+      "source": "The athlete should take their shoes off, roll up pant legs above ankles (if applicable), and remove any ankle taping (if applicable).",
+      "locations": [
+        "templates/index.template.html:421",
+        "templates/index.template.html:472"
+      ],
+      "value": "The athlete should take their shoes off, roll up pant legs above ankles (if applicable), and remove any ankle taping (if applicable)."
+    },
+    "html.the_athlete_will_be_guided_through_3_poses_doubl.549df5bc": {
+      "source": "The athlete will be guided through 3 poses (double leg, tandem, and single leg stance) to be held for 20 seconds each. The later foam pad test is optional, only a solid floor/ground surface is required. You'll need a spotter to keep an eye on the athlete and be ready to assist them if they become unstable and begin to fall.",
+      "locations": [
+        "templates/index.template.html:420"
+      ],
+      "value": "The athlete will be guided through 3 poses (double leg, tandem, and single leg stance) to be held for 20 seconds each. The later foam pad test is optional, only a solid floor/ground surface is required. You'll need a spotter to keep an eye on the athlete and be ready to assist them if they become unstable and begin to fall."
+    },
+    "html.the_foam_test_requires_a_50cm_x_40cm_x_6cm_foam_.3a6b078f": {
+      "source": "The foam test requires a 50cm x 40cm x 6cm foam pad. Recommended model is the",
+      "locations": [
+        "templates/index.template.html:518",
+        "templates/index.template.html:522",
+        "templates/index.template.html:526"
+      ],
+      "value": "The foam test requires a 50cm x 40cm x 6cm foam pad. Recommended model is the"
+    },
+    "html.there_is_tenderness_to_palpation.86474438": {
+      "source": "There is tenderness to palpation.",
+      "locations": [
+        "templates/index.template.html:161"
+      ],
+      "value": "There is tenderness to palpation."
+    },
+    "html.this_tool_is_100.360a6d24": {
+      "source": "This tool is 100%",
+      "locations": [
+        "templates/index.template.html:679"
+      ],
+      "value": "This tool is 100%"
+    },
+    "html.time_seconds.e17d443f": {
+      "source": "Time (seconds)",
+      "locations": [
+        "templates/index.template.html:600",
+        "templates/index.template.html:625"
+      ],
+      "value": "Time (seconds)"
+    },
+    "html.timed_tandem_gait.cbd6e231": {
+      "source": "Timed Tandem Gait",
+      "locations": [
+        "templates/index.template.html:546"
+      ],
+      "value": "Timed Tandem Gait"
+    },
+    "html.trial_1.24093d87": {
+      "source": "Trial 1",
+      "locations": [
+        "templates/index.template.html:348",
+        "templates/index.template.html:627"
+      ],
+      "value": "Trial 1"
+    },
+    "html.trial_1_seconds.5c16c259": {
+      "source": "Trial 1 (seconds)",
+      "locations": [
+        "templates/index.template.html:557"
+      ],
+      "value": "Trial 1 (seconds)"
+    },
+    "html.trial_2.24093d88": {
+      "source": "Trial 2",
+      "locations": [
+        "templates/index.template.html:348",
+        "templates/index.template.html:639"
+      ],
+      "value": "Trial 2"
+    },
+    "html.trial_2_seconds.f0fb751a": {
+      "source": "Trial 2 (seconds)",
+      "locations": [
+        "templates/index.template.html:558"
+      ],
+      "value": "Trial 2 (seconds)"
+    },
+    "html.trial_3.24093d89": {
+      "source": "Trial 3",
+      "locations": [
+        "templates/index.template.html:348",
+        "templates/index.template.html:652"
+      ],
+      "value": "Trial 3"
+    },
+    "html.trial_3_seconds.85e027db": {
+      "source": "Trial 3 (seconds)",
+      "locations": [
+        "templates/index.template.html:558"
+      ],
+      "value": "Trial 3 (seconds)"
+    },
+    "html.trouble_falling_asleep.04758302": {
+      "source": "Trouble falling asleep:",
+      "locations": [
+        "templates/index.template.html:264",
+        "templates/index.template.html:338"
+      ],
+      "value": "Trouble falling asleep:"
+    },
+    "html.twisting_of_the_shoulder_beyond_30_degrees.c65e61a8": {
+      "source": "Twisting of the shoulder beyond 30 degrees",
+      "locations": [
+        "templates/index.template.html:435",
+        "templates/index.template.html:481"
+      ],
+      "value": "Twisting of the shoulder beyond 30 degrees"
+    },
+    "html.unable_to_tandem_walk.2ddfde06": {
+      "source": "Unable to Tandem Walk",
+      "locations": [
+        "templates/index.template.html:576"
+      ],
+      "value": "Unable to Tandem Walk"
+    },
+    "html.upload_photos_videos.cb86d0e7": {
+      "source": "Upload photos/videos",
+      "locations": [
+        "templates/index.template.html:690"
+      ],
+      "value": "Upload photos/videos"
+    },
+    "html.use_this_web_app_to_administer_concussion_assess.cfcc1d4f": {
+      "source": "Use this web app to administer concussion assessments for your athletes. The data is stored locally in your browser unless you \"Delete All\". You can also sync the data with your Google Drive. See the",
+      "locations": [
+        "templates/index.template.html:50"
+      ],
+      "value": "Use this web app to administer concussion assessments for your athletes. The data is stored locally in your browser unless you \"Delete All\". You can also sync the data with your Google Drive. See the"
+    },
+    "html.visible_deformity_of_the_skull.64c8706a": {
+      "source": "Visible deformity of the skull",
+      "locations": [
+        "templates/index.template.html:92"
+      ],
+      "value": "Visible deformity of the skull"
+    },
+    "html.voice_ctrl.916fec0b": {
+      "source": "Voice Ctrl &nbsp;",
+      "locations": [
+        "templates/index.template.html:449"
+      ],
+      "value": "Voice Ctrl &nbsp;"
+    },
+    "html.vomiting.9576f6a3": {
+      "source": "Vomiting",
+      "locations": [
+        "templates/index.template.html:90"
+      ],
+      "value": "Vomiting"
+    },
+    "html.weakness_or_tingling_burning_in_more_than_1_arm_.eeace9a8": {
+      "source": "Weakness or tingling/burning in more than 1 arm or in the legs",
+      "locations": [
+        "templates/index.template.html:86"
+      ],
+      "value": "Weakness or tingling/burning in more than 1 arm or in the legs"
+    },
+    "html.what_is_the_date_today.32992867": {
+      "source": "What is the date today?",
+      "locations": [
+        "templates/index.template.html:343"
+      ],
+      "value": "What is the date today?"
+    },
+    "html.what_is_the_day_of_the_week.3a963520": {
+      "source": "What is the day of the week?",
+      "locations": [
+        "templates/index.template.html:344"
+      ],
+      "value": "What is the day of the week?"
+    },
+    "html.what_month_is_it.c83105da": {
+      "source": "What month is it?",
+      "locations": [
+        "templates/index.template.html:342"
+      ],
+      "value": "What month is it?"
+    },
+    "html.what_team_did_you_play_last_week_game.0047dad7": {
+      "source": "What team did you play last week / game?",
+      "locations": [
+        "templates/index.template.html:211"
+      ],
+      "value": "What team did you play last week / game?"
+    },
+    "html.what_time_is_it_right_now_within_1_hour.975159ba": {
+      "source": "What time is it right now (within 1 hour)?",
+      "locations": [
+        "templates/index.template.html:345"
+      ],
+      "value": "What time is it right now (within 1 hour)?"
+    },
+    "html.what_venue_are_we_at_today.d80e8772": {
+      "source": "What venue are we at today?",
+      "locations": [
+        "templates/index.template.html:209"
+      ],
+      "value": "What venue are we at today?"
+    },
+    "html.what_year_is_it.4ff1b285": {
+      "source": "What year is it?",
+      "locations": [
+        "templates/index.template.html:344"
+      ],
+      "value": "What year is it?"
+    },
+    "html.when_the_timer_is_started_please_walk_heel_to_to.b86f5b69": {
+      "source": "When the timer is started, please walk heel-to-toe quickly to the end of the tape, turn around and come back as fast as you can, without separating your feet or stepping off the line &nbsp;",
+      "locations": [
+        "templates/index.template.html:548"
+      ],
+      "value": "When the timer is started, please walk heel-to-toe quickly to the end of the tape, turn around and come back as fast as you can, without separating your feet or stepping off the line &nbsp;"
+    },
+    "html.which_half_is_it_now.5e707af2": {
+      "source": "Which half is it now?",
+      "locations": [
+        "templates/index.template.html:210"
+      ],
+      "value": "Which half is it now?"
+    },
+    "html.while_you_are_walking_heel_to_toe_you_will_count.1e9654f8": {
+      "source": "While you are walking heel-to-toe, you will count backwards out loud by sevens. For example, if we started at 100, you would say 100, 93, 86, 79. Let's practice counting. Starting with 93, count backward by sevens until the examiner says stop &nbsp;",
+      "locations": [
+        "templates/index.template.html:594"
+      ],
+      "value": "While you are walking heel-to-toe, you will count backwards out loud by sevens. For example, if we started at 100, you would say 100, 93, 86, 79. Let's practice counting. Starting with 93, count backward by sevens until the examiner says stop &nbsp;"
+    },
+    "html.who_scored_last_in_this_match.5c301fdf": {
+      "source": "Who scored last in this match?",
+      "locations": [
+        "templates/index.template.html:210"
+      ],
+      "value": "Who scored last in this match?"
+    },
+    "html.witnessed.b86a5778": {
+      "source": "Witnessed",
+      "locations": [
+        "templates/index.template.html:120"
+      ],
+      "value": "Witnessed"
+    },
+    "html.you_will_be_asked_a_few_questions_please_listen_.fa78f5e0": {
+      "source": "You will be asked a few questions. Please listen carefully and give your best effort. First explain what happened? &nbsp;",
+      "locations": [
+        "templates/index.template.html:207"
+      ],
+      "value": "You will be asked a few questions. Please listen carefully and give your best effort. First explain what happened? &nbsp;"
+    },
+    "html.your_job_as_examiner_is_to_keep_the_camera_as_st.540a195a": {
+      "source": "Your job as examiner is to keep the camera as still as possible (minor shakes are fine) with the athlete fully in frame at all times. In case the automated system misses something, keep a count of the following errors in the athlete's execution of the poses:",
+      "locations": [
+        "templates/index.template.html:423"
+      ],
+      "value": "Your job as examiner is to keep the camera as still as possible (minor shakes are fine) with the athlete fully in frame at all times. In case the automated system misses something, keep a count of the following errors in the athlete's execution of the poses:"
+    },
+    "html_attr.add_athlete.9553ad40": {
+      "source": "add athlete",
+      "locations": [
+        "templates/index.template.html:73"
+      ],
+      "value": "add athlete"
+    },
+    "html_attr.average_seconds.9f275f4f": {
+      "source": "Average (seconds)",
+      "locations": [
+        "templates/index.template.html:565"
+      ],
+      "value": "Average (seconds)"
+    },
+    "html_attr.correct_responses.99fea3dc": {
+      "source": "Correct Responses",
+      "locations": [
+        "templates/index.template.html:603",
+        "templates/index.template.html:628",
+        "templates/index.template.html:640",
+        "templates/index.template.html:653"
+      ],
+      "value": "Correct Responses"
+    },
+    "html_attr.enter_part_of_an_athlete_name.acbf8cfb": {
+      "source": "Enter part of an athlete name",
+      "locations": [
+        "templates/index.template.html:72"
+      ],
+      "value": "Enter part of an athlete name"
+    },
+    "html_attr.errors.7c3a5b8b": {
+      "source": "Errors",
+      "locations": [
+        "templates/index.template.html:610",
+        "templates/index.template.html:633",
+        "templates/index.template.html:647",
+        "templates/index.template.html:658"
+      ],
+      "value": "Errors"
+    },
+    "html_attr.fastest_seconds.2f03389c": {
+      "source": "Fastest (seconds)",
+      "locations": [
+        "templates/index.template.html:567"
+      ],
+      "value": "Fastest (seconds)"
+    },
+    "html_attr.first_page_of_the_paper_scat6.068258c8": {
+      "source": "first page of the paper SCAT6",
+      "locations": [
+        "templates/index.template.html:47"
+      ],
+      "value": "first page of the paper SCAT6"
+    },
+    "html_attr.how_many_athletes_to_show.8645f7c7": {
+      "source": "how many athletes to show",
+      "locations": [
+        "templates/index.template.html:72"
+      ],
+      "value": "how many athletes to show"
+    },
+    "html_attr.manual_bess_instructions.85be7b08": {
+      "source": "Manual BESS instructions",
+      "locations": [
+        "templates/index.template.html:419",
+        "templates/index.template.html:467"
+      ],
+      "value": "Manual BESS instructions"
+    },
+    "html_attr.task.0027a9a5": {
+      "source": "Task",
+      "locations": [
+        "templates/index.template.html:602",
+        "templates/index.template.html:627",
+        "templates/index.template.html:638",
+        "templates/index.template.html:652"
+      ],
+      "value": "Task"
+    },
+    "html_attr.time_seconds.e17d443f": {
+      "source": "Time (seconds)",
+      "locations": [
+        "templates/index.template.html:613",
+        "templates/index.template.html:635",
+        "templates/index.template.html:649",
+        "templates/index.template.html:664"
+      ],
+      "value": "Time (seconds)"
+    },
+    "html_attr.toggle_countdown_audio.eca4d87b": {
+      "source": "Toggle countdown audio",
+      "locations": [
+        "templates/index.template.html:418",
+        "templates/index.template.html:462"
+      ],
+      "value": "Toggle countdown audio"
+    },
+    "html_attr.trial_1.24093d87": {
+      "source": "Trial 1",
+      "locations": [
+        "templates/index.template.html:348"
+      ],
+      "value": "Trial 1"
+    },
+    "html_attr.trial_1_seconds.5c16c259": {
+      "source": "Trial 1 (seconds)",
+      "locations": [
+        "templates/index.template.html:561"
+      ],
+      "value": "Trial 1 (seconds)"
+    },
+    "html_attr.trial_2.24093d88": {
+      "source": "Trial 2",
+      "locations": [
+        "templates/index.template.html:349"
+      ],
+      "value": "Trial 2"
+    },
+    "html_attr.trial_2_seconds.f0fb751a": {
+      "source": "Trial 2 (seconds)",
+      "locations": [
+        "templates/index.template.html:563"
+      ],
+      "value": "Trial 2 (seconds)"
+    },
+    "html_attr.trial_3.24093d89": {
+      "source": "Trial 3",
+      "locations": [
+        "templates/index.template.html:349"
+      ],
+      "value": "Trial 3"
+    },
+    "html_attr.trial_3_seconds.85e027db": {
+      "source": "Trial 3 (seconds)",
+      "locations": [
+        "templates/index.template.html:564"
+      ],
+      "value": "Trial 3 (seconds)"
+    }
+  }
+}

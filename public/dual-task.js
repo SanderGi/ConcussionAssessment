@@ -58,9 +58,9 @@ section.addEventListener("click", async (e) => {
         el.style.color = "";
         el.style.borderColor = "";
       });
-      datasection.querySelector(`[data-title="Errors"]`).firstChild.value = 0;
+      datasection.querySelector(`[data-field="errors"] input`).value = 0;
       datasection.querySelector(
-        `[data-title="Time (seconds)"]`
+        `[data-field="time"]`
       ).innerHTML = `<button data-action="start-trial-${trial}" class="button button--green">Start Timer</button>`;
     };
 
@@ -74,7 +74,7 @@ section.addEventListener("click", async (e) => {
       (el) => el.style.textDecoration === "line-through"
     );
     const correctResponses = responses.filter(Boolean);
-    datasection.querySelector(`[data-title="Errors"]`).firstChild.value =
+    datasection.querySelector(`[data-field="errors"] input`).value =
       responses.length - correctResponses.length;
 
     if (trial === "practice") return;

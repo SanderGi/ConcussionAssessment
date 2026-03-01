@@ -1,19 +1,13 @@
+function getCell(field) {
+  return tandemData.querySelector(`[data-field="${field}"]`);
+}
+
 function saveResults() {
-  const time1 = parseFloat(
-    tandemData.querySelector(`[data-title="Trial 1 (seconds)"]`).textContent
-  );
-  const time2 = parseFloat(
-    tandemData.querySelector(`[data-title="Trial 2 (seconds)"]`).textContent
-  );
-  const time3 = parseFloat(
-    tandemData.querySelector(`[data-title="Trial 3 (seconds)"]`).textContent
-  );
-  const fastest_time = parseFloat(
-    tandemData.querySelector(`[data-title="Fastest (seconds)"]`).textContent
-  );
-  const average_time = parseFloat(
-    tandemData.querySelector(`[data-title="Average (seconds)"]`).textContent
-  );
+  const time1 = parseFloat(getCell("trial1").textContent);
+  const time2 = parseFloat(getCell("trial2").textContent);
+  const time3 = parseFloat(getCell("trial3").textContent);
+  const fastest_time = parseFloat(getCell("fastest").textContent);
+  const average_time = parseFloat(getCell("average").textContent);
   saveTestResult("tandem_gait_fastest_time", fastest_time);
   saveTestResult("tandem_gait_average_time", average_time);
   saveTestResult("tandem_gait_times_by_trial", [time1, time2, time3]);
@@ -54,9 +48,7 @@ tandemData.addEventListener("click", (e) => {
     clearInterval(timer);
     const trial = action.slice("stop-".length);
     const seconds = (Date.now() - startTime) / 1000;
-    const trialCell = tandemData.querySelector(
-      `[data-title="Trial ${trial} (seconds)"]`
-    );
+    const trialCell = getCell(`trial${trial}`);
 
     const redoBtn = document.createElement("i");
     redoBtn.className = "fa-solid fa-rotate-right";
@@ -72,9 +64,7 @@ tandemData.addEventListener("click", (e) => {
     updateTime();
     if (+trial < 3) {
       if (trialCell.dataset.redo === "true") return;
-      tandemData.querySelector(
-        `[data-title="Trial ${+trial + 1} (seconds)"]`
-      ).innerHTML = `<button data-action="start-${
+      getCell(`trial${+trial + 1}`).innerHTML = `<button data-action="start-${
         +trial + 1
       }" class="button button--green">Start Timer</button>`;
     } else {
@@ -85,21 +75,15 @@ tandemData.addEventListener("click", (e) => {
 });
 
 function updateTime() {
-  const time1 = parseFloat(
-    tandemData.querySelector(`[data-title="Trial 1 (seconds)"]`).textContent
-  );
-  const time2 = parseFloat(
-    tandemData.querySelector(`[data-title="Trial 2 (seconds)"]`).textContent
-  );
-  const time3 = parseFloat(
-    tandemData.querySelector(`[data-title="Trial 3 (seconds)"]`).textContent
-  );
-  tandemData.querySelector(`[data-title="Fastest (seconds)"]`).textContent =
+  const time1 = parseFloat(getCell("trial1").textContent);
+  const time2 = parseFloat(getCell("trial2").textContent);
+  const time3 = parseFloat(getCell("trial3").textContent);
+  getCell("fastest").textContent =
     Math.min(time1 || Infinity, time2 || Infinity, time3 || Infinity).toFixed(
       2
     );
   const notNaNCount = [time1, time2, time3].filter((t) => !isNaN(t)).length;
-  tandemData.querySelector(`[data-title="Average (seconds)"]`).textContent = (
+  getCell("average").textContent = (
     ((time1 || 0) + (time2 || 0) + (time3 || 0)) /
     notNaNCount
   ).toFixed(2);

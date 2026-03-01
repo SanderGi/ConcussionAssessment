@@ -1,5 +1,10 @@
 import { getTest, saveTestResult } from "./testManager.js";
 
+const t = (key, fallback) => window.__scat6T?.(key, fallback) ?? fallback;
+const tf = (key, vars, fallback) =>
+  window.__scat6Format?.(key, vars, fallback) ??
+  fallback.replace(/\{\{(\w+)\}\}/g, (_, token) => vars?.[token] ?? "");
+
 const content = document.getElementById("delayed-recall-content");
 
 document.addEventListener("renderTestSection", async (event) => {
@@ -7,8 +12,14 @@ document.addEventListener("renderTestSection", async (event) => {
     const test = getTest();
     if (!test.immediate_memory_timestamp) {
       content.innerHTML = /*html*/ `
-        <p style="margin-top: 0">The Immediate Memory section must be completed at least 5 minutes before this section. It has not been completed at all.</p>
-        <button class="button" onclick="renderTestSection('immediate-memory')">Back to the Immediate Memory section</button>
+        <p style="margin-top: 0">${t(
+          "runtime.delayed_recall.need_immediate_missing",
+          "The Immediate Memory section must be completed at least 5 minutes before this section. It has not been completed at all."
+        )}</p>
+        <button class="button" onclick="renderTestSection('immediate-memory')">${t(
+          "runtime.delayed_recall.back_to_immediate",
+          "Back to the Immediate Memory section"
+        )}</button>
       `;
       return;
     }
@@ -20,13 +31,18 @@ document.addEventListener("renderTestSection", async (event) => {
           const seconds_ago =
             (Date.now() - test.immediate_memory_timestamp) / 1000;
           content.innerHTML = /*html*/ `
-          <p style="margin-top: 0">The Immediate Memory section must be completed at least 5 minutes before this section. Delayed Recall will open in ${
-            300 - seconds_ago.toFixed(0)
-          } seconds.</p>
+          <p style="margin-top: 0">${tf(
+            "runtime.delayed_recall.need_immediate_wait",
+            { seconds: 300 - seconds_ago.toFixed(0) },
+            "The Immediate Memory section must be completed at least 5 minutes before this section. Delayed Recall will open in {{seconds}} seconds."
+          )}</p>
         `;
           if (seconds_ago >= 300) {
             clearInterval(timer);
-            content.innerHTML = "Starting...";
+            content.innerHTML = t(
+              "runtime.delayed_recall.starting",
+              "Starting..."
+            );
             setupDelayedRecall();
           }
           return callback;
@@ -45,9 +61,14 @@ function setupDelayedRecall() {
     saveTestResult("delayed_recall_timestamp", Date.now());
   }
   content.innerHTML = /*html*/ `
-    <p style="margin-top: 0">Examiner, read the below instructions and select the words that the athlete can remember from the Immediate Memory section.</p>
-    <p style="font-style: italic;">Do you remember the list of words read a few times earlier during the immediate memory section? Tell me as many words from the list as you can
-    remember in any order &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
+    <p style="margin-top: 0">${t(
+      "runtime.delayed_recall.instructions",
+      "Examiner, read the below instructions and select the words that the athlete can remember from the Immediate Memory section."
+    )}</p>
+    <p style="font-style: italic;">${t(
+      "runtime.delayed_recall.prompt",
+      "Do you remember the list of words read a few times earlier during the immediate memory section? Tell me as many words from the list as you can remember in any order"
+    )} &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
     ${
       test.immediate_memory_words
         ?.map(
@@ -55,9 +76,16 @@ function setupDelayedRecall() {
           <label class="left-align green" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="checkbox" class="recall-list"/> ${word}.</label>
         `
         )
-        ?.join("") ?? "Somehow the list of words was not saved."
+        ?.join("") ??
+      t(
+        "runtime.delayed_recall.words_missing",
+        "Somehow the list of words was not saved."
+      )
     }
     <br>
-    <button class="button button--green" onclick="saveTestResult('delayed_recall', getChecked('recall-list').length); saveTestResult('delayed_recall_by_word', [...document.querySelectorAll('.recall-list')].map(el => el.checked)); renderTestSection('results')">View Test Results</button>
+    <button class="button button--green" onclick="saveTestResult('delayed_recall', getChecked('recall-list').length); saveTestResult('delayed_recall_by_word', [...document.querySelectorAll('.recall-list')].map(el => el.checked)); renderTestSection('results')">${t(
+      "runtime.delayed_recall.view_results",
+      "View Test Results"
+    )}</button>
   `;
 }

@@ -104,6 +104,41 @@ header > div:last-child {
   display: flex;
   justify-content: flex-end;
   flex-wrap: wrap;
+  align-items: center;
+}
+
+.language-globe-button {
+  font-size: 1.6rem;
+  color: inherit;
+  position: relative;
+  margin: 2px;
+  margin-top: 0;
+}
+
+.language-globe-button i {
+  background: radial-gradient(
+    100% 100% at 100% 0,
+    var(--tertiary) 0,
+    var(--secondary) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.language-select {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  width: 0;
+  height: 0;
+  margin: auto;
+  padding: 60%;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  outline: 0;
 }
 
 main {
@@ -258,7 +293,7 @@ input[type="checkbox"].expander {
 }
 input[type="checkbox"].expander:before {
   content: '';
-  background-image: url('./assets/right-arrow.svg');
+  background-image: url('/assets/right-arrow.svg');
   background-repeat: no-repeat;
   background-size: contain;
   display: block;
@@ -266,7 +301,7 @@ input[type="checkbox"].expander:before {
   height: 1.8em;
 }
 input[type="checkbox"].expander:checked:before {
-  background-image: url('./assets/down-arrow.svg');
+  background-image: url('/assets/down-arrow.svg');
 }
 
 textarea {
@@ -466,7 +501,7 @@ tbody tr {
   }
 }
 
-[data-title="Correct Responses"] span {
+[data-field="responses"] span {
   border: 1px dotted white;
   border-radius: 50%;
   aspect-ratio: 1;
@@ -475,7 +510,7 @@ tbody tr {
   justify-content: center;
   align-items: center;
 }
-[data-title="Correct Responses"] i {
+[data-field="responses"] i {
   margin: auto;
 }
 #results table th {

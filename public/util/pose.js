@@ -1,5 +1,10 @@
 import { getAthleteName } from "../testManager.js";
 
+const t = (key, fallback) => window.__scat6T?.(key, fallback) ?? fallback;
+const tf = (key, vars, fallback) =>
+  window.__scat6Format?.(key, vars, fallback) ??
+  fallback.replace(/\{\{(\w+)\}\}/g, (_, token) => vars?.[token] ?? "");
+
 // ============== Math Utils ==============
 function getEucledianDistance(x1, y1, x2, y2, z1, z2) {
   return Math.sqrt(
@@ -147,10 +152,16 @@ function checkHandsOnHips(pose, threshold = null) {
   }
 
   if (left_hand_hip_distance > threshold) {
-    return "Left hand is too far from the hip. Please move it closer.";
+    return t(
+      "runtime.bess.error.left_hand_far",
+      "Left hand is too far from the hip. Please move it closer."
+    );
   }
   if (right_hand_hip_distance > threshold) {
-    return "Right hand is too far from the hip. Please move it closer.";
+    return t(
+      "runtime.bess.error.right_hand_far",
+      "Right hand is too far from the hip. Please move it closer."
+    );
   }
   return null;
 }
@@ -204,7 +215,10 @@ function checkStandingStraight(
   }
 
   if (foward_backward_bending_factor > forward_threshold) {
-    return "Please stand straight without bending/twisting knees or upper body.";
+    return t(
+      "runtime.bess.error.stand_straight_no_bending",
+      "Please stand straight without bending/twisting knees or upper body."
+    );
   }
 
   const left_hip_shoulder_distance = getEucledianDistance(
@@ -241,7 +255,10 @@ function checkStandingStraight(
   }
 
   if (left_right_bending_factor > side_threshold) {
-    return "Please stand straight without moving hips side to side.";
+    return t(
+      "runtime.bess.error.stand_straight_no_side",
+      "Please stand straight without moving hips side to side."
+    );
   }
 
   return null;
@@ -265,7 +282,7 @@ function checkFeetTogether(pose, threshold = null) {
   }
 
   if (ankle_distance > threshold) {
-    return "Please keep feet together.";
+    return t("runtime.bess.error.feet_together", "Please keep feet together.");
   }
   return null;
 }
@@ -284,7 +301,10 @@ function checkOneFootLifted(pose, threshold = null) {
   }
 
   if (height_diff < threshold) {
-    return "Please lift dominant foot off the ground.";
+    return t(
+      "runtime.bess.error.lift_dominant_foot",
+      "Please lift dominant foot off the ground."
+    );
   }
   return null;
 }
@@ -303,7 +323,10 @@ function checkKneesTogether(pose, threshold = null) {
   }
 
   if (knee_distance > threshold) {
-    return "Please keep knees together.";
+    return t(
+      "runtime.bess.error.knees_together",
+      "Please keep knees together."
+    );
   }
   return null;
 }
@@ -325,7 +348,10 @@ function checkHeelToToe(
     left_ankle.score < tracker.minScore &&
     right_ankle.score < tracker.minScore
   ) {
-    return "The dominant foot must be visible in front of the non-dominant foot.";
+    return t(
+      "runtime.bess.error.dominant_foot_visible",
+      "The dominant foot must be visible in front of the non-dominant foot."
+    );
   }
 
   const depth = Math.abs(left_ankle.z - right_ankle.z) / shoulderWidth;
@@ -337,10 +363,16 @@ function checkHeelToToe(
   }
 
   if (depth < depth_threshold) {
-    return "Please move the dominant foot further forward.";
+    return t(
+      "runtime.bess.error.move_dominant_forward",
+      "Please move the dominant foot further forward."
+    );
   }
   if (xdiff > alignment_threshold) {
-    return "Please align the heel of the dominant foot with the toe of the non-dominant foot.";
+    return t(
+      "runtime.bess.error.align_heel_toe",
+      "Please align the heel of the dominant foot with the toe of the non-dominant foot."
+    );
   }
   return null;
 }
@@ -363,16 +395,41 @@ function checkElbowsBend(pose, threshold = null) {
   }
 
   if (elbow_distance < threshold) {
-    return "Please bend both elbows without twisting the shoulders.";
+    return t(
+      "runtime.bess.error.bend_elbows",
+      "Please bend both elbows without twisting the shoulders."
+    );
   }
   return null;
 }
 
-function checkVisible(pose, ids, display_names) {
+function getBodyPartLabel(id) {
+  const labels = {
+    left_shoulder: t("runtime.bess.part.left_shoulder", "Left shoulder"),
+    right_shoulder: t("runtime.bess.part.right_shoulder", "Right shoulder"),
+    left_elbow: t("runtime.bess.part.left_elbow", "Left elbow"),
+    right_elbow: t("runtime.bess.part.right_elbow", "Right elbow"),
+    left_wrist: t("runtime.bess.part.left_wrist", "Left wrist"),
+    right_wrist: t("runtime.bess.part.right_wrist", "Right wrist"),
+    left_hip: t("runtime.bess.part.left_hip", "Left hip"),
+    right_hip: t("runtime.bess.part.right_hip", "Right hip"),
+    left_knee: t("runtime.bess.part.left_knee", "Left knee"),
+    right_knee: t("runtime.bess.part.right_knee", "Right knee"),
+    left_ankle: t("runtime.bess.part.left_ankle", "Left ankle"),
+    right_ankle: t("runtime.bess.part.right_ankle", "Right ankle"),
+  };
+  return labels[id] ?? id;
+}
+
+function checkVisible(pose, ids) {
   for (let i = 0; i < ids.length; i++) {
     const body_part = pose.keypoints3D.find((kp) => kp.name === ids[i]);
     if (body_part.score < tracker.minScore) {
-      return `${display_names[i]} not detected. Please make sure it is fully in frame and you are facing the camera straight on.`;
+      return tf(
+        "runtime.bess.error.part_not_detected",
+        { part: getBodyPartLabel(ids[i]) },
+        "{{part}} not detected. Please make sure it is fully in frame and you are facing the camera straight on."
+      );
     }
   }
   return null;
@@ -381,9 +438,16 @@ function checkVisible(pose, ids, display_names) {
 // ============== Preprogrammed Poses ==============
 export async function assess_double_pose(poses) {
   if (poses.length === 0) {
-    return "Can't find athlete. Please make sure they are fully in frame.";
+    return t(
+      "runtime.bess.error.cant_find_athlete",
+      "Can't find athlete. Please make sure they are fully in frame."
+    );
   } else if (poses.length > 1) {
-    return `Multiple people detected. Please make sure only ${getAthleteName()} is in frame.`;
+    return tf(
+      "runtime.bess.error.multiple_people",
+      { athleteName: getAthleteName() },
+      "Multiple people detected. Please make sure only {{athleteName}} is in frame."
+    );
   } else {
     const pose = poses[0];
 
@@ -401,21 +465,7 @@ export async function assess_double_pose(poses) {
       "left_ankle",
       "right_ankle",
     ];
-    const display_names = [
-      "Left shoulder",
-      "Right shoulder",
-      "Left elbow",
-      "Right elbow",
-      "Left wrist",
-      "Right wrist",
-      "Left hip",
-      "Right hip",
-      "Left knee",
-      "Right knee",
-      "Left ankle",
-      "Right ankle",
-    ];
-    const visibilityError = checkVisible(pose, body_parts, display_names);
+    const visibilityError = checkVisible(pose, body_parts);
     if (visibilityError) {
       return visibilityError;
     }
@@ -448,16 +498,23 @@ export async function assess_double_pose(poses) {
     if (await isEyesClosed(getFaceBoundingBox(pose))) {
       return null;
     } else {
-      return "Please close your eyes.";
+      return t("runtime.bess.error.close_eyes", "Please close your eyes.");
     }
   }
 }
 
 export async function assess_tandem_pose(poses) {
   if (poses.length === 0) {
-    return "Can't find athlete. Please make sure they are fully in frame.";
+    return t(
+      "runtime.bess.error.cant_find_athlete",
+      "Can't find athlete. Please make sure they are fully in frame."
+    );
   } else if (poses.length > 1) {
-    return `Multiple people detected. Please make sure only ${getAthleteName()} is in frame.`;
+    return tf(
+      "runtime.bess.error.multiple_people",
+      { athleteName: getAthleteName() },
+      "Multiple people detected. Please make sure only {{athleteName}} is in frame."
+    );
   } else {
     const pose = poses[0];
 
@@ -473,19 +530,7 @@ export async function assess_tandem_pose(poses) {
       "left_knee",
       "right_knee",
     ];
-    const display_names = [
-      "Left shoulder",
-      "Right shoulder",
-      "Left elbow",
-      "Right elbow",
-      "Left wrist",
-      "Right wrist",
-      "Left hip",
-      "Right hip",
-      "Left knee",
-      "Right knee",
-    ];
-    const visibilityError = checkVisible(pose, body_parts, display_names);
+    const visibilityError = checkVisible(pose, body_parts);
     if (visibilityError) {
       return visibilityError;
     }
@@ -516,16 +561,23 @@ export async function assess_tandem_pose(poses) {
     if (await isEyesClosed(getFaceBoundingBox(pose))) {
       return null;
     } else {
-      return "Please close your eyes.";
+      return t("runtime.bess.error.close_eyes", "Please close your eyes.");
     }
   }
 }
 
 export async function assess_single_pose(poses) {
   if (poses.length === 0) {
-    return "Can't find athlete. Please make sure they are fully in frame.";
+    return t(
+      "runtime.bess.error.cant_find_athlete",
+      "Can't find athlete. Please make sure they are fully in frame."
+    );
   } else if (poses.length > 1) {
-    return `Multiple people detected. Please make sure only ${getAthleteName()} is in frame.`;
+    return tf(
+      "runtime.bess.error.multiple_people",
+      { athleteName: getAthleteName() },
+      "Multiple people detected. Please make sure only {{athleteName}} is in frame."
+    );
   } else {
     const pose = poses[0];
 
@@ -543,21 +595,7 @@ export async function assess_single_pose(poses) {
       "left_ankle",
       "right_ankle",
     ];
-    const display_names = [
-      "Left shoulder",
-      "Right shoulder",
-      "Left elbow",
-      "Right elbow",
-      "Left wrist",
-      "Right wrist",
-      "Left hip",
-      "Right hip",
-      "Left knee",
-      "Right knee",
-      "Left ankle",
-      "Right ankle",
-    ];
-    const visibilityError = checkVisible(pose, body_parts, display_names);
+    const visibilityError = checkVisible(pose, body_parts);
     if (visibilityError) {
       return visibilityError;
     }
@@ -589,7 +627,7 @@ export async function assess_single_pose(poses) {
     if (await isEyesClosed(getFaceBoundingBox(pose))) {
       return null;
     } else {
-      return "Please close your eyes.";
+      return t("runtime.bess.error.close_eyes", "Please close your eyes.");
     }
   }
 }

@@ -1,0 +1,13 @@
+{
+  "default": "en",
+  "supported": [
+    {
+      "code": "en",
+      "label": "English"
+    },
+    {
+      "code": "dk",
+      "label": "Danish"
+    }
+  ]
+}

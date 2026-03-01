@@ -68,6 +68,32 @@ Run `firebase serve` to run the development server locally.
 
 Run `firebase deploy` to deploy the project to Firebase.
 
+### Internationalization Build
+
+We use template-driven static generation for language variants:
+
+- Templates: `templates/index.template.html`
+- Language config: `i18n/languages.json`
+- Per-language translation data: `i18n/translations/<lang>.json`
+- Generated catalog of English source + locations: `i18n/catalog.en.json`
+- Build script: `scripts/build-i18n.mjs`
+
+Run:
+
+```bash
+node scripts/build-i18n.mjs
+```
+
+What it does:
+
+- Regenerates `public/index.html` (default English)
+- Generates each localized page in `public/<lang>/index.html`
+- Keeps shared libraries/scripts/assets in `public/` (no duplicated `lib/` copies per language)
+- Syncs translation files so each entry includes:
+  - `source` (English source string)
+  - `locations` (where it appears in templates)
+  - `value` (translated string for that language)
+
 ## Sources
 - [SCAT6 Instructions](https://www.sportsconcussion.co.za/sportconcussion/wp-content/uploads/2023/07/SCAT6-Instructions-v9.pdf)
 - [SCAT6 Assessment](https://bjsm.bmj.com/content/bjsports/57/11/622.full.pdf)

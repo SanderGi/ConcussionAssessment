@@ -1,5 +1,7 @@
 import { saveTestResult, endTest, renderTestSection } from "../testManager.js";
 
+const t = (key, fallback) => window.__scat6T?.(key, fallback) ?? fallback;
+
 export async function alert(message) {
   return new Promise((resolve) => {
     const dialog = document.createElement("dialog");
@@ -139,14 +141,34 @@ export async function bulkExportOptions() {
 
 export async function removeAthleteFromPlayAlert(
   next,
-  message = "Remove athlete from Play for Immediate Medical Assessment or Transport to Hospital/Medical Center"
+  message
 ) {
+  const defaultMessage = t(
+    "runtime.popup.remove_from_play_default",
+    "Remove athlete from play for immediate medical assessment or transport to hospital/medical center."
+  );
+  const spinalImmobilizationEnglish =
+    "Spinal Immobilization and cervical collar. Then remove athlete from Play for Immediate Medical Assessment or Transport to Hospital/Medical Center";
+  const spinalImmobilizationMessage = t(
+    "runtime.popup.remove_from_play_spinal",
+    "Spinal immobilization and cervical collar. Then remove athlete from play for immediate medical assessment or transport to hospital/medical center."
+  );
+  const resolvedMessage =
+    !message || message === spinalImmobilizationEnglish
+      ? message
+        ? spinalImmobilizationMessage
+        : defaultMessage
+      : message;
+
   return new Promise((resolve) => {
     const dialog = document.createElement("dialog");
     dialog.innerHTML = /* html */ `
-      <p>${message}</p>
-      <button class="button">END TEST</button>
-      <button class="button button--orange">KEEP TESTING</button>
+      <p>${resolvedMessage}</p>
+      <button class="button">${t("runtime.popup.end_test", "END TEST")}</button>
+      <button class="button button--orange">${t(
+        "runtime.popup.keep_testing",
+        "KEEP TESTING"
+      )}</button>
     `;
     dialog.children[1].onclick = async () => {
       dialog.remove();
@@ -168,18 +190,18 @@ export async function showSources() {
   return new Promise((resolve) => {
     const dialog = document.createElement("dialog");
     dialog.innerHTML = /* html */ `
-      <h3>Sources</h3>
+      <h3>${t("runtime.sources.title", "Sources")}</h3>
       <ul style="text-align: left; margin: auto; width: fit-content">
-        <li>SCAT6 Supplementary Material: <a href="./assets/SCAT6-Detailed-Instructions.pdf" target="_blank">SCAT6</a></li>
-        <li>Concussion training and information: <a href="https://www.cdc.gov/headsup/index.html" target="_blank">CDC's Heads Up</a></li>
-        <li>BESS Manual: <a href="https://atriumhealth.org/documents/carolinasrehab/bess_manual_.pdf" target="_blank">University of North Carolina</a></li>
-        <li>Healthy/Risk ranges for BESS, Tandem and Dual Gait: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7987555/" target="_blank">Van Deventer et al.</a></li>
-        <li>Healthy/Risk ranges for Immediate/Delayed Recall: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6109942/" target="_blank">Norheim et al.</a></li>
-        <li>Symptom Severity Study: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8583872/" target="_blank">Langer et al.</a></li>
-        <li>SCAT6 Results Study: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6326330/" target="_blank">Mistry and Rainer</a></li>
+        <li>${t("runtime.sources.scat6_supplement", "SCAT6 Supplementary Material")}: <a href="/assets/SCAT6-Detailed-Instructions.pdf" target="_blank">SCAT6</a></li>
+        <li>${t("runtime.sources.concussion_training", "Concussion training and information")}: <a href="https://www.cdc.gov/headsup/index.html" target="_blank">CDC's Heads Up</a></li>
+        <li>${t("runtime.sources.bess_manual", "BESS Manual")}: <a href="https://atriumhealth.org/documents/carolinasrehab/bess_manual_.pdf" target="_blank">University of North Carolina</a></li>
+        <li>${t("runtime.sources.healthy_risk_bess_tandem_dual", "Healthy/risk ranges for BESS, tandem and dual gait")}: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7987555/" target="_blank">Van Deventer et al.</a></li>
+        <li>${t("runtime.sources.healthy_risk_memory", "Healthy/risk ranges for immediate/delayed recall")}: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6109942/" target="_blank">Norheim et al.</a></li>
+        <li>${t("runtime.sources.symptom_severity_study", "Symptom severity study")}: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8583872/" target="_blank">Langer et al.</a></li>
+        <li>${t("runtime.sources.scat6_results_study", "SCAT6 results study")}: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6326330/" target="_blank">Mistry and Rainer</a></li>
       </ul>
       <br>
-      <button class="button" autofocus>OK</button>
+      <button class="button" autofocus>${t("runtime.popup.ok", "OK")}</button>
     `;
     dialog.lastElementChild.onclick = () => {
       dialog.remove();
@@ -502,9 +524,11 @@ export async function confirmAthleteInfo(
   const athlete_years_of_education =
     pastTests.at(-1)?.athlete_years_of_education ?? 10;
   const athlete_first_language =
-    pastTests.at(-1)?.athlete_first_language ?? "English";
+    pastTests.at(-1)?.athlete_first_language ??
+    t("runtime.popup.placeholder_english", "English");
   const athlete_preferred_language =
-    pastTests.at(-1)?.athlete_preferred_language ?? "English";
+    pastTests.at(-1)?.athlete_preferred_language ??
+    t("runtime.popup.placeholder_english", "English");
   const examiner_name = pastTests.at(-1)?.examiner_name ?? defaultExaminerName;
   const team_or_school = pastTests.at(-1)?.team_or_school ?? "";
   const injury_timestamp = Date.now();
@@ -540,128 +564,301 @@ export async function confirmAthleteInfo(
     dialog.innerHTML = /* html */ `
       <h3>${
         pastTests.length == 0
-          ? "Enter Athlete Information"
-          : "Confirm Athlete Information"
+          ? t("runtime.popup.enter_athlete", "Enter Athlete Information")
+          : t("runtime.popup.confirm_athlete", "Confirm Athlete Information")
       }</h3>
-      <label class="left-align spread-inline">Athlete Name: <input type="text" placeholder="Athlete name" value="${athlete_name}" id="athlete_name" /></label>
-      <label class="left-align spread-inline">ID Number: <input type="text" placeholder="Unique ID" value="${athlete_id}" id="athlete_id" /></label>
-      <label class="left-align spread-inline">Time of Examination: <input type="datetime-local" value="${
-        new Date(test_created_at - new Date().getTimezoneOffset() * 60 * 1000)
-          .toISOString()
-          .split(".")[0]
-      }" id="test_created_at" /></label>
-      <label class="left-align spread-inline">Time of Injury (if applicable): <input type="datetime-local" value="${
-        new Date(injury_timestamp - new Date().getTimezoneOffset() * 60 * 1000)
-          .toISOString()
-          .split(".")[0]
-      }" id="injury_timestamp" /></label>
-      <label class="left-align spread-inline">Date of Birth: <input type="date" value="${
-        new Date(athlete_birth_timestamp).toISOString().split("T")[0]
-      }" id="athlete_birth_timestamp" /></label>
-      <label class="left-align spread-inline">Sex: <select id="athlete_sex">
-        <option value="Male" ${
-          athlete_sex === "Male" ? "selected" : ""
-        }>Male</option>
+      <label class="left-align spread-inline">${t(
+        "runtime.popup.athlete_name",
+        "Athlete Name:"
+      )} <input type="text" placeholder="${t(
+      "runtime.popup.placeholder_athlete_name",
+      "Athlete name"
+    )}" value="${athlete_name}" id="athlete_name" /></label>
+      <label class="left-align spread-inline">${t(
+        "runtime.popup.id_number",
+        "ID Number:"
+      )} <input type="text" placeholder="${t(
+      "runtime.popup.placeholder_unique_id",
+      "Unique ID"
+    )}" value="${athlete_id}" id="athlete_id" /></label>
+      <label class="left-align spread-inline">${t(
+        "runtime.popup.time_exam",
+        "Time of Examination:"
+      )} <input type="datetime-local" value="${
+      new Date(test_created_at - new Date().getTimezoneOffset() * 60 * 1000)
+        .toISOString()
+        .split(".")[0]
+    }" id="test_created_at" /></label>
+      <label class="left-align spread-inline">${t(
+        "runtime.popup.time_injury",
+        "Time of Injury (if applicable):"
+      )} <input type="datetime-local" value="${
+      new Date(injury_timestamp - new Date().getTimezoneOffset() * 60 * 1000)
+        .toISOString()
+        .split(".")[0]
+    }" id="injury_timestamp" /></label>
+      <label class="left-align spread-inline">${t(
+        "runtime.popup.dob",
+        "Date of Birth:"
+      )} <input type="date" value="${
+      new Date(athlete_birth_timestamp).toISOString().split("T")[0]
+    }" id="athlete_birth_timestamp" /></label>
+      <label class="left-align spread-inline">${t(
+        "runtime.popup.sex",
+        "Sex:"
+      )} <select id="athlete_sex">
+        <option value="Male" ${athlete_sex === "Male" ? "selected" : ""}>${t(
+      "runtime.popup.sex_male",
+      "Male"
+    )}</option>
         <option value="Female" ${
           athlete_sex === "Female" ? "selected" : ""
-        }>Female</option>
+        }>${t("runtime.popup.sex_female", "Female")}</option>
         <option value="Prefer Not To Say" ${
           athlete_sex === "Prefer Not To Say" ? "selected" : ""
-        }>Prefer Not To Say</option>
-        <option value="Other" ${
-          athlete_sex === "Other" ? "selected" : ""
-        }>Other</option>
+        }>${t(
+      "runtime.popup.sex_prefer_not_to_say",
+      "Prefer Not To Say"
+    )}</option>
+        <option value="Other" ${athlete_sex === "Other" ? "selected" : ""}>${t(
+      "runtime.popup.sex_other",
+      "Other"
+    )}</option>
       </select></label>
-      <label class="left-align spread-inline">Dominant Hand: <select id="athlete_dominant_hand">
+      <label class="left-align spread-inline">${t(
+        "runtime.popup.dom_hand",
+        "Dominant Hand:"
+      )} <select id="athlete_dominant_hand">
         <option value="Right" ${
           athlete_dominant_hand === "Right" ? "selected" : ""
-        }>Right</option>
+        }>${t("runtime.popup.hand_right", "Right")}</option>
         <option value="Left" ${
           athlete_dominant_hand === "Left" ? "selected" : ""
-        }>Left</option>
+        }>${t("runtime.popup.hand_left", "Left")}</option>
         <option value="Ambidextrous" ${
           athlete_dominant_hand === "Ambidextrous" ? "selected" : ""
-        }>Ambidextrous</option>
+        }>${t("runtime.popup.hand_ambidextrous", "Ambidextrous")}</option>
       </select></label>
-      <label class="left-align spread-inline">Current Year in School (if applicable): <input type="number" value="${athlete_year_in_school}" id="athlete_year_in_school" /></label>
-      <label class="left-align spread-inline">Total Years of Education Completed: <input type="number" value="${athlete_years_of_education}" id="athlete_years_of_education" /></label>
-      <label class="left-align spread-inline">First Language: <input type="text" placeholder="English" value="${athlete_first_language}" id="athlete_first_language" /></label>
-      <label class="left-align spread-inline">Preferred Language: <input type="text" placeholder="English" value="${athlete_preferred_language}" id="athlete_preferred_language" /></label>
-      <label class="left-align spread-inline">Examiner Name: <input type="text" placeholder="Your first and last name" value="${examiner_name}" id="examiner_name" /></label>
-      <label class="left-align spread-inline">Sport/Team/School: <input type="text" placeholder="Varsity X at Y High School" value="${team_or_school}" id="team_or_school" /></label>
+      <label class="left-align spread-inline">${t(
+        "runtime.popup.current_school_year",
+        "Current Year in School (if applicable):"
+      )} <input type="number" value="${athlete_year_in_school}" id="athlete_year_in_school" /></label>
+      <label class="left-align spread-inline">${t(
+        "runtime.popup.years_edu",
+        "Total Years of Education Completed:"
+      )} <input type="number" value="${athlete_years_of_education}" id="athlete_years_of_education" /></label>
+      <label class="left-align spread-inline">${t(
+        "runtime.popup.first_lang",
+        "First Language:"
+      )} <input type="text" placeholder="${t(
+      "runtime.popup.placeholder_english",
+      "English"
+    )}" value="${athlete_first_language}" id="athlete_first_language" /></label>
+      <label class="left-align spread-inline">${t(
+        "runtime.popup.preferred_lang",
+        "Preferred Language:"
+      )} <input type="text" placeholder="${t(
+      "runtime.popup.placeholder_english",
+      "English"
+    )}" value="${athlete_preferred_language}" id="athlete_preferred_language" /></label>
+      <label class="left-align spread-inline">${t(
+        "runtime.popup.examiner",
+        "Examiner Name:"
+      )} <input type="text" placeholder="${t(
+      "runtime.popup.placeholder_examiner_name",
+      "Your first and last name"
+    )}" value="${examiner_name}" id="examiner_name" /></label>
+      <label class="left-align spread-inline">${t(
+        "runtime.popup.team_school",
+        "Sport/Team/School:"
+      )} <input type="text" placeholder="${t(
+      "runtime.popup.placeholder_team_school",
+      "Varsity X at Y High School"
+    )}" value="${team_or_school}" id="team_or_school" /></label>
       
-      <h4>Concussion History</h4>
-      <label class="left-align spread-inline">Number of Past Concussions: <input type="number" value="${num_past_concussions}" id="num_past_concussions" /></label>
-      <label class="left-align spread-inline">Most Recent Concussion Date: <input type="date" value="${
-        new Date(most_recent_concussion_timestamp).toISOString().split("T")[0]
-      }" id="most_recent_concussion_timestamp" /></label>
-      <label class="left-align spread-inline">Most Recent Recovery Time (days): <input type="number" value="${most_recent_recovery_time_days}" id="most_recent_recovery_time_days" /></label>
-      <p style="margin-bottom: 0.2em;">Primary Symptoms:</p>
+      <h4>${t("runtime.popup.conc_history", "Concussion History")}</h4>
+      <label class="left-align spread-inline">${t(
+        "runtime.popup.n_past",
+        "Number of Past Concussions:"
+      )} <input type="number" value="${num_past_concussions}" id="num_past_concussions" /></label>
+      <label class="left-align spread-inline">${t(
+        "runtime.popup.recent_date",
+        "Most Recent Concussion Date:"
+      )} <input type="date" value="${
+      new Date(most_recent_concussion_timestamp).toISOString().split("T")[0]
+    }" id="most_recent_concussion_timestamp" /></label>
+      <label class="left-align spread-inline">${t(
+        "runtime.popup.recovery_days",
+        "Most Recent Recovery Time (days):"
+      )} <input type="number" value="${most_recent_recovery_time_days}" id="most_recent_recovery_time_days" /></label>
+      <p style="margin-bottom: 0.2em;">${t(
+        "runtime.popup.primary_symptoms",
+        "Primary Symptoms:"
+      )}</p>
       <label class="left-align" style="flex-wrap: nowrap; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="checkbox" ${
         primary_symptoms.includes("Confusion") ? "checked" : ""
-      } name="primary_symptoms" value="Confusion" /> Confusion.</label>
+      } name="primary_symptoms" value="Confusion" /> ${t(
+      "runtime.popup.symptom_confusion",
+      "Confusion."
+    )}</label>
       <label class="left-align" style="flex-wrap: nowrap; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="checkbox" ${
         primary_symptoms.includes("Headache") ? "checked" : ""
-      } name="primary_symptoms" value="Headache" /> Headache.</label>
+      } name="primary_symptoms" value="Headache" /> ${t(
+      "runtime.popup.symptom_headache",
+      "Headache."
+    )}</label>
       <label class="left-align" style="flex-wrap: nowrap; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="checkbox" ${
         primary_symptoms.includes("Double/Blurry Vision") ? "checked" : ""
-      } name="primary_symptoms" value="Double/Blurry Vision" /> Double/Blurry Vision.</label>
+      } name="primary_symptoms" value="Double/Blurry Vision" /> ${t(
+      "runtime.popup.symptom_double_blurry_vision",
+      "Double/Blurry Vision."
+    )}</label>
       <label class="left-align" style="flex-wrap: nowrap; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="checkbox" ${
         primary_symptoms.includes("Dizziness/Imbalance") ? "checked" : ""
-      } name="primary_symptoms" value="Dizziness/Imbalance" /> Dizziness/Imbalance.</label>
+      } name="primary_symptoms" value="Dizziness/Imbalance" /> ${t(
+      "runtime.popup.symptom_dizziness_imbalance",
+      "Dizziness/Imbalance."
+    )}</label>
       <label class="left-align" style="flex-wrap: nowrap; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="checkbox" ${
         primary_symptoms.includes("Nausea/Vomiting") ? "checked" : ""
-      } name="primary_symptoms" value="Nausea/Vomiting" /> Nausea/Vomiting.</label>
+      } name="primary_symptoms" value="Nausea/Vomiting" /> ${t(
+      "runtime.popup.symptom_nausea_vomiting",
+      "Nausea/Vomiting."
+    )}</label>
       <label class="left-align" style="flex-wrap: nowrap; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="checkbox" ${
         primary_symptoms.includes("Memory Loss") ? "checked" : ""
-      } name="primary_symptoms" value="Memory Loss" /> Memory Loss.</label>
+      } name="primary_symptoms" value="Memory Loss" /> ${t(
+      "runtime.popup.symptom_memory_loss",
+      "Memory Loss."
+    )}</label>
       <label class="left-align" style="flex-wrap: nowrap; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="checkbox" ${
         primary_symptoms.includes("Ringing Ears") ? "checked" : ""
-      } name="primary_symptoms" value="Ringing Ears" /> Ringing Ears.</label>
+      } name="primary_symptoms" value="Ringing Ears" /> ${t(
+      "runtime.popup.symptom_ringing_ears",
+      "Ringing Ears."
+    )}</label>
       <label class="left-align" style="flex-wrap: nowrap; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="checkbox" ${
         primary_symptoms.includes("Difficulty Concentrating") ? "checked" : ""
-      } name="primary_symptoms" value="Difficulty Concentrating" /> Difficulty Concentrating.</label>
+      } name="primary_symptoms" value="Difficulty Concentrating" /> ${t(
+      "runtime.popup.symptom_difficulty_concentrating",
+      "Difficulty Concentrating."
+    )}</label>
       <label class="left-align" style="flex-wrap: nowrap; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="checkbox" ${
         primary_symptoms.includes("Sensitivity to Light") ? "checked" : ""
-      } name="primary_symptoms" value="Sensitivity to Light" /> Sensitivity to Light.</label>
+      } name="primary_symptoms" value="Sensitivity to Light" /> ${t(
+      "runtime.popup.symptom_sensitivity_light",
+      "Sensitivity to Light."
+    )}</label>
       <label class="left-align" style="flex-wrap: nowrap; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="checkbox" ${
         primary_symptoms.includes("Loss of Smell/Taste") ? "checked" : ""
-      } name="primary_symptoms" value="Loss of Smell/Taste" /> Loss of Smell/Taste.</label>
+      } name="primary_symptoms" value="Loss of Smell/Taste" /> ${t(
+      "runtime.popup.symptom_loss_smell_taste",
+      "Loss of Smell/Taste."
+    )}</label>
       <label class="left-align" style="flex-wrap: nowrap; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="checkbox" ${
         primary_symptoms.includes("Trouble Sleeping") ? "checked" : ""
-      } name="primary_symptoms" value="Trouble Sleeping" /> Trouble Sleeping.</label>
-      <label class="left-align spread-inline">Other: <input type="text" placeholder="List other symptoms" value="${primary_symptoms_other}" class="fill-spread" id="primary_symptoms_other" /></label>
+      } name="primary_symptoms" value="Trouble Sleeping" /> ${t(
+      "runtime.popup.symptom_trouble_sleeping",
+      "Trouble Sleeping."
+    )}</label>
+      <label class="left-align spread-inline">${t(
+        "runtime.popup.other",
+        "Other:"
+      )} <input type="text" placeholder="${t(
+      "runtime.popup.placeholder_list_other_symptoms",
+      "List other symptoms"
+    )}" value="${primary_symptoms_other}" class="fill-spread" id="primary_symptoms_other" /></label>
       
-      <h4>Medical Background</h4>
-      <p style="margin-top: 0">Has the athlete ever been (if yes, describe below):</p>
+      <h4>${t("runtime.popup.med_bg", "Medical Background")}</h4>
+      <p style="margin-top: 0">${t(
+        "runtime.popup.med_bg_question",
+        "Has the athlete ever been (if yes, describe below):"
+      )}</p>
       <label class="left-align" style="flex-wrap: nowrap; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="checkbox" ${
         hospitalized_for_head_injury ? "checked" : ""
-      } id="hospitalized_for_head_injury" />Hospitalized for head injury.</label>
+      } id="hospitalized_for_head_injury" />${t(
+      "runtime.popup.hospitalized_head_injury",
+      "Hospitalized for head injury."
+    )}</label>
       <label class="left-align" style="flex-wrap: nowrap; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="checkbox" ${
         diagnosed_headache_disorder_or_migraine ? "checked" : ""
-      } id="diagnosed_headache_disorder_or_migraine" />Diagnosed with a headache disorder or migraine.</label>
+      } id="diagnosed_headache_disorder_or_migraine" />${t(
+      "runtime.popup.diagnosed_headache_migraine",
+      "Diagnosed with a headache disorder or migraine."
+    )}</label>
       <label class="left-align" style="flex-wrap: nowrap; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="checkbox" ${
         diagnosed_learning_disability_or_dyslexia ? "checked" : ""
-      } id="diagnosed_learning_disability_or_dyslexia" />Diagnosed with a learning disability or dyslexia.</label>
+      } id="diagnosed_learning_disability_or_dyslexia" />${t(
+      "runtime.popup.diagnosed_learning_dyslexia",
+      "Diagnosed with a learning disability or dyslexia."
+    )}</label>
       <label class="left-align" style="flex-wrap: nowrap; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="checkbox" ${
         diagnosed_attention_deficit_disorder ? "checked" : ""
-      } id="diagnosed_attention_deficit_disorder" />Diagnosed with attention deficit hyperactivity disorder (ADHD).</label>
+      } id="diagnosed_attention_deficit_disorder" />${t(
+      "runtime.popup.diagnosed_adhd",
+      "Diagnosed with attention deficit hyperactivity disorder (ADHD)."
+    )}</label>
       <label class="left-align" style="flex-wrap: nowrap; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="checkbox" ${
         diagnosed_psychological_disorder ? "checked" : ""
-      } id="diagnosed_psychological_disorder" />Diagnosed with depression, anxiety or a psychological disorder.</label>
-      <label class="left-align spread-inline" style="margin-top: 0.8em">Current Medications: <input type="text" placeholder="List medications" class="fill-spread" value="${current_medications}" id="current_medications" /></label>
-      <label class="left-align spread-inline">Notes: <input type="text" placeholder="Describe any selections above" class="fill-spread" value="${notes}" id="notes" /></label>
+      } id="diagnosed_psychological_disorder" />${t(
+      "runtime.popup.diagnosed_psych",
+      "Diagnosed with depression, anxiety or a psychological disorder."
+    )}</label>
+      <label class="left-align spread-inline" style="margin-top: 0.8em">${t(
+        "runtime.popup.current_medications",
+        "Current Medications:"
+      )} <input type="text" placeholder="${t(
+      "runtime.popup.placeholder_list_medications",
+      "List medications"
+    )}" class="fill-spread" value="${current_medications}" id="current_medications" /></label>
+      <label class="left-align spread-inline">${t(
+        "runtime.popup.notes",
+        "Notes:"
+      )} <input type="text" placeholder="${t(
+      "runtime.popup.placeholder_describe_selections",
+      "Describe any selections above"
+    )}" class="fill-spread" value="${notes}" id="notes" /></label>
       
-      <h4>Start Assessment</h4>
-      <p  style="margin-top: 0">The immediate assessment should be completed "on-field" after the first aid/emergency care priorities are completed.</p>
-      <p>The "cognitive screening" portion of the baseline and post injury assessments should be completed in a distraction-free environment with the athlete in a resting state.</p>
-      <p>For Use by Health Care Professionals Only. See the original <a href="./assets/SCAT6-Detailed-Instructions.pdf">Detailed Instructions</a>.</p>
-      <label class="left-align spread-inline">I hereby attest that I am a medical or Health Care Professional authorized to use this tool: <input type="checkbox"></label><br><br>
-      <button class="button button--green" data-action="IMMEDIATE">Immediate</button>
-      <button class="button" data-action="BASELINE">Baseline</button>
-      <button class="button" data-action="SUSPECTED/POST">Suspected/Post-Injury</button>
-      <button class="button" data-action="NO-TEST">Save Info w/o Test</button>
-      <button class="button button--red" data-action="CANCEL">CANCEL</button>
+      <h4>${t("runtime.popup.start_assessment", "Start Assessment")}</h4>
+      <p  style="margin-top: 0">${t(
+        "runtime.popup.immediate_text",
+        'The immediate assessment should be completed "on-field" after the first aid/emergency care priorities are completed.'
+      )}</p>
+      <p>${t(
+        "runtime.popup.cognitive_text",
+        'The "cognitive screening" portion of the baseline and post injury assessments should be completed in a distraction-free environment with the athlete in a resting state.'
+      )}</p>
+      <p>${t(
+        "runtime.popup.hcp_only_text",
+        "For Use by Health Care Professionals Only. See the original"
+      )} <a href="/assets/SCAT6-Detailed-Instructions.pdf">${t(
+      "runtime.popup.detailed_instructions",
+      "Detailed Instructions"
+    )}</a>.</p>
+      <label class="left-align spread-inline">${t(
+        "runtime.popup.attest_hcp",
+        "I hereby attest that I am a medical or Health Care Professional authorized to use this tool:"
+      )} <input type="checkbox"></label><br><br>
+      <button class="button button--green" data-action="IMMEDIATE">${t(
+        "runtime.popup.immediate",
+        "Immediate"
+      )}</button>
+      <button class="button" data-action="BASELINE">${t(
+        "runtime.popup.baseline",
+        "Baseline"
+      )}</button>
+      <button class="button" data-action="SUSPECTED/POST">${t(
+        "runtime.popup.suspected_post",
+        "Suspected/Post-Injury"
+      )}</button>
+      <button class="button" data-action="NO-TEST">${t(
+        "runtime.popup.save_info_no_test",
+        "Save Info w/o Test"
+      )}</button>
+      <button class="button button--red" data-action="CANCEL">${t(
+        "runtime.popup.cancel",
+        "CANCEL"
+      )}</button>
     `;
     dialog.onclick = (event) => {
       if (event.target.tagName !== "BUTTON") return;

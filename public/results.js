@@ -8,6 +8,9 @@ import {
 import { text2image } from "./util/text2image.js";
 
 const content = document.getElementById("results-content");
+const t = (key, fallback) => window.__scat6T?.(key, fallback) ?? fallback;
+const tf = (key, vars, fallback) =>
+  window.__scat6Format?.(key, vars, fallback) ?? fallback;
 
 document.addEventListener("renderTestSection", async (event) => {
   if (event.detail !== "results") {
@@ -46,239 +49,282 @@ document.addEventListener("renderTestSection", async (event) => {
     if (isNaN(diff)) return "--";
     return (diff / 1000).toFixed(0);
   }
+  const domainLabel = t("runtime.results.table.domain", "Domain");
+  const currentScoreLabel = t(
+    "runtime.results.table.current_score",
+    "Current Score"
+  );
+  const baselineLabel = t("runtime.results.table.last_baseline", "Last Baseline");
+  const postInjuryLabel = t(
+    "runtime.results.table.last_post_injury",
+    "Last Post-Injury"
+  );
+  const healthyRangeLabel = t(
+    "runtime.results.table.healthy_range",
+    "Healthy Range"
+  );
+  const riskRangeLabel = t(
+    "runtime.results.table.increased_risk_range",
+    "Increased Risk Range"
+  );
+
   content.innerHTML = /*html*/ `
     <table style="margin-left: auto; margin-right: auto">
-      <thead><tr><th>Domain</th><th>Current Score</th><th>Last Baseline</th><th>Last Post Injury</th><th>Healthy Range <i class="fa-solid fa-circle-info" data-action="SOURCES"></i></th><th>Increased Risk Range <i class="fa-solid fa-circle-info" data-action="SOURCES"></i></th></tr></thead>
+      <thead><tr><th>${domainLabel}</th><th>${currentScoreLabel}</th><th>${baselineLabel}</th><th>${postInjuryLabel}</th><th>${healthyRangeLabel} <i class="fa-solid fa-circle-info" data-action="SOURCES"></i></th><th>${riskRangeLabel} <i class="fa-solid fa-circle-info" data-action="SOURCES"></i></th></tr></thead>
       <tbody>
         <tr><!-- DATE -->
-          <td data-title="Domain">Date</td>
-          <td data-title="Current Score">${
+          <td data-title="${domainLabel}">${t("runtime.results.row.date", "Date")}</td>
+          <td data-title="${currentScoreLabel}">${
             test.test_created_at
               ? new Date(test.test_created_at).toLocaleDateString()
               : "--"
           }</td>
-          <td data-title="Last Baseline">${
+          <td data-title="${baselineLabel}">${
             lastBaseline.test_created_at
               ? new Date(lastBaseline.test_created_at).toLocaleDateString()
               : "--"
           }</td>
-          <td data-title="Last Post Injury">${
+          <td data-title="${postInjuryLabel}">${
             lastPostInjury.test_created_at
               ? new Date(lastPostInjury.test_created_at).toLocaleDateString()
               : "--"
           }</td>
-          <td data-title="Healthy Range">--</td>
-          <td data-title="Increased Risk Range">--</td>
+          <td data-title="${healthyRangeLabel}">--</td>
+          <td data-title="${riskRangeLabel}">--</td>
         </tr>
         <tr><!-- Symptom Number -->
-          <td data-title="Domain" style="white-space: nowrap">Symptoms (of 22)</td>
-          <td data-title="Current Score">${test.symptom_number ?? "--"}</td>
-          <td data-title="Last Baseline">${
+          <td data-title="${domainLabel}" style="white-space: nowrap">${t("runtime.results.row.symptoms", "Symptoms (of 22)")}</td>
+          <td data-title="${currentScoreLabel}">${test.symptom_number ?? "--"}</td>
+          <td data-title="${baselineLabel}">${
             lastBaseline.symptom_number ?? "--"
           }</td>
-          <td data-title="Last Post Injury">${
+          <td data-title="${postInjuryLabel}">${
             lastPostInjury.symptom_number ?? "--"
           }</td>
-          <td data-title="Healthy Range">&lt;2</td>
-          <td data-title="Increased Risk Range">>3</td>
+          <td data-title="${healthyRangeLabel}">&lt;2</td>
+          <td data-title="${riskRangeLabel}">>3</td>
         </tr>
         <tr><!-- Symptom Severity -->
-          <td data-title="Domain" style="white-space: nowrap">Severity (of 132)</td>
-          <td data-title="Current Score">${test.symptom_severity ?? "--"}</td>
-          <td data-title="Last Baseline">${
+          <td data-title="${domainLabel}" style="white-space: nowrap">${t("runtime.results.row.severity", "Severity (of 132)")}</td>
+          <td data-title="${currentScoreLabel}">${test.symptom_severity ?? "--"}</td>
+          <td data-title="${baselineLabel}">${
             lastBaseline.symptom_severity ?? "--"
           }</td>
-          <td data-title="Last Post Injury">${
+          <td data-title="${postInjuryLabel}">${
             lastPostInjury.symptom_severity ?? "--"
           }</td>
-          <td data-title="Healthy Range">0-25 (low)</td>
-          <td data-title="Increased Risk Range">26-75 (moderate)<br> >76 (high)</td>
+          <td data-title="${healthyRangeLabel}">0-25 (${t(
+            "runtime.results.range.low",
+            "low"
+          )})</td>
+          <td data-title="${riskRangeLabel}">26-75 (${t(
+            "runtime.results.range.moderate",
+            "moderate"
+          )})<br> >76 (${t("runtime.results.range.high", "high")})</td>
         </tr>
         <tr><!-- Orientation -->
-          <td data-title="Domain" style="white-space: nowrap">Orientation (of 5)</td>
-          <td data-title="Current Score">${test.orientation ?? "--"}</td>
-          <td data-title="Last Baseline">${
+          <td data-title="${domainLabel}" style="white-space: nowrap">${t("runtime.results.row.orientation", "Orientation (of 5)")}</td>
+          <td data-title="${currentScoreLabel}">${test.orientation ?? "--"}</td>
+          <td data-title="${baselineLabel}">${
             lastBaseline.orientation ?? "--"
           }</td>
-          <td data-title="Last Post Injury">${
+          <td data-title="${postInjuryLabel}">${
             lastPostInjury.orientation ?? "--"
           }</td>
-          <td data-title="Healthy Range">4-5</td>
-          <td data-title="Increased Risk Range">0-4</td>
+          <td data-title="${healthyRangeLabel}">4-5</td>
+          <td data-title="${riskRangeLabel}">0-4</td>
         </tr>
         <tr><!-- Immediate Memory -->
-          <td data-title="Domain" style="white-space: nowrap">Immediate Memory (of 30)</td>
-          <td data-title="Current Score">${test.immediate_memory ?? "--"}</td>
-          <td data-title="Last Baseline">${
+          <td data-title="${domainLabel}" style="white-space: nowrap">${t("runtime.results.row.immediate_memory", "Immediate Memory (of 30)")}</td>
+          <td data-title="${currentScoreLabel}">${test.immediate_memory ?? "--"}</td>
+          <td data-title="${baselineLabel}">${
             lastBaseline.immediate_memory ?? "--"
           }</td>
-          <td data-title="Last Post Injury">${
+          <td data-title="${postInjuryLabel}">${
             lastPostInjury.immediate_memory ?? "--"
           }</td>
-          <td data-title="Healthy Range">20-30</td>
-          <td data-title="Increased Risk Range">0-20</td>
+          <td data-title="${healthyRangeLabel}">20-30</td>
+          <td data-title="${riskRangeLabel}">0-20</td>
         </tr>
         <tr><!-- Concentration -->
-          <td data-title="Domain" style="white-space: nowrap">Concentration (of 5)</td>
-          <td data-title="Current Score">${test.concentration ?? "--"}</td>
-          <td data-title="Last Baseline">${
+          <td data-title="${domainLabel}" style="white-space: nowrap">${t("runtime.results.row.concentration", "Concentration (of 5)")}</td>
+          <td data-title="${currentScoreLabel}">${test.concentration ?? "--"}</td>
+          <td data-title="${baselineLabel}">${
             lastBaseline.concentration ?? "--"
           }</td>
-          <td data-title="Last Post Injury">${
+          <td data-title="${postInjuryLabel}">${
             lastPostInjury.concentration ?? "--"
           }</td>
-          <td data-title="Healthy Range">4-5</td>
-          <td data-title="Increased Risk Range">0-4</td>
+          <td data-title="${healthyRangeLabel}">4-5</td>
+          <td data-title="${riskRangeLabel}">0-4</td>
         </tr>
         <tr><!-- Delayed Recall -->
-          <td data-title="Domain" style="white-space: nowrap">Delayed Recall (of 10)</td>
-          <td data-title="Current Score">${test.delayed_recall ?? "--"}</td>
-          <td data-title="Last Baseline">${
+          <td data-title="${domainLabel}" style="white-space: nowrap">${t("runtime.results.row.delayed_recall", "Delayed Recall (of 10)")}</td>
+          <td data-title="${currentScoreLabel}">${test.delayed_recall ?? "--"}</td>
+          <td data-title="${baselineLabel}">${
             lastBaseline.delayed_recall ?? "--"
           }</td>
-          <td data-title="Last Post Injury">${
+          <td data-title="${postInjuryLabel}">${
             lastPostInjury.delayed_recall ?? "--"
           }</td>
-          <td data-title="Healthy Range">6-10</td>
-          <td data-title="Increased Risk Range">0-5</td>
+          <td data-title="${healthyRangeLabel}">6-10</td>
+          <td data-title="${riskRangeLabel}">0-5</td>
         </tr>
         <tr><!-- Recall Delay -->
-          <td data-title="Domain" style="white-space: nowrap">Recall Delay (seconds)</td>
-          <td data-title="Current Score">${recallDelaySeconds(test)}</td>
-          <td data-title="Last Baseline">${recallDelaySeconds(
+          <td data-title="${domainLabel}" style="white-space: nowrap">${t("runtime.results.row.recall_delay", "Recall Delay (seconds)")}</td>
+          <td data-title="${currentScoreLabel}">${recallDelaySeconds(test)}</td>
+          <td data-title="${baselineLabel}">${recallDelaySeconds(
             lastBaseline
           )}</td>
-          <td data-title="Last Post Injury">${recallDelaySeconds(
+          <td data-title="${postInjuryLabel}">${recallDelaySeconds(
             lastPostInjury
           )}</td>
-          <td data-title="Healthy Range">300+</td>
-          <td data-title="Increased Risk Range">&lt;300</td>
+          <td data-title="${healthyRangeLabel}">300+</td>
+          <td data-title="${riskRangeLabel}">&lt;300</td>
         </tr>
         <tr><!-- Cognitive Total -->
-          <td data-title="Domain" style="white-space: nowrap">Cognitive Total (of 50)</td>
-          <td data-title="Current Score">${test.cognitive_total ?? "--"}</td>
-          <td data-title="Last Baseline">${
+          <td data-title="${domainLabel}" style="white-space: nowrap">${t("runtime.results.row.cognitive_total", "Cognitive Total (of 50)")}</td>
+          <td data-title="${currentScoreLabel}">${test.cognitive_total ?? "--"}</td>
+          <td data-title="${baselineLabel}">${
             lastBaseline.cognitive_total ?? "--"
           }</td>
-          <td data-title="Last Post Injury">${
+          <td data-title="${postInjuryLabel}">${
             lastPostInjury.cognitive_total ?? "--"
           }</td>
-          <td data-title="Healthy Range">40-50</td>
-          <td data-title="Increased Risk Range">0-40</td>
+          <td data-title="${healthyRangeLabel}">40-50</td>
+          <td data-title="${riskRangeLabel}">0-40</td>
         </tr>
         <tr><!-- BESS -->
-          <td data-title="Domain" style="white-space: nowrap">BESS (of 30)</td>
-          <td data-title="Current Score">${test.mBESS_total_errors ?? "--"}</td>
-          <td data-title="Last Baseline">${
+          <td data-title="${domainLabel}" style="white-space: nowrap">${t("runtime.results.row.bess", "BESS (of 30)")}</td>
+          <td data-title="${currentScoreLabel}">${test.mBESS_total_errors ?? "--"}</td>
+          <td data-title="${baselineLabel}">${
             lastBaseline.mBESS_total_errors ?? "--"
           }</td>
-          <td data-title="Last Post Injury">${
+          <td data-title="${postInjuryLabel}">${
             lastPostInjury.mBESS_total_errors ?? "--"
           }</td>
-          <td data-title="Healthy Range">0-6</td>
-          <td data-title="Increased Risk Range">6-30</td>
+          <td data-title="${healthyRangeLabel}">0-6</td>
+          <td data-title="${riskRangeLabel}">6-30</td>
         </tr>
         <tr><!-- BESS Foam -->
-          <td data-title="Domain" style="white-space: nowrap">BESS Foam (of 30)</td>
-          <td data-title="Current Score">${
+          <td data-title="${domainLabel}" style="white-space: nowrap">${t("runtime.results.row.bess_foam", "BESS Foam (of 30)")}</td>
+          <td data-title="${currentScoreLabel}">${
             test.mBESS_foam_total_errors ?? "--"
           }</td>
-          <td data-title="Last Baseline">${
+          <td data-title="${baselineLabel}">${
             lastBaseline.mBESS_foam_total_errors ?? "--"
           }</td>
-          <td data-title="Last Post Injury">${
+          <td data-title="${postInjuryLabel}">${
             lastPostInjury.mBESS_foam_total_errors ?? "--"
           }</td>
-          <td data-title="Healthy Range">0-13</td>
-          <td data-title="Increased Risk Range">13-30</td>
+          <td data-title="${healthyRangeLabel}">0-13</td>
+          <td data-title="${riskRangeLabel}">13-30</td>
         </tr>
         <tr><!-- Tandem Gait Fastest -->
-          <td data-title="Domain" style="white-space: nowrap">Tandem Gait fastest (sec)</td>
-          <td data-title="Current Score">${
+          <td data-title="${domainLabel}" style="white-space: nowrap">${t("runtime.results.row.tandem_fastest", "Tandem Gait Fastest (sec)")}</td>
+          <td data-title="${currentScoreLabel}">${
             test.tandem_gait_fastest_time ?? "--"
           }</td>
-          <td data-title="Last Baseline">${
+          <td data-title="${baselineLabel}">${
             lastBaseline.tandem_gait_fastest_time ?? "--"
           }</td>
-          <td data-title="Last Post Injury">${
+          <td data-title="${postInjuryLabel}">${
             lastPostInjury.tandem_gait_fastest_time ?? "--"
           }</td>
-          <td data-title="Healthy Range">13-16</td>
-          <td data-title="Increased Risk Range">21-27</td>
+          <td data-title="${healthyRangeLabel}">13-16</td>
+          <td data-title="${riskRangeLabel}">21-27</td>
         </tr>
         <tr><!-- Dual Task Fastest -->
-          <td data-title="Domain" style="white-space: nowrap">Dual Task fastest (sec)</td>
-          <td data-title="Current Score">${
+          <td data-title="${domainLabel}" style="white-space: nowrap">${t("runtime.results.row.dual_task_fastest", "Dual Task Fastest (sec)")}</td>
+          <td data-title="${currentScoreLabel}">${
             test.dual_task_fastest_time ?? "--"
           }</td>
-          <td data-title="Last Baseline">${
+          <td data-title="${baselineLabel}">${
             lastBaseline.dual_task_fastest_time ?? "--"
           }</td>
-          <td data-title="Last Post Injury">${
+          <td data-title="${postInjuryLabel}">${
             lastPostInjury.dual_task_fastest_time ?? "--"
           }</td>
-          <td data-title="Healthy Range">18-23</td>
-          <td data-title="Increased Risk Range">30-37</td>
+          <td data-title="${healthyRangeLabel}">18-23</td>
+          <td data-title="${riskRangeLabel}">30-37</td>
         </tr>
         <tr><!-- Dual Task Accuracy -->
-          <td data-title="Domain" style="white-space: nowrap">Dual Task Accuracy (%)</td>
-          <td data-title="Current Score">${
+          <td data-title="${domainLabel}" style="white-space: nowrap">${t("runtime.results.row.dual_task_accuracy", "Dual Task Accuracy (%)")}</td>
+          <td data-title="${currentScoreLabel}">${
             test.dual_task_accuracy?.toFixed(0) ?? "--"
           }</td>
-          <td data-title="Last Baseline">${
+          <td data-title="${baselineLabel}">${
             lastBaseline.dual_task_accuracy?.toFixed(0) ?? "--"
           }</td>
-          <td data-title="Last Post Injury">${
+          <td data-title="${postInjuryLabel}">${
             lastPostInjury.dual_task_accuracy?.toFixed(0) ?? "--"
           }</td>
-          <td data-title="Healthy Range">86-93</td>
-          <td data-title="Increased Risk Range">76-84</td>
+          <td data-title="${healthyRangeLabel}">86-93</td>
+          <td data-title="${riskRangeLabel}">76-84</td>
         </tr>
       </tbody>
     </table>
-    <p style="margin-top: 0">If the athlete was known to you prior to their injury, are they different from their usual self?</p>
+    <p style="margin-top: 0">${t(
+      "runtime.results.different_prompt",
+      "If the athlete was known to you prior to their injury, are they different from their usual self?"
+    )}</p>
     <button data-action="DIFFERENT-YES" class="button button--red" style="${isValue(
       "different_from_usual",
       "YES"
-    )}">Yes</button>
+    )}">${t("runtime.common.yes", "Yes")}</button>
     <button data-action="DIFFERENT-NO" class="button button--green" style="${isValue(
       "different_from_usual",
       "NO"
-    )}">No</button>
+    )}">${t("runtime.common.no", "No")}</button>
     <button data-action="DIFFERENT-N/A" class="button" style="${isValue(
       "different_from_usual",
       "N/A"
-    )}">N/A</button>
-    <h3>Decision</h3>
-    <p style="margin-top: 0">Concussion diagnosed?</p>
+    )}">${t("runtime.common.na", "N/A")}</button>
+    <h3>${t("runtime.results.decision_title", "Decision")}</h3>
+    <p style="margin-top: 0">${t(
+      "runtime.results.diagnosed_prompt",
+      "Concussion diagnosed?"
+    )}</p>
     <button data-action="CONCUSSION-YES" class="button button--red" style="${isValue(
       "decision",
       "YES"
-    )}">Yes</button>
+    )}">${t("runtime.common.yes", "Yes")}</button>
     <button data-action="CONCUSSION-NO" class="button button--green" style="${isValue(
       "decision",
       "NO"
-    )}">No</button>
+    )}">${t("runtime.common.no", "No")}</button>
     <button data-action="CONCUSSION-DEFERRED" class="button" style="${isValue(
       "decision",
       "DEFERRED"
-    )}">Deferred</button>
-    <p>Notes</p>
+    )}">${t("runtime.results.deferred", "Deferred")}</button>
+    <p>${t("runtime.results.notes", "Notes")}</p>
     <textarea data-action="NOTES" class="textarea">${
       test.test_notes ?? ""
     }</textarea>
-    <h3>Health Care Professional Attestation</h3>
-    <p>I am an HCP and I have personally administered or supervised the administration of this SCAT6.</p>
-    <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.8em;">Name: <input data-action="NAME" type="text" value="${
+    <h3>${t(
+      "runtime.results.hcp_attestation_title",
+      "Health Care Professional Attestation"
+    )}</h3>
+    <p>${t(
+      "runtime.results.hcp_attestation_body",
+      "I am an HCP and I have personally administered or supervised the administration of this SCAT6."
+    )}</p>
+    <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.8em;">${t("runtime.results.name", "Name")}: <input data-action="NAME" type="text" value="${
       test.examiner_name
     }"></label>
-    <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.8em;">Title/Specialty: <input data-action="TITLE_OR_SPECIALTY" type="text" value="${
+    <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.8em;">${t(
+      "runtime.results.title_specialty",
+      "Title/Specialty"
+    )}: <input data-action="TITLE_OR_SPECIALTY" type="text" value="${
       test.title_or_specialty ?? ""
     }"></label>
-    <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.8em;">Registration/License number (if applicable): <input data-action="REGISTRATION_OR_LICENSE" type="text" value="${
+    <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.8em;">${t(
+      "runtime.results.registration_license",
+      "Registration/License Number (if applicable)"
+    )}: <input data-action="REGISTRATION_OR_LICENSE" type="text" value="${
       test.registration_or_license_number ?? ""
     }"></label>
-    <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.8em;">Signature Date: <input type="datetime-local" value="${
+    <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.8em;">${t("runtime.results.signature_date", "Signature Date")}: <input type="datetime-local" value="${
       new Date(
         (test.signed_timestamp ?? Date.now()) -
           new Date().getTimezoneOffset() * 60 * 1000
@@ -286,7 +332,10 @@ document.addEventListener("renderTestSection", async (event) => {
         .toISOString()
         .split(".")[0]
     }" data-action="SIGNATURE-TIMESTAMP" /></label>
-    <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Checking this box is equivalent to signing a paper SCAT6: <input data-action="SIGNATURE" type="checkbox" ${
+    <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">${t(
+      "runtime.results.signature_checkbox",
+      "Checking this box is equivalent to signing a paper SCAT6"
+    )}: <input data-action="SIGNATURE" type="checkbox" ${
       test.signed ? "checked" : ""
     }></label>
   `;
@@ -354,12 +403,18 @@ document
     try {
       exportSelect.showPicker();
     } catch {
-      exportSelect.value = await select("Choose an export option:", [
-        ["Report", "Overall Report"],
-        ["SCAT6", "Full SCAT6"],
-        ["CSV", "Raw CSV"],
-        ["none", "Cancel", "button--red"],
-      ]);
+      exportSelect.value = await select(
+        t("runtime.results.export.choose", "Choose an export option:"),
+        [
+          ["Report", t("runtime.results.export.overall_report", "Overall Report")],
+          ["SCAT6", t("runtime.results.export.full_scat6", "Full SCAT6")],
+          ["CSV", t("runtime.results.export.raw_csv", "Raw CSV")],
+          ["none", t("runtime.results.export.cancel", "Cancel"), "button--red"],
+        ]
+      );
+      if (!exportSelect.value) {
+        exportSelect.value = "none";
+      }
       exportSelect.dispatchEvent(
         new Event("change", { bubbles: true, cancelable: false })
       );
@@ -440,7 +495,28 @@ function formatDate(timestamp) {
 
 /** @param {import("./userData.js").Test} data */
 function generateReportHTML(data) {
-  let html = `<html><head><title>SCAT6 Report for ${data.athlete_name}</title><style>
+  const differentFromNormalLabel =
+    data.different_from_usual === "YES"
+      ? t("runtime.common.yes_upper", "YES")
+      : data.different_from_usual === "NO"
+      ? t("runtime.common.no_upper", "NO")
+      : data.different_from_usual === "N/A"
+      ? t("runtime.common.na", "N/A")
+      : data.different_from_usual;
+  const diagnosisLabel =
+    data.decision === "YES"
+      ? t("runtime.common.yes_upper", "YES")
+      : data.decision === "NO"
+      ? t("runtime.common.no_upper", "NO")
+      : data.decision === "DEFERRED"
+      ? t("runtime.results.deferred", "Deferred")
+      : data.decision;
+
+  let html = `<html><head><title>${tf(
+    "runtime.results.report.title_for",
+    { athleteName: data.athlete_name },
+    `SCAT6 report for ${data.athlete_name}`
+  )}</title><style>
         body { font-family: Arial, sans-serif; padding: 20px; }
         h1, h2 { text-align: center; }
         table { width: 100%; border-collapse: collapse; margin-top: 20px; }
@@ -448,91 +524,119 @@ function generateReportHTML(data) {
         th { background-color: #f2f2f2; text-align: left; }
         </style></head><body>`;
 
-  html += `<h1>SCAT6 Report for ${data.athlete_name}</h1>`;
+  html += `<h1>${tf(
+    "runtime.results.report.title_for",
+    { athleteName: data.athlete_name },
+    `SCAT6 report for ${data.athlete_name}`
+  )}</h1>`;
   html += `
     <div style="display: grid; grid-template-columns: 2fr 1fr; row-gap: 0.5em;">
-      <span><strong>Test Active</strong>: ${formatDate(
+      <span><strong>${t("runtime.results.report.test_active", "Test Active")}</strong>: ${formatDate(
         data.test_created_at
       )} - ${formatDate(data.test_updated_at)}</span>
-      <span><strong>Test Type</strong>: ${data.test_type}</span>
-      <span><strong>Injury Time</strong>: ${formatDate(
+      <span><strong>${t("runtime.results.report.test_type", "Test Type")}</strong>: ${data.test_type}</span>
+      <span><strong>${t("runtime.results.report.injury_time", "Injury Time")}</strong>: ${formatDate(
         data.injury_timestamp
       )}</span>
-      <span><strong>Examiner</strong>: ${data.examiner_name}</span>
-      <span><strong>Examiner Credentials</strong>: ${
+      <span><strong>${t("runtime.results.report.examiner", "Examiner")}</strong>: ${data.examiner_name}</span>
+      <span><strong>${t(
+        "runtime.results.report.examiner_credentials",
+        "Examiner Credentials"
+      )}</strong>: ${
         data.title_or_specialty
       } (${data.registration_or_license_number})</span>
-      <span><strong>Signed</strong>: ${
-        data.signed ? formatDate(data.signed_timestamp) : "NO"
+      <span><strong>${t("runtime.results.report.signed", "Signed")}</strong>: ${
+        data.signed
+          ? formatDate(data.signed_timestamp)
+          : t("runtime.common.no_upper", "NO")
       }</span>
     </div>
   `;
   const score_table = content.querySelector("table").outerHTML;
   html += score_table;
   html += `
-    <br><strong>Primary Symptoms</strong>: ${data.primary_symptoms}${
+    <br><strong>${t("runtime.results.report.primary_symptoms", "Primary Symptoms")}</strong>: ${data.primary_symptoms}${
     data.primary_symptoms_other.length > 0 ? ", " : ""
   }${data.primary_symptoms_other}<br>
     <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; row-gap: 0.5em; margin-top: 0.5em; margin-bottom: 0.5em;">
-      <span><strong>Feels Normal</strong>: ${
+      <span><strong>${t("runtime.results.report.feels_normal", "Feels Normal")}</strong>: ${
         data.symptoms_percentage_normal
       }%</span>
-      <span><strong>Worse when Physical</strong>: ${
-        data.symptoms_worse_with_physical ? "YES" : "NO"
+      <span><strong>${t("runtime.results.report.worse_physical", "Worse with Physical Activity")}</strong>: ${
+        data.symptoms_worse_with_physical
+          ? t("runtime.common.yes_upper", "YES")
+          : t("runtime.common.no_upper", "NO")
       }</span>
-      <span><strong>Worse when Thinking</strong>: ${
-        data.symptoms_worse_with_mental ? "YES" : "NO"
+      <span><strong>${t("runtime.results.report.worse_mental", "Worse with Mental Activity")}</strong>: ${
+        data.symptoms_worse_with_mental
+          ? t("runtime.common.yes_upper", "YES")
+          : t("runtime.common.no_upper", "NO")
       }</span>
     </div>
-    <strong>Symptom Description</strong>: ${data.symptoms_description}<br>
+    <strong>${t("runtime.results.report.symptom_description", "Symptom Description")}</strong>: ${data.symptoms_description}<br>
     <hr>
     <div style="display: grid; grid-template-columns: 1fr 1fr; row-gap: 0.5em; margin-top: 0.5em; margin-bottom: 0.5em;">
-      <span><strong>Different From Normal</strong>: ${
-        data.different_from_usual
+      <span><strong>${t("runtime.results.report.different_from_normal", "Different from Normal")}</strong>: ${
+        differentFromNormalLabel
       }</span>
-      <span><strong>Concussion Diagnosis</strong>: ${data.decision}</span>
+      <span><strong>${t("runtime.results.report.concussion_diagnosis", "Concussion Diagnosis")}</strong>: ${diagnosisLabel}</span>
     </div>
-    <strong>Notes</strong>: ${data.test_notes}
+    <strong>${t("runtime.results.notes", "Notes")}</strong>: ${data.test_notes}
   `;
   html += `
-    <h2 style="page-break-before: always;">Athlete Info</h2>
+    <h2 style="page-break-before: always;">${t(
+      "runtime.results.report.athlete_info",
+      "Athlete Information"
+    )}</h2>
     <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; row-gap: 0.5em;">
-      <span><strong>Name</strong>: ${data.athlete_name}</span>
-      <span><strong>Birth</strong>: ${new Date(
+      <span><strong>${t("runtime.results.name", "Name")}</strong>: ${data.athlete_name}</span>
+      <span><strong>${t("runtime.results.report.birth", "Birth")}</strong>: ${new Date(
         data.athlete_birth_timestamp
       ).toLocaleDateString()}</span>
-      <span><strong>Sex</strong>: ${data.athlete_sex}</span>
-      <span><strong>Dominant Hand</strong>: ${data.athlete_dominant_hand}</span>
+      <span><strong>${t("runtime.results.report.sex", "Sex")}</strong>: ${data.athlete_sex}</span>
+      <span><strong>${t("runtime.results.report.dominant_hand", "Dominant Hand")}</strong>: ${data.athlete_dominant_hand}</span>
     </div>
     <div style="display: grid; grid-template-columns: 1fr 1fr; row-gap: 0.5em; margin-top: 0.5em;">
-      <span><strong>Year in School</strong>: ${
+      <span><strong>${t("runtime.results.report.year_in_school", "Year in School")}</strong>: ${
         data.athlete_year_in_school
       }</span>
-      <span><strong>Years of Education</strong>: ${
+      <span><strong>${t("runtime.results.report.years_education", "Years of Education")}</strong>: ${
         data.athlete_years_of_education
       }</span>
-      <span><strong>First Language</strong>: ${
+      <span><strong>${t("runtime.results.report.first_language", "First Language")}</strong>: ${
         data.athlete_first_language
       }</span>
-      <span><strong>Preferred Language</strong>: ${
+      <span><strong>${t("runtime.results.report.preferred_language", "Preferred Language")}</strong>: ${
         data.athlete_preferred_language
       }</span>
-      <span><strong>Team/School</strong>: ${data.team_or_school}</span>
-      <span><strong>Number of Past Concussions</strong>: ${
+      <span><strong>${t("runtime.results.report.team_school", "Team/School")}</strong>: ${data.team_or_school}</span>
+      <span><strong>${t(
+        "runtime.results.report.past_concussions",
+        "Number of Past Concussions"
+      )}</strong>: ${
         data.num_past_concussions
       }</span>
-      <span><strong>Most Recent Concussion</strong>: ${new Date(
+      <span><strong>${t("runtime.results.report.most_recent_concussion", "Most Recent Concussion")}</strong>: ${new Date(
         data.most_recent_concussion_timestamp
       ).toLocaleDateString()}</span>
-      <span><strong>Most Recent Recovery Time</strong>: ${
+      <span><strong>${t(
+        "runtime.results.report.most_recent_recovery_time",
+        "Most Recent Recovery Time"
+      )}</strong>: ${
         data.most_recent_recovery_time_days
-      } days</span>
+      } ${t("runtime.results.report.days", "days")}</span>
     </div>
   `;
-  html += `<h2 style="page-break-before: always;">mBESS Error Photos</h2>`;
+  html += `<h2 style="page-break-before: always;">${t(
+    "runtime.results.report.mbess_error_photos",
+    "mBESS Error Photos"
+  )}</h2>`;
   const errorPhotos = data.mBESS_pose_error_photos;
   if (!errorPhotos) {
-    html += "No pose error photos taken for this test.";
+    html += t(
+      "runtime.results.report.no_pose_error_photos",
+      "No pose error photos taken for this test."
+    );
   } else {
     const doubleErrors = errorPhotos.mBESS_double_errors ?? [];
     const tandemErrors = errorPhotos.mBESS_tandem_errors ?? [];
@@ -541,27 +645,42 @@ function generateReportHTML(data) {
     const tandemFoamErrors = errorPhotos.mBESS_foam_tandem_errors ?? [];
     const singleFoamErrors = errorPhotos.mBESS_foam_single_errors ?? [];
     if (doubleErrors.length > 0) {
-      html += `<h3>Double Leg Errors (${data.mBESS_double_errors})</h3>`;
+      html += `<h3>${t(
+        "runtime.results.report.double_leg_errors",
+        "Double-Leg Errors"
+      )} (${data.mBESS_double_errors})</h3>`;
       html += errorPhotosToHTML(doubleErrors);
     }
     if (tandemErrors.length > 0) {
-      html += `<h3>Tandem Errors (${data.mBESS_tandem_errors})</h3>`;
+      html += `<h3>${t("runtime.results.report.tandem_errors", "Tandem Errors")} (${data.mBESS_tandem_errors})</h3>`;
       html += errorPhotosToHTML(tandemErrors);
     }
     if (singleErrors.length > 0) {
-      html += `<h3>Single Leg Errors (${data.mBESS_single_errors})</h3>`;
+      html += `<h3>${t(
+        "runtime.results.report.single_leg_errors",
+        "Single-Leg Errors"
+      )} (${data.mBESS_single_errors})</h3>`;
       html += errorPhotosToHTML(singleErrors);
     }
     if (doubleFoamErrors.length > 0) {
-      html += `<h3>Double Leg Foam Errors (${data.mBESS_foam_double_errors})</h3>`;
+      html += `<h3>${t(
+        "runtime.results.report.double_leg_foam_errors",
+        "Double-Leg Foam Errors"
+      )} (${data.mBESS_foam_double_errors})</h3>`;
       html += errorPhotosToHTML(doubleFoamErrors);
     }
     if (tandemFoamErrors.length > 0) {
-      html += `<h3>Tandem Foam Errors (${data.mBESS_foam_tandem_errors})</h3>`;
+      html += `<h3>${t(
+        "runtime.results.report.tandem_foam_errors",
+        "Tandem Foam Errors"
+      )} (${data.mBESS_foam_tandem_errors})</h3>`;
       html += errorPhotosToHTML(tandemFoamErrors);
     }
     if (singleFoamErrors.length > 0) {
-      html += `<h3>Single Leg Foam Errors (${data.mBESS_foam_single_errors})</h3>`;
+      html += `<h3>${t(
+        "runtime.results.report.single_leg_foam_errors",
+        "Single-Leg Foam Errors"
+      )} (${data.mBESS_foam_single_errors})</h3>`;
       html += errorPhotosToHTML(singleFoamErrors);
     }
   }
@@ -898,9 +1017,14 @@ async function exportSCAT6pdf(test, download = true) {
     drawImage,
     degrees,
   } = window.PDFLib;
-  const res = await fetch("./assets/SCAT6.pdf");
+  const res = await fetch("/assets/SCAT6.pdf");
   if (!res.ok) {
-    alert("Failed to load SCAT6 template");
+    alert(
+      t(
+        "runtime.results.export.failed_load_template",
+        "Failed to load the SCAT6 template."
+      )
+    );
     return;
   }
   const scat6_buf = await res.arrayBuffer();
@@ -934,8 +1058,21 @@ async function exportSCAT6pdf(test, download = true) {
       const { base64url, imgWidth, imgHeight } = await text2image(
         test.examiner_name
       );
-      const base64sig = base64url.replace("data:image/png;base64,", "");
-      const pdfLibSigImg = await scat6.embedPng(base64sig);
+      if (!base64url.startsWith("data:image/png;base64,")) {
+        console.warn(
+          "Skipping signature image embed: expected PNG data URL.",
+          base64url.slice(0, 32)
+        );
+        continue;
+      }
+      const base64sig = base64url.slice("data:image/png;base64,".length);
+      let pdfLibSigImg;
+      try {
+        pdfLibSigImg = await scat6.embedPng(base64sig);
+      } catch (err) {
+        console.warn("Skipping signature image embed due to PNG parse error.", err);
+        continue;
+      }
       const pdfLibSigImgName = key + "_img";
       field.acroField.getWidgets().forEach((widget) => {
         const { context } = widget.dict;
