@@ -57,11 +57,7 @@ export async function connectUser() {
   }
 
   const saved = _user ?? JSON.parse(sessionStorage.getItem(USER) ?? "null");
-  if (
-    saved &&
-    saved.idToken &&
-    saved.expiration > Date.now() / 1000 + 60 * 5
-  ) {
+  if (saved && saved.idToken && saved.expiration > Date.now() / 1000 + 60 * 5) {
     _user = saved;
     return _user;
   }
@@ -364,7 +360,10 @@ export function clearLocalTests() {
   sessionStorage.removeItem("test-phase");
 }
 
-export async function hydrateLocalFromWorkspaceSourceOfTruth(user, workspaceId) {
+export async function hydrateLocalFromWorkspaceSourceOfTruth(
+  user,
+  workspaceId
+) {
   const sharedData = await getWorkspaceData(user.idToken, workspaceId);
   replaceLocalTests(sharedData);
 }
@@ -397,12 +396,14 @@ export async function syncData({
     try {
       const workspace = await getActiveWorkspaceState(connectedUser.idToken);
       if (workspace) {
-        const sharedData = await getWorkspaceData(connectedUser.idToken, workspace.id);
+        const sharedData = await getWorkspaceData(
+          connectedUser.idToken,
+          workspace.id
+        );
         mergeTestsByUpdatedAt(sharedData);
       }
     } catch (err) {
-      console.error(err);
-      await alert("Failed to sync your shared workspace data.");
+      console.warn("Shared workspace pull skipped:", err?.message ?? err);
     }
   }
 
@@ -421,8 +422,7 @@ export async function syncData({
           await setWorkspaceData(connectedUser.idToken, workspace.id, tests);
         }
       } catch (err) {
-        console.error(err);
-        await alert("Failed to update your shared workspace data.");
+        console.warn("Shared workspace push skipped:", err?.message ?? err);
       }
     }
   }

@@ -49,8 +49,15 @@ export async function isWorkspaceApiAvailable({ force = false } = {}) {
   }
 
   try {
-    const res = await fetch(apiUrl("/api/health"));
-    _healthOk = res.ok;
+    const res = await fetch(apiUrl("/api/health"), {
+      headers: { Accept: "application/json" },
+    });
+    if (!res.ok) {
+      _healthOk = false;
+    } else {
+      const data = await res.json().catch(() => null);
+      _healthOk = data?.ok === true;
+    }
   } catch {
     _healthOk = false;
   }

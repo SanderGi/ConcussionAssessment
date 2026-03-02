@@ -28,6 +28,30 @@ type Workspace = {
 
 const app = new Hono<Env>();
 
+app.onError((err, c) => {
+  console.error("Worker error:", err);
+  const msg = String(err?.message ?? "");
+  if (/no such table/i.test(msg)) {
+    return c.json(
+      {
+        error:
+          "Database schema is missing. Apply D1 migrations to the remote database.",
+      },
+      500
+    );
+  }
+  if (/Cannot read properties of undefined|DB/i.test(msg)) {
+    return c.json(
+      {
+        error:
+          "Database binding is unavailable. Check wrangler d1 binding configuration.",
+      },
+      500
+    );
+  }
+  return c.json({ error: "Internal server error." }, 500);
+});
+
 app.use(
   "/api/*",
   cors({
@@ -38,7 +62,7 @@ app.use(
 );
 
 app.use("/api/*", async (c, next) => {
-  if (c.req.path === "/api/health") {
+  if (c.req.method === "OPTIONS" || c.req.path === "/api/health") {
     await next();
     return;
   }
@@ -58,8 +82,14 @@ app.use("/api/*", async (c, next) => {
   await next();
 });
 
-app.get("/api/health", (c) => {
-  return c.json({ ok: true });
+app.get("/api/health", async (c) => {
+  try {
+    await c.env.DB.prepare("SELECT 1").first();
+    return c.json({ ok: true, db: "ok" });
+  } catch (err) {
+    console.error("Health DB check failed:", err);
+    return c.json({ ok: false, db: "error" }, 500);
+  }
 });
 
 app.get("/api/workspaces/me", async (c) => {
