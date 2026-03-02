@@ -9,6 +9,13 @@ import {
   deleteAppDataFile,
   getAppDataFile,
 } from "./util/gdrive.js";
+import {
+  clearWorkspaceCache,
+  getActiveWorkspaceState,
+  getWorkspaceData,
+  isWorkspaceApiAvailable,
+  setWorkspaceData,
+} from "./util/workspace.js";
 import { alert } from "./util/popup.js";
 
 const firebaseConfig = {
@@ -35,13 +42,26 @@ const KEY = "key"; // Key for encrypting/decrypting data
 
 // ============================ Connect/Disconnect ============================
 let _user = null;
+function decodeJwtPayload(token) {
+  if (!token) return null;
+  try {
+    return JSON.parse(atob(token.split(".")[1]));
+  } catch {
+    return null;
+  }
+}
+
 export async function connectUser() {
   if (localStorage.getItem(SYNCED) !== "true") {
     return null;
   }
 
   const saved = _user ?? JSON.parse(sessionStorage.getItem(USER) ?? "null");
-  if (saved && saved.expiration > Date.now() / 1000 + 60 * 5) {
+  if (
+    saved &&
+    saved.idToken &&
+    saved.expiration > Date.now() / 1000 + 60 * 5
+  ) {
     _user = saved;
     return _user;
   }
@@ -66,9 +86,10 @@ export async function connectUser() {
     email,
     picture: signinResult.user.photoURL,
     uid: signinResult.user.uid,
+    idToken: credential.idToken,
     accessToken: credential.accessToken,
     lastSignIn: signinResult.user.metadata.lastSignInTime,
-    expiration: JSON.parse(atob(credential.idToken.split(".")[1])).exp,
+    expiration: decodeJwtPayload(credential.idToken)?.exp ?? 0,
   };
 
   sessionStorage.setItem(USER, JSON.stringify(_user));
@@ -78,6 +99,7 @@ export async function connectUser() {
 
 export async function disconnectUser() {
   await auth.signOut();
+  clearWorkspaceCache();
   localStorage.removeItem(SYNCED);
   localStorage.removeItem(LASTSYNC);
   localStorage.removeItem(KEY);
@@ -309,30 +331,99 @@ function computeAthletes() {
   }
 }
 
-export async function clearLocalData() {
-  localStorage.clear();
-  sessionStorage.clear();
-  await auth.signOut();
-  location.reload();
-}
-
-export async function syncData() {
-  // merge remote data with local data
-  const remoteData = (await getRemoteData()) ?? {};
-  for (const [key, value] of Object.entries(remoteData)) {
-    const updated_at = value.test_updated_at;
-    const existing_updated_at = tests[key]?.test_updated_at;
+function mergeTestsByUpdatedAt(source) {
+  for (const [key, value] of Object.entries(source ?? {})) {
+    if (!value || typeof value !== "object") continue;
+    const updated_at = Number(value.test_updated_at ?? 0);
+    const existing_updated_at = Number(tests[key]?.test_updated_at ?? 0);
     if (!existing_updated_at || existing_updated_at < updated_at) {
       tests[key] = value;
     }
   }
-  computeAthletes();
+}
 
-  // save data
+function saveLocalTests() {
+  computeAthletes();
   localStorage.setItem(LASTSYNC, new Date().toUTCString());
   localStorage.setItem(TESTS, JSON.stringify(tests));
+}
 
-  if (await connectUser()) {
+export function replaceLocalTests(nextTests) {
+  for (const key of Object.keys(tests)) {
+    delete tests[key];
+  }
+  for (const [key, value] of Object.entries(nextTests ?? {})) {
+    tests[key] = value;
+  }
+  saveLocalTests();
+}
+
+export function clearLocalTests() {
+  replaceLocalTests({});
+  sessionStorage.removeItem("test");
+  sessionStorage.removeItem("test-phase");
+}
+
+export async function hydrateLocalFromWorkspaceSourceOfTruth(user, workspaceId) {
+  const sharedData = await getWorkspaceData(user.idToken, workspaceId);
+  replaceLocalTests(sharedData);
+}
+
+export async function clearLocalData() {
+  localStorage.clear();
+  sessionStorage.clear();
+  clearWorkspaceCache();
+  await auth.signOut();
+  location.reload();
+}
+
+export async function syncData({
+  pullDrive = true,
+  pullWorkspace = true,
+  pushWorkspace = true,
+} = {}) {
+  // merge remote data with local data
+  if (pullDrive) {
+    const remoteData = (await getRemoteData()) ?? {};
+    mergeTestsByUpdatedAt(remoteData);
+  }
+
+  const connectedUser = await connectUser();
+  if (
+    pullWorkspace &&
+    connectedUser?.idToken &&
+    (await isWorkspaceApiAvailable())
+  ) {
+    try {
+      const workspace = await getActiveWorkspaceState(connectedUser.idToken);
+      if (workspace) {
+        const sharedData = await getWorkspaceData(connectedUser.idToken, workspace.id);
+        mergeTestsByUpdatedAt(sharedData);
+      }
+    } catch (err) {
+      console.error(err);
+      await alert("Failed to sync your shared workspace data.");
+    }
+  }
+
+  saveLocalTests();
+
+  if (connectedUser) {
     await setRemoteData(tests);
+    if (
+      pushWorkspace &&
+      connectedUser.idToken &&
+      (await isWorkspaceApiAvailable())
+    ) {
+      try {
+        const workspace = await getActiveWorkspaceState(connectedUser.idToken);
+        if (workspace) {
+          await setWorkspaceData(connectedUser.idToken, workspace.id, tests);
+        }
+      } catch (err) {
+        console.error(err);
+        await alert("Failed to update your shared workspace data.");
+      }
+    }
   }
 }

@@ -82,6 +82,16 @@ const runtimeEntries = {
     ],
     value: "Select language",
   },
+  "runtime.lang.name.en": {
+    source: "English",
+    locations: ["templates/index.template.html header language selector option"],
+    value: "English",
+  },
+  "runtime.lang.name.dk": {
+    source: "Danish",
+    locations: ["templates/index.template.html header language selector option"],
+    value: "Danish",
+  },
   "runtime.popup.ok": {
     source: "OK",
     locations: ["public/util/popup.js"],
@@ -278,6 +288,241 @@ const runtimeEntries = {
     source: "Close Settings",
     locations: ["public/util/popup.js syncSettings"],
     value: "Close Settings",
+  },
+  "runtime.workspace.role.owner": {
+    source: "Owner",
+    locations: ["public/util/popup.js syncSettings role label"],
+    value: "Owner",
+  },
+  "runtime.workspace.role.member": {
+    source: "Member",
+    locations: ["public/util/popup.js syncSettings role label"],
+    value: "Member",
+  },
+  "runtime.workspace.status.active": {
+    source: "Active Shared Workspace: <strong>{{workspaceName}}</strong> ({{role}})",
+    locations: ["public/util/popup.js syncSettings workspace status"],
+    value: "Active Shared Workspace: <strong>{{workspaceName}}</strong> ({{role}})",
+  },
+  "runtime.workspace.status.none": {
+    source: "No active Shared Workspace",
+    locations: ["public/util/popup.js syncSettings workspace status"],
+    value: "No active Shared Workspace",
+  },
+  "runtime.workspace.members.title": {
+    source: "Workspace Members",
+    locations: ["public/util/popup.js syncSettings members section"],
+    value: "Workspace Members",
+  },
+  "runtime.workspace.member.remove": {
+    source: "Remove",
+    locations: ["public/util/popup.js syncSettings remove member button"],
+    value: "Remove",
+  },
+  "runtime.workspace.connected_to": {
+    source: "Connected to {{name}} ({{email}})",
+    locations: ["public/util/popup.js syncSettings account summary"],
+    value: "Connected to {{name}} ({{email}})",
+  },
+  "runtime.workspace.show_invite": {
+    source: "Show Invite Link + Code",
+    locations: ["public/util/popup.js syncSettings owner button"],
+    value: "Show Invite Link + Code",
+  },
+  "runtime.workspace.delete": {
+    source: "Delete Shared Workspace",
+    locations: ["public/util/popup.js syncSettings owner button"],
+    value: "Delete Shared Workspace",
+  },
+  "runtime.workspace.leave": {
+    source: "Leave Shared Workspace",
+    locations: ["public/util/popup.js syncSettings member button"],
+    value: "Leave Shared Workspace",
+  },
+  "runtime.workspace.storage_note": {
+    source: "Shared workspace data syncs between members and is stored in Cloudflare D1 (EU-only region).",
+    locations: ["public/util/popup.js syncSettings workspace note"],
+    value: "Shared workspace data syncs between members and is stored in Cloudflare D1 (EU-only region).",
+  },
+  "runtime.workspace.name": {
+    source: "Workspace Name:",
+    locations: ["public/util/popup.js syncSettings create form"],
+    value: "Workspace Name:",
+  },
+  "runtime.workspace.name_placeholder": {
+    source: "e.g. Varsity Team Doctors",
+    locations: ["public/util/popup.js syncSettings create form"],
+    value: "e.g. Varsity Team Doctors",
+  },
+  "runtime.workspace.create": {
+    source: "Create Shared Workspace",
+    locations: ["public/util/popup.js syncSettings create form"],
+    value: "Create Shared Workspace",
+  },
+  "runtime.workspace.invite_code": {
+    source: "Invite Code:",
+    locations: ["public/util/popup.js syncSettings join form"],
+    value: "Invite Code:",
+  },
+  "runtime.workspace.invite_code_placeholder": {
+    source: "Paste invite code",
+    locations: ["public/util/popup.js syncSettings join form"],
+    value: "Paste invite code",
+  },
+  "runtime.workspace.join": {
+    source: "Join Shared Workspace",
+    locations: ["public/util/popup.js syncSettings join form"],
+    value: "Join Shared Workspace",
+  },
+  "runtime.workspace.unlink_device": {
+    source: "Unlink Device",
+    locations: ["public/util/popup.js syncSettings unlink button"],
+    value: "Unlink Device",
+  },
+  "runtime.workspace.confirm.join_replace_data": {
+    source: "Joining shared workspace invite code {{inviteCode}} will replace your currently accessible athlete/test data in this app with the workspace data. Continue?",
+    locations: ["public/scripts.js workspace join confirmation"],
+    value: "Joining shared workspace invite code {{inviteCode}} will replace your currently accessible athlete/test data in this app with the workspace data. Continue?",
+  },
+  "runtime.workspace.confirm.switch_from_invite": {
+    source: "You are already in shared workspace \"{{activeWorkspaceName}}\". Switch to invite code {{inviteCode}}? This removes local access to data from the old workspace.",
+    locations: ["public/scripts.js invite auto-join switch confirmation"],
+    value: "You are already in shared workspace \"{{activeWorkspaceName}}\". Switch to invite code {{inviteCode}}? This removes local access to data from the old workspace.",
+  },
+  "runtime.workspace.confirm.switch_current": {
+    source: "You are already in \"{{activeWorkspaceName}}\". Switch to the new workspace? This removes local access to data from the old workspace.",
+    locations: ["public/scripts.js manual join switch confirmation"],
+    value: "You are already in \"{{activeWorkspaceName}}\". Switch to the new workspace? This removes local access to data from the old workspace.",
+  },
+  "runtime.workspace.confirm.delete_for_all": {
+    source: "Delete shared workspace \"{{workspaceName}}\" for all members?",
+    locations: ["public/scripts.js delete workspace confirmation"],
+    value: "Delete shared workspace \"{{workspaceName}}\" for all members?",
+  },
+  "runtime.workspace.confirm.remove_member": {
+    source: "Remove this member from the workspace? They will immediately lose access.",
+    locations: ["public/scripts.js remove member confirmation"],
+    value: "Remove this member from the workspace? They will immediately lose access.",
+  },
+  "runtime.workspace.confirm.leave": {
+    source: "This will remove this account from the current shared workspace. Continue?",
+    locations: ["public/scripts.js leave workspace confirmation"],
+    value: "This will remove this account from the current shared workspace. Continue?",
+  },
+  "runtime.workspace.alert.joined": {
+    source: "Joined shared workspace: {{workspaceName}}",
+    locations: ["public/scripts.js workspace join success"],
+    value: "Joined shared workspace: {{workspaceName}}",
+  },
+  "runtime.workspace.alert.switched_and_joined": {
+    source: "Switched and joined shared workspace: {{workspaceName}}",
+    locations: ["public/scripts.js workspace switch success"],
+    value: "Switched and joined shared workspace: {{workspaceName}}",
+  },
+  "runtime.workspace.alert.join_from_invite_failed": {
+    source: "Failed to join shared workspace from invite: {{error}}",
+    locations: ["public/scripts.js invite auto-join error"],
+    value: "Failed to join shared workspace from invite: {{error}}",
+  },
+  "runtime.workspace.alert.detach_failed": {
+    source: "Failed to detach from shared workspace: {{error}}",
+    locations: ["public/scripts.js detach workspace error"],
+    value: "Failed to detach from shared workspace: {{error}}",
+  },
+  "runtime.workspace.alert.not_owner_active": {
+    source: "You do not own an active shared workspace.",
+    locations: ["public/scripts.js delete workspace guard"],
+    value: "You do not own an active shared workspace.",
+  },
+  "runtime.workspace.alert.deleted": {
+    source: "Shared workspace deleted.",
+    locations: ["public/scripts.js delete workspace success"],
+    value: "Shared workspace deleted.",
+  },
+  "runtime.workspace.alert.delete_failed": {
+    source: "Failed to delete shared workspace: {{error}}",
+    locations: ["public/scripts.js delete workspace error"],
+    value: "Failed to delete shared workspace: {{error}}",
+  },
+  "runtime.workspace.alert.enter_workspace_name": {
+    source: "Please enter a workspace name.",
+    locations: ["public/scripts.js create workspace validation"],
+    value: "Please enter a workspace name.",
+  },
+  "runtime.workspace.alert.created_with_invite": {
+    source: "Created shared workspace: {{workspaceName}}<br>Invite code: <code>{{inviteCode}}</code><br>Invite link: <a href=\"{{inviteLink}}\" target=\"_blank\">{{inviteLink}}</a>",
+    locations: ["public/scripts.js create workspace success"],
+    value: "Created shared workspace: {{workspaceName}}<br>Invite code: <code>{{inviteCode}}</code><br>Invite link: <a href=\"{{inviteLink}}\" target=\"_blank\">{{inviteLink}}</a>",
+  },
+  "runtime.workspace.alert.create_failed": {
+    source: "Failed to create shared workspace: {{error}}",
+    locations: ["public/scripts.js create workspace error"],
+    value: "Failed to create shared workspace: {{error}}",
+  },
+  "runtime.workspace.alert.enter_invite_code": {
+    source: "Please enter an invite code.",
+    locations: ["public/scripts.js join workspace validation"],
+    value: "Please enter an invite code.",
+  },
+  "runtime.workspace.alert.join_failed": {
+    source: "Failed to join shared workspace: {{error}}",
+    locations: ["public/scripts.js join workspace error"],
+    value: "Failed to join shared workspace: {{error}}",
+  },
+  "runtime.workspace.alert.owner_must_delete_first": {
+    source: "You already own another shared workspace. Delete that workspace first before joining a different one.",
+    locations: ["public/scripts.js owner join guard"],
+    value: "You already own another shared workspace. Delete that workspace first before joining a different one.",
+  },
+  "runtime.workspace.alert.switch_failed": {
+    source: "Failed to switch workspace: {{error}}",
+    locations: ["public/scripts.js switch workspace error"],
+    value: "Failed to switch workspace: {{error}}",
+  },
+  "runtime.workspace.alert.only_owner_remove": {
+    source: "Only the workspace owner can remove members.",
+    locations: ["public/scripts.js remove member guard"],
+    value: "Only the workspace owner can remove members.",
+  },
+  "runtime.workspace.alert.missing_member_id": {
+    source: "Missing member id.",
+    locations: ["public/scripts.js remove member validation"],
+    value: "Missing member id.",
+  },
+  "runtime.workspace.alert.member_removed": {
+    source: "Member removed from workspace.",
+    locations: ["public/scripts.js remove member success"],
+    value: "Member removed from workspace.",
+  },
+  "runtime.workspace.alert.remove_member_failed": {
+    source: "Failed to remove member: {{error}}",
+    locations: ["public/scripts.js remove member error"],
+    value: "Failed to remove member: {{error}}",
+  },
+  "runtime.workspace.alert.no_active_workspace": {
+    source: "No active shared workspace.",
+    locations: ["public/scripts.js show invite guard"],
+    value: "No active shared workspace.",
+  },
+  "runtime.workspace.alert.invite_details": {
+    source: "Invite code: <code>{{inviteCode}}</code><br>Invite link: <a href=\"{{inviteLink}}\" target=\"_blank\">{{inviteLink}}</a>",
+    locations: ["public/scripts.js show invite success"],
+    value: "Invite code: <code>{{inviteCode}}</code><br>Invite link: <a href=\"{{inviteLink}}\" target=\"_blank\">{{inviteLink}}</a>",
+  },
+  "runtime.workspace.alert.load_invite_failed": {
+    source: "Failed to load invite details: {{error}}",
+    locations: ["public/scripts.js show invite error"],
+    value: "Failed to load invite details: {{error}}",
+  },
+  "runtime.workspace.alert.left": {
+    source: "Left shared workspace.",
+    locations: ["public/scripts.js leave workspace success"],
+    value: "Left shared workspace.",
+  },
+  "runtime.workspace.alert.leave_failed": {
+    source: "Failed to leave shared workspace: {{error}}",
+    locations: ["public/scripts.js leave workspace error"],
+    value: "Failed to leave shared workspace: {{error}}",
   },
   "runtime.popup.placeholder_athlete_name": {
     source: "Athlete name",
@@ -1624,11 +1869,13 @@ function injectI18nRuntime(html, languageCode, languageLabel, language) {
                 );
 
                 // Populate select options
-                console.log("Supported", cfg.supportedLanguages)
                 cfg.supportedLanguages.forEach((lang) => {
                     const option = document.createElement('option');
                     option.value = lang.code;
-                    option.textContent = lang.label;
+                    option.textContent = window.__scat6T(
+                      'runtime.lang.name.' + lang.code,
+                      lang.label
+                    );
                     if (lang.code === cfg.language) option.selected = true;
                     select.appendChild(option);
                 });

@@ -67,3 +67,6 @@ node_modules/
 
 # OS files
 .DS_Store
+
+# Cloudflare local dev files
+.wrangler

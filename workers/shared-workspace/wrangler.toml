@@ -1,0 +1,9 @@
+name = "scat6-shared-workspace"
+main = "src/index.ts"
+compatibility_date = "2026-03-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "scat6_eu"
+database_id = "16804333-ac85-493b-a0ed-2912078b2819"
+migrations_dir = "migrations"

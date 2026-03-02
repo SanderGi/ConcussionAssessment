@@ -68,6 +68,49 @@ Run `firebase serve` to run the development server locally.
 
 Run `firebase deploy` to deploy the project to Firebase.
 
+### Shared Workspace Backend (Hono + Cloudflare Workers)
+
+The collaborative multi-account workspace backend lives in:
+
+- `workers/shared-workspace`
+
+It uses:
+
+- `hono` for API routes
+- Cloudflare Worker runtime
+- Cloudflare D1 for workspace/membership/data storage
+
+#### Setup
+
+1. Create a D1 database and copy its ID into `workers/shared-workspace/wrangler.toml` (`database_id`).
+2. Install deps:
+
+```bash
+cd workers/shared-workspace
+npm install
+```
+
+3. Apply D1 migrations:
+
+```bash
+npm run d1:migrate
+```
+
+4. Run locally:
+
+```bash
+npm run dev
+```
+
+5. Deploy:
+
+```bash
+npm run deploy
+```
+
+Frontend calls `window.__SCAT6_WORKSPACE_API_BASE + '/api/*'`.
+At the end of index.html, we set `window.__SCAT6_WORKSPACE_API_BASE` to `http://localhost:8787` in local development and `https://scat6-shared-workspace.alexander-le.workers.dev` in production.
+
 ### Internationalization Build
 
 We use template-driven static generation for language variants:

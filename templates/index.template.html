@@ -911,6 +911,13 @@
         </div>
     </footer>
 
+    <script>
+        if (window.location.hostname === "localhost") {
+            window.__SCAT6_WORKSPACE_API_BASE = "http://localhost:8787";
+        } else {
+            window.__SCAT6_WORKSPACE_API_BASE = "https://scat6-shared-workspace.alexander-le.workers.dev";
+        }
+    </script>
     <script type="module" src="scripts.js"></script>
     <script>
         // ============================ Debug ============================

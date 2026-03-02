@@ -3,6 +3,8 @@ import {
   tests,
   athletes,
   connectUser,
+  clearLocalTests,
+  hydrateLocalFromWorkspaceSourceOfTruth,
   syncData,
   deleteRemoteData,
   clearLocalData,
@@ -16,6 +18,17 @@ import {
   errorPhotosToHTML,
 } from "./util/popup.js";
 import { calcSimilarity } from "./util/fuzzysearch.js";
+import {
+  createSharedWorkspace,
+  deleteSharedWorkspace,
+  getActiveWorkspaceState,
+  getWorkspaceInvite,
+  getWorkspaceMembers,
+  isWorkspaceApiAvailable,
+  joinSharedWorkspace,
+  leaveSharedWorkspace,
+  removeWorkspaceMember,
+} from "./util/workspace.js";
 const Chart = window.Chart;
 /** @typedef {import('./userData.js').Test} Test */
 const t = (key, fallback) => window.__scat6T?.(key, fallback) ?? fallback;
@@ -30,6 +43,115 @@ const translateTestType = (type) => {
   return type;
 };
 
+const getInviteCodeFromUrl = () =>
+  new URL(window.location.href).searchParams
+    .get("workspaceInvite")
+    ?.trim()
+    .toUpperCase();
+
+function removeInviteCodeFromUrl() {
+  const url = new URL(window.location.href);
+  if (!url.searchParams.has("workspaceInvite")) return;
+  url.searchParams.delete("workspaceInvite");
+  window.history.replaceState({}, "", url.toString());
+}
+
+async function syncWorkspaceLeaveAndClearLocal(user) {
+  const workspace = await getActiveWorkspaceState(user.idToken, { force: true });
+  if (!workspace) return;
+
+  if (workspace.role === "owner") {
+    await deleteSharedWorkspace(user.idToken, workspace.id);
+  } else {
+    await leaveSharedWorkspace(user.idToken);
+  }
+  clearLocalTests();
+}
+
+async function autoJoinWorkspaceFromInvite(user, inviteCode) {
+  if (!(await isWorkspaceApiAvailable())) return;
+  let active = null;
+  try {
+    active = await getActiveWorkspaceState(user.idToken, { force: true });
+  } catch (err) {
+    console.error(err);
+  }
+  if (!active) {
+    const shouldJoin = await confirm(
+      tf(
+        "runtime.workspace.confirm.join_replace_data",
+        { inviteCode },
+        `Joining shared workspace invite code ${inviteCode} will replace your currently accessible athlete/test data in this app with the workspace data. Continue?`
+      )
+    );
+    if (!shouldJoin) {
+      removeInviteCodeFromUrl();
+      return false;
+    }
+  }
+
+  try {
+    const workspace = await joinSharedWorkspace(user.idToken, inviteCode);
+    await hydrateLocalFromWorkspaceSourceOfTruth(user, workspace.id);
+    await syncData({
+      pullDrive: false,
+      pullWorkspace: false,
+      pushWorkspace: false,
+    });
+    await alert(
+      tf(
+        "runtime.workspace.alert.joined",
+        { workspaceName: workspace.name },
+        `Joined shared workspace: ${workspace.name}`
+      )
+    );
+    removeInviteCodeFromUrl();
+    return true;
+  } catch (err) {
+    if (!/already has an active workspace/i.test(err.message)) {
+      throw err;
+    }
+  }
+  if (!active) return;
+  if (active.role === "owner") {
+    await alert(
+      t(
+        "runtime.workspace.alert.owner_must_delete_first",
+        "You already own another shared workspace. Delete that workspace first before joining a different one."
+      )
+    );
+    return;
+  }
+
+  const shouldSwitch = await confirm(
+    tf(
+      "runtime.workspace.confirm.switch_from_invite",
+      { activeWorkspaceName: active.name, inviteCode },
+      `You are already in shared workspace "${active.name}". Switch to invite code ${inviteCode}? This removes local access to data from the old workspace.`
+    )
+  );
+  if (!shouldSwitch) return false;
+
+  await leaveSharedWorkspace(user.idToken);
+  clearLocalTests();
+  const workspace = await joinSharedWorkspace(user.idToken, inviteCode);
+  await hydrateLocalFromWorkspaceSourceOfTruth(user, workspace.id);
+  await syncData({
+    pullDrive: false,
+    pullWorkspace: false,
+    pushWorkspace: false,
+  });
+  await alert(
+    tf(
+      "runtime.workspace.alert.switched_and_joined",
+      { workspaceName: workspace.name },
+      `Switched and joined shared workspace: ${workspace.name}`
+    )
+  );
+  removeInviteCodeFromUrl();
+  return true;
+}
+
 // ============================ Feature Detection ============================
 if (!window.crypto?.subtle) {
   alert(
@@ -39,9 +161,31 @@ if (!window.crypto?.subtle) {
 
 // ============================ Setup ============================
 window.onload = async () => {
-  const user = await connectUser();
+  let user = await connectUser();
+  let joinedFromInvite = false;
+  const inviteCode = getInviteCodeFromUrl();
+  if (inviteCode && !user) {
+    localStorage.setItem("synced", "true");
+    user = await connectUser();
+  }
+
+  if (inviteCode && user) {
+    try {
+      joinedFromInvite = await autoJoinWorkspaceFromInvite(user, inviteCode);
+    } catch (err) {
+      console.error(err);
+      await alert(
+        tf(
+          "runtime.workspace.alert.join_from_invite_failed",
+          { error: err.message },
+          `Failed to join shared workspace from invite: ${err.message}`
+        )
+      );
+    }
+  }
+
   showConnected(user);
-  await syncData();
+  await syncData({ pullDrive: !joinedFromInvite });
 
   renderCurrentTestSection();
   document.body.style.visibility = "visible";
@@ -69,6 +213,22 @@ deleteAllButton.onclick = async () => {
       )
     )
   ) {
+    const user = await connectUser();
+    if (user && (await isWorkspaceApiAvailable())) {
+      try {
+        await syncWorkspaceLeaveAndClearLocal(user);
+      } catch (err) {
+        console.error(err);
+        await alert(
+          tf(
+            "runtime.workspace.alert.detach_failed",
+            { error: err.message },
+            `Failed to detach from shared workspace: ${err.message}`
+          )
+        );
+        return;
+      }
+    }
     await deleteRemoteData();
     await clearLocalData();
   }
@@ -94,11 +254,23 @@ function showConnected(user) {
 
 syncButton.onclick = async () => {
   let user = await connectUser();
-  let action = "SYNC";
+  let settings = { action: "SYNC" };
   if (user) {
     const { name, email, lastSignIn } = user;
+    let workspace = null;
+    let members = [];
+    try {
+      if (await isWorkspaceApiAvailable()) {
+        workspace = await getActiveWorkspaceState(user.idToken, { force: true });
+        if (workspace) {
+          members = await getWorkspaceMembers(user.idToken, workspace.id);
+        }
+      }
+    } catch (err) {
+      console.error(err);
+    }
 
-    action = await syncSettings(
+    settings = await syncSettings(
       name,
       email,
       tf(
@@ -110,14 +282,18 @@ syncButton.onclick = async () => {
         `Last confirmed identity on ${lastSignIn} <br><br> Last synced on ${localStorage.getItem(
           "lastSync"
         )}`
-      )
+      ),
+      workspace,
+      members
     );
   } else {
     localStorage.setItem("synced", "true");
     user = await connectUser();
   }
 
-  if (action === "UNLINK") {
+  if (!user) return;
+
+  if (settings.action === "UNLINK") {
     if (
       await confirm(
         t(
@@ -126,9 +302,24 @@ syncButton.onclick = async () => {
         )
       )
     ) {
+      if (await isWorkspaceApiAvailable()) {
+        try {
+        await syncWorkspaceLeaveAndClearLocal(user);
+      } catch (err) {
+        console.error(err);
+          await alert(
+            tf(
+              "runtime.workspace.alert.detach_failed",
+              { error: err.message },
+              `Failed to detach from shared workspace: ${err.message}`
+            )
+          );
+          return;
+        }
+      }
       await clearLocalData();
     }
-  } else if (action === "DELETE_DRIVE") {
+  } else if (settings.action === "DELETE_DRIVE") {
     if (
       await confirm(
         t(
@@ -137,8 +328,320 @@ syncButton.onclick = async () => {
         )
       )
     ) {
+      if (await isWorkspaceApiAvailable()) {
+        try {
+        await syncWorkspaceLeaveAndClearLocal(user);
+      } catch (err) {
+        console.error(err);
+          await alert(
+            tf(
+              "runtime.workspace.alert.detach_failed",
+              { error: err.message },
+              `Failed to detach from shared workspace: ${err.message}`
+            )
+          );
+          return;
+        }
+      }
       await deleteRemoteData();
       await disconnectUser();
+    }
+  } else if (settings.action === "DELETE_WORKSPACE") {
+    const workspace = await getActiveWorkspaceState(user.idToken, { force: true });
+    if (!workspace || workspace.role !== "owner") {
+      await alert(
+        t(
+          "runtime.workspace.alert.not_owner_active",
+          "You do not own an active shared workspace."
+        )
+      );
+      return;
+    }
+    if (
+      await confirm(
+        tf(
+          "runtime.workspace.confirm.delete_for_all",
+          { workspaceName: workspace.name },
+          `Delete shared workspace "${workspace.name}" for all members?`
+        )
+      )
+    ) {
+      try {
+        await deleteSharedWorkspace(user.idToken, workspace.id);
+        clearLocalTests();
+        await syncData({
+          pullDrive: false,
+          pullWorkspace: false,
+          pushWorkspace: false,
+        });
+        await alert(
+          t("runtime.workspace.alert.deleted", "Shared workspace deleted.")
+        );
+      } catch (err) {
+        console.error(err);
+        await alert(
+          tf(
+            "runtime.workspace.alert.delete_failed",
+            { error: err.message },
+            `Failed to delete shared workspace: ${err.message}`
+          )
+        );
+      }
+    }
+  } else if (settings.action === "CREATE_WORKSPACE") {
+    if (!settings.workspaceName) {
+      await alert(
+        t(
+          "runtime.workspace.alert.enter_workspace_name",
+          "Please enter a workspace name."
+        )
+      );
+      return;
+    }
+    try {
+      const workspace = await createSharedWorkspace(user.idToken, settings.workspaceName);
+      await syncData();
+      await alert(
+        tf(
+          "runtime.workspace.alert.created_with_invite",
+          {
+            workspaceName: workspace.name,
+            inviteCode: workspace.inviteCode,
+            inviteLink: workspace.inviteLink,
+          },
+          `Created shared workspace: ${workspace.name}<br>Invite code: <code>${workspace.inviteCode}</code><br>Invite link: <a href=\"${workspace.inviteLink}\" target=\"_blank\">${workspace.inviteLink}</a>`
+        )
+      );
+      showConnected(user);
+    } catch (err) {
+      console.error(err);
+      await alert(
+        tf(
+          "runtime.workspace.alert.create_failed",
+          { error: err.message },
+          `Failed to create shared workspace: ${err.message}`
+        )
+      );
+    }
+  } else if (settings.action === "JOIN_WORKSPACE") {
+    if (!settings.inviteCode) {
+      await alert(
+        t(
+          "runtime.workspace.alert.enter_invite_code",
+          "Please enter an invite code."
+        )
+      );
+      return;
+    }
+    let active = null;
+    try {
+      active = await getActiveWorkspaceState(user.idToken, { force: true });
+    } catch (err) {
+      console.error(err);
+    }
+    if (!active) {
+      const shouldJoin = await confirm(
+        tf(
+          "runtime.workspace.confirm.join_replace_data",
+          { inviteCode: settings.inviteCode },
+          `Joining shared workspace invite code ${settings.inviteCode} will replace your currently accessible athlete/test data in this app with the workspace data. Continue?`
+        )
+      );
+      if (!shouldJoin) return;
+    }
+    try {
+      const workspace = await joinSharedWorkspace(user.idToken, settings.inviteCode);
+      await hydrateLocalFromWorkspaceSourceOfTruth(user, workspace.id);
+      await syncData({
+        pullDrive: false,
+        pullWorkspace: false,
+        pushWorkspace: false,
+      });
+      await alert(
+        tf(
+          "runtime.workspace.alert.joined",
+          { workspaceName: workspace.name },
+          `Joined shared workspace: ${workspace.name}`
+        )
+      );
+      showConnected(user);
+    } catch (err) {
+      if (/already has an active workspace/i.test(err.message)) {
+        const active = await getActiveWorkspaceState(user.idToken, { force: true });
+        if (!active) {
+          await alert(
+            tf(
+              "runtime.workspace.alert.join_failed",
+              { error: err.message },
+              `Failed to join shared workspace: ${err.message}`
+            )
+          );
+          return;
+        }
+        if (active.role === "owner") {
+          await alert(
+            t(
+              "runtime.workspace.alert.owner_must_delete_first",
+              "You already own another shared workspace. Delete it first to join a different workspace."
+            )
+          );
+          return;
+        }
+        const shouldSwitch = await confirm(
+          tf(
+            "runtime.workspace.confirm.switch_current",
+            { activeWorkspaceName: active.name },
+            `You are already in "${active.name}". Switch to the new workspace? This removes local access to data from the old workspace.`
+          )
+        );
+        if (!shouldSwitch) return;
+        try {
+          await leaveSharedWorkspace(user.idToken);
+          clearLocalTests();
+          const workspace = await joinSharedWorkspace(
+            user.idToken,
+            settings.inviteCode
+          );
+          await hydrateLocalFromWorkspaceSourceOfTruth(user, workspace.id);
+          await syncData({
+            pullDrive: false,
+            pullWorkspace: false,
+            pushWorkspace: false,
+          });
+          await alert(
+            tf(
+              "runtime.workspace.alert.switched_and_joined",
+              { workspaceName: workspace.name },
+              `Switched and joined shared workspace: ${workspace.name}`
+            )
+          );
+        } catch (switchErr) {
+          console.error(switchErr);
+          await alert(
+            tf(
+              "runtime.workspace.alert.switch_failed",
+              { error: switchErr.message },
+              `Failed to switch workspace: ${switchErr.message}`
+            )
+          );
+        }
+      } else {
+        console.error(err);
+        await alert(
+          tf(
+            "runtime.workspace.alert.join_failed",
+            { error: err.message },
+            `Failed to join shared workspace: ${err.message}`
+          )
+        );
+      }
+    }
+  } else if (settings.action === "REMOVE_MEMBER") {
+    const workspace = await getActiveWorkspaceState(user.idToken, { force: true });
+    if (!workspace || workspace.role !== "owner") {
+      await alert(
+        t(
+          "runtime.workspace.alert.only_owner_remove",
+          "Only the workspace owner can remove members."
+        )
+      );
+      return;
+    }
+    if (!settings.memberSub) {
+      await alert(
+        t("runtime.workspace.alert.missing_member_id", "Missing member id.")
+      );
+      return;
+    }
+    if (
+      !(await confirm(
+        t(
+          "runtime.workspace.confirm.remove_member",
+          "Remove this member from the workspace? They will immediately lose access."
+        )
+      ))
+    ) {
+      return;
+    }
+    try {
+      await removeWorkspaceMember(user.idToken, workspace.id, settings.memberSub);
+      await alert(
+        t(
+          "runtime.workspace.alert.member_removed",
+          "Member removed from workspace."
+        )
+      );
+    } catch (err) {
+      console.error(err);
+      await alert(
+        tf(
+          "runtime.workspace.alert.remove_member_failed",
+          { error: err.message },
+          `Failed to remove member: ${err.message}`
+        )
+      );
+    }
+  } else if (settings.action === "SHOW_INVITE") {
+    try {
+      const workspace = await getActiveWorkspaceState(user.idToken, { force: true });
+      if (!workspace) {
+        await alert(
+          t(
+            "runtime.workspace.alert.no_active_workspace",
+            "No active shared workspace."
+          )
+        );
+        return;
+      }
+      const invite = await getWorkspaceInvite(user.idToken, workspace.id);
+      await alert(
+        tf(
+          "runtime.workspace.alert.invite_details",
+          { inviteCode: invite.inviteCode, inviteLink: invite.inviteLink },
+          `Invite code: <code>${invite.inviteCode}</code><br>Invite link: <a href=\"${invite.inviteLink}\" target=\"_blank\">${invite.inviteLink}</a>`
+        )
+      );
+    } catch (err) {
+      console.error(err);
+      await alert(
+        tf(
+          "runtime.workspace.alert.load_invite_failed",
+          { error: err.message },
+          `Failed to load invite details: ${err.message}`
+        )
+      );
+    }
+  } else if (settings.action === "LEAVE_WORKSPACE") {
+    if (
+      await confirm(
+        t(
+          "runtime.workspace.confirm.leave",
+          "This will remove this account from the current shared workspace. Continue?"
+        )
+      )
+    ) {
+      try {
+        await leaveSharedWorkspace(user.idToken);
+        clearLocalTests();
+        await syncData({
+          pullDrive: false,
+          pullWorkspace: false,
+          pushWorkspace: false,
+        });
+        showAthletes();
+        await alert(
+          t("runtime.workspace.alert.left", "Left shared workspace.")
+        );
+      } catch (err) {
+        console.error(err);
+        await alert(
+          tf(
+            "runtime.workspace.alert.leave_failed",
+            { error: err.message },
+            `Failed to leave shared workspace: ${err.message}`
+          )
+        );
+      }
     }
   } else {
     try {

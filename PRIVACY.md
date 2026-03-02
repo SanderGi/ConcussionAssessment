@@ -16,6 +16,11 @@ We are the data controller for the processing described here (except where Googl
 - When you log in with Google (optional):
   - Firebase (by Google) stores your email address, the first login time, and the most recent login time.
   - You can use this login to sync data to your personal Google Drive. We cannot access the files in your Google Drive. Google processes that data under [its own privacy policy](https://policies.google.com/privacy).
+- When you create or join a Shared Workspace (optional):
+  - Workspace data (including athlete/test records you and other workspace members sync) is stored in our Cloudflare D1 database so members of that workspace can collaborate.
+  - Workspace membership metadata (name, email, profile image, role) is stored to show members in the sync settings and control access.
+  - Joining a workspace replaces the currently accessible in-app athlete/test dataset on that device with the workspace dataset.
+  - Leaving a workspace removes access to that workspace's athlete/test data on that device.
 - When you choose to upload data to us:
   - You may share pseudonymized usage data (data that does not include your name or email but could still be linked back to you in theory).
   - You may share feedback and ratings anonymously or with an email attached.
@@ -29,6 +34,7 @@ We process your personal data based on:
 
 ## 4. Where your data is processed
 - Firebase and Google services may process data outside the EU, including in the United States.
+- Shared Workspace data is stored in Cloudflare D1 configured for EU-only processing.
 - Transfers are protected by the EU–US Data Privacy Framework and/or Standard Contractual Clauses.
 
 ## 5. How long we keep data

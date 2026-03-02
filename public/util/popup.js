@@ -1,6 +1,8 @@
 import { saveTestResult, endTest, renderTestSection } from "../testManager.js";
 
 const t = (key, fallback) => window.__scat6T?.(key, fallback) ?? fallback;
+const tf = (key, vars, fallback) =>
+  window.__scat6Format?.(key, vars, fallback) ?? fallback;
 
 export async function alert(message) {
   return new Promise((resolve) => {
@@ -139,10 +141,7 @@ export async function bulkExportOptions() {
   });
 }
 
-export async function removeAthleteFromPlayAlert(
-  next,
-  message
-) {
+export async function removeAthleteFromPlayAlert(next, message) {
   const defaultMessage = t(
     "runtime.popup.remove_from_play_default",
     "Remove athlete from play for immediate medical assessment or transport to hospital/medical center."
@@ -192,13 +191,34 @@ export async function showSources() {
     dialog.innerHTML = /* html */ `
       <h3>${t("runtime.sources.title", "Sources")}</h3>
       <ul style="text-align: left; margin: auto; width: fit-content">
-        <li>${t("runtime.sources.scat6_supplement", "SCAT6 Supplementary Material")}: <a href="/assets/SCAT6-Detailed-Instructions.pdf" target="_blank">SCAT6</a></li>
-        <li>${t("runtime.sources.concussion_training", "Concussion training and information")}: <a href="https://www.cdc.gov/headsup/index.html" target="_blank">CDC's Heads Up</a></li>
-        <li>${t("runtime.sources.bess_manual", "BESS Manual")}: <a href="https://atriumhealth.org/documents/carolinasrehab/bess_manual_.pdf" target="_blank">University of North Carolina</a></li>
-        <li>${t("runtime.sources.healthy_risk_bess_tandem_dual", "Healthy/risk ranges for BESS, tandem and dual gait")}: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7987555/" target="_blank">Van Deventer et al.</a></li>
-        <li>${t("runtime.sources.healthy_risk_memory", "Healthy/risk ranges for immediate/delayed recall")}: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6109942/" target="_blank">Norheim et al.</a></li>
-        <li>${t("runtime.sources.symptom_severity_study", "Symptom severity study")}: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8583872/" target="_blank">Langer et al.</a></li>
-        <li>${t("runtime.sources.scat6_results_study", "SCAT6 results study")}: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6326330/" target="_blank">Mistry and Rainer</a></li>
+        <li>${t(
+          "runtime.sources.scat6_supplement",
+          "SCAT6 Supplementary Material"
+        )}: <a href="/assets/SCAT6-Detailed-Instructions.pdf" target="_blank">SCAT6</a></li>
+        <li>${t(
+          "runtime.sources.concussion_training",
+          "Concussion training and information"
+        )}: <a href="https://www.cdc.gov/headsup/index.html" target="_blank">CDC's Heads Up</a></li>
+        <li>${t(
+          "runtime.sources.bess_manual",
+          "BESS Manual"
+        )}: <a href="https://atriumhealth.org/documents/carolinasrehab/bess_manual_.pdf" target="_blank">University of North Carolina</a></li>
+        <li>${t(
+          "runtime.sources.healthy_risk_bess_tandem_dual",
+          "Healthy/risk ranges for BESS, tandem and dual gait"
+        )}: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7987555/" target="_blank">Van Deventer et al.</a></li>
+        <li>${t(
+          "runtime.sources.healthy_risk_memory",
+          "Healthy/risk ranges for immediate/delayed recall"
+        )}: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6109942/" target="_blank">Norheim et al.</a></li>
+        <li>${t(
+          "runtime.sources.symptom_severity_study",
+          "Symptom severity study"
+        )}: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8583872/" target="_blank">Langer et al.</a></li>
+        <li>${t(
+          "runtime.sources.scat6_results_study",
+          "SCAT6 results study"
+        )}: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6326330/" target="_blank">Mistry and Rainer</a></li>
       </ul>
       <br>
       <button class="button" autofocus>${t("runtime.popup.ok", "OK")}</button>
@@ -260,20 +280,182 @@ export async function sequencePrompt() {
   });
 }
 
-export async function syncSettings(name, email, status) {
+export async function syncSettings(name, email, status, workspace, members = []) {
+  const inviteFromUrl =
+    new URL(window.location.href).searchParams
+      .get("workspaceInvite")
+      ?.trim()
+      .toUpperCase() ?? "";
+  const workspaceStatus = workspace
+    ? tf(
+        "runtime.workspace.status.active",
+        {
+          workspaceName: workspace.name,
+          role:
+            workspace.role === "owner"
+              ? t("runtime.workspace.role.owner", "Owner")
+              : t("runtime.workspace.role.member", "Member"),
+        },
+        `Active Shared Workspace: <strong>${workspace.name}</strong> (${
+          workspace.role === "owner" ? "Owner" : "Member"
+        })`
+      )
+    : t("runtime.workspace.status.none", "No active Shared Workspace");
+
+  const ownerActions = workspace?.role === "owner";
+  const memberActions = workspace?.role === "member";
+  const noWorkspace = !workspace;
+  const membersListHtml = !noWorkspace
+    ? `
+      <div style="width: 100%; margin-top: 0.5em;">
+        <p style="margin: 0.4em 0; font-weight: 600;">${t(
+          "runtime.workspace.members.title",
+          "Workspace Members"
+        )}</p>
+        ${(members ?? [])
+          .map(
+            (member) => `
+              <div class="left-align spread-inline" style="gap: 0.7em; align-items: center; border: 1px solid var(--secondary); border-radius: 8px; padding: 0.5em; margin-bottom: 0.5em;">
+                <div style="display: inline-flex; align-items: center; gap: 0.6em;">
+                  ${
+                    member.picture
+                      ? `<img src="${member.picture}" alt="${member.name}" style="width: 2em; height: 2em; border-radius: 50%;" referrerpolicy="no-referrer" />`
+                      : `<i class="fa-solid fa-user-circle" aria-hidden="true" style="font-size: 1.8em"></i>`
+                  }
+                  <div style="display: inline-flex; flex-direction: column;">
+                    <span>${member.name} ${
+                      member.role === "owner"
+                        ? `(${t("runtime.workspace.role.owner", "Owner")})`
+                        : ""
+                    }</span>
+                    <small>${member.email}</small>
+                  </div>
+                </div>
+                ${
+                  ownerActions && member.role !== "owner"
+                    ? `<button class="button button--red" data-action="REMOVE_MEMBER" data-member-sub="${member.sub}">${t(
+                        "runtime.workspace.member.remove",
+                        "Remove"
+                      )}</button>`
+                    : ""
+                }
+              </div>
+            `
+          )
+          .join("")}
+      </div>
+    `
+    : "";
+
   return new Promise((resolve) => {
     const dialog = document.createElement("dialog");
     dialog.innerHTML = /* html */ `
-      <p>Connected to ${name} (${email})</p>
+      <p>${tf(
+        "runtime.workspace.connected_to",
+        { name, email },
+        `Connected to ${name} (${email})`
+      )}</p>
       <p>${status}</p>
-      <button class="button button--red" data-action="UNLINK">Unlink Device</button>
-      <button class="button button--red" data-action="DELETE_DRIVE">Stop Sync</button>
-      <button class="button" data-action="STAY_SYNCED">Close Settings</button>
+      <p>${workspaceStatus}
+        ${
+          ownerActions
+            ? `<button class="button" data-action="SHOW_INVITE">${t(
+                "runtime.workspace.show_invite",
+                "Show Invite Link + Code"
+              )}</button>`
+            : ""
+        }
+        ${
+          ownerActions
+            ? `<button class="button button--red" data-action="DELETE_WORKSPACE">${t(
+                "runtime.workspace.delete",
+                "Delete Shared Workspace"
+              )}</button>`
+            : ""
+        }
+        ${
+          memberActions
+            ? `<button class="button button--red" data-action="LEAVE_WORKSPACE">${t(
+                "runtime.workspace.leave",
+                "Leave Shared Workspace"
+              )}</button>`
+            : ""
+        }
+      </p>
+      <p style="margin-top: 0;">
+        ${t(
+          "runtime.workspace.storage_note",
+          "Shared workspace data syncs between members and is stored in Cloudflare D1 (EU-only region)."
+        )}
+      </p>
+      ${
+        noWorkspace
+          ? `
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">
+              ${t("runtime.workspace.name", "Workspace Name:")}
+              <div>
+                <input type="text" id="workspace-name-input" placeholder="${t(
+                  "runtime.workspace.name_placeholder",
+                  "e.g. Varsity Team Doctors"
+                )}" />
+                <button class="button button--green" data-action="CREATE_WORKSPACE">${t(
+                  "runtime.workspace.create",
+                  "Create Shared Workspace"
+                )}</button>
+              </div>
+            </label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">
+              ${t("runtime.workspace.invite_code", "Invite Code:")}
+              <div>
+                <input type="text" id="workspace-code-input" placeholder="${t(
+                  "runtime.workspace.invite_code_placeholder",
+                  "Paste invite code"
+                )}" value="${inviteFromUrl}" />
+                <button class="button" data-action="JOIN_WORKSPACE">${t(
+                  "runtime.workspace.join",
+                  "Join Shared Workspace"
+                )}</button>
+              </div>
+            </label>
+          `
+          : membersListHtml
+      }
+      ${
+        noWorkspace || memberActions
+          ? `<button class="button button--red" data-action="UNLINK">${t(
+              "runtime.workspace.unlink_device",
+              "Unlink Device"
+            )}</button>`
+          : ""
+      }
+      ${
+        noWorkspace || memberActions
+          ? `<button class="button button--red" data-action="DELETE_DRIVE">${t(
+              "runtime.popup.stop_sync",
+              "Stop Sync"
+            )}</button>`
+          : ""
+      }
+      <button class="button" data-action="STAY_SYNCED">${t(
+        "runtime.popup.close_settings",
+        "Close Settings"
+      )}</button>
     `;
     dialog.onclick = (e) => {
       if (e.target.tagName === "BUTTON") {
+        const action = e.target.dataset.action;
+        const workspaceName = dialog.querySelector(
+          "#workspace-name-input"
+        )?.value;
+        const inviteCode = dialog.querySelector("#workspace-code-input")?.value;
+        const memberSub = e.target.dataset.memberSub;
         dialog.remove();
-        resolve(e.target.dataset.action);
+        resolve({
+          action,
+          workspaceName: workspaceName?.trim(),
+          inviteCode: inviteCode?.trim().toUpperCase(),
+          memberSub,
+        });
       }
     };
     document.body.appendChild(dialog);
