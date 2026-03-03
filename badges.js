@@ -35,34 +35,37 @@ function createBadge(label, value, leftWidth, rightWidth, color, filename) {
   fs.writeFileSync(filename, svg, "utf8");
 }
 
-exec("tokei . --output json --exclude public/lib", (error, stdout, stderr) => {
-  if (error) {
-    console.log(
-      "Tokei not installed. Skipping lines of code and file count badge."
+exec(
+  "tokei . --output json --exclude public/lib --exclude public/i18n",
+  (error, stdout, stderr) => {
+    if (error) {
+      console.log(
+        "Tokei not installed. Skipping lines of code and file count badge."
+      );
+      return;
+    }
+    const totalStats = JSON.parse(stdout)["Total"];
+    const totalLinesOfCode = totalStats["code"];
+    const totalFiles = Object.values(totalStats["children"])
+      .map((x) => x.length)
+      .reduce((a, b) => a + b, 0);
+    createBadge(
+      "Lines of Code",
+      Intl.NumberFormat("en-US", { notation: "compact" }).format(
+        totalLinesOfCode
+      ),
+      87,
+      50,
+      "#007ec6",
+      "./.badges/lines-of-code.svg"
     );
-    return;
+    createBadge(
+      "Files",
+      totalFiles,
+      40,
+      28,
+      "#007ec6",
+      "./.badges/file-count.svg"
+    );
   }
-  const totalStats = JSON.parse(stdout)["Total"];
-  const totalLinesOfCode = totalStats["code"];
-  const totalFiles = Object.values(totalStats["children"])
-    .map((x) => x.length)
-    .reduce((a, b) => a + b, 0);
-  createBadge(
-    "Lines of Code",
-    Intl.NumberFormat("en-US", { notation: "compact" }).format(
-      totalLinesOfCode
-    ),
-    87,
-    50,
-    "#007ec6",
-    "./.badges/lines-of-code.svg"
-  );
-  createBadge(
-    "Files",
-    totalFiles,
-    40,
-    28,
-    "#007ec6",
-    "./.badges/file-count.svg"
-  );
-});
+);

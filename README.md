@@ -117,7 +117,7 @@ We use template-driven static generation for language variants:
 
 - Templates: `templates/index.template.html`
 - Language config: `i18n/languages.json`
-- Per-language translation data: `i18n/translations/<lang>.json`
+- Per-language translation data: `public/i18n/translations/<lang>.json`
 - Generated catalog of English source + locations: `i18n/catalog.en.json`
 - Build script: `scripts/build-i18n.mjs`
 

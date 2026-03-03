@@ -13,8 +13,7 @@ const ROOT = process.cwd();
 const PUBLIC_DIR = join(ROOT, "public");
 const TEMPLATE_DIR = join(ROOT, "templates");
 const I18N_DIR = join(ROOT, "i18n");
-const TRANSLATIONS_DIR = join(I18N_DIR, "translations");
-const PUBLIC_TRANSLATIONS_DIR = join(PUBLIC_DIR, "i18n", "translations");
+const TRANSLATIONS_DIR = join(PUBLIC_DIR, "i18n", "translations");
 const GENERATED_MARKER =
   "<!-- GENERATED FILE. DO NOT EDIT DIRECTLY. Edit templates and run scripts/build-i18n.mjs -->";
 
@@ -84,12 +83,16 @@ const runtimeEntries = {
   },
   "runtime.lang.name.en": {
     source: "English",
-    locations: ["templates/index.template.html header language selector option"],
+    locations: [
+      "templates/index.template.html header language selector option",
+    ],
     value: "English",
   },
   "runtime.lang.name.dk": {
     source: "Danish",
-    locations: ["templates/index.template.html header language selector option"],
+    locations: [
+      "templates/index.template.html header language selector option",
+    ],
     value: "Danish",
   },
   "runtime.popup.ok": {
@@ -300,9 +303,11 @@ const runtimeEntries = {
     value: "Member",
   },
   "runtime.workspace.status.active": {
-    source: "Active Shared Workspace: <strong>{{workspaceName}}</strong> ({{role}})",
+    source:
+      "Active Shared Workspace: <strong>{{workspaceName}}</strong> ({{role}})",
     locations: ["public/util/popup.js syncSettings workspace status"],
-    value: "Active Shared Workspace: <strong>{{workspaceName}}</strong> ({{role}})",
+    value:
+      "Active Shared Workspace: <strong>{{workspaceName}}</strong> ({{role}})",
   },
   "runtime.workspace.status.none": {
     source: "No active Shared Workspace",
@@ -340,9 +345,11 @@ const runtimeEntries = {
     value: "Leave Shared Workspace",
   },
   "runtime.workspace.storage_note": {
-    source: "Shared workspace data syncs between members and is stored in Cloudflare D1 (EU-only region).",
+    source:
+      "Shared workspace data syncs between members and is stored in Cloudflare D1 (EU-only region).",
     locations: ["public/util/popup.js syncSettings workspace note"],
-    value: "Shared workspace data syncs between members and is stored in Cloudflare D1 (EU-only region).",
+    value:
+      "Shared workspace data syncs between members and is stored in Cloudflare D1 (EU-only region).",
   },
   "runtime.workspace.name": {
     source: "Workspace Name:",
@@ -380,34 +387,44 @@ const runtimeEntries = {
     value: "Unlink Device",
   },
   "runtime.workspace.confirm.join_replace_data": {
-    source: "Joining shared workspace invite code {{inviteCode}} will replace your currently accessible athlete/test data in this app with the workspace data. Continue?",
+    source:
+      "Joining shared workspace invite code {{inviteCode}} will replace your currently accessible athlete/test data in this app with the workspace data. Continue?",
     locations: ["public/scripts.js workspace join confirmation"],
-    value: "Joining shared workspace invite code {{inviteCode}} will replace your currently accessible athlete/test data in this app with the workspace data. Continue?",
+    value:
+      "Joining shared workspace invite code {{inviteCode}} will replace your currently accessible athlete/test data in this app with the workspace data. Continue?",
   },
   "runtime.workspace.confirm.switch_from_invite": {
-    source: "You are already in shared workspace \"{{activeWorkspaceName}}\". Switch to invite code {{inviteCode}}? This removes local access to data from the old workspace.",
+    source:
+      'You are already in shared workspace "{{activeWorkspaceName}}". Switch to invite code {{inviteCode}}? This removes local access to data from the old workspace.',
     locations: ["public/scripts.js invite auto-join switch confirmation"],
-    value: "You are already in shared workspace \"{{activeWorkspaceName}}\". Switch to invite code {{inviteCode}}? This removes local access to data from the old workspace.",
+    value:
+      'You are already in shared workspace "{{activeWorkspaceName}}". Switch to invite code {{inviteCode}}? This removes local access to data from the old workspace.',
   },
   "runtime.workspace.confirm.switch_current": {
-    source: "You are already in \"{{activeWorkspaceName}}\". Switch to the new workspace? This removes local access to data from the old workspace.",
+    source:
+      'You are already in "{{activeWorkspaceName}}". Switch to the new workspace? This removes local access to data from the old workspace.',
     locations: ["public/scripts.js manual join switch confirmation"],
-    value: "You are already in \"{{activeWorkspaceName}}\". Switch to the new workspace? This removes local access to data from the old workspace.",
+    value:
+      'You are already in "{{activeWorkspaceName}}". Switch to the new workspace? This removes local access to data from the old workspace.',
   },
   "runtime.workspace.confirm.delete_for_all": {
-    source: "Delete shared workspace \"{{workspaceName}}\" for all members?",
+    source: 'Delete shared workspace "{{workspaceName}}" for all members?',
     locations: ["public/scripts.js delete workspace confirmation"],
-    value: "Delete shared workspace \"{{workspaceName}}\" for all members?",
+    value: 'Delete shared workspace "{{workspaceName}}" for all members?',
   },
   "runtime.workspace.confirm.remove_member": {
-    source: "Remove this member from the workspace? They will immediately lose access.",
+    source:
+      "Remove this member from the workspace? They will immediately lose access.",
     locations: ["public/scripts.js remove member confirmation"],
-    value: "Remove this member from the workspace? They will immediately lose access.",
+    value:
+      "Remove this member from the workspace? They will immediately lose access.",
   },
   "runtime.workspace.confirm.leave": {
-    source: "This will remove this account from the current shared workspace. Continue?",
+    source:
+      "This will remove this account from the current shared workspace. Continue?",
     locations: ["public/scripts.js leave workspace confirmation"],
-    value: "This will remove this account from the current shared workspace. Continue?",
+    value:
+      "This will remove this account from the current shared workspace. Continue?",
   },
   "runtime.workspace.alert.joined": {
     source: "Joined shared workspace: {{workspaceName}}",
@@ -450,9 +467,11 @@ const runtimeEntries = {
     value: "Please enter a workspace name.",
   },
   "runtime.workspace.alert.created_with_invite": {
-    source: "Created shared workspace: {{workspaceName}}<br>Invite code: <code>{{inviteCode}}</code><br>Invite link: <a href=\"{{inviteLink}}\" target=\"_blank\">{{inviteLink}}</a>",
+    source:
+      'Created shared workspace: {{workspaceName}}<br>Invite code: <code>{{inviteCode}}</code><br>Invite link: <a href="{{inviteLink}}" target="_blank">{{inviteLink}}</a>',
     locations: ["public/scripts.js create workspace success"],
-    value: "Created shared workspace: {{workspaceName}}<br>Invite code: <code>{{inviteCode}}</code><br>Invite link: <a href=\"{{inviteLink}}\" target=\"_blank\">{{inviteLink}}</a>",
+    value:
+      'Created shared workspace: {{workspaceName}}<br>Invite code: <code>{{inviteCode}}</code><br>Invite link: <a href="{{inviteLink}}" target="_blank">{{inviteLink}}</a>',
   },
   "runtime.workspace.alert.create_failed": {
     source: "Failed to create shared workspace: {{error}}",
@@ -470,9 +489,11 @@ const runtimeEntries = {
     value: "Failed to join shared workspace: {{error}}",
   },
   "runtime.workspace.alert.owner_must_delete_first": {
-    source: "You already own another shared workspace. Delete that workspace first before joining a different one.",
+    source:
+      "You already own another shared workspace. Delete that workspace first before joining a different one.",
     locations: ["public/scripts.js owner join guard"],
-    value: "You already own another shared workspace. Delete that workspace first before joining a different one.",
+    value:
+      "You already own another shared workspace. Delete that workspace first before joining a different one.",
   },
   "runtime.workspace.alert.switch_failed": {
     source: "Failed to switch workspace: {{error}}",
@@ -505,9 +526,11 @@ const runtimeEntries = {
     value: "No active shared workspace.",
   },
   "runtime.workspace.alert.invite_details": {
-    source: "Invite code: <code>{{inviteCode}}</code><br>Invite link: <a href=\"{{inviteLink}}\" target=\"_blank\">{{inviteLink}}</a>",
+    source:
+      'Invite code: <code>{{inviteCode}}</code><br>Invite link: <a href="{{inviteLink}}" target="_blank">{{inviteLink}}</a>',
     locations: ["public/scripts.js show invite success"],
-    value: "Invite code: <code>{{inviteCode}}</code><br>Invite link: <a href=\"{{inviteLink}}\" target=\"_blank\">{{inviteLink}}</a>",
+    value:
+      'Invite code: <code>{{inviteCode}}</code><br>Invite link: <a href="{{inviteLink}}" target="_blank">{{inviteLink}}</a>',
   },
   "runtime.workspace.alert.load_invite_failed": {
     source: "Failed to load invite details: {{error}}",
@@ -666,21 +689,20 @@ const runtimeEntries = {
   },
   "runtime.popup.immediate_text": {
     source:
-      "The immediate assessment should be completed \"on-field\" after the first aid/emergency care priorities are completed.",
+      'The immediate assessment should be completed "on-field" after the first aid/emergency care priorities are completed.',
     locations: ["public/util/popup.js confirmAthleteInfo start assessment"],
     value:
-      "The immediate assessment should be completed \"on-field\" after the first aid/emergency care priorities are completed.",
+      'The immediate assessment should be completed "on-field" after the first aid/emergency care priorities are completed.',
   },
   "runtime.popup.cognitive_text": {
     source:
-      "The \"cognitive screening\" portion of the baseline and post injury assessments should be completed in a distraction-free environment with the athlete in a resting state.",
+      'The "cognitive screening" portion of the baseline and post injury assessments should be completed in a distraction-free environment with the athlete in a resting state.',
     locations: ["public/util/popup.js confirmAthleteInfo start assessment"],
     value:
-      "The \"cognitive screening\" portion of the baseline and post injury assessments should be completed in a distraction-free environment with the athlete in a resting state.",
+      'The "cognitive screening" portion of the baseline and post injury assessments should be completed in a distraction-free environment with the athlete in a resting state.',
   },
   "runtime.popup.hcp_only_text": {
-    source:
-      "For Use by Health Care Professionals Only. See the original",
+    source: "For Use by Health Care Professionals Only. See the original",
     locations: ["public/util/popup.js confirmAthleteInfo start assessment"],
     value: "For Use by Health Care Professionals Only. See the original",
   },
@@ -804,9 +826,11 @@ const runtimeEntries = {
     value: "{{seconds}} seconds left. {{athleteName}}, {{description}}:",
   },
   "runtime.bess.error.detector": {
-    source: "Unexpected error deciphering the pose. Skipping to manual assessment.",
+    source:
+      "Unexpected error deciphering the pose. Skipping to manual assessment.",
     locations: ["public/bess.js detectorerror"],
-    value: "Unexpected error deciphering the pose. Skipping to manual assessment.",
+    value:
+      "Unexpected error deciphering the pose. Skipping to manual assessment.",
   },
   "runtime.bess.error.video": {
     source: "Unexpected error with the camera. Skipping to manual assessment.",
@@ -834,7 +858,8 @@ const runtimeEntries = {
     source:
       "Please stand straight without bending/twisting knees or upper body.",
     locations: ["public/util/pose.js checkStandingStraight"],
-    value: "Please stand straight without bending/twisting knees or upper body.",
+    value:
+      "Please stand straight without bending/twisting knees or upper body.",
   },
   "runtime.bess.error.stand_straight_no_side": {
     source: "Please stand straight without moving hips side to side.",
@@ -857,9 +882,11 @@ const runtimeEntries = {
     value: "Please keep knees together.",
   },
   "runtime.bess.error.dominant_foot_visible": {
-    source: "The dominant foot must be visible in front of the non-dominant foot.",
+    source:
+      "The dominant foot must be visible in front of the non-dominant foot.",
     locations: ["public/util/pose.js checkHeelToToe"],
-    value: "The dominant foot must be visible in front of the non-dominant foot.",
+    value:
+      "The dominant foot must be visible in front of the non-dominant foot.",
   },
   "runtime.bess.error.move_dominant_forward": {
     source: "Please move the dominant foot further forward.",
@@ -1120,9 +1147,11 @@ const runtimeEntries = {
     value: "Dual Task Fastest Time",
   },
   "runtime.test_mgmt.click_mbess_data_point": {
-    source: "Click on an mBESS Total Errors data point to see pose error photos.",
+    source:
+      "Click on an mBESS Total Errors data point to see pose error photos.",
     locations: ["public/scripts.js showAthleteResults chart details"],
-    value: "Click on an mBESS Total Errors data point to see pose error photos.",
+    value:
+      "Click on an mBESS Total Errors data point to see pose error photos.",
   },
   "runtime.test_mgmt.no_pose_error_photos": {
     source: "No pose error photos found for this test.",
@@ -2018,20 +2047,12 @@ function writeOutput(language, localeData) {
       html = injectI18nRuntime(html, langCode, langLabel, localeData);
     html = translateHtmlTextNodes(html, translationMap);
     html = html.replace(/<html([^>]*)>/, (_, attrs) => {
-      const cleaned = attrs.replace(/\s+lang="[^"]*"/g, '');
+      const cleaned = attrs.replace(/\s+lang="[^"]*"/g, "");
       return `<html${cleaned} lang="${langCode}">`;
     });
     mkdirSync(dirname(item.output), { recursive: true });
     writeFileSync(item.output, `${GENERATED_MARKER}\n${html}`);
   }
-}
-
-function writePublicLocale(languageCode, localeData) {
-  mkdirSync(PUBLIC_TRANSLATIONS_DIR, { recursive: true });
-  writeFileSync(
-    join(PUBLIC_TRANSLATIONS_DIR, `${languageCode}.json`),
-    `${JSON.stringify(localeData, null, 2)}\n`
-  );
 }
 
 function cleanOldLanguageDirectories() {
@@ -2067,7 +2088,6 @@ function main() {
 
   for (const language of supportedLanguages) {
     const locale = loadLocale(language.code, catalog);
-    writePublicLocale(language.code, locale);
     writeOutput(language, locale);
   }
 }
