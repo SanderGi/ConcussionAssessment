@@ -1,5 +1,5 @@
 # Privacy Notice
-*Last updated: September 18, 2025*
+*Last updated: March 8, 2026*
 
 We respect your privacy. This notice explains what personal data we collect, how we use it, and your rights under the EU General Data Protection Regulation (GDPR).
 
