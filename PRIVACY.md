@@ -1,5 +1,5 @@
 # Privacy Notice
-*Last updated: March 8, 2026*
+*Last updated: March 9, 2026*
 
 We respect your privacy. This notice explains what personal data we collect, how we use it, and your rights under the EU General Data Protection Regulation (GDPR).
 
@@ -13,14 +13,21 @@ We are the data controller for the processing described here (except where Googl
 - When you use the app without logging in:
   - All health-related data stays on your device.
   - We do not collect or access this data by default.
+  - If you complete a test, the app may send a minimal analytics event (no test answers, no athlete profile data, no notes, no names, no emails) so we can count aggregate usage to inform server scaling (for example: completed tests and manual vs automated BESS completions).
 - When you log in with Google (optional):
   - Firebase (by Google) stores your email address, the first login time, and the most recent login time.
   - You can use this login to sync data to your personal Google Drive. We cannot access the files in your Google Drive. Google processes that data under [its own privacy policy](https://policies.google.com/privacy).
+  - If you sync with Google Drive but are not part of a Shared Workspace, only minimal aggregate analytics events (no health record content) may be sent to inform server scaling.
 - When you create or join a Shared Workspace (optional):
   - Workspace data (including athlete/test records you and other workspace members sync) is stored in our Cloudflare D1 database so members of that workspace can collaborate.
   - Workspace membership metadata (name, email, profile image, role) is stored to show members in the sync settings and control access.
   - Joining a workspace replaces the currently accessible in-app athlete/test dataset on that device with the workspace dataset.
   - Leaving a workspace removes access to that workspace's athlete/test data on that device.
+- Technical analytics (aggregate only):
+  - We operate privacy-preserving aggregate analytics in the Cloudflare Worker.
+  - For unique user estimates we use short-lived derived identifiers built from request metadata using keyed HMAC and HyperLogLog, then discard raw identifiers.
+  - We store only aggregate counters / sketches (for example, daily unique users, country-level request/user estimates, completed test counts, BESS mode totals).
+  - We do not store IP addresses or user agent strings as analytics records.
 - When you choose to upload data to us:
   - You may share pseudonymized usage data (data that does not include your name or email but could still be linked back to you in theory).
   - You may share feedback and ratings anonymously or with an email attached.
@@ -40,6 +47,7 @@ We process your personal data based on:
 ## 5. How long we keep data
 - Login data (email, login times) is retained for as long as your account exists.
 - Pseudonymized uploads are kept only as long as necessary for improving the app.
+- Aggregate analytics are retained as long as needed for operational statistics and trend monitoring.
 - You may request deletion at any time (see below).
 
 ## 6. Your rights

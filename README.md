@@ -96,13 +96,35 @@ npm install
 npm run d1:migrate
 ```
 
-4. Run locally:
+4. Set Worker secrets (required for admin dashboard + analytics):
+
+```bash
+wrangler secret put ADMIN_DASHBOARD_PASSWORD
+wrangler secret put ADMIN_SESSION_SECRET
+wrangler secret put ANALYTICS_HMAC_SECRET
+```
+
+Generate strong secret values with OpenSSL:
+
+```bash
+openssl rand -base64 48
+```
+
+Local development (`workers/shared-workspace/.dev.vars`) example:
+
+```bash
+ADMIN_DASHBOARD_PASSWORD=change-me-admin-password
+ADMIN_SESSION_SECRET=dev_admin_session_secret_4mTQHk0j2M4I9m1aY8rM9eS3E2nJ6qkP
+ANALYTICS_HMAC_SECRET=dev_analytics_hmac_secret_Xk9pQ2dL7zN1vA5fR3uT8wB6cY0mH4sD
+```
+
+5. Run locally:
 
 ```bash
 npm run dev
 ```
 
-5. Deploy:
+6. Deploy:
 
 ```bash
 npm run deploy

@@ -70,6 +70,13 @@ export function clearWorkspaceCache() {
   _cachedWorkspaceAt = 0;
 }
 
+export function getCachedWorkspaceState() {
+  return {
+    workspace: _cachedWorkspace,
+    checkedAt: _cachedWorkspaceAt,
+  };
+}
+
 export async function getActiveWorkspaceState(idToken, { force = false } = {}) {
   const now = Date.now();
   if (!force && _cachedWorkspace && now - _cachedWorkspaceAt < WORKSPACE_CACHE_MS) {
