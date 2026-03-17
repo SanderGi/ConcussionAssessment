@@ -1298,7 +1298,7 @@ function renderDashboardHtml() {
 
         const m = data.metrics;
         const metrics = [
-          ['Total Users (workspace exact + non-workspace est.)', data.totalUniqueUsers],
+          ['API Traffic Users (est.)', data.totalUniqueUsersEstimatedByTraffic],
           ['Workspace Users (exact)', m.workspaceUsers],
           ['Non-Workspace Users (est.)', m.nonWorkspaceUniqueUsersEstimated],
           ['Workspaces', m.workspaces],
