@@ -16,6 +16,7 @@ import {
   isWorkspaceApiAvailable,
   setWorkspaceData,
 } from "./util/workspace.js";
+import { syncNonWorkspaceAnalyticsState } from "./util/analytics.js";
 import { alert } from "./util/popup.js";
 
 const firebaseConfig = {
@@ -426,4 +427,6 @@ export async function syncData({
       }
     }
   }
+
+  await syncNonWorkspaceAnalyticsState(tests);
 }

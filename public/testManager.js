@@ -2,10 +2,6 @@ import { tests, syncData, connectUser } from "./userData.js";
 import { confirmAthleteInfo } from "./util/popup.js";
 import { isSpeaking, speak } from "./util/sound.js";
 import { uploadTest } from "./util/googleForm.js";
-import {
-  trackLocalCompletionEvents,
-  trackNonWorkspaceAthleteProfileSeen,
-} from "./util/analytics.js";
 
 // ============================ Session/Local Storage Keys ============================
 const TEST_PHASE = "test-phase";
@@ -159,9 +155,7 @@ export async function saveTestResult(key, value) {
 window.saveTestResult = saveTestResult;
 
 export async function endTest() {
-  const completedTest = getTest();
   renderTestSection("test-management");
-  await trackLocalCompletionEvents(completedTest);
   await shareTestData();
   sessionStorage.removeItem(TEST);
   sessionStorage.removeItem(TEST_PHASE);
@@ -184,7 +178,6 @@ export async function startTest(pastTests) {
   }
   const test = await confirmAthleteInfo(pastTests, defaultExaminerName);
   if (!test) return;
-  await trackNonWorkspaceAthleteProfileSeen(test.athlete_id);
 
   sessionStorage.setItem(TEST, JSON.stringify(test));
 

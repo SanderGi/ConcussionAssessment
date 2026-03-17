@@ -240,20 +240,19 @@ async function trackAnalytics(c: Context<Env>) {
   }
 }
 
+async function hashEventIdTo64(c: Context<Env>, eventId: string) {
+  const bytes = await hmacBytes(c.env.ANALYTICS_HMAC_SECRET, `event:${eventId}`);
+  return bytesToBigInt64(bytes);
+}
+
 async function getStableRequestHash64(c: Context<Env>) {
   const ip = c.req.header("cf-connecting-ip") ?? "";
   const ua = c.req.header("user-agent") ?? "";
   if (!ip || !ua) return null;
   const raw = `${ip}|${ua}`;
-  const stableHash = bytesToBigInt64(
+  return bytesToBigInt64(
     await hmacBytes(c.env.ANALYTICS_HMAC_SECRET, `stable:${raw}`)
   );
-  return stableHash;
-}
-
-async function hashEventIdTo64(c: Context<Env>, eventId: string) {
-  const bytes = await hmacBytes(c.env.ANALYTICS_HMAC_SECRET, `event:${eventId}`);
-  return bytesToBigInt64(bytes);
 }
 
 function parseCookieMap(rawCookie: string | undefined) {
@@ -400,22 +399,27 @@ app.post("/api/analytics/event", async (c) => {
     return c.json({ error: "Invalid eventId." }, 400);
   }
 
-  if (eventType === "test_completed") {
+  if (eventType === "user_seen") {
     const stableHash = await getStableRequestHash64(c);
-    if (stableHash !== null) {
-      await hllUpsert(
-        c.env.DB,
-        "non_workspace_users",
-        "non_workspace_users",
-        null,
-        null,
-        stableHash
-      );
+    if (stableHash === null) {
+      return c.json({ ok: true, skipped: true });
     }
+    await hllUpsert(
+      c.env.DB,
+      "non_workspace_users",
+      "non_workspace_users",
+      null,
+      null,
+      stableHash
+    );
+    return c.json({ ok: true });
+  }
+
+  if (eventType === "test_completed") {
     const dedupeKey = `test_completed:${eventId}`;
     const inserted = await insertEventDedupeKey(c.env.DB, dedupeKey);
     if (!inserted) return c.json({ ok: true, duplicate: true });
-    await incrementEventCounter(c.env.DB, "local_tests_completed", 1);
+    await incrementEventCounter(c.env.DB, "non_workspace_tests_completed", 1);
     return c.json({ ok: true });
   }
 
@@ -442,8 +446,8 @@ app.post("/api/analytics/event", async (c) => {
     await incrementEventCounter(
       c.env.DB,
       mode === "automated"
-        ? "local_bess_automated_completed"
-        : "local_bess_manual_completed",
+        ? "non_workspace_bess_automated_completed"
+        : "non_workspace_bess_manual_completed",
       1
     );
     return c.json({ ok: true });
@@ -1029,7 +1033,6 @@ async function collectDashboardStats(db: D1Database, days: number) {
   const totalUniqueUsersEstimatedByTraffic = totalRow?.registers
     ? hllEstimate(fromBase64(totalRow.registers))
     : 0;
-
   const nonWorkspaceRow = await db
     .prepare(
       "SELECT registers FROM analytics_hll WHERE key = 'non_workspace_users' LIMIT 1"
@@ -1038,6 +1041,7 @@ async function collectDashboardStats(db: D1Database, days: number) {
   const nonWorkspaceUniqueUsers = nonWorkspaceRow?.registers
     ? hllEstimate(fromBase64(nonWorkspaceRow.registers))
     : 0;
+
   const nonWorkspaceAthletesRow = await db
     .prepare(
       "SELECT registers FROM analytics_hll WHERE key = 'non_workspace_athletes' LIMIT 1"
@@ -1093,7 +1097,6 @@ async function collectDashboardStats(db: D1Database, days: number) {
     )
     .first<{ avg_members: number | null }>();
   const avgMembersPerWorkspace = Number(avgMembersRow?.avg_members ?? 0);
-  const totalUniqueUsers = workspaceUsers + nonWorkspaceUniqueUsers;
 
   const dataRows = await db
     .prepare("SELECT workspace_id, data_json FROM workspace_data")
@@ -1139,8 +1142,14 @@ async function collectDashboardStats(db: D1Database, days: number) {
     eventCounters.set(row.metric, Number(row.value ?? 0));
   }
 
+  const totalUniqueUsers = workspaceUsers + nonWorkspaceUniqueUsers;
+
+  completedTests += eventCounters.get("non_workspace_tests_completed") ?? 0;
   completedTests += eventCounters.get("local_tests_completed") ?? 0;
+  automatedBess +=
+    eventCounters.get("non_workspace_bess_automated_completed") ?? 0;
   automatedBess += eventCounters.get("local_bess_automated_completed") ?? 0;
+  manualBess += eventCounters.get("non_workspace_bess_manual_completed") ?? 0;
   manualBess += eventCounters.get("local_bess_manual_completed") ?? 0;
   const totalAthleteProfiles =
     workspaceAthleteProfiles.size + nonWorkspaceAthleteProfilesEstimated;
