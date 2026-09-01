@@ -697,9 +697,8 @@ export async function confirmAthleteInfo(
     pastTests.at(-1)?.athlete_birth_timestamp ??
     Date.now() - 16 * 365 * 24 * 60 * 60 * 1000;
   const athlete_sex =
-    pastTests.at(-1)?.athlete_sex ?? ["Tyler", "Michael"].includes(athlete_name)
-      ? "Male"
-      : "Female";
+    pastTests.at(-1)?.athlete_sex ??
+    (["Tyler", "Michael"].includes(athlete_name) ? "Male" : "Female");
   const athlete_dominant_hand =
     pastTests.at(-1)?.athlete_dominant_hand ?? "Right";
   const athlete_year_in_school = pastTests.at(-1)?.athlete_year_in_school ?? 10;
