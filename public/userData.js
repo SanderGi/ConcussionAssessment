@@ -17,7 +17,7 @@ import {
   setWorkspaceData,
 } from "./util/workspace.js";
 import { syncNonWorkspaceAnalyticsState } from "./util/analytics.js";
-import { alert } from "./util/popup.js";
+import { alert, select } from "./util/popup.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBOXpDbVaCLdbecVBxCUks4ifTDQF9BnTw",
@@ -68,9 +68,17 @@ export async function connectUser() {
     signinResult = await signInWithPopup(auth, googleProvider);
   } catch (err) {
     console.error(err);
-    await alert(
-      "This device is synced with your Google Drive. Please sign in to confirm your identity."
+    const action = await select(
+      "This device is synced with your Google Drive. Please sign in to confirm your identity.",
+      [
+        ["SIGN_IN", "Sign In"],
+        ["DISCONNECT", "Disconnect This Device", "button--red"],
+      ]
     );
+    if (action === "DISCONNECT") {
+      await disconnectUser();
+      return null;
+    }
     signinResult = await signInWithPopup(auth, googleProvider);
   }
   const credential = GoogleAuthProvider.credentialFromResult(signinResult);
