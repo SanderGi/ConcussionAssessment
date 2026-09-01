@@ -421,12 +421,22 @@ document
     }
     shareTestData();
   });
-exportSelect.addEventListener("change", () => {
+exportSelect.addEventListener("change", async () => {
   const selected = exportSelect.value;
   exportSelect.value = "none";
   const test = getTest();
   if (selected === "SCAT6") {
-    exportSCAT6pdf(test);
+    try {
+      await exportSCAT6pdf(test);
+    } catch (error) {
+      console.error("Failed to export SCAT6 PDF.", error);
+      await alert(
+        t(
+          "runtime.results.export.failed",
+          "Failed to export the SCAT6 PDF. Please try again."
+        )
+      );
+    }
   } else if (selected === "Report") {
     const iframe = document.getElementById("print-frame");
     const doc = iframe.contentWindow.document;
@@ -729,8 +739,22 @@ function timestampToMMDDYYYYhhmmssA(timestamp) {
   return `${month}/${day}/${year} ${hours}:${minutes}:${seconds} ${ampm}`;
 }
 
+function toPdfTestType(testType) {
+  if (testType === "BASELINE") return "BASELINE";
+  if (testType === "SUSPECTED/POST" || testType === "POST-INJURY") {
+    return "SUSPECTED";
+  }
+  return undefined;
+}
+
 /** @param {import("./userData.js").Test} test */
 async function exportSCAT6pdf(test, download = true) {
+  const primarySymptoms = [
+    test.primary_symptoms,
+    test.primary_symptoms_other,
+  ]
+    .filter((value) => typeof value === "string" && value.length > 0)
+    .join(", ");
   const fields = {
     // directly copied fields
     athlete_name: test.athlete_name,
@@ -784,11 +808,9 @@ async function exportSCAT6pdf(test, download = true) {
     dual_task_starting_integer: test.dual_task_starting_integer,
 
     // special fields
-    athlete_id: test.athlete_id.split("-")[0],
-    primary_symptoms:
-      test.primary_symptoms +
-      (test.primary_symptoms_other.length > 0 ? ", " : "") +
-      test.primary_symptoms_other,
+    athlete_id: test.athlete_id?.split("-")[0],
+    primary_symptoms: primarySymptoms,
+    test_type: toPdfTestType(test.test_type),
     test_date: timestampToYYYYMMDD(test.test_created_at),
     athlete_birth_date: timestampToYYYYMMDD(test.athlete_birth_timestamp),
     injury_date: timestampToYYYYMMDD(test.injury_timestamp),
@@ -834,9 +856,6 @@ async function exportSCAT6pdf(test, download = true) {
   if (test.signed) {
     fields["signature"] = test.examiner_name;
     fields["signed_date"] = timestampToYYYYMMDD(test.signed_timestamp);
-  }
-  if (test.test_type !== "IMMEDIATE") {
-    fields["test_type"] = test.test_type;
   }
   if (["Male", "Female", "Prefer Not To Say"].includes(test.athlete_sex)) {
     fields["athlete_sex"] = test.athlete_sex;
