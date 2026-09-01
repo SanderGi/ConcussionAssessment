@@ -972,7 +972,11 @@ window.showAthleteResults = async (athlete_id) => {
     button.type = "button";
     button.className = "button";
     const date = new Date(test.test_created_at).toDateString();
-    button.textContent = `View BESS photos: ${date}`;
+    button.textContent = tf(
+      "runtime.a11y.view_bess_photos",
+      { date },
+      "View BESS photos: {{date}}"
+    );
     button.onclick = () => showErrorPhotos(test);
     photoButtons.appendChild(button);
   }

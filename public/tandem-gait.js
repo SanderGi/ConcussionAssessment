@@ -3,6 +3,9 @@ function getCell(field) {
 }
 
 const t = (key, fallback) => window.__scat6T?.(key, fallback) ?? fallback;
+const tf = (key, vars, fallback) =>
+  window.__scat6Format?.(key, vars, fallback) ??
+  fallback.replace(/\{\{(\w+)\}\}/g, (_, token) => vars?.[token] ?? "");
 
 function saveResults() {
   const time1 = parseFloat(getCell("trial1").textContent);
@@ -73,7 +76,10 @@ tandemData.addEventListener("click", (e) => {
     const redoBtn = document.createElement("button");
     redoBtn.type = "button";
     redoBtn.className = "icon-button";
-    redoBtn.setAttribute("aria-label", `Redo trial ${trial}`);
+    redoBtn.setAttribute(
+      "aria-label",
+      tf("runtime.a11y.redo_trial_number", { trial }, "Redo trial {{trial}}")
+    );
     redoBtn.innerHTML = '<i class="fa-solid fa-rotate-right" aria-hidden="true"></i>';
     redoBtn.onclick = () => {
       trialCell.innerHTML = `<button data-action="start-${trial}" class="button button--green">${t(

@@ -2,19 +2,32 @@ import { getTest, saveTestResult } from "./testManager.js";
 import { sequencePrompt } from "./util/popup.js";
 
 const t = (key, fallback) => window.__scat6T?.(key, fallback) ?? fallback;
+const tf = (key, vars, fallback) =>
+  window.__scat6Format?.(key, vars, fallback) ??
+  fallback.replace(/\{\{(\w+)\}\}/g, (_, token) => vars?.[token] ?? "");
 
 let startTime = 0;
 let timer = null;
 const section = document.getElementById("dual-task-gait");
 for (const input of section.querySelectorAll('[data-field="errors"] input')) {
   const trial = input.closest("tr").querySelector('[data-field="task"]').textContent;
-  input.setAttribute("aria-label", `${trial} errors`);
+  input.setAttribute(
+    "aria-label",
+    tf("runtime.a11y.trial_errors", { trial }, "{{trial}} errors")
+  );
 }
 for (const response of section.querySelectorAll('[data-field="responses"] span')) {
   response.dataset.keyboardControl = "";
   response.setAttribute("role", "checkbox");
   response.setAttribute("aria-checked", "false");
-  response.setAttribute("aria-label", `Correct response ${response.textContent}`);
+  response.setAttribute(
+    "aria-label",
+    tf(
+      "runtime.a11y.correct_response",
+      { response: response.textContent },
+      "Correct response {{response}}"
+    )
+  );
 }
 window.enhanceKeyboardControls(section);
 
@@ -56,7 +69,14 @@ section.addEventListener("click", async (e) => {
         span.dataset.keyboardControl = "";
         span.setAttribute("role", "checkbox");
         span.setAttribute("aria-checked", "false");
-        span.setAttribute("aria-label", `Correct response ${num}`);
+        span.setAttribute(
+          "aria-label",
+          tf(
+            "runtime.a11y.correct_response",
+            { response: num },
+            "Correct response {{response}}"
+          )
+        );
         e.target.parentElement.prepend(span);
       }
     }
@@ -89,7 +109,17 @@ section.addEventListener("click", async (e) => {
     const redoBtn = document.createElement("button");
     redoBtn.type = "button";
     redoBtn.className = "icon-button";
-    redoBtn.setAttribute("aria-label", `Redo trial ${trial}`);
+    const trialLabel = datasection
+      .querySelector('[data-field="task"]')
+      .textContent.trim();
+    redoBtn.setAttribute(
+      "aria-label",
+      tf(
+        "runtime.a11y.redo_trial_number",
+        { trial: trialLabel },
+        "Redo trial {{trial}}"
+      )
+    );
     redoBtn.innerHTML = '<i class="fa-solid fa-rotate-right" aria-hidden="true"></i>';
     redoBtn.onclick = () => {
       datasection.querySelectorAll("span").forEach((el) => {

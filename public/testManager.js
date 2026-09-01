@@ -17,11 +17,21 @@ const NON_TEST_PHASES = new Set(["test-management", "results"]);
 const visitedTestPhases = new Set();
 
 function iconControlLabel(element) {
-  if (element.classList.contains("fa-volume-high")) return "Read instructions aloud";
-  if (element.classList.contains("fa-circle-check")) return "Mark response correct";
-  if (element.classList.contains("fa-circle-xmark")) return "Mark response incorrect";
-  if (element.classList.contains("fa-pen-to-square")) return "Edit response numbers";
-  if (element.classList.contains("fa-rotate-right")) return "Redo trial";
+  if (element.classList.contains("fa-volume-high")) {
+    return t("runtime.a11y.read_instructions_aloud", "Read instructions aloud");
+  }
+  if (element.classList.contains("fa-circle-check")) {
+    return t("runtime.a11y.mark_response_correct", "Mark response correct");
+  }
+  if (element.classList.contains("fa-circle-xmark")) {
+    return t("runtime.a11y.mark_response_incorrect", "Mark response incorrect");
+  }
+  if (element.classList.contains("fa-pen-to-square")) {
+    return t("runtime.a11y.edit_response_numbers", "Edit response numbers");
+  }
+  if (element.classList.contains("fa-rotate-right")) {
+    return t("runtime.a11y.redo_trial", "Redo trial");
+  }
   return null;
 }
 

@@ -2,7 +2,7 @@
   "meta": {
     "language": "de",
     "defaultLanguage": "en",
-    "generatedAt": "2026-09-01T22:34:15.041Z",
+    "generatedAt": "2026-09-01T23:33:55.511Z",
     "note": "Each entry stores the English source text, all known locations, and the translated value for this language."
   },
   "entries": {
@@ -2025,6 +2025,70 @@
         "public/404.html"
       ],
       "value": "Warum wird mir das angezeigt?"
+    },
+    "runtime.a11y.correct_response": {
+      "source": "Correct response {{response}}",
+      "locations": [
+        "public/dual-task.js response aria-label"
+      ],
+      "value": "Richtige Antwort {{response}}"
+    },
+    "runtime.a11y.edit_response_numbers": {
+      "source": "Edit response numbers",
+      "locations": [
+        "public/testManager.js iconControlLabel"
+      ],
+      "value": "Antwortzahlen bearbeiten"
+    },
+    "runtime.a11y.mark_response_correct": {
+      "source": "Mark response correct",
+      "locations": [
+        "public/testManager.js iconControlLabel"
+      ],
+      "value": "Antwort als richtig markieren"
+    },
+    "runtime.a11y.mark_response_incorrect": {
+      "source": "Mark response incorrect",
+      "locations": [
+        "public/testManager.js iconControlLabel"
+      ],
+      "value": "Antwort als falsch markieren"
+    },
+    "runtime.a11y.read_instructions_aloud": {
+      "source": "Read instructions aloud",
+      "locations": [
+        "public/testManager.js iconControlLabel"
+      ],
+      "value": "Anweisungen vorlesen"
+    },
+    "runtime.a11y.redo_trial": {
+      "source": "Redo trial",
+      "locations": [
+        "public/testManager.js iconControlLabel"
+      ],
+      "value": "Versuch wiederholen"
+    },
+    "runtime.a11y.redo_trial_number": {
+      "source": "Redo trial {{trial}}",
+      "locations": [
+        "public/dual-task.js redo button aria-label",
+        "public/tandem-gait.js redo button aria-label"
+      ],
+      "value": "Versuch {{trial}} wiederholen"
+    },
+    "runtime.a11y.trial_errors": {
+      "source": "{{trial}} errors",
+      "locations": [
+        "public/dual-task.js error input aria-label"
+      ],
+      "value": "Fehler bei {{trial}}"
+    },
+    "runtime.a11y.view_bess_photos": {
+      "source": "View BESS photos: {{date}}",
+      "locations": [
+        "public/scripts.js BESS photo fallback button"
+      ],
+      "value": "BESS-Fotos anzeigen: {{date}}"
     },
     "runtime.alert.sync_failed": {
       "source": "Failed to sync data. Make sure you checked the box to give the app permission to add app data to your Google Drive.",

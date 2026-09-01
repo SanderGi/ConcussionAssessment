@@ -32,6 +32,54 @@ const legacySourceByCurrentSource = {
 };
 
 const runtimeEntries = {
+  "runtime.a11y.read_instructions_aloud": {
+    source: "Read instructions aloud",
+    locations: ["public/testManager.js iconControlLabel"],
+    value: "Read instructions aloud",
+  },
+  "runtime.a11y.mark_response_correct": {
+    source: "Mark response correct",
+    locations: ["public/testManager.js iconControlLabel"],
+    value: "Mark response correct",
+  },
+  "runtime.a11y.mark_response_incorrect": {
+    source: "Mark response incorrect",
+    locations: ["public/testManager.js iconControlLabel"],
+    value: "Mark response incorrect",
+  },
+  "runtime.a11y.edit_response_numbers": {
+    source: "Edit response numbers",
+    locations: ["public/testManager.js iconControlLabel"],
+    value: "Edit response numbers",
+  },
+  "runtime.a11y.redo_trial": {
+    source: "Redo trial",
+    locations: ["public/testManager.js iconControlLabel"],
+    value: "Redo trial",
+  },
+  "runtime.a11y.trial_errors": {
+    source: "{{trial}} errors",
+    locations: ["public/dual-task.js error input aria-label"],
+    value: "{{trial}} errors",
+  },
+  "runtime.a11y.correct_response": {
+    source: "Correct response {{response}}",
+    locations: ["public/dual-task.js response aria-label"],
+    value: "Correct response {{response}}",
+  },
+  "runtime.a11y.redo_trial_number": {
+    source: "Redo trial {{trial}}",
+    locations: [
+      "public/dual-task.js redo button aria-label",
+      "public/tandem-gait.js redo button aria-label",
+    ],
+    value: "Redo trial {{trial}}",
+  },
+  "runtime.a11y.view_bess_photos": {
+    source: "View BESS photos: {{date}}",
+    locations: ["public/scripts.js BESS photo fallback button"],
+    value: "View BESS photos: {{date}}",
+  },
   "runtime.sync.sync": {
     source: "Sync",
     locations: ["public/scripts.js showConnected() button label"],
@@ -1687,6 +1735,239 @@ const runtimeEntries = {
   },
 };
 
+const accessibilityRuntimeKeys = [
+  "runtime.a11y.read_instructions_aloud",
+  "runtime.a11y.mark_response_correct",
+  "runtime.a11y.mark_response_incorrect",
+  "runtime.a11y.edit_response_numbers",
+  "runtime.a11y.redo_trial",
+  "runtime.a11y.trial_errors",
+  "runtime.a11y.correct_response",
+  "runtime.a11y.redo_trial_number",
+  "runtime.a11y.view_bess_photos",
+];
+
+const accessibilityRuntimeTranslations = {
+  af: [
+    "Lees instruksies hardop",
+    "Merk antwoord korrek",
+    "Merk antwoord verkeerd",
+    "Wysig antwoordnommers",
+    "Herhaal proef",
+    "{{trial}} foute",
+    "Korrekte antwoord {{response}}",
+    "Herhaal proef {{trial}}",
+    "Bekyk BESS-foto's: {{date}}",
+  ],
+  bg: [
+    "Прочитане на инструкциите на глас",
+    "Отбелязване на отговора като правилен",
+    "Отбелязване на отговора като грешен",
+    "Редактиране на числата в отговора",
+    "Повторение на опита",
+    "Грешки за {{trial}}",
+    "Правилен отговор {{response}}",
+    "Повторение на опит {{trial}}",
+    "Преглед на снимките от BESS: {{date}}",
+  ],
+  de: [
+    "Anweisungen vorlesen",
+    "Antwort als richtig markieren",
+    "Antwort als falsch markieren",
+    "Antwortzahlen bearbeiten",
+    "Versuch wiederholen",
+    "Fehler bei {{trial}}",
+    "Richtige Antwort {{response}}",
+    "Versuch {{trial}} wiederholen",
+    "BESS-Fotos anzeigen: {{date}}",
+  ],
+  dk: [
+    "Læs instruktionerne højt",
+    "Markér svaret som korrekt",
+    "Markér svaret som forkert",
+    "Rediger svarnumre",
+    "Gentag forsøg",
+    "Fejl i {{trial}}",
+    "Korrekt svar {{response}}",
+    "Gentag forsøg {{trial}}",
+    "Vis BESS-billeder: {{date}}",
+  ],
+  el: [
+    "Ανάγνωση οδηγιών δυνατά",
+    "Επισήμανση απάντησης ως σωστής",
+    "Επισήμανση απάντησης ως λανθασμένης",
+    "Επεξεργασία αριθμών απάντησης",
+    "Επανάληψη δοκιμής",
+    "Σφάλματα στη {{trial}}",
+    "Σωστή απάντηση {{response}}",
+    "Επανάληψη δοκιμής {{trial}}",
+    "Προβολή φωτογραφιών BESS: {{date}}",
+  ],
+  es: [
+    "Leer las instrucciones en voz alta",
+    "Marcar la respuesta como correcta",
+    "Marcar la respuesta como incorrecta",
+    "Editar los números de respuesta",
+    "Repetir intento",
+    "Errores de {{trial}}",
+    "Respuesta correcta {{response}}",
+    "Repetir intento {{trial}}",
+    "Ver fotos de BESS: {{date}}",
+  ],
+  fo: [
+    "Les vegleiðingina hart",
+    "Merk svarið sum rætt",
+    "Merk svarið sum skeivt",
+    "Broyt svartøl",
+    "Endurtak roynd",
+    "Villur í {{trial}}",
+    "Rætt svar {{response}}",
+    "Endurtak roynd {{trial}}",
+    "Vís BESS-myndir: {{date}}",
+  ],
+  fr: [
+    "Lire les instructions à voix haute",
+    "Marquer la réponse comme correcte",
+    "Marquer la réponse comme incorrecte",
+    "Modifier les nombres de la réponse",
+    "Recommencer l'essai",
+    "Erreurs pour {{trial}}",
+    "Réponse correcte {{response}}",
+    "Recommencer l'essai {{trial}}",
+    "Afficher les photos BESS : {{date}}",
+  ],
+  he: [
+    "הקראת ההוראות בקול",
+    "סימון התשובה כנכונה",
+    "סימון התשובה כשגויה",
+    "עריכת מספרי התשובה",
+    "ביצוע הניסיון מחדש",
+    "שגיאות ב־{{trial}}",
+    "תשובה נכונה {{response}}",
+    "ביצוע ניסיון {{trial}} מחדש",
+    "הצגת תמונות BESS: {{date}}",
+  ],
+  hi: [
+    "निर्देश ज़ोर से पढ़ें",
+    "उत्तर को सही चिह्नित करें",
+    "उत्तर को गलत चिह्नित करें",
+    "उत्तर की संख्याएँ संपादित करें",
+    "परीक्षण फिर से करें",
+    "{{trial}} की त्रुटियाँ",
+    "सही उत्तर {{response}}",
+    "परीक्षण {{trial}} फिर से करें",
+    "BESS फ़ोटो देखें: {{date}}",
+  ],
+  it: [
+    "Leggi le istruzioni ad alta voce",
+    "Segna la risposta come corretta",
+    "Segna la risposta come errata",
+    "Modifica i numeri della risposta",
+    "Ripeti la prova",
+    "Errori di {{trial}}",
+    "Risposta corretta {{response}}",
+    "Ripeti la prova {{trial}}",
+    "Visualizza foto BESS: {{date}}",
+  ],
+  ja: [
+    "説明を読み上げる",
+    "回答を正解としてマーク",
+    "回答を不正解としてマーク",
+    "回答の数字を編集",
+    "試行をやり直す",
+    "{{trial}}のエラー",
+    "正しい回答 {{response}}",
+    "試行{{trial}}をやり直す",
+    "BESS写真を表示：{{date}}",
+  ],
+  lb: [
+    "Instruktiounen haart virliesen",
+    "Äntwert als richteg markéieren",
+    "Äntwert als falsch markéieren",
+    "Äntwertzuelen änneren",
+    "Versuch widderhuelen",
+    "Feeler bei {{trial}}",
+    "Richteg Äntwert {{response}}",
+    "Versuch {{trial}} widderhuelen",
+    "BESS-Fotoen uweisen: {{date}}",
+  ],
+  nl: [
+    "Instructies voorlezen",
+    "Antwoord als juist markeren",
+    "Antwoord als onjuist markeren",
+    "Antwoordgetallen bewerken",
+    "Poging opnieuw uitvoeren",
+    "Fouten bij {{trial}}",
+    "Juist antwoord {{response}}",
+    "Poging {{trial}} opnieuw uitvoeren",
+    "BESS-foto's bekijken: {{date}}",
+  ],
+  no: [
+    "Les instruksjonene høyt",
+    "Merk svaret som riktig",
+    "Merk svaret som feil",
+    "Rediger svarnumre",
+    "Gjenta forsøk",
+    "Feil i {{trial}}",
+    "Riktig svar {{response}}",
+    "Gjenta forsøk {{trial}}",
+    "Vis BESS-bilder: {{date}}",
+  ],
+  pt: [
+    "Ler as instruções em voz alta",
+    "Marcar a resposta como correta",
+    "Marcar a resposta como incorreta",
+    "Editar os números da resposta",
+    "Repetir tentativa",
+    "Erros de {{trial}}",
+    "Resposta correta {{response}}",
+    "Repetir tentativa {{trial}}",
+    "Ver fotografias BESS: {{date}}",
+  ],
+  sl: [
+    "Preberi navodila na glas",
+    "Označi odgovor kot pravilen",
+    "Označi odgovor kot napačen",
+    "Uredi številke odgovora",
+    "Ponovi poskus",
+    "Napake pri {{trial}}",
+    "Pravilen odgovor {{response}}",
+    "Ponovi poskus {{trial}}",
+    "Prikaži fotografije BESS: {{date}}",
+  ],
+  tr: [
+    "Talimatları sesli oku",
+    "Yanıtı doğru olarak işaretle",
+    "Yanıtı yanlış olarak işaretle",
+    "Yanıt sayılarını düzenle",
+    "Denemeyi yeniden yap",
+    "{{trial}} hataları",
+    "Doğru yanıt {{response}}",
+    "{{trial}} denemesini yeniden yap",
+    "BESS fotoğraflarını görüntüle: {{date}}",
+  ],
+  "zh-hant": [
+    "朗讀說明",
+    "將回答標記為正確",
+    "將回答標記為錯誤",
+    "編輯回答數字",
+    "重新進行試驗",
+    "{{trial}}錯誤",
+    "正確回答 {{response}}",
+    "重新進行試驗{{trial}}",
+    "檢視 BESS 照片：{{date}}",
+  ],
+};
+
+const runtimeTranslationOverrides = Object.fromEntries(
+  Object.entries(accessibilityRuntimeTranslations).map(([language, values]) => [
+    language,
+    Object.fromEntries(
+      accessibilityRuntimeKeys.map((key, index) => [key, values[index]])
+    ),
+  ])
+);
+
 // Keep selector labels in sync with languages.json. A nativeLabel lets every
 // selector show an autonym even before a locale has translated language names.
 for (const language of supportedLanguages) {
@@ -2049,7 +2330,10 @@ function loadLocale(languageCode, catalogEntries) {
     runtime[key] = {
       source: entry.source,
       locations: entry.locations,
-      value: previous?.value ?? entry.value,
+      value:
+        previous?.value ??
+        runtimeTranslationOverrides[languageCode]?.[key] ??
+        entry.value,
     };
   }
 
