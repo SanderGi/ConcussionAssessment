@@ -2,6 +2,9 @@ name = "scat6-shared-workspace"
 main = "src/index.ts"
 compatibility_date = "2026-03-01"
 
+[vars]
+GOOGLE_OAUTH_CLIENT_ID = "535942499060-ud6v12q3flq77fqcld4u6scd8a7t6h4e.apps.googleusercontent.com"
+
 [[d1_databases]]
 binding = "DB"
 database_name = "scat6_eu"

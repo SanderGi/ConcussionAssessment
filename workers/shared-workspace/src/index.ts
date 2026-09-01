@@ -1,6 +1,7 @@
 import type { Context } from "hono";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
+import { validateGoogleTokenInfo } from "./google-token.mjs";
 
 type Env = {
   Bindings: {
@@ -8,6 +9,7 @@ type Env = {
     ADMIN_DASHBOARD_PASSWORD: string;
     ADMIN_SESSION_SECRET: string;
     ANALYTICS_HMAC_SECRET: string;
+    GOOGLE_OAUTH_CLIENT_ID: string;
   };
   Variables: {
     user: User;
@@ -359,7 +361,10 @@ app.use("/api/*", async (c, next) => {
     return c.json({ error: "Missing bearer token." }, 401);
   }
 
-  const user = await verifyGoogleIdToken(token);
+  const user = await verifyGoogleIdToken(
+    token,
+    c.env.GOOGLE_OAUTH_CLIENT_ID
+  );
   if (!user) {
     return c.json({ error: "Invalid Google ID token." }, 401);
   }
@@ -1416,36 +1421,30 @@ function renderDashboardHtml() {
 </html>`;
 }
 
-async function verifyGoogleIdToken(idToken: string): Promise<User | null> {
-  const res = await fetch(
-    `https://oauth2.googleapis.com/tokeninfo?id_token=${encodeURIComponent(
-      idToken
-    )}`
-  );
+async function verifyGoogleIdToken(
+  idToken: string,
+  expectedAudience: string
+): Promise<User | null> {
+  let res: Response;
+  try {
+    res = await fetch(
+      `https://oauth2.googleapis.com/tokeninfo?id_token=${encodeURIComponent(
+        idToken
+      )}`
+    );
+  } catch {
+    return null;
+  }
   if (!res.ok) return null;
 
-  const tokenInfo = (await res.json()) as {
-    sub?: string;
-    email?: string;
-    name?: string;
-    picture?: string;
-    exp?: string;
-  };
-
-  if (!tokenInfo.sub || !tokenInfo.email) return null;
-  if (
-    !tokenInfo.exp ||
-    Number(tokenInfo.exp) <= Math.floor(Date.now() / 1000)
-  ) {
+  let tokenInfo: unknown;
+  try {
+    tokenInfo = await res.json();
+  } catch {
     return null;
   }
 
-  return {
-    sub: tokenInfo.sub,
-    email: tokenInfo.email,
-    name: tokenInfo.name || tokenInfo.email,
-    picture: tokenInfo.picture || "",
-  };
+  return validateGoogleTokenInfo(tokenInfo, expectedAudience);
 }
 
 export default app;
