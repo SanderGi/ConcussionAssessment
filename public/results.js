@@ -286,6 +286,7 @@ document.addEventListener("renderTestSection", async (event) => {
       "runtime.results.different_prompt",
       "If the athlete was known to you prior to their injury, are they different from their usual self?"
     )}</p>
+    <div role="group" aria-label="${t("runtime.results.different_prompt", "Different from usual self")}">
     <button data-action="DIFFERENT-YES" class="button button--red" style="${isValue(
       "different_from_usual",
       "YES"
@@ -298,11 +299,13 @@ document.addEventListener("renderTestSection", async (event) => {
       "different_from_usual",
       "N/A"
     )}">${t("runtime.common.na", "N/A")}</button>
+    </div>
     <h3>${t("runtime.results.decision_title", "Decision")}</h3>
     <p style="margin-top: 0">${t(
       "runtime.results.diagnosed_prompt",
       "Concussion diagnosed?"
     )}</p>
+    <div role="group" aria-label="${t("runtime.results.diagnosed_prompt", "Concussion diagnosed?")}">
     <button data-action="CONCUSSION-YES" class="button button--red" style="${isValue(
       "decision",
       "YES"
@@ -315,6 +318,7 @@ document.addEventListener("renderTestSection", async (event) => {
       "decision",
       "DEFERRED"
     )}">${t("runtime.results.deferred", "Deferred")}</button>
+    </div>
     <p>${t("runtime.results.notes", "Notes")}</p>
     <textarea data-action="NOTES" class="textarea">${
       escapeHTML(test.test_notes ?? "")

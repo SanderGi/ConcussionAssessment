@@ -10,6 +10,29 @@ const t = (key, fallback) => window.__scat6T?.(key, fallback) ?? fallback;
 const tf = (key, vars, fallback) =>
   window.__scat6Format?.(key, vars, fallback) ?? fallback;
 
+function labelDialog(dialog) {
+  dialog.setAttribute("aria-modal", "true");
+  if (dialog.hasAttribute("aria-label") || dialog.hasAttribute("aria-labelledby")) {
+    return;
+  }
+  const heading = dialog.querySelector("h1, h2, h3");
+  if (heading) {
+    heading.id ||= `dialog-title-${crypto.randomUUID()}`;
+    dialog.setAttribute("aria-labelledby", heading.id);
+    return;
+  }
+  const description = dialog.querySelector("p");
+  dialog.setAttribute("aria-label", description?.textContent.trim() || "Dialog");
+}
+
+new MutationObserver((mutations) => {
+  for (const mutation of mutations) {
+    for (const node of mutation.addedNodes) {
+      if (node instanceof HTMLDialogElement) labelDialog(node);
+    }
+  }
+}).observe(document.body, { childList: true });
+
 export async function alert(message) {
   return new Promise((resolve) => {
     const dialog = document.createElement("dialog");
@@ -123,9 +146,9 @@ export async function bulkExportOptions() {
     twoYearsAgo.setFullYear(twoYearsAgo.getFullYear() - 2);
     dialog.innerHTML = /* html */ `
       <p>Select the date range of tests to bulk export:</p>
-      <input type="date" value="${localDateInputValue(twoYearsAgo)}" required/>
+      <label>Start date <input type="date" value="${localDateInputValue(twoYearsAgo)}" required/></label>
       to
-      <input type="date" value="${localDateInputValue(new Date())}" required/>
+      <label>End date <input type="date" value="${localDateInputValue(new Date())}" required/></label>
       <button class="button" data-value="ok">Download ZIP</button>
       <button class="button button--red" data-value="cancel">CANCEL</button>
     `;

@@ -6,6 +6,10 @@ const t = (key, fallback) => window.__scat6T?.(key, fallback) ?? fallback;
 let startTime = 0;
 let timer = null;
 const section = document.getElementById("dual-task-gait");
+for (const input of section.querySelectorAll('[data-field="errors"] input')) {
+  const trial = input.closest("tr").querySelector('[data-field="task"]').textContent;
+  input.setAttribute("aria-label", `${trial} errors`);
+}
 for (const response of section.querySelectorAll('[data-field="responses"] span')) {
   response.dataset.keyboardControl = "";
   response.setAttribute("role", "checkbox");

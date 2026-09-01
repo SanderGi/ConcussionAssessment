@@ -22,7 +22,7 @@
         <div>
             <label for="theme" class="theme">
                 <span class="theme__toggle-wrap">
-                    <input id="theme" class="theme__toggle" type="checkbox" role="switch" name="theme" checked>
+                    <input id="theme" class="theme__toggle" type="checkbox" role="switch" name="theme" aria-label="Use dark theme" checked>
                     <span class="theme__icon">
                         <span class="theme__icon-part"></span>
                         <span class="theme__icon-part"></span>
@@ -279,6 +279,8 @@
             <button class="button button--green" id="symptom-baseline-end-btn">Start Orientation &nbsp; <i class="fa-solid fa-forward"></i></button>
             <script>
                 for (const symptom of document.querySelectorAll('.symptom-baseline')) {
+                    const symptomName = symptom.closest('label').firstChild.textContent.trim().replace(/:$/, '');
+                    symptom.setAttribute('aria-label', symptomName + ' numeric severity');
                     symptom.min = 0;
                     symptom.max = 6;
                     symptom.step = 1;
@@ -289,6 +291,8 @@
                     });
                 }
                 for (const symptom of document.querySelectorAll('.symptom-slider-baseline')) {
+                    const symptomName = symptom.closest('label').firstChild.textContent.trim().replace(/:$/, '');
+                    symptom.setAttribute('aria-label', symptomName + ' severity');
                     symptom.addEventListener('input', (e) => {
                         e.target.nextElementSibling.value = e.target.value;
                     });
@@ -365,6 +369,8 @@
             <button class="button button--green" id="symptom-end-btn">Start Orientation &nbsp; <i class="fa-solid fa-forward"></i></button>
             <script>
                 for (const symptom of document.querySelectorAll('.symptom')) {
+                    const symptomName = symptom.closest('label').firstChild.textContent.trim().replace(/:$/, '');
+                    symptom.setAttribute('aria-label', symptomName + ' numeric severity');
                     symptom.min = 0;
                     symptom.max = 6;
                     symptom.step = 1;
@@ -375,6 +381,8 @@
                     });
                 }
                 for (const symptom of document.querySelectorAll('.symptom-slider')) {
+                    const symptomName = symptom.closest('label').firstChild.textContent.trim().replace(/:$/, '');
+                    symptom.setAttribute('aria-label', symptomName + ' severity');
                     symptom.addEventListener('input', (e) => {
                         e.target.nextElementSibling.value = e.target.value;
                     });
@@ -749,21 +757,21 @@
             <p style="margin-top: 0;">Examiner, keep a count of the errors listed above and read the instructions below:</p>
             <p style="font-style: italic;">Stand with your feet together, hands on your hips, and eyes closed. Hold this position for 20 seconds &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
             <img src="assets/double_leg.png" style="height: 100%; max-height: 40vh; margin: 0 auto; margin-bottom: 6px">
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Number of errors: <input type="number" id="double-leg-errors" value="0" min="0" max="10" step="1" required/></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Number of errors: <input aria-label="Double leg stance errors" type="number" id="double-leg-errors" value="0" min="0" max="10" step="1" required/></label>
             <button class="button button--green" onclick="startCountdown(this, 20)">Start 20s Countdown</button>
 
             <h3>Tandem Stance</h3>
             <p style="margin-top: 0;">Examiner, keep a count of the errors listed above and read the instructions below:</p>
             <p style="font-style: italic;">Stand with your feet in a heel-to-toe position, hands on your hips, and eyes closed. Hold this position for 20 seconds &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
             <img src="assets/tandem_stance.png" style="height: 100%; max-height: 40vh; margin: 0 auto; margin-bottom: 6px">
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Number of errors: <input type="number" id="tandem-stance-errors" value="0" min="0" max="10" step="1" required/></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Number of errors: <input aria-label="Tandem stance errors" type="number" id="tandem-stance-errors" value="0" min="0" max="10" step="1" required/></label>
             <button class="button button--green" onclick="startCountdown(this, 20)">Start 20s Countdown</button>
 
             <h3>Single Leg Stance</h3>
             <p style="margin-top: 0;">Examiner, keep a count of the errors listed above and read the instructions below:</p>
             <p style="font-style: italic;">Stand on one leg, hands on your hips, and eyes closed. Hold this position for 20 seconds &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
             <img src="assets/single_leg.png" style="height: 100%; max-height: 40vh; margin: 0 auto; margin-bottom: 6px">
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Number of errors: <input type="number" id="single-leg-errors" value="0" min="0" max="10" step="1" required/></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Number of errors: <input aria-label="Single leg stance errors" type="number" id="single-leg-errors" value="0" min="0" max="10" step="1" required/></label>
             <button class="button button--green" onclick="startCountdown(this, 20)">Start 20s Countdown</button>
 
             <h3>Double Leg Stance on Foam (<span style="color: var(--orange)">Optional</span>)</h3>
@@ -771,7 +779,7 @@
             <p>Examiner, keep a count of the errors listed above and read the instructions below:</p>
             <p style="font-style: italic;">Stand with your feet together, hands on your hips, and eyes closed. Hold this position for 20 seconds &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
             <img src="assets/double_leg.png" style="height: 100%; max-height: 40vh; margin: 0 auto; margin-bottom: 6px">
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Number of errors: <input type="number" id="double-leg-foam-errors" value="0" min="0" max="10" step="1" required/></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Number of errors: <input aria-label="Double leg foam stance errors" type="number" id="double-leg-foam-errors" value="0" min="0" max="10" step="1" required/></label>
             <button class="button button--green" onclick="startCountdown(this, 20)">Start 20s Countdown</button>
 
             <h3>Tandem Stance on Foam (<span style="color: var(--orange)">Optional</span>)</h3>
@@ -779,7 +787,7 @@
             <p>Examiner, keep a count of the errors listed above and read the instructions below:</p>
             <p style="font-style: italic;">Stand with your feet in a heel-to-toe position, hands on your hips, and eyes closed. Hold this position for 20 seconds &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
             <img src="assets/tandem_stance.png" style="height: 100%; max-height: 40vh; margin: 0 auto; margin-bottom: 6px">
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Number of errors: <input type="number" id="tandem-stance-foam-errors" value="0" min="0" max="10" step="1" required/></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Number of errors: <input aria-label="Tandem foam stance errors" type="number" id="tandem-stance-foam-errors" value="0" min="0" max="10" step="1" required/></label>
             <button class="button button--green" onclick="startCountdown(this, 20)">Start 20s Countdown</button>
 
             <h3>Single Leg Stance on Foam (<span style="color: var(--orange)">Optional</span>)</h3>
@@ -787,7 +795,7 @@
             <p>Examiner, keep a count of the errors listed above and read the instructions below:</p>
             <p style="font-style: italic;">Stand on one leg, hands on your hips, and eyes closed. Hold this position for 20 seconds &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
             <img src="assets/single_leg.png" style="height: 100%; max-height: 40vh; margin: 0 auto; margin-bottom: 6px">
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Number of errors: <input type="number" id="single-leg-foam-errors" value="0" min="0" max="10" step="1" required/></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Number of errors: <input aria-label="Single leg foam stance errors" type="number" id="single-leg-foam-errors" value="0" min="0" max="10" step="1" required/></label>
             <button class="button button--green" onclick="startCountdown(this, 20)">Start 20s Countdown</button>
             <br><br>
             <button class="button button--green" id="bess-end-btn">Start Tandem Gait &nbsp; <i class="fa-solid fa-forward"></i></button>
@@ -901,7 +909,7 @@
     <main style="display: none;" id="results">
         <section style="position: relative;">
             <h2>Results</h2>
-            <select id="export-results-select" style="position: absolute; right: 1em; top: 1em; opacity: 0; pointer-events: none;">
+            <select id="export-results-select" aria-label="Export format" style="position: absolute; right: 1em; top: 1em; opacity: 0; pointer-events: none;">
                 <option disabled selected>Choose an export option:</option>
                 <option value="Report">Overall Report</option>
                 <option value="SCAT6">Full SCAT6</option>
