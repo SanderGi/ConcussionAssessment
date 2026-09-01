@@ -153,6 +153,28 @@ header > div:last-child {
 main {
   margin-top: 1.5em;
 }
+
+.button.test-navigation-button {
+  position: fixed;
+  left: max(0.5rem, env(safe-area-inset-left));
+  z-index: 20;
+  width: 2.75rem;
+  height: 2.75rem;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border-radius: 50%;
+  font-size: 1rem;
+}
+
+.button.test-navigation-button--back {
+  top: max(5rem, calc(env(safe-area-inset-top) + 0.5rem));
+}
+
+.button.test-navigation-button--exit {
+  bottom: max(0.5rem, env(safe-area-inset-bottom));
+}
+
 main, .center {
   display: flex;
   flex-direction: column;

@@ -4,6 +4,22 @@ import { sequencePrompt } from "./util/popup.js";
 let startTime = 0;
 let timer = null;
 const section = document.getElementById("dual-task-gait");
+
+function cancelActiveTimer() {
+  const stopButton = section.querySelector('[data-action^="stop-trial-"]');
+  if (!stopButton) return;
+  clearInterval(timer);
+  timer = null;
+  const trial = stopButton.dataset.action.slice("stop-trial-".length);
+  document.querySelector(
+    `#dual-task-trial-${trial}-data [data-field="time"]`
+  ).innerHTML = `<button data-action="start-trial-${trial}" class="button button--green">Start Timer</button>`;
+}
+
+document.addEventListener("beforeRenderTestSection", (event) => {
+  if (event.detail.from === "dual-task-gait") cancelActiveTimer();
+});
+
 section.addEventListener("click", async (e) => {
   if (e.target.tagName === "SPAN") {
     const wasCrossed = e.target.style.textDecoration === "line-through";
@@ -43,6 +59,7 @@ section.addEventListener("click", async (e) => {
     }, 100);
   } else if (action.startsWith("stop-trial-")) {
     clearInterval(timer);
+    timer = null;
     const trial = action.slice("stop-trial-".length);
     const datasection = document.getElementById(
       `dual-task-trial-${trial}-data`

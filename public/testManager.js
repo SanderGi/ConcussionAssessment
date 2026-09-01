@@ -1,12 +1,15 @@
 import { tests, syncData, connectUser } from "./userData.js";
-import { confirmAthleteInfo } from "./util/popup.js";
-import { isSpeaking, speak } from "./util/sound.js";
+import { confirm, confirmAthleteInfo } from "./util/popup.js";
+import { abortSpeaking, isSpeaking, speak } from "./util/sound.js";
 import { uploadTest } from "./util/googleForm.js";
 import { isPostInjuryTestType } from "./util/testType.js";
 
 // ============================ Session/Local Storage Keys ============================
 const TEST_PHASE = "test-phase";
+const TEST_PHASE_HISTORY = "test-phase-history";
 const TEST = "test";
+const NON_TEST_PHASES = new Set(["test-management", "results"]);
+const visitedTestPhases = new Set();
 
 // ============================ Getters ============================
 export function getTest() {
@@ -38,7 +41,9 @@ export function getRadioInt(name) {
 window.getRadioInt = getRadioInt;
 
 // ============================ Components ============================
+let cancelActiveCountdown = null;
 export function startCountdown(button, seconds) {
+  cancelActiveCountdown?.();
   const originalText = button.textContent;
   const originalOnClick = button.onclick;
   button.disabled = true;
@@ -46,29 +51,29 @@ export function startCountdown(button, seconds) {
   button.classList.add("button--red");
   button.classList.remove("button--green");
   if (window.countdownAudioEnabled) speak(seconds);
+  const resetCountdown = (message = null) => {
+    clearInterval(interval);
+    button.classList.remove("button--red");
+    button.classList.add("button--green");
+    button.textContent = originalText;
+    button.onclick = originalOnClick;
+    if (cancelActiveCountdown === resetCountdown) cancelActiveCountdown = null;
+    if (message && window.countdownAudioEnabled) speak(message);
+  };
   const interval = setInterval(() => {
     seconds--;
     button.textContent = `${seconds} seconds left`;
     if (seconds <= 0) {
-      clearInterval(interval);
-      button.classList.remove("button--red");
-      button.classList.add("button--green");
-      button.textContent = originalText;
-      button.onclick = originalOnClick;
-      if (window.countdownAudioEnabled) speak("Time is up");
+      resetCountdown("Time is up");
     } else {
       if (window.countdownAudioEnabled) speak(seconds);
     }
   }, 1000);
   button.disabled = false;
   button.onclick = () => {
-    clearInterval(interval);
-    button.classList.remove("button--red");
-    button.classList.add("button--green");
-    button.textContent = originalText;
-    button.onclick = originalOnClick;
-    if (window.countdownAudioEnabled) speak("Countdown canceled");
+    resetCountdown("Countdown canceled");
   };
+  cancelActiveCountdown = resetCountdown;
 }
 window.startCountdown = startCountdown;
 
@@ -126,23 +131,154 @@ function disableCountdownAudio(btn, icon) {
 }
 
 // ============================ Manage Test ============================
-export function renderCurrentTestSection() {
-  renderTestSection(sessionStorage.getItem(TEST_PHASE) ?? "test-management");
+function getSessionArray(key) {
+  try {
+    const value = JSON.parse(sessionStorage.getItem(key) ?? "[]");
+    return Array.isArray(value) ? value : [];
+  } catch {
+    return [];
+  }
 }
 
-export function renderTestSection(test) {
+function setSessionArray(key, value) {
+  sessionStorage.setItem(key, JSON.stringify(value));
+}
+
+function resetTestNavigation() {
+  sessionStorage.removeItem(TEST_PHASE_HISTORY);
+  visitedTestPhases.clear();
+}
+
+function updateBackButtons() {
+  const canGoBack = getSessionArray(TEST_PHASE_HISTORY).length > 0;
+  for (const button of document.querySelectorAll(
+    ".test-navigation-button--back"
+  )) {
+    button.disabled = !canGoBack;
+  }
+}
+
+function setupTestNavigationControls() {
+  for (const section of document.querySelectorAll("main")) {
+    if (NON_TEST_PHASES.has(section.id)) continue;
+
+    const backButton = document.createElement("button");
+    backButton.type = "button";
+    backButton.className =
+      "button test-navigation-button test-navigation-button--back";
+    backButton.setAttribute("aria-label", "Go back to the previous screen");
+    backButton.title = "Back";
+    backButton.innerHTML = '<i class="fa-solid fa-arrow-left"></i>';
+    backButton.addEventListener("click", goBackTestSection);
+
+    const exitButton = document.createElement("button");
+    exitButton.type = "button";
+    exitButton.className =
+      "button button--red test-navigation-button test-navigation-button--exit";
+    exitButton.setAttribute("aria-label", "Exit assessment");
+    exitButton.title = "Exit assessment";
+    exitButton.innerHTML = '<i class="fa-solid fa-right-from-bracket"></i>';
+    exitButton.addEventListener("click", async () => {
+      const shouldExit = await confirm(
+        "Exit this assessment and return to the main menu? Values on the current screen that have not been submitted will be lost."
+      );
+      if (shouldExit) await endTest();
+    });
+
+    section.append(backButton, exitButton);
+  }
+  updateBackButtons();
+}
+
+export function renderCurrentTestSection() {
+  renderTestSection(sessionStorage.getItem(TEST_PHASE) ?? "test-management", {
+    forceInitialize: true,
+    trackHistory: false,
+  });
+}
+
+export function renderTestSection(
+  test,
+  { forceInitialize = false, navigation = "forward", trackHistory = true } = {}
+) {
+  const target = document.getElementById(test);
+  if (!target) {
+    console.error(`Unknown test section: ${test}`);
+    return false;
+  }
+
+  const current = sessionStorage.getItem(TEST_PHASE);
+  if (current && current !== test) {
+    cancelActiveCountdown?.();
+    abortSpeaking();
+    document.dispatchEvent(
+      new CustomEvent("beforeRenderTestSection", {
+        detail: { from: current, to: test, navigation },
+      })
+    );
+  }
+
+  if (
+    trackHistory &&
+    current &&
+    current !== test &&
+    !NON_TEST_PHASES.has(current)
+  ) {
+    const history = getSessionArray(TEST_PHASE_HISTORY);
+    if (history.at(-1) !== current) history.push(current);
+    setSessionArray(TEST_PHASE_HISTORY, history);
+  }
+
+  const isRevisit = visitedTestPhases.has(test) && !forceInitialize;
+  if (!NON_TEST_PHASES.has(test)) visitedTestPhases.add(test);
+
   sessionStorage.setItem(TEST_PHASE, test);
   for (const section of document.querySelectorAll("main")) {
     section.style.display = "none";
   }
-  document.getElementById(test).style.display = "flex";
+  target.style.display = "flex";
   window.scrollTo(0, 0);
+  updateBackButtons();
 
   document.dispatchEvent(
-    new CustomEvent("renderTestSection", { detail: test })
+    new CustomEvent(
+      isRevisit && !NON_TEST_PHASES.has(test)
+        ? "resumeTestSection"
+        : "renderTestSection",
+      { detail: test }
+    )
   );
+  return true;
 }
 window.renderTestSection = renderTestSection;
+
+export function goBackTestSection() {
+  const history = getSessionArray(TEST_PHASE_HISTORY);
+  const current = sessionStorage.getItem(TEST_PHASE);
+  let previous = null;
+  while (history.length > 0 && !previous) {
+    const candidate = history.pop();
+    if (
+      candidate !== current &&
+      !NON_TEST_PHASES.has(candidate) &&
+      document.getElementById(candidate)
+    ) {
+      previous = candidate;
+    }
+  }
+  setSessionArray(TEST_PHASE_HISTORY, history);
+  if (!previous) {
+    updateBackButtons();
+    return false;
+  }
+  return renderTestSection(previous, {
+    navigation: "back",
+    trackHistory: false,
+  });
+}
+window.goBackTestSection = goBackTestSection;
+
+setupTestNavigationControls();
 
 export async function saveTestResult(key, value) {
   const test = getTest();
@@ -157,16 +293,18 @@ export async function saveTestResult(key, value) {
 window.saveTestResult = saveTestResult;
 
 export async function endTest() {
-  renderTestSection("test-management");
+  renderTestSection("test-management", { trackHistory: false });
   await shareTestData();
   sessionStorage.removeItem(TEST);
   sessionStorage.removeItem(TEST_PHASE);
+  resetTestNavigation();
 }
 window.endTest = endTest;
 
 export function viewResults(test) {
+  resetTestNavigation();
   sessionStorage.setItem(TEST, JSON.stringify(test));
-  renderTestSection("results");
+  renderTestSection("results", { trackHistory: false });
 }
 
 export async function startTest(pastTests) {
@@ -182,6 +320,7 @@ export async function startTest(pastTests) {
   if (!test) return;
 
   sessionStorage.setItem(TEST, JSON.stringify(test));
+  resetTestNavigation();
 
   if (test.test_type === "IMMEDIATE") {
     renderTestSection("red-flags");

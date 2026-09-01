@@ -227,6 +227,23 @@ document.addEventListener("renderTestSection", async (event) => {
   }
 });
 
+document.addEventListener("resumeTestSection", (event) => {
+  if (event.detail !== "bess") return;
+  tracker.idealWidth = window.innerWidth * 0.9;
+  tracker.idealHeight = window.innerHeight;
+  tracker.run("camera");
+  if (voiceCtrlButton.classList.contains("button--green")) {
+    voiceCtrlButton.classList.remove("button--green");
+    toggleVoiceControl();
+  }
+});
+
+document.addEventListener("beforeRenderTestSection", (event) => {
+  if (event.detail.from !== "bess" || event.detail.to === "bess") return;
+  abortListening();
+  if (tracker.video?.srcObject) tracker.stop();
+});
+
 // ============================ Pose Assessment ============================
 // direct the athlete to assume the current pose
 async function begin_pose(poses, assess_fx, next_action) {

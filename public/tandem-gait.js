@@ -27,6 +27,22 @@ skipToDelayedRecall.addEventListener("click", () => {
 let startTime = 0;
 let timer = null;
 const tandemData = document.getElementById("tandem-data");
+
+function cancelActiveTimer() {
+  const stopButton = tandemData.querySelector('[data-action^="stop-"]');
+  if (!stopButton) return;
+  clearInterval(timer);
+  timer = null;
+  const trial = stopButton.dataset.action.slice("stop-".length);
+  getCell(
+    `trial${trial}`
+  ).innerHTML = `<button data-action="start-${trial}" class="button button--green">Start Timer</button>`;
+}
+
+document.addEventListener("beforeRenderTestSection", (event) => {
+  if (event.detail.from === "tandem-gait") cancelActiveTimer();
+});
+
 tandemData.addEventListener("click", (e) => {
   const action = e.target.dataset.action;
   if (!action) return;
@@ -46,6 +62,7 @@ tandemData.addEventListener("click", (e) => {
     }, 100);
   } else if (action.startsWith("stop-")) {
     clearInterval(timer);
+    timer = null;
     const trial = action.slice("stop-".length);
     const seconds = (Date.now() - startTime) / 1000;
     const trialCell = getCell(`trial${trial}`);
