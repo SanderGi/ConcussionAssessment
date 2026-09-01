@@ -4,6 +4,11 @@ import { abortSpeaking, isSpeaking, speak } from "./util/sound.js";
 import { uploadTest } from "./util/googleForm.js";
 import { isPostInjuryTestType } from "./util/testType.js";
 
+const t = (key, fallback) => window.__scat6T?.(key, fallback) ?? fallback;
+const tf = (key, vars, fallback) =>
+  window.__scat6Format?.(key, vars, fallback) ??
+  fallback.replace(/\{\{(\w+)\}\}/g, (_, token) => vars?.[token] ?? "");
+
 // ============================ Session/Local Storage Keys ============================
 const TEST_PHASE = "test-phase";
 const TEST_PHASE_HISTORY = "test-phase-history";
@@ -47,7 +52,11 @@ export function startCountdown(button, seconds) {
   const originalText = button.textContent;
   const originalOnClick = button.onclick;
   button.disabled = true;
-  button.textContent = `${seconds} seconds left`;
+  button.textContent = tf(
+    "runtime.timer.seconds_left",
+    { seconds },
+    "{{seconds}} seconds left"
+  );
   button.classList.add("button--red");
   button.classList.remove("button--green");
   if (window.countdownAudioEnabled) speak(seconds);
@@ -62,16 +71,22 @@ export function startCountdown(button, seconds) {
   };
   const interval = setInterval(() => {
     seconds--;
-    button.textContent = `${seconds} seconds left`;
+    button.textContent = tf(
+      "runtime.timer.seconds_left",
+      { seconds },
+      "{{seconds}} seconds left"
+    );
     if (seconds <= 0) {
-      resetCountdown("Time is up");
+      resetCountdown(t("runtime.timer.time_up", "Time is up"));
     } else {
       if (window.countdownAudioEnabled) speak(seconds);
     }
   }, 1000);
   button.disabled = false;
   button.onclick = () => {
-    resetCountdown("Countdown canceled");
+    resetCountdown(
+      t("runtime.timer.countdown_canceled", "Countdown canceled")
+    );
   };
   cancelActiveCountdown = resetCountdown;
 }

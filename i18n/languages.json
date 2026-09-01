@@ -3,11 +3,104 @@
   "supported": [
     {
       "code": "en",
-      "label": "English"
+      "label": "English",
+      "htmlLang": "en"
     },
     {
       "code": "dk",
-      "label": "Danish"
+      "label": "Dansk",
+      "htmlLang": "da"
+    },
+    {
+      "code": "fr",
+      "label": "Français",
+      "htmlLang": "fr"
+    },
+    {
+      "code": "de",
+      "label": "Deutsch",
+      "htmlLang": "de"
+    },
+    {
+      "code": "it",
+      "label": "Italiano",
+      "htmlLang": "it"
+    },
+    {
+      "code": "nl",
+      "label": "Nederlands",
+      "htmlLang": "nl"
+    },
+    {
+      "code": "no",
+      "label": "Norsk",
+      "htmlLang": "no"
+    },
+    {
+      "code": "es",
+      "label": "Español",
+      "htmlLang": "es"
+    },
+    {
+      "code": "hi",
+      "label": "हिन्दी",
+      "htmlLang": "hi"
+    },
+    {
+      "code": "sl",
+      "label": "Slovenščina",
+      "htmlLang": "sl"
+    },
+    {
+      "code": "he",
+      "label": "עברית",
+      "htmlLang": "he",
+      "dir": "rtl"
+    },
+    {
+      "code": "tr",
+      "label": "Türkçe",
+      "htmlLang": "tr"
+    },
+    {
+      "code": "lb",
+      "label": "Lëtzebuergesch",
+      "htmlLang": "lb"
+    },
+    {
+      "code": "el",
+      "label": "Ελληνικά",
+      "htmlLang": "el"
+    },
+    {
+      "code": "fo",
+      "label": "Føroyskt",
+      "htmlLang": "fo"
+    },
+    {
+      "code": "af",
+      "label": "Afrikaans",
+      "htmlLang": "af"
+    },
+    {
+      "code": "bg",
+      "label": "Български",
+      "htmlLang": "bg"
+    },
+    {
+      "code": "zh-hant",
+      "label": "繁體中文",
+      "htmlLang": "zh-Hant"
+    },
+    {
+      "code": "pt",
+      "label": "Português",
+      "htmlLang": "pt"
+    },
+    {
+      "code": "ja",
+      "label": "日本語",
+      "htmlLang": "ja"
     }
   ]
 }

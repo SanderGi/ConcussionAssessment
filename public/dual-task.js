@@ -1,6 +1,8 @@
 import { getTest, saveTestResult } from "./testManager.js";
 import { sequencePrompt } from "./util/popup.js";
 
+const t = (key, fallback) => window.__scat6T?.(key, fallback) ?? fallback;
+
 let startTime = 0;
 let timer = null;
 const section = document.getElementById("dual-task-gait");
@@ -13,7 +15,10 @@ function cancelActiveTimer() {
   const trial = stopButton.dataset.action.slice("stop-trial-".length);
   document.querySelector(
     `#dual-task-trial-${trial}-data [data-field="time"]`
-  ).innerHTML = `<button data-action="start-trial-${trial}" class="button button--green">Start Timer</button>`;
+  ).innerHTML = `<button data-action="start-trial-${trial}" class="button button--green">${t(
+    "runtime.timer.start",
+    "Start Timer"
+  )}</button>`;
 }
 
 document.addEventListener("beforeRenderTestSection", (event) => {
@@ -45,7 +50,7 @@ section.addEventListener("click", async (e) => {
   if (!action) return;
   if (action.startsWith("start-trial-")) {
     const trial = action.slice("start-trial-".length);
-    e.target.textContent = "Stop Timer";
+    e.target.textContent = t("runtime.timer.stop", "Stop Timer");
     e.target.classList.remove("button--green");
     e.target.classList.add("button--red");
     e.target.dataset.action = "stop-trial-" + trial;
@@ -78,7 +83,10 @@ section.addEventListener("click", async (e) => {
       datasection.querySelector(`[data-field="errors"] input`).value = 0;
       datasection.querySelector(
         `[data-field="time"]`
-      ).innerHTML = `<button data-action="start-trial-${trial}" class="button button--green">Start Timer</button>`;
+      ).innerHTML = `<button data-action="start-trial-${trial}" class="button button--green">${t(
+        "runtime.timer.start",
+        "Start Timer"
+      )}</button>`;
     };
 
     const seconds = (Date.now() - startTime) / 1000;

@@ -1,0 +1,1074 @@
+<!-- GENERATED FILE. DO NOT EDIT DIRECTLY. Edit templates and run scripts/build-i18n.mjs -->
+<!DOCTYPE html>
+<html data-theme="dark" lang="it" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SCAT6 Web</title>
+
+    <link rel="icon" type="image/webp" href="/assets/icon.webp">
+    <link rel="stylesheet" href="/styles.css">
+    <link href="https://fonts.cdnfonts.com/css/pink-script" rel="stylesheet">
+
+    <script src="/lib/chart.js"></script>
+    <script src="/lib/pdf-lib.js"></script>
+    <script src="/lib/jszip.min.js"></script>
+  
+    <script>
+        window.__SCAT6_I18N = {
+            language: "it",
+            languageLabel: "Italiano",
+            htmlLang: "it",
+            dir: "ltr",
+            defaultLanguage: "en",
+            supportedLanguages: [{"code":"en","label":"English","htmlLang":"en"},{"code":"dk","label":"Dansk","htmlLang":"da"},{"code":"fr","label":"Français","htmlLang":"fr"},{"code":"de","label":"Deutsch","htmlLang":"de"},{"code":"it","label":"Italiano","htmlLang":"it"},{"code":"nl","label":"Nederlands","htmlLang":"nl"},{"code":"no","label":"Norsk","htmlLang":"no"},{"code":"es","label":"Español","htmlLang":"es"},{"code":"hi","label":"हिन्दी","htmlLang":"hi"},{"code":"sl","label":"Slovenščina","htmlLang":"sl"},{"code":"he","label":"עברית","htmlLang":"he","dir":"rtl"},{"code":"tr","label":"Türkçe","htmlLang":"tr"},{"code":"lb","label":"Lëtzebuergesch","htmlLang":"lb"},{"code":"el","label":"Ελληνικά","htmlLang":"el"},{"code":"fo","label":"Føroyskt","htmlLang":"fo"},{"code":"af","label":"Afrikaans","htmlLang":"af"},{"code":"bg","label":"Български","htmlLang":"bg"},{"code":"zh-hant","label":"繁體中文","htmlLang":"zh-Hant"},{"code":"pt","label":"Português","htmlLang":"pt"},{"code":"ja","label":"日本語","htmlLang":"ja"}],
+            storageKey: "scat6.language",
+            runtime: {"runtime.404.details":"Questa pagina è stata generata dall'interfaccia a riga di comando di Firebase. Per modificarla, modifica il file <code>404.html</code> nella directory <code>public</code> configurata per il progetto.","runtime.404.message":"Il file specificato non è stato trovato su questo sito. Controlla che l'URL sia corretto e riprova.","runtime.404.title":"Pagina non trovata","runtime.404.why":"Perché visualizzo questa pagina?","runtime.alert.sync_failed":"Sincronizzazione dei dati non riuscita. Assicurati di aver selezionato la casella che autorizza l'app ad aggiungere dati a Google Drive.","runtime.bess.calibrate_complete":"Calibrazione completata","runtime.bess.calibrate_prompt":"Tentativo di calibrare il modello di rilevamento sulla posizione attuale. Mantieni la posizione per 10 secondi.","runtime.bess.camera_notice":"Il sistema automatizzato per l'equilibrio utilizzerà la fotocamera.","runtime.bess.error.align_heel_toe":"Allinea il tallone del piede dominante con la punta del piede non dominante.","runtime.bess.error.bend_elbows":"Piega entrambi i gomiti senza ruotare le spalle.","runtime.bess.error.cant_find_athlete":"Atleta non rilevato. Assicurati che sia interamente nell'inquadratura.","runtime.bess.error.close_eyes":"Chiudi gli occhi.","runtime.bess.error.detector":"Errore imprevisto nell'interpretazione della posizione. Passaggio alla valutazione manuale.","runtime.bess.error.dominant_foot_visible":"Il piede dominante deve essere visibile davanti al piede non dominante.","runtime.bess.error.feet_together":"Tieni i piedi uniti.","runtime.bess.error.knees_together":"Tieni le ginocchia unite.","runtime.bess.error.left_hand_far":"La mano sinistra è troppo lontana dall'anca. Avvicinala.","runtime.bess.error.lift_dominant_foot":"Solleva da terra il piede dominante.","runtime.bess.error.move_dominant_forward":"Sposta più avanti il piede dominante.","runtime.bess.error.multiple_people":"Sono state rilevate più persone. Assicurati che nell'inquadratura ci sia soltanto {{athleteName}}.","runtime.bess.error.part_not_detected":"{{part}} non rilevato. Assicurati che sia interamente nell'inquadratura e di essere rivolto direttamente verso la fotocamera.","runtime.bess.error.right_hand_far":"La mano destra è troppo lontana dall'anca. Avvicinala.","runtime.bess.error.stand_straight_no_bending":"Stai diritto senza piegare/ruotare le ginocchia o la parte superiore del corpo.","runtime.bess.error.stand_straight_no_side":"Stai diritto senza spostare le anche lateralmente.","runtime.bess.error.video":"Errore imprevisto della fotocamera. Passaggio alla valutazione manuale.","runtime.bess.new_pose_prefix":"Nuova posizione:","runtime.bess.part.left_ankle":"Caviglia sinistra","runtime.bess.part.left_elbow":"Gomito sinistro","runtime.bess.part.left_hip":"Anca sinistra","runtime.bess.part.left_knee":"Ginocchio sinistro","runtime.bess.part.left_shoulder":"Spalla sinistra","runtime.bess.part.left_wrist":"Polso sinistro","runtime.bess.part.right_ankle":"Caviglia destra","runtime.bess.part.right_elbow":"Gomito destro","runtime.bess.part.right_hip":"Anca destra","runtime.bess.part.right_knee":"Ginocchio destro","runtime.bess.part.right_shoulder":"Spalla destra","runtime.bess.part.right_wrist":"Polso destro","runtime.bess.pose.double":"stai diritto con le mani sui fianchi e i piedi uniti","runtime.bess.pose.double_foam":"stai diritto sulla superficie morbida con le mani sui fianchi e i piedi uniti","runtime.bess.pose.single":"stai sulla gamba non dominante con le mani sui fianchi","runtime.bess.pose.single_foam":"stai sulla gamba non dominante sulla superficie morbida con le mani sui fianchi","runtime.bess.pose.tandem":"stai in posizione tacco-punta (piede non dominante dietro) con le mani sui fianchi","runtime.bess.pose.tandem_foam":"stai in posizione tacco-punta sulla superficie morbida (piede non dominante dietro) con le mani sui fianchi","runtime.bess.start_timer":"Avvia cronometro","runtime.bess.status.pose_good_20":"La posizione è corretta! Mancano 20 secondi.","runtime.bess.status.pose_good_seconds_errors":"La posizione è corretta! Mancano {{seconds}} secondi. Errori: {{errors}}","runtime.bess.status.pose_good_start":"La posizione è corretta! Fai clic per avviare la prova di 20 secondi durante la quale deve essere mantenuta.","runtime.bess.status.seconds_left_instruction":"Mancano {{seconds}} secondi. {{athleteName}}, {{description}}:","runtime.bess.voice.help":"Pronuncia 'mirror' per attivare o disattivare l'effetto specchio. Pronuncia 'next' per passare alla posizione successiva. Pronuncia 'skip' per saltare il test.","runtime.common.na":"N/D","runtime.common.no":"No","runtime.common.no_upper":"NO","runtime.common.yes":"Sì","runtime.common.yes_upper":"SÌ","runtime.confirm.delete_all":"Eliminare tutti i dati?","runtime.confirm.delete_athlete":"Eliminare i dati di questo atleta?","runtime.confirm.delete_drive":"Tutti i dati verranno eliminati da Google Drive, ma resteranno su questo dispositivo. Continuare?","runtime.confirm.unlink":"Tutti i dati verranno eliminati da questo dispositivo, ma resteranno su Google Drive. Continuare?","runtime.delayed_recall.back_to_immediate":"Torna alla sezione Memoria immediata","runtime.delayed_recall.instructions":"Esaminatore: leggi le istruzioni seguenti e seleziona le parole che l'atleta ricorda dalla sezione Memoria immediata.","runtime.delayed_recall.need_immediate_missing":"La sezione Memoria immediata deve essere completata almeno 5 minuti prima di questa sezione. Non è stata ancora completata.","runtime.delayed_recall.need_immediate_wait":"La sezione Memoria immediata deve essere completata almeno 5 minuti prima di questa sezione. La Rievocazione differita si aprirà tra {{seconds}} secondi.","runtime.delayed_recall.prompt":"Ricordi l'elenco di parole letto alcune volte in precedenza durante la sezione Memoria immediata? Dimmi tutte le parole dell'elenco che riesci a ricordare, in qualsiasi ordine.","runtime.delayed_recall.starting":"Avvio…","runtime.delayed_recall.view_results":"Visualizza i risultati del test","runtime.delayed_recall.words_missing":"L'elenco di parole non è stato salvato.","runtime.lang.aria":"Seleziona la lingua","runtime.lang.name.af":"Afrikaans","runtime.lang.name.bg":"Български","runtime.lang.name.de":"Deutsch","runtime.lang.name.dk":"Dansk","runtime.lang.name.el":"Ελληνικά","runtime.lang.name.en":"English","runtime.lang.name.es":"Español","runtime.lang.name.fo":"Føroyskt","runtime.lang.name.fr":"Français","runtime.lang.name.he":"עברית","runtime.lang.name.hi":"हिन्दी","runtime.lang.name.it":"Italiano","runtime.lang.name.ja":"日本語","runtime.lang.name.lb":"Lëtzebuergesch","runtime.lang.name.nl":"Nederlands","runtime.lang.name.no":"Norsk","runtime.lang.name.pt":"Português","runtime.lang.name.sl":"Slovenščina","runtime.lang.name.tr":"Türkçe","runtime.lang.name.zh-hant":"繁體中文","runtime.popup.athlete_name":"Nome dell'atleta:","runtime.popup.attest_hcp":"Dichiaro di essere un medico o un professionista sanitario autorizzato a utilizzare questo strumento:","runtime.popup.baseline":"Basale","runtime.popup.cancel":"ANNULLA","runtime.popup.close_settings":"Chiudi impostazioni","runtime.popup.cognitive_text":"La parte di «valutazione cognitiva» delle valutazioni basali e post-infortunio deve essere eseguita in un ambiente privo di distrazioni, con l'atleta a riposo.","runtime.popup.conc_history":"Storia di concussioni","runtime.popup.confirm_athlete":"Conferma i dati dell'atleta","runtime.popup.current_medications":"Farmaci attuali:","runtime.popup.current_school_year":"Anno scolastico attuale (se applicabile):","runtime.popup.detailed_instructions":"Istruzioni dettagliate","runtime.popup.diagnosed_adhd":"Diagnosi di sindrome da deficit di attenzione e iperattività (ADHD).","runtime.popup.diagnosed_headache_migraine":"Diagnosi di cefalea o emicrania.","runtime.popup.diagnosed_learning_dyslexia":"Diagnosi di difficoltà di apprendimento o dislessia.","runtime.popup.diagnosed_psych":"Diagnosi di depressione, ansia o altro disturbo psicologico.","runtime.popup.dob":"Data di nascita:","runtime.popup.dom_hand":"Mano dominante:","runtime.popup.download_zip":"Scarica ZIP","runtime.popup.end_test":"TERMINA TEST","runtime.popup.enter_athlete":"Inserisci i dati dell'atleta","runtime.popup.examiner":"Nome dell'esaminatore:","runtime.popup.first_lang":"Prima lingua:","runtime.popup.hand_ambidextrous":"Ambidestro","runtime.popup.hand_left":"Sinistra","runtime.popup.hand_right":"Destra","runtime.popup.hcp_only_text":"Solo per l'uso da parte di professionisti sanitari. Consulta l'originale","runtime.popup.hospitalized_head_injury":"Ricovero per trauma cranico.","runtime.popup.id_number":"Numero ID:","runtime.popup.immediate":"Immediata","runtime.popup.immediate_text":"La valutazione immediata deve essere eseguita «sul campo», dopo aver completato le priorità di primo soccorso/urgenza.","runtime.popup.keep_testing":"CONTINUA IL TEST","runtime.popup.med_bg":"Anamnesi medica","runtime.popup.med_bg_question":"L'atleta ha mai avuto una delle seguenti condizioni? (Se sì, descriverla qui sotto):","runtime.popup.n_past":"Numero di concussioni precedenti:","runtime.popup.notes":"Note:","runtime.popup.ok":"OK","runtime.popup.other":"Altro:","runtime.popup.placeholder_athlete_name":"Nome dell'atleta","runtime.popup.placeholder_describe_selections":"Descrivi le opzioni selezionate sopra","runtime.popup.placeholder_english":"Italiano","runtime.popup.placeholder_examiner_name":"Nome e cognome","runtime.popup.placeholder_list_medications":"Elenca i farmaci","runtime.popup.placeholder_list_other_symptoms":"Elenca gli altri sintomi","runtime.popup.placeholder_team_school":"Squadra X della Scuola Y","runtime.popup.placeholder_unique_id":"ID univoco","runtime.popup.preferred_lang":"Lingua preferita:","runtime.popup.primary_symptoms":"Sintomi iniziali:","runtime.popup.recent_date":"Data della concussione più recente:","runtime.popup.recovery_days":"Tempo di recupero più recente (giorni):","runtime.popup.remove_from_play_default":"Rimuovere l'atleta dal gioco per una valutazione medica immediata o per il trasporto in ospedale/centro medico.","runtime.popup.remove_from_play_spinal":"Immobilizzazione spinale e collare cervicale. Quindi rimuovere l'atleta dal gioco per una valutazione medica immediata o per il trasporto in ospedale/centro medico.","runtime.popup.save_info_no_test":"Salva dati senza test","runtime.popup.sex":"Sesso:","runtime.popup.sex_female":"Femminile","runtime.popup.sex_male":"Maschile","runtime.popup.sex_other":"Altro","runtime.popup.sex_prefer_not_to_say":"Preferisco non dichiararlo","runtime.popup.start_assessment":"Avvia valutazione","runtime.popup.stop_sync":"Interrompi sincronizzazione","runtime.popup.suspected_post":"Sospetto/Post-infortunio","runtime.popup.symptom_confusion":"Confusione.","runtime.popup.symptom_difficulty_concentrating":"Difficoltà a concentrarsi.","runtime.popup.symptom_dizziness_imbalance":"Vertigine/Problemi di equilibrio.","runtime.popup.symptom_double_blurry_vision":"Visione doppia/offuscata.","runtime.popup.symptom_headache":"Mal di testa.","runtime.popup.symptom_loss_smell_taste":"Perdita dell'olfatto/del gusto.","runtime.popup.symptom_memory_loss":"Perdita di memoria.","runtime.popup.symptom_nausea_vomiting":"Nausea/Vomito.","runtime.popup.symptom_ringing_ears":"Ronzio nelle orecchie.","runtime.popup.symptom_sensitivity_light":"Sensibilità alla luce.","runtime.popup.symptom_trouble_sleeping":"Difficoltà a dormire.","runtime.popup.team_school":"Sport/Squadra/Scuola:","runtime.popup.time_exam":"Ora dell'esame:","runtime.popup.time_injury":"Ora dell'infortunio (se applicabile):","runtime.popup.years_edu":"Anni di istruzione completati (in totale):","runtime.results.decision_title":"Decisione","runtime.results.deferred":"Rinviata","runtime.results.diagnosed_prompt":"Concussione diagnosticata?","runtime.results.different_prompt":"Se conoscevi l'atleta prima dell'infortunio, ti sembra diverso dal solito?","runtime.results.export.cancel":"Annulla","runtime.results.export.choose":"Scegli un'opzione di esportazione:","runtime.results.export.failed":"Impossibile esportare il PDF SCAT6. Riprova.","runtime.results.export.failed_load_template":"Impossibile caricare il modello SCAT6.","runtime.results.export.full_scat6":"SCAT6 completo","runtime.results.export.overall_report":"Rapporto complessivo","runtime.results.export.raw_csv":"CSV grezzo","runtime.results.hcp_attestation_body":"Sono un professionista sanitario e ho personalmente somministrato o supervisionato la somministrazione di questo SCAT6.","runtime.results.hcp_attestation_title":"Dichiarazione del professionista sanitario","runtime.results.name":"Nome","runtime.results.notes":"Note","runtime.results.range.high":"alto","runtime.results.range.low":"basso","runtime.results.range.moderate":"moderato","runtime.results.registration_license":"Numero di iscrizione/licenza (se applicabile)","runtime.results.report.athlete_info":"Dati dell'atleta","runtime.results.report.birth":"Nascita","runtime.results.report.concussion_diagnosis":"Diagnosi di concussione","runtime.results.report.days":"giorni","runtime.results.report.different_from_normal":"Diverso dal normale","runtime.results.report.dominant_hand":"Mano dominante","runtime.results.report.double_leg_errors":"Errori su due gambe","runtime.results.report.double_leg_foam_errors":"Errori su due gambe, superficie morbida","runtime.results.report.examiner":"Esaminatore","runtime.results.report.examiner_credentials":"Qualifiche dell'esaminatore","runtime.results.report.feels_normal":"Si sente normale","runtime.results.report.first_language":"Prima lingua","runtime.results.report.injury_time":"Ora dell'infortunio","runtime.results.report.mbess_error_photos":"Foto degli errori mBESS","runtime.results.report.most_recent_concussion":"Concussione più recente","runtime.results.report.most_recent_recovery_time":"Tempo di recupero più recente","runtime.results.report.no_pose_error_photos":"Non sono state scattate foto degli errori di posizione per questo test.","runtime.results.report.past_concussions":"Numero di concussioni precedenti","runtime.results.report.preferred_language":"Lingua preferita","runtime.results.report.primary_symptoms":"Sintomi iniziali","runtime.results.report.sex":"Sesso","runtime.results.report.signed":"Firmato","runtime.results.report.single_leg_errors":"Errori su una gamba","runtime.results.report.single_leg_foam_errors":"Errori su una gamba, superficie morbida","runtime.results.report.symptom_description":"Descrizione dei sintomi","runtime.results.report.tandem_errors":"Errori in tandem","runtime.results.report.tandem_foam_errors":"Errori in tandem, superficie morbida","runtime.results.report.team_school":"Squadra/Scuola","runtime.results.report.test_active":"Test attivo","runtime.results.report.test_type":"Tipo di test","runtime.results.report.title_for":"Rapporto SCAT6 per {{athleteName}}","runtime.results.report.worse_mental":"Peggioramento con l'attività mentale","runtime.results.report.worse_physical":"Peggioramento con l'attività fisica","runtime.results.report.year_in_school":"Anno scolastico","runtime.results.report.years_education":"Anni di istruzione","runtime.results.row.bess":"BESS (su 30)","runtime.results.row.bess_foam":"BESS su superficie morbida (su 30)","runtime.results.row.cognitive_total":"Totale cognitivo (su 50)","runtime.results.row.concentration":"Concentrazione (su 5)","runtime.results.row.date":"Data","runtime.results.row.delayed_recall":"Rievocazione differita (su 10)","runtime.results.row.dual_task_accuracy":"Accuratezza del doppio compito (%)","runtime.results.row.dual_task_fastest":"Miglior tempo nel doppio compito (s)","runtime.results.row.immediate_memory":"Memoria immediata (su 30)","runtime.results.row.orientation":"Orientamento (su 5)","runtime.results.row.recall_delay":"Intervallo di rievocazione (secondi)","runtime.results.row.severity":"Severità (su 132)","runtime.results.row.symptoms":"Sintomi (su 22)","runtime.results.row.tandem_fastest":"Miglior tempo nell'andatura in tandem (s)","runtime.results.signature_checkbox":"Selezionare questa casella equivale a firmare uno SCAT6 cartaceo","runtime.results.signature_date":"Data della firma","runtime.results.table.current_score":"Punteggio attuale","runtime.results.table.domain":"Dominio","runtime.results.table.healthy_range":"Intervallo sano","runtime.results.table.increased_risk_range":"Intervallo di rischio aumentato","runtime.results.table.last_baseline":"Ultimo test basale","runtime.results.table.last_post_injury":"Ultimo test post-infortunio","runtime.results.title_specialty":"Titolo/Specializzazione","runtime.sources.bess_manual":"Manuale BESS","runtime.sources.concussion_training":"Formazione e informazioni sulla concussione","runtime.sources.healthy_risk_bess_tandem_dual":"Intervalli sani/a rischio per BESS, andatura in tandem e con doppio compito","runtime.sources.healthy_risk_memory":"Intervalli sani/a rischio per memoria immediata/rievocazione differita","runtime.sources.scat6_results_study":"Studio sui risultati SCAT6","runtime.sources.scat6_supplement":"Materiale supplementare SCAT6","runtime.sources.symptom_severity_study":"Studio sulla severità dei sintomi","runtime.sources.title":"Fonti","runtime.sync.last_identity":"Ultima identità confermata il {{lastSignIn}} <br><br> Ultima sincronizzazione il {{lastSync}}","runtime.sync.sync":"Sincronizza","runtime.sync.synced":"Sincronizzato","runtime.test_mgmt.chart.cognitive_total":"Totale cognitivo (X/50)","runtime.test_mgmt.chart.concentration":"Concentrazione (X/5)","runtime.test_mgmt.chart.delayed_recall":"Rievocazione differita (X/10)","runtime.test_mgmt.chart.dual_task_fastest_time":"Miglior tempo nel doppio compito","runtime.test_mgmt.chart.errors_title":"Errori, tempi migliori e sintomi (un valore più basso è migliore)","runtime.test_mgmt.chart.glasgow":"Glasgow Coma Scale (X/15)","runtime.test_mgmt.chart.immediate_memory":"Memoria immediata (X/30)","runtime.test_mgmt.chart.maddocks":"Punteggio di Maddocks (X/5)","runtime.test_mgmt.chart.mbess_total_errors":"Errori totali mBESS (X/30)","runtime.test_mgmt.chart.orientation":"Orientamento (X/5)","runtime.test_mgmt.chart.scores_title":"Punteggi (un valore più alto è migliore)","runtime.test_mgmt.chart.symptom_number":"Numero di sintomi (X/22)","runtime.test_mgmt.chart.symptom_severity":"Severità dei sintomi (X/132)","runtime.test_mgmt.chart.tandem_fastest_time":"Miglior tempo nell'andatura in tandem","runtime.test_mgmt.click_mbess_data_point":"Fai clic su un punto dati degli errori totali mBESS per visualizzare le foto degli errori di posizione.","runtime.test_mgmt.click_test_button":"Fai clic sul pulsante Test per avviare un nuovo test.","runtime.test_mgmt.last_baseline":"Ultimo test basale ({{date}}): {{score}} / 80","runtime.test_mgmt.last_post_injury":"Ultimo test post-infortunio ({{date}}): {{score}} / 80","runtime.test_mgmt.no_baselines":"Nessun test basale trovato per questo atleta.","runtime.test_mgmt.no_pose_error_photos":"Nessuna foto degli errori di posizione trovata per questo test.","runtime.test_mgmt.no_post_injuries":"Nessun test post-infortunio trovato per questo atleta.","runtime.test_mgmt.no_tests":"Nessun test trovato per questo atleta.","runtime.test_mgmt.open_test_details":"Apri dettagli del test","runtime.test_type.baseline":"Basale","runtime.test_type.immediate":"Immediato","runtime.test_type.no_test":"Nessun test","runtime.test_type.post_injury":"Post-infortunio","runtime.timer.countdown_canceled":"Conto alla rovescia annullato","runtime.timer.seconds_left":"Mancano {{seconds}} secondi","runtime.timer.start":"Avvia cronometro","runtime.timer.stop":"Ferma cronometro","runtime.timer.time_up":"Tempo scaduto","runtime.workspace.alert.create_failed":"Impossibile creare lo spazio di lavoro condiviso: {{error}}","runtime.workspace.alert.created_with_invite":"Spazio di lavoro condiviso creato: {{workspaceName}}<br>Codice di invito: <code>{{inviteCode}}</code><br>Link di invito: <a href=\"{{inviteLink}}\" target=\"_blank\">{{inviteLink}}</a>","runtime.workspace.alert.delete_failed":"Impossibile eliminare lo spazio di lavoro condiviso: {{error}}","runtime.workspace.alert.deleted":"Spazio di lavoro condiviso eliminato.","runtime.workspace.alert.detach_failed":"Impossibile scollegarsi dallo spazio di lavoro condiviso: {{error}}","runtime.workspace.alert.enter_invite_code":"Inserisci un codice di invito.","runtime.workspace.alert.enter_workspace_name":"Inserisci un nome per lo spazio di lavoro.","runtime.workspace.alert.invite_details":"Codice di invito: <code>{{inviteCode}}</code><br>Link di invito: <a href=\"{{inviteLink}}\" target=\"_blank\">{{inviteLink}}</a>","runtime.workspace.alert.join_failed":"Impossibile entrare nello spazio di lavoro condiviso: {{error}}","runtime.workspace.alert.join_from_invite_failed":"Impossibile entrare nello spazio di lavoro condiviso tramite l'invito: {{error}}","runtime.workspace.alert.joined":"Accesso allo spazio di lavoro condiviso: {{workspaceName}}","runtime.workspace.alert.leave_failed":"Impossibile uscire dallo spazio di lavoro condiviso: {{error}}","runtime.workspace.alert.left":"Hai lasciato lo spazio di lavoro condiviso.","runtime.workspace.alert.load_invite_failed":"Impossibile caricare i dettagli dell'invito: {{error}}","runtime.workspace.alert.member_removed":"Membro rimosso dallo spazio di lavoro.","runtime.workspace.alert.missing_member_id":"ID membro mancante.","runtime.workspace.alert.no_active_workspace":"Nessuno spazio di lavoro condiviso attivo.","runtime.workspace.alert.not_owner_active":"Non sei proprietario di uno spazio di lavoro condiviso attivo.","runtime.workspace.alert.only_owner_remove":"Solo il proprietario dello spazio di lavoro può rimuovere i membri.","runtime.workspace.alert.owner_must_delete_first":"Sei già proprietario di un altro spazio di lavoro condiviso. Eliminalo prima di entrare in uno spazio diverso.","runtime.workspace.alert.remove_member_failed":"Impossibile rimuovere il membro: {{error}}","runtime.workspace.alert.switch_failed":"Impossibile cambiare spazio di lavoro: {{error}}","runtime.workspace.alert.switched_and_joined":"Passaggio e accesso allo spazio di lavoro condiviso: {{workspaceName}}","runtime.workspace.confirm.delete_for_all":"Eliminare lo spazio di lavoro condiviso «{{workspaceName}}» per tutti i membri?","runtime.workspace.confirm.join_replace_data":"Entrando nello spazio di lavoro condiviso con codice di invito {{inviteCode}}, i dati di atleti/test attualmente accessibili nell'app verranno sostituiti dai dati dello spazio di lavoro. Continuare?","runtime.workspace.confirm.leave":"Questo account verrà rimosso dallo spazio di lavoro condiviso corrente. Continuare?","runtime.workspace.confirm.remove_member":"Rimuovere questo membro dallo spazio di lavoro? Perderà immediatamente l'accesso.","runtime.workspace.confirm.switch_current":"Sei già in «{{activeWorkspaceName}}». Passare al nuovo spazio di lavoro? L'accesso locale ai dati del vecchio spazio verrà rimosso.","runtime.workspace.confirm.switch_from_invite":"Sei già nello spazio di lavoro condiviso «{{activeWorkspaceName}}». Passare al codice di invito {{inviteCode}}? L'accesso locale ai dati del vecchio spazio verrà rimosso.","runtime.workspace.connected_to":"Connesso a {{name}} ({{email}})","runtime.workspace.create":"Crea spazio di lavoro condiviso","runtime.workspace.delete":"Elimina spazio di lavoro condiviso","runtime.workspace.invite_code":"Codice di invito:","runtime.workspace.invite_code_placeholder":"Incolla il codice di invito","runtime.workspace.join":"Entra nello spazio di lavoro condiviso","runtime.workspace.leave":"Esci dallo spazio di lavoro condiviso","runtime.workspace.member.remove":"Rimuovi","runtime.workspace.members.title":"Membri dello spazio di lavoro","runtime.workspace.name":"Nome dello spazio di lavoro:","runtime.workspace.name_placeholder":"ad es. Medici della squadra universitaria","runtime.workspace.role.member":"Membro","runtime.workspace.role.owner":"Proprietario","runtime.workspace.show_invite":"Mostra link e codice di invito","runtime.workspace.status.active":"Spazio di lavoro condiviso attivo: <strong>{{workspaceName}}</strong> ({{role}})","runtime.workspace.status.none":"Nessuno spazio di lavoro condiviso attivo","runtime.workspace.storage_note":"I dati dello spazio di lavoro condiviso vengono sincronizzati tra i membri e archiviati in Cloudflare D1 (solo regione UE).","runtime.workspace.unlink_device":"Scollega dispositivo"},
+            messages: {"a quick feedback form":"un breve modulo di feedback","Abduction or flexion of the hip beyond 30 degrees (moving hips forwards/backwards/sideways)":"Abduzione o flessione dell'anca oltre i 30 gradi (spostamento delle anche in avanti/indietro/lateralmente)","Abnormal flexion (pull muscles inward) to pain.":"Flessione anormale al dolore (contrazione dei muscoli verso l'interno).","About &nbsp;":"Informazioni &nbsp;","adaptation | By Aureole Chang and Alexander Metzger |":"adattamento | A cura di Aureole Chang e Alexander Metzger |","and":"e","and/or ask your patients/athletes to fill it out too.":"e/o chiedi anche ai tuoi pazienti/atleti di compilarlo.","and Privacy focused. This means no usage data is collected, but we'd still love to hear from you so we can improve the tool. Here are some optional ways you can contribute:":"e attento alla privacy. Ciò significa che non vengono raccolti dati di utilizzo, ma ci farebbe comunque piacere ricevere il tuo parere per migliorare lo strumento. Ecco alcuni modi facoltativi per contribuire:","approved":"approvato","April":"Aprile","Assess Manually &nbsp;":"Valuta manualmente &nbsp;","Athlete reports neck pain at rest.":"L'atleta riferisce dolore al collo a riposo.","Audio &nbsp;":"Audio &nbsp;","August":"Agosto","Average (seconds)":"Media (secondi)","Balance Error Scoring System":"Sistema di punteggio degli errori di equilibrio (BESS)","Balance/gait difficulties, motor incoordination, ataxia: stumbling, slow/laboured movements.":"Difficoltà di equilibrio/cammino, incoordinazione motoria, atassia: inciampo, movimenti lenti/faticosi.","Balance problems:":"Problemi di equilibrio:","Best Eye Response":"Miglior risposta oculare","Best Motor Response":"Miglior risposta motoria","Best Verbal Response":"Miglior risposta verbale","Blank or vacant look.":"Sguardo vuoto o assente.","Blurred vision:":"Visione offuscata:","Can the athlete follow instructions for how to move (e.g. \"lift your arm\") or respond to pain (pinch or poke)?":"L'atleta riesce a eseguire istruzioni motorie (ad es. «solleva il braccio») o a reagire al dolore (pizzicotto o pressione)?","Cervical Spine":"Rachide cervicale","Check box if athlete completed all the months correctly.":"Seleziona la casella se l'atleta ha detto correttamente tutti i mesi.","Check if symptoms get worse with mental activity.":"Indicare se i sintomi peggiorano con l'attività mentale.","Check if symptoms get worse with physical activity.":"Indicare se i sintomi peggiorano con l'attività fisica.","Choose an export option:":"Scegli un'opzione di esportazione:","CISG":"CISG","Click the round add button below to add an athlete profile. This will let you start a baseline assessment and create an athlete profile that you can use to compare concussion scores over time for the athlete.":"Fai clic sul pulsante rotondo Aggiungi qui sotto per creare il profilo di un atleta. Potrai avviare una valutazione basale e usare il profilo per confrontare nel tempo i punteggi relativi alla concussione cerebrale.","Code":"Codice","Concentration":"Concentrazione","Concussion Assessment Management":"Gestione della valutazione della concussione cerebrale","Confused. Answers but not fully aware what's happening.":"Confuso. Risponde, ma non è pienamente consapevole di ciò che accade.","Confusion:":"Confusione:","Coordination and Ocular/Motor Screen":"Coordinazione e valutazione oculo-motoria","Coordination. Finger-to-nose is normal for both hands with eyes open and closed.":"Coordinazione: il test dito-naso è normale per entrambe le mani, a occhi aperti e chiusi.","Correct Responses":"Risposte corrette","December":"Dicembre","Delayed Recall":"Rievocazione differita","Delete All &nbsp;":"Elimina tutto &nbsp;","Deteriorating conscious state":"Peggioramento dello stato di coscienza","Did your team win the last game?":"La tua squadra ha vinto l'ultima partita?","Difficulty concentrating:":"Difficoltà a concentrarsi:","Difficulty remembering:":"Difficoltà a ricordare:","Digits Backwards":"Cifre all'indietro","Disorientation or confusion, staring or limited responsiveness, or an inability to respond appropriately to questions.":"Disorientamento o confusione, sguardo fisso o reattività limitata, oppure incapacità di rispondere adeguatamente alle domande.","Dizziness:":"Vertigine:","Do you want to help make this tool better?":"Vuoi contribuire a migliorare questo strumento?","Does the athlete know their name, where they are at, the day/year, etc?":"L'atleta conosce il proprio nome, il luogo in cui si trova, il giorno/l'anno, ecc.?","\"Don't feel right\":":"«Non mi sento bene»:","Double Leg Stance":"Posizione su due gambe","Double Leg Stance on Foam (":"Posizione su due gambe su superficie morbida (","Double vision":"Visione doppia","Drowsiness:":"Sonnolenza:","Dual Task Gait (":"Andatura con doppio compito (","&emsp;":"&emsp;","Errors":"Errori","Examiner, ask the athlete the following questions and select the ones they answer correctly.":"Esaminatore: poni all'atleta le seguenti domande e seleziona quelle a cui risponde correttamente.","Examiner, click the words below as the athlete remembers them to cross them off. This will help keep track of how many they remember each trial.":"Esaminatore: seleziona le parole qui sotto man mano che l'atleta le ricorda, per barrarle. In questo modo potrai tenere traccia di quante ne ricorda a ogni prova.","Examiner, for the second and third trials say the following:":"Esaminatore: per la seconda e la terza prova, pronuncia quanto segue:","Examiner, keep a count of the errors listed above and read the instructions below:":"Esaminatore: conta gli errori elencati sopra e leggi le istruzioni seguenti:","Examiner, please hand the device to the athlete to fill in the symptom scale (below) after you provide instructions.":"Esaminatore: dopo aver fornito le istruzioni, consegna il dispositivo all'atleta affinché compili la scala dei sintomi (qui sotto).","Examiner, please keep the 3-meter-long athletic tape line from the Timed Gait on the floor/firm surface. You will follow the script below, click start/end timer, and click on the responses that the athlete correctly says in order. Redo trials where the athlete strays off the line.":"Esaminatore: lascia sul pavimento/superficie rigida la linea di nastro sportivo lunga 3 metri usata per l'andatura cronometrata. Segui il testo qui sotto, avvia/arresta il cronometro e seleziona nell'ordine le risposte pronunciate correttamente dall'atleta. Ripeti le prove in cui l'atleta esce dalla linea.","Examiner, please place a 3-meter-long line on the floor/firm surface with athletic tape. You will instruct the athlete and start/stop the timer for 3 trials.":"Esaminatore: traccia con nastro sportivo una linea lunga 3 metri sul pavimento/superficie rigida. Fornisci le istruzioni all'atleta e avvia/arresta il cronometro per 3 prove.","Examiner, read the following line and ask the following questions (modified to be appropriate to the relevant sport). Check the correctly answered questions.":"Esaminatore: leggi la frase seguente e poni le domande indicate (adattandole allo sport pertinente). Seleziona le domande a cui è stata data una risposta corretta.","Examiner, read the following numbers (one sequence from each set) and ask the athlete to repeat them back in reverse order. Say them slowly at a rate of one digit per second. Each set has two number sequences. If the athlete fails the first, try the second. If both fail, end this subsection and move on to the months in reverse order.":"Esaminatore: leggi i seguenti numeri (una sequenza per ogni serie) e chiedi all'atleta di ripeterli in ordine inverso. Pronunciali lentamente, al ritmo di una cifra al secondo. Ogni serie contiene due sequenze. Se l'atleta sbaglia la prima, prova la seconda. Se sbaglia entrambe, termina questa sottosezione e passa ai mesi in ordine inverso.","Examiner, read the instructions below to the athlete and click to cross out the months as they say them in the correct order.":"Esaminatore: leggi all'atleta le istruzioni seguenti e seleziona i mesi per barrarli man mano che vengono pronunciati nell'ordine corretto.","Examiner, you will guide the athlete through 3 poses (double leg, tandem, and single leg stance) to be held for 20 seconds each. The later foam pad test is optional, only a solid floor/ground surface is required. You'll need a spotter to keep an eye on the athlete and be ready to assist them if they become unstable and begin to fall.":"Esaminatore: guiderai l'atleta in 3 posizioni (su due gambe, tandem e su una gamba), da mantenere per 20 secondi ciascuna. Il successivo test su superficie morbida è facoltativo; è necessaria soltanto una superficie solida. Serve una persona di assistenza che sorvegli l'atleta e sia pronta ad aiutarlo se diventa instabile e inizia a cadere.","Examiner, you will read the list of words 3 times, keeping track of how many words the athlete remembers after each reading. All 3 trials must be administered irrespective of the number correct on each. Start the first trial by saying the following:":"Esaminatore: leggerai l'elenco di parole 3 volte, registrando quante parole l'atleta ricorda dopo ogni lettura. Tutte e 3 le prove devono essere somministrate indipendentemente dal numero di risposte corrette. Inizia la prima prova dicendo:","Export &nbsp;":"Esporta &nbsp;","Extend (stretch outward) muscles to pain.":"Estensione dei muscoli (verso l'esterno) al dolore.","Facial injury after head trauma.":"Lesione facciale dopo un trauma cranico.","Falling unprotected to the surface.":"Caduta a terra senza protezione.","FAQ":"Domande frequenti","Fastest (seconds)":"Migliore (secondi)","Fatique or low energy:":"Spossatezza o poca energia:","February":"Febbraio","Feeling like \"in a fog\":":"Sentirsi «annebbiato»:","Feeling slowed down:":"Sentirsi rallentato:","Flexion/withdrawal (as a reflex) to pain.":"Flessione/retrazione (come riflesso) al dolore.","for details.":"per maggiori dettagli.","Free & Open-Source":"Gratuito e open source","from the automated BESS to inform more inclusive ML models.":"dal BESS automatizzato per contribuire allo sviluppo di modelli di apprendimento automatico più inclusivi.","Full SCAT6":"SCAT6 completo","Getting camera permissions...":"Acquisizione delle autorizzazioni per la fotocamera…","Glasgow Coma Scale":"Glasgow Coma Scale","Good, now you will walk heel-to-toe and count backwards out loud at the same time. Keep counting until you finish walking the 3 meters, turning 180 degrees, walking the 3 meters again and the examiner says stop indicating you got to the last number. Are you ready? The number to start with is 88. Go! &nbsp;":"Bene, ora camminerai tacco-punta contando contemporaneamente all'indietro ad alta voce. Continua a contare finché non avrai percorso 3 metri, effettuato una rotazione di 180 gradi, percorso nuovamente i 3 metri e l'esaminatore dirà «stop», indicando che hai raggiunto l'ultimo numero. Sei pronto? Il numero di partenza è 88. Via! &nbsp;","Headaches:":"Mal di testa:","Healthy athletes typically complete the task in 18.7-22.5 seconds with 85.8-92.4% accuracy (0.9-1.7 errors). Concussed athletes typically take 30.6-36.1 seconds with 76.4-83.6% accuracy (2.0-2.8 errors).":"Gli atleti sani completano in genere il compito in 18,7–22,5 secondi con un'accuratezza dell'85,8–92,4% (0,9–1,7 errori). Gli atleti con concussione impiegano in genere 30,6–36,1 secondi con un'accuratezza del 76,4–83,6% (2,0–2,8 errori).","Healthy athletes typically have a fastest time between 13.9 and 15.8. Newly concussed athletes are typically between 21.9 and 26.1. Athletes concussed within the last 6-73 days will be somewhere in between.":"Gli atleti sani hanno in genere un tempo migliore compreso tra 13,9 e 15,8 secondi. Negli atleti con concussione recente è generalmente compreso tra 21,9 e 26,1 secondi. Gli atleti che hanno subito una concussione negli ultimi 6–73 giorni presentano valori intermedi.","High-risk mechanism of injury (sportdependent).":"Meccanismo di infortunio ad alto rischio (dipendente dallo sport).","I am going to repeat the same list. Repeat back as many words as you can remember in any order, even if you said the word before in a previous trial &nbsp;":"«Ripeterò lo stesso elenco. Ripeti tutte le parole che riesci a ricordare, in qualsiasi ordine, anche se le hai già pronunciate in una prova precedente.» &nbsp;","I am going to test your memory. I will read you a list of words and when I am done, repeat back as many words as you can remember, in any order &nbsp;":"«Metterò alla prova la tua memoria. Ti leggerò un elenco di parole e, quando avrò finito, ripeterai tutte le parole che riesci a ricordare, in qualsiasi ordine.» &nbsp;","I'm going to read a string of numbers and when I am done, you repeat them back to me in reverse order of how I read them to you. For example, if I say 7 1 9, you would say 9 1 7. So, if I said 9 6 8 you would say? &nbsp;":"«Leggerò una serie di numeri e, quando avrò finito, me li ripeterai nell'ordine inverso rispetto a quello in cui te li ho letti. Per esempio, se io dico 7 1 9, tu dirai 9 1 7. Quindi, se io dico 9 6 8, tu cosa dirai?» &nbsp;","If 100% is feeling perfectly normal, what percent of normal do you feel?":"Se 100% significa sentirsi perfettamente normale, a quale percentuale della normalità ritieni di sentirti?","If NO neck pain and NO tenderness, athlete has full range of ACTIVE pain free movement.":"Se NON c'è dolore al collo e NON c'è dolorabilità, l'atleta esegue completamente i movimenti ATTIVI senza dolore.","If not 100%, why?":"Se non è 100%, perché?","Immediate Memory":"Memoria immediata","Impact seizure.":"Crisi epilettica post impatto.","In a patient who is not lucid or fully conscious, a cervical spine injury should be assumed and spinal precautions taken. Check each box for yes, keep unselected for no.":"In un paziente non lucido o pienamente cosciente, si deve ipotizzare una lesione del rachide cervicale e adottare le precauzioni spinali. Seleziona ogni casella per «sì»; lasciala deselezionata per «no».","Inappropriate words. Random but comprehensible words.":"Parole inappropriate. Parole casuali ma comprensibili.","Incomprehensible sounds or noises.":"Suoni o rumori incomprensibili.","Increasingly restless, agitated or combative":"Sempre più irrequieto, agitato o aggressivo","Irritability:":"Irritabilità:","January":"Gennaio","July":"Luglio","June":"Giugno","Keep a count of the following errors in the athlete's execution of the poses:":"Conta i seguenti errori nell'esecuzione delle posizioni da parte dell'atleta:","Lifting forefoot or heel":"Sollevare l'avampiede o il tallone","Lifting hands off iliac crests (upper border of the pelvis/hip-bone)":"Sollevare le mani dalle creste iliache (bordo superiore del bacino/anca)","Limb strength and sensation is normal.":"La forza e la sensibilità degli arti sono normali.","Loading...":"Caricamento…","Localized to (Intentionally moves away from) pain.":"Localizza il dolore (si allontana intenzionalmente dallo stimolo doloroso).","Loss of consciousness":"Perdita di coscienza","Lying motionless on playing surface.":"Sdraiato immobile sul campo di gioco.","Maddocks Score":"Punteggio di Maddocks","March":"Marzo","May":"Maggio","Mirror &nbsp;":"Specchia &nbsp;","MIT":"MIT","Months in Reverse Order":"Mesi in ordine inverso","More emotional:":"Più emotività:","Multiple simultaneous errors count as one. Failure to hold the pose for at least 5 seconds counts as the maximum number of errors for that pose (10).":"Più errori simultanei contano come un solo errore. L'incapacità di mantenere la posizione per almeno 5 secondi equivale al numero massimo di errori per quella posizione (10).","Nausea or vomiting:":"Nausea o vomito:","Neck pain:":"Dolore al collo:","Neck pain or tenderness":"Dolore o dolorabilità al collo","Nervous or anxious:":"Nervoso o ansioso:","Next Trial &nbsp;":"Prova successiva &nbsp;","No eye opening for any reason.":"Non apre gli occhi per nessun motivo.","No motor response.":"Nessuna risposta motoria.","No red flags":"Nessuna red flag","No verbal response.":"Nessuna risposta verbale.","None":"Nessuno","Not Fully Conscious":"Non pienamente cosciente","November":"Novembre","Number of correct sets (of 4):":"Numero di serie corrette (su 4):","Number of errors:":"Numero di errori:","Obeys commands.":"Esegue i comandi.","Observable Signs":"Segni osservabili","Observed extraocular eye movements are normal.":"I movimenti extraoculari osservati sono normali.","Observed on Video":"Osservato a video","October":"Ottobre","Ocular/Motor. Athlete can look side-to-side and up-and-down without moving their head/neck or getting double vision.":"Oculo-motorio: l'atleta riesce a guardare lateralmente e verso l'alto e il basso senza muovere la testa/il collo né avere visione doppia.","Open naturally.":"Apre gli occhi spontaneamente.","Open to pain (pinch or poke).":"Apre gli occhi al dolore (pizzicotto o pressione).","Open to speech (when asked to open).":"Apre gli occhi allo stimolo verbale (quando gli viene chiesto di aprirli).","Opening eyes":"Apertura degli occhi","opensource":"open source","Opt-in to share anonymized test scores for research-use and to improve tool recommendations.":"Acconsenti alla condivisione di punteggi dei test anonimizzati a fini di ricerca e per migliorare le raccomandazioni dello strumento.","Optional":"Facoltativo","Orientation":"Orientamento","Oriented. Answers correctly.":"Orientato. Risponde correttamente.","Overall Report":"Rapporto complessivo","Overwrite Current Pose as Correct &nbsp;":"Contrassegna la posizione corrente come corretta &nbsp;","Please describe anything abnormal:":"Descrivi eventuali anomalie:","Please rate your symptoms below based on how you typically feel with 1 representing a very mild symptom and 6 representing a severe symptom. 0 means the symptom is not present &nbsp;":"Valuta i tuoi sintomi in base a come ti senti di solito, dove 1 indica un sintomo molto lieve e 6 un sintomo grave. 0 indica che il sintomo non è presente. &nbsp;","Please rate your symptoms below based on how you feel now with 1 representing a very mild symptom and 6 representing a severe symptom. 0 means the symptom is not present &nbsp;":"Valuta i tuoi sintomi in base a come ti senti ora, dove 1 indica un sintomo molto lieve e 6 un sintomo grave. 0 indica che il sintomo non è presente. &nbsp;","Power Systems Airex Balance Pad 81000":"Power Systems Airex Balance Pad 81000","Practice":"Esercitazione","Pressure in head:":"Senso di pressione alla testa:","Privacy Policy":"Informativa sulla privacy","Raw CSV":"CSV grezzo","Red Flags":"Red flag","Red flags are signs and symptoms that may indicate a more serious injury. If any of these are present, the athlete should be referred to a healthcare professional immediately.":"Le red flag sono segni e sintomi che possono indicare una lesione più grave. Se ne è presente una, l'atleta deve essere immediatamente indirizzato a un professionista sanitario.","Red flags present":"Red flag presenti","Remaining out of the testing position for more than 5 seconds":"Restare fuori dalla posizione di test per più di 5 secondi","Results":"Risultati","Return to Main Menu":"Torna al menu principale","Sadness:":"Tristezza:","SCAT6™":"SCAT6™","SCAT6 Web":"SCAT6 Web","Search by name:":"Cerca per nome:","Seizure or convulsion":"Crisi epilettiche o convulsioni","Sensitivity to light:":"Sensibilità alla luce:","Sensitivity to noise:":"Sensibilità al rumore:","September":"Settembre","Severe or increasing headache":"Cefalea grave o ingravescente","Show 10":"Mostra 10","Show 5":"Mostra 5","Show 50":"Mostra 50","Show All":"Mostra tutti","Single Leg Stance":"Posizione su una gamba","Single Leg Stance on Foam (":"Posizione su una gamba su superficie morbida (","Skip to Delayed Recall &nbsp;":"Vai alla rievocazione differita &nbsp;","Source":"Fonte","Stand on one leg, hands on your hips, and eyes closed. Hold this position for 20 seconds &nbsp;":"Stai su una gamba, con le mani sui fianchi e gli occhi chiusi. Mantieni questa posizione per 20 secondi. &nbsp;","Stand with your feet in a heel-to-toe position, hands on your hips, and eyes closed. Hold this position for 20 seconds &nbsp;":"Stai con i piedi in posizione tacco-punta, le mani sui fianchi e gli occhi chiusi. Mantieni questa posizione per 20 secondi. &nbsp;","Stand with your feet together, hands on your hips, and eyes closed. Hold this position for 20 seconds &nbsp;":"Stai con i piedi uniti, le mani sui fianchi e gli occhi chiusi. Mantieni questa posizione per 20 secondi. &nbsp;","Start 20s Countdown":"Avvia conto alla rovescia di 20 s","Start BESS &nbsp;":"Avvia BESS &nbsp;","Start Cervical Spine &nbsp;":"Avvia valutazione del rachide cervicale &nbsp;","Start Concentration &nbsp;":"Avvia concentrazione &nbsp;","Start Coordination &nbsp;":"Avvia coordinazione &nbsp;","Start Delayed Recall &nbsp;":"Avvia rievocazione differita &nbsp;","Start Immediate Memory &nbsp;":"Avvia memoria immediata &nbsp;","Start Maddocks &nbsp;":"Avvia domande di Maddocks &nbsp;","Start Optional Dual Task Gait &nbsp;":"Avvia andatura facoltativa con doppio compito &nbsp;","Start Orientation &nbsp;":"Avvia orientamento &nbsp;","Start Symptom Evaluation &nbsp;":"Avvia valutazione dei sintomi &nbsp;","Start Tandem Gait &nbsp;":"Avvia andatura in tandem &nbsp;","Start Timer":"Avvia cronometro","Stepping, stumbling, or falling":"Fare un passo, inciampare o cadere","Switch Camera &nbsp;":"Cambia fotocamera &nbsp;","Symptom Evaluation":"Valutazione dei sintomi","Symptom Evaluation Baseline":"Valutazione basale dei sintomi","Sync &nbsp;":"Sincronizza &nbsp;","Take 10 minutes to fill out":"Dedica 10 minuti alla compilazione","Tandem Stance":"Posizione tandem","Tandem Stance on Foam (":"Posizione tandem su superficie morbida (","Task":"Compito","Tell me the months of the year in reverse order as QUICKLY and as accurately as possible. Start with the last month and go backward. So, you'll say December, November... go ahead &nbsp;":"«Ora dimmi i mesi dell'anno in ordine inverso nel modo più RAPIDO e preciso possibile. Inizia dall'ultimo mese e vai a ritroso. Quindi dirai dicembre, novembre… Avanti!» &nbsp;","&nbsp;":"&nbsp;","The athlete should take their shoes off, roll up pant legs above ankles (if applicable), and remove any ankle taping (if applicable).":"L'atleta deve togliersi le scarpe, arrotolare i pantaloni sopra le caviglie (se pertinente) e rimuovere eventuali fasciature alle caviglie (se presenti).","The athlete will be guided through 3 poses (double leg, tandem, and single leg stance) to be held for 20 seconds each. The later foam pad test is optional, only a solid floor/ground surface is required. You'll need a spotter to keep an eye on the athlete and be ready to assist them if they become unstable and begin to fall.":"L'atleta sarà guidato in 3 posizioni (su due gambe, tandem e su una gamba), da mantenere per 20 secondi ciascuna. Il successivo test su superficie morbida è facoltativo; è necessaria soltanto una superficie solida. Serve una persona di assistenza che sorvegli l'atleta e sia pronta ad aiutarlo se diventa instabile e inizia a cadere.","The foam test requires a 50cm x 40cm x 6cm foam pad. Recommended model is the":"Il test su superficie morbida richiede un cuscino in schiuma di 50 cm × 40 cm × 6 cm. Il modello consigliato è","There is tenderness to palpation.":"È presente dolorabilità alla palpazione.","This tool is 100%":"Questo strumento è al 100%","Time (seconds)":"Tempo (secondi)","Timed Tandem Gait":"Andatura in tandem cronometrata","Trial 1":"Prova 1","Trial 1 (seconds)":"Prova 1 (secondi)","Trial 2":"Prova 2","Trial 2 (seconds)":"Prova 2 (secondi)","Trial 3":"Prova 3","Trial 3 (seconds)":"Prova 3 (secondi)","Trouble falling asleep:":"Difficoltà ad addormentarsi:","Twisting of the shoulder beyond 30 degrees":"Rotazione della spalla oltre i 30 gradi","Unable to Tandem Walk":"Impossibilità di eseguire l'andatura in tandem","Upload photos/videos":"Carica foto/video","Use Camera-Based BESS (Optional) &nbsp;":"Usa il BESS con fotocamera (facoltativo) &nbsp;","Use this web app to administer concussion assessments for your athletes. The data is stored locally in your browser unless you \"Delete All\". You can also sync the data with your Google Drive. See the":"Usa questa applicazione web per somministrare le valutazioni della concussione cerebrale ai tuoi atleti. I dati vengono salvati localmente nel browser, a meno che non selezioni «Elimina tutto». Puoi anche sincronizzarli con Google Drive. Consulta","Visible deformity of the skull":"Deformità visibile del cranio","Voice Ctrl &nbsp;":"Controllo vocale &nbsp;","Vomiting":"Vomito","Weakness or tingling/burning in more than 1 arm or in the legs":"Debolezza o formicolio/bruciore in più di un braccio o alle gambe","What is the date today?":"Qual è la data di oggi?","What is the day of the week?":"Che giorno della settimana è?","What month is it?":"Che mese è?","What team did you play last week / game?":"Contro quale squadra hai giocato la scorsa settimana/nell'ultima partita?","What time is it right now (within 1 hour)?":"Che ore sono ora? (entro un'ora)","What venue are we at today?":"In che luogo siamo oggi?","What year is it?":"Che anno è?","When the timer is started, please walk heel-to-toe quickly to the end of the tape, turn around and come back as fast as you can, without separating your feet or stepping off the line &nbsp;":"Quando viene avviato il cronometro, cammina velocemente tacco-punta fino alla fine del nastro, girati e torna indietro il più rapidamente possibile, senza separare i piedi né uscire dalla linea. &nbsp;","Which half is it now?":"In che tempo di gioco siamo?","While you are walking heel-to-toe, you will count backwards out loud by sevens. For example, if we started at 100, you would say 100, 93, 86, 79. Let's practice counting. Starting with 93, count backward by sevens until the examiner says stop &nbsp;":"Mentre cammini tacco-punta, conterai ad alta voce all'indietro sottraendo 7. Per esempio, partendo da 100, diresti 100, 93, 86, 79. Facciamo una prova. Partendo da 93, conta all'indietro per sette finché l'esaminatore non dice «stop». &nbsp;","Who scored last in this match?":"Chi ha segnato per ultimo in questa partita?","Witnessed":"Testimoniato","You will be asked a few questions. Please listen carefully and give your best effort. First explain what happened? &nbsp;":"«Sto per farti alcune domande. Ascolta attentamente e fai del tuo meglio. Per prima cosa, dimmi che cosa è successo.» &nbsp;","Your job as examiner is to keep the camera as still as possible (minor shakes are fine) with the athlete fully in frame at all times. In case the automated system misses something, keep a count of the following errors in the athlete's execution of the poses:":"Il tuo compito come esaminatore è mantenere la fotocamera il più ferma possibile (piccoli movimenti sono accettabili), tenendo sempre l'atleta interamente nell'inquadratura. Nel caso in cui il sistema automatizzato non rilevi qualcosa, conta i seguenti errori nell'esecuzione delle posizioni da parte dell'atleta:","add athlete":"aggiungi atleta","Enter part of an athlete name":"Inserisci parte del nome di un atleta","first page of the paper SCAT6":"prima pagina dello SCAT6 cartaceo","how many athletes to show":"numero di atleti da mostrare","Manual BESS instructions":"Istruzioni per il BESS manuale","Toggle countdown audio":"Attiva/disattiva l'audio del conto alla rovescia","This page was generated by the Firebase Command-Line Interface. To modify it, edit the <code>404.html</code> file in your project's configured <code>public</code> directory.":"Questa pagina è stata generata dall'interfaccia a riga di comando di Firebase. Per modificarla, modifica il file <code>404.html</code> nella directory <code>public</code> configurata per il progetto.","The specified file was not found on this website. Please check the URL for mistakes and try again.":"Il file specificato non è stato trovato su questo sito. Controlla che l'URL sia corretto e riprova.","Page Not Found":"Pagina non trovata","Why am I seeing this?":"Perché visualizzo questa pagina?","Failed to sync data. Make sure you checked the box to give the app permission to add app data to your Google Drive.":"Sincronizzazione dei dati non riuscita. Assicurati di aver selezionato la casella che autorizza l'app ad aggiungere dati a Google Drive.","Calibration complete":"Calibrazione completata","Attempting to calibrate the pose detection model to the current pose. Please hold the pose for 10 seconds.":"Tentativo di calibrare il modello di rilevamento sulla posizione attuale. Mantieni la posizione per 10 secondi.","The automated balance system will use the camera.":"Il sistema automatizzato per l'equilibrio utilizzerà la fotocamera.","Please align the heel of the dominant foot with the toe of the non-dominant foot.":"Allinea il tallone del piede dominante con la punta del piede non dominante.","Please bend both elbows without twisting the shoulders.":"Piega entrambi i gomiti senza ruotare le spalle.","Can't find athlete. Please make sure they are fully in frame.":"Atleta non rilevato. Assicurati che sia interamente nell'inquadratura.","Please close your eyes.":"Chiudi gli occhi.","Unexpected error deciphering the pose. Skipping to manual assessment.":"Errore imprevisto nell'interpretazione della posizione. Passaggio alla valutazione manuale.","The dominant foot must be visible in front of the non-dominant foot.":"Il piede dominante deve essere visibile davanti al piede non dominante.","Please keep feet together.":"Tieni i piedi uniti.","Please keep knees together.":"Tieni le ginocchia unite.","Left hand is too far from the hip. Please move it closer.":"La mano sinistra è troppo lontana dall'anca. Avvicinala.","Please lift dominant foot off the ground.":"Solleva da terra il piede dominante.","Please move the dominant foot further forward.":"Sposta più avanti il piede dominante.","Multiple people detected. Please make sure only {{athleteName}} is in frame.":"Sono state rilevate più persone. Assicurati che nell'inquadratura ci sia soltanto {{athleteName}}.","{{part}} not detected. Please make sure it is fully in frame and you are facing the camera straight on.":"{{part}} non rilevato. Assicurati che sia interamente nell'inquadratura e di essere rivolto direttamente verso la fotocamera.","Right hand is too far from the hip. Please move it closer.":"La mano destra è troppo lontana dall'anca. Avvicinala.","Please stand straight without bending/twisting knees or upper body.":"Stai diritto senza piegare/ruotare le ginocchia o la parte superiore del corpo.","Please stand straight without moving hips side to side.":"Stai diritto senza spostare le anche lateralmente.","Unexpected error with the camera. Skipping to manual assessment.":"Errore imprevisto della fotocamera. Passaggio alla valutazione manuale.","New pose:":"Nuova posizione:","Left ankle":"Caviglia sinistra","Left elbow":"Gomito sinistro","Left hip":"Anca sinistra","Left knee":"Ginocchio sinistro","Left shoulder":"Spalla sinistra","Left wrist":"Polso sinistro","Right ankle":"Caviglia destra","Right elbow":"Gomito destro","Right hip":"Anca destra","Right knee":"Ginocchio destro","Right shoulder":"Spalla destra","Right wrist":"Polso destro","please stand straight with hands on your hips and feet touching":"stai diritto con le mani sui fianchi e i piedi uniti","please stand straight with hands on your hips and feet touching on foam":"stai diritto sulla superficie morbida con le mani sui fianchi e i piedi uniti","please stand on your non-dominant leg with hands on your hips":"stai sulla gamba non dominante con le mani sui fianchi","please stand on your non-dominant leg with hands on your hips on foam":"stai sulla gamba non dominante sulla superficie morbida con le mani sui fianchi","please stand heel-to-toe (non-dominant foot in the back) with hands on your hips":"stai in posizione tacco-punta (piede non dominante dietro) con le mani sui fianchi","please stand heel-to-toe (non-dominant foot in the back) with hands on your hips on foam":"stai in posizione tacco-punta sulla superficie morbida (piede non dominante dietro) con le mani sui fianchi","Pose looks good! 20 seconds left.":"La posizione è corretta! Mancano 20 secondi.","Pose looks good! {{seconds}} seconds left. Errors: {{errors}}":"La posizione è corretta! Mancano {{seconds}} secondi. Errori: {{errors}}","Pose looks good! Click to start the 20 second trial where the pose must be held":"La posizione è corretta! Fai clic per avviare la prova di 20 secondi durante la quale deve essere mantenuta.","{{seconds}} seconds left. {{athleteName}}, {{description}}:":"Mancano {{seconds}} secondi. {{athleteName}}, {{description}}:","Say 'mirror' to toggle the mirror effect. Say 'next' to move to the next pose. Say 'skip' to skip the test.":"Pronuncia 'mirror' per attivare o disattivare l'effetto specchio. Pronuncia 'next' per passare alla posizione successiva. Pronuncia 'skip' per saltare il test.","N/A":"N/D","No":"No","NO":"NO","Yes":"Sì","YES":"SÌ","Are you sure you want to delete all data?":"Eliminare tutti i dati?","Are you sure you want to delete this athlete's data?":"Eliminare i dati di questo atleta?","This will delete all data from your GDrive but keep it on this device. Are you sure?":"Tutti i dati verranno eliminati da Google Drive, ma resteranno su questo dispositivo. Continuare?","This will delete all data from this device but keep it on your GDrive. Are you sure?":"Tutti i dati verranno eliminati da questo dispositivo, ma resteranno su Google Drive. Continuare?","Back to the Immediate Memory section":"Torna alla sezione Memoria immediata","Examiner, read the below instructions and select the words that the athlete can remember from the Immediate Memory section.":"Esaminatore: leggi le istruzioni seguenti e seleziona le parole che l'atleta ricorda dalla sezione Memoria immediata.","The Immediate Memory section must be completed at least 5 minutes before this section. It has not been completed at all.":"La sezione Memoria immediata deve essere completata almeno 5 minuti prima di questa sezione. Non è stata ancora completata.","The Immediate Memory section must be completed at least 5 minutes before this section. Delayed Recall will open in {{seconds}} seconds.":"La sezione Memoria immediata deve essere completata almeno 5 minuti prima di questa sezione. La Rievocazione differita si aprirà tra {{seconds}} secondi.","Do you remember the list of words read a few times earlier during the immediate memory section? Tell me as many words from the list as you can remember in any order":"Ricordi l'elenco di parole letto alcune volte in precedenza durante la sezione Memoria immediata? Dimmi tutte le parole dell'elenco che riesci a ricordare, in qualsiasi ordine.","Starting...":"Avvio…","View Test Results":"Visualizza i risultati del test","Somehow the list of words was not saved.":"L'elenco di parole non è stato salvato.","Select language":"Seleziona la lingua","Afrikaans":"Afrikaans","Български":"Български","Deutsch":"Deutsch","Danish":"Dansk","Ελληνικά":"Ελληνικά","English":"Italiano","Español":"Español","Føroyskt":"Føroyskt","Français":"Français","עברית":"עברית","हिन्दी":"हिन्दी","Italiano":"Italiano","日本語":"日本語","Lëtzebuergesch":"Lëtzebuergesch","Nederlands":"Nederlands","Norsk":"Norsk","Português":"Português","Slovenščina":"Slovenščina","Türkçe":"Türkçe","繁體中文":"繁體中文","Athlete Name:":"Nome dell'atleta:","I hereby attest that I am a medical or Health Care Professional authorized to use this tool:":"Dichiaro di essere un medico o un professionista sanitario autorizzato a utilizzare questo strumento:","Baseline":"Basale","CANCEL":"ANNULLA","Close Settings":"Chiudi impostazioni","The \"cognitive screening\" portion of the baseline and post injury assessments should be completed in a distraction-free environment with the athlete in a resting state.":"La parte di «valutazione cognitiva» delle valutazioni basali e post-infortunio deve essere eseguita in un ambiente privo di distrazioni, con l'atleta a riposo.","Concussion History":"Storia di concussioni","Confirm Athlete Information":"Conferma i dati dell'atleta","Current Medications:":"Farmaci attuali:","Current Year in School (if applicable):":"Anno scolastico attuale (se applicabile):","Detailed Instructions":"Istruzioni dettagliate","Diagnosed with attention deficit hyperactivity disorder (ADHD).":"Diagnosi di sindrome da deficit di attenzione e iperattività (ADHD).","Diagnosed with a headache disorder or migraine.":"Diagnosi di cefalea o emicrania.","Diagnosed with a learning disability or dyslexia.":"Diagnosi di difficoltà di apprendimento o dislessia.","Diagnosed with depression, anxiety or a psychological disorder.":"Diagnosi di depressione, ansia o altro disturbo psicologico.","Date of Birth:":"Data di nascita:","Dominant Hand:":"Mano dominante:","Download ZIP":"Scarica ZIP","END TEST":"TERMINA TEST","Enter Athlete Information":"Inserisci i dati dell'atleta","Examiner Name:":"Nome dell'esaminatore:","First Language:":"Prima lingua:","Ambidextrous":"Ambidestro","Left":"Sinistra","Right":"Destra","For Use by Health Care Professionals Only. See the original":"Solo per l'uso da parte di professionisti sanitari. Consulta l'originale","Hospitalized for head injury.":"Ricovero per trauma cranico.","ID Number:":"Numero ID:","Immediate":"Immediato","The immediate assessment should be completed \"on-field\" after the first aid/emergency care priorities are completed.":"La valutazione immediata deve essere eseguita «sul campo», dopo aver completato le priorità di primo soccorso/urgenza.","KEEP TESTING":"CONTINUA IL TEST","Medical Background":"Anamnesi medica","Has the athlete ever been (if yes, describe below):":"L'atleta ha mai avuto una delle seguenti condizioni? (Se sì, descriverla qui sotto):","Number of Past Concussions:":"Numero di concussioni precedenti:","Notes:":"Note:","OK":"OK","Other:":"Altro:","Athlete name":"Nome dell'atleta","Describe any selections above":"Descrivi le opzioni selezionate sopra","Your first and last name":"Nome e cognome","List medications":"Elenca i farmaci","List other symptoms":"Elenca gli altri sintomi","Varsity X at Y High School":"Squadra X della Scuola Y","Unique ID":"ID univoco","Preferred Language:":"Lingua preferita:","Primary Symptoms:":"Sintomi iniziali:","Most Recent Concussion Date:":"Data della concussione più recente:","Most Recent Recovery Time (days):":"Tempo di recupero più recente (giorni):","Remove athlete from play for immediate medical assessment or transport to hospital/medical center.":"Rimuovere l'atleta dal gioco per una valutazione medica immediata o per il trasporto in ospedale/centro medico.","Spinal immobilization and cervical collar. Then remove athlete from play for immediate medical assessment or transport to hospital/medical center.":"Immobilizzazione spinale e collare cervicale. Quindi rimuovere l'atleta dal gioco per una valutazione medica immediata o per il trasporto in ospedale/centro medico.","Save Info w/o Test":"Salva dati senza test","Sex:":"Sesso:","Female":"Femminile","Male":"Maschile","Other":"Altro","Prefer Not To Say":"Preferisco non dichiararlo","Start Assessment":"Avvia valutazione","Stop Sync":"Interrompi sincronizzazione","Suspected/Post-Injury":"Sospetto/Post-infortunio","Confusion.":"Confusione.","Difficulty Concentrating.":"Difficoltà a concentrarsi.","Dizziness/Imbalance.":"Vertigine/Problemi di equilibrio.","Double/Blurry Vision.":"Visione doppia/offuscata.","Headache.":"Mal di testa.","Loss of Smell/Taste.":"Perdita dell'olfatto/del gusto.","Memory Loss.":"Perdita di memoria.","Nausea/Vomiting.":"Nausea/Vomito.","Ringing Ears.":"Ronzio nelle orecchie.","Sensitivity to Light.":"Sensibilità alla luce.","Trouble Sleeping.":"Difficoltà a dormire.","Sport/Team/School:":"Sport/Squadra/Scuola:","Time of Examination:":"Ora dell'esame:","Time of Injury (if applicable):":"Ora dell'infortunio (se applicabile):","Total Years of Education Completed:":"Anni di istruzione completati (in totale):","Decision":"Decisione","Deferred":"Rinviata","Concussion diagnosed?":"Concussione diagnosticata?","If the athlete was known to you prior to their injury, are they different from their usual self?":"Se conoscevi l'atleta prima dell'infortunio, ti sembra diverso dal solito?","Cancel":"Annulla","Failed to export the SCAT6 PDF. Please try again.":"Impossibile esportare il PDF SCAT6. Riprova.","Failed to load the SCAT6 template.":"Impossibile caricare il modello SCAT6.","I am an HCP and I have personally administered or supervised the administration of this SCAT6.":"Sono un professionista sanitario e ho personalmente somministrato o supervisionato la somministrazione di questo SCAT6.","Health Care Professional Attestation":"Dichiarazione del professionista sanitario","Name":"Nome","Notes":"Note","high":"alto","low":"basso","moderate":"moderato","Registration/License Number (if applicable)":"Numero di iscrizione/licenza (se applicabile)","Athlete Information":"Dati dell'atleta","Birth":"Nascita","Concussion Diagnosis":"Diagnosi di concussione","days":"giorni","Different from Normal":"Diverso dal normale","Dominant Hand":"Mano dominante","Double-Leg Errors":"Errori su due gambe","Double-Leg Foam Errors":"Errori su due gambe, superficie morbida","Examiner":"Esaminatore","Examiner Credentials":"Qualifiche dell'esaminatore","Feels Normal":"Si sente normale","First Language":"Prima lingua","Injury Time":"Ora dell'infortunio","mBESS Error Photos":"Foto degli errori mBESS","Most Recent Concussion":"Concussione più recente","Most Recent Recovery Time":"Tempo di recupero più recente","No pose error photos taken for this test.":"Non sono state scattate foto degli errori di posizione per questo test.","Number of Past Concussions":"Numero di concussioni precedenti","Preferred Language":"Lingua preferita","Primary Symptoms":"Sintomi iniziali","Sex":"Sesso","Signed":"Firmato","Single-Leg Errors":"Errori su una gamba","Single-Leg Foam Errors":"Errori su una gamba, superficie morbida","Symptom Description":"Descrizione dei sintomi","Tandem Errors":"Errori in tandem","Tandem Foam Errors":"Errori in tandem, superficie morbida","Team/School":"Squadra/Scuola","Test Active":"Test attivo","Test Type":"Tipo di test","SCAT6 report for {{athleteName}}":"Rapporto SCAT6 per {{athleteName}}","Worse with Mental Activity":"Peggioramento con l'attività mentale","Worse with Physical Activity":"Peggioramento con l'attività fisica","Year in School":"Anno scolastico","Years of Education":"Anni di istruzione","BESS (of 30)":"BESS (su 30)","BESS Foam (of 30)":"BESS su superficie morbida (su 30)","Cognitive Total (of 50)":"Totale cognitivo (su 50)","Concentration (of 5)":"Concentrazione (su 5)","Date":"Data","Delayed Recall (of 10)":"Rievocazione differita (su 10)","Dual Task Accuracy (%)":"Accuratezza del doppio compito (%)","Dual Task Fastest (sec)":"Miglior tempo nel doppio compito (s)","Immediate Memory (of 30)":"Memoria immediata (su 30)","Orientation (of 5)":"Orientamento (su 5)","Recall Delay (seconds)":"Intervallo di rievocazione (secondi)","Severity (of 132)":"Severità (su 132)","Symptoms (of 22)":"Sintomi (su 22)","Tandem Gait Fastest (sec)":"Miglior tempo nell'andatura in tandem (s)","Checking this box is equivalent to signing a paper SCAT6":"Selezionare questa casella equivale a firmare uno SCAT6 cartaceo","Signature Date":"Data della firma","Current Score":"Punteggio attuale","Domain":"Dominio","Healthy Range":"Intervallo sano","Increased Risk Range":"Intervallo di rischio aumentato","Last Baseline":"Ultimo test basale","Last Post-Injury":"Ultimo test post-infortunio","Title/Specialty":"Titolo/Specializzazione","BESS Manual":"Manuale BESS","Concussion training and information":"Formazione e informazioni sulla concussione","Healthy/risk ranges for BESS, tandem and dual gait":"Intervalli sani/a rischio per BESS, andatura in tandem e con doppio compito","Healthy/risk ranges for immediate/delayed recall":"Intervalli sani/a rischio per memoria immediata/rievocazione differita","SCAT6 results study":"Studio sui risultati SCAT6","SCAT6 Supplementary Material":"Materiale supplementare SCAT6","Symptom severity study":"Studio sulla severità dei sintomi","Sources":"Fonti","Last confirmed identity on {{lastSignIn}} <br><br> Last synced on {{lastSync}}":"Ultima identità confermata il {{lastSignIn}} <br><br> Ultima sincronizzazione il {{lastSync}}","Sync":"Sincronizza","Synced":"Sincronizzato","Cognitive Total (X/50)":"Totale cognitivo (X/50)","Concentration (X/5)":"Concentrazione (X/5)","Delayed Recall (X/10)":"Rievocazione differita (X/10)","Dual Task Fastest Time":"Miglior tempo nel doppio compito","Errors, Fastest Times, and Symptoms (lower is better)":"Errori, tempi migliori e sintomi (un valore più basso è migliore)","Glasgow Coma Scale (X/15)":"Glasgow Coma Scale (X/15)","Immediate Memory (X/30)":"Memoria immediata (X/30)","Maddocks Score (X/5)":"Punteggio di Maddocks (X/5)","mBESS Total Errors (X/30)":"Errori totali mBESS (X/30)","Orientation (X/5)":"Orientamento (X/5)","Scores (higher is better)":"Punteggi (un valore più alto è migliore)","Symptom Number (X/22)":"Numero di sintomi (X/22)","Symptom Severity (X/132)":"Severità dei sintomi (X/132)","Tandem Gait Fastest Time":"Miglior tempo nell'andatura in tandem","Click on an mBESS Total Errors data point to see pose error photos.":"Fai clic su un punto dati degli errori totali mBESS per visualizzare le foto degli errori di posizione.","Click the Test button to start a new test.":"Fai clic sul pulsante Test per avviare un nuovo test.","Last baseline ({{date}}): {{score}} / 80":"Ultimo test basale ({{date}}): {{score}} / 80","Last post-injury ({{date}}): {{score}} / 80":"Ultimo test post-infortunio ({{date}}): {{score}} / 80","No baselines found for this athlete.":"Nessun test basale trovato per questo atleta.","No pose error photos found for this test.":"Nessuna foto degli errori di posizione trovata per questo test.","No post-injuries found for this athlete.":"Nessun test post-infortunio trovato per questo atleta.","No tests found for this athlete. ":"Nessun test trovato per questo atleta.","Open Test Details":"Apri dettagli del test","No Test":"Nessun test","Post-Injury":"Post-infortunio","Countdown canceled":"Conto alla rovescia annullato","{{seconds}} seconds left":"Mancano {{seconds}} secondi","Stop Timer":"Ferma cronometro","Time is up":"Tempo scaduto","Failed to create shared workspace: {{error}}":"Impossibile creare lo spazio di lavoro condiviso: {{error}}","Created shared workspace: {{workspaceName}}<br>Invite code: <code>{{inviteCode}}</code><br>Invite link: <a href=\"{{inviteLink}}\" target=\"_blank\">{{inviteLink}}</a>":"Spazio di lavoro condiviso creato: {{workspaceName}}<br>Codice di invito: <code>{{inviteCode}}</code><br>Link di invito: <a href=\"{{inviteLink}}\" target=\"_blank\">{{inviteLink}}</a>","Failed to delete shared workspace: {{error}}":"Impossibile eliminare lo spazio di lavoro condiviso: {{error}}","Shared workspace deleted.":"Spazio di lavoro condiviso eliminato.","Failed to detach from shared workspace: {{error}}":"Impossibile scollegarsi dallo spazio di lavoro condiviso: {{error}}","Please enter an invite code.":"Inserisci un codice di invito.","Please enter a workspace name.":"Inserisci un nome per lo spazio di lavoro.","Invite code: <code>{{inviteCode}}</code><br>Invite link: <a href=\"{{inviteLink}}\" target=\"_blank\">{{inviteLink}}</a>":"Codice di invito: <code>{{inviteCode}}</code><br>Link di invito: <a href=\"{{inviteLink}}\" target=\"_blank\">{{inviteLink}}</a>","Failed to join shared workspace: {{error}}":"Impossibile entrare nello spazio di lavoro condiviso: {{error}}","Failed to join shared workspace from invite: {{error}}":"Impossibile entrare nello spazio di lavoro condiviso tramite l'invito: {{error}}","Joined shared workspace: {{workspaceName}}":"Accesso allo spazio di lavoro condiviso: {{workspaceName}}","Failed to leave shared workspace: {{error}}":"Impossibile uscire dallo spazio di lavoro condiviso: {{error}}","Left shared workspace.":"Hai lasciato lo spazio di lavoro condiviso.","Failed to load invite details: {{error}}":"Impossibile caricare i dettagli dell'invito: {{error}}","Member removed from workspace.":"Membro rimosso dallo spazio di lavoro.","Missing member id.":"ID membro mancante.","No active shared workspace.":"Nessuno spazio di lavoro condiviso attivo.","You do not own an active shared workspace.":"Non sei proprietario di uno spazio di lavoro condiviso attivo.","Only the workspace owner can remove members.":"Solo il proprietario dello spazio di lavoro può rimuovere i membri.","You already own another shared workspace. Delete that workspace first before joining a different one.":"Sei già proprietario di un altro spazio di lavoro condiviso. Eliminalo prima di entrare in uno spazio diverso.","Failed to remove member: {{error}}":"Impossibile rimuovere il membro: {{error}}","Failed to switch workspace: {{error}}":"Impossibile cambiare spazio di lavoro: {{error}}","Switched and joined shared workspace: {{workspaceName}}":"Passaggio e accesso allo spazio di lavoro condiviso: {{workspaceName}}","Delete shared workspace \"{{workspaceName}}\" for all members?":"Eliminare lo spazio di lavoro condiviso «{{workspaceName}}» per tutti i membri?","Joining shared workspace invite code {{inviteCode}} will replace your currently accessible athlete/test data in this app with the workspace data. Continue?":"Entrando nello spazio di lavoro condiviso con codice di invito {{inviteCode}}, i dati di atleti/test attualmente accessibili nell'app verranno sostituiti dai dati dello spazio di lavoro. Continuare?","This will remove this account from the current shared workspace. Continue?":"Questo account verrà rimosso dallo spazio di lavoro condiviso corrente. Continuare?","Remove this member from the workspace? They will immediately lose access.":"Rimuovere questo membro dallo spazio di lavoro? Perderà immediatamente l'accesso.","You are already in \"{{activeWorkspaceName}}\". Switch to the new workspace? This removes local access to data from the old workspace.":"Sei già in «{{activeWorkspaceName}}». Passare al nuovo spazio di lavoro? L'accesso locale ai dati del vecchio spazio verrà rimosso.","You are already in shared workspace \"{{activeWorkspaceName}}\". Switch to invite code {{inviteCode}}? This removes local access to data from the old workspace.":"Sei già nello spazio di lavoro condiviso «{{activeWorkspaceName}}». Passare al codice di invito {{inviteCode}}? L'accesso locale ai dati del vecchio spazio verrà rimosso.","Connected to {{name}} ({{email}})":"Connesso a {{name}} ({{email}})","Create Shared Workspace":"Crea spazio di lavoro condiviso","Delete Shared Workspace":"Elimina spazio di lavoro condiviso","Invite Code:":"Codice di invito:","Paste invite code":"Incolla il codice di invito","Join Shared Workspace":"Entra nello spazio di lavoro condiviso","Leave Shared Workspace":"Esci dallo spazio di lavoro condiviso","Remove":"Rimuovi","Workspace Members":"Membri dello spazio di lavoro","Workspace Name:":"Nome dello spazio di lavoro:","e.g. Varsity Team Doctors":"ad es. Medici della squadra universitaria","Member":"Membro","Owner":"Proprietario","Show Invite Link + Code":"Mostra link e codice di invito","Active Shared Workspace: <strong>{{workspaceName}}</strong> ({{role}})":"Spazio di lavoro condiviso attivo: <strong>{{workspaceName}}</strong> ({{role}})","No active Shared Workspace":"Nessuno spazio di lavoro condiviso attivo","Shared workspace data syncs between members and is stored in Cloudflare D1 (EU-only region).":"I dati dello spazio di lavoro condiviso vengono sincronizzati tra i membri e archiviati in Cloudflare D1 (solo regione UE).","Unlink Device":"Scollega dispositivo"}
+        };
+        window.__scat6T = (key, fallback = "") => window.__SCAT6_I18N?.runtime?.[key] ?? fallback;
+        window.__scat6Format = (key, vars = {}, fallback = "") => {
+            const template = window.__scat6T(key, fallback);
+            return template.replace(/\{\{\s*([a-zA-Z0-9_]+)\s*\}\}/g, (_, name) => String(vars[name] ?? ""));
+        };
+        window.__scat6TranslateText = (source) => window.__SCAT6_I18N?.messages?.[source] ?? source;
+        window.__scat6TranslateInElement = (root) => {
+            if (!root) return;
+            const skip = new Set(["SCRIPT", "STYLE"]);
+            const translateChunk = (chunk) => {
+                const normalized = chunk.replace(/\s+/g, " ").trim();
+                if (!normalized) return chunk;
+                const translated = window.__scat6TranslateText(normalized);
+                if (translated === normalized) return chunk;
+                const lead = chunk.match(/^\s*/)?.[0] ?? "";
+                const tail = chunk.match(/\s*$/)?.[0] ?? "";
+                return lead + translated + tail;
+            };
+
+            const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+            let node = walker.nextNode();
+            while (node) {
+                if (!skip.has(node.parentElement?.tagName)) {
+                    node.textContent = translateChunk(node.textContent ?? "");
+                }
+                node = walker.nextNode();
+            }
+
+            const attrs = ["placeholder", "aria-label", "title"];
+            if (root.querySelectorAll) {
+                root.querySelectorAll("*").forEach((el) => {
+                    attrs.forEach((attr) => {
+                        const value = el.getAttribute(attr);
+                        if (!value) return;
+                        const translated = window.__scat6TranslateText(value);
+                        if (translated !== value) el.setAttribute(attr, translated);
+                    });
+                });
+            }
+        };
+    </script>
+    <script>
+        (function initializeLanguageSelector() {
+            const cfg = window.__SCAT6_I18N;
+            const path = window.location.pathname;
+            const suffix = window.location.search + window.location.hash;
+            const saved = localStorage.getItem(cfg.storageKey);
+            const supported = new Set(cfg.supportedLanguages.map((lang) => lang.code));
+            const active = supported.has(saved) ? saved : cfg.defaultLanguage;
+            const toPath = (code) => (code === cfg.defaultLanguage ? '/index.html' : '/' + code + '/index.html');
+
+            if ((path === '/' || path === '/index.html') && active !== cfg.defaultLanguage) {
+                window.location.replace(toPath(active) + suffix);
+                return;
+            }
+
+            localStorage.setItem(cfg.storageKey, cfg.language);
+            window.addEventListener('DOMContentLoaded', () => {
+                window.__scat6TranslateInElement(document.body);
+
+                const observer = new MutationObserver((mutations) => {
+                    mutations.forEach((mutation) => {
+                        mutation.addedNodes.forEach((node) => {
+                            if (node.nodeType === 1) window.__scat6TranslateInElement(node);
+                        });
+                    });
+                });
+                observer.observe(document.body, { childList: true, subtree: true });
+
+                const globeButton = document.getElementById('language-globe-button');
+                const select = document.getElementById('language-select');
+                if (!globeButton || !select) return;
+
+                globeButton.setAttribute(
+                  'aria-label',
+                  window.__scat6T('runtime.lang.aria', 'Select language')
+                );
+
+                // Populate select options
+                cfg.supportedLanguages.forEach((lang) => {
+                    const option = document.createElement('option');
+                    option.value = lang.code;
+                    option.textContent = window.__scat6T(
+                      'runtime.lang.name.' + lang.code,
+                      lang.label
+                    );
+                    if (lang.code === cfg.language) option.selected = true;
+                    select.appendChild(option);
+                });
+
+                // Clicking globe opens native select
+                globeButton.addEventListener('click', () => {
+                    select.focus();
+                    select.click();
+                });
+
+                select.addEventListener('change', () => {
+                    const next = select.value;
+                    if (!supported.has(next)) return;
+                    localStorage.setItem(cfg.storageKey, next);
+                    window.location.assign(toPath(next) + suffix);
+                });
+            });
+        })();
+    </script>
+  </head>
+  <body style="visibility: hidden;">
+    <header>
+        <div>
+            <img src="/assets/icon.webp">
+            <h1>SCAT6 Web</h1>
+        </div>
+        <div>
+            <label for="theme" class="theme">
+                <span class="theme__toggle-wrap">
+                    <input id="theme" class="theme__toggle" type="checkbox" role="switch" name="theme" checked>
+                    <span class="theme__icon">
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                    </span>
+                </span>
+            </label>
+            
+    <label id="language-globe-button" class="language-globe-button">
+        <i class="fa-solid fa-globe"></i>
+        <select id="language-select"
+                class="language-select"
+                aria-label="Select language">
+        </select>
+    </label>
+            <button class="button button--red" id="delete-all-button">Elimina tutto &nbsp; <i class="fa-solid fa-trash"></i></button>
+            <button class="button" id="sync-button">Sincronizza &nbsp; <i class="fa-brands fa-google-drive"></i></button>
+            <a class="button" href="https://github.com/SanderGi/ConcussionAssessment">Informazioni &nbsp; <i class="fa-solid fa-book"></i></a>
+        </div>
+    </header>
+    <script>
+        // ============================ Theme ============================
+        const toggle = document.getElementById("theme");
+        const root = document.documentElement;
+
+        toggle.addEventListener("change", () => {
+            const theme = toggle.checked ? "dark" : "light";
+            root.setAttribute("data-theme", theme);
+            localStorage.setItem("theme", theme);
+        });
+
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme) {
+            document.documentElement.setAttribute("data-theme", savedTheme);
+            toggle.checked = savedTheme != "light";
+        } else {
+            const prefersLight = window.matchMedia(
+                "(prefers-color-scheme: light)"
+            ).matches;
+            document.documentElement.setAttribute(
+                "data-theme",
+                prefersLight ? "light" : "dark"
+            );
+            toggle.checked = !prefersLight;
+        }
+    </script>
+    <main id="test-management">
+        <section>
+            <h2>Gestione della valutazione della concussione cerebrale <a style="font-size: 0.6em; vertical-align: middle;" href="/assets/scat6-about.png" target="_blank" aria-label="prima pagina dello SCAT6 cartaceo"><i class="fa-solid fa-circle-info"></i></a></h2>
+            <p>Usa questa applicazione web per somministrare le valutazioni della concussione cerebrale ai tuoi atleti. I dati vengono salvati localmente nel browser, a meno che non selezioni «Elimina tutto». Puoi anche sincronizzarli con Google Drive. Consulta <a href="https://github.com/SanderGi/ConcussionAssessment/tree/main?tab=readme-ov-file#frequently-asked-questions-faq" target="_blank">Domande frequenti</a> e <a href="https://github.com/SanderGi/ConcussionAssessment/blob/main/PRIVACY.md" target="_blank">Informativa sulla privacy</a> per maggiori dettagli.</p>
+            <p>Fai clic sul pulsante rotondo Aggiungi qui sotto per creare il profilo di un atleta. Potrai avviare una valutazione basale e usare il profilo per confrontare nel tempo i punteggi relativi alla concussione cerebrale.</p>
+        </section>
+        <section>
+            Cerca per nome: <input type="search" id="search-input" placeholder="Inserisci parte del nome di un atleta"> <select id="number-of-athletes" aria-label="numero di atleti da mostrare">
+                <option value="5">Mostra 5</option>
+                <option value="10">Mostra 10</option>
+                <option value="50">Mostra 50</option>
+                <option value="9999">Mostra tutti</option>
+            </select>
+            <button class="button" id="export-selected">Esporta &nbsp; <i class="fa-solid fa-file-export"></i></button>
+        </section>
+        <div id="athletes" style="width: 100%;" class="center"></div>
+        <button class="add" id="add-athlete-button" aria-label="aggiungi atleta">
+            <i class="fa-solid fa-plus"></i>
+        </button>
+    </main>
+    <main style="display: none;" id="red-flags">
+        <section style="position: relative;">
+            <button style="background: none; border: none; position: absolute; top: 1em; right: 1em;" onclick="show('/assets/neuroscreen-flowchart.png', 'flow chart')"><img src="/assets/flowchart.png" alt="flow chart icon" style="width: 2em; height: 2em; background: darkgrey; border-radius: 4px;"></button>
+            <h2>Red flag</h2>
+            <p>Le red flag sono segni e sintomi che possono indicare una lesione più grave. Se ne è presente una, l'atleta deve essere immediatamente indirizzato a un professionista sanitario.</p>
+            <ul style="text-align: left;">
+                <li>Dolore o dolorabilità al collo</li>
+                <li>Crisi epilettiche o convulsioni</li>
+                <li>Visione doppia</li>
+                <li>Perdita di coscienza</li>
+                <li>Debolezza o formicolio/bruciore in più di un braccio o alle gambe</li>
+                <li>Peggioramento dello stato di coscienza</li>
+                <li>Vomito</li>
+                <li>Cefalea grave o ingravescente</li>
+                <li>Sempre più irrequieto, agitato o aggressivo</li>
+                <li>Deformità visibile del cranio</li>
+            </ul>
+            <button class="button button--red" onclick="saveTestResult('red_flags', 'YES'); removeAthleteFromPlayAlert('obervable-signs')">Red flag presenti</button>
+            <button class="button button--green" onclick="saveTestResult('red_flags', 'NO'); renderTestSection('obervable-signs')">Nessuna red flag</button>
+        </section>
+    </main>
+    <main style="display: none;" id="obervable-signs">
+        <section style="position: relative">
+            <button style="background: none; border: none; position: absolute; top: 1em; right: 1em;" onclick="show('/assets/neuroscreen-flowchart.png', 'flow chart')"><img src="/assets/flowchart.png" alt="flow chart icon" style="width: 2em; height: 2em; background: darkgrey; border-radius: 4px;"></button>
+            <h2>Segni osservabili</h2>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em;" data-value="Lying motionless on playing surface"><input type="checkbox" class="observable-signs"/> Sdraiato immobile sul campo di gioco.</label>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em;" data-value="Falling unprotected to the surface"><input type="checkbox" class="observable-signs"/> Caduta a terra senza protezione.</label>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em;" data-value="Balance/gait difficulties, motor incoordination, ataxia: stumbling, slow/laboured movements"><input type="checkbox" class="observable-signs"/> Difficoltà di equilibrio/cammino, incoordinazione motoria, atassia: inciampo, movimenti lenti/faticosi.</label>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em;" data-value="Disorientation or confusion, staring or limited responsiveness, or an inability to respond appropriately to questions"><input type="checkbox" class="observable-signs"/> Disorientamento o confusione, sguardo fisso o reattività limitata, oppure incapacità di rispondere adeguatamente alle domande.</label>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em;" data-value="Blank or vacant look"><input type="checkbox" class="observable-signs"/> Sguardo vuoto o assente.</label>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em;" data-value="Facial injury after head trauma"><input type="checkbox" class="observable-signs"/> Lesione facciale dopo un trauma cranico.</label>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em;" data-value="Impact seizure"><input type="checkbox" class="observable-signs"/> Crisi epilettica post impatto.</label>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em;" data-value="High-risk mechanism of injury (sportdependent)"><input type="checkbox" class="observable-signs"/> Meccanismo di infortunio ad alto rischio (dipendente dallo sport).</label>
+            <br><br>
+            <button class="button button--red" onclick="saveTestResult('observable_signs', getChecked('observable-signs')); saveTestResult('observable_signs_source', 'WITNESSED'); removeAthleteFromPlayAlert('glasgow-scale')">Testimoniato</button>
+            <button class="button button--red" onclick="saveTestResult('observable_signs', getChecked('observable-signs')); saveTestResult('observable_signs_source', 'VIDEO'); removeAthleteFromPlayAlert('glasgow-scale')">Osservato a video</button>
+            <button class="button button--green" onclick="saveTestResult('observable_signs', []); saveTestResult('observable_signs_source', 'NO'); renderTestSection('glasgow-scale')">Nessuno</button>
+        </section>
+    </main>
+    <main style="display: none;" id="glasgow-scale">
+        <section style="position: relative">
+            <button style="background: none; border: none; position: absolute; top: 1em; right: 1em;" onclick="show('/assets/neuroscreen-flowchart.png', 'flow chart')"><img src="/assets/flowchart.png" alt="flow chart icon" style="width: 2em; height: 2em; background: darkgrey; border-radius: 4px;"></button>
+            <h2>Glasgow Coma Scale</h2>
+            <h3>Miglior risposta oculare</h3>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="radio" name="eye-response" value="1"/> Non apre gli occhi per nessun motivo.</label>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="radio" name="eye-response" value="2"/> Apre gli occhi al dolore (pizzicotto o pressione).</label>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="radio" name="eye-response" value="3"/> Apre gli occhi allo stimolo verbale (quando gli viene chiesto di aprirli).</label>
+            <label class="left-align green" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="radio" name="eye-response" value="4"/> Apre gli occhi spontaneamente.</label>
+            
+            <h3>Miglior risposta verbale</h3>
+            <p style="margin-top: 0">L'atleta conosce il proprio nome, il luogo in cui si trova, il giorno/l'anno, ecc.?</p>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="radio" name="verbal-response" value="1"/> Nessuna risposta verbale.</label>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="radio" name="verbal-response" value="2"/> Suoni o rumori incomprensibili.</label>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="radio" name="verbal-response" value="3"/> Parole inappropriate. Parole casuali ma comprensibili.</label>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="radio" name="verbal-response" value="4"/> Confuso. Risponde, ma non è pienamente consapevole di ciò che accade.</label>
+            <label class="left-align green" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="radio" name="verbal-response" value="5"/> Orientato. Risponde correttamente.</label>
+
+            <h3>Miglior risposta motoria</h3>
+            <p style="margin-top: 0">L'atleta riesce a eseguire istruzioni motorie (ad es. «solleva il braccio») o a reagire al dolore (pizzicotto o pressione)?</p>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="radio" name="motor-response" value="1"/> Nessuna risposta motoria.</label>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="radio" name="motor-response" value="2"/> Estensione dei muscoli (verso l'esterno) al dolore.</label>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="radio" name="motor-response" value="3"/> Flessione anormale al dolore (contrazione dei muscoli verso l'interno).</label>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="radio" name="motor-response" value="4"/> Flessione/retrazione (come riflesso) al dolore.</label>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="radio" name="motor-response" value="5"/> Localizza il dolore (si allontana intenzionalmente dallo stimolo doloroso).</label>
+            <label class="left-align green" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="radio" name="motor-response" value="6"/> Esegue i comandi.</label>
+
+            <button class="button button--green" id="complete-gcs-btn">Avvia valutazione del rachide cervicale &nbsp; <i class="fa-solid fa-forward"></i></button>
+            <script>
+                document.getElementById('complete-gcs-btn').onclick = () => {
+                    saveTestResult('glasgow_e', "" + getRadioInt('eye-response'));
+                    saveTestResult('glasgow_v', "" + getRadioInt('verbal-response'));
+                    saveTestResult('glasgow_m', "" + getRadioInt('motor-response'));
+                    const score = getRadioInt('eye-response') + getRadioInt('verbal-response') + getRadioInt('motor-response');
+                    if (isNaN(score)) {
+                        alert('Please fill out all fields');
+                        return;
+                    }
+                    saveTestResult('glasgow_coma_scale', score);
+                    saveTestResult('glasgow_timestamp', Date.now());
+                    if (score < 15) {
+                        removeAthleteFromPlayAlert('cervical-spine');
+                    } else {
+                        renderTestSection('cervical-spine');
+                    }
+                }
+            </script>
+        </section>
+    </main>
+    <main style="display: none;" id="cervical-spine">
+        <section style="position: relative;">
+            <button style="background: none; border: none; position: absolute; top: 1em; right: 1em;" onclick="show('/assets/neuroscreen-flowchart.png', 'flow chart')"><img src="/assets/flowchart.png" alt="flow chart icon" style="width: 2em; height: 2em; background: darkgrey; border-radius: 4px;"></button>
+            <h2>Rachide cervicale</h2>
+            <p style="margin-top: 0;">In un paziente non lucido o pienamente cosciente, si deve ipotizzare una lesione del rachide cervicale e adottare le precauzioni spinali. Seleziona ogni casella per «sì»; lasciala deselezionata per «no».</p>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;" data-value="Athlete reports neck pain at rest"><input type="checkbox" class="cervical-spine" data-should="false"/> L'atleta riferisce dolore al collo a riposo.</label>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;" data-value="There is tenderness to palpation"><input type="checkbox" class="cervical-spine" data-should="false"/> È presente dolorabilità alla palpazione.</label>
+            <label class="left-align green" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;" data-value="If NO neck pain and NO tenderness, athlete has full range of ACTIVE pain free movement"><input type="checkbox" class="cervical-spine" data-should="true"/> Se NON c'è dolore al collo e NON c'è dolorabilità, l'atleta esegue completamente i movimenti ATTIVI senza dolore.</label>
+            <label class="left-align green" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;" data-value="Limb strength and sensation is normal"><input type="checkbox" class="cervical-spine" data-should="true"/> La forza e la sensibilità degli arti sono normali.</label>
+
+            <button class="button button--red" onclick="removeAthleteFromPlayAlert('coordination', window.__scat6T('runtime.popup.remove_from_play_spinal', 'Spinal immobilization and cervical collar. Then remove athlete from play for immediate medical assessment or transport to hospital/medical center.'))">Non pienamente cosciente</button>
+            <button class="button button--green" id="complete-cervical-spine-btn">Avvia coordinazione &nbsp; <i class="fa-solid fa-forward"></i></button>
+            <script>
+                document.getElementById('complete-cervical-spine-btn').addEventListener('click', () => {
+                    saveTestResult('cervical_spine', getChecked('cervical-spine')); 
+                    const checkboxes = document.querySelectorAll('.cervical-spine');
+                    for (const checkbox of checkboxes) {
+                        if (checkbox.checked.toString() !== checkbox.dataset.should) {
+                            removeAthleteFromPlayAlert('coordination');
+                            return;
+                        }
+                    }
+                    renderTestSection('coordination');
+                });
+            </script>
+        </section>
+    </main>
+    <main style="display: none;" id="coordination">
+        <section style="position: relative;">
+            <button style="background: none; border: none; position: absolute; top: 1em; right: 1em;" onclick="show('/assets/neuroscreen-flowchart.png', 'flow chart')"><img src="/assets/flowchart.png" alt="flow chart icon" style="width: 2em; height: 2em; background: darkgrey; border-radius: 4px;"></button>
+            <h2>Coordinazione e valutazione oculo-motoria</h2>
+            <label class="left-align green" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em;" data-value="Coordination. Finger-to-nose is normal for both hands with eyes open and closed"><input type="checkbox" class="coordination"/> Coordinazione: il test dito-naso è normale per entrambe le mani, a occhi aperti e chiusi.</label>
+            <label class="left-align green" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em;" data-value="Ocular/Motor. Athlete can look side-to-side and up-and-down without moving their head/neck or getting double vision"><input type="checkbox" class="coordination"/> Oculo-motorio: l'atleta riesce a guardare lateralmente e verso l'alto e il basso senza muovere la testa/il collo né avere visione doppia.</label>
+            <label class="left-align green" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em;" data-value="Observed extraocular eye movements are normal"><input type="checkbox" class="coordination"/> I movimenti extraoculari osservati sono normali.</label>
+            <p>Descrivi eventuali anomalie:</p>
+            <textarea class="textarea" id="coordination-abnomalities"></textarea>
+            <button class="button button--green" onclick="saveTestResult('coordination_abnomalities', document.getElementById('coordination-abnomalities').value); saveTestResult('coordination', getChecked('coordination')); getChecked('coordination').length === 3 ? renderTestSection('maddocks-score') : removeAthleteFromPlayAlert('maddocks-score')">Avvia domande di Maddocks &nbsp; <i class="fa-solid fa-forward"></i></button>
+        </section>
+    </main>
+    <main style="display: none;" id="maddocks-score">
+        <section style="position: relative;">
+            <button style="background: none; border: none; position: absolute; top: 1em; right: 1em;" onclick="show('/assets/neuroscreen-flowchart.png', 'flow chart')"><img src="/assets/flowchart.png" alt="flow chart icon" style="width: 2em; height: 2em; background: darkgrey; border-radius: 4px;"></button>
+            <h2>Punteggio di Maddocks</h2>
+            <p style="margin-top: 0;">Esaminatore: leggi la frase seguente e poni le domande indicate (adattandole allo sport pertinente). Seleziona le domande a cui è stata data una risposta corretta.</p>
+            <p style="font-style: italic;">«Sto per farti alcune domande. Ascolta attentamente e fai del tuo meglio. Per prima cosa, dimmi che cosa è successo.» &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
+            <label class="left-align green" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;" data-value="What venue are we at today?"><input type="checkbox" class="maddocks"/> In che luogo siamo oggi?</label>
+            <label class="left-align green" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;" data-value="Which half is it now?"><input type="checkbox" class="maddocks"/> In che tempo di gioco siamo?</label>
+            <label class="left-align green" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;" data-value="Who scored last in this match?"><input type="checkbox" class="maddocks"/> Chi ha segnato per ultimo in questa partita?</label>
+            <label class="left-align green" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;" data-value="What team did you play last week / game?"><input type="checkbox" class="maddocks"/> Contro quale squadra hai giocato la scorsa settimana/nell'ultima partita?</label>
+            <label class="left-align green" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;" data-value="Did your team win the last game?"><input type="checkbox" class="maddocks"/> La tua squadra ha vinto l'ultima partita?</label>
+            <button class="button button--green" id="maddocks-end-btn">Avvia valutazione dei sintomi &nbsp; <i class="fa-solid fa-forward"></i></button>
+            <script>
+                document.getElementById('maddocks-end-btn').addEventListener('click', () => {
+                    saveTestResult('maddocks', getChecked('maddocks'));
+                    const score = getChecked('maddocks').length;
+                    saveTestResult('maddocks_score', score);
+                    const test = getTest();
+                    const next = test.test_type === 'BASELINE' ? 'symptom-evaluation-baseline' : 'symptom-evaluation-post';
+                    if (score < 5) {
+                        removeAthleteFromPlayAlert(next);
+                    } else {
+                        renderTestSection(next);
+                    }
+                });
+            </script>
+        </section>
+    </main>
+    <main style="display: none;" id="symptom-evaluation-baseline">
+        <section>
+            <h2>Valutazione basale dei sintomi</h2>
+            <p style="margin-top: 0">Esaminatore: dopo aver fornito le istruzioni, consegna il dispositivo all'atleta affinché compili la scala dei sintomi (qui sotto).</p>
+            <p style="font-style: italic;">Valuta i tuoi sintomi in base a come ti senti di solito, dove 1 indica un sintomo molto lieve e 6 un sintomo grave. 0 indica che il sintomo non è presente. &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Mal di testa: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider-baseline" list="symptom-slider-markers"> <input type="number" class="symptom-baseline" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Senso di pressione alla testa: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider-baseline" list="symptom-slider-markers"> <input type="number" class="symptom-baseline" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Dolore al collo: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider-baseline" list="symptom-slider-markers"> <input type="number" class="symptom-baseline" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Nausea o vomito: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider-baseline" list="symptom-slider-markers"> <input type="number" class="symptom-baseline" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Vertigine: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider-baseline" list="symptom-slider-markers"> <input type="number" class="symptom-baseline" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Visione offuscata: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider-baseline" list="symptom-slider-markers"> <input type="number" class="symptom-baseline" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Problemi di equilibrio: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider-baseline" list="symptom-slider-markers"> <input type="number" class="symptom-baseline" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Sensibilità alla luce: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider-baseline" list="symptom-slider-markers"> <input type="number" class="symptom-baseline" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Sensibilità al rumore: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider-baseline" list="symptom-slider-markers"> <input type="number" class="symptom-baseline" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Sentirsi rallentato: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider-baseline" list="symptom-slider-markers"> <input type="number" class="symptom-baseline" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Sentirsi «annebbiato»: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider-baseline" list="symptom-slider-markers"> <input type="number" class="symptom-baseline" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">«Non mi sento bene»: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider-baseline" list="symptom-slider-markers"> <input type="number" class="symptom-baseline" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Difficoltà a concentrarsi: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider-baseline" list="symptom-slider-markers"> <input type="number" class="symptom-baseline" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Difficoltà a ricordare: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider-baseline" list="symptom-slider-markers"> <input type="number" class="symptom-baseline" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Spossatezza o poca energia: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider-baseline" list="symptom-slider-markers"> <input type="number" class="symptom-baseline" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Confusione: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider-baseline" list="symptom-slider-markers"> <input type="number" class="symptom-baseline" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Sonnolenza: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider-baseline" list="symptom-slider-markers"> <input type="number" class="symptom-baseline" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Più emotività: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider-baseline" list="symptom-slider-markers"> <input type="number" class="symptom-baseline" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Irritabilità: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider-baseline" list="symptom-slider-markers"> <input type="number" class="symptom-baseline" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Tristezza: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider-baseline" list="symptom-slider-markers"> <input type="number" class="symptom-baseline" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Nervoso o ansioso: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider-baseline" list="symptom-slider-markers"> <input type="number" class="symptom-baseline" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Difficoltà ad addormentarsi: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider-baseline" list="symptom-slider-markers"> <input type="number" class="symptom-baseline" value="0" style="min-width: 5ch;"/></div></label>
+            <br>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em;"><input type="checkbox" id="symptoms_worse_with_physical_baseline"> Indicare se i sintomi peggiorano con l'attività fisica.</label>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em;"><input type="checkbox" id="symptoms_worse_with_mental_baseline"> Indicare se i sintomi peggiorano con l'attività mentale.</label>
+            <label class="left-align spread-inline">Se 100% significa sentirsi perfettamente normale, a quale percentuale della normalità ritieni di sentirti? <input type="number" value="100" id="symptoms_percentage_normal_baseline"/></label>
+            <label for="symptoms_description_baseline">Se non è 100%, perché?</label>
+            <textarea class="textarea" id="symptoms_description_baseline"></textarea>
+
+            <button class="button button--green" id="symptom-baseline-end-btn">Avvia orientamento &nbsp; <i class="fa-solid fa-forward"></i></button>
+            <script>
+                for (const symptom of document.querySelectorAll('.symptom-baseline')) {
+                    symptom.addEventListener('input', (e) => {
+                        const value = parseInt(e.target.value);
+                        if (value > 6) {
+                            e.target.value = 6;
+                        }
+                        if (value < 0) {
+                            e.target.value = 0;
+                        }
+                        e.target.previousElementSibling.value = e.target.value;
+                    });
+                }
+                for (const symptom of document.querySelectorAll('.symptom-slider-baseline')) {
+                    symptom.addEventListener('input', (e) => {
+                        e.target.nextElementSibling.value = e.target.value;
+                    });
+                }
+                document.getElementById('symptoms_percentage_normal_baseline').addEventListener('input', (e) => {
+                    const value = parseInt(e.target.value);
+                    if (value > 100) {
+                        e.target.value = 100;
+                    }
+                    if (value < 0) {
+                        e.target.value = 0;
+                    }
+                });
+                document.getElementById('symptom-baseline-end-btn').onclick = () => {
+                    const symptoms = document.querySelectorAll('.symptom-baseline');
+                    const numSymptoms = Array.from(symptoms).filter(s => parseInt(s.value) > 0).length;
+                    const symtomSeverities = Array.from(symptoms).map(s => parseInt(s.value));
+                    const severity = symtomSeverities.reduce((a, b) => a + b, 0);
+                    saveTestResult('symptom_number', numSymptoms);
+                    saveTestResult('symptom_scores', symtomSeverities);
+                    saveTestResult('symptom_severity', severity);
+                    saveTestResult('symptoms_worse_with_physical', document.getElementById('symptoms_worse_with_physical_baseline').checked);
+                    saveTestResult('symptoms_worse_with_mental', document.getElementById('symptoms_worse_with_mental_baseline').checked);
+                    saveTestResult('symptoms_percentage_normal', parseInt(document.getElementById('symptoms_percentage_normal_baseline').value));
+                    saveTestResult('symptoms_description', document.getElementById('symptoms_description_baseline').value);
+                    renderTestSection('orientation');
+                };
+            </script>
+        </section>
+    </main>
+    <main style="display: none;" id="symptom-evaluation-post">
+        <section>
+            <h2>Valutazione dei sintomi</h2>
+            <p style="margin-top: 0">Esaminatore: dopo aver fornito le istruzioni, consegna il dispositivo all'atleta affinché compili la scala dei sintomi (qui sotto).</p>
+            <p style="font-style: italic;">Valuta i tuoi sintomi in base a come ti senti ora, dove 1 indica un sintomo molto lieve e 6 un sintomo grave. 0 indica che il sintomo non è presente. &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Mal di testa: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider" list="symptom-slider-markers"> <input type="number" class="symptom" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Senso di pressione alla testa: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider" list="symptom-slider-markers"> <input type="number" class="symptom" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Dolore al collo: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider" list="symptom-slider-markers"> <input type="number" class="symptom" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Nausea o vomito: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider" list="symptom-slider-markers"> <input type="number" class="symptom" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Vertigine: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider" list="symptom-slider-markers"> <input type="number" class="symptom" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Visione offuscata: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider" list="symptom-slider-markers"> <input type="number" class="symptom" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Problemi di equilibrio: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider" list="symptom-slider-markers"> <input type="number" class="symptom" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Sensibilità alla luce: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider" list="symptom-slider-markers"> <input type="number" class="symptom" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Sensibilità al rumore: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider" list="symptom-slider-markers"> <input type="number" class="symptom" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Sentirsi rallentato: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider" list="symptom-slider-markers"> <input type="number" class="symptom" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Sentirsi «annebbiato»: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider" list="symptom-slider-markers"> <input type="number" class="symptom" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">«Non mi sento bene»: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider" list="symptom-slider-markers"> <input type="number" class="symptom" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Difficoltà a concentrarsi: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider" list="symptom-slider-markers"> <input type="number" class="symptom" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Difficoltà a ricordare: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider" list="symptom-slider-markers"> <input type="number" class="symptom" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Spossatezza o poca energia: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider" list="symptom-slider-markers"> <input type="number" class="symptom" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Confusione: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider" list="symptom-slider-markers"> <input type="number" class="symptom" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Sonnolenza: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider" list="symptom-slider-markers"> <input type="number" class="symptom" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Più emotività: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider" list="symptom-slider-markers"> <input type="number" class="symptom" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Irritabilità: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider" list="symptom-slider-markers"> <input type="number" class="symptom" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Tristezza: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider" list="symptom-slider-markers"> <input type="number" class="symptom" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Nervoso o ansioso: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider" list="symptom-slider-markers"> <input type="number" class="symptom" value="0" style="min-width: 5ch;"/></div></label>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Difficoltà ad addormentarsi: <div style="display: flex; width: -webkit-fill-available; justify-content: flex-end; max-width: 60vw;"><input type="range" min="0" max="6" value="0" style="width: -webkit-fill-available; margin-left: 2em; margin-right: 2em;" class="symptom-slider" list="symptom-slider-markers"> <input type="number" class="symptom" value="0" style="min-width: 5ch;"/></div></label>
+            <datalist id="symptom-slider-markers">
+                <option value="0"></option>
+                <option value="1"></option>
+                <option value="2"></option>
+                <option value="3"></option>
+                <option value="4"></option>
+                <option value="5"></option>
+                <option value="6"></option>
+            </datalist>
+            <br>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em;"><input type="checkbox" id="symptoms_worse_with_physical"> Indicare se i sintomi peggiorano con l'attività fisica.</label>
+            <label class="left-align red" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em;"><input type="checkbox" id="symptoms_worse_with_mental"> Indicare se i sintomi peggiorano con l'attività mentale.</label>
+            <label class="left-align spread-inline">Se 100% significa sentirsi perfettamente normale, a quale percentuale della normalità ritieni di sentirti? <input type="number" value="100" id="symptoms_percentage_normal"/></label>
+            <label for="symptoms_description">Se non è 100%, perché?</label>
+            <textarea class="textarea" id="symptoms_description"></textarea>
+            
+            <button class="button button--green" id="symptom-end-btn">Avvia orientamento &nbsp; <i class="fa-solid fa-forward"></i></button>
+            <script>
+                for (const symptom of document.querySelectorAll('.symptom')) {
+                    symptom.addEventListener('input', (e) => {
+                        const value = parseInt(e.target.value);
+                        if (value > 6) {
+                            e.target.value = 6;
+                        }
+                        if (value < 0) {
+                            e.target.value = 0;
+                        }
+                        e.target.previousElementSibling.value = e.target.value;
+                    });
+                }
+                for (const symptom of document.querySelectorAll('.symptom-slider')) {
+                    symptom.addEventListener('input', (e) => {
+                        e.target.nextElementSibling.value = e.target.value;
+                    });
+                }
+                document.getElementById('symptoms_percentage_normal').addEventListener('input', (e) => {
+                    const value = parseInt(e.target.value);
+                    if (value > 100) {
+                        e.target.value = 100;
+                    }
+                    if (value < 0) {
+                        e.target.value = 0;
+                    }
+                });
+                document.getElementById('symptom-end-btn').onclick = () => {
+                    const symptoms = document.querySelectorAll('.symptom');
+                    const numSymptoms = Array.from(symptoms).filter(s => parseInt(s.value) > 0).length;
+                    const symtomSeverities = Array.from(symptoms).map(s => parseInt(s.value));
+                    const severity = symtomSeverities.reduce((a, b) => a + b, 0);
+                    saveTestResult('symptom_number', numSymptoms);
+                    saveTestResult('symptom_scores', symtomSeverities)
+                    saveTestResult('symptom_severity', severity);
+                    saveTestResult('symptoms_worse_with_physical', document.getElementById('symptoms_worse_with_physical').checked);
+                    saveTestResult('symptoms_worse_with_mental', document.getElementById('symptoms_worse_with_mental').checked);
+                    saveTestResult('symptoms_percentage_normal', parseInt(document.getElementById('symptoms_percentage_normal').value));
+                    saveTestResult('symptoms_description', document.getElementById('symptoms_description').value);
+                    renderTestSection('orientation');
+                };
+            </script>
+        </section>
+    </main>
+    <main style="display: none;" id="orientation">
+        <section>
+            <h2>Orientamento</h2>
+            <p style="margin-top: 0;">Esaminatore: poni all'atleta le seguenti domande e seleziona quelle a cui risponde correttamente.</p>
+            <label class="left-align green" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;" data-value="What month is it?"><input type="checkbox" class="orientation"/> Che mese è?</label>
+            <label class="left-align green" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;" data-value="What is the date today?"><input type="checkbox" class="orientation"/> Qual è la data di oggi?</label>
+            <label class="left-align green" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;" data-value="What is the day of the week?"><input type="checkbox" class="orientation"/> Che giorno della settimana è?</label>
+            <label class="left-align green" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;" data-value="What year is it?"><input type="checkbox" class="orientation"/> Che anno è?</label>
+            <label class="left-align green" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;" data-value="What time is it right now (within 1 hour)?"><input type="checkbox" class="orientation"/> Che ore sono ora? (entro un'ora)</label>
+            <button class="button button--green" id="orientation-end-btn">Avvia memoria immediata &nbsp; <i class="fa-solid fa-forward"></i></button>
+            <script>
+                document.getElementById('orientation-end-btn').addEventListener('click', () => {
+                    saveTestResult('orientation_correct', getChecked('orientation'));
+                    const score = getChecked('orientation').length;
+                    saveTestResult('orientation', score);
+                    renderTestSection('immediate-memory');
+                });
+            </script>
+        </section>
+    </main>
+    <main style="display: none;" id="immediate-memory">
+        <section>
+            <h2>Memoria immediata</h2>
+            <p style="margin-top: 0;">Esaminatore: leggerai l'elenco di parole 3 volte, registrando quante parole l'atleta ricorda dopo ogni lettura. Tutte e 3 le prove devono essere somministrate indipendentemente dal numero di risposte corrette. Inizia la prima prova dicendo:</p>
+            <p style="font-style: italic;">«Metterò alla prova la tua memoria. Ti leggerò un elenco di parole e, quando avrò finito, ripeterai tutte le parole che riesci a ricordare, in qualsiasi ordine.» &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent); readMemoryWords();"></i></p>
+            <p>Esaminatore: per la seconda e la terza prova, pronuncia quanto segue:</p>
+            <p style="font-style: italic;">«Ripeterò lo stesso elenco. Ripeti tutte le parole che riesci a ricordare, in qualsiasi ordine, anche se le hai già pronunciate in una prova precedente.» &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent); readMemoryWords();"></i></p>
+            <p>Esaminatore: seleziona le parole qui sotto man mano che l'atleta le ricorda, per barrarle. In questo modo potrai tenere traccia di quante ne ricorda a ogni prova.</p>
+            <ul id="wordlist"></ul>
+            <table style="margin: auto;">
+                <thead><tr><th>Prova 1</th><th>Prova 2</th><th>Prova 3</th></tr></thead>
+                <tbody>
+                    <tr id="immediate-memory-data">
+                        <td data-title="Prova 1"><input type="number" value="0" style="min-width: 6ch; outline: 1px solid var(--secondary)"></td>
+                        <td data-title="Prova 2"><input type="number" value="0" style="min-width: 6ch;"></td>
+                        <td data-title="Prova 3"><input type="number" value="0" style="min-width: 6ch;"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="button" id="immediate-memory-next-trial-btn">Prova successiva &nbsp; <i class="fa-solid fa-forward"></i></button>
+            <button class="button button--green" id="immediate-memory-end-btn">Avvia concentrazione &nbsp; <i class="fa-solid fa-forward"></i></button>
+            <script>
+                const immediate_memory_score_by_trial_by_word = [[], [], []];
+                let currentTrial = -1;
+                const inputs = document.getElementById('immediate-memory-data');
+                const nextTrialButton = document.getElementById('immediate-memory-next-trial-btn');
+                const getActiveTrial = () => currentTrial == -1 ? 0 : currentTrial;
+                const showTrialWords = () => {
+                    const trial = getActiveTrial();
+                    const selectedWords = immediate_memory_score_by_trial_by_word[trial];
+                    const trialIsEmpty = parseInt(inputs.children[trial].children[0].value) === 0;
+                    for (const [index, word] of Array.from(document.getElementById('wordlist').children).entries()) {
+                        const isSelected = !trialIsEmpty && selectedWords[index] === true;
+                        word.style.textDecoration = isSelected ? 'line-through' : 'none';
+                        word.style.color = isSelected ? 'darkgreen' : '';
+                    }
+                    if (trialIsEmpty) immediate_memory_score_by_trial_by_word[trial] = [];
+                };
+                const selectTrial = (trial) => {
+                    inputs.children[getActiveTrial()].children[0].style.outline = 'none';
+                    currentTrial = Math.max(0, Math.min(trial, 2));
+                    inputs.children[currentTrial].children[0].style.outline = '1px solid var(--secondary)';
+                    nextTrialButton.disabled = currentTrial === 2;
+                    showTrialWords();
+                };
+                inputs.addEventListener('focusin', (e) => {
+                    selectTrial(Array.from(inputs.children).indexOf(e.target.parentElement));
+                });
+                nextTrialButton.addEventListener('click', () => selectTrial(getActiveTrial() + 1));
+                document.addEventListener("renderTestSection", async (event) => {
+                    if (event.detail === "immediate-memory") {
+                        currentTrial = -1;
+                        for (const input of inputs.querySelectorAll('input')) input.style.outline = 'none';
+                        inputs.children[0].children[0].style.outline = '1px solid var(--secondary)';
+                        nextTrialButton.disabled = false;
+                        const wordlist = document.getElementById('wordlist');
+                        wordlist.innerHTML = '';
+                        const choices = [
+                            ['Jacket', 'Arrow', 'Pepper', 'Cotton', 'Movie', 'Dollar', 'Honey', 'Mirror', 'Saddle', 'Anchor'],
+                            ['Finger', 'Penny', 'Blanket', 'Lemon', 'Insect', 'Candle', 'Paper', 'Sugar', 'Sandwich', 'Wagon'],
+                            ['Baby', 'Monkey', 'Perfume', 'Sunset', 'Iron', 'Elbow', 'Apple', 'Carpet', 'Saddle', 'Bubble']
+                        ];
+                        const words = choices[Math.floor(Math.random() * choices.length)];
+                        for (const word of words) {
+                            const li = document.createElement('li');
+                            li.textContent = word;
+                            li.onclick = () => {
+                                const wasCrossed = li.style.textDecoration === 'line-through';
+                                li.style.textDecoration = wasCrossed ? 'none' : 'line-through';
+                                li.style.color = wasCrossed ? '' : 'darkgreen';
+                                const numCrossed = Array.from(wordlist.children).filter(w => w.style.textDecoration === 'line-through').length;
+                                inputs.children[currentTrial == -1 ? 0 : currentTrial].children[0].value = numCrossed;
+                                const crossed = Array.from(wordlist.children).map(w => w.style.textDecoration === 'line-through');
+                                immediate_memory_score_by_trial_by_word[currentTrial == -1 ? 0 : currentTrial] = crossed;
+                            }
+                            wordlist.appendChild(li);
+                        }
+                        window.readMemoryWords = () => {
+                            selectTrial(currentTrial + 1);
+                            readListOneWPS(words, 1);
+                        };
+                        saveTestResult('immediate_memory_words', words);
+                    }
+                });
+                document.getElementById('immediate-memory-end-btn').addEventListener('click', () => {
+                    const trials = document.querySelectorAll('#immediate-memory-data input');
+                    const scores = Array.from(trials).map(t => parseInt(t.value));
+                    saveTestResult('immediate_memory', scores.reduce((a, b) => a + b, 0));
+                    saveTestResult('immediate_memory_timestamp', Date.now());
+                    saveTestResult('immediate_memory_score_by_trial_by_word', immediate_memory_score_by_trial_by_word);
+                    renderTestSection('concentration');
+                });
+            </script>
+        </section>
+    </main>
+    <main style="display: none;" id="concentration">
+        <section>
+            <h2>Concentrazione</h2>
+            <h3>Cifre all'indietro</h3>
+            <p style="margin-top: 0;">Esaminatore: leggi i seguenti numeri (una sequenza per ogni serie) e chiedi all'atleta di ripeterli in ordine inverso. Pronunciali lentamente, al ritmo di una cifra al secondo. Ogni serie contiene due sequenze. Se l'atleta sbaglia la prima, prova la seconda. Se sbaglia entrambe, termina questa sottosezione e passa ai mesi in ordine inverso.</p>
+            <p style="font-style: italic;">«Leggerò una serie di numeri e, quando avrò finito, me li ripeterai nell'ordine inverso rispetto a quello in cui te li ho letti. Per esempio, se io dico 7 1 9, tu dirai 9 1 7. Quindi, se io dico 9 6 8, tu cosa dirai?» &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
+            <ul id="digit-sets" style="font-size: 1.3em;">
+                <li><span>4-9-3 <i class="fa-solid fa-volume-high" onclick="abortSpeaking(); readListOneWPS([4, 9, 3]);"></i> &emsp; <i class="fa-solid fa-circle-check" style="color: var(--green)"></i> <i class="fa-solid fa-circle-xmark" style="color: var(--red)"></i></span><div style="height: 4px"></div>
+                    <span>6-2-9 <i class="fa-solid fa-volume-high" onclick="abortSpeaking(); readListOneWPS([6, 2, 9]);"></i> &emsp; <i class="fa-solid fa-circle-check" style="color: var(--green)"></i> <i class="fa-solid fa-circle-xmark" style="color: var(--red)"></i></span></li><br>
+                <li><span>3-8-1-4 <i class="fa-solid fa-volume-high" onclick="abortSpeaking(); readListOneWPS([3, 8, 1, 4]);"></i> &emsp; <i class="fa-solid fa-circle-check" style="color: var(--green)"></i> <i class="fa-solid fa-circle-xmark" style="color: var(--red)"></i></span><div style="height: 4px"></div>
+                    <span>3-2-7-9 <i class="fa-solid fa-volume-high" onclick="abortSpeaking(); readListOneWPS([3, 2, 7, 9]);"></i> &emsp; <i class="fa-solid fa-circle-check" style="color: var(--green)"></i> <i class="fa-solid fa-circle-xmark" style="color: var(--red)"></i></span></li><br>
+                <li><span>6-2-9-7-1 <i class="fa-solid fa-volume-high" onclick="abortSpeaking(); readListOneWPS([6, 2, 9, 7, 1]);"></i> &emsp; <i class="fa-solid fa-circle-check" style="color: var(--green)"></i> <i class="fa-solid fa-circle-xmark" style="color: var(--red)"></i></span><div style="height: 4px"></div>
+                    <span>1-5-2-8-6 <i class="fa-solid fa-volume-high" onclick="abortSpeaking(); readListOneWPS([1, 5, 2, 8, 6]);"></i> &emsp; <i class="fa-solid fa-circle-check" style="color: var(--green)"></i> <i class="fa-solid fa-circle-xmark" style="color: var(--red)"></i></span></li><br>
+                <li><span>7-1-8-4-6-2 <i class="fa-solid fa-volume-high" onclick="abortSpeaking(); readListOneWPS([7, 1, 8, 4, 6, 2]);"></i> &emsp; <i class="fa-solid fa-circle-check" style="color: var(--green)"></i> <i class="fa-solid fa-circle-xmark" style="color: var(--red)"></i></span><div style="height: 4px"></div>
+                    <span>5-3-9-1-4-8 <i class="fa-solid fa-volume-high" onclick="abortSpeaking(); readListOneWPS([5, 3, 9, 1, 4, 8]);"></i> &emsp; <i class="fa-solid fa-circle-check" style="color: var(--green)"></i> <i class="fa-solid fa-circle-xmark" style="color: var(--red)"></i></span></li>
+            </ul>
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Numero di serie corrette (su 4): <input type="number" id="concentration-digits" value="0"/></label>
+        
+            <h3>Mesi in ordine inverso</h3>
+            <p style="margin-top: 0;">Esaminatore: leggi all'atleta le istruzioni seguenti e seleziona i mesi per barrarli man mano che vengono pronunciati nell'ordine corretto.</p>
+            <p style="font-style: italic;">«Ora dimmi i mesi dell'anno in ordine inverso nel modo più RAPIDO e preciso possibile. Inizia dall'ultimo mese e vai a ritroso. Quindi dirai dicembre, novembre… Avanti!» &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
+            <ul id="months-reverse-order">
+                <li>Dicembre</li>
+                <li>Novembre</li>
+                <li>Ottobre</li>
+                <li>Settembre</li>
+                <li>Agosto</li>
+                <li>Luglio</li>
+                <li>Giugno</li>
+                <li>Maggio</li>
+                <li>Aprile</li>
+                <li>Marzo</li>
+                <li>Febbraio</li>
+                <li>Gennaio</li>
+            </ul>
+            <label class="left-align green" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em;"><input type="checkbox" id="concentration-months"/> Seleziona la casella se l'atleta ha detto correttamente tutti i mesi.</label>
+            <button class="button button--green" id="concentration-end-btn">Avvia BESS &nbsp; <i class="fa-solid fa-forward"></i></button>
+            <script>
+                const concentration_digits = [
+                    [undefined, undefined],
+                    [undefined, undefined],
+                    [undefined, undefined],
+                    [undefined, undefined],
+                ];
+                const concentration_months = [false, false, false, false, false, false, false, false, false, false, false, false];
+                let concentration_months_start_time = null;
+                document.getElementById('concentration-end-btn').addEventListener('click', () => {
+                    const digits = parseInt(document.getElementById('concentration-digits').value);
+                    const months = document.getElementById('concentration-months').checked ? 1 : 0;
+                    saveTestResult('concentration', digits + months);
+                    saveTestResult('concentration_digit_list', 'A');
+                    saveTestResult('concentration_digits', concentration_digits);
+                    saveTestResult('concentration_months', concentration_months)
+                    saveTestResult('concentration_months_time_sec', Math.round((Date.now() - concentration_months_start_time) / 1000))
+                    renderTestSection('manual-bess');
+                });
+                document.addEventListener('renderTestSection', (e) => {
+                    if (e.detail === 'concentration') {
+                        document.getElementById('concentration-digits').value = 0;
+                        document.getElementById('concentration-months').checked = false;
+                        for (let i = 0; i < digitSets.children.length; i += 2) {
+                            for (const a of [0, 2]) {
+                                resetDigitSet(i, a);
+                            }
+                        }
+                        digitSets.children[0].children[0].inert = false;
+                        digitSets.children[0].children[0].style.opacity = '1.0';
+                        concentration_months_start_time = null;
+                        for (let i = 0; i < concentration_months.length; i++) {
+                            concentration_months[i] = false;
+                        }
+                    }
+                });
+                const digitSets = document.getElementById('digit-sets');
+                function resetDigitSet(setnumber, alternative) {
+                    digitSets.children[setnumber].children[alternative].inert = true;
+                    digitSets.children[setnumber].children[alternative].style.opacity = '0.5';
+                    digitSets.children[setnumber].children[alternative].style.textDecoration = '';
+                    digitSets.children[setnumber].children[alternative].style.color = '';
+                    for (const c of digitSets.children[setnumber].children[alternative].children) {
+                        c.inert = false;
+                        c.style.opacity = '1.0';
+                    }
+                    concentration_digits[setnumber/2][alternative/2] = undefined;
+                }
+                digitSets.addEventListener('click', (e) => {
+                    if (e.target.tagName === 'I' && !e.target.classList.contains('fa-volume-high')) {
+                        const pass = e.target.classList.contains('fa-circle-check');
+                        const alternative = Array.from(e.target.parentElement.parentElement.children).indexOf(e.target.parentElement);
+                        const digitSet = Array.from(digitSets.children).indexOf(e.target.parentElement.parentElement);
+
+                        // reset all next sets
+                        for (let i = digitSet + 2; i < digitSets.children.length; i += 2) {
+                            for (const a of [0, 2]) {
+                                resetDigitSet(i, a);
+                            }
+                        }
+                        if (alternative === 0) {
+                            resetDigitSet(digitSet, 2);
+                        }
+
+                        // update current and unlock next
+                        for (const c of e.target.parentElement.children) {
+                            c.inert = false;
+                            c.style.opacity = '1.0';
+                        }
+                        e.target.inert = true;
+                        e.target.style.opacity = '0.5';
+                        if (pass) {
+                            digitSets.children[digitSet].children[alternative].style.textDecoration = 'line-through';
+                            digitSets.children[digitSet].children[alternative].style.color = 'darkgreen';
+                            concentration_digits[digitSet/2][alternative/2] = true;
+                            if (digitSet / 2 < 3) {
+                                digitSets.children[digitSet + 2].children[0].inert = false;
+                                digitSets.children[digitSet + 2].children[0].style.opacity = '1.0';
+                            } else {
+                                speak('Nice! Please move on to the months in reverse order.');
+                            }
+                            document.getElementById('concentration-digits').value = digitSet / 2 + 1;
+                        } else {
+                            digitSets.children[digitSet].children[alternative].style.textDecoration = 'line-through';
+                            digitSets.children[digitSet].children[alternative].style.color = 'darkred';
+                            concentration_digits[digitSet/2][alternative/2] = false;
+                            if (alternative === 0) {
+                                digitSets.children[digitSet].children[2].inert = false;
+                                digitSets.children[digitSet].children[2].style.opacity = '1.0';
+                            } else {
+                                speak('Failed both sequences in this set. Please move on to the months in reverse order.');
+                            }
+                            document.getElementById('concentration-digits').value = digitSet / 2;
+                        }
+                    }
+                });
+                document.getElementById("months-reverse-order").addEventListener("click", (event) => {
+                    if (event.target.tagName === 'LI') {
+                        if (concentration_months_start_time === null) {
+                            concentration_months_start_time = Date.now();
+                        }
+                        const wasCrossed = event.target.style.textDecoration === 'line-through';
+                        event.target.style.textDecoration = wasCrossed ? 'none' : 'line-through';
+                        event.target.style.color = wasCrossed ? '' : 'darkgreen';
+                        const ix = [...document.getElementById("months-reverse-order").children].indexOf(event.target);
+                        concentration_months[ix] = !wasCrossed;
+                        const numCrossed = document.getElementById("months-reverse-order").querySelectorAll('li[style*="line-through"]').length;
+                        if (numCrossed === 12) {
+                            document.getElementById('concentration-months').checked = true;
+                        } else {
+                            document.getElementById('concentration-months').checked = false;
+                        }
+                    }
+                });
+            </script>
+        </section>
+    </main>
+    <main style="display: none;" id="bess">
+        <section style="position: relative;">
+            <button class="button button--red countdown-audio" aria-label="Attiva/disattiva l'audio del conto alla rovescia" style="position: absolute; right: 1em; top: 1em">Audio &nbsp; <i class="fa-solid fa-stopwatch-20"></i> &nbsp; <i class="fa-solid fa-volume-xmark"></i></button>
+            <h2>Sistema di punteggio degli errori di equilibrio (BESS) <a style="font-size: 0.6em; vertical-align: middle;" href="/assets/bess_manual.pdf" target="_blank" aria-label="Istruzioni per il BESS manuale"><i class="fa-solid fa-circle-info"></i></a></h2>
+            <p style="margin-top: 0;">L'atleta sarà guidato in 3 posizioni (su due gambe, tandem e su una gamba), da mantenere per 20 secondi ciascuna. Il successivo test su superficie morbida è facoltativo; è necessaria soltanto una superficie solida. Serve una persona di assistenza che sorvegli l'atleta e sia pronta ad aiutarlo se diventa instabile e inizia a cadere.</p>
+            <p>L'atleta deve togliersi le scarpe, arrotolare i pantaloni sopra le caviglie (se pertinente) e rimuovere eventuali fasciature alle caviglie (se presenti).</p>
+            <p>Il tuo compito come esaminatore è mantenere la fotocamera il più ferma possibile (piccoli movimenti sono accettabili), tenendo sempre l'atleta interamente nell'inquadratura. Nel caso in cui il sistema automatizzato non rilevi qualcosa, conta i seguenti errori nell'esecuzione delle posizioni da parte dell'atleta:</p>
+            <ul>
+                <li style="text-align: left;">Apertura degli occhi</li>
+                <li style="text-align: left;">Sollevare le mani dalle creste iliache (bordo superiore del bacino/anca)</li>
+                <li style="text-align: left;">Fare un passo, inciampare o cadere</li>
+                <li style="text-align: left;">Abduzione o flessione dell'anca oltre i 30 gradi (spostamento delle anche in avanti/indietro/lateralmente)</li>
+                <li style="text-align: left;">Rotazione della spalla oltre i 30 gradi</li>
+                <li style="text-align: left;">Restare fuori dalla posizione di test per più di 5 secondi</li>
+                <li style="text-align: left;">Sollevare l'avampiede o il tallone</li>
+            </ul>
+            <p>Più errori simultanei contano come un solo errore. L'incapacità di mantenere la posizione per almeno 5 secondi equivale al numero massimo di errori per quella posizione (10).</p>
+
+            <div id="instructions" style="bottom: 0; left: 0; width: 100%; padding: 10px; background-color: var(--secondary);" class="center"></div>
+            <div style="position: relative;">
+                <canvas id="canvas" width="0" height="0" style="max-width: 100%; max-height: 90vh;"></canvas>
+                <video id="video" style="display:none"></video>
+                <div id="status" style="opacity: 0.8; position: absolute; bottom: 0; left: 0; width: 100%; padding: 10px; background-color: gray;" class="center">Acquisizione delle autorizzazioni per la fotocamera…</div>
+                <div id="camera-control" style="position: absolute; top: 0; right: 0; display: none;">
+                    <button class="button" id="mirror-button">Specchia &nbsp; <img src="/assets/mirror.svg" style="height: 1em"></button>
+                    <button class="button" id="switch-camera-direction" onclick="tracker.changeCameraFacingMode(tracker.idealFacingMode == 'user' ? 'environment' : 'user')">Cambia fotocamera &nbsp; <img src="/assets/flip-camera.svg" style="height: 1em"></button>
+                </div>
+            </div>
+            <button class="button" id="voice-ctrl-button">Controllo vocale &nbsp; <i class="fa-solid fa-microphone"></i></button>
+            <button class="button" id="bess-calibrate" disabled>Contrassegna la posizione corrente come corretta &nbsp; <i class="fa-solid fa-crosshairs"></i></button>
+            <button class="button button--red" onclick="renderTestSection('manual-bess')">Valuta manualmente &nbsp; <i class="fa-solid fa-forward"></i></button>
+
+            <script defer src="/lib/tensorflow/tfjs-core.js"></script>
+            <script defer src="/lib/tensorflow/tfjs-converter.js"></script>
+            <script defer src="/lib/tensorflow/tfjs-backend-webgl.js"></script>
+            <script defer src="/lib/tensorflow/pose-detection.js"></script>
+            <script defer src="/lib/tensorflow/face-detection.js"></script>
+            <script defer src="/lib/tensorflow/face-landmarks-detection.js"></script>
+            <script defer src="/lib/three.min.js"></script>
+            <script defer src="/lib/scatter-gl.min.js"></script>
+            <script defer src="/lib/tracker.js"></script>
+            <script src="/bess.js" type="module"></script>
+        </section>
+    </main>
+    <main style="display: none;" id="manual-bess">
+        <section style="position: relative;">
+            <button class="button button--red countdown-audio" aria-label="Attiva/disattiva l'audio del conto alla rovescia" style="position: absolute; right: 1em; top: 1em">Audio &nbsp; <i class="fa-solid fa-stopwatch-20"></i> &nbsp; <i class="fa-solid fa-volume-xmark"></i></button>
+            <h2>Sistema di punteggio degli errori di equilibrio (BESS) <a style="font-size: 0.6em; vertical-align: middle;" href="/assets/bess_manual.pdf" target="_blank" aria-label="Istruzioni per il BESS manuale"><i class="fa-solid fa-circle-info"></i></a></h2>
+            <p style="margin-top: 0;">Esaminatore: guiderai l'atleta in 3 posizioni (su due gambe, tandem e su una gamba), da mantenere per 20 secondi ciascuna. Il successivo test su superficie morbida è facoltativo; è necessaria soltanto una superficie solida. Serve una persona di assistenza che sorvegli l'atleta e sia pronta ad aiutarlo se diventa instabile e inizia a cadere.</p>
+            <p>L'atleta deve togliersi le scarpe, arrotolare i pantaloni sopra le caviglie (se pertinente) e rimuovere eventuali fasciature alle caviglie (se presenti).</p>
+            <button class="button" onclick="renderTestSection('bess')">Usa il BESS con fotocamera (facoltativo) &nbsp; <i class="fa-solid fa-camera"></i></button>
+            <p>Conta i seguenti errori nell'esecuzione delle posizioni da parte dell'atleta:</p>
+            <ul>
+                <li style="text-align: left;">Apertura degli occhi</li>
+                <li style="text-align: left;">Sollevare le mani dalle creste iliache (bordo superiore del bacino/anca)</li>
+                <li style="text-align: left;">Fare un passo, inciampare o cadere</li>
+                <li style="text-align: left;">Abduzione o flessione dell'anca oltre i 30 gradi (spostamento delle anche in avanti/indietro/lateralmente)</li>
+                <li style="text-align: left;">Rotazione della spalla oltre i 30 gradi</li>
+                <li style="text-align: left;">Restare fuori dalla posizione di test per più di 5 secondi</li>
+                <li style="text-align: left;">Sollevare l'avampiede o il tallone</li>
+            </ul>
+            <p>Più errori simultanei contano come un solo errore. L'incapacità di mantenere la posizione per almeno 5 secondi equivale al numero massimo di errori per quella posizione (10).</p>
+        
+            <h3>Posizione su due gambe</h3>
+            <p style="margin-top: 0;">Esaminatore: conta gli errori elencati sopra e leggi le istruzioni seguenti:</p>
+            <p style="font-style: italic;">Stai con i piedi uniti, le mani sui fianchi e gli occhi chiusi. Mantieni questa posizione per 20 secondi. &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
+            <img src="/assets/double_leg.png" style="height: 100%; max-height: 40vh; margin: 0 auto; margin-bottom: 6px">
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Numero di errori: <input type="number" id="double-leg-errors" value="0"/></label>
+            <button class="button button--green" onclick="startCountdown(this, 20)">Avvia conto alla rovescia di 20 s</button>
+
+            <h3>Posizione tandem</h3>
+            <p style="margin-top: 0;">Esaminatore: conta gli errori elencati sopra e leggi le istruzioni seguenti:</p>
+            <p style="font-style: italic;">Stai con i piedi in posizione tacco-punta, le mani sui fianchi e gli occhi chiusi. Mantieni questa posizione per 20 secondi. &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
+            <img src="/assets/tandem_stance.png" style="height: 100%; max-height: 40vh; margin: 0 auto; margin-bottom: 6px">
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Numero di errori: <input type="number" id="tandem-stance-errors" value="0"/></label>
+            <button class="button button--green" onclick="startCountdown(this, 20)">Avvia conto alla rovescia di 20 s</button>
+
+            <h3>Posizione su una gamba</h3>
+            <p style="margin-top: 0;">Esaminatore: conta gli errori elencati sopra e leggi le istruzioni seguenti:</p>
+            <p style="font-style: italic;">Stai su una gamba, con le mani sui fianchi e gli occhi chiusi. Mantieni questa posizione per 20 secondi. &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
+            <img src="/assets/single_leg.png" style="height: 100%; max-height: 40vh; margin: 0 auto; margin-bottom: 6px">
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Numero di errori: <input type="number" id="single-leg-errors" value="0"/></label>
+            <button class="button button--green" onclick="startCountdown(this, 20)">Avvia conto alla rovescia di 20 s</button>
+
+            <h3>Posizione su due gambe su superficie morbida (<span style="color: var(--orange)">Facoltativo</span>)</h3>
+            <p style="margin-top: 0;">Il test su superficie morbida richiede un cuscino in schiuma di 50 cm × 40 cm × 6 cm. Il modello consigliato è <a href="http://www.power-systems.com/" target="_blank">Power Systems Airex Balance Pad 81000</a>.</p>
+            <p>Esaminatore: conta gli errori elencati sopra e leggi le istruzioni seguenti:</p>
+            <p style="font-style: italic;">Stai con i piedi uniti, le mani sui fianchi e gli occhi chiusi. Mantieni questa posizione per 20 secondi. &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
+            <img src="/assets/double_leg.png" style="height: 100%; max-height: 40vh; margin: 0 auto; margin-bottom: 6px">
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Numero di errori: <input type="number" id="double-leg-foam-errors" value="0"/></label>
+            <button class="button button--green" onclick="startCountdown(this, 20)">Avvia conto alla rovescia di 20 s</button>
+
+            <h3>Posizione tandem su superficie morbida (<span style="color: var(--orange)">Facoltativo</span>)</h3>
+            <p style="margin-top: 0;">Il test su superficie morbida richiede un cuscino in schiuma di 50 cm × 40 cm × 6 cm. Il modello consigliato è <a href="http://www.power-systems.com/" target="_blank">Power Systems Airex Balance Pad 81000</a>.</p>
+            <p>Esaminatore: conta gli errori elencati sopra e leggi le istruzioni seguenti:</p>
+            <p style="font-style: italic;">Stai con i piedi in posizione tacco-punta, le mani sui fianchi e gli occhi chiusi. Mantieni questa posizione per 20 secondi. &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
+            <img src="/assets/tandem_stance.png" style="height: 100%; max-height: 40vh; margin: 0 auto; margin-bottom: 6px">
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Numero di errori: <input type="number" id="tandem-stance-foam-errors" value="0"/></label>
+            <button class="button button--green" onclick="startCountdown(this, 20)">Avvia conto alla rovescia di 20 s</button>
+
+            <h3>Posizione su una gamba su superficie morbida (<span style="color: var(--orange)">Facoltativo</span>)</h3>
+            <p style="margin-top: 0;">Il test su superficie morbida richiede un cuscino in schiuma di 50 cm × 40 cm × 6 cm. Il modello consigliato è <a href="http://www.power-systems.com/" target="_blank">Power Systems Airex Balance Pad 81000</a>.</p>
+            <p>Esaminatore: conta gli errori elencati sopra e leggi le istruzioni seguenti:</p>
+            <p style="font-style: italic;">Stai su una gamba, con le mani sui fianchi e gli occhi chiusi. Mantieni questa posizione per 20 secondi. &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
+            <img src="/assets/single_leg.png" style="height: 100%; max-height: 40vh; margin: 0 auto; margin-bottom: 6px">
+            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Numero di errori: <input type="number" id="single-leg-foam-errors" value="0"/></label>
+            <button class="button button--green" onclick="startCountdown(this, 20)">Avvia conto alla rovescia di 20 s</button>
+            <br><br>
+            <button class="button button--green" id="bess-end-btn">Avvia andatura in tandem &nbsp; <i class="fa-solid fa-forward"></i></button>
+            <script>
+                document.getElementById('bess-end-btn').addEventListener('click', () => {
+                    const doubleLegErrors = parseInt(document.getElementById('double-leg-errors').value);
+                    const tandemStanceErrors = parseInt(document.getElementById('tandem-stance-errors').value);
+                    const singleLegErrors = parseInt(document.getElementById('single-leg-errors').value);
+                    const totalErrors = doubleLegErrors + tandemStanceErrors + singleLegErrors;
+                    const doubleLegFoamErrors = parseInt(document.getElementById('double-leg-foam-errors').value);
+                    const tandemStanceFoamErrors = parseInt(document.getElementById('tandem-stance-foam-errors').value);
+                    const singleLegFoamErrors = parseInt(document.getElementById('single-leg-foam-errors').value);
+                    const totalFoamErrors = doubleLegFoamErrors + tandemStanceFoamErrors + singleLegFoamErrors;
+                    saveTestResult("mBESS_double_errors", doubleLegErrors);
+                    saveTestResult("mBESS_single_errors", singleLegErrors);
+                    saveTestResult("mBESS_tandem_errors", tandemStanceErrors);
+                    saveTestResult("mBESS_total_errors", totalErrors);
+                    saveTestResult("mBESS_foam_double_errors", doubleLegFoamErrors);
+                    saveTestResult("mBESS_foam_single_errors", singleLegFoamErrors);
+                    saveTestResult("mBESS_foam_tandem_errors", tandemStanceFoamErrors);
+                    saveTestResult("mBESS_foam_total_errors", totalFoamErrors);
+                    renderTestSection('tandem-gait');
+                });
+            </script>
+        </section>
+    </main>
+    <main style="display: none;" id="tandem-gait">
+        <section>
+            <h2>Andatura in tandem cronometrata</h2>
+            <p style="margin-top: 0;">Esaminatore: traccia con nastro sportivo una linea lunga 3 metri sul pavimento/superficie rigida. Fornisci le istruzioni all'atleta e avvia/arresta il cronometro per 3 prove.</p>
+            <img src="/assets/tandem-gait.png" style="width: 100%; max-width: 400px; margin: 0 auto;">
+            <p style="font-style: italic;">Quando viene avviato il cronometro, cammina velocemente tacco-punta fino alla fine del nastro, girati e torna indietro il più rapidamente possibile, senza separare i piedi né uscire dalla linea. &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
+            <img src="/assets/tandem-gait-side.png" style="width: 100%; max-width: 400px; margin: 0 auto; margin-bottom: 10px;">
+            <table style="margin: auto;">
+                <thead><tr><th style="padding-right: 1em">Prova 1 (secondi)</th><th style="padding-right: 1em">Prova 2 (secondi)</th><th style="padding-right: 1em">Prova 3 (secondi)</th><th style="padding-right: 1em">Media (secondi)</th><th style="padding-right: 1em">Migliore (secondi)</th></tr></thead>
+                <tbody>
+                    <tr id="tandem-data">
+                        <td data-title="Prova 1 (secondi)" data-field="trial1"><button data-action="start-1" class="button button--green">Avvia cronometro</button></td>
+                        <td data-title="Prova 2 (secondi)" data-field="trial2">---</td>
+                        <td data-title="Prova 3 (secondi)" data-field="trial3">---</td>
+                        <td data-title="Media (secondi)" data-field="average">---</td>
+                        <td data-title="Migliore (secondi)" data-field="fastest">---</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>Gli atleti sani hanno in genere un tempo migliore compreso tra 13,9 e 15,8 secondi. Negli atleti con concussione recente è generalmente compreso tra 21,9 e 26,1 secondi. Gli atleti che hanno subito una concussione negli ultimi 6–73 giorni presentano valori intermedi. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7987555/" target="_blank">Fonte</a>.</p>
+            <button class="button button--red" onclick="renderTestSection('delayed-recall')">Impossibilità di eseguire l'andatura in tandem</button>
+            <button class="button button--orange" style="display: none" id="start-dual-task-gait">Avvia andatura facoltativa con doppio compito &nbsp; <i class="fa-solid fa-forward"></i></button>
+            <button class="button button--green" style="display: none" id="skip-to-delayed-recall">Vai alla rievocazione differita &nbsp; <i class="fa-solid fa-forward"></i></button>
+            <script src="/tandem-gait.js" type="module"></script>
+        </section>
+    </main>
+    <main style="display: none;" id="dual-task-gait">
+        <section style="border: 1px dashed var(--orange)">
+            <h2>Andatura con doppio compito (<span style="color: var(--orange)">Facoltativo</span>)</h2>
+            <p style="margin-top: 0;">Esaminatore: lascia sul pavimento/superficie rigida la linea di nastro sportivo lunga 3 metri usata per l'andatura cronometrata. Segui il testo qui sotto, avvia/arresta il cronometro e seleziona nell'ordine le risposte pronunciate correttamente dall'atleta. Ripeti le prove in cui l'atleta esce dalla linea.</p>
+            <img src="/assets/tandem-gait.png" style="width: 100%; max-width: 400px; margin: 0 auto;">
+            <p style="font-style: italic;">Mentre cammini tacco-punta, conterai ad alta voce all'indietro sottraendo 7. Per esempio, partendo da 100, diresti 100, 93, 86, 79. Facciamo una prova. Partendo da 93, conta all'indietro per sette finché l'esaminatore non dice «stop». &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
+            <table style="margin: auto;">
+                <thead><tr><th>Compito</th><th>Risposte corrette</th><th>Errori</th><th>Tempo (secondi)</th></tr></thead>
+                <tbody>
+                    <tr id="dual-task-trial-practice-data">
+                        <td data-title="Compito" data-field="task">Esercitazione</td>
+                        <td data-title="Risposte corrette" data-field="responses"><div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; font-size: 1.3em;"><span>93</span><span>86</span><span>79</span><span>72</span><span>65</span><span>58</span><span>51</span><span>44</span></div></td>
+                        <td data-title="Errori" data-field="errors"><input type="number" value="0" style="min-width: 6ch;"></td>
+                        <td data-title="Tempo (secondi)" data-field="time"><button data-action="start-trial-practice" class="button button--green">Avvia cronometro</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="font-style: italic;">Bene, ora camminerai tacco-punta contando contemporaneamente all'indietro ad alta voce. Continua a contare finché non avrai percorso 3 metri, effettuato una rotazione di 180 gradi, percorso nuovamente i 3 metri e l'esaminatore dirà «stop», indicando che hai raggiunto l'ultimo numero. Sei pronto? Il numero di partenza è 88. Via! &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
+            <table style="margin: auto;">
+                <thead><tr><th>Compito</th><th>Risposte corrette</th><th>Errori</th><th>Tempo (secondi)</th></tr></thead>
+                <tbody>
+                    <tr id="dual-task-trial-1-data">
+                        <td data-title="Compito" data-field="task">Prova 1</td>
+                        <td data-title="Risposte corrette" data-field="responses"><div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; font-size: 1.3em;"><span>88</span><span>81</span><span>74</span><span>67</span><span>60</span><span>53</span><span>46</span><span>39</span><span>32</span><span>25</span><span>18</span><span>11</span><span>4</span><i class="fa-solid fa-pen-to-square" data-action="edit-numbers"></i></div></td>
+                        <td data-title="Errori" data-field="errors"><input type="number" value="0" style="min-width: 6ch;"></td>
+                        <td data-title="Tempo (secondi)" data-field="time"><button data-action="start-trial-1" class="button button--green">Avvia cronometro</button></td>
+                    </tr>
+                    <tr id="dual-task-trial-2-data">
+                        <td data-title="Compito" data-field="task">Prova 2</td>
+                        <td data-title="Risposte corrette" data-field="responses"><div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; font-size: 1.3em;"><span>90</span><span>83</span><span>76</span><span>69</span><span>62</span><span>55</span><span>48</span><span>41</span><span>34</span><span>27</span><span>20</span><span>13</span><span>6</span><i class="fa-solid fa-pen-to-square" data-action="edit-numbers"></i></div></td>
+                        <td data-title="Errori" data-field="errors"><input type="number" value="0" style="min-width: 6ch;"></td>
+                        <td data-title="Tempo (secondi)" data-field="time"><button data-action="start-trial-2" class="button button--green">Avvia cronometro</button></td>
+                    </tr>
+                    <tr id="dual-task-trial-3-data">
+                        <td data-title="Compito" data-field="task">Prova 3</td>
+                        <td data-title="Risposte corrette" data-field="responses"><div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; font-size: 1.3em;"><span>98</span><span>91</span><span>84</span><span>77</span><span>70</span><span>63</span><span>56</span><span>49</span><span>42</span><span>35</span><span>28</span><span>21</span><span>14</span><i class="fa-solid fa-pen-to-square" data-action="edit-numbers"></i></div></td>
+                        <td data-title="Errori" data-field="errors"><input type="number" value="0" style="min-width: 6ch;"></td>
+                        <td data-title="Tempo (secondi)" data-field="time"><button data-action="start-trial-3" class="button button--green">Avvia cronometro</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>Gli atleti sani completano in genere il compito in 18,7–22,5 secondi con un'accuratezza dell'85,8–92,4% (0,9–1,7 errori). Gli atleti con concussione impiegano in genere 30,6–36,1 secondi con un'accuratezza del 76,4–83,6% (2,0–2,8 errori). <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7987555/" target="_blank">Fonte</a>.</p>
+            <button class="button" onclick="renderTestSection('delayed-recall')">Avvia rievocazione differita &nbsp; <i class="fa-solid fa-forward"></i></button>
+            <script src="/dual-task.js" type="module"></script>
+        </section>
+    </main>
+    <main style="display: none;" id="delayed-recall">
+        <section>
+            <h2>Rievocazione differita</h2>
+            <div id="delayed-recall-content"></div>
+            <script src="/delayed-recall.js" type="module"></script>
+        </section>
+    </main>
+    <main style="display: none;" id="results">
+        <section style="position: relative;">
+            <h2>Risultati</h2>
+            <select id="export-results-select" style="position: absolute; right: 1em; top: 1em; opacity: 0; pointer-events: none;">
+                <option disabled selected>Scegli un'opzione di esportazione:</option>
+                <option value="Report">Rapporto complessivo</option>
+                <option value="SCAT6">SCAT6 completo</option>
+                <option value="CSV">CSV grezzo</option>
+            </select>
+            <button class="button" id="export-results" style="position: absolute; right: 1em; top: 1em;">Esporta &nbsp; <i class="fa-solid fa-file-export"></i></button>
+            <iframe id="print-frame" style="display: none;"></iframe>
+            <div id="results-content"><p style="margin-top: 0;">Caricamento…</p></div><br>
+            <button class="button" onclick="endTest()">Torna al menu principale</button>
+            <script src="/results.js" type="module"></script>
+        </section>
+        <section>
+            <h2>Vuoi contribuire a migliorare questo strumento?</h2>
+            <p style="margin-top: 0;">Questo strumento è al 100% <a href="https://github.com/SanderGi/ConcussionAssessment">Gratuito e open source</a> e attento alla privacy. Ciò significa che non vengono raccolti dati di utilizzo, ma ci farebbe comunque piacere ricevere il tuo parere per migliorare lo strumento. Ecco alcuni modi facoltativi per contribuire:</p>
+            <ul style="max-width: 80ch; margin: auto; text-align: left;">
+                <li>Dedica 10 minuti alla compilazione <a href="https://docs.google.com/forms/d/e/1FAIpQLSdBolyOESnMwdJW6ONJ-8MLbwcpHxQsrV5nChIqOiDfMF6YgQ/viewform?usp=dialog" target="_blank">un breve modulo di feedback</a> e/o chiedi anche ai tuoi pazienti/atleti di compilarlo.</li>
+                <li><label class="left-align spread-inline" style="padding-left: 0;">Acconsenti alla condivisione di punteggi dei test anonimizzati a fini di ricerca e per migliorare le raccomandazioni dello strumento. <input type="checkbox" onclick="shareTestData(this.checked)" id="checkbox-share-test-results"></label></li>
+                <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScBuu2QRPQM6xrDg7_dlF75-0DOjYxSCnvI_JQWWtrBhvpt6A/viewform?usp=dialog" target="_blank">Carica foto/video</a> dal BESS automatizzato per contribuire allo sviluppo di modelli di apprendimento automatico più inclusivi.</li>
+            </ul>
+            <br>
+        </section>
+    </main>
+    <footer>
+        <p><a href="https://www.concussioninsportgroup.com/">CISG</a> approvato <a href="/assets/SCAT6.pdf">SCAT6™</a> adattamento | A cura di Aureole Chang e Alexander Metzger | <a href="https://github.com/SanderGi/ConcussionAssessment">Codice</a> open source <a href="https://github.com/SanderGi/ConcussionAssessment/blob/master/LICENSE">MIT</a></p>
+        <div style="display: flex; justify-content: space-evenly; align-items: center; flex-wrap: wrap; margin-bottom: 1em">
+            <img src="/assets/CISG_LOGO.png" alt="CISG Logo" style="height: 2em; margin-top: 0.5em;">
+            <img src="/assets/IOC_LOGO.png" alt="International Olympic Committee Logo" style="height: 2em; margin-top: 0.5em;">
+            <img src="/assets/FEI_LOGO.png" alt="Federation Equestre Internationale Logo" style="height: 2em; margin-top: 0.5em;">
+            <img src="/assets/FIA_LOGO.png" alt="Federation Internationale de l'Automobile Logo" style="height: 2em; margin-top: 0.5em;">
+            <img src="/assets/FIFA_LOGO.png" alt="International Federation of Association Football Logo" style="height: 2em; margin-top: 0.5em;">
+            <img src="/assets/IIHF_LOGO.png" alt="International Ice Hockey Federation Logo" style="height: 2em; margin-top: 0.5em;">
+            <img src="/assets/WRUGBY_LOGO.png" alt="World Rugby Logo" style="height: 2em; margin-top: 0.5em;">
+        </div>
+    </footer>
+
+    <script>
+        if (window.location.hostname === "localhost") {
+            window.__SCAT6_WORKSPACE_API_BASE = "http://localhost:8787";
+        } else {
+            window.__SCAT6_WORKSPACE_API_BASE = "https://scat6-shared-workspace.alexander-le.workers.dev";
+        }
+    </script>
+    <script type="module" src="/scripts.js"></script>
+    <script>
+        // ============================ Debug ============================
+        if (/dev=true/.test(window.location)) {
+            import('/lib/eruda.js').then(() => eruda.init());
+            import('/util/popup.js').then(m => window.BessConfig = m.BessConfig);
+        }
+    </script>
+  </body>
+</html>

@@ -1,8 +1,8 @@
 {
   "meta": {
-    "language": "dk",
+    "language": "af",
     "defaultLanguage": "en",
-    "generatedAt": "2026-09-01T20:53:36.263Z",
+    "generatedAt": "2026-09-01T20:53:36.379Z",
     "note": "Each entry stores the English source text, all known locations, and the translated value for this language."
   },
   "entries": {
@@ -11,7 +11,7 @@
       "locations": [
         "templates/index.template.html:692"
       ],
-      "value": "en hurtig feedback-formular"
+      "value": "'n kort terugvoervorm"
     },
     "html.abduction_or_flexion_of_the_hip_beyond_30_degree.1777da7f": {
       "source": "Abduction or flexion of the hip beyond 30 degrees (moving hips forwards/backwards/sideways)",
@@ -19,77 +19,77 @@
         "templates/index.template.html:435",
         "templates/index.template.html:485"
       ],
-      "value": "Abduktion eller fleksion af hoften (bevægelse af hofterne fremad/bagud/sidelæns) mere end 30 grader"
+      "value": "Abduksie of fleksie van die heup verder as 30 grade (beweeg heupe vorentoe/agtertoe/sywaarts)"
     },
     "html.abnormal_flexion_pull_muscles_inward_to_pain.90526945": {
       "source": "Abnormal flexion (pull muscles inward) to pain.",
       "locations": [
         "templates/index.template.html:145"
       ],
-      "value": "Unormal fleksion (trækker musklerne indad) ved smerte."
+      "value": "Abnormale fleksie op pyn."
     },
     "html.about.98aa7af7": {
       "source": "About &nbsp;",
       "locations": [
         "templates/index.template.html:41"
       ],
-      "value": "Om &nbsp;"
+      "value": "Meer oor &nbsp;"
     },
     "html.adaptation_by_aureole_chang_and_alexander_metzge.3cb06bed": {
       "source": "adaptation | By Aureole Chang and Alexander Metzger |",
       "locations": [
         "templates/index.template.html:701"
       ],
-      "value": "tilpasning | Af Aureole Chang og Alexander Metzger |"
+      "value": "aanpassing | Deur Aureole Chang en Alexander Metzger |"
     },
     "html.and.000179d7": {
       "source": "and",
       "locations": [
         "templates/index.template.html:58"
       ],
-      "value": "og"
+      "value": "en"
     },
     "html.and_or_ask_your_patients_athletes_to_fill_it_out.ba099e7d": {
       "source": "and/or ask your patients/athletes to fill it out too.",
       "locations": [
         "templates/index.template.html:692"
       ],
-      "value": "og/eller bed dine patienter/atleter om også at udfylde den."
+      "value": "en/of vra ook u pasiënte/atlete om dit in te vul."
     },
     "html.and_privacy_focused_this_means_no_usage_data_is_.8675d812": {
       "source": "and Privacy focused. This means no usage data is collected, but we'd still love to hear from you so we can improve the tool. Here are some optional ways you can contribute:",
       "locations": [
         "templates/index.template.html:687"
       ],
-      "value": "og fokuseret på privatliv. Det betyder, at der ikke indsamles nogen brugsdata, men vi vil stadig meget gerne høre fra dig, så vi kan forbedre værktøjet. Her er nogle valgfrie måder, du kan bidrage på:"
+      "value": "en op privaatheid gerig. Dit beteken geen gebruiksdata word ingesamel nie, maar ons hoor steeds graag van u sodat ons die hulpmiddel kan verbeter. Hier is 'n paar opsionele maniere waarop u kan bydra:"
     },
     "html.approved.46a566b7": {
       "source": "approved",
       "locations": [
         "templates/index.template.html:701"
       ],
-      "value": "godkendt"
+      "value": "goedgekeur"
     },
     "html.april.03c89a66": {
       "source": "April",
       "locations": [
         "templates/index.template.html:416"
       ],
-      "value": "april"
+      "value": "April"
     },
     "html.assess_manually.5efbbf15": {
       "source": "Assess Manually &nbsp;",
       "locations": [
         "templates/index.template.html:455"
       ],
-      "value": "Vurder manuelt &nbsp;"
+      "value": "Assesseer handmatig &nbsp;"
     },
     "html.athlete_reports_neck_pain_at_rest.563c67d8": {
       "source": "Athlete reports neck pain at rest.",
       "locations": [
         "templates/index.template.html:156"
       ],
-      "value": "Atlet rapporterer nakkesmerter i hvile."
+      "value": "Die atleet meld nekpyn in rus."
     },
     "html.audio.2be0ce8e": {
       "source": "Audio &nbsp;",
@@ -97,21 +97,21 @@
         "templates/index.template.html:419",
         "templates/index.template.html:463"
       ],
-      "value": "Lyd &nbsp;"
+      "value": "Oudio &nbsp;"
     },
     "html.august.758c5623": {
       "source": "August",
       "locations": [
         "templates/index.template.html:415"
       ],
-      "value": "august"
+      "value": "Augustus"
     },
     "html.average_seconds.9f275f4f": {
       "source": "Average (seconds)",
       "locations": [
         "templates/index.template.html:562"
       ],
-      "value": "Gennemsnit (sekunder)"
+      "value": "Gemiddeld (sekondes)"
     },
     "html.balance_error_scoring_system.80abecfc": {
       "source": "Balance Error Scoring System",
@@ -119,14 +119,14 @@
         "templates/index.template.html:419",
         "templates/index.template.html:465"
       ],
-      "value": "Balancefejl Scoring System"
+      "value": "Balance Error Scoring System"
     },
     "html.balance_gait_difficulties_motor_incoordination_a.d5557775": {
       "source": "Balance/gait difficulties, motor incoordination, ataxia: stumbling, slow/laboured movements.",
       "locations": [
         "templates/index.template.html:113"
       ],
-      "value": "Balance-/gangvanskeligheder, motorisk koordinationsproblemer, ataksi: snublen, langsomme/anstrengte bevægelser."
+      "value": "Balans-/loopprobleme, motoriese gebrekkige koördinasie, ataksie: struikel, stadige/moeisame bewegings."
     },
     "html.balance_problems.3c7994a2": {
       "source": "Balance problems:",
@@ -134,35 +134,35 @@
         "templates/index.template.html:249",
         "templates/index.template.html:285"
       ],
-      "value": "Balanceproblemer:"
+      "value": "Balansprobleme:"
     },
     "html.best_eye_response.9cdbb62c": {
       "source": "Best Eye Response",
       "locations": [
         "templates/index.template.html:124"
       ],
-      "value": "Bedste øjenrespons"
+      "value": "Beste oogrespons"
     },
     "html.best_motor_response.e8519568": {
       "source": "Best Motor Response",
       "locations": [
         "templates/index.template.html:142"
       ],
-      "value": "Bedste motoriske respons"
+      "value": "Beste motoriese respons"
     },
     "html.best_verbal_response.4f01fbfb": {
       "source": "Best Verbal Response",
       "locations": [
         "templates/index.template.html:134"
       ],
-      "value": "Bedste verbale svar"
+      "value": "Beste verbale respons"
     },
     "html.blank_or_vacant_look.152b260f": {
       "source": "Blank or vacant look.",
       "locations": [
         "templates/index.template.html:117"
       ],
-      "value": "Blankt eller ledigt udseende."
+      "value": "Leë of afwesige blik."
     },
     "html.blurred_vision.94a465dc": {
       "source": "Blurred vision:",
@@ -170,28 +170,28 @@
         "templates/index.template.html:238",
         "templates/index.template.html:277"
       ],
-      "value": "Sløret syn:"
+      "value": "Dowwe visie:"
     },
     "html.can_the_athlete_follow_instructions_for_how_to_m.05a2a599": {
       "source": "Can the athlete follow instructions for how to move (e.g. \"lift your arm\") or respond to pain (pinch or poke)?",
       "locations": [
         "templates/index.template.html:142"
       ],
-      "value": "Kan atleten følge instruktioner om, hvordan man bevæger sig (f.eks. \"løft armen\") eller reagere på smerte (knib eller prikke)?"
+      "value": "Kan die atleet instruksies volg oor hoe om te beweeg (bv. “lig u arm”) of op pyn reageer (knyp of steek)?"
     },
     "html.cervical_spine.b6ade5ee": {
       "source": "Cervical Spine",
       "locations": [
         "templates/index.template.html:153"
       ],
-      "value": "Cervikal rygsøjle"
+      "value": "Servikale ruggraat"
     },
     "html.check_box_if_athlete_completed_all_the_months_co.cd149fea": {
       "source": "Check box if athlete completed all the months correctly.",
       "locations": [
         "templates/index.template.html:417"
       ],
-      "value": "Markér feltet, hvis atleten har udfyldt alle måneder korrekt."
+      "value": "Merk die blokkie as die atleet al die maande korrek voltooi het."
     },
     "html.check_if_symptoms_get_worse_with_mental_activity.0980aef9": {
       "source": "Check if symptoms get worse with mental activity.",
@@ -199,7 +199,7 @@
         "templates/index.template.html:266",
         "templates/index.template.html:340"
       ],
-      "value": "Kontroller om symptomer forværres ved mental aktivitet."
+      "value": "Merk indien simptome met verstandelike aktiwiteit vererger."
     },
     "html.check_if_symptoms_get_worse_with_physical_activi.80249407": {
       "source": "Check if symptoms get worse with physical activity.",
@@ -207,14 +207,14 @@
         "templates/index.template.html:265",
         "templates/index.template.html:340"
       ],
-      "value": "Undersøg om symptomerne forværres ved fysisk aktivitet."
+      "value": "Merk indien simptome met fisieke aktiwiteit vererger."
     },
     "html.choose_an_export_option.dfad24a3": {
       "source": "Choose an export option:",
       "locations": [
         "templates/index.template.html:684"
       ],
-      "value": "Vælg en eksportmulighed:"
+      "value": "Kies 'n uitvoeropsie:"
     },
     "html.cisg.001f913a": {
       "source": "CISG",
@@ -228,7 +228,7 @@
       "locations": [
         "templates/index.template.html:62"
       ],
-      "value": "Klik på den runde tilføj-knap nedenfor for at tilføje en atletprofil. Dette giver dig mulighed for at starte en baseline-vurdering og oprette en atletprofil, som du kan bruge til at sammenligne hjernerystelsesscorer over tid for atleten."
+      "value": "Klik op die ronde voeg-by-knoppie hieronder om 'n atleetprofiel by te voeg. Hiermee kan u 'n basislynassessering begin en 'n profiel skep waarmee u die atleet se harsingskuddingtellings oor tyd kan vergelyk."
     },
     "html.code.0020220d": {
       "source": "Code",
@@ -242,21 +242,21 @@
       "locations": [
         "templates/index.template.html:350"
       ],
-      "value": "Koncentration"
+      "value": "Konsentrasie"
     },
     "html.concussion_assessment_management.8e0bf215": {
       "source": "Concussion Assessment Management",
       "locations": [
         "templates/index.template.html:45"
       ],
-      "value": "Hjernerystelse Vurderings Værktøj"
+      "value": "Bestuur van harsingskuddingassessering"
     },
     "html.confused_answers_but_not_fully_aware_what_s_happ.564a9cbc": {
       "source": "Confused. Answers but not fully aware what's happening.",
       "locations": [
         "templates/index.template.html:140"
       ],
-      "value": "Forvirret. Svarer, men er ikke helt klar over, hvad der sker."
+      "value": "Verward. Antwoord, maar is nie heeltemal bewus van wat gebeur nie."
     },
     "html.confusion.bd8e9914": {
       "source": "Confusion:",
@@ -264,21 +264,21 @@
         "templates/index.template.html:258",
         "templates/index.template.html:332"
       ],
-      "value": "Forvirring:"
+      "value": "Verwarring:"
     },
     "html.coordination_and_ocular_motor_screen.078dd47c": {
       "source": "Coordination and Ocular/Motor Screen",
       "locations": [
         "templates/index.template.html:184"
       ],
-      "value": "Koordination og okulær/motorisk screening"
+      "value": "Koördinasie- en okulomotoriese sifting"
     },
     "html.coordination_finger_to_nose_is_normal_for_both_h.e5ab3416": {
       "source": "Coordination. Finger-to-nose is normal for both hands with eyes open and closed.",
       "locations": [
         "templates/index.template.html:185"
       ],
-      "value": "Koordination. Finger-til-næse er normalt for begge hænder med åbne og lukkede øjne."
+      "value": "Koördinasie: Die vinger-na-neus-toets is normaal vir albei hande met oë oop en toe."
     },
     "html.correct_responses.99fea3dc": {
       "source": "Correct Responses",
@@ -286,42 +286,42 @@
         "templates/index.template.html:603",
         "templates/index.template.html:625"
       ],
-      "value": "Korrekte svar"
+      "value": "Korrekte antwoorde"
     },
     "html.december.25576045": {
       "source": "December",
       "locations": [
         "templates/index.template.html:412"
       ],
-      "value": "december"
+      "value": "Desember"
     },
     "html.delayed_recall.7a52f3cf": {
       "source": "Delayed Recall",
       "locations": [
         "templates/index.template.html:677"
       ],
-      "value": "Forsinket tilbagekaldelse"
+      "value": "Uitgestelde herroeping"
     },
     "html.delete_all.7427d7d8": {
       "source": "Delete All &nbsp;",
       "locations": [
         "templates/index.template.html:39"
       ],
-      "value": "Slet Alt &nbsp;"
+      "value": "Vee alles uit &nbsp;"
     },
     "html.deteriorating_conscious_state.5aa5208a": {
       "source": "Deteriorating conscious state",
       "locations": [
         "templates/index.template.html:87"
       ],
-      "value": "Forværret bevidsthedstilstand"
+      "value": "Verslegtende bewussynsvlak"
     },
     "html.did_your_team_win_the_last_game.79ef9e2d": {
       "source": "Did your team win the last game?",
       "locations": [
         "templates/index.template.html:214"
       ],
-      "value": "Vandt dit hold den sidste kamp?"
+      "value": "Het u span die laaste wedstryd gewen?"
     },
     "html.difficulty_concentrating.bcfd07b8": {
       "source": "Difficulty concentrating:",
@@ -329,7 +329,7 @@
         "templates/index.template.html:255",
         "templates/index.template.html:329"
       ],
-      "value": "Koncentrationsbesvær:"
+      "value": "Sukkel om te konsentreer:"
     },
     "html.difficulty_remembering.bcfc94ca": {
       "source": "Difficulty remembering:",
@@ -337,21 +337,21 @@
         "templates/index.template.html:256",
         "templates/index.template.html:330"
       ],
-      "value": "Svært ved at huske:"
+      "value": "Sukkel om te onthou:"
     },
     "html.digits_backwards.2a717e36": {
       "source": "Digits Backwards",
       "locations": [
         "templates/index.template.html:350"
       ],
-      "value": "Cifre baglæns"
+      "value": "Syfers agteruit"
     },
     "html.disorientation_or_confusion_staring_or_limited_r.5e396694": {
       "source": "Disorientation or confusion, staring or limited responsiveness, or an inability to respond appropriately to questions.",
       "locations": [
         "templates/index.template.html:115"
       ],
-      "value": "Desorientering eller forvirring, stirren eller begrænset reaktionsevne eller manglende evne til at reagere passende på spørgsmål."
+      "value": "Disoriëntasie of verwarring, staar of beperkte reaksie, of 'n onvermoë om vrae toepaslik te beantwoord."
     },
     "html.dizziness.2405ccdf": {
       "source": "Dizziness:",
@@ -359,21 +359,21 @@
         "templates/index.template.html:230",
         "templates/index.template.html:274"
       ],
-      "value": "Svimmelhed:"
+      "value": "Duiseligheid:"
     },
     "html.do_you_want_to_help_make_this_tool_better.e42dac0b": {
       "source": "Do you want to help make this tool better?",
       "locations": [
         "templates/index.template.html:686"
       ],
-      "value": "Vil du hjælpe med at gøre dette værktøj bedre?"
+      "value": "Wil u help om hierdie hulpmiddel te verbeter?"
     },
     "html.does_the_athlete_know_their_name_where_they_are_.cac06f2d": {
       "source": "Does the athlete know their name, where they are at, the day/year, etc?",
       "locations": [
         "templates/index.template.html:134"
       ],
-      "value": "Kender atleten sit navn, hvor de er, dagen/året osv.?"
+      "value": "Ken die atleet hul naam, waar hulle is, die dag/jaar, ens.?"
     },
     "html.don_t_feel_right.47932b2c": {
       "source": "\"Don't feel right\":",
@@ -381,28 +381,28 @@
         "templates/index.template.html:254",
         "templates/index.template.html:327"
       ],
-      "value": "\"Føles ikke rigtigt\":"
+      "value": "“Voel nie reg nie”:"
     },
     "html.double_leg_stance.09e0b951": {
       "source": "Double Leg Stance",
       "locations": [
         "templates/index.template.html:492"
       ],
-      "value": "Dobbeltbens holdning"
+      "value": "Dubbelbeenstand"
     },
     "html.double_leg_stance_on_foam.238a1eef": {
       "source": "Double Leg Stance on Foam (",
       "locations": [
         "templates/index.template.html:531"
       ],
-      "value": "Dobbeltbensstilling på skum ("
+      "value": "Dubbelbeenstand op skuim ("
     },
     "html.double_vision.364dbaf7": {
       "source": "Double vision",
       "locations": [
         "templates/index.template.html:84"
       ],
-      "value": "Dobbeltsyn"
+      "value": "Dubbelvisie"
     },
     "html.drowsiness.65a31057": {
       "source": "Drowsiness:",
@@ -410,14 +410,14 @@
         "templates/index.template.html:259",
         "templates/index.template.html:333"
       ],
-      "value": "Døsighed:"
+      "value": "Lomerigheid:"
     },
     "html.dual_task_gait.b2bd47c4": {
       "source": "Dual Task Gait (",
       "locations": [
         "templates/index.template.html:586"
       ],
-      "value": "Dobbeltopgavegang ("
+      "value": "Dubbeltaak-loop ("
     },
     "html.emsp.469ab770": {
       "source": "&emsp;",
@@ -439,28 +439,28 @@
         "templates/index.template.html:603",
         "templates/index.template.html:626"
       ],
-      "value": "Fejl"
+      "value": "Foute"
     },
     "html.examiner_ask_the_athlete_the_following_questions.33a50957": {
       "source": "Examiner, ask the athlete the following questions and select the ones they answer correctly.",
       "locations": [
         "templates/index.template.html:342"
       ],
-      "value": "Eksaminator, stil atleten følgende spørgsmål og vælg dem, de svarer korrekt på"
+      "value": "Ondersoeker: vra die atleet die volgende vrae en kies dié wat hulle korrek beantwoord."
     },
     "html.examiner_click_the_words_below_as_the_athlete_re.79684a93": {
       "source": "Examiner, click the words below as the athlete remembers them to cross them off. This will help keep track of how many they remember each trial.",
       "locations": [
         "templates/index.template.html:348"
       ],
-      "value": "Eksaminator, klik på ordene nedenfor, mens atleten husker dem, for at krydse dem af. Dette vil hjælpe med at holde styr på, hvor mange de husker hvert forsøg."
+      "value": "Ondersoeker: klik op die woorde soos die atleet dit onthou om dit deur te haal. Dit help om tred te hou met hoeveel hulle in elke proef onthou."
     },
     "html.examiner_for_the_second_and_third_trials_say_the.eaed95ad": {
       "source": "Examiner, for the second and third trials say the following:",
       "locations": [
         "templates/index.template.html:347"
       ],
-      "value": "Eksaminator sig følgende for den anden og tredje retssag:"
+      "value": "Ondersoeker: sê die volgende vir die tweede en derde proewe:"
     },
     "html.examiner_keep_a_count_of_the_errors_listed_above.08e52937": {
       "source": "Examiner, keep a count of the errors listed above and read the instructions below:",
@@ -472,7 +472,7 @@
         "templates/index.template.html:536",
         "templates/index.template.html:539"
       ],
-      "value": "Eksaminator, hold styr på ovenstående fejl og læs instruktionerne nedenfor:"
+      "value": "Ondersoeker: hou telling van die foute hierbo en lees die instruksies hieronder:"
     },
     "html.examiner_please_hand_the_device_to_the_athlete_t.64a653a0": {
       "source": "Examiner, please hand the device to the athlete to fill in the symptom scale (below) after you provide instructions.",
@@ -480,56 +480,56 @@
         "templates/index.template.html:218",
         "templates/index.template.html:267"
       ],
-      "value": "Eksaminator, giv venligst apparatet til atleten, så han/hun kan udfylde symptomskalaen (nedenfor), efter du har givet instruktionerne."
+      "value": "Ondersoeker: gee asseblief die toestel vir die atleet om die simptoomskaal hieronder in te vul nadat u instruksies gegee het."
     },
     "html.examiner_please_keep_the_3_meter_long_athletic_t.0a0fa7aa": {
       "source": "Examiner, please keep the 3-meter-long athletic tape line from the Timed Gait on the floor/firm surface. You will follow the script below, click start/end timer, and click on the responses that the athlete correctly says in order. Redo trials where the athlete strays off the line.",
       "locations": [
         "templates/index.template.html:588"
       ],
-      "value": "Eksaminator, behold venligst den 3 meter lange sportsbåndslinje fra på gulvet/den faste overflade. Du skal følge vejledningen nedenfor, klikke på start/slut timer og klikke på de svar, som atleten korrekt giver i rækkefølge. Gentag de forsøg, hvor atleten afviger fra linjen."
+      "value": "Ondersoeker: laat die 3 meter lange sportbandlyn van die tydgemete looptoets op die vloer/vaste oppervlak. Volg die teks hieronder, begin/stop die tydhouer en klik in volgorde op die antwoorde wat die atleet korrek sê. Herhaal proewe waar die atleet van die lyn afdwaal."
     },
     "html.examiner_please_place_a_3_meter_long_line_on_the.ffb580cf": {
       "source": "Examiner, please place a 3-meter-long line on the floor/firm surface with athletic tape. You will instruct the athlete and start/stop the timer for 3 trials.",
       "locations": [
         "templates/index.template.html:547"
       ],
-      "value": "Eksaminator, placer venligst en 3 meter lang line på gulvet/fast overflade med sportsbånd. Du vil instruere atleten og starte/stoppe timeren i 3 forsøg."
+      "value": "Ondersoeker: plaas asseblief 'n 3 meter lange lyn met sportband op die vloer/vaste oppervlak. Gee die atleet instruksies en begin/stop die tydhouer vir 3 proewe."
     },
     "html.examiner_read_the_following_line_and_ask_the_fol.d20d4a96": {
       "source": "Examiner, read the following line and ask the following questions (modified to be appropriate to the relevant sport). Check the correctly answered questions.",
       "locations": [
         "templates/index.template.html:203"
       ],
-      "value": "Eksaminator, læs følgende linje og stil følgende spørgsmål (ændret for at være passende til den relevante sportsgren). Marker de korrekt besvarede spørgsmål."
+      "value": "Ondersoeker: lees die volgende sin en vra die volgende vrae (aangepas vir die betrokke sport). Merk korrek beantwoorde vrae."
     },
     "html.examiner_read_the_following_numbers_one_sequence.0c58b596": {
       "source": "Examiner, read the following numbers (one sequence from each set) and ask the athlete to repeat them back in reverse order. Say them slowly at a rate of one digit per second. Each set has two number sequences. If the athlete fails the first, try the second. If both fail, end this subsection and move on to the months in reverse order.",
       "locations": [
         "templates/index.template.html:350"
       ],
-      "value": "Eksaminator, læs følgende tal (én sekvens fra hvert sæt) og bed atleten om at gentage dem i omvendt rækkefølge. Sig dem langsomt med et ciffer pr. sekund. Hvert sæt har to talsekvenser. Hvis atleten ikke klarer det første tal, kan man prøve det andet. Hvis begge ikke klarer det, afsluttes dette underafsnit og der gås videre til månederne i omvendt rækkefølge."
+      "value": "Ondersoeker: lees die volgende syfers (een reeks uit elke stel) en vra die atleet om dit in omgekeerde volgorde te herhaal. Sê dit stadig teen een syfer per sekonde. Elke stel het twee reekse. Probeer die tweede as die atleet die eerste nie slaag nie. Indien albei misluk, beëindig hierdie onderafdeling en gaan na die maande in omgekeerde volgorde."
     },
     "html.examiner_read_the_instructions_below_to_the_athl.a89dccc2": {
       "source": "Examiner, read the instructions below to the athlete and click to cross out the months as they say them in the correct order.",
       "locations": [
         "templates/index.template.html:403"
       ],
-      "value": "Eksaminator, læs instruktionerne nedenfor for atleten og klik for at strege månederne over, efterhånden som de står i den rigtige rækkefølge."
+      "value": "Ondersoeker: lees die instruksies hieronder aan die atleet en klik om die maande deur te haal soos hulle dit in die regte volgorde sê."
     },
     "html.examiner_you_will_guide_the_athlete_through_3_po.6a7d9adf": {
       "source": "Examiner, you will guide the athlete through 3 poses (double leg, tandem, and single leg stance) to be held for 20 seconds each. The later foam pad test is optional, only a solid floor/ground surface is required. You'll need a spotter to keep an eye on the athlete and be ready to assist them if they become unstable and begin to fall.",
       "locations": [
         "templates/index.template.html:469"
       ],
-      "value": "Eksaminator, du vil guide atleten gennem 3 stillinger (tobens-, tandem- og enkeltbens-stilling), der skal holdes i 20 sekunder hver. Den senere skumpudetest er valgfri, kun et fast gulv/jordoverflade er påkrævet. Du skal bruge en observatør til at holde øje med atleten og være klar til at hjælpe dem, hvis de bliver ustabile og begynder at falde."
+      "value": "Ondersoeker: lei die atleet deur 3 houdings (dubbelbeen-, tandem- en enkelbeenstand) wat elk 20 sekondes gehou word. Die latere skuimkussingtoets is opsioneel; slegs 'n vaste vloer/grondoppervlak word vereis. U benodig iemand om die atleet dop te hou en te help indien hulle onstabiel raak en begin val."
     },
     "html.examiner_you_will_read_the_list_of_words_3_times.deb7a257": {
       "source": "Examiner, you will read the list of words 3 times, keeping track of how many words the athlete remembers after each reading. All 3 trials must be administered irrespective of the number correct on each. Start the first trial by saying the following:",
       "locations": [
         "templates/index.template.html:346"
       ],
-      "value": "Eksaminator, du skal læse ordlisten 3 gange og holde styr på, hvor mange ord atleten husker efter hver læsning. Alle 3 forsøg skal udføres uanset det korrekte antal på hver. Start det første forsøg med at sige følgende:"
+      "value": "Ondersoeker: lees die woordelys 3 keer en hou rekord van hoeveel woorde die atleet ná elke lesing onthou. Al 3 proewe moet afgeneem word ongeag die aantal korrekte antwoorde in elke proef. Begin die eerste proef deur te sê:"
     },
     "html.export.f0da3cb0": {
       "source": "Export &nbsp;",
@@ -537,42 +537,42 @@
         "templates/index.template.html:73",
         "templates/index.template.html:685"
       ],
-      "value": "Eksporter &nbsp;"
+      "value": "Voer uit &nbsp;"
     },
     "html.extend_stretch_outward_muscles_to_pain.717b64f5": {
       "source": "Extend (stretch outward) muscles to pain.",
       "locations": [
         "templates/index.template.html:144"
       ],
-      "value": "Stræk (stræk udad) musklerne ved smerte."
+      "value": "Ekstensie op pyn."
     },
     "html.facial_injury_after_head_trauma.4ad30cc1": {
       "source": "Facial injury after head trauma.",
       "locations": [
         "templates/index.template.html:117"
       ],
-      "value": "Ansigtsskade efter hovedtraume."
+      "value": "Gesigbesering ná koptrauma."
     },
     "html.falling_unprotected_to_the_surface.8edb4251": {
       "source": "Falling unprotected to the surface.",
       "locations": [
         "templates/index.template.html:108"
       ],
-      "value": "Falder ubeskyttet til overfladen."
+      "value": "Val onbeskermd op die oppervlak."
     },
     "html.faq.00010ef6": {
       "source": "FAQ",
       "locations": [
         "templates/index.template.html:58"
       ],
-      "value": "Ofte stillede spørgsmål"
+      "value": "Gereelde vrae"
     },
     "html.fastest_seconds.2f03389c": {
       "source": "Fastest (seconds)",
       "locations": [
         "templates/index.template.html:563"
       ],
-      "value": "Hurtigst (sekunder)"
+      "value": "Vinnigste (sekondes)"
     },
     "html.fatique_or_low_energy.1b0e26f8": {
       "source": "Fatique or low energy:",
@@ -580,14 +580,14 @@
         "templates/index.template.html:257",
         "templates/index.template.html:331"
       ],
-      "value": "Træthed eller lav energi:"
+      "value": "Moegheid of min energie:"
     },
     "html.february.f41fb3c2": {
       "source": "February",
       "locations": [
         "templates/index.template.html:416"
       ],
-      "value": "februar"
+      "value": "Februarie"
     },
     "html.feeling_like_in_a_fog.8ba466f9": {
       "source": "Feeling like \"in a fog\":",
@@ -595,7 +595,7 @@
         "templates/index.template.html:253",
         "templates/index.template.html:317"
       ],
-      "value": "Føles som \"i en tåge\":"
+      "value": "Voel “in 'n mis”:"
     },
     "html.feeling_slowed_down.e0705b5c": {
       "source": "Feeling slowed down:",
@@ -603,63 +603,63 @@
         "templates/index.template.html:252",
         "templates/index.template.html:312"
       ],
-      "value": "Føles langsom:"
+      "value": "Voel vertraag:"
     },
     "html.flexion_withdrawal_as_a_reflex_to_pain.1b932666": {
       "source": "Flexion/withdrawal (as a reflex) to pain.",
       "locations": [
         "templates/index.template.html:148"
       ],
-      "value": "Fleksion/tilbagetrækning (som en refleks) ved smerte."
+      "value": "Fleksie/onttrekking (as 'n refleks) op pyn."
     },
     "html.for_details.2f78fba3": {
       "source": "for details.",
       "locations": [
         "templates/index.template.html:61"
       ],
-      "value": "for detaljer."
+      "value": "vir besonderhede."
     },
     "html.free_open_source.8bea7570": {
       "source": "Free & Open-Source",
       "locations": [
         "templates/index.template.html:687"
       ],
-      "value": "Gratis og åben kildekode"
+      "value": "Gratis en oopbron"
     },
     "html.from_the_automated_bess_to_inform_more_inclusive.5829f528": {
       "source": "from the automated BESS to inform more inclusive ML models.",
       "locations": [
         "templates/index.template.html:697"
       ],
-      "value": "fra det automatiserede BESS til at informere mere inkluderende ML-modeller."
+      "value": "van die geoutomatiseerde BESS om meer inklusiewe ML-modelle te ontwikkel."
     },
     "html.full_scat6.eec7bd62": {
       "source": "Full SCAT6",
       "locations": [
         "templates/index.template.html:684"
       ],
-      "value": "Fuld SCAT6"
+      "value": "Volledige SCAT6"
     },
     "html.getting_camera_permissions.7e3bf5c9": {
       "source": "Getting camera permissions...",
       "locations": [
         "templates/index.template.html:442"
       ],
-      "value": "Får kameratilladelser..."
+      "value": "Verkry kameratoestemming…"
     },
     "html.glasgow_coma_scale.9787cc12": {
       "source": "Glasgow Coma Scale",
       "locations": [
         "templates/index.template.html:124"
       ],
-      "value": "Glasgow Coma Scale (GCS)"
+      "value": "Glasgow-komaskaal"
     },
     "html.good_now_you_will_walk_heel_to_toe_and_count_bac.e0586300": {
       "source": "Good, now you will walk heel-to-toe and count backwards out loud at the same time. Keep counting until you finish walking the 3 meters, turning 180 degrees, walking the 3 meters again and the examiner says stop indicating you got to the last number. Are you ready? The number to start with is 88. Go! &nbsp;",
       "locations": [
         "templates/index.template.html:616"
       ],
-      "value": "Godt, nu skal du gå hæl til tå og tælle højt baglæns samtidig. Fortsæt med at tælle, indtil du er færdig med at gå de 3 meter, drejer dig 180 grader, går de 3 meter igen, og eksaminator siger stop, hvilket indikerer, at du er nået til det sidste tal. Er du klar? Tallet at starte med er 88. Start! &nbsp;"
+      "value": "Goed, loop nou hak-tot-toon en tel terselfdertyd hardop agteruit. Hou aan tel totdat u die 3 meter voltooi, 180 grade draai, weer 3 meter loop en die ondersoeker stop sê omdat u die laaste getal bereik het. Is u gereed? Begin by 88. Gaan! &nbsp;"
     },
     "html.headaches.e512bd06": {
       "source": "Headaches:",
@@ -667,49 +667,49 @@
         "templates/index.template.html:221",
         "templates/index.template.html:268"
       ],
-      "value": "Hovedpine:"
+      "value": "Hoofpyn:"
     },
     "html.healthy_athletes_typically_complete_the_task_in_.c8a356ce": {
       "source": "Healthy athletes typically complete the task in 18.7-22.5 seconds with 85.8-92.4% accuracy (0.9-1.7 errors). Concussed athletes typically take 30.6-36.1 seconds with 76.4-83.6% accuracy (2.0-2.8 errors).",
       "locations": [
         "templates/index.template.html:668"
       ],
-      "value": "Raske atleter gennemfører typisk opgaven på 18,7-22,5 sekunder med en nøjagtighed på 85,8-92,4 % (0,9-1,7 fejl). Atleter med hjernerystelse bruger typisk 30,6-36,1 sekunder med en nøjagtighed på 76,4-83,6 % (2,0-2,8 fejl)."
+      "value": "Gesonde atlete voltooi die taak gewoonlik binne 18,7–22,5 sekondes met 85,8–92,4% akkuraatheid (0,9–1,7 foute). Atlete met harsingskudding neem gewoonlik 30,6–36,1 sekondes met 76,4–83,6% akkuraatheid (2,0–2,8 foute)."
     },
     "html.healthy_athletes_typically_have_a_fastest_time_b.b2978261": {
       "source": "Healthy athletes typically have a fastest time between 13.9 and 15.8. Newly concussed athletes are typically between 21.9 and 26.1. Athletes concussed within the last 6-73 days will be somewhere in between.",
       "locations": [
         "templates/index.template.html:574"
       ],
-      "value": "Raske atleter har typisk en hurtigste tid mellem 13,9 og 15,8. Nyligt ramte atleter ligger typisk mellem 21,9 og 26,1. Atleter, der har fået hjernerystelse inden for de sidste 6-73 dage, vil ligge et sted midt imellem."
+      "value": "Gesonde atlete se vinnigste tyd is gewoonlik tussen 13,9 en 15,8 sekondes. Atlete met 'n onlangse harsingskudding is gewoonlik tussen 21,9 en 26,1 sekondes. Atlete wat binne die afgelope 6–73 dae harsingskudding opgedoen het, sal êrens tussenin wees."
     },
     "html.high_risk_mechanism_of_injury_sportdependent.22aece6b": {
       "source": "High-risk mechanism of injury (sportdependent).",
       "locations": [
         "templates/index.template.html:119"
       ],
-      "value": "Højrisiko skadesmekanisme (sportsafhængig)."
+      "value": "Hoërisiko-beseringsmeganisme (sportafhanklik)."
     },
     "html.i_am_going_to_repeat_the_same_list_repeat_back_a.7b6000f3": {
       "source": "I am going to repeat the same list. Repeat back as many words as you can remember in any order, even if you said the word before in a previous trial &nbsp;",
       "locations": [
         "templates/index.template.html:347"
       ],
-      "value": "Jeg gentager den samme liste. Gentag så mange ord, som du kan huske, i vilkårlig rækkefølge, selvom du sagde ordet før i en tidligere prøve. &nbsp;"
+      "value": "Ek gaan dieselfde lys herhaal. Herhaal soveel woorde as wat u in enige volgorde kan onthou, selfs al het u die woord in 'n vorige proef gesê. &nbsp;"
     },
     "html.i_am_going_to_test_your_memory_i_will_read_you_a.3480155e": {
       "source": "I am going to test your memory. I will read you a list of words and when I am done, repeat back as many words as you can remember, in any order &nbsp;",
       "locations": [
         "templates/index.template.html:346"
       ],
-      "value": "Jeg vil teste din hukommelse. Jeg læser en liste med ord op for dig, og når jeg er færdig, gentager du så mange ord, som du kan huske, i vilkårlig rækkefølge &nbsp;"
+      "value": "Ek gaan u geheue toets. Ek lees 'n lys woorde en wanneer ek klaar is, herhaal soveel woorde as wat u in enige volgorde kan onthou. &nbsp;"
     },
     "html.i_m_going_to_read_a_string_of_numbers_and_when_i.2ba1f5d3": {
       "source": "I'm going to read a string of numbers and when I am done, you repeat them back to me in reverse order of how I read them to you. For example, if I say 7 1 9, you would say 9 1 7. So, if I said 9 6 8 you would say? &nbsp;",
       "locations": [
         "templates/index.template.html:358"
       ],
-      "value": "Jeg vil læse en række tal op, og når jeg er færdig, gentager du dem for mig i omvendt rækkefølge af, hvordan jeg læste dem op for dig. For eksempel, hvis jeg siger 7 1 9, ville du sige 9 1 7. Så hvis jeg sagde 9 6 8, ville du sige? &nbsp;"
+      "value": "Ek gaan 'n reeks syfers lees. Wanneer ek klaar is, herhaal u dit in die omgekeerde volgorde. Byvoorbeeld, as ek 7 1 9 sê, sê u 9 1 7. Wat sou u dus sê as ek 9 6 8 sê? &nbsp;"
     },
     "html.if_100_is_feeling_perfectly_normal_what_percent_.106ed9f8": {
       "source": "If 100% is feeling perfectly normal, what percent of normal do you feel?",
@@ -717,14 +717,14 @@
         "templates/index.template.html:266",
         "templates/index.template.html:340"
       ],
-      "value": "Hvor mange procent af normal føler du dig?"
+      "value": "As 100% beteken u voel volkome normaal, watter persentasie normaal voel u?"
     },
     "html.if_no_neck_pain_and_no_tenderness_athlete_has_fu.567c8027": {
       "source": "If NO neck pain and NO tenderness, athlete has full range of ACTIVE pain free movement.",
       "locations": [
         "templates/index.template.html:167"
       ],
-      "value": "Hvis der INGEN nakkesmerter og INGEN ømhed er, atleten har fuld AKTIV smertefri bevægelse."
+      "value": "Indien daar GEEN nekpyn en GEEN teerheid is nie, het die atleet volle AKTIEWE pynvrye bewegingsomvang."
     },
     "html.if_not_100_why.a8a002ef": {
       "source": "If not 100%, why?",
@@ -732,49 +732,49 @@
         "templates/index.template.html:266",
         "templates/index.template.html:341"
       ],
-      "value": "Hvis ikke 100%, hvorfor?"
+      "value": "Indien nie 100% nie, waarom?"
     },
     "html.immediate_memory.cdf2c490": {
       "source": "Immediate Memory",
       "locations": [
         "templates/index.template.html:345"
       ],
-      "value": "Umiddelbar Hukommelse"
+      "value": "Onmiddellike geheue"
     },
     "html.impact_seizure.200066c3": {
       "source": "Impact seizure.",
       "locations": [
         "templates/index.template.html:118"
       ],
-      "value": "Slagbeslaglæggelse."
+      "value": "Impakstuiptrekking."
     },
     "html.in_a_patient_who_is_not_lucid_or_fully_conscious.3e7592c7": {
       "source": "In a patient who is not lucid or fully conscious, a cervical spine injury should be assumed and spinal precautions taken. Check each box for yes, keep unselected for no.",
       "locations": [
         "templates/index.template.html:153"
       ],
-      "value": "Hos en patient, der ikke er klar eller fuldt bevidst, bør der antages en skade på halshvirvelsøjlen, og der bør tages forholdsregler mod rygsøjlen. Marker hver boks for ja, og undlad at markere den for nej."
+      "value": "By 'n pasiënt wat nie helder of ten volle by sy/haar bewussyn is nie, moet 'n servikale ruggraatbesering aanvaar en ruggraatvoorsorgmaatreëls getref word. Merk elke blokkie vir ja en laat dit ongemerk vir nee."
     },
     "html.inappropriate_words_random_but_comprehensible_wo.2482ce12": {
       "source": "Inappropriate words. Random but comprehensible words.",
       "locations": [
         "templates/index.template.html:137"
       ],
-      "value": "Upassende ord. Tilfældige, men forståelige ord."
+      "value": "Onvanpaste woorde. Willekeurige maar verstaanbare woorde."
     },
     "html.incomprehensible_sounds_or_noises.37d193cf": {
       "source": "Incomprehensible sounds or noises.",
       "locations": [
         "templates/index.template.html:136"
       ],
-      "value": "Uforståelige lyde eller støj."
+      "value": "Onverstaanbare klanke of geluide."
     },
     "html.increasingly_restless_agitated_or_combative.3eea7a4f": {
       "source": "Increasingly restless, agitated or combative",
       "locations": [
         "templates/index.template.html:91"
       ],
-      "value": "Tiltagende rastløs, ophidset eller kamplysten"
+      "value": "Toenemend rusteloos, geagiteerd of aggressief"
     },
     "html.irritability.7536bb84": {
       "source": "Irritability:",
@@ -782,35 +782,35 @@
         "templates/index.template.html:261",
         "templates/index.template.html:335"
       ],
-      "value": "Irritabilitet:"
+      "value": "Prikkelbaarheid:"
     },
     "html.january.f657f84a": {
       "source": "January",
       "locations": [
         "templates/index.template.html:416"
       ],
-      "value": "januar"
+      "value": "Januarie"
     },
     "html.july.00236838": {
       "source": "July",
       "locations": [
         "templates/index.template.html:415"
       ],
-      "value": "juli"
+      "value": "Julie"
     },
     "html.june.00236862": {
       "source": "June",
       "locations": [
         "templates/index.template.html:415"
       ],
-      "value": "juni"
+      "value": "Junie"
     },
     "html.keep_a_count_of_the_following_errors_in_the_athl.3cd31d02": {
       "source": "Keep a count of the following errors in the athlete's execution of the poses:",
       "locations": [
         "templates/index.template.html:480"
       ],
-      "value": "Hold styr på følgende fejl i atletens udførelse af stillingerne:"
+      "value": "Hou telling van die volgende foute in die atleet se uitvoering van die houdings:"
     },
     "html.lifting_forefoot_or_heel.09e29bb4": {
       "source": "Lifting forefoot or heel",
@@ -818,7 +818,7 @@
         "templates/index.template.html:436",
         "templates/index.template.html:490"
       ],
-      "value": "Løft af forfod eller hæl"
+      "value": "Lig voorvoet of hak op"
     },
     "html.lifting_hands_off_iliac_crests_upper_border_of_t.0d9bda35": {
       "source": "Lifting hands off iliac crests (upper border of the pelvis/hip-bone)",
@@ -826,84 +826,84 @@
         "templates/index.template.html:434",
         "templates/index.template.html:483"
       ],
-      "value": "Løfter hænderne fra hoftekammene (øverste kant af bækkenet/hoftebenet)"
+      "value": "Lig hande van die crista iliaca (boonste rand van die pelvis/heupbeen) af"
     },
     "html.limb_strength_and_sensation_is_normal.fea9cbcd": {
       "source": "Limb strength and sensation is normal.",
       "locations": [
         "templates/index.template.html:177"
       ],
-      "value": "Lemmernes styrke og følesans er normal."
+      "value": "Ledemaatkrag en sensasie is normaal."
     },
     "html.loading.8f2553d2": {
       "source": "Loading...",
       "locations": [
         "templates/index.template.html:685"
       ],
-      "value": "Indlæser..."
+      "value": "Laai tans…"
     },
     "html.localized_to_intentionally_moves_away_from_pain.a0f83a27": {
       "source": "Localized to (Intentionally moves away from) pain.",
       "locations": [
         "templates/index.template.html:150"
       ],
-      "value": "Lokaliserer (bevæger sig bevidst væk fra) smerte."
+      "value": "Lokaliseer pyn (beweeg doelbewus weg van pyn)."
     },
     "html.loss_of_consciousness.c411c8a1": {
       "source": "Loss of consciousness",
       "locations": [
         "templates/index.template.html:85"
       ],
-      "value": "Bevidsthedstab"
+      "value": "Bewussynsverlies"
     },
     "html.lying_motionless_on_playing_surface.f1e2d00e": {
       "source": "Lying motionless on playing surface.",
       "locations": [
         "templates/index.template.html:107"
       ],
-      "value": "Ligger ubevægeligt på spillefladen."
+      "value": "Lê bewegingloos op die speeloppervlak."
     },
     "html.maddocks_score.264a43c2": {
       "source": "Maddocks Score",
       "locations": [
         "templates/index.template.html:200"
       ],
-      "value": "Maddocks-score"
+      "value": "Maddocks-telling"
     },
     "html.march.046ae223": {
       "source": "March",
       "locations": [
         "templates/index.template.html:416"
       ],
-      "value": "Marts"
+      "value": "Maart"
     },
     "html.may.00012d45": {
       "source": "May",
       "locations": [
         "templates/index.template.html:415"
       ],
-      "value": "Maj"
+      "value": "Mei"
     },
     "html.mirror.6b9fd245": {
       "source": "Mirror &nbsp;",
       "locations": [
         "templates/index.template.html:445"
       ],
-      "value": "Spejl &nbsp;"
+      "value": "Spieël &nbsp;"
     },
     "html.mit.00012a38": {
       "source": "MIT",
       "locations": [
         "templates/index.template.html:703"
       ],
-      "value": "MIT-licens"
+      "value": "MIT"
     },
     "html.months_in_reverse_order.8cd88702": {
       "source": "Months in Reverse Order",
       "locations": [
         "templates/index.template.html:403"
       ],
-      "value": "Måneder i omvendt rækkefølge"
+      "value": "Maande in omgekeerde volgorde"
     },
     "html.more_emotional.10bd94bf": {
       "source": "More emotional:",
@@ -911,7 +911,7 @@
         "templates/index.template.html:260",
         "templates/index.template.html:334"
       ],
-      "value": "Mere følelsesladet:"
+      "value": "Meer emosioneel:"
     },
     "html.multiple_simultaneous_errors_count_as_one_failur.8b3af283": {
       "source": "Multiple simultaneous errors count as one. Failure to hold the pose for at least 5 seconds counts as the maximum number of errors for that pose (10).",
@@ -919,7 +919,7 @@
         "templates/index.template.html:437",
         "templates/index.template.html:491"
       ],
-      "value": "Flere samtidige fejl tæller som én. Hvis stillingen ikke kan holdes i mindst 5 sekunder, tæller det som maksimalt antal fejl for den stilling (10)."
+      "value": "Verskeie gelyktydige foute tel as een. Indien die houding nie minstens 5 sekondes gehou word nie, tel dit as die maksimum aantal foute vir daardie houding (10)."
     },
     "html.nausea_or_vomiting.ff56e94d": {
       "source": "Nausea or vomiting:",
@@ -927,7 +927,7 @@
         "templates/index.template.html:227",
         "templates/index.template.html:271"
       ],
-      "value": "Kvalme eller opkastning:"
+      "value": "Naarheid of braking:"
     },
     "html.neck_pain.72a26d43": {
       "source": "Neck pain:",
@@ -935,14 +935,14 @@
         "templates/index.template.html:225",
         "templates/index.template.html:270"
       ],
-      "value": "Nakkesmerter:"
+      "value": "Nekpyn:"
     },
     "html.neck_pain_or_tenderness.a448beff": {
       "source": "Neck pain or tenderness",
       "locations": [
         "templates/index.template.html:83"
       ],
-      "value": "Nakkesmerter eller ømhed"
+      "value": "Nekpyn of teerheid"
     },
     "html.nervous_or_anxious.325690fa": {
       "source": "Nervous or anxious:",
@@ -950,70 +950,70 @@
         "templates/index.template.html:263",
         "templates/index.template.html:337"
       ],
-      "value": "Nervøs eller ængstelig:"
+      "value": "Senuweeagtig of angstig:"
     },
     "html.next_trial.c5125b3b": {
       "source": "Next Trial &nbsp;",
       "locations": [
         "templates/index.template.html:349"
       ],
-      "value": "Næste forsøg &nbsp;"
+      "value": "Volgende proef &nbsp;"
     },
     "html.no_eye_opening_for_any_reason.f6a641e9": {
       "source": "No eye opening for any reason.",
       "locations": [
         "templates/index.template.html:125"
       ],
-      "value": "Ingen øjenåbning af nogen grund."
+      "value": "Geen oogopening nie."
     },
     "html.no_motor_response.0d8365e3": {
       "source": "No motor response.",
       "locations": [
         "templates/index.template.html:143"
       ],
-      "value": "Ingen motorisk respons."
+      "value": "Geen motoriese respons nie."
     },
     "html.no_red_flags.592252b9": {
       "source": "No red flags",
       "locations": [
         "templates/index.template.html:94"
       ],
-      "value": "Ingen røde flag"
+      "value": "Geen rooi vlae nie"
     },
     "html.no_verbal_response.1944b556": {
       "source": "No verbal response.",
       "locations": [
         "templates/index.template.html:135"
       ],
-      "value": "Ingen verbal respons."
+      "value": "Geen verbale respons nie."
     },
     "html.none.00252358": {
       "source": "None",
       "locations": [
         "templates/index.template.html:121"
       ],
-      "value": "Ingen"
+      "value": "Geen"
     },
     "html.not_fully_conscious.95954813": {
       "source": "Not Fully Conscious",
       "locations": [
         "templates/index.template.html:180"
       ],
-      "value": "Ikke fuldt bevidst"
+      "value": "Nie ten volle by bewussyn nie"
     },
     "html.november.658d8552": {
       "source": "November",
       "locations": [
         "templates/index.template.html:412"
       ],
-      "value": "november"
+      "value": "November"
     },
     "html.number_of_correct_sets_of_4.9f1dc6dd": {
       "source": "Number of correct sets (of 4):",
       "locations": [
         "templates/index.template.html:402"
       ],
-      "value": "Antal korrekte sæt (ud af 4):"
+      "value": "Aantal korrekte stelle (uit 4):"
     },
     "html.number_of_errors.2b3d65fd": {
       "source": "Number of errors:",
@@ -1025,35 +1025,35 @@
         "templates/index.template.html:538",
         "templates/index.template.html:541"
       ],
-      "value": "Antal fejl:"
+      "value": "Aantal foute:"
     },
     "html.obeys_commands.00db6af2": {
       "source": "Obeys commands.",
       "locations": [
         "templates/index.template.html:151"
       ],
-      "value": "Adlyder kommandoer."
+      "value": "Gehoorsaam bevele."
     },
     "html.observable_signs.e013f939": {
       "source": "Observable Signs",
       "locations": [
         "templates/index.template.html:101"
       ],
-      "value": "Observerbare tegn"
+      "value": "Waarneembare tekens"
     },
     "html.observed_extraocular_eye_movements_are_normal.4f594fc4": {
       "source": "Observed extraocular eye movements are normal.",
       "locations": [
         "templates/index.template.html:188"
       ],
-      "value": "Observerede ekstraokulære øjenbevægelser er normale."
+      "value": "Waargenome ekstraokulêre oogbewegings is normaal."
     },
     "html.observed_on_video.2f1f9112": {
       "source": "Observed on Video",
       "locations": [
         "templates/index.template.html:121"
       ],
-      "value": "Observeret på video"
+      "value": "Op video waargeneem"
     },
     "html.october.0292a6c0": {
       "source": "October",
@@ -1067,28 +1067,28 @@
       "locations": [
         "templates/index.template.html:186"
       ],
-      "value": "Okulær/motorisk. Atleten kan se fra side til side og op og ned uden at bevæge hoved/nakke eller få dobbeltsyn."
+      "value": "Okulomotories: Die atleet kan van kant tot kant en op en af kyk sonder om hul kop/nek te beweeg of dubbel te sien."
     },
     "html.open_naturally.bd2b26ee": {
       "source": "Open naturally.",
       "locations": [
         "templates/index.template.html:133"
       ],
-      "value": "Åbner naturligt."
+      "value": "Oë open spontaan."
     },
     "html.open_to_pain_pinch_or_poke.0177d368": {
       "source": "Open to pain (pinch or poke).",
       "locations": [
         "templates/index.template.html:126"
       ],
-      "value": "Åbner ved smerte (klem eller prik)."
+      "value": "Oë open op pyn (knyp of steek)."
     },
     "html.open_to_speech_when_asked_to_open.b303893f": {
       "source": "Open to speech (when asked to open).",
       "locations": [
         "templates/index.template.html:131"
       ],
-      "value": "Åbner ved tale (når personen bliver bedt om det)."
+      "value": "Oë open op spraak (wanneer gevra word om dit oop te maak)."
     },
     "html.opening_eyes.a240424a": {
       "source": "Opening eyes",
@@ -1096,21 +1096,21 @@
         "templates/index.template.html:432",
         "templates/index.template.html:482"
       ],
-      "value": "Åbner øjne"
+      "value": "Oë oopmaak"
     },
     "html.opensource.4b1d2ee5": {
       "source": "opensource",
       "locations": [
         "templates/index.template.html:703"
       ],
-      "value": "open source"
+      "value": "oopbron"
     },
     "html.opt_in_to_share_anonymized_test_scores_for_resea.bbd34410": {
       "source": "Opt-in to share anonymized test scores for research-use and to improve tool recommendations.",
       "locations": [
         "templates/index.template.html:693"
       ],
-      "value": "Tilmeld dig frivilligt for at dele anonymiserede testresultater til forskning og forbedring af værktøjets anbefalinger."
+      "value": "Kies om geanonimiseerde toetstellings vir navorsing te deel en hulpmiddelaanbevelings te verbeter."
     },
     "html.optional.ff24af80": {
       "source": "Optional",
@@ -1120,56 +1120,56 @@
         "templates/index.template.html:538",
         "templates/index.template.html:587"
       ],
-      "value": "Valgfri"
+      "value": "Opsioneel"
     },
     "html.orientation.0d9c9db0": {
       "source": "Orientation",
       "locations": [
         "templates/index.template.html:342"
       ],
-      "value": "Orientering"
+      "value": "Oriëntasie"
     },
     "html.oriented_answers_correctly.4e806b38": {
       "source": "Oriented. Answers correctly.",
       "locations": [
         "templates/index.template.html:142"
       ],
-      "value": "Orienteret. Svarer korrekt."
+      "value": "Georiënteerd. Antwoord korrek."
     },
     "html.overall_report.18ee58a7": {
       "source": "Overall Report",
       "locations": [
         "templates/index.template.html:684"
       ],
-      "value": "Samlet rapport"
+      "value": "Algehele verslag"
     },
     "html.overwrite_current_pose_as_correct.19da3d75": {
       "source": "Overwrite Current Pose as Correct &nbsp;",
       "locations": [
         "templates/index.template.html:452"
       ],
-      "value": "Overskriv nuværende stilling som korrekt &nbsp;"
+      "value": "Oorskryf huidige houding as korrek &nbsp;"
     },
     "html.please_describe_anything_abnormal.e2b07d33": {
       "source": "Please describe anything abnormal:",
       "locations": [
         "templates/index.template.html:188"
       ],
-      "value": "Beskriv venligst alt unormalt:"
+      "value": "Beskryf asseblief enigiets abnormaal:"
     },
     "html.please_rate_your_symptoms_below_based_on_how_you.d1f27a6c": {
       "source": "Please rate your symptoms below based on how you typically feel with 1 representing a very mild symptom and 6 representing a severe symptom. 0 means the symptom is not present &nbsp;",
       "locations": [
         "templates/index.template.html:219"
       ],
-      "value": "Vurder venligst dine symptomer nedenfor ud fra hvordan du typisk har det, hvor 1 er et meget mildt symptom og 6 er et alvorligt symptom. 0 betyder, at symptomet ikke er til stede &nbsp;"
+      "value": "Gradeer asseblief die simptome hieronder op grond van hoe u gewoonlik voel, waar 1 'n baie ligte simptoom en 6 'n ernstige simptoom voorstel. 0 beteken die simptoom is nie teenwoordig nie. &nbsp;"
     },
     "html.please_rate_your_symptoms_below_based_on_how_you.f9c6d7f9": {
       "source": "Please rate your symptoms below based on how you feel now with 1 representing a very mild symptom and 6 representing a severe symptom. 0 means the symptom is not present &nbsp;",
       "locations": [
         "templates/index.template.html:268"
       ],
-      "value": "Vurder venligst dine symptomer nedenfor ud fra hvordan du har det nu, hvor 1 er et meget mildt symptom og 6 er et alvorligt symptom. 0 betyder, at symptomet ikke er til stede &nbsp;"
+      "value": "Gradeer asseblief die simptome hieronder op grond van hoe u nou voel, waar 1 'n baie ligte simptoom en 6 'n ernstige simptoom voorstel. 0 beteken die simptoom is nie teenwoordig nie. &nbsp;"
     },
     "html.power_systems_airex_balance_pad_81000.a858acec": {
       "source": "Power Systems Airex Balance Pad 81000",
@@ -1178,14 +1178,14 @@
         "templates/index.template.html:535",
         "templates/index.template.html:539"
       ],
-      "value": "Power Systems Airex Balance Pad 81000 (anbefalet model)"
+      "value": "Power Systems Airex Balance Pad 81000"
     },
     "html.practice.b013e55b": {
       "source": "Practice",
       "locations": [
         "templates/index.template.html:605"
       ],
-      "value": "Øvelse"
+      "value": "Oefening"
     },
     "html.pressure_in_head.057526fa": {
       "source": "Pressure in head:",
@@ -1193,42 +1193,42 @@
         "templates/index.template.html:223",
         "templates/index.template.html:269"
       ],
-      "value": "Tryk i hovedet:"
+      "value": "Drukking in die kop:"
     },
     "html.privacy_policy.c042190a": {
       "source": "Privacy Policy",
       "locations": [
         "templates/index.template.html:61"
       ],
-      "value": "Privatlivspolitik"
+      "value": "Privaatheidsbeleid"
     },
     "html.raw_csv.9de18dce": {
       "source": "Raw CSV",
       "locations": [
         "templates/index.template.html:684"
       ],
-      "value": "Rå CSV"
+      "value": "Rou CSV"
     },
     "html.red_flags.5e5979f8": {
       "source": "Red Flags",
       "locations": [
         "templates/index.template.html:77"
       ],
-      "value": "Røde flag"
+      "value": "Rooi vlae"
     },
     "html.red_flags_are_signs_and_symptoms_that_may_indica.b41fa1b0": {
       "source": "Red flags are signs and symptoms that may indicate a more serious injury. If any of these are present, the athlete should be referred to a healthcare professional immediately.",
       "locations": [
         "templates/index.template.html:78"
       ],
-      "value": "Røde flag er tegn og symptomer, som kan indikere en mere alvorlig skade. Hvis nogen af disse er til stede, skal atleten straks henvises til sundhedsfagligt personale."
+      "value": "Rooi vlae is tekens en simptome wat op 'n ernstiger besering kan dui. Indien enige hiervan teenwoordig is, moet die atleet onmiddellik na 'n gesondheidswerker verwys word."
     },
     "html.red_flags_present.a9a9e6b3": {
       "source": "Red flags present",
       "locations": [
         "templates/index.template.html:92"
       ],
-      "value": "Røde flag til stede"
+      "value": "Rooi vlae teenwoordig"
     },
     "html.remaining_out_of_the_testing_position_for_more_t.91a1c29e": {
       "source": "Remaining out of the testing position for more than 5 seconds",
@@ -1236,21 +1236,21 @@
         "templates/index.template.html:436",
         "templates/index.template.html:489"
       ],
-      "value": "Ude af testpositionen i mere end 5 sekunder"
+      "value": "Bly langer as 5 sekondes uit die toetshouding"
     },
     "html.results.a4a3d3d6": {
       "source": "Results",
       "locations": [
         "templates/index.template.html:683"
       ],
-      "value": "Resultater"
+      "value": "Resultate"
     },
     "html.return_to_main_menu.edf01cd1": {
       "source": "Return to Main Menu",
       "locations": [
         "templates/index.template.html:686"
       ],
-      "value": "Tilbage til hovedmenu"
+      "value": "Keer terug na hoofkieslys"
     },
     "html.sadness.6a205ecd": {
       "source": "Sadness:",
@@ -1258,14 +1258,14 @@
         "templates/index.template.html:262",
         "templates/index.template.html:336"
       ],
-      "value": "Nedtrykthed:"
+      "value": "Hartseer:"
     },
     "html.scat6.9171516f": {
       "source": "SCAT6™",
       "locations": [
         "templates/index.template.html:701"
       ],
-      "value": "SCAT6™-skema"
+      "value": "SCAT6™"
     },
     "html.scat6_web.42f3afa7": {
       "source": "SCAT6 Web",
@@ -1273,21 +1273,21 @@
         "templates/index.template.html:6",
         "templates/index.template.html:19"
       ],
-      "value": "SCAT6 Webapp"
+      "value": "SCAT6 Web"
     },
     "html.search_by_name.6816295e": {
       "source": "Search by name:",
       "locations": [
         "templates/index.template.html:71"
       ],
-      "value": "Søg efter navn:"
+      "value": "Soek volgens naam:"
     },
     "html.seizure_or_convulsion.89fe7ae2": {
       "source": "Seizure or convulsion",
       "locations": [
         "templates/index.template.html:83"
       ],
-      "value": "Krampeanfald eller konvulsion"
+      "value": "Stuiptrekking of konvulsie"
     },
     "html.sensitivity_to_light.3660aec8": {
       "source": "Sensitivity to light:",
@@ -1295,7 +1295,7 @@
         "templates/index.template.html:250",
         "templates/index.template.html:295"
       ],
-      "value": "Lysfølsomhed:"
+      "value": "Ligsensitiwiteit:"
     },
     "html.sensitivity_to_noise.3a1ffd44": {
       "source": "Sensitivity to noise:",
@@ -1303,70 +1303,70 @@
         "templates/index.template.html:251",
         "templates/index.template.html:307"
       ],
-      "value": "Lydfølsomhed:"
+      "value": "Geraassensitiwiteit:"
     },
     "html.september.fe7514b1": {
       "source": "September",
       "locations": [
         "templates/index.template.html:415"
       ],
-      "value": "september"
+      "value": "September"
     },
     "html.severe_or_increasing_headache.578f004f": {
       "source": "Severe or increasing headache",
       "locations": [
         "templates/index.template.html:90"
       ],
-      "value": "Svær eller tiltagende hovedpine"
+      "value": "Ernstige of toenemende hoofpyn"
     },
     "html.show_10.de6ffe02": {
       "source": "Show 10",
       "locations": [
         "templates/index.template.html:73"
       ],
-      "value": "Vis 10"
+      "value": "Wys 10"
     },
     "html.show_5.938ffff2": {
       "source": "Show 5",
       "locations": [
         "templates/index.template.html:72"
       ],
-      "value": "Vis 5"
+      "value": "Wys 5"
     },
     "html.show_50.de6ffe7e": {
       "source": "Show 50",
       "locations": [
         "templates/index.template.html:73"
       ],
-      "value": "Vis 50"
+      "value": "Wys 50"
     },
     "html.show_all.ef9005fe": {
       "source": "Show All",
       "locations": [
         "templates/index.template.html:73"
       ],
-      "value": "Vis alle"
+      "value": "Wys alles"
     },
     "html.single_leg_stance.6ebe907a": {
       "source": "Single Leg Stance",
       "locations": [
         "templates/index.template.html:516"
       ],
-      "value": "Stå på ét ben"
+      "value": "Enkelbeenstand"
     },
     "html.single_leg_stance_on_foam.c2e7d6d8": {
       "source": "Single Leg Stance on Foam (",
       "locations": [
         "templates/index.template.html:538"
       ],
-      "value": "Stå på ét ben på skum ("
+      "value": "Enkelbeenstand op skuim ("
     },
     "html.skip_to_delayed_recall.568573d1": {
       "source": "Skip to Delayed Recall &nbsp;",
       "locations": [
         "templates/index.template.html:583"
       ],
-      "value": "Spring til forsinket genkaldelse &nbsp;"
+      "value": "Slaan oor na Uitgestelde herroeping &nbsp;"
     },
     "html.source.93f5543b": {
       "source": "Source",
@@ -1374,7 +1374,7 @@
         "templates/index.template.html:577",
         "templates/index.template.html:671"
       ],
-      "value": "Kilde"
+      "value": "Bron"
     },
     "html.stand_on_one_leg_hands_on_your_hips_and_eyes_clo.370aa7fc": {
       "source": "Stand on one leg, hands on your hips, and eyes closed. Hold this position for 20 seconds &nbsp;",
@@ -1382,7 +1382,7 @@
         "templates/index.template.html:518",
         "templates/index.template.html:540"
       ],
-      "value": "Stå på ét ben, med hænderne på hofterne og lukkede øjne. Hold denne position i 20 sekunder &nbsp;"
+      "value": "Staan op een been, hande op u heupe en oë toe. Hou hierdie posisie vir 20 sekondes. &nbsp;"
     },
     "html.stand_with_your_feet_in_a_heel_to_toe_position_h.1b9ad8ac": {
       "source": "Stand with your feet in a heel-to-toe position, hands on your hips, and eyes closed. Hold this position for 20 seconds &nbsp;",
@@ -1390,7 +1390,7 @@
         "templates/index.template.html:504",
         "templates/index.template.html:536"
       ],
-      "value": "Stå med fødderne i hæl-mod-tå-position, hænderne på hofterne og lukkede øjne. Hold denne position i 20 sekunder &nbsp;"
+      "value": "Staan met u voete in 'n hak-tot-toon-posisie, hande op u heupe en oë toe. Hou hierdie posisie vir 20 sekondes. &nbsp;"
     },
     "html.stand_with_your_feet_together_hands_on_your_hips.3dc1560a": {
       "source": "Stand with your feet together, hands on your hips, and eyes closed. Hold this position for 20 seconds &nbsp;",
@@ -1398,7 +1398,7 @@
         "templates/index.template.html:495",
         "templates/index.template.html:532"
       ],
-      "value": "Stå med samlede fødder, hænderne på hofterne og lukkede øjne. Hold denne position i 20 sekunder &nbsp;"
+      "value": "Staan met u voete bymekaar, hande op u heupe en oë toe. Hou hierdie posisie vir 20 sekondes. &nbsp;"
     },
     "html.start_20s_countdown.f1ab9a48": {
       "source": "Start 20s Countdown",
@@ -1410,63 +1410,63 @@
         "templates/index.template.html:538",
         "templates/index.template.html:543"
       ],
-      "value": "Start 20 sek. nedtælling"
+      "value": "Begin 20 s-aftelling"
     },
     "html.start_bess.e6753ce3": {
       "source": "Start BESS &nbsp;",
       "locations": [
         "templates/index.template.html:417"
       ],
-      "value": "Start BESS-test &nbsp;"
+      "value": "Begin BESS &nbsp;"
     },
     "html.start_cervical_spine.eafbcff8": {
       "source": "Start Cervical Spine &nbsp;",
       "locations": [
         "templates/index.template.html:151"
       ],
-      "value": "Start cervikal rygsøjle &nbsp;"
+      "value": "Begin servikale ruggraat &nbsp;"
     },
     "html.start_concentration.905ed735": {
       "source": "Start Concentration &nbsp;",
       "locations": [
         "templates/index.template.html:350"
       ],
-      "value": "Start koncentration &nbsp;"
+      "value": "Begin konsentrasie &nbsp;"
     },
     "html.start_coordination.d408054b": {
       "source": "Start Coordination &nbsp;",
       "locations": [
         "templates/index.template.html:182"
       ],
-      "value": "Start koordination &nbsp;"
+      "value": "Begin koördinasie &nbsp;"
     },
     "html.start_delayed_recall.6fe692f7": {
       "source": "Start Delayed Recall &nbsp;",
       "locations": [
         "templates/index.template.html:672"
       ],
-      "value": "Start forsinket genkaldelse &nbsp;"
+      "value": "Begin uitgestelde herroeping &nbsp;"
     },
     "html.start_immediate_memory.2adf7696": {
       "source": "Start Immediate Memory &nbsp;",
       "locations": [
         "templates/index.template.html:345"
       ],
-      "value": "Start umiddelbar hukommelse &nbsp;"
+      "value": "Begin onmiddellike geheue &nbsp;"
     },
     "html.start_maddocks.97700bb6": {
       "source": "Start Maddocks &nbsp;",
       "locations": [
         "templates/index.template.html:192"
       ],
-      "value": "Start Maddocks-test &nbsp;"
+      "value": "Begin Maddocks &nbsp;"
     },
     "html.start_optional_dual_task_gait.e2f233c6": {
       "source": "Start Optional Dual Task Gait &nbsp;",
       "locations": [
         "templates/index.template.html:580"
       ],
-      "value": "Start valgfri dual-task gangtest &nbsp;"
+      "value": "Begin opsionele dubbeltaak-loop &nbsp;"
     },
     "html.start_orientation.a478b7f2": {
       "source": "Start Orientation &nbsp;",
@@ -1474,21 +1474,21 @@
         "templates/index.template.html:267",
         "templates/index.template.html:341"
       ],
-      "value": "Start orientering &nbsp;"
+      "value": "Begin oriëntasie &nbsp;"
     },
     "html.start_symptom_evaluation.5334d373": {
       "source": "Start Symptom Evaluation &nbsp;",
       "locations": [
         "templates/index.template.html:214"
       ],
-      "value": "Start symptomvurdering &nbsp;"
+      "value": "Begin simptoomevaluering &nbsp;"
     },
     "html.start_tandem_gait.eab98ca8": {
       "source": "Start Tandem Gait &nbsp;",
       "locations": [
         "templates/index.template.html:543"
       ],
-      "value": "Start tandemgang &nbsp;"
+      "value": "Begin tandemloop &nbsp;"
     },
     "html.start_timer.9b6045c7": {
       "source": "Start Timer",
@@ -1499,7 +1499,7 @@
         "templates/index.template.html:653",
         "templates/index.template.html:667"
       ],
-      "value": "Start timer"
+      "value": "Begin tydhouer"
     },
     "html.stepping_stumbling_or_falling.2b7fac6b": {
       "source": "Stepping, stumbling, or falling",
@@ -1507,56 +1507,56 @@
         "templates/index.template.html:435",
         "templates/index.template.html:484"
       ],
-      "value": "Trinfejl, snublen eller fald"
+      "value": "Tree, struikel of val"
     },
     "html.switch_camera.3c5af053": {
       "source": "Switch Camera &nbsp;",
       "locations": [
         "templates/index.template.html:447"
       ],
-      "value": "Skift kamera &nbsp;"
+      "value": "Wissel kamera &nbsp;"
     },
     "html.symptom_evaluation.873705d3": {
       "source": "Symptom Evaluation",
       "locations": [
         "templates/index.template.html:267"
       ],
-      "value": "Symptomvurdering"
+      "value": "Simptoomevaluering"
     },
     "html.symptom_evaluation_baseline.943e0212": {
       "source": "Symptom Evaluation Baseline",
       "locations": [
         "templates/index.template.html:216"
       ],
-      "value": "Symptomvurdering baseline"
+      "value": "Basislyn-simptoomevaluering"
     },
     "html.sync.82346be9": {
       "source": "Sync &nbsp;",
       "locations": [
         "templates/index.template.html:39"
       ],
-      "value": "Synkroniser &nbsp;"
+      "value": "Sinkroniseer &nbsp;"
     },
     "html.take_10_minutes_to_fill_out.26f5558d": {
       "source": "Take 10 minutes to fill out",
       "locations": [
         "templates/index.template.html:690"
       ],
-      "value": "Brug 10 minutter på at udfylde"
+      "value": "Neem 10 minute om in te vul"
     },
     "html.tandem_stance.7f1cbc25": {
       "source": "Tandem Stance",
       "locations": [
         "templates/index.template.html:503"
       ],
-      "value": "Tandemstilling"
+      "value": "Tandemstand"
     },
     "html.tandem_stance_on_foam.548fa8c3": {
       "source": "Tandem Stance on Foam (",
       "locations": [
         "templates/index.template.html:535"
       ],
-      "value": "Tandemstilling på skum ("
+      "value": "Tandemstand op skuim ("
     },
     "html.task.0027a9a5": {
       "source": "Task",
@@ -1564,14 +1564,14 @@
         "templates/index.template.html:603",
         "templates/index.template.html:625"
       ],
-      "value": "Opgave"
+      "value": "Taak"
     },
     "html.tell_me_the_months_of_the_year_in_reverse_order_.870eea28": {
       "source": "Tell me the months of the year in reverse order as QUICKLY and as accurately as possible. Start with the last month and go backward. So, you'll say December, November... go ahead &nbsp;",
       "locations": [
         "templates/index.template.html:405"
       ],
-      "value": "Sig årets måneder i omvendt rækkefølge så HURTIGT og præcist som muligt. Start med den sidste måned og gå baglæns. Du vil altså sige december, november... værsgo &nbsp;"
+      "value": "Noem die maande van die jaar so VINNIG en akkuraat moontlik in omgekeerde volgorde. Begin met die laaste maand en gaan terug. U sal dus sê Desember, November… gaan voort. &nbsp;"
     },
     "html.text.47148ae4": {
       "source": "&nbsp;",
@@ -1587,14 +1587,14 @@
         "templates/index.template.html:422",
         "templates/index.template.html:474"
       ],
-      "value": "Atleten bør tage skoene af, rulle bukseben op over anklerne (hvis relevant) og fjerne eventuel ankeltape (hvis relevant)."
+      "value": "Die atleet moet hul skoene uittrek, broekspype tot bokant die enkels oprol (indien van toepassing) en enige band om die enkels verwyder."
     },
     "html.the_athlete_will_be_guided_through_3_poses_doubl.549df5bc": {
       "source": "The athlete will be guided through 3 poses (double leg, tandem, and single leg stance) to be held for 20 seconds each. The later foam pad test is optional, only a solid floor/ground surface is required. You'll need a spotter to keep an eye on the athlete and be ready to assist them if they become unstable and begin to fall.",
       "locations": [
         "templates/index.template.html:420"
       ],
-      "value": "Atleten guides gennem 3 stillinger (dobbelt ben, tandem og ét ben), som holdes i 20 sekunder hver. Den efterfølgende test på skumpude er valgfri; kun et fast gulv/underlag er nødvendigt. Du skal have en hjælper, der holder øje med atleten og er klar til at hjælpe ved ustabilitet og faldtendens."
+      "value": "Die atleet word deur 3 houdings gelei (dubbelbeen-, tandem- en enkelbeenstand) wat elk 20 sekondes gehou word. Die latere skuimkussingtoets is opsioneel; slegs 'n vaste vloer/grondoppervlak word vereis. Iemand moet die atleet dophou en gereed wees om te help indien hulle onstabiel raak en begin val."
     },
     "html.the_foam_test_requires_a_50cm_x_40cm_x_6cm_foam_.3a6b078f": {
       "source": "The foam test requires a 50cm x 40cm x 6cm foam pad. Recommended model is the",
@@ -1603,21 +1603,21 @@
         "templates/index.template.html:535",
         "templates/index.template.html:539"
       ],
-      "value": "Skumtesten kræver en skumpude på 50 cm x 40 cm x 6 cm. Anbefalet model er"
+      "value": "Die skuimtoets vereis 'n skuimkussing van 50 cm × 40 cm × 6 cm. Die aanbevole model is die"
     },
     "html.there_is_tenderness_to_palpation.86474438": {
       "source": "There is tenderness to palpation.",
       "locations": [
         "templates/index.template.html:161"
       ],
-      "value": "Der er ømhed ved palpation."
+      "value": "Daar is teerheid met palpasie."
     },
     "html.this_tool_is_100.360a6d24": {
       "source": "This tool is 100%",
       "locations": [
         "templates/index.template.html:687"
       ],
-      "value": "Dette værktøj er 100%"
+      "value": "Hierdie hulpmiddel is 100%"
     },
     "html.time_seconds.e17d443f": {
       "source": "Time (seconds)",
@@ -1625,14 +1625,14 @@
         "templates/index.template.html:604",
         "templates/index.template.html:628"
       ],
-      "value": "Tid (sekunder)"
+      "value": "Tyd (sekondes)"
     },
     "html.timed_tandem_gait.cbd6e231": {
       "source": "Timed Tandem Gait",
       "locations": [
         "templates/index.template.html:546"
       ],
-      "value": "Tidstaget tandemgang"
+      "value": "Tydgemete tandemloop"
     },
     "html.trial_1.24093d87": {
       "source": "Trial 1",
@@ -1640,14 +1640,14 @@
         "templates/index.template.html:348",
         "templates/index.template.html:631"
       ],
-      "value": "Forsøg 1"
+      "value": "Proef 1"
     },
     "html.trial_1_seconds.5c16c259": {
       "source": "Trial 1 (seconds)",
       "locations": [
         "templates/index.template.html:562"
       ],
-      "value": "Forsøg 1 (sekunder)"
+      "value": "Proef 1 (sekondes)"
     },
     "html.trial_2.24093d88": {
       "source": "Trial 2",
@@ -1655,14 +1655,14 @@
         "templates/index.template.html:348",
         "templates/index.template.html:643"
       ],
-      "value": "Forsøg 2"
+      "value": "Proef 2"
     },
     "html.trial_2_seconds.f0fb751a": {
       "source": "Trial 2 (seconds)",
       "locations": [
         "templates/index.template.html:562"
       ],
-      "value": "Forsøg 2 (sekunder)"
+      "value": "Proef 2 (sekondes)"
     },
     "html.trial_3.24093d89": {
       "source": "Trial 3",
@@ -1670,14 +1670,14 @@
         "templates/index.template.html:348",
         "templates/index.template.html:655"
       ],
-      "value": "Forsøg 3"
+      "value": "Proef 3"
     },
     "html.trial_3_seconds.85e027db": {
       "source": "Trial 3 (seconds)",
       "locations": [
         "templates/index.template.html:562"
       ],
-      "value": "Forsøg 3 (sekunder)"
+      "value": "Proef 3 (sekondes)"
     },
     "html.trouble_falling_asleep.04758302": {
       "source": "Trouble falling asleep:",
@@ -1685,7 +1685,7 @@
         "templates/index.template.html:264",
         "templates/index.template.html:338"
       ],
-      "value": "Svært ved at falde i søvn:"
+      "value": "Sukkel om aan die slaap te raak:"
     },
     "html.twisting_of_the_shoulder_beyond_30_degrees.c65e61a8": {
       "source": "Twisting of the shoulder beyond 30 degrees",
@@ -1693,175 +1693,175 @@
         "templates/index.template.html:436",
         "templates/index.template.html:487"
       ],
-      "value": "Rotation af skulderen ud over 30 grader"
+      "value": "Draai die skouer verder as 30 grade"
     },
     "html.unable_to_tandem_walk.2ddfde06": {
       "source": "Unable to Tandem Walk",
       "locations": [
         "templates/index.template.html:578"
       ],
-      "value": "Kan ikke gå tandemgang"
+      "value": "Kan nie tandemloop nie"
     },
     "html.upload_photos_videos.cb86d0e7": {
       "source": "Upload photos/videos",
       "locations": [
         "templates/index.template.html:697"
       ],
-      "value": "Upload fotos/videoer"
+      "value": "Laai foto's/video's op"
     },
     "html.use_camera_based_bess_optional.8ac8bfe2": {
       "source": "Use Camera-Based BESS (Optional) &nbsp;",
       "locations": [
         "templates/index.template.html:478"
       ],
-      "value": "Brug kamerabaseret BESS (valgfrit) &nbsp;"
+      "value": "Gebruik kameragebaseerde BESS (opsioneel) &nbsp;"
     },
     "html.use_this_web_app_to_administer_concussion_assess.cfcc1d4f": {
       "source": "Use this web app to administer concussion assessments for your athletes. The data is stored locally in your browser unless you \"Delete All\". You can also sync the data with your Google Drive. See the",
       "locations": [
         "templates/index.template.html:50"
       ],
-      "value": "Brug denne webapp til at gennemføre hjernerystelsesvurderinger for dine atleter. Data gemmes lokalt i din browser, medmindre du vælger \"Slet alle\". Du kan også synkronisere data med din Google Drive. Se"
+      "value": "Gebruik hierdie webtoep om harsingskuddingassesserings vir u atlete uit te voer. Data word plaaslik in u blaaier gestoor tensy u “Vee alles uit” kies. U kan die data ook met Google Drive sinkroniseer. Sien"
     },
     "html.visible_deformity_of_the_skull.64c8706a": {
       "source": "Visible deformity of the skull",
       "locations": [
         "templates/index.template.html:92"
       ],
-      "value": "Synlig deformitet af kraniet"
+      "value": "Sigbare vervorming van die skedel"
     },
     "html.voice_ctrl.916fec0b": {
       "source": "Voice Ctrl &nbsp;",
       "locations": [
         "templates/index.template.html:451"
       ],
-      "value": "Stemmekontrol &nbsp;"
+      "value": "Stembeheer &nbsp;"
     },
     "html.vomiting.9576f6a3": {
       "source": "Vomiting",
       "locations": [
         "templates/index.template.html:90"
       ],
-      "value": "Opkastning"
+      "value": "Braking"
     },
     "html.weakness_or_tingling_burning_in_more_than_1_arm_.eeace9a8": {
       "source": "Weakness or tingling/burning in more than 1 arm or in the legs",
       "locations": [
         "templates/index.template.html:86"
       ],
-      "value": "Svaghed eller prikken/brænden i mere end 1 arm eller i benene"
+      "value": "Swakheid of tinteling/branding in meer as een arm of in die bene"
     },
     "html.what_is_the_date_today.32992867": {
       "source": "What is the date today?",
       "locations": [
         "templates/index.template.html:343"
       ],
-      "value": "Hvad er datoen i dag?"
+      "value": "Wat is vandag se datum?"
     },
     "html.what_is_the_day_of_the_week.3a963520": {
       "source": "What is the day of the week?",
       "locations": [
         "templates/index.template.html:344"
       ],
-      "value": "Hvilken ugedag er det?"
+      "value": "Watter dag van die week is dit?"
     },
     "html.what_month_is_it.c83105da": {
       "source": "What month is it?",
       "locations": [
         "templates/index.template.html:342"
       ],
-      "value": "Hvilken måned er det?"
+      "value": "Watter maand is dit?"
     },
     "html.what_team_did_you_play_last_week_game.0047dad7": {
       "source": "What team did you play last week / game?",
       "locations": [
         "templates/index.template.html:211"
       ],
-      "value": "Hvilket hold spillede du mod i sidste uge / kamp?"
+      "value": "Teen watter span het u verlede week/laaste wedstryd gespeel?"
     },
     "html.what_time_is_it_right_now_within_1_hour.975159ba": {
       "source": "What time is it right now (within 1 hour)?",
       "locations": [
         "templates/index.template.html:345"
       ],
-      "value": "Hvad er klokken lige nu (inden for 1 time)?"
+      "value": "Hoe laat is dit nou (binne 1 uur)?"
     },
     "html.what_venue_are_we_at_today.d80e8772": {
       "source": "What venue are we at today?",
       "locations": [
         "templates/index.template.html:209"
       ],
-      "value": "Hvilket stadion/anlæg er vi på i dag?"
+      "value": "By watter plek is ons vandag?"
     },
     "html.what_year_is_it.4ff1b285": {
       "source": "What year is it?",
       "locations": [
         "templates/index.template.html:344"
       ],
-      "value": "Hvilket år er det?"
+      "value": "Watter jaar is dit?"
     },
     "html.when_the_timer_is_started_please_walk_heel_to_to.b86f5b69": {
       "source": "When the timer is started, please walk heel-to-toe quickly to the end of the tape, turn around and come back as fast as you can, without separating your feet or stepping off the line &nbsp;",
       "locations": [
         "templates/index.template.html:547"
       ],
-      "value": "Når timeren starter, gå venligst hæl-mod-tå hurtigt til enden af tapen, vend rundt og kom tilbage så hurtigt som muligt uden at adskille fødderne eller træde uden for linjen &nbsp;"
+      "value": "Wanneer die tydhouer begin, loop asseblief vinnig hak-tot-toon tot aan die einde van die band, draai om en kom so vinnig moontlik terug sonder om u voete van mekaar te skei of van die lyn af te tree. &nbsp;"
     },
     "html.which_half_is_it_now.5e707af2": {
       "source": "Which half is it now?",
       "locations": [
         "templates/index.template.html:210"
       ],
-      "value": "Hvilken halvleg er det nu?"
+      "value": "Watter helfte is dit nou?"
     },
     "html.while_you_are_walking_heel_to_toe_you_will_count.1e9654f8": {
       "source": "While you are walking heel-to-toe, you will count backwards out loud by sevens. For example, if we started at 100, you would say 100, 93, 86, 79. Let's practice counting. Starting with 93, count backward by sevens until the examiner says stop &nbsp;",
       "locations": [
         "templates/index.template.html:595"
       ],
-      "value": "Mens du går hæl-mod-tå, skal du tælle baglæns højt med syv ad gangen. Hvis vi fx starter ved 100, siger du 100, 93, 86, 79. Lad os øve. Start ved 93 og tæl baglæns med syv, indtil undersøgeren siger stop &nbsp;"
+      "value": "Terwyl u hak-tot-toon loop, tel u hardop in sewes agteruit. As ons byvoorbeeld by 100 begin, sê u 100, 93, 86, 79. Kom ons oefen. Begin by 93 en tel in sewes agteruit totdat die ondersoeker stop sê. &nbsp;"
     },
     "html.who_scored_last_in_this_match.5c301fdf": {
       "source": "Who scored last in this match?",
       "locations": [
         "templates/index.template.html:210"
       ],
-      "value": "Hvem scorede sidst i denne kamp?"
+      "value": "Wie het laaste in hierdie wedstryd punte aangeteken?"
     },
     "html.witnessed.b86a5778": {
       "source": "Witnessed",
       "locations": [
         "templates/index.template.html:120"
       ],
-      "value": "Observeret"
+      "value": "Waargeneem"
     },
     "html.you_will_be_asked_a_few_questions_please_listen_.fa78f5e0": {
       "source": "You will be asked a few questions. Please listen carefully and give your best effort. First explain what happened? &nbsp;",
       "locations": [
         "templates/index.template.html:207"
       ],
-      "value": "Du vil blive stillet nogle få spørgsmål. Lyt venligst nøje og gør dit bedste. Forklar først, hvad der skete? &nbsp;"
+      "value": "U sal 'n paar vrae gevra word. Luister asseblief aandagtig en doen u bes. Verduidelik eers wat gebeur het. &nbsp;"
     },
     "html.your_job_as_examiner_is_to_keep_the_camera_as_st.540a195a": {
       "source": "Your job as examiner is to keep the camera as still as possible (minor shakes are fine) with the athlete fully in frame at all times. In case the automated system misses something, keep a count of the following errors in the athlete's execution of the poses:",
       "locations": [
         "templates/index.template.html:424"
       ],
-      "value": "Din opgave som undersøger er at holde kameraet så roligt som muligt (mindre rystelser er okay), så atleten hele tiden er fuldt i billedet. Hvis det automatiske system overser noget, skal du tælle følgende fejl i atletens udførelse af stillingerne:"
+      "value": "U taak as ondersoeker is om die kamera so stil moontlik te hou (geringe bewegings is aanvaarbaar) met die atleet te alle tye volledig in die raam. Indien die outomatiese stelsel iets mis, hou telling van die volgende foute in die atleet se uitvoering van die houdings:"
     },
     "html_attr.add_athlete.9553ad40": {
       "source": "add athlete",
       "locations": [
         "templates/index.template.html:73"
       ],
-      "value": "tilføj atlet"
+      "value": "voeg atleet by"
     },
     "html_attr.average_seconds.9f275f4f": {
       "source": "Average (seconds)",
       "locations": [
         "templates/index.template.html:571"
       ],
-      "value": "Gennemsnit (sekunder)"
+      "value": "Gemiddeld (sekondes)"
     },
     "html_attr.correct_responses.99fea3dc": {
       "source": "Correct Responses",
@@ -1871,14 +1871,14 @@
         "templates/index.template.html:645",
         "templates/index.template.html:656"
       ],
-      "value": "Korrekte svar"
+      "value": "Korrekte antwoorde"
     },
     "html_attr.enter_part_of_an_athlete_name.acbf8cfb": {
       "source": "Enter part of an athlete name",
       "locations": [
         "templates/index.template.html:72"
       ],
-      "value": "Indtast en del af en atlets navn"
+      "value": "Voer 'n deel van 'n atleet se naam in"
     },
     "html_attr.errors.7c3a5b8b": {
       "source": "Errors",
@@ -1888,28 +1888,28 @@
         "templates/index.template.html:650",
         "templates/index.template.html:664"
       ],
-      "value": "Fejl"
+      "value": "Foute"
     },
     "html_attr.fastest_seconds.2f03389c": {
       "source": "Fastest (seconds)",
       "locations": [
         "templates/index.template.html:572"
       ],
-      "value": "Hurtigste (sekunder)"
+      "value": "Vinnigste (sekondes)"
     },
     "html_attr.first_page_of_the_paper_scat6.068258c8": {
       "source": "first page of the paper SCAT6",
       "locations": [
         "templates/index.template.html:47"
       ],
-      "value": "første side af SCAT6-papiret"
+      "value": "eerste bladsy van die papier-SCAT6"
     },
     "html_attr.how_many_athletes_to_show.8645f7c7": {
       "source": "how many athletes to show",
       "locations": [
         "templates/index.template.html:72"
       ],
-      "value": "hvor mange atleter der skal vises"
+      "value": "hoeveel atlete om te wys"
     },
     "html_attr.manual_bess_instructions.85be7b08": {
       "source": "Manual BESS instructions",
@@ -1917,7 +1917,7 @@
         "templates/index.template.html:420",
         "templates/index.template.html:467"
       ],
-      "value": "Manuelle BESS-instruktioner"
+      "value": "Instruksies vir handmatige BESS"
     },
     "html_attr.task.0027a9a5": {
       "source": "Task",
@@ -1927,7 +1927,7 @@
         "templates/index.template.html:643",
         "templates/index.template.html:654"
       ],
-      "value": "Opgave"
+      "value": "Taak"
     },
     "html_attr.time_seconds.e17d443f": {
       "source": "Time (seconds)",
@@ -1937,7 +1937,7 @@
         "templates/index.template.html:651",
         "templates/index.template.html:666"
       ],
-      "value": "Tid (sekunder)"
+      "value": "Tyd (sekondes)"
     },
     "html_attr.toggle_countdown_audio.eca4d87b": {
       "source": "Toggle countdown audio",
@@ -1945,49 +1945,49 @@
         "templates/index.template.html:418",
         "templates/index.template.html:463"
       ],
-      "value": "Slå nedtællingslyd til/fra"
+      "value": "Skakel afteloudio aan/af"
     },
     "html_attr.trial_1.24093d87": {
       "source": "Trial 1",
       "locations": [
         "templates/index.template.html:348"
       ],
-      "value": "Forsøg 1"
+      "value": "Proef 1"
     },
     "html_attr.trial_1_seconds.5c16c259": {
       "source": "Trial 1 (seconds)",
       "locations": [
         "templates/index.template.html:564"
       ],
-      "value": "Forsøg 1 (sekunder)"
+      "value": "Proef 1 (sekondes)"
     },
     "html_attr.trial_2.24093d88": {
       "source": "Trial 2",
       "locations": [
         "templates/index.template.html:349"
       ],
-      "value": "Forsøg 2"
+      "value": "Proef 2"
     },
     "html_attr.trial_2_seconds.f0fb751a": {
       "source": "Trial 2 (seconds)",
       "locations": [
         "templates/index.template.html:568"
       ],
-      "value": "Forsøg 2 (sekunder)"
+      "value": "Proef 2 (sekondes)"
     },
     "html_attr.trial_3.24093d89": {
       "source": "Trial 3",
       "locations": [
         "templates/index.template.html:349"
       ],
-      "value": "Forsøg 3"
+      "value": "Proef 3"
     },
     "html_attr.trial_3_seconds.85e027db": {
       "source": "Trial 3 (seconds)",
       "locations": [
         "templates/index.template.html:570"
       ],
-      "value": "Forsøg 3 (sekunder)"
+      "value": "Proef 3 (sekondes)"
     }
   },
   "runtime": {
@@ -1996,371 +1996,371 @@
       "locations": [
         "public/404.html"
       ],
-      "value": "Denne side blev genereret af Firebase Command-Line Interface. For at ændre den skal du redigere filen <code>404.html</code> i projektets konfigurerede <code>public</code>-mappe."
+      "value": "Hierdie bladsy is deur die Firebase-opdraglynkoppelvlak gegenereer. Om dit te wysig, redigeer die <code>404.html</code>-lêer in u projek se opgestelde <code>public</code>-gids."
     },
     "runtime.404.message": {
       "source": "The specified file was not found on this website. Please check the URL for mistakes and try again.",
       "locations": [
         "public/404.html"
       ],
-      "value": "Den angivne fil blev ikke fundet på dette website. Kontroller URL'en for fejl, og prøv igen."
+      "value": "Die gespesifiseerde lêer is nie op hierdie webwerf gevind nie. Gaan die URL vir foute na en probeer weer."
     },
     "runtime.404.title": {
       "source": "Page Not Found",
       "locations": [
         "public/404.html"
       ],
-      "value": "Siden blev ikke fundet"
+      "value": "Bladsy nie gevind nie"
     },
     "runtime.404.why": {
       "source": "Why am I seeing this?",
       "locations": [
         "public/404.html"
       ],
-      "value": "Hvorfor ser jeg dette?"
+      "value": "Waarom sien ek dit?"
     },
     "runtime.alert.sync_failed": {
       "source": "Failed to sync data. Make sure you checked the box to give the app permission to add app data to your Google Drive.",
       "locations": [
         "public/scripts.js syncButton.onclick catch"
       ],
-      "value": "Synkronisering af data mislykkedes. Kontroller, at du har givet appen tilladelse til at gemme appdata i din Google Drive."
+      "value": "Kon nie data sinkroniseer nie. Maak seker u het die blokkie gemerk om die toepassing toestemming te gee om toepassingdata by Google Drive te voeg."
     },
     "runtime.bess.calibrate_complete": {
       "source": "Calibration complete",
       "locations": [
         "public/bess.js bessCalibrateBtn.onclick"
       ],
-      "value": "Kalibrering fuldført"
+      "value": "Kalibrasie voltooi"
     },
     "runtime.bess.calibrate_prompt": {
       "source": "Attempting to calibrate the pose detection model to the current pose. Please hold the pose for 10 seconds.",
       "locations": [
         "public/bess.js bessCalibrateBtn.onclick"
       ],
-      "value": "Forsøger at kalibrere posedetektionsmodellen til den aktuelle stilling. Hold venligst stillingen i 10 sekunder."
+      "value": "Daar word probeer om die houdingsbespeuringsmodel vir die huidige houding te kalibreer. Hou asseblief die houding vir 10 sekondes."
     },
     "runtime.bess.camera_notice": {
       "source": "The automated balance system will use the camera.",
       "locations": [
         "public/bess.js renderTestSection"
       ],
-      "value": "Det automatiserede balancesystem vil bruge kameraet."
+      "value": "Die outomatiese balansstelsel sal die kamera gebruik."
     },
     "runtime.bess.error.align_heel_toe": {
       "source": "Please align the heel of the dominant foot with the toe of the non-dominant foot.",
       "locations": [
         "public/util/pose.js checkHeelToToe"
       ],
-      "value": "Placér venligst hælen på den dominerende fod ud for tåen på den ikke-dominerende fod."
+      "value": "Belyn asseblief die hak van die dominante voet met die toon van die niedominante voet."
     },
     "runtime.bess.error.bend_elbows": {
       "source": "Please bend both elbows without twisting the shoulders.",
       "locations": [
         "public/util/pose.js checkElbowsBend"
       ],
-      "value": "Bøj venligst begge albuer uden at dreje skuldrene."
+      "value": "Buig asseblief albei elmboë sonder om die skouers te draai."
     },
     "runtime.bess.error.cant_find_athlete": {
       "source": "Can't find athlete. Please make sure they are fully in frame.",
       "locations": [
         "public/util/pose.js assess_*_pose"
       ],
-      "value": "Kan ikke finde atleten. Sørg for, at hele personen er i billedet."
+      "value": "Kan nie die atleet vind nie. Maak seker hulle is volledig in die raam."
     },
     "runtime.bess.error.close_eyes": {
       "source": "Please close your eyes.",
       "locations": [
         "public/util/pose.js assess_*_pose"
       ],
-      "value": "Luk venligst øjnene."
+      "value": "Maak asseblief u oë toe."
     },
     "runtime.bess.error.detector": {
       "source": "Unexpected error deciphering the pose. Skipping to manual assessment.",
       "locations": [
         "public/bess.js detectorerror"
       ],
-      "value": "Uventet fejl ved registrering af stilling. Skifter til manuel vurdering."
+      "value": "Onverwagte fout met die ontsyfering van die houding. Skakel oor na handmatige assessering."
     },
     "runtime.bess.error.dominant_foot_visible": {
       "source": "The dominant foot must be visible in front of the non-dominant foot.",
       "locations": [
         "public/util/pose.js checkHeelToToe"
       ],
-      "value": "Den dominerende fod skal være synlig foran den ikke-dominerende fod."
+      "value": "Die dominante voet moet voor die niedominante voet sigbaar wees."
     },
     "runtime.bess.error.feet_together": {
       "source": "Please keep feet together.",
       "locations": [
         "public/util/pose.js checkFeetTogether"
       ],
-      "value": "Hold venligst fødderne samlet."
+      "value": "Hou asseblief die voete bymekaar."
     },
     "runtime.bess.error.knees_together": {
       "source": "Please keep knees together.",
       "locations": [
         "public/util/pose.js checkKneesTogether"
       ],
-      "value": "Hold venligst knæene samlet."
+      "value": "Hou asseblief die knieë bymekaar."
     },
     "runtime.bess.error.left_hand_far": {
       "source": "Left hand is too far from the hip. Please move it closer.",
       "locations": [
         "public/util/pose.js checkHandsOnHips"
       ],
-      "value": "Venstre hånd er for langt fra hoften. Flyt den venligst tættere på."
+      "value": "Die linkerhand is te ver van die heup. Beweeg dit asseblief nader."
     },
     "runtime.bess.error.lift_dominant_foot": {
       "source": "Please lift dominant foot off the ground.",
       "locations": [
         "public/util/pose.js checkOneFootLifted"
       ],
-      "value": "Løft venligst den dominerende fod fra underlaget."
+      "value": "Lig asseblief die dominante voet van die grond af."
     },
     "runtime.bess.error.move_dominant_forward": {
       "source": "Please move the dominant foot further forward.",
       "locations": [
         "public/util/pose.js checkHeelToToe"
       ],
-      "value": "Flyt venligst den dominerende fod længere frem."
+      "value": "Beweeg asseblief die dominante voet verder vorentoe."
     },
     "runtime.bess.error.multiple_people": {
       "source": "Multiple people detected. Please make sure only {{athleteName}} is in frame.",
       "locations": [
         "public/util/pose.js assess_*_pose"
       ],
-      "value": "Flere personer registreret. Sørg for, at kun {{athleteName}} er i billedet."
+      "value": "Verskeie persone bespeur. Maak seker net {{athleteName}} is in die raam."
     },
     "runtime.bess.error.part_not_detected": {
       "source": "{{part}} not detected. Please make sure it is fully in frame and you are facing the camera straight on.",
       "locations": [
         "public/util/pose.js checkVisible"
       ],
-      "value": "{{part}} blev ikke registreret. Sørg for, at den er helt i billedet, og at du vender lige mod kameraet."
+      "value": "{{part}} nie bespeur nie. Maak seker dit is volledig in die raam en dat u reguit na die kamera kyk."
     },
     "runtime.bess.error.right_hand_far": {
       "source": "Right hand is too far from the hip. Please move it closer.",
       "locations": [
         "public/util/pose.js checkHandsOnHips"
       ],
-      "value": "Højre hånd er for langt fra hoften. Flyt den venligst tættere på."
+      "value": "Die regterhand is te ver van die heup. Beweeg dit asseblief nader."
     },
     "runtime.bess.error.stand_straight_no_bending": {
       "source": "Please stand straight without bending/twisting knees or upper body.",
       "locations": [
         "public/util/pose.js checkStandingStraight"
       ],
-      "value": "Stå venligst lige uden at bøje/dreje knæ eller overkrop."
+      "value": "Staan asseblief regop sonder om knieë of bolyf te buig/draai."
     },
     "runtime.bess.error.stand_straight_no_side": {
       "source": "Please stand straight without moving hips side to side.",
       "locations": [
         "public/util/pose.js checkStandingStraight"
       ],
-      "value": "Stå venligst lige uden at bevæge hofterne sideværts."
+      "value": "Staan asseblief regop sonder om heupe sywaarts te beweeg."
     },
     "runtime.bess.error.video": {
       "source": "Unexpected error with the camera. Skipping to manual assessment.",
       "locations": [
         "public/bess.js videoerror"
       ],
-      "value": "Uventet fejl med kameraet. Skifter til manuel vurdering."
+      "value": "Onverwagte kamerafout. Skakel oor na handmatige assessering."
     },
     "runtime.bess.new_pose_prefix": {
       "source": "New pose:",
       "locations": [
         "public/bess.js activateNextPose"
       ],
-      "value": "Ny stilling:"
+      "value": "Nuwe houding:"
     },
     "runtime.bess.part.left_ankle": {
       "source": "Left ankle",
       "locations": [
         "public/util/pose.js body part labels"
       ],
-      "value": "Venstre ankel"
+      "value": "Linkerenkel"
     },
     "runtime.bess.part.left_elbow": {
       "source": "Left elbow",
       "locations": [
         "public/util/pose.js body part labels"
       ],
-      "value": "Venstre albue"
+      "value": "Linkerelmboog"
     },
     "runtime.bess.part.left_hip": {
       "source": "Left hip",
       "locations": [
         "public/util/pose.js body part labels"
       ],
-      "value": "Venstre hofte"
+      "value": "Linkerheup"
     },
     "runtime.bess.part.left_knee": {
       "source": "Left knee",
       "locations": [
         "public/util/pose.js body part labels"
       ],
-      "value": "Venstre knæ"
+      "value": "Linkerknie"
     },
     "runtime.bess.part.left_shoulder": {
       "source": "Left shoulder",
       "locations": [
         "public/util/pose.js body part labels"
       ],
-      "value": "Venstre skulder"
+      "value": "Linkerskouer"
     },
     "runtime.bess.part.left_wrist": {
       "source": "Left wrist",
       "locations": [
         "public/util/pose.js body part labels"
       ],
-      "value": "Venstre håndled"
+      "value": "Linkerpols"
     },
     "runtime.bess.part.right_ankle": {
       "source": "Right ankle",
       "locations": [
         "public/util/pose.js body part labels"
       ],
-      "value": "Højre ankel"
+      "value": "Regterenkel"
     },
     "runtime.bess.part.right_elbow": {
       "source": "Right elbow",
       "locations": [
         "public/util/pose.js body part labels"
       ],
-      "value": "Højre albue"
+      "value": "Regterelmboog"
     },
     "runtime.bess.part.right_hip": {
       "source": "Right hip",
       "locations": [
         "public/util/pose.js body part labels"
       ],
-      "value": "Højre hofte"
+      "value": "Regterheup"
     },
     "runtime.bess.part.right_knee": {
       "source": "Right knee",
       "locations": [
         "public/util/pose.js body part labels"
       ],
-      "value": "Højre knæ"
+      "value": "Regterknie"
     },
     "runtime.bess.part.right_shoulder": {
       "source": "Right shoulder",
       "locations": [
         "public/util/pose.js body part labels"
       ],
-      "value": "Højre skulder"
+      "value": "Regterskouer"
     },
     "runtime.bess.part.right_wrist": {
       "source": "Right wrist",
       "locations": [
         "public/util/pose.js body part labels"
       ],
-      "value": "Højre håndled"
+      "value": "Regterpols"
     },
     "runtime.bess.pose.double": {
       "source": "please stand straight with hands on your hips and feet touching",
       "locations": [
         "public/bess.js pose description"
       ],
-      "value": "stå venligst lige med hænderne på hofterne og fødderne samlet"
+      "value": "staan asseblief regop met hande op u heupe en voete teen mekaar"
     },
     "runtime.bess.pose.double_foam": {
       "source": "please stand straight with hands on your hips and feet touching on foam",
       "locations": [
         "public/bess.js pose description"
       ],
-      "value": "stå venligst lige med hænderne på hofterne og fødderne samlet på skum"
+      "value": "staan asseblief regop op skuim met hande op u heupe en voete teen mekaar"
     },
     "runtime.bess.pose.single": {
       "source": "please stand on your non-dominant leg with hands on your hips",
       "locations": [
         "public/bess.js pose description"
       ],
-      "value": "stå venligst på dit ikke-dominerende ben med hænderne på hofterne"
+      "value": "staan asseblief op u niedominante been met hande op u heupe"
     },
     "runtime.bess.pose.single_foam": {
       "source": "please stand on your non-dominant leg with hands on your hips on foam",
       "locations": [
         "public/bess.js pose description"
       ],
-      "value": "stå venligst på dit ikke-dominerende ben med hænderne på hofterne på skum"
+      "value": "staan asseblief op u niedominante been op skuim met hande op u heupe"
     },
     "runtime.bess.pose.tandem": {
       "source": "please stand heel-to-toe (non-dominant foot in the back) with hands on your hips",
       "locations": [
         "public/bess.js pose description"
       ],
-      "value": "stå venligst hæl-mod-tå (ikke-dominerende fod bagest) med hænderne på hofterne"
+      "value": "staan asseblief hak-tot-toon (niedominante voet agter) met hande op u heupe"
     },
     "runtime.bess.pose.tandem_foam": {
       "source": "please stand heel-to-toe (non-dominant foot in the back) with hands on your hips on foam",
       "locations": [
         "public/bess.js pose description"
       ],
-      "value": "stå venligst hæl-mod-tå (ikke-dominerende fod bagest) med hænderne på hofterne på skum"
+      "value": "staan asseblief hak-tot-toon op skuim (niedominante voet agter) met hande op u heupe"
     },
     "runtime.bess.start_timer": {
       "source": "Start Timer",
       "locations": [
         "public/bess.js begin_pose button"
       ],
-      "value": "Start timer"
+      "value": "Begin tydhouer"
     },
     "runtime.bess.status.pose_good_20": {
       "source": "Pose looks good! 20 seconds left.",
       "locations": [
         "public/bess.js timer start"
       ],
-      "value": "Stillingen ser god ud! 20 sekunder tilbage."
+      "value": "Die houding lyk goed! 20 sekondes oor."
     },
     "runtime.bess.status.pose_good_seconds_errors": {
       "source": "Pose looks good! {{seconds}} seconds left. Errors: {{errors}}",
       "locations": [
         "public/bess.js count_pose_errors"
       ],
-      "value": "Stillingen ser god ud! {{seconds}} sekunder tilbage. Fejl: {{errors}}"
+      "value": "Die houding lyk goed! {{seconds}} sekondes oor. Foute: {{errors}}"
     },
     "runtime.bess.status.pose_good_start": {
       "source": "Pose looks good! Click to start the 20 second trial where the pose must be held",
       "locations": [
         "public/bess.js begin_pose"
       ],
-      "value": "Stillingen ser god ud! Klik for at starte 20-sekunders prøven, hvor stillingen skal holdes"
+      "value": "Die houding lyk goed! Klik om die proef van 20 sekondes te begin waarin die houding gehou moet word."
     },
     "runtime.bess.status.seconds_left_instruction": {
       "source": "{{seconds}} seconds left. {{athleteName}}, {{description}}:",
       "locations": [
         "public/bess.js timer tick"
       ],
-      "value": "{{seconds}} sekunder tilbage. {{athleteName}}, {{description}}:"
+      "value": "{{seconds}} sekondes oor. {{athleteName}}, {{description}}:"
     },
     "runtime.bess.voice.help": {
       "source": "Say 'mirror' to toggle the mirror effect. Say 'next' to move to the next pose. Say 'skip' to skip the test.",
       "locations": [
         "public/bess.js voice control"
       ],
-      "value": "Sig 'mirror' for at slå spejleffekt til/fra. Sig 'next' for at gå til næste stilling. Sig 'skip' for at springe testen over."
+      "value": "Sê “mirror” om die spieëleffek aan of af te skakel. Sê “next” om na die volgende houding te beweeg. Sê “skip” om die toets oor te slaan."
     },
     "runtime.common.na": {
       "source": "N/A",
       "locations": [
         "public/results.js"
       ],
-      "value": "N/A"
+      "value": "N.v.t."
     },
     "runtime.common.no": {
       "source": "No",
       "locations": [
         "public/results.js"
       ],
-      "value": "Nej"
+      "value": "Nee"
     },
     "runtime.common.no_upper": {
       "source": "NO",
       "locations": [
         "public/results.js report"
       ],
-      "value": "NEJ"
+      "value": "NEE"
     },
     "runtime.common.yes": {
       "source": "Yes",
@@ -2381,91 +2381,91 @@
       "locations": [
         "public/scripts.js deleteAllButton.onclick"
       ],
-      "value": "Er du sikker på, at du vil slette alle data?"
+      "value": "Is u seker u wil alle data uitvee?"
     },
     "runtime.confirm.delete_athlete": {
       "source": "Are you sure you want to delete this athlete's data?",
       "locations": [
         "public/scripts.js window.deleteAthlete"
       ],
-      "value": "Er du sikker på, at du vil slette denne atlets data?"
+      "value": "Is u seker u wil hierdie atleet se data uitvee?"
     },
     "runtime.confirm.delete_drive": {
       "source": "This will delete all data from your GDrive but keep it on this device. Are you sure?",
       "locations": [
         "public/scripts.js syncButton.onclick action=DELETE_DRIVE"
       ],
-      "value": "Dette vil slette alle data fra din Google Drive, men beholde dem på denne enhed. Er du sikker?"
+      "value": "Dit sal alle data uit u Google Drive uitvee, maar dit op hierdie toestel behou. Is u seker?"
     },
     "runtime.confirm.unlink": {
       "source": "This will delete all data from this device but keep it on your GDrive. Are you sure?",
       "locations": [
         "public/scripts.js syncButton.onclick action=UNLINK"
       ],
-      "value": "Dette vil slette alle data fra denne enhed, men beholde dem i din Google Drive. Er du sikker?"
+      "value": "Dit sal alle data van hierdie toestel uitvee, maar dit in u Google Drive behou. Is u seker?"
     },
     "runtime.delayed_recall.back_to_immediate": {
       "source": "Back to the Immediate Memory section",
       "locations": [
         "public/delayed-recall.js"
       ],
-      "value": "Tilbage til afsnittet Umiddelbar Hukommelse"
+      "value": "Terug na die afdeling Onmiddellike geheue"
     },
     "runtime.delayed_recall.instructions": {
       "source": "Examiner, read the below instructions and select the words that the athlete can remember from the Immediate Memory section.",
       "locations": [
         "public/delayed-recall.js"
       ],
-      "value": "Undersøger, læs instruktionerne nedenfor op og vælg de ord, som atleten kan huske fra afsnittet Umiddelbar Hukommelse."
+      "value": "Ondersoeker: lees die instruksies hieronder en kies die woorde wat die atleet uit die afdeling Onmiddellike geheue kan onthou."
     },
     "runtime.delayed_recall.need_immediate_missing": {
       "source": "The Immediate Memory section must be completed at least 5 minutes before this section. It has not been completed at all.",
       "locations": [
         "public/delayed-recall.js"
       ],
-      "value": "Afsnittet Umiddelbar Hukommelse skal være gennemført mindst 5 minutter før dette afsnit. Det er slet ikke blevet gennemført."
+      "value": "Die afdeling Onmiddellike geheue moet minstens 5 minute voor hierdie afdeling voltooi word. Dit is glad nie voltooi nie."
     },
     "runtime.delayed_recall.need_immediate_wait": {
       "source": "The Immediate Memory section must be completed at least 5 minutes before this section. Delayed Recall will open in {{seconds}} seconds.",
       "locations": [
         "public/delayed-recall.js"
       ],
-      "value": "Afsnittet Umiddelbar Hukommelse skal være gennemført mindst 5 minutter før dette afsnit. Forsinket Genkaldelse åbner om {{seconds}} sekunder."
+      "value": "Die afdeling Onmiddellike geheue moet minstens 5 minute voor hierdie afdeling voltooi word. Uitgestelde herroeping sal oor {{seconds}} sekondes oopmaak."
     },
     "runtime.delayed_recall.prompt": {
       "source": "Do you remember the list of words read a few times earlier during the immediate memory section? Tell me as many words from the list as you can remember in any order",
       "locations": [
         "public/delayed-recall.js"
       ],
-      "value": "Kan du huske ordlisten, der blev læst op et par gange tidligere under afsnittet umiddelbar hukommelse? Fortæl mig så mange ord fra listen, som du kan huske, i vilkårlig rækkefølge"
+      "value": "Onthou u die woordelys wat vroeër tydens die afdeling vir onmiddellike geheue 'n paar keer gelees is? Noem soveel woorde van die lys as wat u in enige volgorde kan onthou."
     },
     "runtime.delayed_recall.starting": {
       "source": "Starting...",
       "locations": [
         "public/delayed-recall.js"
       ],
-      "value": "Starter..."
+      "value": "Begin tans…"
     },
     "runtime.delayed_recall.view_results": {
       "source": "View Test Results",
       "locations": [
         "public/delayed-recall.js"
       ],
-      "value": "Vis testresultater"
+      "value": "Bekyk toetsresultate"
     },
     "runtime.delayed_recall.words_missing": {
       "source": "Somehow the list of words was not saved.",
       "locations": [
         "public/delayed-recall.js"
       ],
-      "value": "Af en eller anden grund blev ordlisten ikke gemt."
+      "value": "Die woordelys is nie gestoor nie."
     },
     "runtime.lang.aria": {
       "source": "Select language",
       "locations": [
         "templates/index.template.html header language selector aria-label"
       ],
-      "value": "Vælg sprog"
+      "value": "Kies taal"
     },
     "runtime.lang.name.af": {
       "source": "Afrikaans",
@@ -2507,7 +2507,7 @@
       "locations": [
         "templates/index.template.html header language selector option"
       ],
-      "value": "Engelsk"
+      "value": "English"
     },
     "runtime.lang.name.es": {
       "source": "Español",
@@ -2612,350 +2612,350 @@
       "locations": [
         "public/util/popup.js confirmAthleteInfo"
       ],
-      "value": "Atletnavn:"
+      "value": "Atleet se naam:"
     },
     "runtime.popup.attest_hcp": {
       "source": "I hereby attest that I am a medical or Health Care Professional authorized to use this tool:",
       "locations": [
         "public/util/popup.js confirmAthleteInfo start assessment"
       ],
-      "value": "Jeg erklærer hermed, at jeg er en sundhedsprofessionel med autorisation til at bruge dette værktøj:"
+      "value": "Hiermee verklaar ek dat ek 'n mediese of gesondheidswerker is wat gemagtig is om hierdie hulpmiddel te gebruik:"
     },
     "runtime.popup.baseline": {
       "source": "Baseline",
       "locations": [
         "public/util/popup.js confirmAthleteInfo action button"
       ],
-      "value": "Baseline"
+      "value": "Basislyn"
     },
     "runtime.popup.cancel": {
       "source": "CANCEL",
       "locations": [
         "public/util/popup.js"
       ],
-      "value": "ANNULLER"
+      "value": "KANSELLEER"
     },
     "runtime.popup.close_settings": {
       "source": "Close Settings",
       "locations": [
         "public/util/popup.js syncSettings"
       ],
-      "value": "Luk indstillinger"
+      "value": "Maak instellings toe"
     },
     "runtime.popup.cognitive_text": {
       "source": "The \"cognitive screening\" portion of the baseline and post injury assessments should be completed in a distraction-free environment with the athlete in a resting state.",
       "locations": [
         "public/util/popup.js confirmAthleteInfo start assessment"
       ],
-      "value": "Den \"kognitive screening\"-del af baseline- og post-skade-vurderinger bør gennemføres i et miljø uden forstyrrelser, mens atleten er i hvile."
+      "value": "Die “kognitiewe sifting”-gedeelte van die basislyn- en nábeseringsassesserings moet in 'n afleidingsvrye omgewing met die atleet in 'n rustende toestand voltooi word."
     },
     "runtime.popup.conc_history": {
       "source": "Concussion History",
       "locations": [
         "public/util/popup.js confirmAthleteInfo"
       ],
-      "value": "Tidligere hjernerystelser"
+      "value": "Geskiedenis van harsingskudding"
     },
     "runtime.popup.confirm_athlete": {
       "source": "Confirm Athlete Information",
       "locations": [
         "public/util/popup.js confirmAthleteInfo"
       ],
-      "value": "Bekræft atletoplysninger"
+      "value": "Bevestig atleetinligting"
     },
     "runtime.popup.current_medications": {
       "source": "Current Medications:",
       "locations": [
         "public/util/popup.js confirmAthleteInfo medical background"
       ],
-      "value": "Aktuel medicin:"
+      "value": "Huidige medikasie:"
     },
     "runtime.popup.current_school_year": {
       "source": "Current Year in School (if applicable):",
       "locations": [
         "public/util/popup.js confirmAthleteInfo"
       ],
-      "value": "Aktuelt klassetrin (hvis relevant):"
+      "value": "Huidige skooljaar (indien van toepassing):"
     },
     "runtime.popup.detailed_instructions": {
       "source": "Detailed Instructions",
       "locations": [
         "public/util/popup.js confirmAthleteInfo start assessment"
       ],
-      "value": "Detaljerede instruktioner"
+      "value": "Gedetailleerde instruksies"
     },
     "runtime.popup.diagnosed_adhd": {
       "source": "Diagnosed with attention deficit hyperactivity disorder (ADHD).",
       "locations": [
         "public/util/popup.js confirmAthleteInfo medical background"
       ],
-      "value": "Diagnosticeret med opmærksomhedsforstyrrelse/hyperaktivitet (ADHD)."
+      "value": "Gediagnoseer met aandagtekort-hiperaktiwiteitsversteuring (ATHV)."
     },
     "runtime.popup.diagnosed_headache_migraine": {
       "source": "Diagnosed with a headache disorder or migraine.",
       "locations": [
         "public/util/popup.js confirmAthleteInfo medical background"
       ],
-      "value": "Diagnosticeret med hovedpinelidelse eller migræne."
+      "value": "Gediagnoseer met 'n hoofpynversteuring of migraine."
     },
     "runtime.popup.diagnosed_learning_dyslexia": {
       "source": "Diagnosed with a learning disability or dyslexia.",
       "locations": [
         "public/util/popup.js confirmAthleteInfo medical background"
       ],
-      "value": "Diagnosticeret med indlæringsvanskelighed eller dysleksi."
+      "value": "Gediagnoseer met 'n leerprobleem of disleksie."
     },
     "runtime.popup.diagnosed_psych": {
       "source": "Diagnosed with depression, anxiety or a psychological disorder.",
       "locations": [
         "public/util/popup.js confirmAthleteInfo medical background"
       ],
-      "value": "Diagnosticeret med depression, angst eller anden psykisk lidelse."
+      "value": "Gediagnoseer met depressie, angs of 'n sielkundige versteuring."
     },
     "runtime.popup.dob": {
       "source": "Date of Birth:",
       "locations": [
         "public/util/popup.js confirmAthleteInfo"
       ],
-      "value": "Fødselsdato:"
+      "value": "Geboortedatum:"
     },
     "runtime.popup.dom_hand": {
       "source": "Dominant Hand:",
       "locations": [
         "public/util/popup.js confirmAthleteInfo"
       ],
-      "value": "Dominerende hånd:"
+      "value": "Dominante hand:"
     },
     "runtime.popup.download_zip": {
       "source": "Download ZIP",
       "locations": [
         "public/util/popup.js bulkExportOptions"
       ],
-      "value": "Hent ZIP"
+      "value": "Laai ZIP af"
     },
     "runtime.popup.end_test": {
       "source": "END TEST",
       "locations": [
         "public/util/popup.js"
       ],
-      "value": "AFSLUT TEST"
+      "value": "BEËINDIG TOETS"
     },
     "runtime.popup.enter_athlete": {
       "source": "Enter Athlete Information",
       "locations": [
         "public/util/popup.js confirmAthleteInfo"
       ],
-      "value": "Indtast atletoplysninger"
+      "value": "Voer atleetinligting in"
     },
     "runtime.popup.examiner": {
       "source": "Examiner Name:",
       "locations": [
         "public/util/popup.js confirmAthleteInfo"
       ],
-      "value": "Undersøgers navn:"
+      "value": "Ondersoeker se naam:"
     },
     "runtime.popup.first_lang": {
       "source": "First Language:",
       "locations": [
         "public/util/popup.js confirmAthleteInfo"
       ],
-      "value": "Førstesprog:"
+      "value": "Eerste taal:"
     },
     "runtime.popup.hand_ambidextrous": {
       "source": "Ambidextrous",
       "locations": [
         "public/util/popup.js confirmAthleteInfo dominant hand option"
       ],
-      "value": "Beggehåndet"
+      "value": "Albei hande"
     },
     "runtime.popup.hand_left": {
       "source": "Left",
       "locations": [
         "public/util/popup.js confirmAthleteInfo dominant hand option"
       ],
-      "value": "Venstre"
+      "value": "Links"
     },
     "runtime.popup.hand_right": {
       "source": "Right",
       "locations": [
         "public/util/popup.js confirmAthleteInfo dominant hand option"
       ],
-      "value": "Højre"
+      "value": "Regs"
     },
     "runtime.popup.hcp_only_text": {
       "source": "For Use by Health Care Professionals Only. See the original",
       "locations": [
         "public/util/popup.js confirmAthleteInfo start assessment"
       ],
-      "value": "Kun til brug for sundhedsprofessionelle. Se den originale"
+      "value": "Slegs vir gebruik deur gesondheidswerkers. Sien die oorspronklike"
     },
     "runtime.popup.hospitalized_head_injury": {
       "source": "Hospitalized for head injury.",
       "locations": [
         "public/util/popup.js confirmAthleteInfo medical background"
       ],
-      "value": "Indlagt på hospital for hovedskade."
+      "value": "Gehospitaliseer vir kopbesering."
     },
     "runtime.popup.id_number": {
       "source": "ID Number:",
       "locations": [
         "public/util/popup.js confirmAthleteInfo"
       ],
-      "value": "ID-nummer:"
+      "value": "ID-nommer:"
     },
     "runtime.popup.immediate": {
       "source": "Immediate",
       "locations": [
         "public/util/popup.js confirmAthleteInfo action button"
       ],
-      "value": "Akut"
+      "value": "Onmiddellik"
     },
     "runtime.popup.immediate_text": {
       "source": "The immediate assessment should be completed \"on-field\" after the first aid/emergency care priorities are completed.",
       "locations": [
         "public/util/popup.js confirmAthleteInfo start assessment"
       ],
-      "value": "Den akutte vurdering bør gennemføres \"på banen\", efter at førstehjælp/akutbehandling er afsluttet."
+      "value": "Die onmiddellike assessering moet “op die veld” voltooi word nadat die prioriteite vir noodhulp/noodsorg afgehandel is."
     },
     "runtime.popup.keep_testing": {
       "source": "KEEP TESTING",
       "locations": [
         "public/util/popup.js"
       ],
-      "value": "FORTSÆT TEST"
+      "value": "HOU AAN TOETS"
     },
     "runtime.popup.med_bg": {
       "source": "Medical Background",
       "locations": [
         "public/util/popup.js confirmAthleteInfo"
       ],
-      "value": "Medicinsk baggrund"
+      "value": "Mediese agtergrond"
     },
     "runtime.popup.med_bg_question": {
       "source": "Has the athlete ever been (if yes, describe below):",
       "locations": [
         "public/util/popup.js confirmAthleteInfo medical background"
       ],
-      "value": "Har atleten tidligere haft følgende (hvis ja, beskriv nedenfor):"
+      "value": "Was die atleet al ooit (indien ja, beskryf hieronder):"
     },
     "runtime.popup.n_past": {
       "source": "Number of Past Concussions:",
       "locations": [
         "public/util/popup.js confirmAthleteInfo"
       ],
-      "value": "Antal tidligere hjernerystelser:"
+      "value": "Aantal vorige harsingskuddings:"
     },
     "runtime.popup.notes": {
       "source": "Notes:",
       "locations": [
         "public/util/popup.js confirmAthleteInfo medical background"
       ],
-      "value": "Noter:"
+      "value": "Notas:"
     },
     "runtime.popup.ok": {
       "source": "OK",
       "locations": [
         "public/util/popup.js"
       ],
-      "value": "Bekræft"
+      "value": "OK"
     },
     "runtime.popup.other": {
       "source": "Other:",
       "locations": [
         "public/util/popup.js confirmAthleteInfo"
       ],
-      "value": "Andet:"
+      "value": "Ander:"
     },
     "runtime.popup.placeholder_athlete_name": {
       "source": "Athlete name",
       "locations": [
         "public/util/popup.js confirmAthleteInfo placeholder"
       ],
-      "value": "Atletnavn"
+      "value": "Atleet se naam"
     },
     "runtime.popup.placeholder_describe_selections": {
       "source": "Describe any selections above",
       "locations": [
         "public/util/popup.js confirmAthleteInfo placeholder"
       ],
-      "value": "Beskriv eventuelle valg ovenfor"
+      "value": "Beskryf enige keuses hierbo"
     },
     "runtime.popup.placeholder_english": {
       "source": "English",
       "locations": [
         "public/util/popup.js confirmAthleteInfo placeholder"
       ],
-      "value": "Engelsk"
+      "value": "Afrikaans"
     },
     "runtime.popup.placeholder_examiner_name": {
       "source": "Your first and last name",
       "locations": [
         "public/util/popup.js confirmAthleteInfo placeholder"
       ],
-      "value": "Dit for- og efternavn"
+      "value": "U voor- en van"
     },
     "runtime.popup.placeholder_list_medications": {
       "source": "List medications",
       "locations": [
         "public/util/popup.js confirmAthleteInfo placeholder"
       ],
-      "value": "Angiv medicin"
+      "value": "Lys medikasie"
     },
     "runtime.popup.placeholder_list_other_symptoms": {
       "source": "List other symptoms",
       "locations": [
         "public/util/popup.js confirmAthleteInfo placeholder"
       ],
-      "value": "Angiv andre symptomer"
+      "value": "Lys ander simptome"
     },
     "runtime.popup.placeholder_team_school": {
       "source": "Varsity X at Y High School",
       "locations": [
         "public/util/popup.js confirmAthleteInfo placeholder"
       ],
-      "value": "Varsity X på Y High School"
+      "value": "Eerstespan X by Hoërskool Y"
     },
     "runtime.popup.placeholder_unique_id": {
       "source": "Unique ID",
       "locations": [
         "public/util/popup.js confirmAthleteInfo placeholder"
       ],
-      "value": "Unikt ID"
+      "value": "Unieke ID"
     },
     "runtime.popup.preferred_lang": {
       "source": "Preferred Language:",
       "locations": [
         "public/util/popup.js confirmAthleteInfo"
       ],
-      "value": "Foretrukket sprog:"
+      "value": "Voorkeurtaal:"
     },
     "runtime.popup.primary_symptoms": {
       "source": "Primary Symptoms:",
       "locations": [
         "public/util/popup.js confirmAthleteInfo"
       ],
-      "value": "Primære symptomer:"
+      "value": "Hoofsimptome:"
     },
     "runtime.popup.recent_date": {
       "source": "Most Recent Concussion Date:",
       "locations": [
         "public/util/popup.js confirmAthleteInfo"
       ],
-      "value": "Dato for seneste hjernerystelse:"
+      "value": "Datum van mees onlangse harsingskudding:"
     },
     "runtime.popup.recovery_days": {
       "source": "Most Recent Recovery Time (days):",
       "locations": [
         "public/util/popup.js confirmAthleteInfo"
       ],
-      "value": "Seneste restitutionstid (dage):"
+      "value": "Mees onlangse hersteltyd (dae):"
     },
     "runtime.popup.remove_from_play_default": {
       "source": "Remove athlete from play for immediate medical assessment or transport to hospital/medical center.",
       "locations": [
         "public/util/popup.js removeAthleteFromPlayAlert default"
       ],
-      "value": "Fjern atleten fra spillet med henblik på øjeblikkelig medicinsk vurdering eller transport til hospital/medicinsk center."
+      "value": "Verwyder die atleet uit spel vir onmiddellike mediese assessering of vervoer na 'n hospitaal/mediese sentrum."
     },
     "runtime.popup.remove_from_play_spinal": {
       "source": "Spinal immobilization and cervical collar. Then remove athlete from play for immediate medical assessment or transport to hospital/medical center.",
@@ -2963,994 +2963,994 @@
         "public/util/popup.js removeAthleteFromPlayAlert cervical spine",
         "templates/index.template.html cervical-spine button"
       ],
-      "value": "Immobilisér rygsøjlen og anlæg halskrave. Fjern derefter atleten fra spillet med henblik på øjeblikkelig medicinsk vurdering eller transport til hospital/medicinsk center."
+      "value": "Immobiliseer die ruggraat en plaas 'n servikale kraag aan. Verwyder die atleet dan uit spel vir onmiddellike mediese assessering of vervoer na 'n hospitaal/mediese sentrum."
     },
     "runtime.popup.save_info_no_test": {
       "source": "Save Info w/o Test",
       "locations": [
         "public/util/popup.js confirmAthleteInfo action button"
       ],
-      "value": "Gem oplysninger uden test"
+      "value": "Stoor inligting sonder toets"
     },
     "runtime.popup.sex": {
       "source": "Sex:",
       "locations": [
         "public/util/popup.js confirmAthleteInfo"
       ],
-      "value": "Køn:"
+      "value": "Geslag:"
     },
     "runtime.popup.sex_female": {
       "source": "Female",
       "locations": [
         "public/util/popup.js confirmAthleteInfo sex option"
       ],
-      "value": "Kvinde"
+      "value": "Vroulik"
     },
     "runtime.popup.sex_male": {
       "source": "Male",
       "locations": [
         "public/util/popup.js confirmAthleteInfo sex option"
       ],
-      "value": "Mand"
+      "value": "Manlik"
     },
     "runtime.popup.sex_other": {
       "source": "Other",
       "locations": [
         "public/util/popup.js confirmAthleteInfo sex option"
       ],
-      "value": "Andet"
+      "value": "Ander"
     },
     "runtime.popup.sex_prefer_not_to_say": {
       "source": "Prefer Not To Say",
       "locations": [
         "public/util/popup.js confirmAthleteInfo sex option"
       ],
-      "value": "Ønsker ikke at oplyse"
+      "value": "Verkies om nie te sê nie"
     },
     "runtime.popup.start_assessment": {
       "source": "Start Assessment",
       "locations": [
         "public/util/popup.js confirmAthleteInfo"
       ],
-      "value": "Start vurdering"
+      "value": "Begin assessering"
     },
     "runtime.popup.stop_sync": {
       "source": "Stop Sync",
       "locations": [
         "public/util/popup.js syncSettings"
       ],
-      "value": "Stop synkronisering"
+      "value": "Stop sinkronisering"
     },
     "runtime.popup.suspected_post": {
       "source": "Suspected/Post-Injury",
       "locations": [
         "public/util/popup.js confirmAthleteInfo action button"
       ],
-      "value": "Mistænkt/Post-skade"
+      "value": "Vermoedelike/nábesering"
     },
     "runtime.popup.symptom_confusion": {
       "source": "Confusion.",
       "locations": [
         "public/util/popup.js confirmAthleteInfo symptoms"
       ],
-      "value": "Forvirring."
+      "value": "Verwarring."
     },
     "runtime.popup.symptom_difficulty_concentrating": {
       "source": "Difficulty Concentrating.",
       "locations": [
         "public/util/popup.js confirmAthleteInfo symptoms"
       ],
-      "value": "Koncentrationsbesvær."
+      "value": "Sukkel om te konsentreer."
     },
     "runtime.popup.symptom_dizziness_imbalance": {
       "source": "Dizziness/Imbalance.",
       "locations": [
         "public/util/popup.js confirmAthleteInfo symptoms"
       ],
-      "value": "Svimmelhed/ubalanceret."
+      "value": "Duiseligheid/balansprobleme."
     },
     "runtime.popup.symptom_double_blurry_vision": {
       "source": "Double/Blurry Vision.",
       "locations": [
         "public/util/popup.js confirmAthleteInfo symptoms"
       ],
-      "value": "Dobbelt/sløret syn."
+      "value": "Dubbel/dowwe visie."
     },
     "runtime.popup.symptom_headache": {
       "source": "Headache.",
       "locations": [
         "public/util/popup.js confirmAthleteInfo symptoms"
       ],
-      "value": "Hovedpine."
+      "value": "Hoofpyn."
     },
     "runtime.popup.symptom_loss_smell_taste": {
       "source": "Loss of Smell/Taste.",
       "locations": [
         "public/util/popup.js confirmAthleteInfo symptoms"
       ],
-      "value": "Tab af lugte-/smagssans."
+      "value": "Verlies aan reuk/smaak."
     },
     "runtime.popup.symptom_memory_loss": {
       "source": "Memory Loss.",
       "locations": [
         "public/util/popup.js confirmAthleteInfo symptoms"
       ],
-      "value": "Hukommelsestab."
+      "value": "Geheueverlies."
     },
     "runtime.popup.symptom_nausea_vomiting": {
       "source": "Nausea/Vomiting.",
       "locations": [
         "public/util/popup.js confirmAthleteInfo symptoms"
       ],
-      "value": "Kvalme/opkastning."
+      "value": "Naarheid/braking."
     },
     "runtime.popup.symptom_ringing_ears": {
       "source": "Ringing Ears.",
       "locations": [
         "public/util/popup.js confirmAthleteInfo symptoms"
       ],
-      "value": "Ringen for ørerne."
+      "value": "Tuit in die ore."
     },
     "runtime.popup.symptom_sensitivity_light": {
       "source": "Sensitivity to Light.",
       "locations": [
         "public/util/popup.js confirmAthleteInfo symptoms"
       ],
-      "value": "Lysfølsomhed."
+      "value": "Ligsensitiwiteit."
     },
     "runtime.popup.symptom_trouble_sleeping": {
       "source": "Trouble Sleeping.",
       "locations": [
         "public/util/popup.js confirmAthleteInfo symptoms"
       ],
-      "value": "Søvnproblemer."
+      "value": "Slaapprobleme."
     },
     "runtime.popup.team_school": {
       "source": "Sport/Team/School:",
       "locations": [
         "public/util/popup.js confirmAthleteInfo"
       ],
-      "value": "Sport/Hold/Skole:"
+      "value": "Sport/Span/Skool:"
     },
     "runtime.popup.time_exam": {
       "source": "Time of Examination:",
       "locations": [
         "public/util/popup.js confirmAthleteInfo"
       ],
-      "value": "Tidspunkt for undersøgelse:"
+      "value": "Tyd van ondersoek:"
     },
     "runtime.popup.time_injury": {
       "source": "Time of Injury (if applicable):",
       "locations": [
         "public/util/popup.js confirmAthleteInfo"
       ],
-      "value": "Tidspunkt for skade (hvis relevant):"
+      "value": "Tyd van besering (indien van toepassing):"
     },
     "runtime.popup.years_edu": {
       "source": "Total Years of Education Completed:",
       "locations": [
         "public/util/popup.js confirmAthleteInfo"
       ],
-      "value": "Samlet antal gennemførte skoleår:"
+      "value": "Totale voltooide jare onderwys:"
     },
     "runtime.results.decision_title": {
       "source": "Decision",
       "locations": [
         "public/results.js decision section"
       ],
-      "value": "Beslutning"
+      "value": "Besluit"
     },
     "runtime.results.deferred": {
       "source": "Deferred",
       "locations": [
         "public/results.js decision section"
       ],
-      "value": "Udskudt"
+      "value": "Uitgestel"
     },
     "runtime.results.diagnosed_prompt": {
       "source": "Concussion diagnosed?",
       "locations": [
         "public/results.js decision section"
       ],
-      "value": "Er hjernerystelse diagnosticeret?"
+      "value": "Harsingskudding gediagnoseer?"
     },
     "runtime.results.different_prompt": {
       "source": "If the athlete was known to you prior to their injury, are they different from their usual self?",
       "locations": [
         "public/results.js different from normal prompt"
       ],
-      "value": "Hvis du kendte atleten før skaden, er vedkommende så anderledes end normalt?"
+      "value": "Indien u die atleet voor hul besering geken het, is hulle anders as hul gewone self?"
     },
     "runtime.results.export.cancel": {
       "source": "Cancel",
       "locations": [
         "public/results.js export fallback select"
       ],
-      "value": "Annuller"
+      "value": "Kanselleer"
     },
     "runtime.results.export.choose": {
       "source": "Choose an export option:",
       "locations": [
         "public/results.js export fallback select"
       ],
-      "value": "Vælg en eksportmulighed:"
+      "value": "Kies 'n uitvoeropsie:"
     },
     "runtime.results.export.failed": {
       "source": "Failed to export the SCAT6 PDF. Please try again.",
       "locations": [
         "public/results.js exportSelect change error"
       ],
-      "value": "Kunne ikke eksportere SCAT6-PDF'en. Prøv igen."
+      "value": "Kon nie die SCAT6-PDF uitvoer nie. Probeer asseblief weer."
     },
     "runtime.results.export.failed_load_template": {
       "source": "Failed to load the SCAT6 template.",
       "locations": [
         "public/results.js exportSCAT6pdf fetch fail"
       ],
-      "value": "Kunne ikke indlæse SCAT6-skabelonen."
+      "value": "Kon nie die SCAT6-sjabloon laai nie."
     },
     "runtime.results.export.full_scat6": {
       "source": "Full SCAT6",
       "locations": [
         "public/results.js export fallback select"
       ],
-      "value": "Fuld SCAT6"
+      "value": "Volledige SCAT6"
     },
     "runtime.results.export.overall_report": {
       "source": "Overall Report",
       "locations": [
         "public/results.js export fallback select"
       ],
-      "value": "Samlet rapport"
+      "value": "Algehele verslag"
     },
     "runtime.results.export.raw_csv": {
       "source": "Raw CSV",
       "locations": [
         "public/results.js export fallback select"
       ],
-      "value": "Rå CSV"
+      "value": "Rou CSV"
     },
     "runtime.results.hcp_attestation_body": {
       "source": "I am an HCP and I have personally administered or supervised the administration of this SCAT6.",
       "locations": [
         "public/results.js attestation section"
       ],
-      "value": "Jeg er sundhedsprofessionel og har personligt udført eller superviseret gennemførelsen af denne SCAT6."
+      "value": "Ek is 'n gesondheidswerker en het persoonlik hierdie SCAT6 afgeneem of toesig oor die afneem daarvan gehou."
     },
     "runtime.results.hcp_attestation_title": {
       "source": "Health Care Professional Attestation",
       "locations": [
         "public/results.js attestation section"
       ],
-      "value": "Erklæring fra sundhedsprofessionel"
+      "value": "Verklaring deur gesondheidswerker"
     },
     "runtime.results.name": {
       "source": "Name",
       "locations": [
         "public/results.js labels"
       ],
-      "value": "Navn"
+      "value": "Naam"
     },
     "runtime.results.notes": {
       "source": "Notes",
       "locations": [
         "public/results.js notes label"
       ],
-      "value": "Noter"
+      "value": "Notas"
     },
     "runtime.results.range.high": {
       "source": "high",
       "locations": [
         "public/results.js symptom severity range"
       ],
-      "value": "høj"
+      "value": "hoog"
     },
     "runtime.results.range.low": {
       "source": "low",
       "locations": [
         "public/results.js symptom severity range"
       ],
-      "value": "lav"
+      "value": "laag"
     },
     "runtime.results.range.moderate": {
       "source": "moderate",
       "locations": [
         "public/results.js symptom severity range"
       ],
-      "value": "moderat"
+      "value": "matig"
     },
     "runtime.results.registration_license": {
       "source": "Registration/License Number (if applicable)",
       "locations": [
         "public/results.js labels"
       ],
-      "value": "Registrerings-/licensnummer (hvis relevant)"
+      "value": "Registrasie-/lisensienommer (indien van toepassing)"
     },
     "runtime.results.report.athlete_info": {
       "source": "Athlete Information",
       "locations": [
         "public/results.js generateReportHTML"
       ],
-      "value": "Atletoplysninger"
+      "value": "Atleetinligting"
     },
     "runtime.results.report.birth": {
       "source": "Birth",
       "locations": [
         "public/results.js generateReportHTML"
       ],
-      "value": "Født"
+      "value": "Geboorte"
     },
     "runtime.results.report.concussion_diagnosis": {
       "source": "Concussion Diagnosis",
       "locations": [
         "public/results.js generateReportHTML"
       ],
-      "value": "Hjernerystelsesdiagnose"
+      "value": "Harsingskuddingdiagnose"
     },
     "runtime.results.report.days": {
       "source": "days",
       "locations": [
         "public/results.js generateReportHTML"
       ],
-      "value": "dage"
+      "value": "dae"
     },
     "runtime.results.report.different_from_normal": {
       "source": "Different from Normal",
       "locations": [
         "public/results.js generateReportHTML"
       ],
-      "value": "Anderledes end normalt"
+      "value": "Anders as normaal"
     },
     "runtime.results.report.dominant_hand": {
       "source": "Dominant Hand",
       "locations": [
         "public/results.js generateReportHTML"
       ],
-      "value": "Dominant hånd"
+      "value": "Dominante hand"
     },
     "runtime.results.report.double_leg_errors": {
       "source": "Double-Leg Errors",
       "locations": [
         "public/results.js generateReportHTML"
       ],
-      "value": "Fejl i dobbeltbensstilling"
+      "value": "Dubbelbeenfoute"
     },
     "runtime.results.report.double_leg_foam_errors": {
       "source": "Double-Leg Foam Errors",
       "locations": [
         "public/results.js generateReportHTML"
       ],
-      "value": "Fejl i dobbeltbensstilling på skum"
+      "value": "Dubbelbeenfoute op skuim"
     },
     "runtime.results.report.examiner": {
       "source": "Examiner",
       "locations": [
         "public/results.js generateReportHTML"
       ],
-      "value": "Undersøger"
+      "value": "Ondersoeker"
     },
     "runtime.results.report.examiner_credentials": {
       "source": "Examiner Credentials",
       "locations": [
         "public/results.js generateReportHTML"
       ],
-      "value": "Undersøgerens kvalifikationer"
+      "value": "Ondersoeker se kwalifikasies"
     },
     "runtime.results.report.feels_normal": {
       "source": "Feels Normal",
       "locations": [
         "public/results.js generateReportHTML"
       ],
-      "value": "Føles normal"
+      "value": "Voel normaal"
     },
     "runtime.results.report.first_language": {
       "source": "First Language",
       "locations": [
         "public/results.js generateReportHTML"
       ],
-      "value": "Førstesprog"
+      "value": "Eerste taal"
     },
     "runtime.results.report.injury_time": {
       "source": "Injury Time",
       "locations": [
         "public/results.js generateReportHTML"
       ],
-      "value": "Skadestidspunkt"
+      "value": "Beseringstyd"
     },
     "runtime.results.report.mbess_error_photos": {
       "source": "mBESS Error Photos",
       "locations": [
         "public/results.js generateReportHTML"
       ],
-      "value": "mBESS-fejlfotos"
+      "value": "mBESS-foutfoto's"
     },
     "runtime.results.report.most_recent_concussion": {
       "source": "Most Recent Concussion",
       "locations": [
         "public/results.js generateReportHTML"
       ],
-      "value": "Seneste hjernerystelse"
+      "value": "Mees onlangse harsingskudding"
     },
     "runtime.results.report.most_recent_recovery_time": {
       "source": "Most Recent Recovery Time",
       "locations": [
         "public/results.js generateReportHTML"
       ],
-      "value": "Seneste restitutionstid"
+      "value": "Mees onlangse hersteltyd"
     },
     "runtime.results.report.no_pose_error_photos": {
       "source": "No pose error photos taken for this test.",
       "locations": [
         "public/results.js generateReportHTML"
       ],
-      "value": "Der blev ikke taget pose-fejlfotos for denne test."
+      "value": "Geen foto's van houdingsfoute is vir hierdie toets geneem nie."
     },
     "runtime.results.report.past_concussions": {
       "source": "Number of Past Concussions",
       "locations": [
         "public/results.js generateReportHTML"
       ],
-      "value": "Antal tidligere hjernerystelser"
+      "value": "Aantal vorige harsingskuddings"
     },
     "runtime.results.report.preferred_language": {
       "source": "Preferred Language",
       "locations": [
         "public/results.js generateReportHTML"
       ],
-      "value": "Foretrukket sprog"
+      "value": "Voorkeurtaal"
     },
     "runtime.results.report.primary_symptoms": {
       "source": "Primary Symptoms",
       "locations": [
         "public/results.js generateReportHTML"
       ],
-      "value": "Primære symptomer"
+      "value": "Hoofsimptome"
     },
     "runtime.results.report.sex": {
       "source": "Sex",
       "locations": [
         "public/results.js generateReportHTML"
       ],
-      "value": "Køn"
+      "value": "Geslag"
     },
     "runtime.results.report.signed": {
       "source": "Signed",
       "locations": [
         "public/results.js generateReportHTML"
       ],
-      "value": "Underskrevet"
+      "value": "Onderteken"
     },
     "runtime.results.report.single_leg_errors": {
       "source": "Single-Leg Errors",
       "locations": [
         "public/results.js generateReportHTML"
       ],
-      "value": "Fejl i etbensstilling"
+      "value": "Enkelbeenfoute"
     },
     "runtime.results.report.single_leg_foam_errors": {
       "source": "Single-Leg Foam Errors",
       "locations": [
         "public/results.js generateReportHTML"
       ],
-      "value": "Fejl i etbensstilling på skum"
+      "value": "Enkelbeenfoute op skuim"
     },
     "runtime.results.report.symptom_description": {
       "source": "Symptom Description",
       "locations": [
         "public/results.js generateReportHTML"
       ],
-      "value": "Symptombeskrivelse"
+      "value": "Simptoombeskrywing"
     },
     "runtime.results.report.tandem_errors": {
       "source": "Tandem Errors",
       "locations": [
         "public/results.js generateReportHTML"
       ],
-      "value": "Tandemfejl"
+      "value": "Tandemfoute"
     },
     "runtime.results.report.tandem_foam_errors": {
       "source": "Tandem Foam Errors",
       "locations": [
         "public/results.js generateReportHTML"
       ],
-      "value": "Tandemfejl på skum"
+      "value": "Tandemfoute op skuim"
     },
     "runtime.results.report.team_school": {
       "source": "Team/School",
       "locations": [
         "public/results.js generateReportHTML"
       ],
-      "value": "Hold/skole"
+      "value": "Span/Skool"
     },
     "runtime.results.report.test_active": {
       "source": "Test Active",
       "locations": [
         "public/results.js generateReportHTML"
       ],
-      "value": "Test aktiv"
+      "value": "Toets aktief"
     },
     "runtime.results.report.test_type": {
       "source": "Test Type",
       "locations": [
         "public/results.js generateReportHTML"
       ],
-      "value": "Testtype"
+      "value": "Toetstipe"
     },
     "runtime.results.report.title_for": {
       "source": "SCAT6 report for {{athleteName}}",
       "locations": [
         "public/results.js generateReportHTML title"
       ],
-      "value": "SCAT6-rapport for {{athleteName}}"
+      "value": "SCAT6-verslag vir {{athleteName}}"
     },
     "runtime.results.report.worse_mental": {
       "source": "Worse with Mental Activity",
       "locations": [
         "public/results.js generateReportHTML"
       ],
-      "value": "Værre ved mental aktivitet"
+      "value": "Erger met verstandelike aktiwiteit"
     },
     "runtime.results.report.worse_physical": {
       "source": "Worse with Physical Activity",
       "locations": [
         "public/results.js generateReportHTML"
       ],
-      "value": "Værre ved fysisk aktivitet"
+      "value": "Erger met fisieke aktiwiteit"
     },
     "runtime.results.report.year_in_school": {
       "source": "Year in School",
       "locations": [
         "public/results.js generateReportHTML"
       ],
-      "value": "År i skole"
+      "value": "Skooljaar"
     },
     "runtime.results.report.years_education": {
       "source": "Years of Education",
       "locations": [
         "public/results.js generateReportHTML"
       ],
-      "value": "År med uddannelse"
+      "value": "Jare onderwys"
     },
     "runtime.results.row.bess": {
       "source": "BESS (of 30)",
       "locations": [
         "public/results.js results table row label"
       ],
-      "value": "BESS (ud af 30)"
+      "value": "BESS (uit 30)"
     },
     "runtime.results.row.bess_foam": {
       "source": "BESS Foam (of 30)",
       "locations": [
         "public/results.js results table row label"
       ],
-      "value": "BESS på skum (ud af 30)"
+      "value": "BESS op skuim (uit 30)"
     },
     "runtime.results.row.cognitive_total": {
       "source": "Cognitive Total (of 50)",
       "locations": [
         "public/results.js results table row label"
       ],
-      "value": "Kognitiv totalscore (ud af 50)"
+      "value": "Kognitiewe totaal (uit 50)"
     },
     "runtime.results.row.concentration": {
       "source": "Concentration (of 5)",
       "locations": [
         "public/results.js results table row label"
       ],
-      "value": "Koncentration (ud af 5)"
+      "value": "Konsentrasie (uit 5)"
     },
     "runtime.results.row.date": {
       "source": "Date",
       "locations": [
         "public/results.js results table row label"
       ],
-      "value": "Dato"
+      "value": "Datum"
     },
     "runtime.results.row.delayed_recall": {
       "source": "Delayed Recall (of 10)",
       "locations": [
         "public/results.js results table row label"
       ],
-      "value": "Forsinket genkaldelse (ud af 10)"
+      "value": "Uitgestelde herroeping (uit 10)"
     },
     "runtime.results.row.dual_task_accuracy": {
       "source": "Dual Task Accuracy (%)",
       "locations": [
         "public/results.js results table row label"
       ],
-      "value": "Dual-task præcision (%)"
+      "value": "Dubbeltaak-akkuraatheid (%)"
     },
     "runtime.results.row.dual_task_fastest": {
       "source": "Dual Task Fastest (sec)",
       "locations": [
         "public/results.js results table row label"
       ],
-      "value": "Dual-task hurtigste (sek)"
+      "value": "Vinnigste dubbeltaak (sek.)"
     },
     "runtime.results.row.immediate_memory": {
       "source": "Immediate Memory (of 30)",
       "locations": [
         "public/results.js results table row label"
       ],
-      "value": "Umiddelbar hukommelse (ud af 30)"
+      "value": "Onmiddellike geheue (uit 30)"
     },
     "runtime.results.row.orientation": {
       "source": "Orientation (of 5)",
       "locations": [
         "public/results.js results table row label"
       ],
-      "value": "Orientering (ud af 5)"
+      "value": "Oriëntasie (uit 5)"
     },
     "runtime.results.row.recall_delay": {
       "source": "Recall Delay (seconds)",
       "locations": [
         "public/results.js results table row label"
       ],
-      "value": "Genkaldelsesforsinkelse (sekunder)"
+      "value": "Herroepingsvertraging (sekondes)"
     },
     "runtime.results.row.severity": {
       "source": "Severity (of 132)",
       "locations": [
         "public/results.js results table row label"
       ],
-      "value": "Sværhedsgrad (ud af 132)"
+      "value": "Erns (uit 132)"
     },
     "runtime.results.row.symptoms": {
       "source": "Symptoms (of 22)",
       "locations": [
         "public/results.js results table row label"
       ],
-      "value": "Symptomer (ud af 22)"
+      "value": "Simptome (uit 22)"
     },
     "runtime.results.row.tandem_fastest": {
       "source": "Tandem Gait Fastest (sec)",
       "locations": [
         "public/results.js results table row label"
       ],
-      "value": "Tandemgang hurtigste (sek)"
+      "value": "Vinnigste tandemloop (sek.)"
     },
     "runtime.results.signature_checkbox": {
       "source": "Checking this box is equivalent to signing a paper SCAT6",
       "locations": [
         "public/results.js labels"
       ],
-      "value": "Afkrydsning af denne boks svarer til at underskrive en papirversion af SCAT6"
+      "value": "Om hierdie blokkie te merk is gelykstaande aan die ondertekening van 'n papier-SCAT6"
     },
     "runtime.results.signature_date": {
       "source": "Signature Date",
       "locations": [
         "public/results.js labels"
       ],
-      "value": "Signaturdato"
+      "value": "Datum van ondertekening"
     },
     "runtime.results.table.current_score": {
       "source": "Current Score",
       "locations": [
         "public/results.js results table header"
       ],
-      "value": "Aktuel score"
+      "value": "Huidige telling"
     },
     "runtime.results.table.domain": {
       "source": "Domain",
       "locations": [
         "public/results.js results table header"
       ],
-      "value": "Domæne"
+      "value": "Domein"
     },
     "runtime.results.table.healthy_range": {
       "source": "Healthy Range",
       "locations": [
         "public/results.js results table header"
       ],
-      "value": "Sundt interval"
+      "value": "Gesonde omvang"
     },
     "runtime.results.table.increased_risk_range": {
       "source": "Increased Risk Range",
       "locations": [
         "public/results.js results table header"
       ],
-      "value": "Øget risikointerval"
+      "value": "Omvang met verhoogde risiko"
     },
     "runtime.results.table.last_baseline": {
       "source": "Last Baseline",
       "locations": [
         "public/results.js results table header"
       ],
-      "value": "Seneste baseline"
+      "value": "Laaste basislyn"
     },
     "runtime.results.table.last_post_injury": {
       "source": "Last Post-Injury",
       "locations": [
         "public/results.js results table header"
       ],
-      "value": "Seneste efter skade"
+      "value": "Laaste nábesering"
     },
     "runtime.results.title_specialty": {
       "source": "Title/Specialty",
       "locations": [
         "public/results.js labels"
       ],
-      "value": "Titel/speciale"
+      "value": "Titel/Spesialiteit"
     },
     "runtime.sources.bess_manual": {
       "source": "BESS Manual",
       "locations": [
         "public/util/popup.js showSources"
       ],
-      "value": "BESS-manual"
+      "value": "BESS-handleiding"
     },
     "runtime.sources.concussion_training": {
       "source": "Concussion training and information",
       "locations": [
         "public/util/popup.js showSources"
       ],
-      "value": "Hjernerystelsestræning og information"
+      "value": "Opleiding en inligting oor harsingskudding"
     },
     "runtime.sources.healthy_risk_bess_tandem_dual": {
       "source": "Healthy/risk ranges for BESS, tandem and dual gait",
       "locations": [
         "public/util/popup.js showSources"
       ],
-      "value": "Sunde/risiko-intervaller for BESS, tandemgang og dual-task gang"
+      "value": "Gesonde/risiko-omvange vir BESS, tandem- en dubbeltaak-loop"
     },
     "runtime.sources.healthy_risk_memory": {
       "source": "Healthy/risk ranges for immediate/delayed recall",
       "locations": [
         "public/util/popup.js showSources"
       ],
-      "value": "Sunde/risiko-intervaller for umiddelbar/forsinket genkaldelse"
+      "value": "Gesonde/risiko-omvange vir onmiddellike/uitgestelde herroeping"
     },
     "runtime.sources.scat6_results_study": {
       "source": "SCAT6 results study",
       "locations": [
         "public/util/popup.js showSources"
       ],
-      "value": "SCAT6-resultatstudie"
+      "value": "SCAT6-resultatestudie"
     },
     "runtime.sources.scat6_supplement": {
       "source": "SCAT6 Supplementary Material",
       "locations": [
         "public/util/popup.js showSources"
       ],
-      "value": "Supplerende SCAT6-materiale"
+      "value": "SCAT6-aanvullende materiaal"
     },
     "runtime.sources.symptom_severity_study": {
       "source": "Symptom severity study",
       "locations": [
         "public/util/popup.js showSources"
       ],
-      "value": "Studie af symptomsværhedsgrad"
+      "value": "Studie oor simptoomerns"
     },
     "runtime.sources.title": {
       "source": "Sources",
       "locations": [
         "public/util/popup.js showSources"
       ],
-      "value": "Kilder"
+      "value": "Bronne"
     },
     "runtime.sync.last_identity": {
       "source": "Last confirmed identity on {{lastSignIn}} <br><br> Last synced on {{lastSync}}",
       "locations": [
         "public/scripts.js syncButton.onclick syncSettings description"
       ],
-      "value": "Sidst bekræftede identitet: {{lastSignIn}} <br><br> Sidst synkroniseret: {{lastSync}}"
+      "value": "Laaste bevestigde identiteit op {{lastSignIn}} <br><br> Laas gesinkroniseer op {{lastSync}}"
     },
     "runtime.sync.sync": {
       "source": "Sync",
       "locations": [
         "public/scripts.js showConnected() button label"
       ],
-      "value": "Synkroniser"
+      "value": "Sinkroniseer"
     },
     "runtime.sync.synced": {
       "source": "Synced",
       "locations": [
         "public/scripts.js showConnected() button label"
       ],
-      "value": "Synkroniseret"
+      "value": "Gesinkroniseer"
     },
     "runtime.test_mgmt.chart.cognitive_total": {
       "source": "Cognitive Total (X/50)",
       "locations": [
         "public/scripts.js showAthleteResults chart dataset"
       ],
-      "value": "Kognitiv totalscore (X/50)"
+      "value": "Kognitiewe totaal (X/50)"
     },
     "runtime.test_mgmt.chart.concentration": {
       "source": "Concentration (X/5)",
       "locations": [
         "public/scripts.js showAthleteResults chart dataset"
       ],
-      "value": "Koncentration (X/5)"
+      "value": "Konsentrasie (X/5)"
     },
     "runtime.test_mgmt.chart.delayed_recall": {
       "source": "Delayed Recall (X/10)",
       "locations": [
         "public/scripts.js showAthleteResults chart dataset"
       ],
-      "value": "Forsinket genkaldelse (X/10)"
+      "value": "Uitgestelde herroeping (X/10)"
     },
     "runtime.test_mgmt.chart.dual_task_fastest_time": {
       "source": "Dual Task Fastest Time",
       "locations": [
         "public/scripts.js showAthleteResults chart dataset"
       ],
-      "value": "Dual-task hurtigste tid"
+      "value": "Vinnigste dubbeltaaktyd"
     },
     "runtime.test_mgmt.chart.errors_title": {
       "source": "Errors, Fastest Times, and Symptoms (lower is better)",
       "locations": [
         "public/scripts.js showAthleteResults chart title"
       ],
-      "value": "Fejl, hurtigste tider og symptomer (lavere er bedre)"
+      "value": "Foute, vinnigste tye en simptome (laer is beter)"
     },
     "runtime.test_mgmt.chart.glasgow": {
       "source": "Glasgow Coma Scale (X/15)",
       "locations": [
         "public/scripts.js showAthleteResults chart dataset"
       ],
-      "value": "Glasgow Coma Scale (X/15)"
+      "value": "Glasgow-komaskaal (X/15)"
     },
     "runtime.test_mgmt.chart.immediate_memory": {
       "source": "Immediate Memory (X/30)",
       "locations": [
         "public/scripts.js showAthleteResults chart dataset"
       ],
-      "value": "Umiddelbar hukommelse (X/30)"
+      "value": "Onmiddellike geheue (X/30)"
     },
     "runtime.test_mgmt.chart.maddocks": {
       "source": "Maddocks Score (X/5)",
       "locations": [
         "public/scripts.js showAthleteResults chart dataset"
       ],
-      "value": "Maddocks-score (X/5)"
+      "value": "Maddocks-telling (X/5)"
     },
     "runtime.test_mgmt.chart.mbess_total_errors": {
       "source": "mBESS Total Errors (X/30)",
       "locations": [
         "public/scripts.js showAthleteResults chart dataset"
       ],
-      "value": "mBESS samlede fejl (X/30)"
+      "value": "Totale mBESS-foute (X/30)"
     },
     "runtime.test_mgmt.chart.orientation": {
       "source": "Orientation (X/5)",
       "locations": [
         "public/scripts.js showAthleteResults chart dataset"
       ],
-      "value": "Orientering (X/5)"
+      "value": "Oriëntasie (X/5)"
     },
     "runtime.test_mgmt.chart.scores_title": {
       "source": "Scores (higher is better)",
       "locations": [
         "public/scripts.js showAthleteResults chart title"
       ],
-      "value": "Scores (højere er bedre)"
+      "value": "Tellings (hoër is beter)"
     },
     "runtime.test_mgmt.chart.symptom_number": {
       "source": "Symptom Number (X/22)",
       "locations": [
         "public/scripts.js showAthleteResults chart dataset"
       ],
-      "value": "Antal symptomer (X/22)"
+      "value": "Aantal simptome (X/22)"
     },
     "runtime.test_mgmt.chart.symptom_severity": {
       "source": "Symptom Severity (X/132)",
       "locations": [
         "public/scripts.js showAthleteResults chart dataset"
       ],
-      "value": "Symptomsværhedsgrad (X/132)"
+      "value": "Simptoomerns (X/132)"
     },
     "runtime.test_mgmt.chart.tandem_fastest_time": {
       "source": "Tandem Gait Fastest Time",
       "locations": [
         "public/scripts.js showAthleteResults chart dataset"
       ],
-      "value": "Tandemgang hurtigste tid"
+      "value": "Vinnigste tandemlooptyd"
     },
     "runtime.test_mgmt.click_mbess_data_point": {
       "source": "Click on an mBESS Total Errors data point to see pose error photos.",
       "locations": [
         "public/scripts.js showAthleteResults chart details"
       ],
-      "value": "Klik på et datapunkt for mBESS samlede fejl for at se pose-fejlfotos."
+      "value": "Klik op 'n datapunt vir totale mBESS-foute om foto's van houdingsfoute te sien."
     },
     "runtime.test_mgmt.click_test_button": {
       "source": "Click the Test button to start a new test.",
       "locations": [
         "public/scripts.js showAthleteResults"
       ],
-      "value": "Klik på knappen Test for at starte en ny test."
+      "value": "Klik die Toets-knoppie om 'n nuwe toets te begin."
     },
     "runtime.test_mgmt.last_baseline": {
       "source": "Last baseline ({{date}}): {{score}} / 80",
       "locations": [
         "public/scripts.js showAthleteResults"
       ],
-      "value": "Seneste baseline ({{date}}): {{score}} / 80"
+      "value": "Laaste basislyn ({{date}}): {{score}} / 80"
     },
     "runtime.test_mgmt.last_post_injury": {
       "source": "Last post-injury ({{date}}): {{score}} / 80",
       "locations": [
         "public/scripts.js showAthleteResults"
       ],
-      "value": "Seneste efter skade ({{date}}): {{score}} / 80"
+      "value": "Laaste nábesering ({{date}}): {{score}} / 80"
     },
     "runtime.test_mgmt.no_baselines": {
       "source": "No baselines found for this athlete.",
       "locations": [
         "public/scripts.js showAthleteResults"
       ],
-      "value": "Ingen baseline-tests fundet for denne atlet."
+      "value": "Geen basislyne vir hierdie atleet gevind nie."
     },
     "runtime.test_mgmt.no_pose_error_photos": {
       "source": "No pose error photos found for this test.",
       "locations": [
         "public/scripts.js showAthleteResults chart details"
       ],
-      "value": "Ingen pose-fejlfotos fundet for denne test."
+      "value": "Geen foto's van houdingsfoute vir hierdie toets gevind nie."
     },
     "runtime.test_mgmt.no_post_injuries": {
       "source": "No post-injuries found for this athlete.",
       "locations": [
         "public/scripts.js showAthleteResults"
       ],
-      "value": "Ingen efter-skade-tests fundet for denne atlet."
+      "value": "Geen nábeseringstoetse vir hierdie atleet gevind nie."
     },
     "runtime.test_mgmt.no_tests": {
       "source": "No tests found for this athlete. ",
       "locations": [
         "public/scripts.js showAthleteResults"
       ],
-      "value": "Ingen tests fundet for denne atlet. "
+      "value": "Geen toetse vir hierdie atleet gevind nie. "
     },
     "runtime.test_mgmt.open_test_details": {
       "source": "Open Test Details",
       "locations": [
         "public/scripts.js showAthleteResults"
       ],
-      "value": "Åbn testdetaljer"
+      "value": "Maak toetsbesonderhede oop"
     },
     "runtime.test_type.baseline": {
       "source": "Baseline",
       "locations": [
         "public/scripts.js translateTestType"
       ],
-      "value": "Baseline"
+      "value": "Basislyn"
     },
     "runtime.test_type.immediate": {
       "source": "Immediate",
       "locations": [
         "public/scripts.js translateTestType"
       ],
-      "value": "Akut"
+      "value": "Onmiddellik"
     },
     "runtime.test_type.no_test": {
       "source": "No Test",
       "locations": [
         "public/scripts.js translateTestType"
       ],
-      "value": "Ingen test"
+      "value": "Geen toets"
     },
     "runtime.test_type.post_injury": {
       "source": "Post-Injury",
       "locations": [
         "public/scripts.js translateTestType"
       ],
-      "value": "Efter skade"
+      "value": "Nábesering"
     },
     "runtime.timer.countdown_canceled": {
       "source": "Countdown canceled",
       "locations": [
         "public/testManager.js startCountdown audio"
       ],
-      "value": "Nedtælling annulleret"
+      "value": "Aftelling gekanselleer"
     },
     "runtime.timer.seconds_left": {
       "source": "{{seconds}} seconds left",
       "locations": [
         "public/testManager.js startCountdown"
       ],
-      "value": "{{seconds}} sekunder tilbage"
+      "value": "{{seconds}} sekondes oor"
     },
     "runtime.timer.start": {
       "source": "Start Timer",
@@ -3958,7 +3958,7 @@
         "public/tandem-gait.js",
         "public/dual-task.js"
       ],
-      "value": "Start timer"
+      "value": "Begin tydhouer"
     },
     "runtime.timer.stop": {
       "source": "Stop Timer",
@@ -3966,343 +3966,343 @@
         "public/tandem-gait.js",
         "public/dual-task.js"
       ],
-      "value": "Stop timer"
+      "value": "Stop tydhouer"
     },
     "runtime.timer.time_up": {
       "source": "Time is up",
       "locations": [
         "public/testManager.js startCountdown audio"
       ],
-      "value": "Tiden er gået"
+      "value": "Tyd is verstreke"
     },
     "runtime.workspace.alert.create_failed": {
       "source": "Failed to create shared workspace: {{error}}",
       "locations": [
         "public/scripts.js create workspace error"
       ],
-      "value": "Kunne ikke oprette delt arbejdsområde: {{error}}"
+      "value": "Kon nie gedeelde werkruimte skep nie: {{error}}"
     },
     "runtime.workspace.alert.created_with_invite": {
       "source": "Created shared workspace: {{workspaceName}}<br>Invite code: <code>{{inviteCode}}</code><br>Invite link: <a href=\"{{inviteLink}}\" target=\"_blank\">{{inviteLink}}</a>",
       "locations": [
         "public/scripts.js create workspace success"
       ],
-      "value": "Delt arbejdsområde oprettet: {{workspaceName}}<br>Invitationskode: <code>{{inviteCode}}</code><br>Invitationslink: <a href=\"{{inviteLink}}\" target=\"_blank\">{{inviteLink}}</a>"
+      "value": "Gedeelde werkruimte geskep: {{workspaceName}}<br>Uitnodigingskode: <code>{{inviteCode}}</code><br>Uitnodigingskakel: <a href=\"{{inviteLink}}\" target=\"_blank\">{{inviteLink}}</a>"
     },
     "runtime.workspace.alert.delete_failed": {
       "source": "Failed to delete shared workspace: {{error}}",
       "locations": [
         "public/scripts.js delete workspace error"
       ],
-      "value": "Kunne ikke slette delt arbejdsområde: {{error}}"
+      "value": "Kon nie gedeelde werkruimte uitvee nie: {{error}}"
     },
     "runtime.workspace.alert.deleted": {
       "source": "Shared workspace deleted.",
       "locations": [
         "public/scripts.js delete workspace success"
       ],
-      "value": "Delt arbejdsområde slettet."
+      "value": "Gedeelde werkruimte uitgevee."
     },
     "runtime.workspace.alert.detach_failed": {
       "source": "Failed to detach from shared workspace: {{error}}",
       "locations": [
         "public/scripts.js detach workspace error"
       ],
-      "value": "Kunne ikke frakoble fra delt arbejdsområde: {{error}}"
+      "value": "Kon nie van gedeelde werkruimte losmaak nie: {{error}}"
     },
     "runtime.workspace.alert.enter_invite_code": {
       "source": "Please enter an invite code.",
       "locations": [
         "public/scripts.js join workspace validation"
       ],
-      "value": "Indtast venligst en invitationskode."
+      "value": "Voer asseblief 'n uitnodigingskode in."
     },
     "runtime.workspace.alert.enter_workspace_name": {
       "source": "Please enter a workspace name.",
       "locations": [
         "public/scripts.js create workspace validation"
       ],
-      "value": "Indtast venligst et navn på arbejdsområdet."
+      "value": "Voer asseblief 'n werkruimtenaam in."
     },
     "runtime.workspace.alert.invite_details": {
       "source": "Invite code: <code>{{inviteCode}}</code><br>Invite link: <a href=\"{{inviteLink}}\" target=\"_blank\">{{inviteLink}}</a>",
       "locations": [
         "public/scripts.js show invite success"
       ],
-      "value": "Invitationskode: <code>{{inviteCode}}</code><br>Invitationslink: <a href=\"{{inviteLink}}\" target=\"_blank\">{{inviteLink}}</a>"
+      "value": "Uitnodigingskode: <code>{{inviteCode}}</code><br>Uitnodigingskakel: <a href=\"{{inviteLink}}\" target=\"_blank\">{{inviteLink}}</a>"
     },
     "runtime.workspace.alert.join_failed": {
       "source": "Failed to join shared workspace: {{error}}",
       "locations": [
         "public/scripts.js join workspace error"
       ],
-      "value": "Kunne ikke deltage i delt arbejdsområde: {{error}}"
+      "value": "Kon nie by gedeelde werkruimte aansluit nie: {{error}}"
     },
     "runtime.workspace.alert.join_from_invite_failed": {
       "source": "Failed to join shared workspace from invite: {{error}}",
       "locations": [
         "public/scripts.js invite auto-join error"
       ],
-      "value": "Kunne ikke deltage i delt arbejdsområde via invitation: {{error}}"
+      "value": "Kon nie vanuit uitnodiging by gedeelde werkruimte aansluit nie: {{error}}"
     },
     "runtime.workspace.alert.joined": {
       "source": "Joined shared workspace: {{workspaceName}}",
       "locations": [
         "public/scripts.js workspace join success"
       ],
-      "value": "Deltaget i delt arbejdsområde: {{workspaceName}}"
+      "value": "By gedeelde werkruimte aangesluit: {{workspaceName}}"
     },
     "runtime.workspace.alert.leave_failed": {
       "source": "Failed to leave shared workspace: {{error}}",
       "locations": [
         "public/scripts.js leave workspace error"
       ],
-      "value": "Kunne ikke forlade delt arbejdsområde: {{error}}"
+      "value": "Kon nie gedeelde werkruimte verlaat nie: {{error}}"
     },
     "runtime.workspace.alert.left": {
       "source": "Left shared workspace.",
       "locations": [
         "public/scripts.js leave workspace success"
       ],
-      "value": "Forlod delt arbejdsområde."
+      "value": "Gedeelde werkruimte verlaat."
     },
     "runtime.workspace.alert.load_invite_failed": {
       "source": "Failed to load invite details: {{error}}",
       "locations": [
         "public/scripts.js show invite error"
       ],
-      "value": "Kunne ikke indlæse invitationsdetaljer: {{error}}"
+      "value": "Kon nie uitnodigingsbesonderhede laai nie: {{error}}"
     },
     "runtime.workspace.alert.member_removed": {
       "source": "Member removed from workspace.",
       "locations": [
         "public/scripts.js remove member success"
       ],
-      "value": "Medlem fjernet fra arbejdsområdet."
+      "value": "Lid uit werkruimte verwyder."
     },
     "runtime.workspace.alert.missing_member_id": {
       "source": "Missing member id.",
       "locations": [
         "public/scripts.js remove member validation"
       ],
-      "value": "Mangler medlems-id."
+      "value": "Lid-ID ontbreek."
     },
     "runtime.workspace.alert.no_active_workspace": {
       "source": "No active shared workspace.",
       "locations": [
         "public/scripts.js show invite guard"
       ],
-      "value": "Intet aktivt delt arbejdsområde."
+      "value": "Geen aktiewe gedeelde werkruimte nie."
     },
     "runtime.workspace.alert.not_owner_active": {
       "source": "You do not own an active shared workspace.",
       "locations": [
         "public/scripts.js delete workspace guard"
       ],
-      "value": "Du ejer ikke et aktivt delt arbejdsområde."
+      "value": "U besit nie 'n aktiewe gedeelde werkruimte nie."
     },
     "runtime.workspace.alert.only_owner_remove": {
       "source": "Only the workspace owner can remove members.",
       "locations": [
         "public/scripts.js remove member guard"
       ],
-      "value": "Kun arbejdsområdets ejer kan fjerne medlemmer."
+      "value": "Slegs die eienaar van die werkruimte kan lede verwyder."
     },
     "runtime.workspace.alert.owner_must_delete_first": {
       "source": "You already own another shared workspace. Delete that workspace first before joining a different one.",
       "locations": [
         "public/scripts.js owner join guard"
       ],
-      "value": "Du ejer allerede et andet delt arbejdsområde. Slet det arbejdsområde først, før du deltager i et andet."
+      "value": "U besit reeds 'n ander gedeelde werkruimte. Vee daardie werkruimte uit voordat u by 'n ander een aansluit."
     },
     "runtime.workspace.alert.remove_member_failed": {
       "source": "Failed to remove member: {{error}}",
       "locations": [
         "public/scripts.js remove member error"
       ],
-      "value": "Kunne ikke fjerne medlem: {{error}}"
+      "value": "Kon nie lid verwyder nie: {{error}}"
     },
     "runtime.workspace.alert.switch_failed": {
       "source": "Failed to switch workspace: {{error}}",
       "locations": [
         "public/scripts.js switch workspace error"
       ],
-      "value": "Kunne ikke skifte arbejdsområde: {{error}}"
+      "value": "Kon nie van werkruimte wissel nie: {{error}}"
     },
     "runtime.workspace.alert.switched_and_joined": {
       "source": "Switched and joined shared workspace: {{workspaceName}}",
       "locations": [
         "public/scripts.js workspace switch success"
       ],
-      "value": "Skiftet og tilsluttet delt arbejdsområde: {{workspaceName}}"
+      "value": "Het gewissel en by gedeelde werkruimte aangesluit: {{workspaceName}}"
     },
     "runtime.workspace.confirm.delete_for_all": {
       "source": "Delete shared workspace \"{{workspaceName}}\" for all members?",
       "locations": [
         "public/scripts.js delete workspace confirmation"
       ],
-      "value": "Slet delt arbejdsområde \"{{workspaceName}}\" for alle medlemmer?"
+      "value": "Vee gedeelde werkruimte “{{workspaceName}}” vir alle lede uit?"
     },
     "runtime.workspace.confirm.join_replace_data": {
       "source": "Joining shared workspace invite code {{inviteCode}} will replace your currently accessible athlete/test data in this app with the workspace data. Continue?",
       "locations": [
         "public/scripts.js workspace join confirmation"
       ],
-      "value": "Hvis du deltager med invitationskoden {{inviteCode}} til et delt arbejdsområde, erstattes de data om atleter/tests, du aktuelt har adgang til i appen, med arbejdsområdets data. Fortsæt?"
+      "value": "As u met uitnodigingskode {{inviteCode}} by die gedeelde werkruimte aansluit, sal die tans toeganklike atleet-/toetsdata in hierdie toepassing deur die werkruimtedata vervang word. Gaan voort?"
     },
     "runtime.workspace.confirm.leave": {
       "source": "This will remove this account from the current shared workspace. Continue?",
       "locations": [
         "public/scripts.js leave workspace confirmation"
       ],
-      "value": "Dette vil fjerne denne konto fra det nuværende delte arbejdsområde. Fortsæt?"
+      "value": "Dit sal hierdie rekening uit die huidige gedeelde werkruimte verwyder. Gaan voort?"
     },
     "runtime.workspace.confirm.remove_member": {
       "source": "Remove this member from the workspace? They will immediately lose access.",
       "locations": [
         "public/scripts.js remove member confirmation"
       ],
-      "value": "Fjern dette medlem fra arbejdsområdet? Vedkommende mister straks adgangen."
+      "value": "Verwyder hierdie lid uit die werkruimte? Hulle sal onmiddellik toegang verloor."
     },
     "runtime.workspace.confirm.switch_current": {
       "source": "You are already in \"{{activeWorkspaceName}}\". Switch to the new workspace? This removes local access to data from the old workspace.",
       "locations": [
         "public/scripts.js manual join switch confirmation"
       ],
-      "value": "Du er allerede i \"{{activeWorkspaceName}}\". Skifte til det nye arbejdsområde? Dette fjerner lokal adgang til data fra det gamle arbejdsområde."
+      "value": "U is reeds in “{{activeWorkspaceName}}”. Wissel na die nuwe werkruimte? Dit verwyder plaaslike toegang tot data van die ou werkruimte."
     },
     "runtime.workspace.confirm.switch_from_invite": {
       "source": "You are already in shared workspace \"{{activeWorkspaceName}}\". Switch to invite code {{inviteCode}}? This removes local access to data from the old workspace.",
       "locations": [
         "public/scripts.js invite auto-join switch confirmation"
       ],
-      "value": "Du er allerede i delt arbejdsområde \"{{activeWorkspaceName}}\". Skift til invitationskoden {{inviteCode}}? Dette fjerner lokal adgang til data fra det gamle arbejdsområde."
+      "value": "U is reeds in gedeelde werkruimte “{{activeWorkspaceName}}”. Wissel na uitnodigingskode {{inviteCode}}? Dit verwyder plaaslike toegang tot data van die ou werkruimte."
     },
     "runtime.workspace.connected_to": {
       "source": "Connected to {{name}} ({{email}})",
       "locations": [
         "public/util/popup.js syncSettings account summary"
       ],
-      "value": "Forbundet til {{name}} ({{email}})"
+      "value": "Gekoppel aan {{name}} ({{email}})"
     },
     "runtime.workspace.create": {
       "source": "Create Shared Workspace",
       "locations": [
         "public/util/popup.js syncSettings create form"
       ],
-      "value": "Opret delt arbejdsområde"
+      "value": "Skep gedeelde werkruimte"
     },
     "runtime.workspace.delete": {
       "source": "Delete Shared Workspace",
       "locations": [
         "public/util/popup.js syncSettings owner button"
       ],
-      "value": "Slet delt arbejdsområde"
+      "value": "Vee gedeelde werkruimte uit"
     },
     "runtime.workspace.invite_code": {
       "source": "Invite Code:",
       "locations": [
         "public/util/popup.js syncSettings join form"
       ],
-      "value": "Invitationskode:"
+      "value": "Uitnodigingskode:"
     },
     "runtime.workspace.invite_code_placeholder": {
       "source": "Paste invite code",
       "locations": [
         "public/util/popup.js syncSettings join form"
       ],
-      "value": "Indsæt invitationskode"
+      "value": "Plak uitnodigingskode"
     },
     "runtime.workspace.join": {
       "source": "Join Shared Workspace",
       "locations": [
         "public/util/popup.js syncSettings join form"
       ],
-      "value": "Deltag i delt arbejdsområde"
+      "value": "Sluit by gedeelde werkruimte aan"
     },
     "runtime.workspace.leave": {
       "source": "Leave Shared Workspace",
       "locations": [
         "public/util/popup.js syncSettings member button"
       ],
-      "value": "Forlad delt arbejdsområde"
+      "value": "Verlaat gedeelde werkruimte"
     },
     "runtime.workspace.member.remove": {
       "source": "Remove",
       "locations": [
         "public/util/popup.js syncSettings remove member button"
       ],
-      "value": "Fjern"
+      "value": "Verwyder"
     },
     "runtime.workspace.members.title": {
       "source": "Workspace Members",
       "locations": [
         "public/util/popup.js syncSettings members section"
       ],
-      "value": "Medlemmer af arbejdsområdet"
+      "value": "Werkruimte-lede"
     },
     "runtime.workspace.name": {
       "source": "Workspace Name:",
       "locations": [
         "public/util/popup.js syncSettings create form"
       ],
-      "value": "Navn på arbejdsområde:"
+      "value": "Werkruimtenaam:"
     },
     "runtime.workspace.name_placeholder": {
       "source": "e.g. Varsity Team Doctors",
       "locations": [
         "public/util/popup.js syncSettings create form"
       ],
-      "value": "f.eks. Holdlæger Varsity"
+      "value": "bv. eerstespan-dokters"
     },
     "runtime.workspace.role.member": {
       "source": "Member",
       "locations": [
         "public/util/popup.js syncSettings role label"
       ],
-      "value": "Medlem"
+      "value": "Lid"
     },
     "runtime.workspace.role.owner": {
       "source": "Owner",
       "locations": [
         "public/util/popup.js syncSettings role label"
       ],
-      "value": "Ejer"
+      "value": "Eienaar"
     },
     "runtime.workspace.show_invite": {
       "source": "Show Invite Link + Code",
       "locations": [
         "public/util/popup.js syncSettings owner button"
       ],
-      "value": "Vis invitationslink + kode"
+      "value": "Wys uitnodigingskakel en -kode"
     },
     "runtime.workspace.status.active": {
       "source": "Active Shared Workspace: <strong>{{workspaceName}}</strong> ({{role}})",
       "locations": [
         "public/util/popup.js syncSettings workspace status"
       ],
-      "value": "Aktivt delt arbejdsområde: <strong>{{workspaceName}}</strong> ({{role}})"
+      "value": "Aktiewe gedeelde werkruimte: <strong>{{workspaceName}}</strong> ({{role}})"
     },
     "runtime.workspace.status.none": {
       "source": "No active Shared Workspace",
       "locations": [
         "public/util/popup.js syncSettings workspace status"
       ],
-      "value": "Intet aktivt delt arbejdsområde"
+      "value": "Geen aktiewe gedeelde werkruimte nie"
     },
     "runtime.workspace.storage_note": {
       "source": "Shared workspace data syncs between members and is stored in Cloudflare D1 (EU-only region).",
       "locations": [
         "public/util/popup.js syncSettings workspace note"
       ],
-      "value": "Data i delt arbejdsområde synkroniseres mellem medlemmer og gemmes i Cloudflare D1 (kun EU-region)."
+      "value": "Gedeelde werkruimtedata sinkroniseer tussen lede en word in Cloudflare D1 gestoor (slegs EU-streek)."
     },
     "runtime.workspace.unlink_device": {
       "source": "Unlink Device",
       "locations": [
         "public/util/popup.js syncSettings unlink button"
       ],
-      "value": "Fjern link til enhed"
+      "value": "Ontkoppel toestel"
     }
   }
 }

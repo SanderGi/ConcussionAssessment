@@ -1,14 +1,14 @@
 {
   "meta": {
     "language": "en",
-    "generatedAt": "2026-09-01T19:53:36.203Z",
+    "generatedAt": "2026-09-01T20:53:36.246Z",
     "note": "Generated from templates. Keys are deduplicated by normalized source text. Duplicate phrases are kept as one entry unless manually split by meaning."
   },
   "entries": {
     "html.a_quick_feedback_form.fce1454d": {
       "source": "a quick feedback form",
       "locations": [
-        "templates/index.template.html:687"
+        "templates/index.template.html:692"
       ],
       "value": "a quick feedback form"
     },
@@ -16,7 +16,7 @@
       "source": "Abduction or flexion of the hip beyond 30 degrees (moving hips forwards/backwards/sideways)",
       "locations": [
         "templates/index.template.html:435",
-        "templates/index.template.html:481"
+        "templates/index.template.html:485"
       ],
       "value": "Abduction or flexion of the hip beyond 30 degrees (moving hips forwards/backwards/sideways)"
     },
@@ -37,7 +37,7 @@
     "html.adaptation_by_aureole_chang_and_alexander_metzge.3cb06bed": {
       "source": "adaptation | By Aureole Chang and Alexander Metzger |",
       "locations": [
-        "templates/index.template.html:694"
+        "templates/index.template.html:701"
       ],
       "value": "adaptation | By Aureole Chang and Alexander Metzger |"
     },
@@ -51,35 +51,35 @@
     "html.and_or_ask_your_patients_athletes_to_fill_it_out.ba099e7d": {
       "source": "and/or ask your patients/athletes to fill it out too.",
       "locations": [
-        "templates/index.template.html:687"
+        "templates/index.template.html:692"
       ],
       "value": "and/or ask your patients/athletes to fill it out too."
     },
     "html.and_privacy_focused_this_means_no_usage_data_is_.8675d812": {
       "source": "and Privacy focused. This means no usage data is collected, but we'd still love to hear from you so we can improve the tool. Here are some optional ways you can contribute:",
       "locations": [
-        "templates/index.template.html:683"
+        "templates/index.template.html:687"
       ],
       "value": "and Privacy focused. This means no usage data is collected, but we'd still love to hear from you so we can improve the tool. Here are some optional ways you can contribute:"
     },
     "html.approved.46a566b7": {
       "source": "approved",
       "locations": [
-        "templates/index.template.html:694"
+        "templates/index.template.html:701"
       ],
       "value": "approved"
     },
     "html.april.03c89a66": {
       "source": "April",
       "locations": [
-        "templates/index.template.html:415"
+        "templates/index.template.html:416"
       ],
       "value": "April"
     },
     "html.assess_manually.5efbbf15": {
       "source": "Assess Manually &nbsp;",
       "locations": [
-        "templates/index.template.html:454"
+        "templates/index.template.html:455"
       ],
       "value": "Assess Manually &nbsp;"
     },
@@ -93,7 +93,7 @@
     "html.audio.2be0ce8e": {
       "source": "Audio &nbsp;",
       "locations": [
-        "templates/index.template.html:418",
+        "templates/index.template.html:419",
         "templates/index.template.html:463"
       ],
       "value": "Audio &nbsp;"
@@ -101,14 +101,14 @@
     "html.august.758c5623": {
       "source": "August",
       "locations": [
-        "templates/index.template.html:412"
+        "templates/index.template.html:415"
       ],
       "value": "August"
     },
     "html.average_seconds.9f275f4f": {
       "source": "Average (seconds)",
       "locations": [
-        "templates/index.template.html:561"
+        "templates/index.template.html:562"
       ],
       "value": "Average (seconds)"
     },
@@ -188,7 +188,7 @@
     "html.check_box_if_athlete_completed_all_the_months_co.cd149fea": {
       "source": "Check box if athlete completed all the months correctly.",
       "locations": [
-        "templates/index.template.html:416"
+        "templates/index.template.html:417"
       ],
       "value": "Check box if athlete completed all the months correctly."
     },
@@ -211,14 +211,14 @@
     "html.choose_an_export_option.dfad24a3": {
       "source": "Choose an export option:",
       "locations": [
-        "templates/index.template.html:673"
+        "templates/index.template.html:684"
       ],
       "value": "Choose an export option:"
     },
     "html.cisg.001f913a": {
       "source": "CISG",
       "locations": [
-        "templates/index.template.html:693"
+        "templates/index.template.html:701"
       ],
       "value": "CISG"
     },
@@ -232,7 +232,7 @@
     "html.code.0020220d": {
       "source": "Code",
       "locations": [
-        "templates/index.template.html:695"
+        "templates/index.template.html:703"
       ],
       "value": "Code"
     },
@@ -282,22 +282,22 @@
     "html.correct_responses.99fea3dc": {
       "source": "Correct Responses",
       "locations": [
-        "templates/index.template.html:600",
-        "templates/index.template.html:627"
+        "templates/index.template.html:603",
+        "templates/index.template.html:625"
       ],
       "value": "Correct Responses"
     },
     "html.december.25576045": {
       "source": "December",
       "locations": [
-        "templates/index.template.html:406"
+        "templates/index.template.html:412"
       ],
       "value": "December"
     },
     "html.delayed_recall.7a52f3cf": {
       "source": "Delayed Recall",
       "locations": [
-        "templates/index.template.html:670"
+        "templates/index.template.html:677"
       ],
       "value": "Delayed Recall"
     },
@@ -363,7 +363,7 @@
     "html.do_you_want_to_help_make_this_tool_better.e42dac0b": {
       "source": "Do you want to help make this tool better?",
       "locations": [
-        "templates/index.template.html:681"
+        "templates/index.template.html:686"
       ],
       "value": "Do you want to help make this tool better?"
     },
@@ -385,14 +385,14 @@
     "html.double_leg_stance.09e0b951": {
       "source": "Double Leg Stance",
       "locations": [
-        "templates/index.template.html:489"
+        "templates/index.template.html:492"
       ],
       "value": "Double Leg Stance"
     },
     "html.double_leg_stance_on_foam.238a1eef": {
       "source": "Double Leg Stance on Foam (",
       "locations": [
-        "templates/index.template.html:518"
+        "templates/index.template.html:531"
       ],
       "value": "Double Leg Stance on Foam ("
     },
@@ -414,7 +414,7 @@
     "html.dual_task_gait.b2bd47c4": {
       "source": "Dual Task Gait (",
       "locations": [
-        "templates/index.template.html:588"
+        "templates/index.template.html:586"
       ],
       "value": "Dual Task Gait ("
     },
@@ -422,21 +422,21 @@
       "source": "&emsp;",
       "locations": [
         "templates/index.template.html:362",
-        "templates/index.template.html:363",
+        "templates/index.template.html:364",
         "templates/index.template.html:367",
-        "templates/index.template.html:371",
-        "templates/index.template.html:378",
-        "templates/index.template.html:383",
-        "templates/index.template.html:389",
-        "templates/index.template.html:397"
+        "templates/index.template.html:373",
+        "templates/index.template.html:381",
+        "templates/index.template.html:386",
+        "templates/index.template.html:394",
+        "templates/index.template.html:398"
       ],
       "value": "&emsp;"
     },
     "html.errors.7c3a5b8b": {
       "source": "Errors",
       "locations": [
-        "templates/index.template.html:602",
-        "templates/index.template.html:627"
+        "templates/index.template.html:603",
+        "templates/index.template.html:626"
       ],
       "value": "Errors"
     },
@@ -464,12 +464,12 @@
     "html.examiner_keep_a_count_of_the_errors_listed_above.08e52937": {
       "source": "Examiner, keep a count of the errors listed above and read the instructions below:",
       "locations": [
-        "templates/index.template.html:490",
+        "templates/index.template.html:493",
         "templates/index.template.html:503",
-        "templates/index.template.html:515",
-        "templates/index.template.html:519",
-        "templates/index.template.html:523",
-        "templates/index.template.html:530"
+        "templates/index.template.html:517",
+        "templates/index.template.html:531",
+        "templates/index.template.html:536",
+        "templates/index.template.html:539"
       ],
       "value": "Examiner, keep a count of the errors listed above and read the instructions below:"
     },
@@ -484,7 +484,7 @@
     "html.examiner_please_keep_the_3_meter_long_athletic_t.0a0fa7aa": {
       "source": "Examiner, please keep the 3-meter-long athletic tape line from the Timed Gait on the floor/firm surface. You will follow the script below, click start/end timer, and click on the responses that the athlete correctly says in order. Redo trials where the athlete strays off the line.",
       "locations": [
-        "templates/index.template.html:589"
+        "templates/index.template.html:588"
       ],
       "value": "Examiner, please keep the 3-meter-long athletic tape line from the Timed Gait on the floor/firm surface. You will follow the script below, click start/end timer, and click on the responses that the athlete correctly says in order. Redo trials where the athlete strays off the line."
     },
@@ -512,14 +512,14 @@
     "html.examiner_read_the_instructions_below_to_the_athl.a89dccc2": {
       "source": "Examiner, read the instructions below to the athlete and click to cross out the months as they say them in the correct order.",
       "locations": [
-        "templates/index.template.html:402"
+        "templates/index.template.html:403"
       ],
       "value": "Examiner, read the instructions below to the athlete and click to cross out the months as they say them in the correct order."
     },
     "html.examiner_you_will_guide_the_athlete_through_3_po.6a7d9adf": {
       "source": "Examiner, you will guide the athlete through 3 poses (double leg, tandem, and single leg stance) to be held for 20 seconds each. The later foam pad test is optional, only a solid floor/ground surface is required. You'll need a spotter to keep an eye on the athlete and be ready to assist them if they become unstable and begin to fall.",
       "locations": [
-        "templates/index.template.html:468"
+        "templates/index.template.html:469"
       ],
       "value": "Examiner, you will guide the athlete through 3 poses (double leg, tandem, and single leg stance) to be held for 20 seconds each. The later foam pad test is optional, only a solid floor/ground surface is required. You'll need a spotter to keep an eye on the athlete and be ready to assist them if they become unstable and begin to fall."
     },
@@ -534,7 +534,7 @@
       "source": "Export &nbsp;",
       "locations": [
         "templates/index.template.html:73",
-        "templates/index.template.html:676"
+        "templates/index.template.html:685"
       ],
       "value": "Export &nbsp;"
     },
@@ -569,7 +569,7 @@
     "html.fastest_seconds.2f03389c": {
       "source": "Fastest (seconds)",
       "locations": [
-        "templates/index.template.html:562"
+        "templates/index.template.html:563"
       ],
       "value": "Fastest (seconds)"
     },
@@ -584,7 +584,7 @@
     "html.february.f41fb3c2": {
       "source": "February",
       "locations": [
-        "templates/index.template.html:415"
+        "templates/index.template.html:416"
       ],
       "value": "February"
     },
@@ -621,28 +621,28 @@
     "html.free_open_source.8bea7570": {
       "source": "Free & Open-Source",
       "locations": [
-        "templates/index.template.html:683"
+        "templates/index.template.html:687"
       ],
       "value": "Free & Open-Source"
     },
     "html.from_the_automated_bess_to_inform_more_inclusive.5829f528": {
       "source": "from the automated BESS to inform more inclusive ML models.",
       "locations": [
-        "templates/index.template.html:690"
+        "templates/index.template.html:697"
       ],
       "value": "from the automated BESS to inform more inclusive ML models."
     },
     "html.full_scat6.eec7bd62": {
       "source": "Full SCAT6",
       "locations": [
-        "templates/index.template.html:674"
+        "templates/index.template.html:684"
       ],
       "value": "Full SCAT6"
     },
     "html.getting_camera_permissions.7e3bf5c9": {
       "source": "Getting camera permissions...",
       "locations": [
-        "templates/index.template.html:440"
+        "templates/index.template.html:442"
       ],
       "value": "Getting camera permissions..."
     },
@@ -656,7 +656,7 @@
     "html.good_now_you_will_walk_heel_to_toe_and_count_bac.e0586300": {
       "source": "Good, now you will walk heel-to-toe and count backwards out loud at the same time. Keep counting until you finish walking the 3 meters, turning 180 degrees, walking the 3 meters again and the examiner says stop indicating you got to the last number. Are you ready? The number to start with is 88. Go! &nbsp;",
       "locations": [
-        "templates/index.template.html:620"
+        "templates/index.template.html:616"
       ],
       "value": "Good, now you will walk heel-to-toe and count backwards out loud at the same time. Keep counting until you finish walking the 3 meters, turning 180 degrees, walking the 3 meters again and the examiner says stop indicating you got to the last number. Are you ready? The number to start with is 88. Go! &nbsp;"
     },
@@ -678,7 +678,7 @@
     "html.healthy_athletes_typically_have_a_fastest_time_b.b2978261": {
       "source": "Healthy athletes typically have a fastest time between 13.9 and 15.8. Newly concussed athletes are typically between 21.9 and 26.1. Athletes concussed within the last 6-73 days will be somewhere in between.",
       "locations": [
-        "templates/index.template.html:571"
+        "templates/index.template.html:574"
       ],
       "value": "Healthy athletes typically have a fastest time between 13.9 and 15.8. Newly concussed athletes are typically between 21.9 and 26.1. Athletes concussed within the last 6-73 days will be somewhere in between."
     },
@@ -706,7 +706,7 @@
     "html.i_m_going_to_read_a_string_of_numbers_and_when_i.2ba1f5d3": {
       "source": "I'm going to read a string of numbers and when I am done, you repeat them back to me in reverse order of how I read them to you. For example, if I say 7 1 9, you would say 9 1 7. So, if I said 9 6 8 you would say? &nbsp;",
       "locations": [
-        "templates/index.template.html:355"
+        "templates/index.template.html:358"
       ],
       "value": "I'm going to read a string of numbers and when I am done, you repeat them back to me in reverse order of how I read them to you. For example, if I say 7 1 9, you would say 9 1 7. So, if I said 9 6 8 you would say? &nbsp;"
     },
@@ -786,28 +786,28 @@
     "html.january.f657f84a": {
       "source": "January",
       "locations": [
-        "templates/index.template.html:415"
+        "templates/index.template.html:416"
       ],
       "value": "January"
     },
     "html.july.00236838": {
       "source": "July",
       "locations": [
-        "templates/index.template.html:412"
+        "templates/index.template.html:415"
       ],
       "value": "July"
     },
     "html.june.00236862": {
       "source": "June",
       "locations": [
-        "templates/index.template.html:413"
+        "templates/index.template.html:415"
       ],
       "value": "June"
     },
     "html.keep_a_count_of_the_following_errors_in_the_athl.3cd31d02": {
       "source": "Keep a count of the following errors in the athlete's execution of the poses:",
       "locations": [
-        "templates/index.template.html:477"
+        "templates/index.template.html:480"
       ],
       "value": "Keep a count of the following errors in the athlete's execution of the poses:"
     },
@@ -815,15 +815,15 @@
       "source": "Lifting forefoot or heel",
       "locations": [
         "templates/index.template.html:436",
-        "templates/index.template.html:486"
+        "templates/index.template.html:490"
       ],
       "value": "Lifting forefoot or heel"
     },
     "html.lifting_hands_off_iliac_crests_upper_border_of_t.0d9bda35": {
       "source": "Lifting hands off iliac crests (upper border of the pelvis/hip-bone)",
       "locations": [
-        "templates/index.template.html:429",
-        "templates/index.template.html:479"
+        "templates/index.template.html:434",
+        "templates/index.template.html:483"
       ],
       "value": "Lifting hands off iliac crests (upper border of the pelvis/hip-bone)"
     },
@@ -837,7 +837,7 @@
     "html.loading.8f2553d2": {
       "source": "Loading...",
       "locations": [
-        "templates/index.template.html:678"
+        "templates/index.template.html:685"
       ],
       "value": "Loading..."
     },
@@ -872,35 +872,35 @@
     "html.march.046ae223": {
       "source": "March",
       "locations": [
-        "templates/index.template.html:415"
+        "templates/index.template.html:416"
       ],
       "value": "March"
     },
     "html.may.00012d45": {
       "source": "May",
       "locations": [
-        "templates/index.template.html:414"
+        "templates/index.template.html:415"
       ],
       "value": "May"
     },
     "html.mirror.6b9fd245": {
       "source": "Mirror &nbsp;",
       "locations": [
-        "templates/index.template.html:444"
+        "templates/index.template.html:445"
       ],
       "value": "Mirror &nbsp;"
     },
     "html.mit.00012a38": {
       "source": "MIT",
       "locations": [
-        "templates/index.template.html:695"
+        "templates/index.template.html:703"
       ],
       "value": "MIT"
     },
     "html.months_in_reverse_order.8cd88702": {
       "source": "Months in Reverse Order",
       "locations": [
-        "templates/index.template.html:401"
+        "templates/index.template.html:403"
       ],
       "value": "Months in Reverse Order"
     },
@@ -915,8 +915,8 @@
     "html.multiple_simultaneous_errors_count_as_one_failur.8b3af283": {
       "source": "Multiple simultaneous errors count as one. Failure to hold the pose for at least 5 seconds counts as the maximum number of errors for that pose (10).",
       "locations": [
-        "templates/index.template.html:436",
-        "templates/index.template.html:487"
+        "templates/index.template.html:437",
+        "templates/index.template.html:491"
       ],
       "value": "Multiple simultaneous errors count as one. Failure to hold the pose for at least 5 seconds counts as the maximum number of errors for that pose (10)."
     },
@@ -950,6 +950,13 @@
         "templates/index.template.html:337"
       ],
       "value": "Nervous or anxious:"
+    },
+    "html.next_trial.c5125b3b": {
+      "source": "Next Trial &nbsp;",
+      "locations": [
+        "templates/index.template.html:349"
+      ],
+      "value": "Next Trial &nbsp;"
     },
     "html.no_eye_opening_for_any_reason.f6a641e9": {
       "source": "No eye opening for any reason.",
@@ -996,26 +1003,26 @@
     "html.november.658d8552": {
       "source": "November",
       "locations": [
-        "templates/index.template.html:407"
+        "templates/index.template.html:412"
       ],
       "value": "November"
     },
     "html.number_of_correct_sets_of_4.9f1dc6dd": {
       "source": "Number of correct sets (of 4):",
       "locations": [
-        "templates/index.template.html:400"
+        "templates/index.template.html:402"
       ],
       "value": "Number of correct sets (of 4):"
     },
     "html.number_of_errors.2b3d65fd": {
       "source": "Number of errors:",
       "locations": [
-        "templates/index.template.html:500",
-        "templates/index.template.html:515",
-        "templates/index.template.html:518",
-        "templates/index.template.html:521",
+        "templates/index.template.html:501",
+        "templates/index.template.html:511",
         "templates/index.template.html:525",
-        "templates/index.template.html:535"
+        "templates/index.template.html:534",
+        "templates/index.template.html:538",
+        "templates/index.template.html:541"
       ],
       "value": "Number of errors:"
     },
@@ -1050,7 +1057,7 @@
     "html.october.0292a6c0": {
       "source": "October",
       "locations": [
-        "templates/index.template.html:408"
+        "templates/index.template.html:414"
       ],
       "value": "October"
     },
@@ -1085,32 +1092,32 @@
     "html.opening_eyes.a240424a": {
       "source": "Opening eyes",
       "locations": [
-        "templates/index.template.html:427",
-        "templates/index.template.html:479"
+        "templates/index.template.html:432",
+        "templates/index.template.html:482"
       ],
       "value": "Opening eyes"
     },
     "html.opensource.4b1d2ee5": {
       "source": "opensource",
       "locations": [
-        "templates/index.template.html:695"
+        "templates/index.template.html:703"
       ],
       "value": "opensource"
     },
     "html.opt_in_to_share_anonymized_test_scores_for_resea.bbd34410": {
       "source": "Opt-in to share anonymized test scores for research-use and to improve tool recommendations.",
       "locations": [
-        "templates/index.template.html:688"
+        "templates/index.template.html:693"
       ],
       "value": "Opt-in to share anonymized test scores for research-use and to improve tool recommendations."
     },
     "html.optional.ff24af80": {
       "source": "Optional",
       "locations": [
-        "templates/index.template.html:519",
-        "templates/index.template.html:522",
-        "templates/index.template.html:527",
-        "templates/index.template.html:588"
+        "templates/index.template.html:531",
+        "templates/index.template.html:535",
+        "templates/index.template.html:538",
+        "templates/index.template.html:587"
       ],
       "value": "Optional"
     },
@@ -1131,14 +1138,14 @@
     "html.overall_report.18ee58a7": {
       "source": "Overall Report",
       "locations": [
-        "templates/index.template.html:674"
+        "templates/index.template.html:684"
       ],
       "value": "Overall Report"
     },
     "html.overwrite_current_pose_as_correct.19da3d75": {
       "source": "Overwrite Current Pose as Correct &nbsp;",
       "locations": [
-        "templates/index.template.html:451"
+        "templates/index.template.html:452"
       ],
       "value": "Overwrite Current Pose as Correct &nbsp;"
     },
@@ -1166,9 +1173,9 @@
     "html.power_systems_airex_balance_pad_81000.a858acec": {
       "source": "Power Systems Airex Balance Pad 81000",
       "locations": [
-        "templates/index.template.html:519",
-        "templates/index.template.html:523",
-        "templates/index.template.html:530"
+        "templates/index.template.html:531",
+        "templates/index.template.html:535",
+        "templates/index.template.html:539"
       ],
       "value": "Power Systems Airex Balance Pad 81000"
     },
@@ -1197,7 +1204,7 @@
     "html.raw_csv.9de18dce": {
       "source": "Raw CSV",
       "locations": [
-        "templates/index.template.html:675"
+        "templates/index.template.html:684"
       ],
       "value": "Raw CSV"
     },
@@ -1226,21 +1233,21 @@
       "source": "Remaining out of the testing position for more than 5 seconds",
       "locations": [
         "templates/index.template.html:436",
-        "templates/index.template.html:483"
+        "templates/index.template.html:489"
       ],
       "value": "Remaining out of the testing position for more than 5 seconds"
     },
     "html.results.a4a3d3d6": {
       "source": "Results",
       "locations": [
-        "templates/index.template.html:671"
+        "templates/index.template.html:683"
       ],
       "value": "Results"
     },
     "html.return_to_main_menu.edf01cd1": {
       "source": "Return to Main Menu",
       "locations": [
-        "templates/index.template.html:678"
+        "templates/index.template.html:686"
       ],
       "value": "Return to Main Menu"
     },
@@ -1255,7 +1262,7 @@
     "html.scat6.9171516f": {
       "source": "SCAT6™",
       "locations": [
-        "templates/index.template.html:694"
+        "templates/index.template.html:701"
       ],
       "value": "SCAT6™"
     },
@@ -1300,7 +1307,7 @@
     "html.september.fe7514b1": {
       "source": "September",
       "locations": [
-        "templates/index.template.html:410"
+        "templates/index.template.html:415"
       ],
       "value": "September"
     },
@@ -1342,21 +1349,21 @@
     "html.single_leg_stance.6ebe907a": {
       "source": "Single Leg Stance",
       "locations": [
-        "templates/index.template.html:515"
+        "templates/index.template.html:516"
       ],
       "value": "Single Leg Stance"
     },
     "html.single_leg_stance_on_foam.c2e7d6d8": {
       "source": "Single Leg Stance on Foam (",
       "locations": [
-        "templates/index.template.html:527"
+        "templates/index.template.html:538"
       ],
       "value": "Single Leg Stance on Foam ("
     },
     "html.skip_to_delayed_recall.568573d1": {
       "source": "Skip to Delayed Recall &nbsp;",
       "locations": [
-        "templates/index.template.html:584"
+        "templates/index.template.html:583"
       ],
       "value": "Skip to Delayed Recall &nbsp;"
     },
@@ -1364,15 +1371,15 @@
       "source": "Source",
       "locations": [
         "templates/index.template.html:577",
-        "templates/index.template.html:669"
+        "templates/index.template.html:671"
       ],
       "value": "Source"
     },
     "html.stand_on_one_leg_hands_on_your_hips_and_eyes_clo.370aa7fc": {
       "source": "Stand on one leg, hands on your hips, and eyes closed. Hold this position for 20 seconds &nbsp;",
       "locations": [
-        "templates/index.template.html:516",
-        "templates/index.template.html:531"
+        "templates/index.template.html:518",
+        "templates/index.template.html:540"
       ],
       "value": "Stand on one leg, hands on your hips, and eyes closed. Hold this position for 20 seconds &nbsp;"
     },
@@ -1380,15 +1387,15 @@
       "source": "Stand with your feet in a heel-to-toe position, hands on your hips, and eyes closed. Hold this position for 20 seconds &nbsp;",
       "locations": [
         "templates/index.template.html:504",
-        "templates/index.template.html:523"
+        "templates/index.template.html:536"
       ],
       "value": "Stand with your feet in a heel-to-toe position, hands on your hips, and eyes closed. Hold this position for 20 seconds &nbsp;"
     },
     "html.stand_with_your_feet_together_hands_on_your_hips.3dc1560a": {
       "source": "Stand with your feet together, hands on your hips, and eyes closed. Hold this position for 20 seconds &nbsp;",
       "locations": [
-        "templates/index.template.html:491",
-        "templates/index.template.html:520"
+        "templates/index.template.html:495",
+        "templates/index.template.html:532"
       ],
       "value": "Stand with your feet together, hands on your hips, and eyes closed. Hold this position for 20 seconds &nbsp;"
     },
@@ -1396,11 +1403,11 @@
       "source": "Start 20s Countdown",
       "locations": [
         "templates/index.template.html:502",
-        "templates/index.template.html:515",
-        "templates/index.template.html:518",
-        "templates/index.template.html:522",
-        "templates/index.template.html:525",
-        "templates/index.template.html:541"
+        "templates/index.template.html:516",
+        "templates/index.template.html:530",
+        "templates/index.template.html:534",
+        "templates/index.template.html:538",
+        "templates/index.template.html:543"
       ],
       "value": "Start 20s Countdown"
     },
@@ -1421,7 +1428,7 @@
     "html.start_concentration.905ed735": {
       "source": "Start Concentration &nbsp;",
       "locations": [
-        "templates/index.template.html:349"
+        "templates/index.template.html:350"
       ],
       "value": "Start Concentration &nbsp;"
     },
@@ -1435,7 +1442,7 @@
     "html.start_delayed_recall.6fe692f7": {
       "source": "Start Delayed Recall &nbsp;",
       "locations": [
-        "templates/index.template.html:669"
+        "templates/index.template.html:672"
       ],
       "value": "Start Delayed Recall &nbsp;"
     },
@@ -1478,17 +1485,17 @@
     "html.start_tandem_gait.eab98ca8": {
       "source": "Start Tandem Gait &nbsp;",
       "locations": [
-        "templates/index.template.html:545"
+        "templates/index.template.html:543"
       ],
       "value": "Start Tandem Gait &nbsp;"
     },
     "html.start_timer.9b6045c7": {
       "source": "Start Timer",
       "locations": [
-        "templates/index.template.html:564",
-        "templates/index.template.html:619",
-        "templates/index.template.html:638",
-        "templates/index.template.html:652",
+        "templates/index.template.html:566",
+        "templates/index.template.html:615",
+        "templates/index.template.html:641",
+        "templates/index.template.html:653",
         "templates/index.template.html:667"
       ],
       "value": "Start Timer"
@@ -1496,15 +1503,15 @@
     "html.stepping_stumbling_or_falling.2b7fac6b": {
       "source": "Stepping, stumbling, or falling",
       "locations": [
-        "templates/index.template.html:434",
-        "templates/index.template.html:480"
+        "templates/index.template.html:435",
+        "templates/index.template.html:484"
       ],
       "value": "Stepping, stumbling, or falling"
     },
     "html.switch_camera.3c5af053": {
       "source": "Switch Camera &nbsp;",
       "locations": [
-        "templates/index.template.html:446"
+        "templates/index.template.html:447"
       ],
       "value": "Switch Camera &nbsp;"
     },
@@ -1532,43 +1539,43 @@
     "html.take_10_minutes_to_fill_out.26f5558d": {
       "source": "Take 10 minutes to fill out",
       "locations": [
-        "templates/index.template.html:686"
+        "templates/index.template.html:690"
       ],
       "value": "Take 10 minutes to fill out"
     },
     "html.tandem_stance.7f1cbc25": {
       "source": "Tandem Stance",
       "locations": [
-        "templates/index.template.html:502"
+        "templates/index.template.html:503"
       ],
       "value": "Tandem Stance"
     },
     "html.tandem_stance_on_foam.548fa8c3": {
       "source": "Tandem Stance on Foam (",
       "locations": [
-        "templates/index.template.html:522"
+        "templates/index.template.html:535"
       ],
       "value": "Tandem Stance on Foam ("
     },
     "html.task.0027a9a5": {
       "source": "Task",
       "locations": [
-        "templates/index.template.html:600",
-        "templates/index.template.html:626"
+        "templates/index.template.html:603",
+        "templates/index.template.html:625"
       ],
       "value": "Task"
     },
     "html.tell_me_the_months_of_the_year_in_reverse_order_.870eea28": {
       "source": "Tell me the months of the year in reverse order as QUICKLY and as accurately as possible. Start with the last month and go backward. So, you'll say December, November... go ahead &nbsp;",
       "locations": [
-        "templates/index.template.html:404"
+        "templates/index.template.html:405"
       ],
       "value": "Tell me the months of the year in reverse order as QUICKLY and as accurately as possible. Start with the last month and go backward. So, you'll say December, November... go ahead &nbsp;"
     },
     "html.text.47148ae4": {
       "source": "&nbsp;",
       "locations": [
-        "templates/index.template.html:418",
+        "templates/index.template.html:419",
         "templates/index.template.html:464"
       ],
       "value": "&nbsp;"
@@ -1576,8 +1583,8 @@
     "html.the_athlete_should_take_their_shoes_off_roll_up_.3fc9f30f": {
       "source": "The athlete should take their shoes off, roll up pant legs above ankles (if applicable), and remove any ankle taping (if applicable).",
       "locations": [
-        "templates/index.template.html:421",
-        "templates/index.template.html:472"
+        "templates/index.template.html:422",
+        "templates/index.template.html:474"
       ],
       "value": "The athlete should take their shoes off, roll up pant legs above ankles (if applicable), and remove any ankle taping (if applicable)."
     },
@@ -1591,9 +1598,9 @@
     "html.the_foam_test_requires_a_50cm_x_40cm_x_6cm_foam_.3a6b078f": {
       "source": "The foam test requires a 50cm x 40cm x 6cm foam pad. Recommended model is the",
       "locations": [
-        "templates/index.template.html:519",
-        "templates/index.template.html:522",
-        "templates/index.template.html:527"
+        "templates/index.template.html:531",
+        "templates/index.template.html:535",
+        "templates/index.template.html:539"
       ],
       "value": "The foam test requires a 50cm x 40cm x 6cm foam pad. Recommended model is the"
     },
@@ -1607,15 +1614,15 @@
     "html.this_tool_is_100.360a6d24": {
       "source": "This tool is 100%",
       "locations": [
-        "templates/index.template.html:681"
+        "templates/index.template.html:687"
       ],
       "value": "This tool is 100%"
     },
     "html.time_seconds.e17d443f": {
       "source": "Time (seconds)",
       "locations": [
-        "templates/index.template.html:602",
-        "templates/index.template.html:627"
+        "templates/index.template.html:604",
+        "templates/index.template.html:628"
       ],
       "value": "Time (seconds)"
     },
@@ -1630,14 +1637,14 @@
       "source": "Trial 1",
       "locations": [
         "templates/index.template.html:348",
-        "templates/index.template.html:629"
+        "templates/index.template.html:631"
       ],
       "value": "Trial 1"
     },
     "html.trial_1_seconds.5c16c259": {
       "source": "Trial 1 (seconds)",
       "locations": [
-        "templates/index.template.html:559"
+        "templates/index.template.html:562"
       ],
       "value": "Trial 1 (seconds)"
     },
@@ -1645,14 +1652,14 @@
       "source": "Trial 2",
       "locations": [
         "templates/index.template.html:348",
-        "templates/index.template.html:641"
+        "templates/index.template.html:643"
       ],
       "value": "Trial 2"
     },
     "html.trial_2_seconds.f0fb751a": {
       "source": "Trial 2 (seconds)",
       "locations": [
-        "templates/index.template.html:559"
+        "templates/index.template.html:562"
       ],
       "value": "Trial 2 (seconds)"
     },
@@ -1660,14 +1667,14 @@
       "source": "Trial 3",
       "locations": [
         "templates/index.template.html:348",
-        "templates/index.template.html:654"
+        "templates/index.template.html:655"
       ],
       "value": "Trial 3"
     },
     "html.trial_3_seconds.85e027db": {
       "source": "Trial 3 (seconds)",
       "locations": [
-        "templates/index.template.html:560"
+        "templates/index.template.html:562"
       ],
       "value": "Trial 3 (seconds)"
     },
@@ -1682,8 +1689,8 @@
     "html.twisting_of_the_shoulder_beyond_30_degrees.c65e61a8": {
       "source": "Twisting of the shoulder beyond 30 degrees",
       "locations": [
-        "templates/index.template.html:435",
-        "templates/index.template.html:482"
+        "templates/index.template.html:436",
+        "templates/index.template.html:487"
       ],
       "value": "Twisting of the shoulder beyond 30 degrees"
     },
@@ -1697,14 +1704,14 @@
     "html.upload_photos_videos.cb86d0e7": {
       "source": "Upload photos/videos",
       "locations": [
-        "templates/index.template.html:690"
+        "templates/index.template.html:697"
       ],
       "value": "Upload photos/videos"
     },
     "html.use_camera_based_bess_optional.8ac8bfe2": {
       "source": "Use Camera-Based BESS (Optional) &nbsp;",
       "locations": [
-        "templates/index.template.html:476"
+        "templates/index.template.html:478"
       ],
       "value": "Use Camera-Based BESS (Optional) &nbsp;"
     },
@@ -1725,7 +1732,7 @@
     "html.voice_ctrl.916fec0b": {
       "source": "Voice Ctrl &nbsp;",
       "locations": [
-        "templates/index.template.html:449"
+        "templates/index.template.html:451"
       ],
       "value": "Voice Ctrl &nbsp;"
     },
@@ -1795,7 +1802,7 @@
     "html.when_the_timer_is_started_please_walk_heel_to_to.b86f5b69": {
       "source": "When the timer is started, please walk heel-to-toe quickly to the end of the tape, turn around and come back as fast as you can, without separating your feet or stepping off the line &nbsp;",
       "locations": [
-        "templates/index.template.html:552"
+        "templates/index.template.html:547"
       ],
       "value": "When the timer is started, please walk heel-to-toe quickly to the end of the tape, turn around and come back as fast as you can, without separating your feet or stepping off the line &nbsp;"
     },
@@ -1809,7 +1816,7 @@
     "html.while_you_are_walking_heel_to_toe_you_will_count.1e9654f8": {
       "source": "While you are walking heel-to-toe, you will count backwards out loud by sevens. For example, if we started at 100, you would say 100, 93, 86, 79. Let's practice counting. Starting with 93, count backward by sevens until the examiner says stop &nbsp;",
       "locations": [
-        "templates/index.template.html:597"
+        "templates/index.template.html:595"
       ],
       "value": "While you are walking heel-to-toe, you will count backwards out loud by sevens. For example, if we started at 100, you would say 100, 93, 86, 79. Let's practice counting. Starting with 93, count backward by sevens until the examiner says stop &nbsp;"
     },
@@ -1837,7 +1844,7 @@
     "html.your_job_as_examiner_is_to_keep_the_camera_as_st.540a195a": {
       "source": "Your job as examiner is to keep the camera as still as possible (minor shakes are fine) with the athlete fully in frame at all times. In case the automated system misses something, keep a count of the following errors in the athlete's execution of the poses:",
       "locations": [
-        "templates/index.template.html:423"
+        "templates/index.template.html:424"
       ],
       "value": "Your job as examiner is to keep the camera as still as possible (minor shakes are fine) with the athlete fully in frame at all times. In case the automated system misses something, keep a count of the following errors in the athlete's execution of the poses:"
     },
@@ -1851,7 +1858,7 @@
     "html_attr.average_seconds.9f275f4f": {
       "source": "Average (seconds)",
       "locations": [
-        "templates/index.template.html:568"
+        "templates/index.template.html:571"
       ],
       "value": "Average (seconds)"
     },
@@ -1860,8 +1867,8 @@
       "locations": [
         "templates/index.template.html:606",
         "templates/index.template.html:631",
-        "templates/index.template.html:644",
-        "templates/index.template.html:654"
+        "templates/index.template.html:645",
+        "templates/index.template.html:656"
       ],
       "value": "Correct Responses"
     },
@@ -1875,17 +1882,17 @@
     "html_attr.errors.7c3a5b8b": {
       "source": "Errors",
       "locations": [
-        "templates/index.template.html:613",
-        "templates/index.template.html:636",
+        "templates/index.template.html:612",
+        "templates/index.template.html:638",
         "templates/index.template.html:650",
-        "templates/index.template.html:665"
+        "templates/index.template.html:664"
       ],
       "value": "Errors"
     },
     "html_attr.fastest_seconds.2f03389c": {
       "source": "Fastest (seconds)",
       "locations": [
-        "templates/index.template.html:569"
+        "templates/index.template.html:572"
       ],
       "value": "Fastest (seconds)"
     },
@@ -1906,7 +1913,7 @@
     "html_attr.manual_bess_instructions.85be7b08": {
       "source": "Manual BESS instructions",
       "locations": [
-        "templates/index.template.html:419",
+        "templates/index.template.html:420",
         "templates/index.template.html:467"
       ],
       "value": "Manual BESS instructions"
@@ -1914,9 +1921,9 @@
     "html_attr.task.0027a9a5": {
       "source": "Task",
       "locations": [
-        "templates/index.template.html:604",
-        "templates/index.template.html:629",
-        "templates/index.template.html:640",
+        "templates/index.template.html:605",
+        "templates/index.template.html:630",
+        "templates/index.template.html:643",
         "templates/index.template.html:654"
       ],
       "value": "Task"
@@ -1924,10 +1931,10 @@
     "html_attr.time_seconds.e17d443f": {
       "source": "Time (seconds)",
       "locations": [
-        "templates/index.template.html:616",
-        "templates/index.template.html:637",
+        "templates/index.template.html:614",
+        "templates/index.template.html:640",
         "templates/index.template.html:651",
-        "templates/index.template.html:667"
+        "templates/index.template.html:666"
       ],
       "value": "Time (seconds)"
     },
@@ -1935,7 +1942,7 @@
       "source": "Toggle countdown audio",
       "locations": [
         "templates/index.template.html:418",
-        "templates/index.template.html:462"
+        "templates/index.template.html:463"
       ],
       "value": "Toggle countdown audio"
     },
@@ -1949,7 +1956,7 @@
     "html_attr.trial_1_seconds.5c16c259": {
       "source": "Trial 1 (seconds)",
       "locations": [
-        "templates/index.template.html:563"
+        "templates/index.template.html:564"
       ],
       "value": "Trial 1 (seconds)"
     },
@@ -1963,7 +1970,7 @@
     "html_attr.trial_2_seconds.f0fb751a": {
       "source": "Trial 2 (seconds)",
       "locations": [
-        "templates/index.template.html:565"
+        "templates/index.template.html:568"
       ],
       "value": "Trial 2 (seconds)"
     },
@@ -1977,7 +1984,7 @@
     "html_attr.trial_3_seconds.85e027db": {
       "source": "Trial 3 (seconds)",
       "locations": [
-        "templates/index.template.html:567"
+        "templates/index.template.html:570"
       ],
       "value": "Trial 3 (seconds)"
     }

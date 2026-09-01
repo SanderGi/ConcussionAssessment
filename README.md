@@ -147,6 +147,7 @@ Run:
 
 ```bash
 node scripts/build-i18n.mjs
+node scripts/validate-i18n.mjs
 ```
 
 What it does:
@@ -158,6 +159,8 @@ What it does:
   - `source` (English source string)
   - `locations` (where it appears in templates)
   - `value` (translated string for that language)
+- Validates locale completeness, runtime keys, placeholders/HTML markup, generated
+  page language metadata, and accidentally untranslated values
 
 ## Sources
 - [SCAT6 Instructions](https://www.sportsconcussion.co.za/sportconcussion/wp-content/uploads/2023/07/SCAT6-Instructions-v9.pdf)

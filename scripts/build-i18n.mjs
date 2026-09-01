@@ -810,6 +810,31 @@ const runtimeEntries = {
     locations: ["public/bess.js begin_pose button"],
     value: "Start Timer",
   },
+  "runtime.timer.start": {
+    source: "Start Timer",
+    locations: ["public/tandem-gait.js", "public/dual-task.js"],
+    value: "Start Timer",
+  },
+  "runtime.timer.stop": {
+    source: "Stop Timer",
+    locations: ["public/tandem-gait.js", "public/dual-task.js"],
+    value: "Stop Timer",
+  },
+  "runtime.timer.seconds_left": {
+    source: "{{seconds}} seconds left",
+    locations: ["public/testManager.js startCountdown"],
+    value: "{{seconds}} seconds left",
+  },
+  "runtime.timer.time_up": {
+    source: "Time is up",
+    locations: ["public/testManager.js startCountdown audio"],
+    value: "Time is up",
+  },
+  "runtime.timer.countdown_canceled": {
+    source: "Countdown canceled",
+    locations: ["public/testManager.js startCountdown audio"],
+    value: "Countdown canceled",
+  },
   "runtime.bess.status.pose_good_seconds_errors": {
     source: "Pose looks good! {{seconds}} seconds left. Errors: {{errors}}",
     locations: ["public/bess.js count_pose_errors"],
@@ -1472,6 +1497,11 @@ const runtimeEntries = {
     locations: ["public/results.js exportSCAT6pdf fetch fail"],
     value: "Failed to load the SCAT6 template.",
   },
+  "runtime.results.export.failed": {
+    source: "Failed to export the SCAT6 PDF. Please try again.",
+    locations: ["public/results.js exportSelect change error"],
+    value: "Failed to export the SCAT6 PDF. Please try again.",
+  },
   "runtime.results.report.title_for": {
     source: "SCAT6 report for {{athleteName}}",
     locations: ["public/results.js generateReportHTML title"],
@@ -1649,6 +1679,17 @@ const runtimeEntries = {
   },
 };
 
+// Keep selector labels in sync with languages.json. A nativeLabel lets every
+// selector show an autonym even before a locale has translated language names.
+for (const language of supportedLanguages) {
+  const key = `runtime.lang.name.${language.code}`;
+  runtimeEntries[key] ??= {
+    source: language.label,
+    locations: ["templates/index.template.html header language selector option"],
+    value: language.nativeLabel ?? language.label,
+  };
+}
+
 function slugify(source) {
   const cleaned = source
     .toLowerCase()
@@ -1794,7 +1835,14 @@ function injectLanguageControls(html) {
   return html;
 }
 
-function injectI18nRuntime(html, languageCode, languageLabel, language) {
+function injectI18nRuntime(
+  html,
+  languageCode,
+  languageLabel,
+  language,
+  htmlLang,
+  direction
+) {
   const runtimeStrings = Object.fromEntries(
     Object.entries(language.runtime ?? {}).map(([key, value]) => [
       key,
@@ -1813,6 +1861,8 @@ function injectI18nRuntime(html, languageCode, languageLabel, language) {
         window.__SCAT6_I18N = {
             language: ${JSON.stringify(languageCode)},
             languageLabel: ${JSON.stringify(languageLabel)},
+            htmlLang: ${JSON.stringify(htmlLang)},
+            dir: ${JSON.stringify(direction)},
             defaultLanguage: ${JSON.stringify(defaultLanguage)},
             supportedLanguages: ${JSON.stringify(supportedLanguages)},
             storageKey: "scat6.language",
@@ -2021,6 +2071,8 @@ function buildCatalog() {
 function writeOutput(language, localeData) {
   const langCode = language.code;
   const langLabel = language.label;
+  const htmlLang = language.htmlLang ?? langCode;
+  const direction = language.dir ?? "ltr";
 
   const translationMap = {};
   for (const entry of Object.values(localeData.entries ?? {})) {
@@ -2044,11 +2096,20 @@ function writeOutput(language, localeData) {
     html = ensureAbsoluteAssetPaths(html);
     if (item.injectSelector) html = injectLanguageControls(html);
     if (item.injectRuntime)
-      html = injectI18nRuntime(html, langCode, langLabel, localeData);
+      html = injectI18nRuntime(
+        html,
+        langCode,
+        langLabel,
+        localeData,
+        htmlLang,
+        direction
+      );
     html = translateHtmlTextNodes(html, translationMap);
     html = html.replace(/<html([^>]*)>/, (_, attrs) => {
-      const cleaned = attrs.replace(/\s+lang="[^"]*"/g, "");
-      return `<html${cleaned} lang="${langCode}">`;
+      const cleaned = attrs
+        .replace(/\s+lang="[^"]*"/g, "")
+        .replace(/\s+dir="[^"]*"/g, "");
+      return `<html${cleaned} lang="${htmlLang}" dir="${direction}">`;
     });
     mkdirSync(dirname(item.output), { recursive: true });
     writeFileSync(item.output, `${GENERATED_MARKER}\n${html}`);

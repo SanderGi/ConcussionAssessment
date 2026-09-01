@@ -2,6 +2,8 @@ function getCell(field) {
   return tandemData.querySelector(`[data-field="${field}"]`);
 }
 
+const t = (key, fallback) => window.__scat6T?.(key, fallback) ?? fallback;
+
 function saveResults() {
   const time1 = parseFloat(getCell("trial1").textContent);
   const time2 = parseFloat(getCell("trial2").textContent);
@@ -34,9 +36,10 @@ function cancelActiveTimer() {
   clearInterval(timer);
   timer = null;
   const trial = stopButton.dataset.action.slice("stop-".length);
-  getCell(
-    `trial${trial}`
-  ).innerHTML = `<button data-action="start-${trial}" class="button button--green">Start Timer</button>`;
+  getCell(`trial${trial}`).innerHTML = `<button data-action="start-${trial}" class="button button--green">${t(
+    "runtime.timer.start",
+    "Start Timer"
+  )}</button>`;
 }
 
 document.addEventListener("beforeRenderTestSection", (event) => {
@@ -48,7 +51,7 @@ tandemData.addEventListener("click", (e) => {
   if (!action) return;
   if (action.startsWith("start-")) {
     const trial = action.slice("start-".length);
-    e.target.textContent = "Stop Timer";
+    e.target.textContent = t("runtime.timer.stop", "Stop Timer");
     e.target.classList.remove("button--green");
     e.target.classList.add("button--red");
     e.target.dataset.action = "stop-" + trial;
@@ -72,7 +75,10 @@ tandemData.addEventListener("click", (e) => {
     redoBtn.style.fontSize = "0.8em";
     redoBtn.style.cursor = "pointer";
     redoBtn.onclick = () => {
-      trialCell.innerHTML = `<button data-action="start-${trial}" class="button button--green">Start Timer</button>`;
+      trialCell.innerHTML = `<button data-action="start-${trial}" class="button button--green">${t(
+        "runtime.timer.start",
+        "Start Timer"
+      )}</button>`;
       trialCell.dataset.redo = "true";
     };
 
@@ -83,7 +89,10 @@ tandemData.addEventListener("click", (e) => {
       if (trialCell.dataset.redo === "true") return;
       getCell(`trial${+trial + 1}`).innerHTML = `<button data-action="start-${
         +trial + 1
-      }" class="button button--green">Start Timer</button>`;
+      }" class="button button--green">${t(
+        "runtime.timer.start",
+        "Start Timer"
+      )}</button>`;
     } else {
       startDualTaskGait.style.display = "inline";
       skipToDelayedRecall.style.display = "inline";
