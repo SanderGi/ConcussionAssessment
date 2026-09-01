@@ -7,6 +7,7 @@ import {
 } from "./util/popup.js";
 import { text2image } from "./util/text2image.js";
 import { escapeHTML } from "./util/html.js";
+import { calculateScat6CognitiveTotal } from "./util/scoring.js";
 import {
   isPostInjuryTestType,
   testTypeLabel,
@@ -39,12 +40,11 @@ document.addEventListener("renderTestSection", async (event) => {
         isPostInjuryTestType(t.test_type) && t.test_id != test.test_id
     ) ?? {};
 
-  test.cognitive_total =
-    test.orientation +
-    test.immediate_memory +
-    test.concentration +
-    test.delayed_recall;
-  saveTestResult("cognitive_total", test.cognitive_total);
+  const cognitiveTotal = calculateScat6CognitiveTotal(test);
+  if (cognitiveTotal !== null) {
+    test.cognitive_total = cognitiveTotal;
+    saveTestResult("cognitive_total", cognitiveTotal);
+  }
 
   function isValue(field, value) {
     return test[field] === value ? "outline: 2px solid var(--secondary)" : "";
@@ -521,6 +521,12 @@ function formatDate(timestamp) {
 function generateReportHTML(data) {
   const field = (name) => escapeHTML(data[name]);
   const safeAthleteName = field("athlete_name");
+  const primarySymptoms = [
+    data.primary_symptoms,
+    data.primary_symptoms_other,
+  ]
+    .filter((value) => typeof value === "string" && value.length > 0)
+    .join(", ");
   const differentFromNormalLabel =
     data.different_from_usual === "YES"
       ? t("runtime.common.yes_upper", "YES")
@@ -585,11 +591,9 @@ function generateReportHTML(data) {
   const score_table = content.querySelector("table").outerHTML;
   html += score_table;
   html += `
-    <br><strong>${t("runtime.results.report.primary_symptoms", "Primary Symptoms")}</strong>: ${field(
-      "primary_symptoms"
-    )}${
-    data.primary_symptoms_other.length > 0 ? ", " : ""
-  }${field("primary_symptoms_other")}<br>
+    <br><strong>${t("runtime.results.report.primary_symptoms", "Primary Symptoms")}</strong>: ${escapeHTML(
+      primarySymptoms
+    )}<br>
     <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; row-gap: 0.5em; margin-top: 0.5em; margin-bottom: 0.5em;">
       <span><strong>${t("runtime.results.report.feels_normal", "Feels Normal")}</strong>: ${
         field("symptoms_percentage_normal")
