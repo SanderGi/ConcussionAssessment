@@ -22,7 +22,7 @@
         <div>
             <label for="theme" class="theme">
                 <span class="theme__toggle-wrap">
-                    <input id="theme" class="theme__toggle" type="checkbox" role="switch" name="theme" aria-label="Use dark theme" checked>
+                    <input id="theme" class="theme__toggle" type="checkbox" role="switch" name="theme" aria-label="Theme" checked>
                     <span class="theme__icon">
                         <span class="theme__icon-part"></span>
                         <span class="theme__icon-part"></span>
@@ -753,49 +753,49 @@
             </ul>
             <p>Multiple simultaneous errors count as one. Failure to hold the pose for at least 5 seconds counts as the maximum number of errors for that pose (10).</p>
         
-            <h3>Double Leg Stance</h3>
+            <h3 id="double-leg-heading">Double Leg Stance</h3>
             <p style="margin-top: 0;">Examiner, keep a count of the errors listed above and read the instructions below:</p>
             <p style="font-style: italic;">Stand with your feet together, hands on your hips, and eyes closed. Hold this position for 20 seconds &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
             <img src="assets/double_leg.png" style="height: 100%; max-height: 40vh; margin: 0 auto; margin-bottom: 6px">
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Number of errors: <input aria-label="Double leg stance errors" type="number" id="double-leg-errors" value="0" min="0" max="10" step="1" required/></label>
+            <label id="double-leg-error-label" class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Number of errors: <input aria-labelledby="double-leg-heading double-leg-error-label" type="number" id="double-leg-errors" value="0" min="0" max="10" step="1" required/></label>
             <button class="button button--green" onclick="startCountdown(this, 20)">Start 20s Countdown</button>
 
-            <h3>Tandem Stance</h3>
+            <h3 id="tandem-heading">Tandem Stance</h3>
             <p style="margin-top: 0;">Examiner, keep a count of the errors listed above and read the instructions below:</p>
             <p style="font-style: italic;">Stand with your feet in a heel-to-toe position, hands on your hips, and eyes closed. Hold this position for 20 seconds &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
             <img src="assets/tandem_stance.png" style="height: 100%; max-height: 40vh; margin: 0 auto; margin-bottom: 6px">
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Number of errors: <input aria-label="Tandem stance errors" type="number" id="tandem-stance-errors" value="0" min="0" max="10" step="1" required/></label>
+            <label id="tandem-error-label" class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Number of errors: <input aria-labelledby="tandem-heading tandem-error-label" type="number" id="tandem-stance-errors" value="0" min="0" max="10" step="1" required/></label>
             <button class="button button--green" onclick="startCountdown(this, 20)">Start 20s Countdown</button>
 
-            <h3>Single Leg Stance</h3>
+            <h3 id="single-leg-heading">Single Leg Stance</h3>
             <p style="margin-top: 0;">Examiner, keep a count of the errors listed above and read the instructions below:</p>
             <p style="font-style: italic;">Stand on one leg, hands on your hips, and eyes closed. Hold this position for 20 seconds &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
             <img src="assets/single_leg.png" style="height: 100%; max-height: 40vh; margin: 0 auto; margin-bottom: 6px">
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Number of errors: <input aria-label="Single leg stance errors" type="number" id="single-leg-errors" value="0" min="0" max="10" step="1" required/></label>
+            <label id="single-leg-error-label" class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Number of errors: <input aria-labelledby="single-leg-heading single-leg-error-label" type="number" id="single-leg-errors" value="0" min="0" max="10" step="1" required/></label>
             <button class="button button--green" onclick="startCountdown(this, 20)">Start 20s Countdown</button>
 
-            <h3>Double Leg Stance on Foam (<span style="color: var(--orange)">Optional</span>)</h3>
+            <h3 id="double-leg-foam-heading">Double Leg Stance on Foam (<span style="color: var(--orange)">Optional</span>)</h3>
             <p style="margin-top: 0;">The foam test requires a 50cm x 40cm x 6cm foam pad. Recommended model is the <a href="http://www.power-systems.com/" target="_blank">Power Systems Airex Balance Pad 81000</a>.</p>
             <p>Examiner, keep a count of the errors listed above and read the instructions below:</p>
             <p style="font-style: italic;">Stand with your feet together, hands on your hips, and eyes closed. Hold this position for 20 seconds &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
             <img src="assets/double_leg.png" style="height: 100%; max-height: 40vh; margin: 0 auto; margin-bottom: 6px">
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Number of errors: <input aria-label="Double leg foam stance errors" type="number" id="double-leg-foam-errors" value="0" min="0" max="10" step="1" required/></label>
+            <label id="double-leg-foam-error-label" class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Number of errors: <input aria-labelledby="double-leg-foam-heading double-leg-foam-error-label" type="number" id="double-leg-foam-errors" value="0" min="0" max="10" step="1" required/></label>
             <button class="button button--green" onclick="startCountdown(this, 20)">Start 20s Countdown</button>
 
-            <h3>Tandem Stance on Foam (<span style="color: var(--orange)">Optional</span>)</h3>
+            <h3 id="tandem-foam-heading">Tandem Stance on Foam (<span style="color: var(--orange)">Optional</span>)</h3>
             <p style="margin-top: 0;">The foam test requires a 50cm x 40cm x 6cm foam pad. Recommended model is the <a href="http://www.power-systems.com/" target="_blank">Power Systems Airex Balance Pad 81000</a>.</p>
             <p>Examiner, keep a count of the errors listed above and read the instructions below:</p>
             <p style="font-style: italic;">Stand with your feet in a heel-to-toe position, hands on your hips, and eyes closed. Hold this position for 20 seconds &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
             <img src="assets/tandem_stance.png" style="height: 100%; max-height: 40vh; margin: 0 auto; margin-bottom: 6px">
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Number of errors: <input aria-label="Tandem foam stance errors" type="number" id="tandem-stance-foam-errors" value="0" min="0" max="10" step="1" required/></label>
+            <label id="tandem-foam-error-label" class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Number of errors: <input aria-labelledby="tandem-foam-heading tandem-foam-error-label" type="number" id="tandem-stance-foam-errors" value="0" min="0" max="10" step="1" required/></label>
             <button class="button button--green" onclick="startCountdown(this, 20)">Start 20s Countdown</button>
 
-            <h3>Single Leg Stance on Foam (<span style="color: var(--orange)">Optional</span>)</h3>
+            <h3 id="single-leg-foam-heading">Single Leg Stance on Foam (<span style="color: var(--orange)">Optional</span>)</h3>
             <p style="margin-top: 0;">The foam test requires a 50cm x 40cm x 6cm foam pad. Recommended model is the <a href="http://www.power-systems.com/" target="_blank">Power Systems Airex Balance Pad 81000</a>.</p>
             <p>Examiner, keep a count of the errors listed above and read the instructions below:</p>
             <p style="font-style: italic;">Stand on one leg, hands on your hips, and eyes closed. Hold this position for 20 seconds &nbsp; <i class="fa-solid fa-volume-high" onclick="speak(this.parentElement.textContent)"></i></p>
             <img src="assets/single_leg.png" style="height: 100%; max-height: 40vh; margin: 0 auto; margin-bottom: 6px">
-            <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Number of errors: <input aria-label="Single leg foam stance errors" type="number" id="single-leg-foam-errors" value="0" min="0" max="10" step="1" required/></label>
+            <label id="single-leg-foam-error-label" class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.4em;">Number of errors: <input aria-labelledby="single-leg-foam-heading single-leg-foam-error-label" type="number" id="single-leg-foam-errors" value="0" min="0" max="10" step="1" required/></label>
             <button class="button button--green" onclick="startCountdown(this, 20)">Start 20s Countdown</button>
             <br><br>
             <button class="button button--green" id="bess-end-btn">Start Tandem Gait &nbsp; <i class="fa-solid fa-forward"></i></button>
@@ -909,7 +909,7 @@
     <main style="display: none;" id="results">
         <section style="position: relative;">
             <h2>Results</h2>
-            <select id="export-results-select" aria-label="Export format" style="position: absolute; right: 1em; top: 1em; opacity: 0; pointer-events: none;">
+            <select id="export-results-select" aria-labelledby="export-results" style="position: absolute; right: 1em; top: 1em; opacity: 0; pointer-events: none;">
                 <option disabled selected>Choose an export option:</option>
                 <option value="Report">Overall Report</option>
                 <option value="SCAT6">Full SCAT6</option>

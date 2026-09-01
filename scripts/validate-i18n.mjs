@@ -39,6 +39,7 @@ const unchangedAllowlist = new Set([
   "Optional",
   "Orientation",
   "Orientation (X/5)",
+  "open source",
   "Power Systems Airex Balance Pad 81000",
   "SCAT6",
   "SCAT6™",
