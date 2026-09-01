@@ -19,6 +19,10 @@ import {
 import { syncNonWorkspaceAnalyticsState } from "./util/analytics.js";
 import { decryptJSON, encryptJSON } from "./util/encryption.js";
 import { alert, select } from "./util/popup.js";
+import {
+  mergeTestsByUpdatedAt,
+  parseStoredTests,
+} from "./util/testStore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBOXpDbVaCLdbecVBxCUks4ifTDQF9BnTw",
@@ -41,6 +45,7 @@ const TESTS = "tests"; // Local copy of tests data
 const SYNCED = "synced"; // "true" iff the device is synced with GDrive
 const USER = "user"; // User data from Google Auth
 const KEY = "key"; // Key for encrypting/decrypting data
+const TESTS_RESET_AT = "testsResetAt"; // Deliberate local dataset replacement
 
 // ============================ Connect/Disconnect ============================
 let _user = null;
@@ -306,7 +311,8 @@ export async function deleteRemoteData() {
  * @property {number} [uploaded_timestamp] timestamp of most recent upload if any
  */
 /** @type {Record<string, Test>} */
-export const tests = JSON.parse(localStorage.getItem(TESTS) ?? "{}");
+export const tests = parseStoredTests(localStorage.getItem(TESTS));
+let observedTestsResetAt = Number(localStorage.getItem(TESTS_RESET_AT) ?? 0);
 
 /** @type {Record<string, Test[]>} */
 export const athletes = {}; // will be populated on load
@@ -334,31 +340,30 @@ function computeAthletes() {
   }
 }
 
-function mergeTestsByUpdatedAt(source) {
-  for (const [key, value] of Object.entries(source ?? {})) {
-    if (!value || typeof value !== "object") continue;
-    const updated_at = Number(value.test_updated_at ?? 0);
-    const existing_updated_at = Number(tests[key]?.test_updated_at ?? 0);
-    if (!existing_updated_at || existing_updated_at < updated_at) {
-      tests[key] = value;
-    }
-  }
+function replaceTestsInMemory(nextTests) {
+  for (const key of Object.keys(tests)) delete tests[key];
+  Object.assign(tests, nextTests ?? {});
 }
 
 export function saveLocalTests() {
+  const storedResetAt = Number(localStorage.getItem(TESTS_RESET_AT) ?? 0);
+  if (storedResetAt > observedTestsResetAt) {
+    replaceTestsInMemory({});
+    observedTestsResetAt = storedResetAt;
+  }
+  mergeTestsByUpdatedAt(tests, parseStoredTests(localStorage.getItem(TESTS)));
   computeAthletes();
   localStorage.setItem(LASTSYNC, new Date().toUTCString());
   localStorage.setItem(TESTS, JSON.stringify(tests));
 }
 
 export function replaceLocalTests(nextTests) {
-  for (const key of Object.keys(tests)) {
-    delete tests[key];
-  }
-  for (const [key, value] of Object.entries(nextTests ?? {})) {
-    tests[key] = value;
-  }
-  saveLocalTests();
+  observedTestsResetAt = Date.now();
+  localStorage.setItem(TESTS_RESET_AT, String(observedTestsResetAt));
+  replaceTestsInMemory(nextTests);
+  computeAthletes();
+  localStorage.setItem(LASTSYNC, new Date().toUTCString());
+  localStorage.setItem(TESTS, JSON.stringify(tests));
 }
 
 export function clearLocalTests() {
@@ -391,7 +396,7 @@ async function performSync({
   // merge remote data with local data
   if (pullDrive) {
     const remoteData = (await getRemoteData()) ?? {};
-    mergeTestsByUpdatedAt(remoteData);
+    mergeTestsByUpdatedAt(tests, remoteData);
   }
 
   const connectedUser = await connectUser();
@@ -407,7 +412,7 @@ async function performSync({
           connectedUser.idToken,
           workspace.id
         );
-        mergeTestsByUpdatedAt(sharedData);
+        mergeTestsByUpdatedAt(tests, sharedData);
       }
     } catch (err) {
       console.warn("Shared workspace pull skipped:", err?.message ?? err);
@@ -489,3 +494,31 @@ export function syncData({
 
   return activeSync;
 }
+
+window.addEventListener("storage", (event) => {
+  if (event.key === null) {
+    observedTestsResetAt = 0;
+    replaceTestsInMemory({});
+    computeAthletes();
+    sessionStorage.removeItem("test");
+    sessionStorage.removeItem("test-phase");
+    document.dispatchEvent(new CustomEvent("scat6TestsUpdated"));
+    return;
+  }
+  if (event.key === TESTS_RESET_AT) {
+    const resetAt = Number(event.newValue ?? 0);
+    if (resetAt > observedTestsResetAt) {
+      observedTestsResetAt = resetAt;
+      replaceTestsInMemory({});
+      computeAthletes();
+      sessionStorage.removeItem("test");
+      sessionStorage.removeItem("test-phase");
+      document.dispatchEvent(new CustomEvent("scat6TestsUpdated"));
+    }
+    return;
+  }
+  if (event.key !== TESTS || !event.newValue) return;
+  mergeTestsByUpdatedAt(tests, parseStoredTests(event.newValue));
+  computeAthletes();
+  document.dispatchEvent(new CustomEvent("scat6TestsUpdated"));
+});

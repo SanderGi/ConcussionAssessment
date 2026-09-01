@@ -196,6 +196,12 @@ document.addEventListener("renderTestSection", async (event) => {
   }
 });
 
+document.addEventListener("scat6TestsUpdated", () => {
+  if (sessionStorage.getItem("test-phase") === "test-management") {
+    showAthletes();
+  }
+});
+
 // ============================ UI Elements ============================
 const deleteAllButton = document.getElementById("delete-all-button");
 const syncButton = document.getElementById("sync-button");
