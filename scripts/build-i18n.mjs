@@ -22,6 +22,14 @@ const languagesConfig = JSON.parse(
 );
 const defaultLanguage = languagesConfig.default;
 const supportedLanguages = languagesConfig.supported;
+const legacySourceByCurrentSource = {
+  "Fatigue or low energy:": "Fatique or low energy:",
+  "High-risk mechanism of injury (sport-dependent).":
+    "High-risk mechanism of injury (sportdependent).",
+  "and privacy-focused. This means no usage data is collected, but we'd still love to hear from you so we can improve the tool. Here are some optional ways you can contribute:":
+    "and Privacy focused. This means no usage data is collected, but we'd still love to hear from you so we can improve the tool. Here are some optional ways you can contribute:",
+  "open source": "opensource",
+};
 
 const runtimeEntries = {
   "runtime.sync.sync": {
@@ -2017,11 +2025,21 @@ function loadLocale(languageCode, catalogEntries) {
 
   const entries = {};
   for (const [key, entry] of Object.entries(catalogEntries)) {
-    const previous = existing.entries?.[key];
+    const legacySource = legacySourceByCurrentSource[entry.source];
+    const previous =
+      existing.entries?.[key] ??
+      (legacySource
+        ? Object.values(existing.entries ?? {}).find(
+            (candidate) => candidate.source === legacySource
+          )
+        : undefined);
     entries[key] = {
       source: entry.source,
       locations: entry.locations,
-      value: previous?.value ?? entry.source,
+      value:
+        languageCode === defaultLanguage
+          ? entry.source
+          : previous?.value ?? entry.source,
     };
   }
 

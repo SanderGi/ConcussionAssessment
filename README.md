@@ -54,7 +54,7 @@ If you choose to activate "Sync", data will also be saved on your personal Googl
 
 > Is data stored permanently if I don't sync with Google Drive?
 
-In most scenarious, yes. However it is still recommended to activate Google Drive sync to be on the safe side. It happens rarely, but depending on your browser settings, the browser may force the Web App to delete the local copy of data if your device runs out of memory. There is also the chance of loosing your device or it getting damaged. An alternative solution, if you prefer not to use Google Drive, would be to "Export" each test after completing it to save its information somewhere else.
+In most scenarios, yes. However it is still recommended to activate Google Drive sync to be on the safe side. It happens rarely, but depending on your browser settings, the browser may force the Web App to delete the local copy of data if your device runs out of memory. There is also the chance of losing your device or it getting damaged. An alternative solution, if you prefer not to use Google Drive, would be to "Export" each test after completing it to save its information somewhere else.
 
 > I have found a bug, have an idea for improvements, or want to get involved in making this tool better. How can I help?
 
