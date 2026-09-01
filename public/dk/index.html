@@ -923,12 +923,12 @@
                     const singleLegFoamErrors = parseInt(document.getElementById('single-leg-foam-errors').value);
                     const totalFoamErrors = doubleLegFoamErrors + tandemStanceFoamErrors + singleLegFoamErrors;
                     saveTestResult("mBESS_double_errors", doubleLegErrors);
-                    saveTestResult("mBESS_single_errors", tandemStanceErrors);
-                    saveTestResult("mBESS_tandem_errors", singleLegErrors);
+                    saveTestResult("mBESS_single_errors", singleLegErrors);
+                    saveTestResult("mBESS_tandem_errors", tandemStanceErrors);
                     saveTestResult("mBESS_total_errors", totalErrors);
                     saveTestResult("mBESS_foam_double_errors", doubleLegFoamErrors);
-                    saveTestResult("mBESS_foam_single_errors", tandemStanceFoamErrors);
-                    saveTestResult("mBESS_foam_tandem_errors", singleLegFoamErrors);
+                    saveTestResult("mBESS_foam_single_errors", singleLegFoamErrors);
+                    saveTestResult("mBESS_foam_tandem_errors", tandemStanceFoamErrors);
                     saveTestResult("mBESS_foam_total_errors", totalFoamErrors);
                     renderTestSection('tandem-gait');
                 });
