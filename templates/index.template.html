@@ -123,7 +123,7 @@
             <br><br>
             <button class="button button--red" onclick="saveTestResult('observable_signs', getChecked('observable-signs')); saveTestResult('observable_signs_source', 'WITNESSED'); removeAthleteFromPlayAlert('glasgow-scale')">Witnessed</button>
             <button class="button button--red" onclick="saveTestResult('observable_signs', getChecked('observable-signs')); saveTestResult('observable_signs_source', 'VIDEO'); removeAthleteFromPlayAlert('glasgow-scale')">Observed on Video</button>
-            <button class="button button--green" onclick="saveTestResult('observable_signs', []); saveTestResult('observable_signs_source', 'NO'); renderTestSection('glasgow-scale')">None</button>
+            <button class="button button--green" onclick="document.querySelectorAll('.observable-signs').forEach(el => el.checked = false); saveTestResult('observable_signs', []); saveTestResult('observable_signs_source', 'NO'); renderTestSection('glasgow-scale')">None</button>
         </section>
     </main>
     <main style="display: none;" id="glasgow-scale">
