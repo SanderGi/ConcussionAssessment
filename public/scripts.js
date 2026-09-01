@@ -156,7 +156,7 @@ if (!window.crypto?.subtle) {
 }
 
 // ============================ Setup ============================
-window.onload = async () => {
+async function initializeAppPage() {
   let user = null;
   let joinedFromInvite = false;
   try {
@@ -191,7 +191,13 @@ window.onload = async () => {
     renderCurrentTestSection();
     document.body.style.visibility = "visible";
   }
-};
+}
+
+if (document.readyState === "complete") {
+  initializeAppPage();
+} else {
+  window.addEventListener("load", initializeAppPage, { once: true });
+}
 
 document.addEventListener("renderTestSection", async (event) => {
   if (event.detail === "test-management") {
