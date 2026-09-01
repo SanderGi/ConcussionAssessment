@@ -1,0 +1,2 @@
+ALTER TABLE workspace_data
+ADD COLUMN revision INTEGER NOT NULL DEFAULT 0;

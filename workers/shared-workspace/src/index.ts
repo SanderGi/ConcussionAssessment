@@ -832,10 +832,15 @@ app.get("/api/workspaces/:workspaceId/data", async (c) => {
   }
 
   const row = await c.env.DB.prepare(
-    "SELECT data_json, updated_at, updated_by_sub FROM workspace_data WHERE workspace_id = ? LIMIT 1"
+    "SELECT data_json, updated_at, updated_by_sub, revision FROM workspace_data WHERE workspace_id = ? LIMIT 1"
   )
     .bind(workspaceId)
-    .first<{ data_json: string; updated_at: number; updated_by_sub: string }>();
+    .first<{
+      data_json: string;
+      updated_at: number;
+      updated_by_sub: string;
+      revision: number;
+    }>();
 
   if (!row) {
     const now = Date.now();
@@ -844,13 +849,19 @@ app.get("/api/workspaces/:workspaceId/data", async (c) => {
     )
       .bind(workspaceId, "{}", now, user.sub)
       .run();
-    return c.json({ data: {}, updatedAt: now, updatedBySub: user.sub });
+    return c.json({
+      data: {},
+      updatedAt: now,
+      updatedBySub: user.sub,
+      revision: 0,
+    });
   }
 
   return c.json({
     data: safeJsonParse(row.data_json),
     updatedAt: row.updated_at,
     updatedBySub: row.updated_by_sub,
+    revision: row.revision,
   });
 });
 
@@ -874,30 +885,24 @@ app.put("/api/workspaces/:workspaceId/data", async (c) => {
   }
   const incomingData = body.data as Record<string, unknown>;
 
-  const now = Date.now();
-  const existing = await c.env.DB
-    .prepare("SELECT data_json FROM workspace_data WHERE workspace_id = ? LIMIT 1")
-    .bind(workspaceId)
-    .first<{ data_json: string }>();
-  const existingData = safeJsonParse(existing?.data_json ?? "{}");
-  const mergedData = mergeTestsByUpdatedAt(existingData, incomingData);
-
-  await c.env.DB.prepare(
-    `INSERT INTO workspace_data (workspace_id, data_json, updated_at, updated_by_sub)
-     VALUES (?, ?, ?, ?)
-     ON CONFLICT(workspace_id) DO UPDATE SET
-       data_json = excluded.data_json,
-       updated_at = excluded.updated_at,
-       updated_by_sub = excluded.updated_by_sub`
-  )
-    .bind(workspaceId, JSON.stringify(mergedData), now, user.sub)
-    .run();
+  const updated = await updateWorkspaceData(
+    c.env.DB,
+    workspaceId,
+    user.sub,
+    incomingData
+  );
+  if (!updated) {
+    return c.json(
+      { error: "Workspace data changed too frequently. Please retry." },
+      409
+    );
+  }
 
   await c.env.DB.prepare("UPDATE workspaces SET updated_at = ? WHERE id = ?")
-    .bind(now, workspaceId)
+    .bind(updated.updatedAt, workspaceId)
     .run();
 
-  return c.json({ ok: true, updatedAt: now });
+  return c.json({ ok: true, ...updated });
 });
 
 async function hasActiveMembership(
@@ -1001,11 +1006,72 @@ function mergeTestsByUpdatedAt(
           )
         : 0;
 
-    if (!existingValue || existingUpdated <= incomingUpdated) {
+    if (!existingValue || existingUpdated < incomingUpdated) {
       merged[key] = incomingValue;
     }
   }
   return merged;
+}
+
+async function updateWorkspaceData(
+  db: D1Database,
+  workspaceId: string,
+  userSub: string,
+  incomingData: Record<string, unknown>
+): Promise<{ updatedAt: number; revision: number } | null> {
+  const maxAttempts = 8;
+  for (let attempt = 0; attempt < maxAttempts; attempt += 1) {
+    const existing = await db
+      .prepare(
+        "SELECT data_json, revision FROM workspace_data WHERE workspace_id = ? LIMIT 1"
+      )
+      .bind(workspaceId)
+      .first<{ data_json: string; revision: number }>();
+    const now = Date.now();
+
+    if (!existing) {
+      const mergedData = mergeTestsByUpdatedAt({}, incomingData);
+      const inserted = await db
+        .prepare(
+          `INSERT INTO workspace_data
+             (workspace_id, data_json, updated_at, updated_by_sub, revision)
+           VALUES (?, ?, ?, ?, 0)
+           ON CONFLICT(workspace_id) DO NOTHING`
+        )
+        .bind(workspaceId, JSON.stringify(mergedData), now, userSub)
+        .run();
+      if (Number(inserted.meta.changes ?? 0) > 0) {
+        return { updatedAt: now, revision: 0 };
+      }
+      continue;
+    }
+
+    const mergedData = mergeTestsByUpdatedAt(
+      safeJsonParse(existing.data_json),
+      incomingData
+    );
+    const nextRevision = existing.revision + 1;
+    const result = await db
+      .prepare(
+        `UPDATE workspace_data
+         SET data_json = ?, updated_at = ?, updated_by_sub = ?, revision = ?
+         WHERE workspace_id = ? AND revision = ?`
+      )
+      .bind(
+        JSON.stringify(mergedData),
+        now,
+        userSub,
+        nextRevision,
+        workspaceId,
+        existing.revision
+      )
+      .run();
+    if (Number(result.meta.changes ?? 0) > 0) {
+      return { updatedAt: now, revision: nextRevision };
+    }
+  }
+
+  return null;
 }
 
 async function collectDashboardStats(db: D1Database, days: number) {
