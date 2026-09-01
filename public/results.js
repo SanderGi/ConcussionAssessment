@@ -6,6 +6,11 @@ import {
   bulkExportOptions,
 } from "./util/popup.js";
 import { text2image } from "./util/text2image.js";
+import {
+  isPostInjuryTestType,
+  testTypeLabel,
+  toPdfTestType,
+} from "./util/testType.js";
 
 const content = document.getElementById("results-content");
 const t = (key, fallback) => window.__scat6T?.(key, fallback) ?? fallback;
@@ -29,7 +34,8 @@ document.addEventListener("renderTestSection", async (event) => {
     ) ?? {};
   const lastPostInjury =
     athleteTests.findLast(
-      (t) => t.test_type === "POST-INJURY" && t.test_id != test.test_id
+      (t) =>
+        isPostInjuryTestType(t.test_type) && t.test_id != test.test_id
     ) ?? {};
 
   test.cognitive_total =
@@ -544,7 +550,7 @@ function generateReportHTML(data) {
       <span><strong>${t("runtime.results.report.test_active", "Test Active")}</strong>: ${formatDate(
         data.test_created_at
       )} - ${formatDate(data.test_updated_at)}</span>
-      <span><strong>${t("runtime.results.report.test_type", "Test Type")}</strong>: ${data.test_type}</span>
+      <span><strong>${t("runtime.results.report.test_type", "Test Type")}</strong>: ${testTypeLabel(data.test_type, t)}</span>
       <span><strong>${t("runtime.results.report.injury_time", "Injury Time")}</strong>: ${formatDate(
         data.injury_timestamp
       )}</span>
@@ -737,14 +743,6 @@ function timestampToMMDDYYYYhhmmssA(timestamp) {
   hours = hours ? hours : 12; // The hour '0' should be '12'
   hours = String(hours).padStart(2, "0"); // Pad for single-digit hours
   return `${month}/${day}/${year} ${hours}:${minutes}:${seconds} ${ampm}`;
-}
-
-function toPdfTestType(testType) {
-  if (testType === "BASELINE") return "BASELINE";
-  if (testType === "SUSPECTED/POST" || testType === "POST-INJURY") {
-    return "SUSPECTED";
-  }
-  return undefined;
 }
 
 /** @param {import("./userData.js").Test} test */

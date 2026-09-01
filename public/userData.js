@@ -219,7 +219,7 @@ export async function deleteRemoteData() {
  * @property {string} test_id
  * @property {number} test_created_at
  * @property {number} test_updated_at
- * @property {'IMMEDIATE' | 'BASELINE' | 'SUSPECTED'} test_type
+ * @property {'IMMEDIATE' | 'BASELINE' | 'SUSPECTED/POST' | 'POST-INJURY' | 'SUSPECTED' | 'NO-TEST'} test_type
  * @property {string} athlete_id
  * @property {string} athlete_name
  * @property {number} athlete_birth_timestamp

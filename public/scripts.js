@@ -19,6 +19,10 @@ import {
 } from "./util/popup.js";
 import { calcSimilarity } from "./util/fuzzysearch.js";
 import {
+  isPostInjuryTestType,
+  testTypeLabel,
+} from "./util/testType.js";
+import {
   createSharedWorkspace,
   deleteSharedWorkspace,
   getActiveWorkspaceState,
@@ -34,14 +38,7 @@ const Chart = window.Chart;
 const t = (key, fallback) => window.__scat6T?.(key, fallback) ?? fallback;
 const tf = (key, vars, fallback) =>
   window.__scat6Format?.(key, vars, fallback) ?? fallback;
-const translateTestType = (type) => {
-  if (type === "IMMEDIATE") return t("runtime.test_type.immediate", "Immediate");
-  if (type === "BASELINE") return t("runtime.test_type.baseline", "Baseline");
-  if (type === "POST-INJURY")
-    return t("runtime.test_type.post_injury", "Post-Injury");
-  if (type === "NO-TEST") return t("runtime.test_type.no_test", "No Test");
-  return type;
-};
+const translateTestType = (type) => testTypeLabel(type, t);
 
 const getInviteCodeFromUrl = () =>
   new URL(window.location.href).searchParams
@@ -755,7 +752,7 @@ window.showAthleteResults = async (athlete_id) => {
     (test) => test.test_type === "BASELINE"
   );
   const lastPostInjury = athleteTests.findLast(
-    (test) => test.test_type === "POST-INJURY"
+    (test) => isPostInjuryTestType(test.test_type)
   );
 
   const container = document.getElementById("athlete-" + athlete_id);

@@ -2,6 +2,7 @@ import { tests, syncData, connectUser } from "./userData.js";
 import { confirmAthleteInfo } from "./util/popup.js";
 import { isSpeaking, speak } from "./util/sound.js";
 import { uploadTest } from "./util/googleForm.js";
+import { isPostInjuryTestType } from "./util/testType.js";
 
 // ============================ Session/Local Storage Keys ============================
 const TEST_PHASE = "test-phase";
@@ -186,7 +187,7 @@ export async function startTest(pastTests) {
     renderTestSection("red-flags");
   } else if (test.test_type === "BASELINE") {
     renderTestSection("symptom-evaluation-baseline");
-  } else if (test.test_type === "SUSPECTED/POST") {
+  } else if (isPostInjuryTestType(test.test_type)) {
     renderTestSection("symptom-evaluation-post");
   } else if (test.test_type === "NO-TEST") {
     tests[test.test_id] = test;
