@@ -32,6 +32,15 @@
   font-family: var(--font-family);
 }
 
+.fa-volume-high[onclick] {
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.fa-volume-high[onclick]:hover {
+  color: var(--accent);
+}
+
 html[data-theme="dark"] {
   color-scheme: dark;
 }

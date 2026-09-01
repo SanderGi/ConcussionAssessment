@@ -573,19 +573,42 @@
                     </tr>
                 </tbody>
             </table>
+            <button class="button" id="immediate-memory-next-trial-btn">Next Trial &nbsp; <i class="fa-solid fa-forward"></i></button>
             <button class="button button--green" id="immediate-memory-end-btn">Start Concentration &nbsp; <i class="fa-solid fa-forward"></i></button>
             <script>
                 const immediate_memory_score_by_trial_by_word = [[], [], []];
                 let currentTrial = -1;
                 const inputs = document.getElementById('immediate-memory-data');
+                const nextTrialButton = document.getElementById('immediate-memory-next-trial-btn');
+                const getActiveTrial = () => currentTrial == -1 ? 0 : currentTrial;
+                const showTrialWords = () => {
+                    const trial = getActiveTrial();
+                    const selectedWords = immediate_memory_score_by_trial_by_word[trial];
+                    const trialIsEmpty = parseInt(inputs.children[trial].children[0].value) === 0;
+                    for (const [index, word] of Array.from(document.getElementById('wordlist').children).entries()) {
+                        const isSelected = !trialIsEmpty && selectedWords[index] === true;
+                        word.style.textDecoration = isSelected ? 'line-through' : 'none';
+                        word.style.color = isSelected ? 'darkgreen' : '';
+                    }
+                    if (trialIsEmpty) immediate_memory_score_by_trial_by_word[trial] = [];
+                };
+                const selectTrial = (trial) => {
+                    inputs.children[getActiveTrial()].children[0].style.outline = 'none';
+                    currentTrial = Math.max(0, Math.min(trial, 2));
+                    inputs.children[currentTrial].children[0].style.outline = '1px solid var(--secondary)';
+                    nextTrialButton.disabled = currentTrial === 2;
+                    showTrialWords();
+                };
                 inputs.addEventListener('focusin', (e) => {
-                    inputs.children[currentTrial == -1 ? 0 : currentTrial].children[0].style.outline = 'none';
-                    currentTrial = Array.from(inputs.children).indexOf(e.target.parentElement);
-                    inputs.children[currentTrial == -1 ? 0 : currentTrial].children[0].style.outline = '1px solid var(--secondary)';
+                    selectTrial(Array.from(inputs.children).indexOf(e.target.parentElement));
                 });
+                nextTrialButton.addEventListener('click', () => selectTrial(getActiveTrial() + 1));
                 document.addEventListener("renderTestSection", async (event) => {
                     if (event.detail === "immediate-memory") {
                         currentTrial = -1;
+                        for (const input of inputs.querySelectorAll('input')) input.style.outline = 'none';
+                        inputs.children[0].children[0].style.outline = '1px solid var(--secondary)';
+                        nextTrialButton.disabled = false;
                         const wordlist = document.getElementById('wordlist');
                         wordlist.innerHTML = '';
                         const choices = [
@@ -609,14 +632,7 @@
                             wordlist.appendChild(li);
                         }
                         window.readMemoryWords = () => {
-                            inputs.children[currentTrial == -1 ? 0 : currentTrial].children[0].style.outline = 'none';
-                            currentTrial++;
-                            currentTrial = Math.min(currentTrial, 2);
-                            inputs.children[currentTrial].children[0].style.outline = '1px solid var(--secondary)';
-                            for (const word of wordlist.children) {
-                                word.style.textDecoration = 'none';
-                                word.style.color = '';
-                            }
+                            selectTrial(currentTrial + 1);
                             readListOneWPS(words, 1);
                         };
                         saveTestResult('immediate_memory_words', words);
