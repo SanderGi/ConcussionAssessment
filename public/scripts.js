@@ -19,6 +19,7 @@ import {
 } from "./util/popup.js";
 import { calcSimilarity } from "./util/fuzzysearch.js";
 import { safeImageURL } from "./util/html.js";
+import { scat6DomainTotals } from "./util/scoring.js";
 import {
   isPostInjuryTestType,
   testTypeLabel,
@@ -798,48 +799,42 @@ window.showAthleteResults = async (athlete_id) => {
   }
 
   const summary = document.createElement("div");
-  if (!lastBaseline?.mBESS_total_errors || !lastBaseline?.cognitive_total) {
-    summary.textContent = t(
+  const cognitiveLabel = t(
+    "runtime.results.row.cognitive_total",
+    "Cognitive Total (of 50)"
+  );
+  const mbessLabel = t("runtime.results.row.bess", "BESS (of 30)");
+  const appendSummary = (assessment, label, emptyMessage) => {
+    if (!assessment) {
+      summary.append(emptyMessage);
+      return;
+    }
+    const { cognitiveTotal, mbessTotalErrors } =
+      scat6DomainTotals(assessment);
+    const date = new Date(assessment.test_created_at).toDateString();
+    summary.append(
+      `${label} (${date}): ${cognitiveLabel}: ${
+        cognitiveTotal ?? "--"
+      }; ${mbessLabel}: ${mbessTotalErrors ?? "--"}`
+    );
+  };
+  appendSummary(
+    lastBaseline,
+    t("runtime.results.table.last_baseline", "Last Baseline"),
+    t(
       "runtime.test_mgmt.no_baselines",
       "No baselines found for this athlete."
-    );
-  } else {
-    summary.textContent = tf(
-      "runtime.test_mgmt.last_baseline",
-      {
-        date: new Date(lastBaseline?.test_created_at).toDateString(),
-        score: lastBaseline?.mBESS_total_errors + lastBaseline?.cognitive_total,
-      },
-      `Last baseline (${new Date(lastBaseline?.test_created_at).toDateString()}): ${
-        lastBaseline?.mBESS_total_errors + lastBaseline?.cognitive_total
-      } / 80`
-    );
-  }
+    )
+  );
   summary.appendChild(document.createElement("br"));
-  if (!lastPostInjury?.mBESS_total_errors || !lastPostInjury?.cognitive_total) {
-    summary.append(
-      t(
-        "runtime.test_mgmt.no_post_injuries",
-        "No post-injuries found for this athlete."
-      )
-    );
-  } else {
-    summary.append(
-      tf(
-        "runtime.test_mgmt.last_post_injury",
-        {
-          date: new Date(lastPostInjury?.test_created_at).toDateString(),
-          score:
-            lastPostInjury?.mBESS_total_errors + lastPostInjury?.cognitive_total,
-        },
-        `Last post-injury (${new Date(
-          lastPostInjury?.test_created_at
-        ).toDateString()}): ${
-          lastPostInjury?.mBESS_total_errors + lastPostInjury?.cognitive_total
-        } / 80`
-      )
-    );
-  }
+  appendSummary(
+    lastPostInjury,
+    t("runtime.results.table.last_post_injury", "Last Post-Injury"),
+    t(
+      "runtime.test_mgmt.no_post_injuries",
+      "No post-injuries found for this athlete."
+    )
+  );
   container.appendChild(summary);
 
   const selectTest = document.createElement("select");
