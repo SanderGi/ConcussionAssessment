@@ -593,7 +593,7 @@ export async function bessEndMenu(test, error_photos) {
       foam_html = /* html */ `
         <label style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">Double Leg Stance: <span><input style="min-width: 10ch; width: 10ch;" value="${
           escapeHTML(test.mBESS_foam_double_errors)
-        }" type="number" data-field="mBESS_foam_double_errors"> of 10 <input type="checkbox" class="expander" data-expand="double-foam-details"></span></label>
+        }" type="number" min="0" max="10" step="1" required data-field="mBESS_foam_double_errors"> of 10 <input type="checkbox" class="expander" data-expand="double-foam-details"></span></label>
         <div id="double-foam-details" style="display: none;">
           Normally 0.33 ± 0.90. Here are the ${
             error_photos.mBESS_foam_double_errors.length
@@ -602,7 +602,7 @@ export async function bessEndMenu(test, error_photos) {
         </div>
         <label style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">Tandem Stance: <span><input style="min-width: 10ch; width: 10ch;" value="${
           escapeHTML(test.mBESS_foam_tandem_errors)
-        }" type="number" data-field="mBESS_foam_tandem_errors"> of 10 <input type="checkbox" class="expander" data-expand="tandem-foam-details"></span></label>
+        }" type="number" min="0" max="10" step="1" required data-field="mBESS_foam_tandem_errors"> of 10 <input type="checkbox" class="expander" data-expand="tandem-foam-details"></span></label>
         <div id="tandem-foam-details" style="display: none;">
           Normally 5.06 ± 2.80. Here are the ${
             error_photos.mBESS_foam_tandem_errors.length
@@ -611,7 +611,7 @@ export async function bessEndMenu(test, error_photos) {
         </div>
         <label style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">Single Leg Stance: <span><input style="min-width: 10ch; width: 10ch;" value="${
           escapeHTML(test.mBESS_foam_single_errors)
-        }" type="number" data-field="mBESS_foam_single_errors"> of 10 <input type="checkbox" class="expander" data-expand="single-foam-details"></span></label>
+          }" type="number" min="0" max="10" step="1" required data-field="mBESS_foam_single_errors"> of 10 <input type="checkbox" class="expander" data-expand="single-foam-details"></span></label>
         <div id="single-foam-details" style="display: none;">
           Normally 3.65 ± 2.62. Here are the ${
             error_photos.mBESS_foam_single_errors.length
@@ -633,7 +633,7 @@ export async function bessEndMenu(test, error_photos) {
       <h3 style="margin-bottom: 0">BESS</h3>
       <label style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">Double Leg Stance: <span><input style="min-width: 10ch; width: 10ch;" value="${
         escapeHTML(test.mBESS_double_errors)
-      }" type="number" data-field="mBESS_double_errors"> of 10 <input type="checkbox" class="expander" data-expand="double-details"></span></label>
+      }" type="number" min="0" max="10" step="1" required data-field="mBESS_double_errors"> of 10 <input type="checkbox" class="expander" data-expand="double-details"></span></label>
       <div id="double-details" style="display: none;">
         Normally 0.009 ± 0.12. Here are the ${
           error_photos.mBESS_double_errors.length
@@ -642,7 +642,7 @@ export async function bessEndMenu(test, error_photos) {
       </div>
       <label style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">Tandem Stance: <span><input style="min-width: 10ch; width: 10ch;" value="${
         escapeHTML(test.mBESS_tandem_errors)
-      }" type="number" data-field="mBESS_tandem_errors"> of 10 <input type="checkbox" class="expander" data-expand="tandem-details"></span></label>
+      }" type="number" min="0" max="10" step="1" required data-field="mBESS_tandem_errors"> of 10 <input type="checkbox" class="expander" data-expand="tandem-details"></span></label>
       <div id="tandem-details" style="display: none;">
         Normally 2.45 ± 2.33. Here are the ${
           error_photos.mBESS_tandem_errors.length
@@ -651,7 +651,7 @@ export async function bessEndMenu(test, error_photos) {
       </div>
       <label style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">Single Leg Stance: <span><input style="min-width: 10ch; width: 10ch;" value="${
         escapeHTML(test.mBESS_single_errors)
-      }" type="number" data-field="mBESS_single_errors"> of 10 <input type="checkbox" class="expander" data-expand="single-details"></span></label>
+        }" type="number" min="0" max="10" step="1" required data-field="mBESS_single_errors"> of 10 <input type="checkbox" class="expander" data-expand="single-details"></span></label>
       <div id="single-details" style="display: none;">
         Normally 0.91 ± 1.36. Here are the ${
           error_photos.mBESS_single_errors.length
@@ -674,6 +674,11 @@ export async function bessEndMenu(test, error_photos) {
     `;
     dialog.onclick = (e) => {
       if (e.target.tagName === "BUTTON") {
+        const invalidInput = dialog.querySelector('input[type="number"]:invalid');
+        if (invalidInput && !["RETRY", "REDO_MANUALLY"].includes(e.target.dataset.action)) {
+          invalidInput.reportValidity();
+          return;
+        }
         dialog.remove();
         resolve(e.target.dataset.action);
       }
@@ -684,6 +689,7 @@ export async function bessEndMenu(test, error_photos) {
       if (!field) {
         return;
       }
+      if (!e.target.checkValidity()) return;
       test[field] = value;
       saveTestResult(field, value);
       if (field.includes("mBESS_foam")) {

@@ -3,6 +3,8 @@ import test from "node:test";
 
 import {
   calculateScat6CognitiveTotal,
+  clampBessError,
+  normalizeBessScores,
   scat6DomainTotals,
 } from "../public/util/scoring.js";
 
@@ -17,6 +19,23 @@ test("SCAT6 cognitive total sums the four paper-form domains", () => {
     }),
     { cognitiveTotal: 50, mbessTotalErrors: 3 }
   );
+});
+
+test("legacy BESS stance errors are rounded and clamped before use", () => {
+  const legacy = {
+    mBESS_double_errors: 11.8,
+    mBESS_single_errors: -2,
+    mBESS_tandem_errors: 4.6,
+    mBESS_total_errors: 99,
+  };
+  normalizeBessScores(legacy);
+  assert.deepEqual(legacy, {
+    mBESS_double_errors: 10,
+    mBESS_single_errors: 0,
+    mBESS_tandem_errors: 5,
+    mBESS_total_errors: 15,
+  });
+  assert.equal(clampBessError("3.6"), 4);
 });
 
 test("mBESS remains separate and a zero-error result is valid", () => {

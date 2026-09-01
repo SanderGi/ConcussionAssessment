@@ -31,6 +31,7 @@ import {
   mergeTestsByUpdatedAt,
   parseStoredTests,
 } from "./util/testStore.js";
+import { normalizeBessScores } from "./util/scoring.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBOXpDbVaCLdbecVBxCUks4ifTDQF9BnTw",
@@ -376,6 +377,7 @@ export async function deleteRemoteData() {
  */
 /** @type {Record<string, Test>} */
 export const tests = parseStoredTests(localStorage.getItem(TESTS));
+for (const test of Object.values(tests)) normalizeBessScores(test);
 let observedTestsResetAt = Number(localStorage.getItem(TESTS_RESET_AT) ?? 0);
 
 /** @type {Record<string, Test[]>} */
@@ -416,6 +418,7 @@ export function saveLocalTests() {
     observedTestsResetAt = storedResetAt;
   }
   mergeTestsByUpdatedAt(tests, parseStoredTests(localStorage.getItem(TESTS)));
+  for (const test of Object.values(tests)) normalizeBessScores(test);
   computeAthletes();
   localStorage.setItem(LASTSYNC, new Date().toUTCString());
   localStorage.setItem(TESTS, JSON.stringify(tests));
@@ -425,6 +428,7 @@ export function replaceLocalTests(nextTests) {
   observedTestsResetAt = Date.now();
   localStorage.setItem(TESTS_RESET_AT, String(observedTestsResetAt));
   replaceTestsInMemory(nextTests);
+  for (const test of Object.values(tests)) normalizeBessScores(test);
   computeAthletes();
   localStorage.setItem(LASTSYNC, new Date().toUTCString());
   localStorage.setItem(TESTS, JSON.stringify(tests));
@@ -590,6 +594,7 @@ window.addEventListener("storage", (event) => {
   }
   if (event.key !== TESTS || !event.newValue) return;
   mergeTestsByUpdatedAt(tests, parseStoredTests(event.newValue));
+  for (const test of Object.values(tests)) normalizeBessScores(test);
   computeAthletes();
   document.dispatchEvent(new CustomEvent("scat6TestsUpdated"));
 });
