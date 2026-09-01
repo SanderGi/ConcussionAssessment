@@ -754,3 +754,24 @@ input[type="checkbox"].theme__toggle {
     box-shadow: 0 0 0 0.125em var(--primary);
   }
 }
+button.icon-button {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  padding: 0.25em;
+}
+
+[role="button"][tabindex="0"],
+[role="checkbox"][tabindex="0"] {
+  cursor: pointer;
+}
+
+button.icon-button:focus-visible,
+[role="button"][tabindex="0"]:focus-visible,
+[role="checkbox"][tabindex="0"]:focus-visible {
+  outline: 3px solid var(--secondary);
+  outline-offset: 2px;
+}

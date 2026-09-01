@@ -70,10 +70,11 @@ tandemData.addEventListener("click", (e) => {
     const seconds = (Date.now() - startTime) / 1000;
     const trialCell = getCell(`trial${trial}`);
 
-    const redoBtn = document.createElement("i");
-    redoBtn.className = "fa-solid fa-rotate-right";
-    redoBtn.style.fontSize = "0.8em";
-    redoBtn.style.cursor = "pointer";
+    const redoBtn = document.createElement("button");
+    redoBtn.type = "button";
+    redoBtn.className = "icon-button";
+    redoBtn.setAttribute("aria-label", `Redo trial ${trial}`);
+    redoBtn.innerHTML = '<i class="fa-solid fa-rotate-right" aria-hidden="true"></i>';
     redoBtn.onclick = () => {
       trialCell.innerHTML = `<button data-action="start-${trial}" class="button button--green">${t(
         "runtime.timer.start",

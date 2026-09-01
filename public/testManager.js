@@ -16,6 +16,53 @@ const TEST = "test";
 const NON_TEST_PHASES = new Set(["test-management", "results"]);
 const visitedTestPhases = new Set();
 
+function iconControlLabel(element) {
+  if (element.classList.contains("fa-volume-high")) return "Read instructions aloud";
+  if (element.classList.contains("fa-circle-check")) return "Mark response correct";
+  if (element.classList.contains("fa-circle-xmark")) return "Mark response incorrect";
+  if (element.classList.contains("fa-pen-to-square")) return "Edit response numbers";
+  if (element.classList.contains("fa-rotate-right")) return "Redo trial";
+  return null;
+}
+
+export function enhanceKeyboardControls(root = document) {
+  const selector = [
+    "[data-keyboard-control]",
+    "i[onclick]",
+    "i[data-action]",
+    "#digit-sets i.fa-circle-check",
+    "#digit-sets i.fa-circle-xmark",
+  ].join(",");
+  const controls = root.matches?.(selector)
+    ? [root, ...root.querySelectorAll(selector)]
+    : [...root.querySelectorAll(selector)];
+  for (const control of controls) {
+    if (control.dataset.keyboardEnabled === "true") continue;
+    control.dataset.keyboardEnabled = "true";
+    control.tabIndex = 0;
+    if (!control.hasAttribute("role")) control.setAttribute("role", "button");
+    const label = iconControlLabel(control);
+    if (label && !control.hasAttribute("aria-label")) {
+      control.setAttribute("aria-label", label);
+    }
+    control.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      control.click();
+    });
+  }
+}
+window.enhanceKeyboardControls = enhanceKeyboardControls;
+
+enhanceKeyboardControls();
+new MutationObserver((mutations) => {
+  for (const mutation of mutations) {
+    for (const node of mutation.addedNodes) {
+      if (node.nodeType === Node.ELEMENT_NODE) enhanceKeyboardControls(node);
+    }
+  }
+}).observe(document.body, { childList: true, subtree: true });
+
 // ============================ Getters ============================
 export function getTest() {
   const test = JSON.parse(sessionStorage.getItem(TEST)) ?? {};

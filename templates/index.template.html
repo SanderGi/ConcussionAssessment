@@ -491,10 +491,13 @@
                         for (const word of words) {
                             const li = document.createElement('li');
                             li.textContent = word;
+                            li.dataset.keyboardControl = '';
+                            li.setAttribute('aria-pressed', 'false');
                             li.onclick = () => {
                                 const wasCrossed = li.style.textDecoration === 'line-through';
                                 li.style.textDecoration = wasCrossed ? 'none' : 'line-through';
                                 li.style.color = wasCrossed ? '' : 'darkgreen';
+                                li.setAttribute('aria-pressed', String(!wasCrossed));
                                 const numCrossed = Array.from(wordlist.children).filter(w => w.style.textDecoration === 'line-through').length;
                                 inputs.children[currentTrial == -1 ? 0 : currentTrial].children[0].value = numCrossed;
                                 const crossed = Array.from(wordlist.children).map(w => w.style.textDecoration === 'line-through');
@@ -661,6 +664,7 @@
                         const wasCrossed = event.target.style.textDecoration === 'line-through';
                         event.target.style.textDecoration = wasCrossed ? 'none' : 'line-through';
                         event.target.style.color = wasCrossed ? '' : 'darkgreen';
+                        event.target.setAttribute('aria-pressed', String(!wasCrossed));
                         const ix = [...document.getElementById("months-reverse-order").children].indexOf(event.target);
                         concentration_months[ix] = !wasCrossed;
                         const numCrossed = document.getElementById("months-reverse-order").querySelectorAll('li[style*="line-through"]').length;
@@ -671,6 +675,10 @@
                         }
                     }
                 });
+                for (const month of document.querySelectorAll('#months-reverse-order li')) {
+                    month.dataset.keyboardControl = '';
+                    month.setAttribute('aria-pressed', 'false');
+                }
             </script>
         </section>
     </main>

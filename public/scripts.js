@@ -921,14 +921,53 @@ window.showAthleteResults = async (athlete_id) => {
     },
   });
   const datapointDetails = document.createElement("div");
-  datapointDetails.textContent = t(
+  const showErrorPhotos = (test) => {
+    datapointDetails.textContent = "";
+    const errorPhotos = test.mBESS_pose_error_photos;
+    if (!errorPhotos) {
+      datapointDetails.textContent = t(
+        "runtime.test_mgmt.no_pose_error_photos",
+        "No pose error photos found for this test."
+      );
+      return;
+    }
+    const photoGroups = [
+      ["mBESS_double_errors", "runtime.results.report.double_leg_errors", "Double-Leg Errors"],
+      ["mBESS_tandem_errors", "runtime.results.report.tandem_errors", "Tandem Errors"],
+      ["mBESS_single_errors", "runtime.results.report.single_leg_errors", "Single-Leg Errors"],
+      ["mBESS_foam_double_errors", "runtime.results.report.double_leg_foam_errors", "Double-Leg Foam Errors"],
+      ["mBESS_foam_tandem_errors", "runtime.results.report.tandem_foam_errors", "Tandem Foam Errors"],
+      ["mBESS_foam_single_errors", "runtime.results.report.single_leg_foam_errors", "Single-Leg Foam Errors"],
+    ];
+    for (const [field, labelKey, fallback] of photoGroups) {
+      const errors = errorPhotos[field] ?? [];
+      if (errors.length === 0) continue;
+      const heading = document.createElement("h3");
+      heading.textContent = t(labelKey, fallback);
+      datapointDetails.appendChild(heading);
+      datapointDetails.insertAdjacentHTML("beforeend", errorPhotosToHTML(errors));
+    }
+  };
+  const photoInstructions = document.createElement("p");
+  photoInstructions.textContent = t(
     "runtime.test_mgmt.click_mbess_data_point",
     "Click on an mBESS Total Errors data point to see pose error photos."
   );
+  datapointDetails.appendChild(photoInstructions);
+  const photoButtons = document.createElement("div");
+  for (const test of athleteTests) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "button";
+    const date = new Date(test.test_created_at).toDateString();
+    button.textContent = `View BESS photos: ${date}`;
+    button.onclick = () => showErrorPhotos(test);
+    photoButtons.appendChild(button);
+  }
+  datapointDetails.appendChild(photoButtons);
   container.appendChild(datapointDetails);
 
   canvas.onclick = (event) => {
-    datapointDetails.textContent = "";
     const datapoints = chart.getElementsAtEventForMode(event, "nearest", {
       intersect: true,
     });
@@ -939,63 +978,7 @@ window.showAthleteResults = async (athlete_id) => {
       (dataset) => dataset.id === "mbess_total_errors"
     );
     if (datasetIndex !== mBessDatasetIndex) return;
-    const test = athleteTests[datapoint.index];
-    const errorPhotos = test.mBESS_pose_error_photos;
-    if (!errorPhotos) {
-      datapointDetails.innerHTML = t(
-        "runtime.test_mgmt.no_pose_error_photos",
-        "No pose error photos found for this test."
-      );
-      return;
-    }
-    const doubleErrors = errorPhotos.mBESS_double_errors ?? [];
-    const tandemErrors = errorPhotos.mBESS_tandem_errors ?? [];
-    const singleErrors = errorPhotos.mBESS_single_errors ?? [];
-    const doubleFoamErrors = errorPhotos.mBESS_foam_double_errors ?? [];
-    const tandemFoamErrors = errorPhotos.mBESS_foam_tandem_errors ?? [];
-    const singleFoamErrors = errorPhotos.mBESS_foam_single_errors ?? [];
-    if (doubleErrors.length > 0) {
-      datapointDetails.innerHTML += `<h3>${t(
-        "runtime.results.report.double_leg_errors",
-        "Double-Leg Errors"
-      )}</h3>`;
-      datapointDetails.innerHTML += errorPhotosToHTML(doubleErrors);
-    }
-    if (tandemErrors.length > 0) {
-      datapointDetails.innerHTML += `<h3>${t(
-        "runtime.results.report.tandem_errors",
-        "Tandem Errors"
-      )}</h3>`;
-      datapointDetails.innerHTML += errorPhotosToHTML(tandemErrors);
-    }
-    if (singleErrors.length > 0) {
-      datapointDetails.innerHTML += `<h3>${t(
-        "runtime.results.report.single_leg_errors",
-        "Single-Leg Errors"
-      )}</h3>`;
-      datapointDetails.innerHTML += errorPhotosToHTML(singleErrors);
-    }
-    if (doubleFoamErrors.length > 0) {
-      datapointDetails.innerHTML += `<h3>${t(
-        "runtime.results.report.double_leg_foam_errors",
-        "Double-Leg Foam Errors"
-      )}</h3>`;
-      datapointDetails.innerHTML += errorPhotosToHTML(doubleFoamErrors);
-    }
-    if (tandemFoamErrors.length > 0) {
-      datapointDetails.innerHTML += `<h3>${t(
-        "runtime.results.report.tandem_foam_errors",
-        "Tandem Foam Errors"
-      )}</h3>`;
-      datapointDetails.innerHTML += errorPhotosToHTML(tandemFoamErrors);
-    }
-    if (singleFoamErrors.length > 0) {
-      datapointDetails.innerHTML += `<h3>${t(
-        "runtime.results.report.single_leg_foam_errors",
-        "Single-Leg Foam Errors"
-      )}</h3>`;
-      datapointDetails.innerHTML += errorPhotosToHTML(singleFoamErrors);
-    }
+    showErrorPhotos(athleteTests[datapoint.index]);
   };
 
   const title2 = document.createElement("h2");

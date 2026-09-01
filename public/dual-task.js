@@ -6,6 +6,13 @@ const t = (key, fallback) => window.__scat6T?.(key, fallback) ?? fallback;
 let startTime = 0;
 let timer = null;
 const section = document.getElementById("dual-task-gait");
+for (const response of section.querySelectorAll('[data-field="responses"] span')) {
+  response.dataset.keyboardControl = "";
+  response.setAttribute("role", "checkbox");
+  response.setAttribute("aria-checked", "false");
+  response.setAttribute("aria-label", `Correct response ${response.textContent}`);
+}
+window.enhanceKeyboardControls(section);
 
 function cancelActiveTimer() {
   const stopButton = section.querySelector('[data-action^="stop-trial-"]');
@@ -31,6 +38,7 @@ section.addEventListener("click", async (e) => {
     e.target.style.textDecoration = wasCrossed ? "" : "line-through";
     e.target.style.color = wasCrossed ? "" : "darkgreen";
     e.target.style.borderColor = wasCrossed ? "" : "darkgreen";
+    e.target.setAttribute("aria-checked", String(!wasCrossed));
   }
   if (e.target.tagName === "I" && e.target.dataset.action === "edit-numbers") {
     const newNumbers = await sequencePrompt();
@@ -41,6 +49,10 @@ section.addEventListener("click", async (e) => {
       for (const num of newNumbers) {
         const span = document.createElement("span");
         span.textContent = num;
+        span.dataset.keyboardControl = "";
+        span.setAttribute("role", "checkbox");
+        span.setAttribute("aria-checked", "false");
+        span.setAttribute("aria-label", `Correct response ${num}`);
         e.target.parentElement.prepend(span);
       }
     }
@@ -70,15 +82,17 @@ section.addEventListener("click", async (e) => {
       `dual-task-trial-${trial}-data`
     );
 
-    const redoBtn = document.createElement("i");
-    redoBtn.className = "fa-solid fa-rotate-right";
-    redoBtn.style.fontSize = "0.8em";
-    redoBtn.style.cursor = "pointer";
+    const redoBtn = document.createElement("button");
+    redoBtn.type = "button";
+    redoBtn.className = "icon-button";
+    redoBtn.setAttribute("aria-label", `Redo trial ${trial}`);
+    redoBtn.innerHTML = '<i class="fa-solid fa-rotate-right" aria-hidden="true"></i>';
     redoBtn.onclick = () => {
       datasection.querySelectorAll("span").forEach((el) => {
         el.style.textDecoration = "";
         el.style.color = "";
         el.style.borderColor = "";
+        el.setAttribute("aria-checked", "false");
       });
       datasection.querySelector(`[data-field="errors"] input`).value = 0;
       datasection.querySelector(
