@@ -1951,10 +1951,11 @@ function injectI18nRuntime(
                 cfg.supportedLanguages.forEach((lang) => {
                     const option = document.createElement('option');
                     option.value = lang.code;
-                    option.textContent = window.__scat6T(
-                      'runtime.lang.name.' + lang.code,
-                      lang.label
-                    );
+                    // Language choices are autonyms and must not change with the
+                    // active UI translation.
+                    option.textContent = lang.nativeLabel ?? lang.label;
+                    option.lang = lang.htmlLang ?? lang.code;
+                    option.dir = lang.dir ?? 'ltr';
                     if (lang.code === cfg.language) option.selected = true;
                     select.appendChild(option);
                 });
