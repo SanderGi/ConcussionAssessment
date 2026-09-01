@@ -85,10 +85,11 @@ document.addEventListener("renderTestSection", async (event) => {
     "runtime.results.table.increased_risk_range",
     "Increased Risk Range"
   );
+  const sourcesLabel = t("runtime.sources.title", "Sources");
 
   content.innerHTML = /*html*/ `
     <table style="margin-left: auto; margin-right: auto">
-      <thead><tr><th>${domainLabel}</th><th>${currentScoreLabel}</th><th>${baselineLabel}</th><th>${postInjuryLabel}</th><th>${healthyRangeLabel} <i class="fa-solid fa-circle-info" data-action="SOURCES"></i></th><th>${riskRangeLabel} <i class="fa-solid fa-circle-info" data-action="SOURCES"></i></th></tr></thead>
+      <thead><tr><th>${domainLabel}</th><th>${currentScoreLabel}</th><th>${baselineLabel}</th><th>${postInjuryLabel}</th><th>${healthyRangeLabel} <i class="fa-solid fa-circle-info" data-action="SOURCES" aria-label="${healthyRangeLabel} ${sourcesLabel}"></i></th><th>${riskRangeLabel} <i class="fa-solid fa-circle-info" data-action="SOURCES" aria-label="${riskRangeLabel} ${sourcesLabel}"></i></th></tr></thead>
       <tbody>
         <tr><!-- DATE -->
           <td data-title="${domainLabel}">${t("runtime.results.row.date", "Date")}</td>
