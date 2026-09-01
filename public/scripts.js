@@ -826,6 +826,7 @@ window.showAthleteResults = async (athlete_id) => {
         )
       )
     );
+    return;
   } else {
     container.appendChild(selectTest);
     const openTestButton = document.createElement("button");
