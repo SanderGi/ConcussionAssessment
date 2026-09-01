@@ -562,7 +562,7 @@
                     saveTestResult('concentration_digits', concentration_digits);
                     saveTestResult('concentration_months', concentration_months)
                     saveTestResult('concentration_months_time_sec', Math.round((Date.now() - concentration_months_start_time) / 1000))
-                    renderTestSection('bess');
+                    renderTestSection('manual-bess');
                 });
                 document.addEventListener('renderTestSection', (e) => {
                     if (e.detail === 'concentration') {
@@ -712,6 +712,7 @@
             <h2>Balance Error Scoring System <a style="font-size: 0.6em; vertical-align: middle;" href="/assets/bess_manual.pdf" target="_blank" aria-label="Manual BESS instructions"><i class="fa-solid fa-circle-info"></i></a></h2>
             <p style="margin-top: 0;">Examiner, you will guide the athlete through 3 poses (double leg, tandem, and single leg stance) to be held for 20 seconds each. The later foam pad test is optional, only a solid floor/ground surface is required. You'll need a spotter to keep an eye on the athlete and be ready to assist them if they become unstable and begin to fall.</p>
             <p>The athlete should take their shoes off, roll up pant legs above ankles (if applicable), and remove any ankle taping (if applicable).</p>
+            <button class="button" onclick="renderTestSection('bess')">Use Camera-Based BESS (Optional) &nbsp; <i class="fa-solid fa-camera"></i></button>
             <p>Keep a count of the following errors in the athlete's execution of the poses:</p>
             <ul>
                 <li style="text-align: left;">Opening eyes</li>

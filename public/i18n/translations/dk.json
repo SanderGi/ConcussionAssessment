@@ -2,14 +2,14 @@
   "meta": {
     "language": "dk",
     "defaultLanguage": "en",
-    "generatedAt": "2026-03-03T06:16:56.033Z",
+    "generatedAt": "2026-09-01T19:53:36.217Z",
     "note": "Each entry stores the English source text, all known locations, and the translated value for this language."
   },
   "entries": {
     "html.a_quick_feedback_form.fce1454d": {
       "source": "a quick feedback form",
       "locations": [
-        "templates/index.template.html:686"
+        "templates/index.template.html:687"
       ],
       "value": "en hurtig feedback-formular"
     },
@@ -17,7 +17,7 @@
       "source": "Abduction or flexion of the hip beyond 30 degrees (moving hips forwards/backwards/sideways)",
       "locations": [
         "templates/index.template.html:435",
-        "templates/index.template.html:479"
+        "templates/index.template.html:481"
       ],
       "value": "Abduktion eller fleksion af hoften (bevægelse af hofterne fremad/bagud/sidelæns) mere end 30 grader"
     },
@@ -38,7 +38,7 @@
     "html.adaptation_by_aureole_chang_and_alexander_metzge.3cb06bed": {
       "source": "adaptation | By Aureole Chang and Alexander Metzger |",
       "locations": [
-        "templates/index.template.html:693"
+        "templates/index.template.html:694"
       ],
       "value": "tilpasning | Af Aureole Chang og Alexander Metzger |"
     },
@@ -52,21 +52,21 @@
     "html.and_or_ask_your_patients_athletes_to_fill_it_out.ba099e7d": {
       "source": "and/or ask your patients/athletes to fill it out too.",
       "locations": [
-        "templates/index.template.html:686"
+        "templates/index.template.html:687"
       ],
       "value": "og/eller bed dine patienter/atleter om også at udfylde den."
     },
     "html.and_privacy_focused_this_means_no_usage_data_is_.8675d812": {
       "source": "and Privacy focused. This means no usage data is collected, but we'd still love to hear from you so we can improve the tool. Here are some optional ways you can contribute:",
       "locations": [
-        "templates/index.template.html:681"
+        "templates/index.template.html:683"
       ],
       "value": "og fokuseret på privatliv. Det betyder, at der ikke indsamles nogen brugsdata, men vi vil stadig meget gerne høre fra dig, så vi kan forbedre værktøjet. Her er nogle valgfrie måder, du kan bidrage på:"
     },
     "html.approved.46a566b7": {
       "source": "approved",
       "locations": [
-        "templates/index.template.html:692"
+        "templates/index.template.html:694"
       ],
       "value": "godkendt"
     },
@@ -109,7 +109,7 @@
     "html.average_seconds.9f275f4f": {
       "source": "Average (seconds)",
       "locations": [
-        "templates/index.template.html:559"
+        "templates/index.template.html:561"
       ],
       "value": "Gennemsnit (sekunder)"
     },
@@ -212,14 +212,14 @@
     "html.choose_an_export_option.dfad24a3": {
       "source": "Choose an export option:",
       "locations": [
-        "templates/index.template.html:671"
+        "templates/index.template.html:673"
       ],
       "value": "Vælg en eksportmulighed:"
     },
     "html.cisg.001f913a": {
       "source": "CISG",
       "locations": [
-        "templates/index.template.html:691"
+        "templates/index.template.html:693"
       ],
       "value": "CISG"
     },
@@ -233,7 +233,7 @@
     "html.code.0020220d": {
       "source": "Code",
       "locations": [
-        "templates/index.template.html:694"
+        "templates/index.template.html:695"
       ],
       "value": "Kode"
     },
@@ -283,8 +283,8 @@
     "html.correct_responses.99fea3dc": {
       "source": "Correct Responses",
       "locations": [
-        "templates/index.template.html:599",
-        "templates/index.template.html:624"
+        "templates/index.template.html:600",
+        "templates/index.template.html:627"
       ],
       "value": "Korrekte svar"
     },
@@ -298,7 +298,7 @@
     "html.delayed_recall.7a52f3cf": {
       "source": "Delayed Recall",
       "locations": [
-        "templates/index.template.html:669"
+        "templates/index.template.html:670"
       ],
       "value": "Forsinket tilbagekaldelse"
     },
@@ -364,7 +364,7 @@
     "html.do_you_want_to_help_make_this_tool_better.e42dac0b": {
       "source": "Do you want to help make this tool better?",
       "locations": [
-        "templates/index.template.html:678"
+        "templates/index.template.html:681"
       ],
       "value": "Vil du hjælpe med at gøre dette værktøj bedre?"
     },
@@ -386,7 +386,7 @@
     "html.double_leg_stance.09e0b951": {
       "source": "Double Leg Stance",
       "locations": [
-        "templates/index.template.html:487"
+        "templates/index.template.html:489"
       ],
       "value": "Dobbeltbens holdning"
     },
@@ -415,7 +415,7 @@
     "html.dual_task_gait.b2bd47c4": {
       "source": "Dual Task Gait (",
       "locations": [
-        "templates/index.template.html:586"
+        "templates/index.template.html:588"
       ],
       "value": "Dobbeltopgavegang ("
     },
@@ -436,8 +436,8 @@
     "html.errors.7c3a5b8b": {
       "source": "Errors",
       "locations": [
-        "templates/index.template.html:599",
-        "templates/index.template.html:625"
+        "templates/index.template.html:602",
+        "templates/index.template.html:627"
       ],
       "value": "Fejl"
     },
@@ -465,12 +465,12 @@
     "html.examiner_keep_a_count_of_the_errors_listed_above.08e52937": {
       "source": "Examiner, keep a count of the errors listed above and read the instructions below:",
       "locations": [
-        "templates/index.template.html:487",
-        "templates/index.template.html:501",
+        "templates/index.template.html:490",
+        "templates/index.template.html:503",
         "templates/index.template.html:515",
         "templates/index.template.html:519",
         "templates/index.template.html:523",
-        "templates/index.template.html:527"
+        "templates/index.template.html:530"
       ],
       "value": "Eksaminator, hold styr på ovenstående fejl og læs instruktionerne nedenfor:"
     },
@@ -485,14 +485,14 @@
     "html.examiner_please_keep_the_3_meter_long_athletic_t.0a0fa7aa": {
       "source": "Examiner, please keep the 3-meter-long athletic tape line from the Timed Gait on the floor/firm surface. You will follow the script below, click start/end timer, and click on the responses that the athlete correctly says in order. Redo trials where the athlete strays off the line.",
       "locations": [
-        "templates/index.template.html:587"
+        "templates/index.template.html:589"
       ],
       "value": "Eksaminator, behold venligst den 3 meter lange sportsbåndslinje fra på gulvet/den faste overflade. Du skal følge vejledningen nedenfor, klikke på start/slut timer og klikke på de svar, som atleten korrekt giver i rækkefølge. Gentag de forsøg, hvor atleten afviger fra linjen."
     },
     "html.examiner_please_place_a_3_meter_long_line_on_the.ffb580cf": {
       "source": "Examiner, please place a 3-meter-long line on the floor/firm surface with athletic tape. You will instruct the athlete and start/stop the timer for 3 trials.",
       "locations": [
-        "templates/index.template.html:546"
+        "templates/index.template.html:547"
       ],
       "value": "Eksaminator, placer venligst en 3 meter lang line på gulvet/fast overflade med sportsbånd. Du vil instruere atleten og starte/stoppe timeren i 3 forsøg."
     },
@@ -535,7 +535,7 @@
       "source": "Export &nbsp;",
       "locations": [
         "templates/index.template.html:73",
-        "templates/index.template.html:675"
+        "templates/index.template.html:676"
       ],
       "value": "Eksporter &nbsp;"
     },
@@ -570,7 +570,7 @@
     "html.fastest_seconds.2f03389c": {
       "source": "Fastest (seconds)",
       "locations": [
-        "templates/index.template.html:559"
+        "templates/index.template.html:562"
       ],
       "value": "Hurtigst (sekunder)"
     },
@@ -622,7 +622,7 @@
     "html.free_open_source.8bea7570": {
       "source": "Free & Open-Source",
       "locations": [
-        "templates/index.template.html:681"
+        "templates/index.template.html:683"
       ],
       "value": "Gratis og åben kildekode"
     },
@@ -636,7 +636,7 @@
     "html.full_scat6.eec7bd62": {
       "source": "Full SCAT6",
       "locations": [
-        "templates/index.template.html:672"
+        "templates/index.template.html:674"
       ],
       "value": "Fuld SCAT6"
     },
@@ -657,7 +657,7 @@
     "html.good_now_you_will_walk_heel_to_toe_and_count_bac.e0586300": {
       "source": "Good, now you will walk heel-to-toe and count backwards out loud at the same time. Keep counting until you finish walking the 3 meters, turning 180 degrees, walking the 3 meters again and the examiner says stop indicating you got to the last number. Are you ready? The number to start with is 88. Go! &nbsp;",
       "locations": [
-        "templates/index.template.html:618"
+        "templates/index.template.html:620"
       ],
       "value": "Godt, nu skal du gå hæl til tå og tælle højt baglæns samtidig. Fortsæt med at tælle, indtil du er færdig med at gå de 3 meter, drejer dig 180 grader, går de 3 meter igen, og eksaminator siger stop, hvilket indikerer, at du er nået til det sidste tal. Er du klar? Tallet at starte med er 88. Start! &nbsp;"
     },
@@ -672,14 +672,14 @@
     "html.healthy_athletes_typically_complete_the_task_in_.c8a356ce": {
       "source": "Healthy athletes typically complete the task in 18.7-22.5 seconds with 85.8-92.4% accuracy (0.9-1.7 errors). Concussed athletes typically take 30.6-36.1 seconds with 76.4-83.6% accuracy (2.0-2.8 errors).",
       "locations": [
-        "templates/index.template.html:667"
+        "templates/index.template.html:668"
       ],
       "value": "Raske atleter gennemfører typisk opgaven på 18,7-22,5 sekunder med en nøjagtighed på 85,8-92,4 % (0,9-1,7 fejl). Atleter med hjernerystelse bruger typisk 30,6-36,1 sekunder med en nøjagtighed på 76,4-83,6 % (2,0-2,8 fejl)."
     },
     "html.healthy_athletes_typically_have_a_fastest_time_b.b2978261": {
       "source": "Healthy athletes typically have a fastest time between 13.9 and 15.8. Newly concussed athletes are typically between 21.9 and 26.1. Athletes concussed within the last 6-73 days will be somewhere in between.",
       "locations": [
-        "templates/index.template.html:569"
+        "templates/index.template.html:571"
       ],
       "value": "Raske atleter har typisk en hurtigste tid mellem 13,9 og 15,8. Nyligt ramte atleter ligger typisk mellem 21,9 og 26,1. Atleter, der har fået hjernerystelse inden for de sidste 6-73 dage, vil ligge et sted midt imellem."
     },
@@ -808,7 +808,7 @@
     "html.keep_a_count_of_the_following_errors_in_the_athl.3cd31d02": {
       "source": "Keep a count of the following errors in the athlete's execution of the poses:",
       "locations": [
-        "templates/index.template.html:475"
+        "templates/index.template.html:477"
       ],
       "value": "Hold styr på følgende fejl i atletens udførelse af stillingerne:"
     },
@@ -816,7 +816,7 @@
       "source": "Lifting forefoot or heel",
       "locations": [
         "templates/index.template.html:436",
-        "templates/index.template.html:482"
+        "templates/index.template.html:486"
       ],
       "value": "Løft af forfod eller hæl"
     },
@@ -824,7 +824,7 @@
       "source": "Lifting hands off iliac crests (upper border of the pelvis/hip-bone)",
       "locations": [
         "templates/index.template.html:429",
-        "templates/index.template.html:478"
+        "templates/index.template.html:479"
       ],
       "value": "Løfter hænderne fra hoftekammene (øverste kant af bækkenet/hoftebenet)"
     },
@@ -838,7 +838,7 @@
     "html.loading.8f2553d2": {
       "source": "Loading...",
       "locations": [
-        "templates/index.template.html:676"
+        "templates/index.template.html:678"
       ],
       "value": "Indlæser..."
     },
@@ -894,7 +894,7 @@
     "html.mit.00012a38": {
       "source": "MIT",
       "locations": [
-        "templates/index.template.html:694"
+        "templates/index.template.html:695"
       ],
       "value": "MIT-licens"
     },
@@ -917,7 +917,7 @@
       "source": "Multiple simultaneous errors count as one. Failure to hold the pose for at least 5 seconds counts as the maximum number of errors for that pose (10).",
       "locations": [
         "templates/index.template.html:436",
-        "templates/index.template.html:483"
+        "templates/index.template.html:487"
       ],
       "value": "Flere samtidige fejl tæller som én. Hvis stillingen ikke kan holdes i mindst 5 sekunder, tæller det som maksimalt antal fejl for den stilling (10)."
     },
@@ -1011,12 +1011,12 @@
     "html.number_of_errors.2b3d65fd": {
       "source": "Number of errors:",
       "locations": [
-        "templates/index.template.html:496",
-        "templates/index.template.html:511",
-        "templates/index.template.html:516",
+        "templates/index.template.html:500",
+        "templates/index.template.html:515",
+        "templates/index.template.html:518",
         "templates/index.template.html:521",
-        "templates/index.template.html:524",
-        "templates/index.template.html:531"
+        "templates/index.template.html:525",
+        "templates/index.template.html:535"
       ],
       "value": "Antal fejl:"
     },
@@ -1087,31 +1087,31 @@
       "source": "Opening eyes",
       "locations": [
         "templates/index.template.html:427",
-        "templates/index.template.html:477"
+        "templates/index.template.html:479"
       ],
       "value": "Åbner øjne"
     },
     "html.opensource.4b1d2ee5": {
       "source": "opensource",
       "locations": [
-        "templates/index.template.html:694"
+        "templates/index.template.html:695"
       ],
       "value": "open source"
     },
     "html.opt_in_to_share_anonymized_test_scores_for_resea.bbd34410": {
       "source": "Opt-in to share anonymized test scores for research-use and to improve tool recommendations.",
       "locations": [
-        "templates/index.template.html:687"
+        "templates/index.template.html:688"
       ],
       "value": "Tilmeld dig frivilligt for at dele anonymiserede testresultater til forskning og forbedring af værktøjets anbefalinger."
     },
     "html.optional.ff24af80": {
       "source": "Optional",
       "locations": [
-        "templates/index.template.html:518",
+        "templates/index.template.html:519",
         "templates/index.template.html:522",
-        "templates/index.template.html:525",
-        "templates/index.template.html:587"
+        "templates/index.template.html:527",
+        "templates/index.template.html:588"
       ],
       "value": "Valgfri"
     },
@@ -1132,7 +1132,7 @@
     "html.overall_report.18ee58a7": {
       "source": "Overall Report",
       "locations": [
-        "templates/index.template.html:671"
+        "templates/index.template.html:674"
       ],
       "value": "Samlet rapport"
     },
@@ -1168,15 +1168,15 @@
       "source": "Power Systems Airex Balance Pad 81000",
       "locations": [
         "templates/index.template.html:519",
-        "templates/index.template.html:522",
-        "templates/index.template.html:527"
+        "templates/index.template.html:523",
+        "templates/index.template.html:530"
       ],
       "value": "Power Systems Airex Balance Pad 81000 (anbefalet model)"
     },
     "html.practice.b013e55b": {
       "source": "Practice",
       "locations": [
-        "templates/index.template.html:603"
+        "templates/index.template.html:605"
       ],
       "value": "Øvelse"
     },
@@ -1198,7 +1198,7 @@
     "html.raw_csv.9de18dce": {
       "source": "Raw CSV",
       "locations": [
-        "templates/index.template.html:673"
+        "templates/index.template.html:675"
       ],
       "value": "Rå CSV"
     },
@@ -1227,21 +1227,21 @@
       "source": "Remaining out of the testing position for more than 5 seconds",
       "locations": [
         "templates/index.template.html:436",
-        "templates/index.template.html:481"
+        "templates/index.template.html:483"
       ],
       "value": "Ude af testpositionen i mere end 5 sekunder"
     },
     "html.results.a4a3d3d6": {
       "source": "Results",
       "locations": [
-        "templates/index.template.html:670"
+        "templates/index.template.html:671"
       ],
       "value": "Resultater"
     },
     "html.return_to_main_menu.edf01cd1": {
       "source": "Return to Main Menu",
       "locations": [
-        "templates/index.template.html:677"
+        "templates/index.template.html:678"
       ],
       "value": "Tilbage til hovedmenu"
     },
@@ -1256,7 +1256,7 @@
     "html.scat6.9171516f": {
       "source": "SCAT6™",
       "locations": [
-        "templates/index.template.html:693"
+        "templates/index.template.html:694"
       ],
       "value": "SCAT6™-skema"
     },
@@ -1350,37 +1350,37 @@
     "html.single_leg_stance_on_foam.c2e7d6d8": {
       "source": "Single Leg Stance on Foam (",
       "locations": [
-        "templates/index.template.html:525"
+        "templates/index.template.html:527"
       ],
       "value": "Stå på ét ben på skum ("
     },
     "html.skip_to_delayed_recall.568573d1": {
       "source": "Skip to Delayed Recall &nbsp;",
       "locations": [
-        "templates/index.template.html:580"
+        "templates/index.template.html:584"
       ],
       "value": "Spring til forsinket genkaldelse &nbsp;"
     },
     "html.source.93f5543b": {
       "source": "Source",
       "locations": [
-        "templates/index.template.html:573",
-        "templates/index.template.html:668"
+        "templates/index.template.html:577",
+        "templates/index.template.html:669"
       ],
       "value": "Kilde"
     },
     "html.stand_on_one_leg_hands_on_your_hips_and_eyes_clo.370aa7fc": {
       "source": "Stand on one leg, hands on your hips, and eyes closed. Hold this position for 20 seconds &nbsp;",
       "locations": [
-        "templates/index.template.html:515",
-        "templates/index.template.html:530"
+        "templates/index.template.html:516",
+        "templates/index.template.html:531"
       ],
       "value": "Stå på ét ben, med hænderne på hofterne og lukkede øjne. Hold denne position i 20 sekunder &nbsp;"
     },
     "html.stand_with_your_feet_in_a_heel_to_toe_position_h.1b9ad8ac": {
       "source": "Stand with your feet in a heel-to-toe position, hands on your hips, and eyes closed. Hold this position for 20 seconds &nbsp;",
       "locations": [
-        "templates/index.template.html:503",
+        "templates/index.template.html:504",
         "templates/index.template.html:523"
       ],
       "value": "Stå med fødderne i hæl-mod-tå-position, hænderne på hofterne og lukkede øjne. Hold denne position i 20 sekunder &nbsp;"
@@ -1388,20 +1388,20 @@
     "html.stand_with_your_feet_together_hands_on_your_hips.3dc1560a": {
       "source": "Stand with your feet together, hands on your hips, and eyes closed. Hold this position for 20 seconds &nbsp;",
       "locations": [
-        "templates/index.template.html:489",
-        "templates/index.template.html:519"
+        "templates/index.template.html:491",
+        "templates/index.template.html:520"
       ],
       "value": "Stå med samlede fødder, hænderne på hofterne og lukkede øjne. Hold denne position i 20 sekunder &nbsp;"
     },
     "html.start_20s_countdown.f1ab9a48": {
       "source": "Start 20s Countdown",
       "locations": [
-        "templates/index.template.html:500",
+        "templates/index.template.html:502",
         "templates/index.template.html:515",
         "templates/index.template.html:518",
-        "templates/index.template.html:521",
+        "templates/index.template.html:522",
         "templates/index.template.html:525",
-        "templates/index.template.html:536"
+        "templates/index.template.html:541"
       ],
       "value": "Start 20 sek. nedtælling"
     },
@@ -1457,7 +1457,7 @@
     "html.start_optional_dual_task_gait.e2f233c6": {
       "source": "Start Optional Dual Task Gait &nbsp;",
       "locations": [
-        "templates/index.template.html:578"
+        "templates/index.template.html:580"
       ],
       "value": "Start valgfri dual-task gangtest &nbsp;"
     },
@@ -1479,17 +1479,17 @@
     "html.start_tandem_gait.eab98ca8": {
       "source": "Start Tandem Gait &nbsp;",
       "locations": [
-        "templates/index.template.html:540"
+        "templates/index.template.html:545"
       ],
       "value": "Start tandemgang &nbsp;"
     },
     "html.start_timer.9b6045c7": {
       "source": "Start Timer",
       "locations": [
-        "templates/index.template.html:563",
-        "templates/index.template.html:615",
-        "templates/index.template.html:636",
-        "templates/index.template.html:651",
+        "templates/index.template.html:564",
+        "templates/index.template.html:619",
+        "templates/index.template.html:638",
+        "templates/index.template.html:652",
         "templates/index.template.html:667"
       ],
       "value": "Start timer"
@@ -1498,7 +1498,7 @@
       "source": "Stepping, stumbling, or falling",
       "locations": [
         "templates/index.template.html:434",
-        "templates/index.template.html:479"
+        "templates/index.template.html:480"
       ],
       "value": "Trinfejl, snublen eller fald"
     },
@@ -1533,14 +1533,14 @@
     "html.take_10_minutes_to_fill_out.26f5558d": {
       "source": "Take 10 minutes to fill out",
       "locations": [
-        "templates/index.template.html:684"
+        "templates/index.template.html:686"
       ],
       "value": "Brug 10 minutter på at udfylde"
     },
     "html.tandem_stance.7f1cbc25": {
       "source": "Tandem Stance",
       "locations": [
-        "templates/index.template.html:500"
+        "templates/index.template.html:502"
       ],
       "value": "Tandemstilling"
     },
@@ -1554,8 +1554,8 @@
     "html.task.0027a9a5": {
       "source": "Task",
       "locations": [
-        "templates/index.template.html:599",
-        "templates/index.template.html:624"
+        "templates/index.template.html:600",
+        "templates/index.template.html:626"
       ],
       "value": "Opgave"
     },
@@ -1592,9 +1592,9 @@
     "html.the_foam_test_requires_a_50cm_x_40cm_x_6cm_foam_.3a6b078f": {
       "source": "The foam test requires a 50cm x 40cm x 6cm foam pad. Recommended model is the",
       "locations": [
-        "templates/index.template.html:518",
+        "templates/index.template.html:519",
         "templates/index.template.html:522",
-        "templates/index.template.html:526"
+        "templates/index.template.html:527"
       ],
       "value": "Skumtesten kræver en skumpude på 50 cm x 40 cm x 6 cm. Anbefalet model er"
     },
@@ -1608,15 +1608,15 @@
     "html.this_tool_is_100.360a6d24": {
       "source": "This tool is 100%",
       "locations": [
-        "templates/index.template.html:679"
+        "templates/index.template.html:681"
       ],
       "value": "Dette værktøj er 100%"
     },
     "html.time_seconds.e17d443f": {
       "source": "Time (seconds)",
       "locations": [
-        "templates/index.template.html:600",
-        "templates/index.template.html:625"
+        "templates/index.template.html:602",
+        "templates/index.template.html:627"
       ],
       "value": "Tid (sekunder)"
     },
@@ -1631,14 +1631,14 @@
       "source": "Trial 1",
       "locations": [
         "templates/index.template.html:348",
-        "templates/index.template.html:627"
+        "templates/index.template.html:629"
       ],
       "value": "Forsøg 1"
     },
     "html.trial_1_seconds.5c16c259": {
       "source": "Trial 1 (seconds)",
       "locations": [
-        "templates/index.template.html:557"
+        "templates/index.template.html:559"
       ],
       "value": "Forsøg 1 (sekunder)"
     },
@@ -1646,14 +1646,14 @@
       "source": "Trial 2",
       "locations": [
         "templates/index.template.html:348",
-        "templates/index.template.html:639"
+        "templates/index.template.html:641"
       ],
       "value": "Forsøg 2"
     },
     "html.trial_2_seconds.f0fb751a": {
       "source": "Trial 2 (seconds)",
       "locations": [
-        "templates/index.template.html:558"
+        "templates/index.template.html:559"
       ],
       "value": "Forsøg 2 (sekunder)"
     },
@@ -1661,14 +1661,14 @@
       "source": "Trial 3",
       "locations": [
         "templates/index.template.html:348",
-        "templates/index.template.html:652"
+        "templates/index.template.html:654"
       ],
       "value": "Forsøg 3"
     },
     "html.trial_3_seconds.85e027db": {
       "source": "Trial 3 (seconds)",
       "locations": [
-        "templates/index.template.html:558"
+        "templates/index.template.html:560"
       ],
       "value": "Forsøg 3 (sekunder)"
     },
@@ -1684,14 +1684,14 @@
       "source": "Twisting of the shoulder beyond 30 degrees",
       "locations": [
         "templates/index.template.html:435",
-        "templates/index.template.html:481"
+        "templates/index.template.html:482"
       ],
       "value": "Rotation af skulderen ud over 30 grader"
     },
     "html.unable_to_tandem_walk.2ddfde06": {
       "source": "Unable to Tandem Walk",
       "locations": [
-        "templates/index.template.html:576"
+        "templates/index.template.html:578"
       ],
       "value": "Kan ikke gå tandemgang"
     },
@@ -1701,6 +1701,13 @@
         "templates/index.template.html:690"
       ],
       "value": "Upload fotos/videoer"
+    },
+    "html.use_camera_based_bess_optional.8ac8bfe2": {
+      "source": "Use Camera-Based BESS (Optional) &nbsp;",
+      "locations": [
+        "templates/index.template.html:476"
+      ],
+      "value": "Brug kamerabaseret BESS (valgfrit) &nbsp;"
     },
     "html.use_this_web_app_to_administer_concussion_assess.cfcc1d4f": {
       "source": "Use this web app to administer concussion assessments for your athletes. The data is stored locally in your browser unless you \"Delete All\". You can also sync the data with your Google Drive. See the",
@@ -1789,7 +1796,7 @@
     "html.when_the_timer_is_started_please_walk_heel_to_to.b86f5b69": {
       "source": "When the timer is started, please walk heel-to-toe quickly to the end of the tape, turn around and come back as fast as you can, without separating your feet or stepping off the line &nbsp;",
       "locations": [
-        "templates/index.template.html:548"
+        "templates/index.template.html:552"
       ],
       "value": "Når timeren starter, gå venligst hæl-mod-tå hurtigt til enden af tapen, vend rundt og kom tilbage så hurtigt som muligt uden at adskille fødderne eller træde uden for linjen &nbsp;"
     },
@@ -1803,7 +1810,7 @@
     "html.while_you_are_walking_heel_to_toe_you_will_count.1e9654f8": {
       "source": "While you are walking heel-to-toe, you will count backwards out loud by sevens. For example, if we started at 100, you would say 100, 93, 86, 79. Let's practice counting. Starting with 93, count backward by sevens until the examiner says stop &nbsp;",
       "locations": [
-        "templates/index.template.html:594"
+        "templates/index.template.html:597"
       ],
       "value": "Mens du går hæl-mod-tå, skal du tælle baglæns højt med syv ad gangen. Hvis vi fx starter ved 100, siger du 100, 93, 86, 79. Lad os øve. Start ved 93 og tæl baglæns med syv, indtil undersøgeren siger stop &nbsp;"
     },
@@ -1845,17 +1852,17 @@
     "html_attr.average_seconds.9f275f4f": {
       "source": "Average (seconds)",
       "locations": [
-        "templates/index.template.html:565"
+        "templates/index.template.html:568"
       ],
       "value": "Gennemsnit (sekunder)"
     },
     "html_attr.correct_responses.99fea3dc": {
       "source": "Correct Responses",
       "locations": [
-        "templates/index.template.html:603",
-        "templates/index.template.html:628",
-        "templates/index.template.html:640",
-        "templates/index.template.html:653"
+        "templates/index.template.html:606",
+        "templates/index.template.html:631",
+        "templates/index.template.html:644",
+        "templates/index.template.html:654"
       ],
       "value": "Korrekte svar"
     },
@@ -1869,17 +1876,17 @@
     "html_attr.errors.7c3a5b8b": {
       "source": "Errors",
       "locations": [
-        "templates/index.template.html:610",
-        "templates/index.template.html:633",
-        "templates/index.template.html:647",
-        "templates/index.template.html:658"
+        "templates/index.template.html:613",
+        "templates/index.template.html:636",
+        "templates/index.template.html:650",
+        "templates/index.template.html:665"
       ],
       "value": "Fejl"
     },
     "html_attr.fastest_seconds.2f03389c": {
       "source": "Fastest (seconds)",
       "locations": [
-        "templates/index.template.html:567"
+        "templates/index.template.html:569"
       ],
       "value": "Hurtigste (sekunder)"
     },
@@ -1908,20 +1915,20 @@
     "html_attr.task.0027a9a5": {
       "source": "Task",
       "locations": [
-        "templates/index.template.html:602",
-        "templates/index.template.html:627",
-        "templates/index.template.html:638",
-        "templates/index.template.html:652"
+        "templates/index.template.html:604",
+        "templates/index.template.html:629",
+        "templates/index.template.html:640",
+        "templates/index.template.html:654"
       ],
       "value": "Opgave"
     },
     "html_attr.time_seconds.e17d443f": {
       "source": "Time (seconds)",
       "locations": [
-        "templates/index.template.html:613",
-        "templates/index.template.html:635",
-        "templates/index.template.html:649",
-        "templates/index.template.html:664"
+        "templates/index.template.html:616",
+        "templates/index.template.html:637",
+        "templates/index.template.html:651",
+        "templates/index.template.html:667"
       ],
       "value": "Tid (sekunder)"
     },
@@ -1943,7 +1950,7 @@
     "html_attr.trial_1_seconds.5c16c259": {
       "source": "Trial 1 (seconds)",
       "locations": [
-        "templates/index.template.html:561"
+        "templates/index.template.html:563"
       ],
       "value": "Forsøg 1 (sekunder)"
     },
@@ -1957,7 +1964,7 @@
     "html_attr.trial_2_seconds.f0fb751a": {
       "source": "Trial 2 (seconds)",
       "locations": [
-        "templates/index.template.html:563"
+        "templates/index.template.html:565"
       ],
       "value": "Forsøg 2 (sekunder)"
     },
@@ -1971,7 +1978,7 @@
     "html_attr.trial_3_seconds.85e027db": {
       "source": "Trial 3 (seconds)",
       "locations": [
-        "templates/index.template.html:564"
+        "templates/index.template.html:567"
       ],
       "value": "Forsøg 3 (sekunder)"
     }
