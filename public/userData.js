@@ -17,6 +17,7 @@ import {
   setWorkspaceData,
 } from "./util/workspace.js";
 import { syncNonWorkspaceAnalyticsState } from "./util/analytics.js";
+import { decryptJSON, encryptJSON } from "./util/encryption.js";
 import { alert, select } from "./util/popup.js";
 
 const firebaseConfig = {
@@ -113,7 +114,10 @@ export async function disconnectUser() {
 }
 
 // ============================ Remote Data ============================
-// we encrypt the data to be prepared to store it somewhere else in the future and only keep the key in GDrive
+// SECURITY TODO: key.json and data.json currently live in the same Google Drive
+// app-data folder, so this encryption is only obfuscation against accidental
+// disclosure. It must not be treated as confidentiality protection until key
+// material is stored separately from the ciphertext.
 const KEY_FILE = "key.json";
 const DATA_FILE = "data.json";
 
@@ -126,7 +130,6 @@ async function getKey(user) {
     // file already exists, parse it
     const algorithm = {
       name: file.algorithm.name,
-      iv: Uint8Array.from(file.algorithm.iv),
     };
     const aes256key = await window.crypto.subtle.importKey(
       "jwk",
@@ -135,7 +138,13 @@ async function getKey(user) {
       true,
       ["encrypt", "decrypt"]
     );
-    key = { algorithm, aes256key };
+    key = {
+      algorithm,
+      aes256key,
+      legacyIv: Array.isArray(file.algorithm.iv)
+        ? Uint8Array.from(file.algorithm.iv)
+        : null,
+    };
   } else {
     // file does not exist, create a new key and file
     file = {};
@@ -150,15 +159,13 @@ async function getKey(user) {
     );
     const algorithm = {
       name: encryptionType,
-      iv: window.crypto.getRandomValues(new Uint8Array(96)),
     };
     file.algorithm = {
       name: encryptionType,
-      iv: Array.from(algorithm.iv),
     };
     file.key = await window.crypto.subtle.exportKey("jwk", aes256key);
     await setAppDataFile(file, user.accessToken, KEY_FILE);
-    key = { algorithm, aes256key };
+    key = { algorithm, aes256key, legacyIv: null };
   }
 
   localStorage.setItem(KEY, JSON.stringify(file));
@@ -169,16 +176,11 @@ async function getRemoteData() {
   const user = await connectUser();
   if (!user) return null;
 
-  const { algorithm, aes256key } = await getKey(user);
+  const { algorithm, aes256key, legacyIv } = await getKey(user);
   const data = await getAppDataFile(user.accessToken, DATA_FILE);
   if (!data) return null;
 
-  const decrypted = await window.crypto.subtle.decrypt(
-    algorithm,
-    aes256key,
-    Uint8Array.from(data).buffer
-  );
-  return JSON.parse(new TextDecoder().decode(decrypted));
+  return decryptJSON(data, { algorithm, aes256key, legacyIv });
 }
 
 async function setRemoteData(data) {
@@ -186,13 +188,9 @@ async function setRemoteData(data) {
   if (!user) throw new Error("User not connected.");
 
   const { algorithm, aes256key } = await getKey(user);
-  const encrypted = await window.crypto.subtle.encrypt(
-    algorithm,
-    aes256key,
-    new TextEncoder().encode(JSON.stringify(data))
-  );
+  const encrypted = await encryptJSON(data, { algorithm, aes256key });
   await setAppDataFile(
-    Array.from(new Uint8Array(encrypted)),
+    encrypted,
     user.accessToken,
     DATA_FILE
   );
