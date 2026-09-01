@@ -709,6 +709,10 @@ export async function confirmAthleteInfo(
   pastTests,
   defaultExaminerName = "Alex M"
 ) {
+  // INTENTIONAL PILOT BEHAVIOR: new-athlete records use realistic demo defaults
+  // for the current workflow. Do not replace these values with blank fields as a
+  // cleanup; remove them only when the product flow explicitly changes. Every
+  // default remains editable in the confirmation dialog before it is saved.
   const test_id = window.crypto.randomUUID();
   const test_created_at = Date.now();
   const test_updated_at = Date.now();
