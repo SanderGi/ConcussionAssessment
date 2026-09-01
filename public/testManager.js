@@ -135,6 +135,7 @@ export function renderTestSection(test) {
     section.style.display = "none";
   }
   document.getElementById(test).style.display = "flex";
+  window.scrollTo(0, 0);
 
   document.dispatchEvent(
     new CustomEvent("renderTestSection", { detail: test })
