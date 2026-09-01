@@ -157,6 +157,11 @@ if (!window.crypto?.subtle) {
 
 // ============================ Setup ============================
 async function initializeAppPage() {
+  // Authentication and remote sync may wait on network or user interaction.
+  // Render local data first so those background tasks never block the app.
+  renderCurrentTestSection();
+  document.body.style.visibility = "visible";
+
   let user = null;
   let joinedFromInvite = false;
   try {
