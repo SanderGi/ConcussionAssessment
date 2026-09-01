@@ -4,6 +4,7 @@ import {
   safeImageURL,
   sanitizeInlineHTML,
 } from "./html.js";
+import { localDateInputValue, localDateRange } from "./exportRange.js";
 
 const t = (key, fallback) => window.__scat6T?.(key, fallback) ?? fallback;
 const tf = (key, vars, fallback) =>
@@ -122,21 +123,29 @@ export async function bulkExportOptions() {
     twoYearsAgo.setFullYear(twoYearsAgo.getFullYear() - 2);
     dialog.innerHTML = /* html */ `
       <p>Select the date range of tests to bulk export:</p>
-      <input type="date" value="${twoYearsAgo.toISOString().split("T")[0]}"/>
+      <input type="date" value="${localDateInputValue(twoYearsAgo)}" required/>
       to
-      <input type="date" value="${new Date().toISOString().split("T")[0]}"/>
+      <input type="date" value="${localDateInputValue(new Date())}" required/>
       <button class="button" data-value="ok">Download ZIP</button>
       <button class="button button--red" data-value="cancel">CANCEL</button>
     `;
     dialog.onclick = (e) => {
       if (e.target.tagName != "BUTTON") return;
       if (e.target.dataset.value == "ok") {
-        dialog.remove();
-        resolve(
-          [...dialog.querySelectorAll('input[type="date"]')].map((el) =>
-            new Date(el.value).getTime()
-          )
+        const [startInput, endInput] = dialog.querySelectorAll(
+          'input[type="date"]'
         );
+        try {
+          const range = localDateRange(startInput.value, endInput.value);
+          dialog.remove();
+          resolve(range);
+        } catch {
+          endInput.setCustomValidity(
+            "Choose an end date on or after the start date."
+          );
+          endInput.reportValidity();
+          endInput.oninput = () => endInput.setCustomValidity("");
+        }
       }
       if (e.target.dataset.value == "cancel") {
         dialog.remove();

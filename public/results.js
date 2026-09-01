@@ -9,6 +9,10 @@ import { text2image } from "./util/text2image.js";
 import { escapeHTML } from "./util/html.js";
 import { calculateScat6CognitiveTotal } from "./util/scoring.js";
 import {
+  localTimestampFilename,
+  safeFilenameSegment,
+} from "./util/exportRange.js";
+import {
   isPostInjuryTestType,
   testTypeLabel,
   toPdfTestType,
@@ -483,27 +487,30 @@ document
   .addEventListener("click", async () => {
     const range = await bulkExportOptions();
     if (range === null) return;
-    const [start_timestamp, end_timestamp] = range;
+    const [start_timestamp, end_timestamp_exclusive] = range;
     const files = [];
     for (const [athlete_id, test_ids] of Object.entries(athletes)) {
-      const athlete_name = tests[test_ids.at(-1)].athlete_name.replace(
-        " ",
-        "_"
+      const athlete_name = safeFilenameSegment(
+        tests[test_ids.at(-1)].athlete_name,
+        "athlete"
       );
       for (const test_id of test_ids) {
         /** @type {import("./userData.js").Test} */
         const test = tests[test_id];
         if (
-          test.test_created_at > end_timestamp ||
+          test.test_created_at >= end_timestamp_exclusive ||
           test.test_created_at < start_timestamp
         ) {
           continue;
         }
         const pdf = await exportSCAT6pdf(test, false);
         files.push([
-          `${athlete_id.slice(0, 4)}-${athlete_name}/${timestampToYYYYMMDD(
+          `${safeFilenameSegment(
+            athlete_id.slice(0, 4),
+            "id"
+          )}-${athlete_name}/${localTimestampFilename(
             test.test_created_at
-          )}.pdf`,
+          )}-${safeFilenameSegment(test.test_id, "test")}.pdf`,
           pdf,
         ]);
       }
