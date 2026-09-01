@@ -1,11 +1,21 @@
 // Functions for deleting, getting, and setting app data files in Google Drive.
 
 let _fileIds = {};
-async function getFileId(accessToken, filename) {
-  if (_fileIds[filename]) return _fileIds[filename];
+
+function escapeDriveQueryValue(value) {
+  return value.replace(/\\/g, "\\\\").replace(/'/g, "\\'");
+}
+
+export async function listAppDataFiles(accessToken, filename) {
+  const params = new URLSearchParams({
+    spaces: "appDataFolder",
+    pageSize: "1000",
+    fields: "files(id,name,createdTime,modifiedTime)",
+    q: `name = '${escapeDriveQueryValue(filename)}' and trashed = false`,
+  });
 
   const res = await fetch(
-    "https://www.googleapis.com/drive/v3/files?spaces=appDataFolder",
+    `https://www.googleapis.com/drive/v3/files?${params}`,
     {
       headers: {
         Authorization: `Bearer ${accessToken}`,
@@ -15,11 +25,25 @@ async function getFileId(accessToken, filename) {
   if (!res.ok) throw new Error(`Failed to find list of files.`);
 
   const files = await res.json();
-  if (!files.files) return null;
+  const matches = (files.files ?? []).filter((file) => file.name === filename);
+  matches.sort((a, b) =>
+    String(b.modifiedTime ?? b.createdTime ?? "").localeCompare(
+      String(a.modifiedTime ?? a.createdTime ?? "")
+    )
+  );
+  if (matches[0]?.id) _fileIds[filename] = matches[0].id;
+  else delete _fileIds[filename];
+  return matches;
+}
 
-  const file = files.files.find((file) => file.name === filename);
-  _fileIds[filename] = file?.id;
-  return file?.id;
+async function getFileId(accessToken, filename) {
+  if (_fileIds[filename]) return _fileIds[filename];
+  return (await listAppDataFiles(accessToken, filename))[0]?.id ?? null;
+}
+
+export function selectAppDataFile(filename, fileId) {
+  if (fileId) _fileIds[filename] = fileId;
+  else delete _fileIds[filename];
 }
 
 export async function deleteAppDataFile(accessToken, filename) {
@@ -40,6 +64,23 @@ export async function deleteAppDataFile(accessToken, filename) {
   delete _fileIds[filename];
 }
 
+export async function deleteAllAppDataFiles(accessToken, filename) {
+  const files = await listAppDataFiles(accessToken, filename);
+  for (const file of files) {
+    const res = await fetch(
+      `https://www.googleapis.com/drive/v3/files/${file.id}`,
+      {
+        method: "DELETE",
+        headers: { Authorization: `Bearer ${accessToken}` },
+      }
+    );
+    if (!res.ok && res.status !== 404) {
+      throw new Error(`Failed to delete ${filename}.`);
+    }
+  }
+  delete _fileIds[filename];
+}
+
 export async function getAppDataFile(accessToken, filename) {
   const fileId = await getFileId(accessToken, filename);
   if (!fileId) return null;
@@ -56,6 +97,26 @@ export async function getAppDataFile(accessToken, filename) {
 
   const file = await res.json();
   return file;
+}
+
+export async function getAppDataFileCandidates(accessToken, filename) {
+  const files = await listAppDataFiles(accessToken, filename);
+  const candidates = [];
+  for (const file of files) {
+    const res = await fetch(
+      `https://www.googleapis.com/drive/v3/files/${file.id}?alt=media`,
+      {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      }
+    );
+    if (!res.ok) continue;
+    try {
+      candidates.push({ ...file, data: await res.json() });
+    } catch {
+      // A malformed duplicate must not hide another recoverable copy.
+    }
+  }
+  return candidates;
 }
 
 export async function setAppDataFile(data, accessToken, filename) {
@@ -82,7 +143,10 @@ async function updateAppDataFile(data, accessToken, filename) {
       body: JSON.stringify(data),
     }
   );
-  if (!res.ok) throw new Error(`Failed to update ${filename}.`);
+  if (!res.ok) {
+    if (res.status === 404) delete _fileIds[filename];
+    throw new Error(`Failed to update ${filename}.`);
+  }
 
   const file = await res.json();
   _fileIds[filename] = file.id;

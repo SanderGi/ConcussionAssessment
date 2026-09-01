@@ -6,8 +6,9 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import {
   setAppDataFile,
-  deleteAppDataFile,
-  getAppDataFile,
+  deleteAllAppDataFiles,
+  getAppDataFileCandidates,
+  selectAppDataFile,
 } from "./util/gdrive.js";
 import {
   clearWorkspaceCache,
@@ -17,7 +18,14 @@ import {
   setWorkspaceData,
 } from "./util/workspace.js";
 import { syncNonWorkspaceAnalyticsState } from "./util/analytics.js";
-import { decryptJSON, encryptJSON } from "./util/encryption.js";
+import {
+  createDriveBundle,
+  createKeyFile,
+  decryptJSON,
+  encryptJSON,
+  importKeyFile,
+  isDriveBundle,
+} from "./util/encryption.js";
 import { alert, select } from "./util/popup.js";
 import {
   mergeTestsByUpdatedAt,
@@ -119,85 +127,137 @@ export async function disconnectUser() {
 }
 
 // ============================ Remote Data ============================
-// SECURITY TODO: key.json and data.json currently live in the same Google Drive
-// app-data folder, so this encryption is only obfuscation against accidental
-// disclosure. It must not be treated as confidentiality protection until key
-// material is stored separately from the ciphertext.
+// SECURITY TODO: the key and ciphertext intentionally remain together in the
+// SCAT6 Drive bundle to make updates atomic and recover old mismatched files.
+// This is only obfuscation against accidental disclosure, not confidentiality;
+// move key material outside Google Drive when real encryption is implemented.
 const KEY_FILE = "key.json";
 const DATA_FILE = "data.json";
+const BUNDLE_FILE = "scat6-data.json";
 
-async function getKey(user) {
-  let key = null;
-  let file =
-    JSON.parse(localStorage.getItem(KEY) ?? "null") ??
-    (await getAppDataFile(user.accessToken, KEY_FILE));
-  if (file) {
-    // file already exists, parse it
-    const algorithm = {
-      name: file.algorithm.name,
-    };
-    const aes256key = await window.crypto.subtle.importKey(
-      "jwk",
-      file.key,
-      algorithm,
-      true,
-      ["encrypt", "decrypt"]
+export class DriveDataDecryptionError extends Error {
+  constructor() {
+    super(
+      "SCAT6 Drive data could not be decrypted. The app data may be corrupted."
     );
-    key = {
-      algorithm,
-      aes256key,
-      legacyIv: Array.isArray(file.algorithm.iv)
-        ? Uint8Array.from(file.algorithm.iv)
-        : null,
-    };
-  } else {
-    // file does not exist, create a new key and file
-    file = {};
-    const encryptionType = "AES-GCM";
-    const aes256key = await window.crypto.subtle.generateKey(
-      {
-        name: encryptionType,
-        length: 256,
-      },
-      true,
-      ["encrypt", "decrypt"]
-    );
-    const algorithm = {
-      name: encryptionType,
-    };
-    file.algorithm = {
-      name: encryptionType,
-    };
-    file.key = await window.crypto.subtle.exportKey("jwk", aes256key);
-    await setAppDataFile(file, user.accessToken, KEY_FILE);
-    key = { algorithm, aes256key, legacyIv: null };
+    this.name = "DriveDataDecryptionError";
+    this.code = "DRIVE_DATA_CORRUPT";
+  }
+}
+
+let activeDriveKey = null;
+
+async function tryDecrypt(data, keyFile) {
+  const key = await importKeyFile(keyFile, window.crypto);
+  return { data: await decryptJSON(data, key, window.crypto), key };
+}
+
+async function recoverDriveState(user) {
+  const recovered = {};
+  let preferred = null;
+  let encryptedDataExists = false;
+
+  const bundles = await getAppDataFileCandidates(
+    user.accessToken,
+    BUNDLE_FILE
+  );
+  encryptedDataExists ||= bundles.length > 0;
+  for (const candidate of bundles) {
+    if (!isDriveBundle(candidate.data)) continue;
+    try {
+      const decrypted = await tryDecrypt(
+        candidate.data.data,
+        candidate.data.key
+      );
+      mergeTestsByUpdatedAt(recovered, decrypted.data);
+      preferred ??= {
+        keyFile: candidate.data.key,
+        key: decrypted.key,
+        fileId: candidate.id,
+      };
+    } catch {
+      // Try every self-contained duplicate before declaring corruption.
+    }
+  }
+  if (preferred) {
+    selectAppDataFile(BUNDLE_FILE, preferred.fileId);
+    activeDriveKey = { uid: user.uid, ...preferred };
+    return { data: recovered, ...preferred };
   }
 
-  localStorage.setItem(KEY, JSON.stringify(file));
-  return key;
+  const [keyCandidates, dataCandidates] = await Promise.all([
+    getAppDataFileCandidates(user.accessToken, KEY_FILE),
+    getAppDataFileCandidates(user.accessToken, DATA_FILE),
+  ]);
+  encryptedDataExists ||= dataCandidates.length > 0;
+  for (const dataCandidate of dataCandidates) {
+    for (const keyCandidate of keyCandidates) {
+      try {
+        const decrypted = await tryDecrypt(
+          dataCandidate.data,
+          keyCandidate.data
+        );
+        mergeTestsByUpdatedAt(recovered, decrypted.data);
+        preferred ??= {
+          keyFile: keyCandidate.data,
+          key: decrypted.key,
+          keyFileId: keyCandidate.id,
+          dataFileId: dataCandidate.id,
+        };
+        break;
+      } catch {
+        // Duplicate files from old concurrent syncs may not be matching pairs.
+      }
+    }
+  }
+  if (preferred) {
+    selectAppDataFile(KEY_FILE, preferred.keyFileId);
+    selectAppDataFile(DATA_FILE, preferred.dataFileId);
+    activeDriveKey = { uid: user.uid, ...preferred };
+    return { data: recovered, ...preferred };
+  }
+
+  if (encryptedDataExists) throw new DriveDataDecryptionError();
+
+  for (const keyCandidate of keyCandidates) {
+    try {
+      const key = await importKeyFile(keyCandidate.data, window.crypto);
+      activeDriveKey = {
+        uid: user.uid,
+        keyFile: keyCandidate.data,
+        key,
+        keyFileId: keyCandidate.id,
+      };
+      return { data: null, ...activeDriveKey };
+    } catch {
+      // Ignore malformed orphaned keys and generate a replacement below.
+    }
+  }
+
+  const generated = await createKeyFile(window.crypto);
+  activeDriveKey = { uid: user.uid, keyFile: generated.file, key: generated.key };
+  return { data: null, ...activeDriveKey };
 }
 
 async function getRemoteData() {
   const user = await connectUser();
   if (!user) return null;
 
-  const { algorithm, aes256key, legacyIv } = await getKey(user);
-  const data = await getAppDataFile(user.accessToken, DATA_FILE);
-  if (!data) return null;
-
-  return decryptJSON(data, { algorithm, aes256key, legacyIv });
+  return (await recoverDriveState(user)).data;
 }
 
 async function setRemoteData(data) {
   const user = await connectUser();
   if (!user) throw new Error("User not connected.");
 
-  const { algorithm, aes256key } = await getKey(user);
-  const encrypted = await encryptJSON(data, { algorithm, aes256key });
+  if (!activeDriveKey || activeDriveKey.uid !== user.uid) {
+    await recoverDriveState(user);
+  }
+  const encrypted = await encryptJSON(data, activeDriveKey.key, window.crypto);
   await setAppDataFile(
-    encrypted,
+    createDriveBundle(activeDriveKey.keyFile, encrypted),
     user.accessToken,
-    DATA_FILE
+    BUNDLE_FILE
   );
 }
 
@@ -206,8 +266,12 @@ export async function deleteRemoteData() {
   if (!user) return;
 
   try {
-    await deleteAppDataFile(user.accessToken, KEY_FILE);
-    await deleteAppDataFile(user.accessToken, DATA_FILE);
+    await Promise.all([
+      deleteAllAppDataFiles(user.accessToken, BUNDLE_FILE),
+      deleteAllAppDataFiles(user.accessToken, KEY_FILE),
+      deleteAllAppDataFiles(user.accessToken, DATA_FILE),
+    ]);
+    activeDriveKey = null;
   } catch (err) {
     console.error(err);
     await alert(
@@ -442,6 +506,13 @@ async function performSync({
   await syncNonWorkspaceAnalyticsState(tests);
 }
 
+async function performSyncWithCrossTabLock(options) {
+  if (!navigator.locks?.request) return performSync(options);
+  return navigator.locks.request("scat6-data-sync", { mode: "exclusive" }, () =>
+    performSync(options)
+  );
+}
+
 let queuedSyncOptions = null;
 let activeSync = null;
 
@@ -480,7 +551,7 @@ export function syncData({
           const options = queuedSyncOptions;
           queuedSyncOptions = null;
           try {
-            await performSync(options);
+            await performSyncWithCrossTabLock(options);
           } catch (err) {
             firstError ??= err;
           }

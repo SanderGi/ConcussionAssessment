@@ -2,7 +2,14 @@ import assert from "node:assert/strict";
 import { webcrypto } from "node:crypto";
 import test from "node:test";
 
-import { decryptJSON, encryptJSON } from "../public/util/encryption.js";
+import {
+  createDriveBundle,
+  createKeyFile,
+  decryptJSON,
+  encryptJSON,
+  importKeyFile,
+  isDriveBundle,
+} from "../public/util/encryption.js";
 
 async function createKeyMaterial() {
   const algorithm = { name: "AES-GCM" };
@@ -41,6 +48,25 @@ test("legacy ciphertext arrays remain decryptable", async () => {
     await decryptJSON(
       Array.from(new Uint8Array(encrypted)),
       { ...key, legacyIv },
+      webcrypto
+    ),
+    value
+  );
+});
+
+test("Drive bundles keep their key and ciphertext together", async () => {
+  const { file, key } = await createKeyFile(webcrypto);
+  const value = { tests: { recovered: { test_updated_at: 42 } } };
+  const bundle = createDriveBundle(
+    file,
+    await encryptJSON(value, key, webcrypto)
+  );
+
+  assert.equal(isDriveBundle(bundle), true);
+  assert.deepEqual(
+    await decryptJSON(
+      bundle.data,
+      await importKeyFile(bundle.key, webcrypto),
       webcrypto
     ),
     value
