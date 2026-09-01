@@ -1093,6 +1093,21 @@ export async function confirmAthleteInfo(
           .join(", "),
         primary_symptoms_other: dialog.querySelector("#primary_symptoms_other")
           .value,
+        hospitalized_for_head_injury: dialog.querySelector(
+          "#hospitalized_for_head_injury"
+        ).checked,
+        diagnosed_headache_disorder_or_migraine: dialog.querySelector(
+          "#diagnosed_headache_disorder_or_migraine"
+        ).checked,
+        diagnosed_learning_disability_or_dyslexia: dialog.querySelector(
+          "#diagnosed_learning_disability_or_dyslexia"
+        ).checked,
+        diagnosed_attention_deficit_disorder: dialog.querySelector(
+          "#diagnosed_attention_deficit_disorder"
+        ).checked,
+        diagnosed_psychological_disorder: dialog.querySelector(
+          "#diagnosed_psychological_disorder"
+        ).checked,
         current_medications: dialog.querySelector("#current_medications").value,
         notes: dialog.querySelector("#notes").value,
         permission_to_upload: pastTests.at(-1)?.permission_to_upload ?? false,
