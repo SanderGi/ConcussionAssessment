@@ -359,13 +359,11 @@ export async function shareTestData(overwrite_as_permissible = null) {
     const uploaded_already = t.uploaded_timestamp >= t.test_updated_at;
     if (!uploaded_already || !t.permission_to_upload) {
       t.test_updated_at = Date.now();
-      if (!uploaded_already) {
-        t.uploaded_timestamp = t.test_updated_at;
-      }
       t.permission_to_upload = true;
       tests[t.test_id] = t;
     }
     if (uploaded_already) continue;
+    const uploadedVersion = t.test_updated_at;
     await uploadTest({
       test_id: t.test_id,
       test_created_at: t.test_created_at,
@@ -459,6 +457,8 @@ export async function shareTestData(overwrite_as_permissible = null) {
       signed_timestamp: t.signed_timestamp,
       title_or_specialty: t.title_or_specialty,
     });
+    t.uploaded_timestamp = uploadedVersion;
+    tests[t.test_id] = t;
   }
   sessionStorage.setItem(TEST, JSON.stringify(tests[test.test_id]));
   await syncData();
