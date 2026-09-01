@@ -7,7 +7,7 @@ import {
 } from "./util/popup.js";
 import { text2image } from "./util/text2image.js";
 import { escapeHTML } from "./util/html.js";
-import { calculateScat6CognitiveTotal } from "./util/scoring.js";
+import { calculateScat6CognitiveTotal } from "./util/scoring.js?v=20260901";
 import {
   localTimestampFilename,
   safeFilenameSegment,

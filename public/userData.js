@@ -9,14 +9,14 @@ import {
   deleteAllAppDataFiles,
   getAppDataFileCandidates,
   selectAppDataFile,
-} from "./util/gdrive.js";
+} from "./util/gdrive.js?v=20260901";
 import {
   clearWorkspaceCache,
   getActiveWorkspaceState,
   getWorkspaceData,
   isWorkspaceApiAvailable,
   setWorkspaceData,
-} from "./util/workspace.js";
+} from "./util/workspace.js?v=20260901";
 import { syncNonWorkspaceAnalyticsState } from "./util/analytics.js";
 import {
   createDriveBundle,
@@ -25,13 +25,13 @@ import {
   encryptJSON,
   importKeyFile,
   isDriveBundle,
-} from "./util/encryption.js";
+} from "./util/encryption.js?v=20260901";
 import { alert, select } from "./util/popup.js";
 import {
   mergeTestsByUpdatedAt,
   parseStoredTests,
 } from "./util/testStore.js";
-import { normalizeBessScores } from "./util/scoring.js";
+import { normalizeBessScores } from "./util/scoring.js?v=20260901";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBOXpDbVaCLdbecVBxCUks4ifTDQF9BnTw",

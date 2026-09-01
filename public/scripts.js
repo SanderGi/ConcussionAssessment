@@ -35,7 +35,7 @@ import {
   leaveSharedWorkspace,
   removeWorkspaceMember,
   switchSharedWorkspace,
-} from "./util/workspace.js";
+} from "./util/workspace.js?v=20260901";
 const Chart = window.Chart;
 /** @typedef {import('./userData.js').Test} Test */
 const t = (key, fallback) => window.__scat6T?.(key, fallback) ?? fallback;
