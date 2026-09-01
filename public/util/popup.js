@@ -1,4 +1,9 @@
 import { saveTestResult, endTest, renderTestSection } from "../testManager.js";
+import {
+  escapeHTML,
+  safeImageURL,
+  sanitizeInlineHTML,
+} from "./html.js";
 
 const t = (key, fallback) => window.__scat6T?.(key, fallback) ?? fallback;
 const tf = (key, vars, fallback) =>
@@ -8,7 +13,7 @@ export async function alert(message) {
   return new Promise((resolve) => {
     const dialog = document.createElement("dialog");
     dialog.innerHTML = /* html */ `
-    <p>${message}</p>
+    <p>${sanitizeInlineHTML(message)}</p>
     <button class="button">OK</button>
   `;
     dialog.lastElementChild.onclick = () => {
@@ -25,7 +30,9 @@ export async function show(imgUrl, altText) {
   return new Promise((resolve) => {
     const dialog = document.createElement("dialog");
     dialog.innerHTML = /* html */ `
-    <img src="${imgUrl}" alt="${altText}" style="max-width: 100%"><br>
+    <img src="${escapeHTML(safeImageURL(imgUrl))}" alt="${escapeHTML(
+      altText
+    )}" style="max-width: 100%"><br>
     <button class="button">OK</button>
   `;
     dialog.lastElementChild.onclick = () => {
@@ -42,7 +49,7 @@ export async function confirm(message) {
   return new Promise((resolve) => {
     const dialog = document.createElement("dialog");
     dialog.innerHTML = /* html */ `
-      <p>${message}</p>
+      <p>${escapeHTML(message)}</p>
       <button class="button">OK</button>
       <button class="button button--red">CANCEL</button>
     `;
@@ -64,8 +71,8 @@ export async function prompt(message, defaultValue = "") {
   return new Promise((resolve) => {
     const dialog = document.createElement("dialog");
     dialog.innerHTML = /* html */ `
-      <p>${message}</p>
-      <input type="text" value="${defaultValue}"/>
+      <p>${escapeHTML(message)}</p>
+      <input type="text" value="${escapeHTML(defaultValue)}"/>
       <button class="button">OK</button>
       <button class="button button--red">CANCEL</button>
     `;
@@ -87,13 +94,13 @@ export async function select(message, values) {
   return new Promise((resolve) => {
     const dialog = document.createElement("dialog");
     dialog.innerHTML = /* html */ `
-      <p>${message}</p>
+      <p>${escapeHTML(message)}</p>
       ${values
         .map(
           (v) =>
             /* html */ `<button class="button ${
-              v.length > 2 ? v[2] : ""
-            }" data-value="${v[0]}">${v[1]}</button>`
+              v.length > 2 ? escapeHTML(v[2]) : ""
+            }" data-value="${escapeHTML(v[0])}">${escapeHTML(v[1])}</button>`
         )
         .join("")}
     `;
@@ -162,7 +169,7 @@ export async function removeAthleteFromPlayAlert(next, message) {
   return new Promise((resolve) => {
     const dialog = document.createElement("dialog");
     dialog.innerHTML = /* html */ `
-      <p>${resolvedMessage}</p>
+      <p>${escapeHTML(resolvedMessage)}</p>
       <button class="button">${t("runtime.popup.end_test", "END TEST")}</button>
       <button class="button button--orange">${t(
         "runtime.popup.keep_testing",
@@ -290,13 +297,13 @@ export async function syncSettings(name, email, status, workspace, members = [])
     ? tf(
         "runtime.workspace.status.active",
         {
-          workspaceName: workspace.name,
+          workspaceName: escapeHTML(workspace.name),
           role:
             workspace.role === "owner"
               ? t("runtime.workspace.role.owner", "Owner")
               : t("runtime.workspace.role.member", "Member"),
         },
-        `Active Shared Workspace: <strong>${workspace.name}</strong> (${
+        `Active Shared Workspace: <strong>${escapeHTML(workspace.name)}</strong> (${
           workspace.role === "owner" ? "Owner" : "Member"
         })`
       )
@@ -318,22 +325,28 @@ export async function syncSettings(name, email, status, workspace, members = [])
               <div class="left-align spread-inline" style="gap: 0.7em; align-items: center; border: 1px solid var(--secondary); border-radius: 8px; padding: 0.5em; margin-bottom: 0.5em;">
                 <div style="display: inline-flex; align-items: center; gap: 0.6em;">
                   ${
-                    member.picture
-                      ? `<img src="${member.picture}" alt="${member.name}" style="width: 2em; height: 2em; border-radius: 50%;" referrerpolicy="no-referrer" />`
+                    safeImageURL(member.picture)
+                      ? `<img src="${escapeHTML(
+                          safeImageURL(member.picture)
+                        )}" alt="${escapeHTML(
+                          member.name
+                        )}" style="width: 2em; height: 2em; border-radius: 50%;" referrerpolicy="no-referrer" />`
                       : `<i class="fa-solid fa-user-circle" aria-hidden="true" style="font-size: 1.8em"></i>`
                   }
                   <div style="display: inline-flex; flex-direction: column;">
-                    <span>${member.name} ${
+                    <span>${escapeHTML(member.name)} ${
                       member.role === "owner"
                         ? `(${t("runtime.workspace.role.owner", "Owner")})`
                         : ""
                     }</span>
-                    <small>${member.email}</small>
+                    <small>${escapeHTML(member.email)}</small>
                   </div>
                 </div>
                 ${
                   ownerActions && member.role !== "owner"
-                    ? `<button class="button button--red" data-action="REMOVE_MEMBER" data-member-sub="${member.sub}">${t(
+                    ? `<button class="button button--red" data-action="REMOVE_MEMBER" data-member-sub="${escapeHTML(
+                        member.sub
+                      )}">${t(
                         "runtime.workspace.member.remove",
                         "Remove"
                       )}</button>`
@@ -352,11 +365,11 @@ export async function syncSettings(name, email, status, workspace, members = [])
     dialog.innerHTML = /* html */ `
       <p>${tf(
         "runtime.workspace.connected_to",
-        { name, email },
-        `Connected to ${name} (${email})`
+        { name: escapeHTML(name), email: escapeHTML(email) },
+        `Connected to ${escapeHTML(name)} (${escapeHTML(email)})`
       )}</p>
-      <p>${status}</p>
-      <p>${workspaceStatus}
+      <p>${sanitizeInlineHTML(status)}</p>
+      <p>${sanitizeInlineHTML(workspaceStatus)}
         ${
           ownerActions
             ? `<button class="button" data-action="SHOW_INVITE">${t(
@@ -410,7 +423,7 @@ export async function syncSettings(name, email, status, workspace, members = [])
                 <input type="text" id="workspace-code-input" placeholder="${t(
                   "runtime.workspace.invite_code_placeholder",
                   "Paste invite code"
-                )}" value="${inviteFromUrl}" />
+                )}" value="${escapeHTML(inviteFromUrl)}" />
                 <button class="button" data-action="JOIN_WORKSPACE">${t(
                   "runtime.workspace.join",
                   "Join Shared Workspace"
@@ -548,8 +561,18 @@ export function errorPhotosToHTML(error_photos_arr) {
   return (
     error_photos_arr
       .map(
-        (e) =>
-          `<div style="background-color: red" class="center">${e.error}</div><img src="${e.photo}" style="max-width: 100%; max-height: 10em; margin: 0.5em;">`
+        (e) => {
+          const photo = safeImageURL(e.photo);
+          return `<div style="background-color: red" class="center">${escapeHTML(
+            e.error
+          )}</div>${
+            photo
+              ? `<img src="${escapeHTML(
+                  photo
+                )}" style="max-width: 100%; max-height: 10em; margin: 0.5em;">`
+              : ""
+          }`;
+        }
       )
       .join("") || "No errors detected."
   );
@@ -560,7 +583,7 @@ export async function bessEndMenu(test, error_photos) {
     if (!isNaN(test.mBESS_foam_total_errors)) {
       foam_html = /* html */ `
         <label style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">Double Leg Stance: <span><input style="min-width: 10ch; width: 10ch;" value="${
-          test.mBESS_foam_double_errors
+          escapeHTML(test.mBESS_foam_double_errors)
         }" type="number" data-field="mBESS_foam_double_errors"> of 10 <input type="checkbox" class="expander" data-expand="double-foam-details"></span></label>
         <div id="double-foam-details" style="display: none;">
           Normally 0.33 ± 0.90. Here are the ${
@@ -569,7 +592,7 @@ export async function bessEndMenu(test, error_photos) {
           ${errorPhotosToHTML(error_photos.mBESS_foam_double_errors)}
         </div>
         <label style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">Tandem Stance: <span><input style="min-width: 10ch; width: 10ch;" value="${
-          test.mBESS_foam_tandem_errors
+          escapeHTML(test.mBESS_foam_tandem_errors)
         }" type="number" data-field="mBESS_foam_tandem_errors"> of 10 <input type="checkbox" class="expander" data-expand="tandem-foam-details"></span></label>
         <div id="tandem-foam-details" style="display: none;">
           Normally 5.06 ± 2.80. Here are the ${
@@ -578,7 +601,7 @@ export async function bessEndMenu(test, error_photos) {
           ${errorPhotosToHTML(error_photos.mBESS_foam_tandem_errors)}
         </div>
         <label style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">Single Leg Stance: <span><input style="min-width: 10ch; width: 10ch;" value="${
-          test.mBESS_foam_single_errors
+          escapeHTML(test.mBESS_foam_single_errors)
         }" type="number" data-field="mBESS_foam_single_errors"> of 10 <input type="checkbox" class="expander" data-expand="single-foam-details"></span></label>
         <div id="single-foam-details" style="display: none;">
           Normally 3.65 ± 2.62. Here are the ${
@@ -587,7 +610,7 @@ export async function bessEndMenu(test, error_photos) {
           ${errorPhotosToHTML(error_photos.mBESS_foam_single_errors)}
         </div>
         <label style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">Total Errors: <span><input style="min-width: 10ch; width: 10ch;" value="${
-          test.mBESS_foam_total_errors
+          escapeHTML(test.mBESS_foam_total_errors)
         }" type="number" disabled data-field="mBESS_foam_total_errors"> of 30 <input type="checkbox" class="expander" data-expand="total-foam-details"></span></label>
         <div id="total-foam-details" style="display: none;">
           Normally 8.65 ± 5.13. Combined foam and hard floor errors is normally 12.03 ± 7.34.
@@ -600,7 +623,7 @@ export async function bessEndMenu(test, error_photos) {
     dialog.innerHTML = /* html */ `
       <h3 style="margin-bottom: 0">BESS</h3>
       <label style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">Double Leg Stance: <span><input style="min-width: 10ch; width: 10ch;" value="${
-        test.mBESS_double_errors
+        escapeHTML(test.mBESS_double_errors)
       }" type="number" data-field="mBESS_double_errors"> of 10 <input type="checkbox" class="expander" data-expand="double-details"></span></label>
       <div id="double-details" style="display: none;">
         Normally 0.009 ± 0.12. Here are the ${
@@ -609,7 +632,7 @@ export async function bessEndMenu(test, error_photos) {
         ${errorPhotosToHTML(error_photos.mBESS_double_errors)}
       </div>
       <label style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">Tandem Stance: <span><input style="min-width: 10ch; width: 10ch;" value="${
-        test.mBESS_tandem_errors
+        escapeHTML(test.mBESS_tandem_errors)
       }" type="number" data-field="mBESS_tandem_errors"> of 10 <input type="checkbox" class="expander" data-expand="tandem-details"></span></label>
       <div id="tandem-details" style="display: none;">
         Normally 2.45 ± 2.33. Here are the ${
@@ -618,7 +641,7 @@ export async function bessEndMenu(test, error_photos) {
         ${errorPhotosToHTML(error_photos.mBESS_tandem_errors)}
       </div>
       <label style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">Single Leg Stance: <span><input style="min-width: 10ch; width: 10ch;" value="${
-        test.mBESS_single_errors
+        escapeHTML(test.mBESS_single_errors)
       }" type="number" data-field="mBESS_single_errors"> of 10 <input type="checkbox" class="expander" data-expand="single-details"></span></label>
       <div id="single-details" style="display: none;">
         Normally 0.91 ± 1.36. Here are the ${
@@ -627,7 +650,7 @@ export async function bessEndMenu(test, error_photos) {
         ${errorPhotosToHTML(error_photos.mBESS_single_errors)}
       </div>
       <label style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">Total Errors: <span><input style="min-width: 10ch; width: 10ch;" value="${
-        test.mBESS_total_errors
+        escapeHTML(test.mBESS_total_errors)
       }" type="number" disabled data-field="mBESS_total_errors"> of 30 <input type="checkbox" class="expander" data-expand="total-details"></span></label>
       <div id="total-details" style="display: none;">
         Normally 3.37 ± 3.10.
@@ -754,14 +777,14 @@ export async function confirmAthleteInfo(
       )} <input type="text" placeholder="${t(
       "runtime.popup.placeholder_athlete_name",
       "Athlete name"
-    )}" value="${athlete_name}" id="athlete_name" /></label>
+    )}" value="${escapeHTML(athlete_name)}" id="athlete_name" /></label>
       <label class="left-align spread-inline">${t(
         "runtime.popup.id_number",
         "ID Number:"
       )} <input type="text" placeholder="${t(
       "runtime.popup.placeholder_unique_id",
       "Unique ID"
-    )}" value="${athlete_id}" id="athlete_id" /></label>
+    )}" value="${escapeHTML(athlete_id)}" id="athlete_id" /></label>
       <label class="left-align spread-inline">${t(
         "runtime.popup.time_exam",
         "Time of Examination:"
@@ -834,28 +857,32 @@ export async function confirmAthleteInfo(
       )} <input type="text" placeholder="${t(
       "runtime.popup.placeholder_english",
       "English"
-    )}" value="${athlete_first_language}" id="athlete_first_language" /></label>
+    )}" value="${escapeHTML(
+      athlete_first_language
+    )}" id="athlete_first_language" /></label>
       <label class="left-align spread-inline">${t(
         "runtime.popup.preferred_lang",
         "Preferred Language:"
       )} <input type="text" placeholder="${t(
       "runtime.popup.placeholder_english",
       "English"
-    )}" value="${athlete_preferred_language}" id="athlete_preferred_language" /></label>
+    )}" value="${escapeHTML(
+      athlete_preferred_language
+    )}" id="athlete_preferred_language" /></label>
       <label class="left-align spread-inline">${t(
         "runtime.popup.examiner",
         "Examiner Name:"
       )} <input type="text" placeholder="${t(
       "runtime.popup.placeholder_examiner_name",
       "Your first and last name"
-    )}" value="${examiner_name}" id="examiner_name" /></label>
+    )}" value="${escapeHTML(examiner_name)}" id="examiner_name" /></label>
       <label class="left-align spread-inline">${t(
         "runtime.popup.team_school",
         "Sport/Team/School:"
       )} <input type="text" placeholder="${t(
       "runtime.popup.placeholder_team_school",
       "Varsity X at Y High School"
-    )}" value="${team_or_school}" id="team_or_school" /></label>
+    )}" value="${escapeHTML(team_or_school)}" id="team_or_school" /></label>
       
       <h4>${t("runtime.popup.conc_history", "Concussion History")}</h4>
       <label class="left-align spread-inline">${t(
@@ -948,7 +975,9 @@ export async function confirmAthleteInfo(
       )} <input type="text" placeholder="${t(
       "runtime.popup.placeholder_list_other_symptoms",
       "List other symptoms"
-    )}" value="${primary_symptoms_other}" class="fill-spread" id="primary_symptoms_other" /></label>
+    )}" value="${escapeHTML(
+      primary_symptoms_other
+    )}" class="fill-spread" id="primary_symptoms_other" /></label>
       
       <h4>${t("runtime.popup.med_bg", "Medical Background")}</h4>
       <p style="margin-top: 0">${t(
@@ -991,14 +1020,16 @@ export async function confirmAthleteInfo(
       )} <input type="text" placeholder="${t(
       "runtime.popup.placeholder_list_medications",
       "List medications"
-    )}" class="fill-spread" value="${current_medications}" id="current_medications" /></label>
+    )}" class="fill-spread" value="${escapeHTML(
+      current_medications
+    )}" id="current_medications" /></label>
       <label class="left-align spread-inline">${t(
         "runtime.popup.notes",
         "Notes:"
       )} <input type="text" placeholder="${t(
       "runtime.popup.placeholder_describe_selections",
       "Describe any selections above"
-    )}" class="fill-spread" value="${notes}" id="notes" /></label>
+    )}" class="fill-spread" value="${escapeHTML(notes)}" id="notes" /></label>
       
       <h4>${t("runtime.popup.start_assessment", "Start Assessment")}</h4>
       <p  style="margin-top: 0">${t(

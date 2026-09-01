@@ -18,6 +18,7 @@ import {
   errorPhotosToHTML,
 } from "./util/popup.js";
 import { calcSimilarity } from "./util/fuzzysearch.js";
+import { safeImageURL } from "./util/html.js";
 import {
   isPostInjuryTestType,
   testTypeLabel,
@@ -232,19 +233,24 @@ deleteAllButton.onclick = async () => {
 };
 
 function showConnected(user) {
+  syncButton.replaceChildren();
   if (user) {
-    syncButton.innerHTML = `${t(
-      "runtime.sync.synced",
-      "Synced"
-    )} &nbsp; <img style="width: 1em; height: 1em; border-radius: 50%; margin: auto" src="${
-      user.picture
-    }" referrerpolicy="no-referrer">`;
+    syncButton.append(`${t("runtime.sync.synced", "Synced")} \u00a0 `);
+    const picture = safeImageURL(user.picture);
+    if (picture) {
+      const image = document.createElement("img");
+      image.style.cssText =
+        "width: 1em; height: 1em; border-radius: 50%; margin: auto";
+      image.src = picture;
+      image.referrerPolicy = "no-referrer";
+      syncButton.appendChild(image);
+    }
     syncButton.classList.add("button--green");
   } else {
-    syncButton.innerHTML = `${t(
-      "runtime.sync.sync",
-      "Sync"
-    )} &nbsp; <i class="fa-brands fa-google-drive"></i>`;
+    syncButton.append(`${t("runtime.sync.sync", "Sync")} \u00a0 `);
+    const icon = document.createElement("i");
+    icon.className = "fa-brands fa-google-drive";
+    syncButton.appendChild(icon);
     syncButton.classList.remove("button--green");
   }
 }
@@ -670,16 +676,34 @@ function showAthlete(athlete_id) {
   const section = document.createElement("section");
   section.id = "athlete-" + athlete_id;
   section.className = "athlete";
-  section.innerHTML = /*html*/ `
-    <div class="left-align spread-inline">
-        ${athlete.athlete_name} (${athlete_id.split("-")[0]})
-        <div>
-            <button class="button" onclick="testAthlete('${athlete_id}')">Test &nbsp; <i class="fa-solid fa-flask-vial"></i></button>
-            <button class="button" onclick="showAthleteResults('${athlete_id}')">Results &nbsp; <i class="fa-solid fa-clipboard-list"></i></button>
-            <button class="button button--red" onclick="deleteAthlete('${athlete_id}')">Delete &nbsp; <i class="fa-solid fa-trash"></i></button>
-        </div>
-    </div>
-  `;
+  const row = document.createElement("div");
+  row.className = "left-align spread-inline";
+  const label = document.createElement("span");
+  label.textContent = `${athlete.athlete_name} (${athlete_id.split("-")[0]})`;
+  row.appendChild(label);
+
+  const actions = document.createElement("div");
+  const addAction = (text, iconClass, className, handler) => {
+    const button = document.createElement("button");
+    button.className = className;
+    button.append(`${text} \u00a0 `);
+    const icon = document.createElement("i");
+    icon.className = iconClass;
+    button.appendChild(icon);
+    button.addEventListener("click", handler);
+    actions.appendChild(button);
+  };
+  addAction("Test", "fa-solid fa-flask-vial", "button", () =>
+    window.testAthlete(athlete_id)
+  );
+  addAction("Results", "fa-solid fa-clipboard-list", "button", () =>
+    window.showAthleteResults(athlete_id)
+  );
+  addAction("Delete", "fa-solid fa-trash", "button button--red", () =>
+    window.deleteAthlete(athlete_id)
+  );
+  row.appendChild(actions);
+  section.appendChild(row);
   container.appendChild(section);
 }
 
@@ -775,12 +799,12 @@ window.showAthleteResults = async (athlete_id) => {
 
   const summary = document.createElement("div");
   if (!lastBaseline?.mBESS_total_errors || !lastBaseline?.cognitive_total) {
-    summary.innerHTML = `${t(
+    summary.textContent = t(
       "runtime.test_mgmt.no_baselines",
       "No baselines found for this athlete."
-    )}<br>`;
+    );
   } else {
-    summary.innerHTML = `${tf(
+    summary.textContent = tf(
       "runtime.test_mgmt.last_baseline",
       {
         date: new Date(lastBaseline?.test_created_at).toDateString(),
@@ -789,26 +813,31 @@ window.showAthleteResults = async (athlete_id) => {
       `Last baseline (${new Date(lastBaseline?.test_created_at).toDateString()}): ${
         lastBaseline?.mBESS_total_errors + lastBaseline?.cognitive_total
       } / 80`
-    )} <br>`;
+    );
   }
+  summary.appendChild(document.createElement("br"));
   if (!lastPostInjury?.mBESS_total_errors || !lastPostInjury?.cognitive_total) {
-    summary.innerHTML += t(
-      "runtime.test_mgmt.no_post_injuries",
-      "No post-injuries found for this athlete."
+    summary.append(
+      t(
+        "runtime.test_mgmt.no_post_injuries",
+        "No post-injuries found for this athlete."
+      )
     );
   } else {
-    summary.innerHTML += tf(
-      "runtime.test_mgmt.last_post_injury",
-      {
-        date: new Date(lastPostInjury?.test_created_at).toDateString(),
-        score:
-          lastPostInjury?.mBESS_total_errors + lastPostInjury?.cognitive_total,
-      },
-      `Last post-injury (${new Date(
-        lastPostInjury?.test_created_at
-      ).toDateString()}): ${
-        lastPostInjury?.mBESS_total_errors + lastPostInjury?.cognitive_total
-      } / 80`
+    summary.append(
+      tf(
+        "runtime.test_mgmt.last_post_injury",
+        {
+          date: new Date(lastPostInjury?.test_created_at).toDateString(),
+          score:
+            lastPostInjury?.mBESS_total_errors + lastPostInjury?.cognitive_total,
+        },
+        `Last post-injury (${new Date(
+          lastPostInjury?.test_created_at
+        ).toDateString()}): ${
+          lastPostInjury?.mBESS_total_errors + lastPostInjury?.cognitive_total
+        } / 80`
+      )
     );
   }
   container.appendChild(summary);

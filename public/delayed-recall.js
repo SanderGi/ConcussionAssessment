@@ -1,4 +1,5 @@
 import { getTest, saveTestResult } from "./testManager.js";
+import { escapeHTML } from "./util/html.js";
 
 const t = (key, fallback) => window.__scat6T?.(key, fallback) ?? fallback;
 const tf = (key, vars, fallback) =>
@@ -73,7 +74,9 @@ function setupDelayedRecall() {
       test.immediate_memory_words
         ?.map(
           (word) => /*html*/ `
-          <label class="left-align green" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="checkbox" class="recall-list"/> ${word}.</label>
+          <label class="left-align green" style="flex-wrap: nowrap; margin-bottom: 0.4em; display: flex; align-items: flex-start; gap: 0.5em; padding-left: 2em;"><input type="checkbox" class="recall-list"/> ${escapeHTML(
+            word
+          )}.</label>
         `
         )
         ?.join("") ??

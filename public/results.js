@@ -6,6 +6,7 @@ import {
   bulkExportOptions,
 } from "./util/popup.js";
 import { text2image } from "./util/text2image.js";
+import { escapeHTML } from "./util/html.js";
 import {
   isPostInjuryTestType,
   testTypeLabel,
@@ -55,6 +56,13 @@ document.addEventListener("renderTestSection", async (event) => {
     if (isNaN(diff)) return "--";
     return (diff / 1000).toFixed(0);
   }
+  function score(value, fractionDigits = null) {
+    const number = Number(value);
+    if (!Number.isFinite(number)) return "--";
+    return fractionDigits === null
+      ? String(number)
+      : number.toFixed(fractionDigits);
+  }
   const domainLabel = t("runtime.results.table.domain", "Domain");
   const currentScoreLabel = t(
     "runtime.results.table.current_score",
@@ -100,24 +108,24 @@ document.addEventListener("renderTestSection", async (event) => {
         </tr>
         <tr><!-- Symptom Number -->
           <td data-title="${domainLabel}" style="white-space: nowrap">${t("runtime.results.row.symptoms", "Symptoms (of 22)")}</td>
-          <td data-title="${currentScoreLabel}">${test.symptom_number ?? "--"}</td>
+          <td data-title="${currentScoreLabel}">${score(test.symptom_number)}</td>
           <td data-title="${baselineLabel}">${
-            lastBaseline.symptom_number ?? "--"
+            score(lastBaseline.symptom_number)
           }</td>
           <td data-title="${postInjuryLabel}">${
-            lastPostInjury.symptom_number ?? "--"
+            score(lastPostInjury.symptom_number)
           }</td>
           <td data-title="${healthyRangeLabel}">&lt;2</td>
           <td data-title="${riskRangeLabel}">>3</td>
         </tr>
         <tr><!-- Symptom Severity -->
           <td data-title="${domainLabel}" style="white-space: nowrap">${t("runtime.results.row.severity", "Severity (of 132)")}</td>
-          <td data-title="${currentScoreLabel}">${test.symptom_severity ?? "--"}</td>
+          <td data-title="${currentScoreLabel}">${score(test.symptom_severity)}</td>
           <td data-title="${baselineLabel}">${
-            lastBaseline.symptom_severity ?? "--"
+            score(lastBaseline.symptom_severity)
           }</td>
           <td data-title="${postInjuryLabel}">${
-            lastPostInjury.symptom_severity ?? "--"
+            score(lastPostInjury.symptom_severity)
           }</td>
           <td data-title="${healthyRangeLabel}">0-25 (${t(
             "runtime.results.range.low",
@@ -130,48 +138,48 @@ document.addEventListener("renderTestSection", async (event) => {
         </tr>
         <tr><!-- Orientation -->
           <td data-title="${domainLabel}" style="white-space: nowrap">${t("runtime.results.row.orientation", "Orientation (of 5)")}</td>
-          <td data-title="${currentScoreLabel}">${test.orientation ?? "--"}</td>
+          <td data-title="${currentScoreLabel}">${score(test.orientation)}</td>
           <td data-title="${baselineLabel}">${
-            lastBaseline.orientation ?? "--"
+            score(lastBaseline.orientation)
           }</td>
           <td data-title="${postInjuryLabel}">${
-            lastPostInjury.orientation ?? "--"
+            score(lastPostInjury.orientation)
           }</td>
           <td data-title="${healthyRangeLabel}">4-5</td>
           <td data-title="${riskRangeLabel}">0-4</td>
         </tr>
         <tr><!-- Immediate Memory -->
           <td data-title="${domainLabel}" style="white-space: nowrap">${t("runtime.results.row.immediate_memory", "Immediate Memory (of 30)")}</td>
-          <td data-title="${currentScoreLabel}">${test.immediate_memory ?? "--"}</td>
+          <td data-title="${currentScoreLabel}">${score(test.immediate_memory)}</td>
           <td data-title="${baselineLabel}">${
-            lastBaseline.immediate_memory ?? "--"
+            score(lastBaseline.immediate_memory)
           }</td>
           <td data-title="${postInjuryLabel}">${
-            lastPostInjury.immediate_memory ?? "--"
+            score(lastPostInjury.immediate_memory)
           }</td>
           <td data-title="${healthyRangeLabel}">20-30</td>
           <td data-title="${riskRangeLabel}">0-20</td>
         </tr>
         <tr><!-- Concentration -->
           <td data-title="${domainLabel}" style="white-space: nowrap">${t("runtime.results.row.concentration", "Concentration (of 5)")}</td>
-          <td data-title="${currentScoreLabel}">${test.concentration ?? "--"}</td>
+          <td data-title="${currentScoreLabel}">${score(test.concentration)}</td>
           <td data-title="${baselineLabel}">${
-            lastBaseline.concentration ?? "--"
+            score(lastBaseline.concentration)
           }</td>
           <td data-title="${postInjuryLabel}">${
-            lastPostInjury.concentration ?? "--"
+            score(lastPostInjury.concentration)
           }</td>
           <td data-title="${healthyRangeLabel}">4-5</td>
           <td data-title="${riskRangeLabel}">0-4</td>
         </tr>
         <tr><!-- Delayed Recall -->
           <td data-title="${domainLabel}" style="white-space: nowrap">${t("runtime.results.row.delayed_recall", "Delayed Recall (of 10)")}</td>
-          <td data-title="${currentScoreLabel}">${test.delayed_recall ?? "--"}</td>
+          <td data-title="${currentScoreLabel}">${score(test.delayed_recall)}</td>
           <td data-title="${baselineLabel}">${
-            lastBaseline.delayed_recall ?? "--"
+            score(lastBaseline.delayed_recall)
           }</td>
           <td data-title="${postInjuryLabel}">${
-            lastPostInjury.delayed_recall ?? "--"
+            score(lastPostInjury.delayed_recall)
           }</td>
           <td data-title="${healthyRangeLabel}">6-10</td>
           <td data-title="${riskRangeLabel}">0-5</td>
@@ -190,24 +198,24 @@ document.addEventListener("renderTestSection", async (event) => {
         </tr>
         <tr><!-- Cognitive Total -->
           <td data-title="${domainLabel}" style="white-space: nowrap">${t("runtime.results.row.cognitive_total", "Cognitive Total (of 50)")}</td>
-          <td data-title="${currentScoreLabel}">${test.cognitive_total ?? "--"}</td>
+          <td data-title="${currentScoreLabel}">${score(test.cognitive_total)}</td>
           <td data-title="${baselineLabel}">${
-            lastBaseline.cognitive_total ?? "--"
+            score(lastBaseline.cognitive_total)
           }</td>
           <td data-title="${postInjuryLabel}">${
-            lastPostInjury.cognitive_total ?? "--"
+            score(lastPostInjury.cognitive_total)
           }</td>
           <td data-title="${healthyRangeLabel}">40-50</td>
           <td data-title="${riskRangeLabel}">0-40</td>
         </tr>
         <tr><!-- BESS -->
           <td data-title="${domainLabel}" style="white-space: nowrap">${t("runtime.results.row.bess", "BESS (of 30)")}</td>
-          <td data-title="${currentScoreLabel}">${test.mBESS_total_errors ?? "--"}</td>
+          <td data-title="${currentScoreLabel}">${score(test.mBESS_total_errors)}</td>
           <td data-title="${baselineLabel}">${
-            lastBaseline.mBESS_total_errors ?? "--"
+            score(lastBaseline.mBESS_total_errors)
           }</td>
           <td data-title="${postInjuryLabel}">${
-            lastPostInjury.mBESS_total_errors ?? "--"
+            score(lastPostInjury.mBESS_total_errors)
           }</td>
           <td data-title="${healthyRangeLabel}">0-6</td>
           <td data-title="${riskRangeLabel}">6-30</td>
@@ -215,13 +223,13 @@ document.addEventListener("renderTestSection", async (event) => {
         <tr><!-- BESS Foam -->
           <td data-title="${domainLabel}" style="white-space: nowrap">${t("runtime.results.row.bess_foam", "BESS Foam (of 30)")}</td>
           <td data-title="${currentScoreLabel}">${
-            test.mBESS_foam_total_errors ?? "--"
+            score(test.mBESS_foam_total_errors)
           }</td>
           <td data-title="${baselineLabel}">${
-            lastBaseline.mBESS_foam_total_errors ?? "--"
+            score(lastBaseline.mBESS_foam_total_errors)
           }</td>
           <td data-title="${postInjuryLabel}">${
-            lastPostInjury.mBESS_foam_total_errors ?? "--"
+            score(lastPostInjury.mBESS_foam_total_errors)
           }</td>
           <td data-title="${healthyRangeLabel}">0-13</td>
           <td data-title="${riskRangeLabel}">13-30</td>
@@ -229,13 +237,13 @@ document.addEventListener("renderTestSection", async (event) => {
         <tr><!-- Tandem Gait Fastest -->
           <td data-title="${domainLabel}" style="white-space: nowrap">${t("runtime.results.row.tandem_fastest", "Tandem Gait Fastest (sec)")}</td>
           <td data-title="${currentScoreLabel}">${
-            test.tandem_gait_fastest_time ?? "--"
+            score(test.tandem_gait_fastest_time)
           }</td>
           <td data-title="${baselineLabel}">${
-            lastBaseline.tandem_gait_fastest_time ?? "--"
+            score(lastBaseline.tandem_gait_fastest_time)
           }</td>
           <td data-title="${postInjuryLabel}">${
-            lastPostInjury.tandem_gait_fastest_time ?? "--"
+            score(lastPostInjury.tandem_gait_fastest_time)
           }</td>
           <td data-title="${healthyRangeLabel}">13-16</td>
           <td data-title="${riskRangeLabel}">21-27</td>
@@ -243,13 +251,13 @@ document.addEventListener("renderTestSection", async (event) => {
         <tr><!-- Dual Task Fastest -->
           <td data-title="${domainLabel}" style="white-space: nowrap">${t("runtime.results.row.dual_task_fastest", "Dual Task Fastest (sec)")}</td>
           <td data-title="${currentScoreLabel}">${
-            test.dual_task_fastest_time ?? "--"
+            score(test.dual_task_fastest_time)
           }</td>
           <td data-title="${baselineLabel}">${
-            lastBaseline.dual_task_fastest_time ?? "--"
+            score(lastBaseline.dual_task_fastest_time)
           }</td>
           <td data-title="${postInjuryLabel}">${
-            lastPostInjury.dual_task_fastest_time ?? "--"
+            score(lastPostInjury.dual_task_fastest_time)
           }</td>
           <td data-title="${healthyRangeLabel}">18-23</td>
           <td data-title="${riskRangeLabel}">30-37</td>
@@ -257,13 +265,13 @@ document.addEventListener("renderTestSection", async (event) => {
         <tr><!-- Dual Task Accuracy -->
           <td data-title="${domainLabel}" style="white-space: nowrap">${t("runtime.results.row.dual_task_accuracy", "Dual Task Accuracy (%)")}</td>
           <td data-title="${currentScoreLabel}">${
-            test.dual_task_accuracy?.toFixed(0) ?? "--"
+            score(test.dual_task_accuracy, 0)
           }</td>
           <td data-title="${baselineLabel}">${
-            lastBaseline.dual_task_accuracy?.toFixed(0) ?? "--"
+            score(lastBaseline.dual_task_accuracy, 0)
           }</td>
           <td data-title="${postInjuryLabel}">${
-            lastPostInjury.dual_task_accuracy?.toFixed(0) ?? "--"
+            score(lastPostInjury.dual_task_accuracy, 0)
           }</td>
           <td data-title="${healthyRangeLabel}">86-93</td>
           <td data-title="${riskRangeLabel}">76-84</td>
@@ -305,7 +313,7 @@ document.addEventListener("renderTestSection", async (event) => {
     )}">${t("runtime.results.deferred", "Deferred")}</button>
     <p>${t("runtime.results.notes", "Notes")}</p>
     <textarea data-action="NOTES" class="textarea">${
-      test.test_notes ?? ""
+      escapeHTML(test.test_notes ?? "")
     }</textarea>
     <h3>${t(
       "runtime.results.hcp_attestation_title",
@@ -316,19 +324,19 @@ document.addEventListener("renderTestSection", async (event) => {
       "I am an HCP and I have personally administered or supervised the administration of this SCAT6."
     )}</p>
     <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.8em;">${t("runtime.results.name", "Name")}: <input data-action="NAME" type="text" value="${
-      test.examiner_name
+      escapeHTML(test.examiner_name)
     }"></label>
     <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.8em;">${t(
       "runtime.results.title_specialty",
       "Title/Specialty"
     )}: <input data-action="TITLE_OR_SPECIALTY" type="text" value="${
-      test.title_or_specialty ?? ""
+      escapeHTML(test.title_or_specialty ?? "")
     }"></label>
     <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.8em;">${t(
       "runtime.results.registration_license",
       "Registration/License Number (if applicable)"
     )}: <input data-action="REGISTRATION_OR_LICENSE" type="text" value="${
-      test.registration_or_license_number ?? ""
+      escapeHTML(test.registration_or_license_number ?? "")
     }"></label>
     <label class="left-align spread-inline" style="flex-wrap: nowrap; margin-bottom: 0.8em;">${t("runtime.results.signature_date", "Signature Date")}: <input type="datetime-local" value="${
       new Date(
@@ -511,6 +519,8 @@ function formatDate(timestamp) {
 
 /** @param {import("./userData.js").Test} data */
 function generateReportHTML(data) {
+  const field = (name) => escapeHTML(data[name]);
+  const safeAthleteName = field("athlete_name");
   const differentFromNormalLabel =
     data.different_from_usual === "YES"
       ? t("runtime.common.yes_upper", "YES")
@@ -530,8 +540,8 @@ function generateReportHTML(data) {
 
   let html = `<html><head><title>${tf(
     "runtime.results.report.title_for",
-    { athleteName: data.athlete_name },
-    `SCAT6 report for ${data.athlete_name}`
+    { athleteName: safeAthleteName },
+    `SCAT6 report for ${safeAthleteName}`
   )}</title><style>
         body { font-family: Arial, sans-serif; padding: 20px; }
         h1, h2 { text-align: center; }
@@ -542,25 +552,29 @@ function generateReportHTML(data) {
 
   html += `<h1>${tf(
     "runtime.results.report.title_for",
-    { athleteName: data.athlete_name },
-    `SCAT6 report for ${data.athlete_name}`
+    { athleteName: safeAthleteName },
+    `SCAT6 report for ${safeAthleteName}`
   )}</h1>`;
   html += `
     <div style="display: grid; grid-template-columns: 2fr 1fr; row-gap: 0.5em;">
       <span><strong>${t("runtime.results.report.test_active", "Test Active")}</strong>: ${formatDate(
         data.test_created_at
       )} - ${formatDate(data.test_updated_at)}</span>
-      <span><strong>${t("runtime.results.report.test_type", "Test Type")}</strong>: ${testTypeLabel(data.test_type, t)}</span>
+      <span><strong>${t("runtime.results.report.test_type", "Test Type")}</strong>: ${escapeHTML(
+        testTypeLabel(data.test_type, t)
+      )}</span>
       <span><strong>${t("runtime.results.report.injury_time", "Injury Time")}</strong>: ${formatDate(
         data.injury_timestamp
       )}</span>
-      <span><strong>${t("runtime.results.report.examiner", "Examiner")}</strong>: ${data.examiner_name}</span>
+      <span><strong>${t("runtime.results.report.examiner", "Examiner")}</strong>: ${field(
+        "examiner_name"
+      )}</span>
       <span><strong>${t(
         "runtime.results.report.examiner_credentials",
         "Examiner Credentials"
-      )}</strong>: ${
-        data.title_or_specialty
-      } (${data.registration_or_license_number})</span>
+      )}</strong>: ${field("title_or_specialty")} (${field(
+        "registration_or_license_number"
+      )})</span>
       <span><strong>${t("runtime.results.report.signed", "Signed")}</strong>: ${
         data.signed
           ? formatDate(data.signed_timestamp)
@@ -571,12 +585,14 @@ function generateReportHTML(data) {
   const score_table = content.querySelector("table").outerHTML;
   html += score_table;
   html += `
-    <br><strong>${t("runtime.results.report.primary_symptoms", "Primary Symptoms")}</strong>: ${data.primary_symptoms}${
+    <br><strong>${t("runtime.results.report.primary_symptoms", "Primary Symptoms")}</strong>: ${field(
+      "primary_symptoms"
+    )}${
     data.primary_symptoms_other.length > 0 ? ", " : ""
-  }${data.primary_symptoms_other}<br>
+  }${field("primary_symptoms_other")}<br>
     <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; row-gap: 0.5em; margin-top: 0.5em; margin-bottom: 0.5em;">
       <span><strong>${t("runtime.results.report.feels_normal", "Feels Normal")}</strong>: ${
-        data.symptoms_percentage_normal
+        field("symptoms_percentage_normal")
       }%</span>
       <span><strong>${t("runtime.results.report.worse_physical", "Worse with Physical Activity")}</strong>: ${
         data.symptoms_worse_with_physical
@@ -589,15 +605,21 @@ function generateReportHTML(data) {
           : t("runtime.common.no_upper", "NO")
       }</span>
     </div>
-    <strong>${t("runtime.results.report.symptom_description", "Symptom Description")}</strong>: ${data.symptoms_description}<br>
+    <strong>${t("runtime.results.report.symptom_description", "Symptom Description")}</strong>: ${field(
+      "symptoms_description"
+    )}<br>
     <hr>
     <div style="display: grid; grid-template-columns: 1fr 1fr; row-gap: 0.5em; margin-top: 0.5em; margin-bottom: 0.5em;">
       <span><strong>${t("runtime.results.report.different_from_normal", "Different from Normal")}</strong>: ${
-        differentFromNormalLabel
+        escapeHTML(differentFromNormalLabel)
       }</span>
-      <span><strong>${t("runtime.results.report.concussion_diagnosis", "Concussion Diagnosis")}</strong>: ${diagnosisLabel}</span>
+      <span><strong>${t("runtime.results.report.concussion_diagnosis", "Concussion Diagnosis")}</strong>: ${escapeHTML(
+        diagnosisLabel
+      )}</span>
     </div>
-    <strong>${t("runtime.results.notes", "Notes")}</strong>: ${data.test_notes}
+    <strong>${t("runtime.results.notes", "Notes")}</strong>: ${field(
+      "test_notes"
+    )}
   `;
   html += `
     <h2 style="page-break-before: always;">${t(
@@ -605,32 +627,38 @@ function generateReportHTML(data) {
       "Athlete Information"
     )}</h2>
     <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; row-gap: 0.5em;">
-      <span><strong>${t("runtime.results.name", "Name")}</strong>: ${data.athlete_name}</span>
+      <span><strong>${t("runtime.results.name", "Name")}</strong>: ${safeAthleteName}</span>
       <span><strong>${t("runtime.results.report.birth", "Birth")}</strong>: ${new Date(
         data.athlete_birth_timestamp
       ).toLocaleDateString()}</span>
-      <span><strong>${t("runtime.results.report.sex", "Sex")}</strong>: ${data.athlete_sex}</span>
-      <span><strong>${t("runtime.results.report.dominant_hand", "Dominant Hand")}</strong>: ${data.athlete_dominant_hand}</span>
+      <span><strong>${t("runtime.results.report.sex", "Sex")}</strong>: ${field(
+        "athlete_sex"
+      )}</span>
+      <span><strong>${t("runtime.results.report.dominant_hand", "Dominant Hand")}</strong>: ${field(
+        "athlete_dominant_hand"
+      )}</span>
     </div>
     <div style="display: grid; grid-template-columns: 1fr 1fr; row-gap: 0.5em; margin-top: 0.5em;">
       <span><strong>${t("runtime.results.report.year_in_school", "Year in School")}</strong>: ${
-        data.athlete_year_in_school
+        field("athlete_year_in_school")
       }</span>
       <span><strong>${t("runtime.results.report.years_education", "Years of Education")}</strong>: ${
-        data.athlete_years_of_education
+        field("athlete_years_of_education")
       }</span>
       <span><strong>${t("runtime.results.report.first_language", "First Language")}</strong>: ${
-        data.athlete_first_language
+        field("athlete_first_language")
       }</span>
       <span><strong>${t("runtime.results.report.preferred_language", "Preferred Language")}</strong>: ${
-        data.athlete_preferred_language
+        field("athlete_preferred_language")
       }</span>
-      <span><strong>${t("runtime.results.report.team_school", "Team/School")}</strong>: ${data.team_or_school}</span>
+      <span><strong>${t("runtime.results.report.team_school", "Team/School")}</strong>: ${field(
+        "team_or_school"
+      )}</span>
       <span><strong>${t(
         "runtime.results.report.past_concussions",
         "Number of Past Concussions"
       )}</strong>: ${
-        data.num_past_concussions
+        field("num_past_concussions")
       }</span>
       <span><strong>${t("runtime.results.report.most_recent_concussion", "Most Recent Concussion")}</strong>: ${new Date(
         data.most_recent_concussion_timestamp
@@ -639,7 +667,7 @@ function generateReportHTML(data) {
         "runtime.results.report.most_recent_recovery_time",
         "Most Recent Recovery Time"
       )}</strong>: ${
-        data.most_recent_recovery_time_days
+        field("most_recent_recovery_time_days")
       } ${t("runtime.results.report.days", "days")}</span>
     </div>
   `;
@@ -664,39 +692,41 @@ function generateReportHTML(data) {
       html += `<h3>${t(
         "runtime.results.report.double_leg_errors",
         "Double-Leg Errors"
-      )} (${data.mBESS_double_errors})</h3>`;
+      )} (${field("mBESS_double_errors")})</h3>`;
       html += errorPhotosToHTML(doubleErrors);
     }
     if (tandemErrors.length > 0) {
-      html += `<h3>${t("runtime.results.report.tandem_errors", "Tandem Errors")} (${data.mBESS_tandem_errors})</h3>`;
+      html += `<h3>${t("runtime.results.report.tandem_errors", "Tandem Errors")} (${field(
+        "mBESS_tandem_errors"
+      )})</h3>`;
       html += errorPhotosToHTML(tandemErrors);
     }
     if (singleErrors.length > 0) {
       html += `<h3>${t(
         "runtime.results.report.single_leg_errors",
         "Single-Leg Errors"
-      )} (${data.mBESS_single_errors})</h3>`;
+      )} (${field("mBESS_single_errors")})</h3>`;
       html += errorPhotosToHTML(singleErrors);
     }
     if (doubleFoamErrors.length > 0) {
       html += `<h3>${t(
         "runtime.results.report.double_leg_foam_errors",
         "Double-Leg Foam Errors"
-      )} (${data.mBESS_foam_double_errors})</h3>`;
+      )} (${field("mBESS_foam_double_errors")})</h3>`;
       html += errorPhotosToHTML(doubleFoamErrors);
     }
     if (tandemFoamErrors.length > 0) {
       html += `<h3>${t(
         "runtime.results.report.tandem_foam_errors",
         "Tandem Foam Errors"
-      )} (${data.mBESS_foam_tandem_errors})</h3>`;
+      )} (${field("mBESS_foam_tandem_errors")})</h3>`;
       html += errorPhotosToHTML(tandemFoamErrors);
     }
     if (singleFoamErrors.length > 0) {
       html += `<h3>${t(
         "runtime.results.report.single_leg_foam_errors",
         "Single-Leg Foam Errors"
-      )} (${data.mBESS_foam_single_errors})</h3>`;
+      )} (${field("mBESS_foam_single_errors")})</h3>`;
       html += errorPhotosToHTML(singleFoamErrors);
     }
   }

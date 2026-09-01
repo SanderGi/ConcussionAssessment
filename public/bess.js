@@ -3,6 +3,7 @@ import {
   assess_tandem_pose,
   assess_single_pose,
 } from "./util/pose.js";
+import { safeImageURL } from "./util/html.js";
 import {
   startListening,
   abortListening,
@@ -146,7 +147,7 @@ const instructionsElement = document.getElementById("instructions");
 let status_id;
 function setStatus(id, status, color) {
   if (status) {
-    statusElement.innerHTML = status;
+    statusElement.textContent = status;
   }
   if (color) {
     statusElement.style.backgroundColor = color;
@@ -172,8 +173,12 @@ function setIntstructions(text, image, voice_message) {
     speak(voice_message);
   }
   instructionsElement.textContent = text;
-  if (image) {
-    instructionsElement.innerHTML += `<img src="${image}" style="height: 6cm; margin: 6px">`;
+  const imageUrl = safeImageURL(image);
+  if (imageUrl) {
+    const imageElement = document.createElement("img");
+    imageElement.src = imageUrl;
+    imageElement.style.cssText = "height: 6cm; margin: 6px";
+    instructionsElement.appendChild(imageElement);
   }
 }
 
