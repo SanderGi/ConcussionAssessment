@@ -168,11 +168,12 @@ main {
 }
 
 .button.test-navigation-button--back {
-  top: max(5rem, calc(env(safe-area-inset-top) + 0.5rem));
+  bottom: max(0.5rem, env(safe-area-inset-bottom));
 }
 
 .button.test-navigation-button--exit {
   bottom: max(0.5rem, env(safe-area-inset-bottom));
+  left: max(3.75rem, calc(env(safe-area-inset-left) + 3.75rem));
 }
 
 main, .center {
