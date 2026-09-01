@@ -649,6 +649,12 @@ app.post("/api/workspaces/join", async (c) => {
     )
     .run();
 
+  const workspaceData = await c.env.DB.prepare(
+    "SELECT data_json FROM workspace_data WHERE workspace_id = ? LIMIT 1"
+  )
+    .bind(workspaceRow.id)
+    .first<{ data_json: string }>();
+
   return c.json({
     workspace: {
       id: workspaceRow.id,
@@ -661,6 +667,96 @@ app.post("/api/workspaces/join", async (c) => {
           ? buildInviteLink(c, workspaceRow.invite_code)
           : undefined,
     },
+    data: safeJsonParse(workspaceData?.data_json ?? "{}"),
+  });
+});
+
+app.post("/api/workspaces/switch", async (c) => {
+  const user = c.get("user");
+  const body = await c.req.json<{ inviteCode?: string }>();
+  const inviteCode = (body?.inviteCode || "").trim().toUpperCase();
+  if (!inviteCode) {
+    return c.json({ error: "Invite code is required." }, 400);
+  }
+
+  const target = await c.env.DB.prepare(
+    "SELECT id, name, owner_sub, invite_code FROM workspaces WHERE invite_code = ? LIMIT 1"
+  )
+    .bind(inviteCode)
+    .first<{
+      id: string;
+      name: string;
+      owner_sub: string;
+      invite_code: string;
+    }>();
+  if (!target) return c.json({ error: "Invite code not found." }, 404);
+
+  const active = await getActiveWorkspace(c.env.DB, user.sub);
+  if (!active) {
+    return c.json({ error: "No active workspace to switch from." }, 409);
+  }
+  if (active.id === target.id) {
+    const workspaceData = await c.env.DB.prepare(
+      "SELECT data_json FROM workspace_data WHERE workspace_id = ? LIMIT 1"
+    )
+      .bind(target.id)
+      .first<{ data_json: string }>();
+    return c.json({
+      workspace: active,
+      data: safeJsonParse(workspaceData?.data_json ?? "{}"),
+    });
+  }
+  if (active.role === "owner") {
+    return c.json(
+      { error: "Workspace owners cannot switch without deleting their workspace." },
+      400
+    );
+  }
+
+  const now = Date.now();
+  const role: "owner" | "member" =
+    target.owner_sub === user.sub ? "owner" : "member";
+  await c.env.DB.batch([
+    c.env.DB.prepare(
+      "UPDATE memberships SET is_active = 0 WHERE workspace_id = ? AND user_sub = ? AND is_active = 1"
+    ).bind(active.id, user.sub),
+    c.env.DB.prepare(
+      `INSERT INTO memberships (
+        workspace_id, user_sub, user_email, user_name, user_picture, role, is_active, joined_at
+      ) VALUES (?, ?, ?, ?, ?, ?, 1, ?)
+      ON CONFLICT(workspace_id, user_sub) DO UPDATE SET
+        user_email = excluded.user_email,
+        user_name = excluded.user_name,
+        user_picture = excluded.user_picture,
+        role = excluded.role,
+        is_active = 1`
+    ).bind(
+      target.id,
+      user.sub,
+      user.email,
+      user.name,
+      user.picture,
+      role,
+      now
+    ),
+  ]);
+
+  const workspaceData = await c.env.DB.prepare(
+    "SELECT data_json FROM workspace_data WHERE workspace_id = ? LIMIT 1"
+  )
+    .bind(target.id)
+    .first<{ data_json: string }>();
+  return c.json({
+    workspace: {
+      id: target.id,
+      name: target.name,
+      role,
+      ownerSub: target.owner_sub,
+      inviteCode: role === "owner" ? target.invite_code : undefined,
+      inviteLink:
+        role === "owner" ? buildInviteLink(c, target.invite_code) : undefined,
+    },
+    data: safeJsonParse(workspaceData?.data_json ?? "{}"),
   });
 });
 

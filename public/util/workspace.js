@@ -106,7 +106,16 @@ export async function joinSharedWorkspace(idToken, inviteCode) {
     body: JSON.stringify({ inviteCode }),
   });
   clearWorkspaceCache();
-  return data.workspace;
+  return { workspace: data.workspace, data: data.data ?? {} };
+}
+
+export async function switchSharedWorkspace(idToken, inviteCode) {
+  const data = await authFetch("/api/workspaces/switch", idToken, {
+    method: "POST",
+    body: JSON.stringify({ inviteCode }),
+  });
+  clearWorkspaceCache();
+  return { workspace: data.workspace, data: data.data ?? {} };
 }
 
 export async function leaveSharedWorkspace(idToken) {
