@@ -347,7 +347,7 @@ function mergeTestsByUpdatedAt(source) {
   }
 }
 
-function saveLocalTests() {
+export function saveLocalTests() {
   computeAthletes();
   localStorage.setItem(LASTSYNC, new Date().toUTCString());
   localStorage.setItem(TESTS, JSON.stringify(tests));
@@ -385,7 +385,7 @@ export async function clearLocalData() {
   location.reload();
 }
 
-export async function syncData({
+async function performSync({
   pullDrive = true,
   pullWorkspace = true,
   pushWorkspace = true,
@@ -437,4 +437,57 @@ export async function syncData({
   }
 
   await syncNonWorkspaceAnalyticsState(tests);
+}
+
+let queuedSyncOptions = null;
+let activeSync = null;
+
+function mergeSyncOptions(current, next) {
+  if (!current) return next;
+  return {
+    pullDrive: current.pullDrive || next.pullDrive,
+    pullWorkspace: current.pullWorkspace || next.pullWorkspace,
+    pushWorkspace: current.pushWorkspace || next.pushWorkspace,
+  };
+}
+
+/**
+ * Queue a background sync. Calls made while a sync is active are coalesced into
+ * one follow-up pass so network writes never overlap or finish out of order.
+ * Awaiting the returned promise waits for the active pass and all work queued
+ * behind it, but callers may intentionally leave it unawaited to keep UI flows
+ * responsive.
+ */
+export function syncData({
+  pullDrive = true,
+  pullWorkspace = true,
+  pushWorkspace = true,
+} = {}) {
+  queuedSyncOptions = mergeSyncOptions(queuedSyncOptions, {
+    pullDrive,
+    pullWorkspace,
+    pushWorkspace,
+  });
+
+  if (!activeSync) {
+    activeSync = (async () => {
+      let firstError = null;
+      try {
+        while (queuedSyncOptions) {
+          const options = queuedSyncOptions;
+          queuedSyncOptions = null;
+          try {
+            await performSync(options);
+          } catch (err) {
+            firstError ??= err;
+          }
+        }
+        if (firstError) throw firstError;
+      } finally {
+        activeSync = null;
+      }
+    })();
+  }
+
+  return activeSync;
 }

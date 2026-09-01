@@ -61,9 +61,9 @@ export async function getAppDataFile(accessToken, filename) {
 export async function setAppDataFile(data, accessToken, filename) {
   const fileId = await getFileId(accessToken, filename);
   if (fileId) {
-    updateAppDataFile(data, accessToken, filename);
+    await updateAppDataFile(data, accessToken, filename);
   } else {
-    createAppDataFile(data, accessToken, filename);
+    await createAppDataFile(data, accessToken, filename);
   }
 }
 

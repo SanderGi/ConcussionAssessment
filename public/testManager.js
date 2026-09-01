@@ -1,4 +1,4 @@
-import { tests, syncData, connectUser } from "./userData.js";
+import { tests, syncData, connectUser, saveLocalTests } from "./userData.js";
 import { confirm, confirmAthleteInfo } from "./util/popup.js";
 import { abortSpeaking, isSpeaking, speak } from "./util/sound.js";
 import { uploadTest } from "./util/googleForm.js";
@@ -280,15 +280,19 @@ window.goBackTestSection = goBackTestSection;
 
 setupTestNavigationControls();
 
-export async function saveTestResult(key, value) {
+export function saveTestResult(key, value) {
   const test = getTest();
   if (value !== test[key]) {
     test[key] = value;
     test.test_updated_at = Date.now();
     tests[test.test_id] = test;
     sessionStorage.setItem(TEST, JSON.stringify(test));
-    await syncData();
+    saveLocalTests();
+    const sync = syncData();
+    sync.catch((err) => console.error("Background sync failed:", err));
+    return sync;
   }
+  return Promise.resolve();
 }
 window.saveTestResult = saveTestResult;
 
