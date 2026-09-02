@@ -722,13 +722,19 @@ function showAthlete(athlete_id) {
     button.appendChild(icon);
     button.addEventListener("click", handler);
     actions.appendChild(button);
+    return button;
   };
   addAction("Test", "fa-solid fa-flask-vial", "button", () =>
     window.testAthlete(athlete_id)
   );
-  addAction("Results", "fa-solid fa-clipboard-list", "button", () =>
-    window.showAthleteResults(athlete_id)
+  const resultsButton = addAction(
+    "Results",
+    "fa-solid fa-clipboard-list",
+    "button",
+    () => window.showAthleteResults(athlete_id, resultsButton)
   );
+  resultsButton.setAttribute("aria-expanded", "false");
+  resultsButton.setAttribute("aria-controls", `athlete-results-${athlete_id}`);
   addAction("Delete", "fa-solid fa-trash", "button button--red", () =>
     window.deleteAthlete(athlete_id)
   );
@@ -753,7 +759,11 @@ function showAthletes() {
       athleteB.athlete_name,
       searchInput.value
     );
-    return similarityB - similarityA;
+    return (
+      similarityB - similarityA ||
+      Number(athleteB.test_created_at ?? 0) -
+        Number(athleteA.test_created_at ?? 0)
+    );
   });
 
   for (
@@ -796,7 +806,7 @@ window.deleteAthlete = async (athlete_id) => {
   }
 };
 
-window.showAthleteResults = async (athlete_id) => {
+window.showAthleteResults = async (athlete_id, resultsButton = null) => {
   const athlete = athletes[athlete_id];
   if (!athlete) return;
 
@@ -810,22 +820,21 @@ window.showAthleteResults = async (athlete_id) => {
   );
 
   const container = document.getElementById("athlete-" + athlete_id);
-
-  const alreadyCanvases = container.getElementsByTagName("canvas");
-  if (alreadyCanvases.length > 0) {
-    for (const canvas of alreadyCanvases) {
-      canvas.remove();
+  const existingResults = container.querySelector(":scope > .athlete-results");
+  if (existingResults) {
+    for (const canvas of existingResults.querySelectorAll("canvas")) {
+      Chart.getChart?.(canvas)?.destroy();
     }
-    container.lastChild.remove();
-    container.lastChild.remove();
-    container.lastChild.remove();
-    container.lastChild.remove();
-    container.lastChild.remove();
-    container.lastChild.remove();
-    container.lastChild.remove();
-    container.lastChild.remove();
+    existingResults.remove();
+    resultsButton?.setAttribute("aria-expanded", "false");
     return;
   }
+
+  const results = document.createElement("div");
+  results.id = `athlete-results-${athlete_id}`;
+  results.className = "athlete-results";
+  container.appendChild(results);
+  resultsButton?.setAttribute("aria-expanded", "true");
 
   const summary = document.createElement("div");
   const cognitiveLabel = t(
@@ -864,7 +873,7 @@ window.showAthleteResults = async (athlete_id) => {
       "No post-injuries found for this athlete."
     )
   );
-  container.appendChild(summary);
+  results.appendChild(summary);
 
   const selectTest = document.createElement("select");
   for (const t of athleteTests.toReversed()) {
@@ -877,12 +886,12 @@ window.showAthleteResults = async (athlete_id) => {
     selectTest.appendChild(option);
   }
   if (selectTest.children.length === 0) {
-    container.appendChild(
+    results.appendChild(
       document.createTextNode(
         t("runtime.test_mgmt.no_tests", "No tests found for this athlete. ")
       )
     );
-    container.appendChild(
+    results.appendChild(
       document.createTextNode(
         t(
           "runtime.test_mgmt.click_test_button",
@@ -892,7 +901,7 @@ window.showAthleteResults = async (athlete_id) => {
     );
     return;
   } else {
-    container.appendChild(selectTest);
+    results.appendChild(selectTest);
     const openTestButton = document.createElement("button");
     openTestButton.textContent = t(
       "runtime.test_mgmt.open_test_details",
@@ -902,7 +911,7 @@ window.showAthleteResults = async (athlete_id) => {
     openTestButton.onclick = () => {
       viewResults(tests[selectTest.value]);
     };
-    container.appendChild(openTestButton);
+    results.appendChild(openTestButton);
   }
 
   const title = document.createElement("h2");
@@ -910,9 +919,9 @@ window.showAthleteResults = async (athlete_id) => {
     "runtime.test_mgmt.chart.errors_title",
     "Errors, Fastest Times, and Symptoms (lower is better)"
   );
-  container.appendChild(title);
+  results.appendChild(title);
   const canvas = document.createElement("canvas");
-  container.appendChild(canvas);
+  results.appendChild(canvas);
   const chart = new Chart(canvas, {
     type: "line",
     data: {
@@ -1034,7 +1043,7 @@ window.showAthleteResults = async (athlete_id) => {
     photoButtons.appendChild(button);
   }
   datapointDetails.appendChild(photoButtons);
-  container.appendChild(datapointDetails);
+  results.appendChild(datapointDetails);
 
   canvas.onclick = (event) => {
     const datapoints = chart.getElementsAtEventForMode(event, "nearest", {
@@ -1055,9 +1064,9 @@ window.showAthleteResults = async (athlete_id) => {
     "runtime.test_mgmt.chart.scores_title",
     "Scores (higher is better)"
   );
-  container.appendChild(title2);
+  results.appendChild(title2);
   const canvas2 = document.createElement("canvas");
-  container.appendChild(canvas2);
+  results.appendChild(canvas2);
   new Chart(canvas2, {
     type: "line",
     data: {
