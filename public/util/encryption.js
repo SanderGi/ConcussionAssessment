@@ -64,6 +64,18 @@ export async function importKeyFile(file, cryptoApi = globalThis.crypto) {
   };
 }
 
+export function normalizeKeyFile(file, { algorithm, keyId }) {
+  if (!file?.key || !algorithm?.name || !keyId) {
+    throw new Error("Cannot normalize an invalid Drive encryption key file.");
+  }
+  return {
+    version: DRIVE_KEY_VERSION,
+    keyId,
+    algorithm: { name: algorithm.name },
+    key: file.key,
+  };
+}
+
 export function createDriveDataEnvelope(keyId, encryptedData) {
   return {
     format: DRIVE_DATA_FORMAT,

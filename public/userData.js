@@ -26,6 +26,7 @@ import {
   encryptJSON,
   importKeyFile,
   isDriveDataEnvelope,
+  normalizeKeyFile,
 } from "./util/encryption.js?v=20260901";
 import { alert, select } from "./util/popup.js";
 import {
@@ -148,6 +149,25 @@ export class DriveDataDecryptionError extends Error {
 
 let activeDriveKey = null;
 
+function getLegacyCachedKeyFile() {
+  try {
+    return JSON.parse(localStorage.getItem(KEY) ?? "null");
+  } catch {
+    return null;
+  }
+}
+
+function isStoredTestsDataset(value) {
+  return Boolean(
+    value &&
+      typeof value === "object" &&
+      !Array.isArray(value) &&
+      Object.values(value).every(
+        (test) => test && typeof test === "object" && !Array.isArray(test)
+      )
+  );
+}
+
 async function recoverDriveState(user) {
   const recovered = {};
   let preferred = null;
@@ -203,6 +223,50 @@ async function recoverDriveState(user) {
     return { data: recovered, ...preferred };
   }
 
+  // Versions before September 2026 cached one unscoped key in localStorage.
+  // An account switch could therefore encrypt Drive data with a key that was
+  // never uploaded to that account. Try it only as a last-resort migration and
+  // retain it until the normalized key/data pair has been written successfully.
+  const legacyCachedKeyFile = getLegacyCachedKeyFile();
+  if (legacyCachedKeyFile) {
+    try {
+      const cachedKey = await importKeyFile(
+        legacyCachedKeyFile,
+        window.crypto
+      );
+      for (const dataCandidate of dataCandidates) {
+        const envelope = isDriveDataEnvelope(dataCandidate.data)
+          ? dataCandidate.data
+          : null;
+        if (envelope && envelope.keyId !== cachedKey.keyId) continue;
+        try {
+          const decrypted = await decryptJSON(
+            envelope?.data ?? dataCandidate.data,
+            cachedKey,
+            window.crypto
+          );
+          if (!isStoredTestsDataset(decrypted)) continue;
+          mergeTestsByUpdatedAt(recovered, decrypted);
+          preferred ??= {
+            keyFile: normalizeKeyFile(legacyCachedKeyFile, cachedKey),
+            key: cachedKey,
+            dataFileId: dataCandidate.id,
+          };
+        } catch {
+          // The cache may belong to another account; try the next data copy.
+        }
+      }
+    } catch {
+      // Ignore malformed legacy browser state.
+    }
+  }
+  if (preferred) {
+    selectAppDataFile(KEY_FILE, null);
+    selectAppDataFile(DATA_FILE, preferred.dataFileId);
+    activeDriveKey = { uid: user.uid, ...preferred };
+    return { data: recovered, ...preferred };
+  }
+
   if (dataCandidates.length > 0) throw new DriveDataDecryptionError();
 
   if (importedKeys.length > 0) {
@@ -250,11 +314,12 @@ async function setRemoteData(data) {
     user.accessToken,
     DATA_FILE
   );
+  localStorage.removeItem(KEY);
 }
 
 export async function deleteRemoteData() {
   const user = await connectUser();
-  if (!user) return;
+  if (!user) return false;
 
   try {
     await Promise.all([
@@ -262,11 +327,13 @@ export async function deleteRemoteData() {
       deleteAllAppDataFiles(user.accessToken, DATA_FILE),
     ]);
     activeDriveKey = null;
+    return true;
   } catch (err) {
     console.error(err);
     await alert(
       "Failed to delete GDrive data. Please try re-syncing this device."
     );
+    return false;
   }
 }
 

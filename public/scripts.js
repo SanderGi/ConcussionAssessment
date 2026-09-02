@@ -14,6 +14,7 @@ import { startTest } from "./testManager.js";
 import {
   alert,
   confirm,
+  select,
   syncSettings,
   errorPhotosToHTML,
 } from "./util/popup.js";
@@ -192,6 +193,9 @@ async function initializeAppPage() {
   } catch (err) {
     console.error("Startup sync failed:", err);
     showConnected(user);
+    if (err?.code === "DRIVE_DATA_CORRUPT") {
+      await handleDriveSyncError(err, user, { disconnectOtherErrors: false });
+    }
   } finally {
     renderCurrentTestSection();
     document.body.style.visibility = "visible";
@@ -273,6 +277,61 @@ function showConnected(user) {
     icon.className = "fa-brands fa-google-drive";
     syncButton.appendChild(icon);
     syncButton.classList.remove("button--green");
+  }
+}
+
+async function handleDriveSyncError(err, user, { disconnectOtherErrors }) {
+  if (err?.code !== "DRIVE_DATA_CORRUPT") {
+    await alert(
+      t(
+        "runtime.alert.sync_failed",
+        "Failed to sync data. Make sure you checked the box to give the app permission to add app data to your Google Drive."
+      )
+    );
+    if (disconnectOtherErrors) await disconnectUser();
+    return;
+  }
+
+  const action = await select(
+    t(
+      "runtime.alert.drive_data_corrupt",
+      "SCAT6 cloud data is corrupted and could not be decrypted. Data stored in this browser has not been changed."
+    ),
+    [
+      ["KEEP", t("runtime.popup.cancel", "CANCEL")],
+      [
+        "RESET",
+        t("runtime.popup.reset_cloud_data", "Reset Cloud Data"),
+        "button--red",
+      ],
+    ]
+  );
+  if (action !== "RESET") return;
+
+  const confirmed = await confirm(
+    t(
+      "runtime.confirm.reset_corrupt_drive",
+      "This permanently deletes only SCAT6 app data from Google Drive and replaces it with the assessments currently stored in this browser. Other Google Drive files are not affected. Continue?"
+    )
+  );
+  if (!confirmed) return;
+
+  if (!(await deleteRemoteData())) return;
+  try {
+    await syncData({
+      pullDrive: false,
+      pullWorkspace: false,
+      pushWorkspace: false,
+    });
+    showConnected(user);
+  } catch (resetError) {
+    console.error("Failed to recreate SCAT6 cloud data:", resetError);
+    await alert(
+      t(
+        "runtime.alert.sync_failed",
+        "Failed to sync data. Make sure you checked the box to give the app permission to add app data to your Google Drive."
+      )
+    );
   }
 }
 
@@ -629,13 +688,7 @@ syncButton.onclick = async () => {
       showConnected(user);
     } catch (err) {
       console.error(err);
-      await alert(
-        t(
-          "runtime.alert.sync_failed",
-          "Failed to sync data. Make sure you checked the box to give the app permission to add app data to your Google Drive."
-        )
-      );
-      await disconnectUser();
+      await handleDriveSyncError(err, user, { disconnectOtherErrors: true });
     }
   }
 };

@@ -2,7 +2,7 @@
   "meta": {
     "language": "el",
     "defaultLanguage": "en",
-    "generatedAt": "2026-09-01T23:33:55.604Z",
+    "generatedAt": "2026-09-02T00:22:25.248Z",
     "note": "Each entry stores the English source text, all known locations, and the translated value for this language."
   },
   "entries": {
@@ -2090,6 +2090,13 @@
       ],
       "value": "Προβολή φωτογραφιών BESS: {{date}}"
     },
+    "runtime.alert.drive_data_corrupt": {
+      "source": "SCAT6 cloud data is corrupted and could not be decrypted. Data stored in this browser has not been changed.",
+      "locations": [
+        "public/scripts.js handleDriveSyncError"
+      ],
+      "value": "Τα δεδομένα SCAT6 στο cloud είναι κατεστραμμένα και δεν ήταν δυνατή η αποκρυπτογράφησή τους. Τα δεδομένα που είναι αποθηκευμένα σε αυτό το πρόγραμμα περιήγησης δεν έχουν αλλάξει."
+    },
     "runtime.alert.sync_failed": {
       "source": "Failed to sync data. Make sure you checked the box to give the app permission to add app data to your Google Drive.",
       "locations": [
@@ -2467,6 +2474,13 @@
         "public/scripts.js syncButton.onclick action=DELETE_DRIVE"
       ],
       "value": "Θα διαγραφούν όλα από το Google Drive αλλά θα παραμείνουν στη συσκευή. Είστε βέβαιοι;"
+    },
+    "runtime.confirm.reset_corrupt_drive": {
+      "source": "This permanently deletes only SCAT6 app data from Google Drive and replaces it with the assessments currently stored in this browser. Other Google Drive files are not affected. Continue?",
+      "locations": [
+        "public/scripts.js handleDriveSyncError confirmation"
+      ],
+      "value": "Αυτή η ενέργεια διαγράφει οριστικά μόνο τα δεδομένα της εφαρμογής SCAT6 από το Google Drive και τα αντικαθιστά με τις αξιολογήσεις που είναι αποθηκευμένες αυτήν τη στιγμή σε αυτό το πρόγραμμα περιήγησης. Τα άλλα αρχεία του Google Drive δεν επηρεάζονται. Συνέχεια;"
     },
     "runtime.confirm.unlink": {
       "source": "This will delete all data from this device but keep it on your GDrive. Are you sure?",
@@ -3035,6 +3049,13 @@
         "templates/index.template.html cervical-spine button"
       ],
       "value": "Ακινητοποίηση σπονδυλικής στήλης και αυχενικό κολάρο. Έπειτα απομάκρυνση για άμεση αξιολόγηση ή μεταφορά."
+    },
+    "runtime.popup.reset_cloud_data": {
+      "source": "Reset Cloud Data",
+      "locations": [
+        "public/scripts.js handleDriveSyncError reset button"
+      ],
+      "value": "Επαναφορά δεδομένων cloud"
     },
     "runtime.popup.save_info_no_test": {
       "source": "Save Info w/o Test",

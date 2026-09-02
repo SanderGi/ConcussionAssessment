@@ -9,6 +9,7 @@ import {
   encryptJSON,
   importKeyFile,
   isDriveDataEnvelope,
+  normalizeKeyFile,
 } from "../public/util/encryption.js";
 
 async function createKeyMaterial() {
@@ -127,4 +128,16 @@ test("declared key IDs must match their key material", async () => {
     importKeyFile({ ...file, keyId: "wrong-key" }, webcrypto),
     /key ID does not match/
   );
+});
+
+test("legacy cached keys normalize into immutable key files", async () => {
+  const { file, key } = await createKeyFile(webcrypto);
+  const legacyFile = {
+    algorithm: { ...file.algorithm, iv: [1, 2, 3] },
+    key: file.key,
+  };
+  const imported = await importKeyFile(legacyFile, webcrypto);
+
+  assert.deepEqual(normalizeKeyFile(legacyFile, imported), file);
+  assert.equal(key.keyId, imported.keyId);
 });

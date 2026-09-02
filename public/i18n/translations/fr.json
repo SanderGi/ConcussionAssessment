@@ -2,7 +2,7 @@
   "meta": {
     "language": "fr",
     "defaultLanguage": "en",
-    "generatedAt": "2026-09-01T23:33:55.501Z",
+    "generatedAt": "2026-09-02T00:22:25.156Z",
     "note": "Each entry stores the English source text, all known locations, and the translated value for this language."
   },
   "entries": {
@@ -2090,6 +2090,13 @@
       ],
       "value": "Afficher les photos BESS : {{date}}"
     },
+    "runtime.alert.drive_data_corrupt": {
+      "source": "SCAT6 cloud data is corrupted and could not be decrypted. Data stored in this browser has not been changed.",
+      "locations": [
+        "public/scripts.js handleDriveSyncError"
+      ],
+      "value": "Les données cloud SCAT6 sont corrompues et n’ont pas pu être déchiffrées. Les données stockées dans ce navigateur n’ont pas été modifiées."
+    },
     "runtime.alert.sync_failed": {
       "source": "Failed to sync data. Make sure you checked the box to give the app permission to add app data to your Google Drive.",
       "locations": [
@@ -2467,6 +2474,13 @@
         "public/scripts.js syncButton.onclick action=DELETE_DRIVE"
       ],
       "value": "Toutes les données seront supprimées de votre Google Drive, mais conservées sur cet appareil. Voulez-vous continuer?"
+    },
+    "runtime.confirm.reset_corrupt_drive": {
+      "source": "This permanently deletes only SCAT6 app data from Google Drive and replaces it with the assessments currently stored in this browser. Other Google Drive files are not affected. Continue?",
+      "locations": [
+        "public/scripts.js handleDriveSyncError confirmation"
+      ],
+      "value": "Cette opération supprime définitivement uniquement les données de l’application SCAT6 dans Google Drive et les remplace par les évaluations actuellement stockées dans ce navigateur. Les autres fichiers Google Drive ne sont pas affectés. Continuer ?"
     },
     "runtime.confirm.unlink": {
       "source": "This will delete all data from this device but keep it on your GDrive. Are you sure?",
@@ -3035,6 +3049,13 @@
         "templates/index.template.html cervical-spine button"
       ],
       "value": "Immobiliser la colonne vertébrale et poser un collier cervical. Retirer ensuite l’athlète du jeu pour une évaluation médicale immédiate ou le transporter à l’hôpital ou à un établissement de soins."
+    },
+    "runtime.popup.reset_cloud_data": {
+      "source": "Reset Cloud Data",
+      "locations": [
+        "public/scripts.js handleDriveSyncError reset button"
+      ],
+      "value": "Réinitialiser les données cloud"
     },
     "runtime.popup.save_info_no_test": {
       "source": "Save Info w/o Test",

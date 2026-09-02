@@ -2,7 +2,7 @@
   "meta": {
     "language": "zh-hant",
     "defaultLanguage": "en",
-    "generatedAt": "2026-09-01T23:33:55.641Z",
+    "generatedAt": "2026-09-02T00:22:25.283Z",
     "note": "Each entry stores the English source text, all known locations, and the translated value for this language."
   },
   "entries": {
@@ -2090,6 +2090,13 @@
       ],
       "value": "檢視 BESS 照片：{{date}}"
     },
+    "runtime.alert.drive_data_corrupt": {
+      "source": "SCAT6 cloud data is corrupted and could not be decrypted. Data stored in this browser has not been changed.",
+      "locations": [
+        "public/scripts.js handleDriveSyncError"
+      ],
+      "value": "SCAT6 雲端資料已損毀，無法解密。儲存在此瀏覽器中的資料未被變更。"
+    },
     "runtime.alert.sync_failed": {
       "source": "Failed to sync data. Make sure you checked the box to give the app permission to add app data to your Google Drive.",
       "locations": [
@@ -2467,6 +2474,13 @@
         "public/scripts.js syncButton.onclick action=DELETE_DRIVE"
       ],
       "value": "這會刪除 Google Drive 內所有資料，但保留此裝置上的資料。確定嗎？"
+    },
+    "runtime.confirm.reset_corrupt_drive": {
+      "source": "This permanently deletes only SCAT6 app data from Google Drive and replaces it with the assessments currently stored in this browser. Other Google Drive files are not affected. Continue?",
+      "locations": [
+        "public/scripts.js handleDriveSyncError confirmation"
+      ],
+      "value": "此操作只會永久刪除 Google Drive 中的 SCAT6 應用程式資料，並以目前儲存在此瀏覽器中的評估取代。其他 Google Drive 檔案不會受到影響。要繼續嗎？"
     },
     "runtime.confirm.unlink": {
       "source": "This will delete all data from this device but keep it on your GDrive. Are you sure?",
@@ -3035,6 +3049,13 @@
         "templates/index.template.html cervical-spine button"
       ],
       "value": "固定脊椎並使用頸圈，然後立即停止比賽並接受評估或送院。"
+    },
+    "runtime.popup.reset_cloud_data": {
+      "source": "Reset Cloud Data",
+      "locations": [
+        "public/scripts.js handleDriveSyncError reset button"
+      ],
+      "value": "重設雲端資料"
     },
     "runtime.popup.save_info_no_test": {
       "source": "Save Info w/o Test",

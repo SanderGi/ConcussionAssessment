@@ -2,7 +2,7 @@
   "meta": {
     "language": "hi",
     "defaultLanguage": "en",
-    "generatedAt": "2026-09-01T23:33:55.558Z",
+    "generatedAt": "2026-09-02T00:22:25.205Z",
     "note": "Each entry stores the English source text, all known locations, and the translated value for this language."
   },
   "entries": {
@@ -2090,6 +2090,13 @@
       ],
       "value": "BESS फ़ोटो देखें: {{date}}"
     },
+    "runtime.alert.drive_data_corrupt": {
+      "source": "SCAT6 cloud data is corrupted and could not be decrypted. Data stored in this browser has not been changed.",
+      "locations": [
+        "public/scripts.js handleDriveSyncError"
+      ],
+      "value": "SCAT6 क्लाउड डेटा दूषित है और उसे डिक्रिप्ट नहीं किया जा सका। इस ब्राउज़र में संग्रहीत डेटा बदला नहीं गया है।"
+    },
     "runtime.alert.sync_failed": {
       "source": "Failed to sync data. Make sure you checked the box to give the app permission to add app data to your Google Drive.",
       "locations": [
@@ -2467,6 +2474,13 @@
         "public/scripts.js syncButton.onclick action=DELETE_DRIVE"
       ],
       "value": "Google Drive से डेटा हटेगा लेकिन इस उपकरण पर रहेगा। जारी रखें?"
+    },
+    "runtime.confirm.reset_corrupt_drive": {
+      "source": "This permanently deletes only SCAT6 app data from Google Drive and replaces it with the assessments currently stored in this browser. Other Google Drive files are not affected. Continue?",
+      "locations": [
+        "public/scripts.js handleDriveSyncError confirmation"
+      ],
+      "value": "इससे Google Drive से केवल SCAT6 ऐप डेटा स्थायी रूप से हट जाएगा और उसकी जगह इस ब्राउज़र में वर्तमान में संग्रहीत आकलन आ जाएंगे। Google Drive की अन्य फ़ाइलें प्रभावित नहीं होंगी। जारी रखें?"
     },
     "runtime.confirm.unlink": {
       "source": "This will delete all data from this device but keep it on your GDrive. Are you sure?",
@@ -3035,6 +3049,13 @@
         "templates/index.template.html cervical-spine button"
       ],
       "value": "रीढ़ को स्थिर कर ग्रीवा कॉलर लगाएँ, फिर खिलाड़ी को तुरंत चिकित्सीय आकलन हेतु खेल से हटाएँ।"
+    },
+    "runtime.popup.reset_cloud_data": {
+      "source": "Reset Cloud Data",
+      "locations": [
+        "public/scripts.js handleDriveSyncError reset button"
+      ],
+      "value": "क्लाउड डेटा रीसेट करें"
     },
     "runtime.popup.save_info_no_test": {
       "source": "Save Info w/o Test",

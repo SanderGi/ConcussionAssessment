@@ -2,7 +2,7 @@
   "meta": {
     "language": "ja",
     "defaultLanguage": "en",
-    "generatedAt": "2026-09-01T23:33:55.655Z",
+    "generatedAt": "2026-09-02T00:22:25.296Z",
     "note": "Each entry stores the English source text, all known locations, and the translated value for this language."
   },
   "entries": {
@@ -2090,6 +2090,13 @@
       ],
       "value": "BESS写真を表示：{{date}}"
     },
+    "runtime.alert.drive_data_corrupt": {
+      "source": "SCAT6 cloud data is corrupted and could not be decrypted. Data stored in this browser has not been changed.",
+      "locations": [
+        "public/scripts.js handleDriveSyncError"
+      ],
+      "value": "SCAT6 のクラウドデータが破損しており、復号できませんでした。このブラウザに保存されているデータは変更されていません。"
+    },
     "runtime.alert.sync_failed": {
       "source": "Failed to sync data. Make sure you checked the box to give the app permission to add app data to your Google Drive.",
       "locations": [
@@ -2467,6 +2474,13 @@
         "public/scripts.js syncButton.onclick action=DELETE_DRIVE"
       ],
       "value": "Google Drive上の全データを削除し、この端末には残します。よろしいですか？"
+    },
+    "runtime.confirm.reset_corrupt_drive": {
+      "source": "This permanently deletes only SCAT6 app data from Google Drive and replaces it with the assessments currently stored in this browser. Other Google Drive files are not affected. Continue?",
+      "locations": [
+        "public/scripts.js handleDriveSyncError confirmation"
+      ],
+      "value": "Google Drive から SCAT6 のアプリデータのみを完全に削除し、このブラウザに現在保存されている評価データで置き換えます。Google Drive のその他のファイルには影響しません。続行しますか？"
     },
     "runtime.confirm.unlink": {
       "source": "This will delete all data from this device but keep it on your GDrive. Are you sure?",
@@ -3035,6 +3049,13 @@
         "templates/index.template.html cervical-spine button"
       ],
       "value": "脊椎固定と頸椎カラーを行い、直ちに競技から外して評価または搬送する。"
+    },
+    "runtime.popup.reset_cloud_data": {
+      "source": "Reset Cloud Data",
+      "locations": [
+        "public/scripts.js handleDriveSyncError reset button"
+      ],
+      "value": "クラウドデータをリセット"
     },
     "runtime.popup.save_info_no_test": {
       "source": "Save Info w/o Test",

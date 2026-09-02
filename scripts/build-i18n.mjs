@@ -121,6 +121,25 @@ const runtimeEntries = {
     value:
       "Failed to sync data. Make sure you checked the box to give the app permission to add app data to your Google Drive.",
   },
+  "runtime.alert.drive_data_corrupt": {
+    source:
+      "SCAT6 cloud data is corrupted and could not be decrypted. Data stored in this browser has not been changed.",
+    locations: ["public/scripts.js handleDriveSyncError"],
+    value:
+      "SCAT6 cloud data is corrupted and could not be decrypted. Data stored in this browser has not been changed.",
+  },
+  "runtime.popup.reset_cloud_data": {
+    source: "Reset Cloud Data",
+    locations: ["public/scripts.js handleDriveSyncError reset button"],
+    value: "Reset Cloud Data",
+  },
+  "runtime.confirm.reset_corrupt_drive": {
+    source:
+      "This permanently deletes only SCAT6 app data from Google Drive and replaces it with the assessments currently stored in this browser. Other Google Drive files are not affected. Continue?",
+    locations: ["public/scripts.js handleDriveSyncError confirmation"],
+    value:
+      "This permanently deletes only SCAT6 app data from Google Drive and replaces it with the assessments currently stored in this browser. Other Google Drive files are not affected. Continue?",
+  },
   "runtime.sync.last_identity": {
     source:
       "Last confirmed identity on {{lastSignIn}} <br><br> Last synced on {{lastSync}}",
