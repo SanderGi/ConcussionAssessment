@@ -1,5 +1,17 @@
 export const DATA_ENCRYPTION_VERSION = 2;
-export const DRIVE_BUNDLE_VERSION = 1;
+export const DRIVE_KEY_VERSION = 1;
+export const DRIVE_DATA_VERSION = 1;
+export const DRIVE_DATA_FORMAT = "scat6-encrypted-data";
+
+async function getKeyId(aes256key, cryptoApi) {
+  const rawKey = await cryptoApi.subtle.exportKey("raw", aes256key);
+  const digest = new Uint8Array(
+    await cryptoApi.subtle.digest("SHA-256", rawKey)
+  );
+  return Array.from(digest, (byte) =>
+    byte.toString(16).padStart(2, "0")
+  ).join("");
+}
 
 export async function createKeyFile(cryptoApi = globalThis.crypto) {
   const algorithm = { name: "AES-GCM" };
@@ -8,18 +20,27 @@ export async function createKeyFile(cryptoApi = globalThis.crypto) {
     true,
     ["encrypt", "decrypt"]
   );
+  const keyId = await getKeyId(aes256key, cryptoApi);
   return {
     file: {
+      version: DRIVE_KEY_VERSION,
+      keyId,
       algorithm: { name: algorithm.name },
       key: await cryptoApi.subtle.exportKey("jwk", aes256key),
     },
-    key: { algorithm, aes256key, legacyIv: null },
+    key: { algorithm, aes256key, keyId, legacyIv: null },
   };
 }
 
 export async function importKeyFile(file, cryptoApi = globalThis.crypto) {
   if (!file?.algorithm?.name || !file?.key) {
     throw new Error("Invalid Drive encryption key file.");
+  }
+  if (
+    file.version !== undefined &&
+    file.version !== DRIVE_KEY_VERSION
+  ) {
+    throw new Error("Unsupported Drive encryption key file version.");
   }
   const algorithm = { name: file.algorithm.name };
   const aes256key = await cryptoApi.subtle.importKey(
@@ -29,28 +50,35 @@ export async function importKeyFile(file, cryptoApi = globalThis.crypto) {
     true,
     ["encrypt", "decrypt"]
   );
+  const keyId = await getKeyId(aes256key, cryptoApi);
+  if (file.keyId !== undefined && file.keyId !== keyId) {
+    throw new Error("Drive encryption key ID does not match its key material.");
+  }
   return {
     algorithm,
     aes256key,
+    keyId,
     legacyIv: Array.isArray(file.algorithm.iv)
       ? Uint8Array.from(file.algorithm.iv)
       : null,
   };
 }
 
-export function createDriveBundle(keyFile, encryptedData) {
+export function createDriveDataEnvelope(keyId, encryptedData) {
   return {
-    version: DRIVE_BUNDLE_VERSION,
-    key: keyFile,
+    format: DRIVE_DATA_FORMAT,
+    version: DRIVE_DATA_VERSION,
+    keyId,
     data: encryptedData,
   };
 }
 
-export function isDriveBundle(value) {
+export function isDriveDataEnvelope(value) {
   return Boolean(
-    value?.version === DRIVE_BUNDLE_VERSION &&
-      value.key &&
-      value.data
+    value?.format === DRIVE_DATA_FORMAT &&
+      value.version === DRIVE_DATA_VERSION &&
+      typeof value.keyId === "string" &&
+      Object.hasOwn(value, "data")
   );
 }
 

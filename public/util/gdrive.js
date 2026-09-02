@@ -152,7 +152,7 @@ async function updateAppDataFile(data, accessToken, filename) {
   _fileIds[filename] = file.id;
 }
 
-async function createAppDataFile(data, accessToken, filename) {
+export async function createAppDataFile(data, accessToken, filename) {
   const metadataRes = await fetch(
     "https://www.googleapis.com/upload/drive/v3/files?uploadType=resumable",
     {
@@ -182,4 +182,5 @@ async function createAppDataFile(data, accessToken, filename) {
 
   const file = await uploadRes.json();
   _fileIds[filename] = file.id;
+  return file;
 }

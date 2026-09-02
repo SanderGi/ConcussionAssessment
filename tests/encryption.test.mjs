@@ -3,12 +3,12 @@ import { webcrypto } from "node:crypto";
 import test from "node:test";
 
 import {
-  createDriveBundle,
+  createDriveDataEnvelope,
   createKeyFile,
   decryptJSON,
   encryptJSON,
   importKeyFile,
-  isDriveBundle,
+  isDriveDataEnvelope,
 } from "../public/util/encryption.js";
 
 async function createKeyMaterial() {
@@ -54,21 +54,77 @@ test("legacy ciphertext arrays remain decryptable", async () => {
   );
 });
 
-test("Drive bundles keep their key and ciphertext together", async () => {
+test("Drive data envelopes identify a separate immutable key", async () => {
   const { file, key } = await createKeyFile(webcrypto);
   const value = { tests: { recovered: { test_updated_at: 42 } } };
-  const bundle = createDriveBundle(
-    file,
+  const envelope = createDriveDataEnvelope(
+    key.keyId,
     await encryptJSON(value, key, webcrypto)
   );
 
-  assert.equal(isDriveBundle(bundle), true);
+  assert.equal(file.version, 1);
+  assert.equal(file.keyId, key.keyId);
+  assert.equal(isDriveDataEnvelope(envelope), true);
+  assert.equal(Object.hasOwn(envelope, "key"), false);
   assert.deepEqual(
     await decryptJSON(
-      bundle.data,
-      await importKeyFile(bundle.key, webcrypto),
+      envelope.data,
+      await importKeyFile(file, webcrypto),
       webcrypto
     ),
     value
+  );
+});
+
+test("legacy separate key and data files remain compatible", async () => {
+  const { file, key } = await createKeyFile(webcrypto);
+  const legacyKeyFile = {
+    algorithm: file.algorithm,
+    key: file.key,
+  };
+  const imported = await importKeyFile(legacyKeyFile, webcrypto);
+  const value = { tests: { legacy: { test_updated_at: 7 } } };
+  const legacyDataFile = await encryptJSON(value, key, webcrypto);
+
+  assert.equal(imported.keyId, key.keyId);
+  assert.deepEqual(
+    await decryptJSON(legacyDataFile, imported, webcrypto),
+    value
+  );
+});
+
+test("legacy key files with a shared IV remain compatible", async () => {
+  const key = await createKeyMaterial();
+  const legacyIv = webcrypto.getRandomValues(new Uint8Array(96));
+  const legacyKeyFile = {
+    algorithm: {
+      name: key.algorithm.name,
+      iv: Array.from(legacyIv),
+    },
+    key: await webcrypto.subtle.exportKey("jwk", key.aes256key),
+  };
+  const value = { tests: { oldest: { test_updated_at: 1 } } };
+  const encrypted = await webcrypto.subtle.encrypt(
+    { ...key.algorithm, iv: legacyIv },
+    key.aes256key,
+    new TextEncoder().encode(JSON.stringify(value))
+  );
+
+  assert.deepEqual(
+    await decryptJSON(
+      Array.from(new Uint8Array(encrypted)),
+      await importKeyFile(legacyKeyFile, webcrypto),
+      webcrypto
+    ),
+    value
+  );
+});
+
+test("declared key IDs must match their key material", async () => {
+  const { file } = await createKeyFile(webcrypto);
+
+  await assert.rejects(
+    importKeyFile({ ...file, keyId: "wrong-key" }, webcrypto),
+    /key ID does not match/
   );
 });

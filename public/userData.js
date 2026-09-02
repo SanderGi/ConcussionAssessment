@@ -5,6 +5,7 @@ import {
   signInWithPopup,
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import {
+  createAppDataFile,
   setAppDataFile,
   deleteAllAppDataFiles,
   getAppDataFileCandidates,
@@ -19,12 +20,12 @@ import {
 } from "./util/workspace.js?v=20260901";
 import { syncNonWorkspaceAnalyticsState } from "./util/analytics.js";
 import {
-  createDriveBundle,
+  createDriveDataEnvelope,
   createKeyFile,
   decryptJSON,
   encryptJSON,
   importKeyFile,
-  isDriveBundle,
+  isDriveDataEnvelope,
 } from "./util/encryption.js?v=20260901";
 import { alert, select } from "./util/popup.js";
 import {
@@ -128,13 +129,12 @@ export async function disconnectUser() {
 }
 
 // ============================ Remote Data ============================
-// SECURITY TODO: the key and ciphertext intentionally remain together in the
-// SCAT6 Drive bundle to make updates atomic and recover old mismatched files.
-// This is only obfuscation against accidental disclosure, not confidentiality;
-// move key material outside Google Drive when real encryption is implemented.
+// key.json is immutable and intentionally separate from data.json. New data
+// identifies its key explicitly so concurrent first-time saves cannot create a
+// mismatched pair. Because both files still live in the same Drive app-data
+// trust boundary, this is only obfuscation until key storage moves elsewhere.
 const KEY_FILE = "key.json";
 const DATA_FILE = "data.json";
-const BUNDLE_FILE = "scat6-data.json";
 
 export class DriveDataDecryptionError extends Error {
   constructor() {
@@ -148,61 +148,46 @@ export class DriveDataDecryptionError extends Error {
 
 let activeDriveKey = null;
 
-async function tryDecrypt(data, keyFile) {
-  const key = await importKeyFile(keyFile, window.crypto);
-  return { data: await decryptJSON(data, key, window.crypto), key };
-}
-
 async function recoverDriveState(user) {
   const recovered = {};
   let preferred = null;
-  let encryptedDataExists = false;
-
-  const bundles = await getAppDataFileCandidates(
-    user.accessToken,
-    BUNDLE_FILE
-  );
-  encryptedDataExists ||= bundles.length > 0;
-  for (const candidate of bundles) {
-    if (!isDriveBundle(candidate.data)) continue;
-    try {
-      const decrypted = await tryDecrypt(
-        candidate.data.data,
-        candidate.data.key
-      );
-      mergeTestsByUpdatedAt(recovered, decrypted.data);
-      preferred ??= {
-        keyFile: candidate.data.key,
-        key: decrypted.key,
-        fileId: candidate.id,
-      };
-    } catch {
-      // Try every self-contained duplicate before declaring corruption.
-    }
-  }
-  if (preferred) {
-    selectAppDataFile(BUNDLE_FILE, preferred.fileId);
-    activeDriveKey = { uid: user.uid, ...preferred };
-    return { data: recovered, ...preferred };
-  }
 
   const [keyCandidates, dataCandidates] = await Promise.all([
     getAppDataFileCandidates(user.accessToken, KEY_FILE),
     getAppDataFileCandidates(user.accessToken, DATA_FILE),
   ]);
-  encryptedDataExists ||= dataCandidates.length > 0;
+  const importedKeys = [];
+  for (const candidate of keyCandidates) {
+    try {
+      importedKeys.push({
+        file: candidate.data,
+        fileId: candidate.id,
+        key: await importKeyFile(candidate.data, window.crypto),
+      });
+    } catch {
+      // A malformed duplicate must not hide another recoverable key.
+    }
+  }
+
   for (const dataCandidate of dataCandidates) {
-    for (const keyCandidate of keyCandidates) {
+    const envelope = isDriveDataEnvelope(dataCandidate.data)
+      ? dataCandidate.data
+      : null;
+    const matchingKeys = envelope
+      ? importedKeys.filter(({ key }) => key.keyId === envelope.keyId)
+      : importedKeys;
+    for (const keyCandidate of matchingKeys) {
       try {
-        const decrypted = await tryDecrypt(
-          dataCandidate.data,
-          keyCandidate.data
+        const decrypted = await decryptJSON(
+          envelope?.data ?? dataCandidate.data,
+          keyCandidate.key,
+          window.crypto
         );
-        mergeTestsByUpdatedAt(recovered, decrypted.data);
+        mergeTestsByUpdatedAt(recovered, decrypted);
         preferred ??= {
-          keyFile: keyCandidate.data,
-          key: decrypted.key,
-          keyFileId: keyCandidate.id,
+          keyFile: keyCandidate.file,
+          key: keyCandidate.key,
+          keyFileId: keyCandidate.fileId,
           dataFileId: dataCandidate.id,
         };
         break;
@@ -218,21 +203,18 @@ async function recoverDriveState(user) {
     return { data: recovered, ...preferred };
   }
 
-  if (encryptedDataExists) throw new DriveDataDecryptionError();
+  if (dataCandidates.length > 0) throw new DriveDataDecryptionError();
 
-  for (const keyCandidate of keyCandidates) {
-    try {
-      const key = await importKeyFile(keyCandidate.data, window.crypto);
-      activeDriveKey = {
-        uid: user.uid,
-        keyFile: keyCandidate.data,
-        key,
-        keyFileId: keyCandidate.id,
-      };
-      return { data: null, ...activeDriveKey };
-    } catch {
-      // Ignore malformed orphaned keys and generate a replacement below.
-    }
+  if (importedKeys.length > 0) {
+    const keyCandidate = importedKeys[0];
+    selectAppDataFile(KEY_FILE, keyCandidate.fileId);
+    activeDriveKey = {
+      uid: user.uid,
+      keyFile: keyCandidate.file,
+      key: keyCandidate.key,
+      keyFileId: keyCandidate.fileId,
+    };
+    return { data: null, ...activeDriveKey };
   }
 
   const generated = await createKeyFile(window.crypto);
@@ -254,11 +236,19 @@ async function setRemoteData(data) {
   if (!activeDriveKey || activeDriveKey.uid !== user.uid) {
     await recoverDriveState(user);
   }
+  if (!activeDriveKey.keyFileId) {
+    const file = await createAppDataFile(
+      activeDriveKey.keyFile,
+      user.accessToken,
+      KEY_FILE
+    );
+    activeDriveKey.keyFileId = file.id;
+  }
   const encrypted = await encryptJSON(data, activeDriveKey.key, window.crypto);
   await setAppDataFile(
-    createDriveBundle(activeDriveKey.keyFile, encrypted),
+    createDriveDataEnvelope(activeDriveKey.key.keyId, encrypted),
     user.accessToken,
-    BUNDLE_FILE
+    DATA_FILE
   );
 }
 
@@ -268,7 +258,6 @@ export async function deleteRemoteData() {
 
   try {
     await Promise.all([
-      deleteAllAppDataFiles(user.accessToken, BUNDLE_FILE),
       deleteAllAppDataFiles(user.accessToken, KEY_FILE),
       deleteAllAppDataFiles(user.accessToken, DATA_FILE),
     ]);
